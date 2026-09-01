@@ -48,6 +48,15 @@ window.PHARM_LESSONS = [
     desc: "감기를 하나의 바이러스가 아닌 상기도 바이러스 감염으로 이해하고, 독감·알레르기비염·부비동염 감별, 콧물 색과 항생제, 증상별 감기약 선택, 그리고 ‘그냥 감기’로 넘기면 안 되는 Red Flag까지.",
     tags: ["상기도 감염", "감별진단", "항생제 X", "증상별 약", "Red Flag"],
     status: "ready"
+  },
+  {
+    no: 2,
+    category: "everyday",
+    href: "lessons/everyday-02.html",
+    title: "독감 (Influenza)",
+    desc: "감기와의 증상 패턴 구별, 항바이러스제를 빨리 고려해야 하는 사람, ‘48시간이 지났으니 소용없다’는 오해 교정, 고위험군·전염 시기·2026–2027절기 예방접종, 폐렴 등 합병증 Red Flag까지.",
+    tags: ["influenza", "항바이러스제", "48시간 오해", "고위험군", "예방접종"],
+    status: "ready"
   }
 ];
 

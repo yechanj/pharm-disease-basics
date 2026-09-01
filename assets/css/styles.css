@@ -1599,3 +1599,45 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .fp__row { grid-template-columns: 96px 1fr; }
   .fp__dots i { width: 13px; height: 13px; }
 }
+
+/* =========================================================
+   ==========  Everyday 02 · 독감 전용 컴포넌트  ==========
+   ========================================================= */
+:root { --influ: #e5484d; }
+
+/* 정보 칩 출력 (오늘의 상황 · 고위험 레이더 공용) */
+.infochips__out {
+  font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px; min-height: 44px; line-height: 1.6; margin-top: 10px;
+}
+
+/* Cold vs Flu 증상 분류기 */
+.sorter { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.sortchip {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer;
+  border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink);
+  border-radius: 999px; padding: 9px 14px; transition: all .15s; display: inline-flex; gap: 8px; align-items: center;
+}
+.sortchip .side { font-size: 12px; color: var(--ink-faint); font-weight: 700; }
+.sortchip.cold { border-color: var(--cold); background: #eef4ff; color: var(--cold); }
+.sortchip.cold .side { color: var(--cold); }
+.sortchip.flu { border-color: var(--influ); background: var(--hi-soft); color: var(--influ); }
+.sortchip.flu .side { color: var(--influ); }
+.sorter__legend { font-size: 12.5px; color: var(--ink-faint); margin-top: 4px; }
+
+/* 전파 타임라인 (정적) */
+.txtl { display: flex; align-items: stretch; gap: 4px; margin: 14px 0; }
+.txtl__seg {
+  flex: 1; text-align: center; font-size: 11.5px; font-weight: 700; color: var(--ink-faint);
+  border-radius: 8px; padding: 10px 4px; background: var(--surface-2); border: 1px solid var(--line);
+}
+.txtl__seg.pre { background: #fff4e6; color: #c0700f; border-color: #f0c893; }
+.txtl__seg.peak { background: var(--hi-soft); color: var(--influ); border-color: var(--influ); }
+.txtl__cap { font-size: 12px; color: var(--ink-faint); text-align: center; }
+
+/* 48h 큰 숫자 */
+.big48 {
+  text-align: center; font-size: clamp(44px,14vw,72px); font-weight: 700; letter-spacing: -.02em;
+  color: var(--influ); line-height: 1; margin: 8px 0;
+}
+.big48 small { font-size: .3em; color: var(--ink-faint); font-weight: 500; }

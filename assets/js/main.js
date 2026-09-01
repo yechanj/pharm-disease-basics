@@ -807,6 +807,82 @@
     });
   }
 
+  /* =========================================================
+     ============  Everyday 02 · 독감 인터랙션  ============
+     ========================================================= */
+
+  /* ---------- 정보 칩 (오늘의 상황 · 고위험 레이더 공용) ---------- */
+  function initInfoChips() {
+    document.querySelectorAll("[data-infochips]").forEach(function (root) {
+      var out = root.querySelector(".infochips__out");
+      root.querySelectorAll("button[data-text]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          root.querySelectorAll("button[data-text]").forEach(function (x) { x.classList.remove("active"); });
+          b.classList.add("active");
+          if (out) out.innerHTML = b.getAttribute("data-text");
+        });
+      });
+    });
+  }
+
+  /* ---------- Cold vs Flu 증상 분류기 (탭하면 정답 쪽 공개) ---------- */
+  function initSymptomSorter() {
+    document.querySelectorAll("[data-sorter]").forEach(function (root) {
+      root.querySelectorAll(".sortchip").forEach(function (chip) {
+        chip.addEventListener("click", function () {
+          var side = chip.getAttribute("data-side");
+          chip.classList.remove("cold", "flu");
+          chip.classList.add(side);
+          var lab = chip.querySelector(".side");
+          if (lab) lab.textContent = side === "cold" ? "감기 쪽" : "독감 쪽";
+        });
+      });
+    });
+  }
+
+  /* ---------- Antiviral Decision Flow (hypo CSS 재사용) ---------- */
+  function initAntiviral() {
+    var root = document.querySelector("[data-antiviral]");
+    if (!root) return;
+    var state = { severe: "no", highrisk: "no", early: "no" };
+    var out = root.querySelector(".hypo__result");
+    var riskEl = out.querySelector(".hypo__risk");
+    var expEl = out.querySelector(".hypo__exp");
+    function compute() {
+      var cls, txt, exp;
+      if (state.severe === "yes") {
+        cls = "high"; txt = "항바이러스제 신속 고려";
+        exp = "중증·진행성이거나 입원이 필요한 상황입니다. 검사 결과를 기다리느라 치료를 불필요하게 지연시키지 않는 것이 중요할 수 있고, 발병 후 48시간이 지났더라도 치료가 권고될 수 있습니다.";
+      } else if (state.highrisk === "yes") {
+        cls = "high"; txt = "항바이러스제 신속 고려";
+        exp = "고위험군(고령·소아·임신부·만성 심폐질환·당뇨·면역저하 등)입니다. 합병증 위험이 높아 의심 시 조기 치료의 우선도가 높고, 48시간 이후라도 치료 이득이 있을 수 있습니다.";
+      } else if (state.early === "yes") {
+        cls = "mid"; txt = "항바이러스 치료 고려 가능";
+        exp = "건강한 외래 환자라도 발병 매우 초기(특히 48시간 이내)라면 항바이러스 치료를 고려할 수 있습니다.";
+      } else {
+        cls = "low"; txt = "대증치료 중심 · 임상상 따라 판단";
+        exp = "건강한 사람의 uncomplicated influenza 상당수는 자연회복합니다. 다만 경과 중 악화·Red Flag가 나타나면 재평가합니다.";
+      }
+      riskEl.className = "hypo__risk " + cls;
+      riskEl.textContent = txt;
+      expEl.textContent = exp;
+    }
+    root.querySelectorAll(".hypo__opts").forEach(function (grp) {
+      var key = grp.getAttribute("data-group");
+      grp.querySelectorAll("button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          grp.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
+          b.classList.add("active");
+          state[key] = b.getAttribute("data-val");
+          compute();
+        });
+      });
+      var first = grp.querySelector("button");
+      if (first) first.classList.add("active");
+    });
+    compute();
+  }
+
   /* ---------- init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
@@ -839,5 +915,9 @@
     initAirway();
     initFingerprint();
     initBuildMed();
+    // Everyday 02 · 독감
+    initInfoChips();
+    initSymptomSorter();
+    initAntiviral();
   });
 })();

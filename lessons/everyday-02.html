@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everyday 02 · 독감 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="독감(influenza)을 감기와 구별하고, 항바이러스제 조기치료·고위험군·48시간 오해·예방접종을 배우는 약사용 강의" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">Everyday 02 · 독감</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">🤒</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>Everyday 02 · 독감</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#situation"><span class="num">0</span> 오늘의 상황</a></li>
+          <li><a href="#overview"><span class="num">1</span> 30초 Overview</a></li>
+          <li><a href="#patho"><span class="num">2</span> 몸에서 무슨 일이</a></li>
+          <li><a href="#transmission"><span class="num">3</span> 전파</a></li>
+          <li><a href="#symptom"><span class="num">4</span> 증상</a></li>
+          <li><a href="#ddx"><span class="num">5</span> 감별</a></li>
+          <li><a href="#course"><span class="num">6</span> 경과</a></li>
+          <li><a href="#treatment"><span class="num">7</span> 치료 · 항바이러스</a></li>
+          <li><a href="#drugs"><span class="num">8</span> 약물</a></li>
+          <li><a href="#highrisk"><span class="num">9</span> 고위험군</a></li>
+          <li><a href="#homecare"><span class="num">10</span> 집에서 · 하지 말 것</a></li>
+          <li><a href="#redflags"><span class="num">11</span> Red Flags</a></li>
+          <li><a href="#prevention"><span class="num">12</span> 전염과 예방접종</a></li>
+          <li><a href="#faq"><span class="num">13</span> FAQ</a></li>
+          <li><a href="#myth"><span class="num">14</span> Myth vs Fact</a></li>
+          <li><a href="#deepdive"><span class="num">15</span> Deep Dive</a></li>
+          <li><a href="#case"><span class="num">16</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">17</span> Final Quiz</a></li>
+          <li><a href="#summary"><span class="num">18</span> 20초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">Everyday Disease · 02 · 학습시간 약 13–15분</div>
+          <h1>독감 (Influenza)</h1>
+          <p>가장 중요한 질문 — <b>“이 사람은 쉬면서 지켜봐도 되는 독감인가, 아니면 지금 바로 항바이러스 치료나 추가 평가가 필요한 사람인가?”</b></p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>오늘 배우게 될 것</div>
+          <ul class="clean" style="margin-bottom:0;">
+            <li>감기와 독감을 <b>증상 패턴</b>으로 구별한다</li>
+            <li>항바이러스제를 <b>빨리 고려해야 하는 사람</b>을 안다</li>
+            <li>“48시간 지났으니 약은 의미 없다”는 말을 정확히 교정한다</li>
+            <li>전염 시기·생활관리·예방접종을 설명한다</li>
+            <li>폐렴 등 합병증을 의심하는 <b>Red Flag</b>를 찾는다</li>
+          </ul>
+        </div>
+
+        <!-- ================= 0 · 오늘의 상황 ================= -->
+        <section id="situation" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 상황</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>약국 · 67세 남성</div>
+            <p>아침부터 갑자기 오한이 들고 온몸이 쑤시더니, 오후엔 39℃까지 열이 오르고 기침·두통도 생겼습니다.
+              <b>“그냥 심한 감기 같은데 감기약 먹고 자면 되겠죠?”</b></p>
+          </div>
+          <p><b>가장 먼저 무엇을 확인할까요?</b> (탭하면 이유가 나옵니다)</p>
+          <div class="checkchips" data-infochips>
+            <button data-text="항바이러스 치료의 효과는 <b>증상 시작 시점</b>과 관련됩니다. 언제 시작됐는지가 중요합니다.">언제 시작됐나</button>
+            <button data-text="고위험군은 치료 threshold가 다릅니다. 나이·기저질환을 먼저 확인합니다.">나이·기저질환</button>
+            <button data-text="호흡곤란은 폐렴 등 <b>합병증</b> 가능성을 시사합니다.">호흡곤란</button>
+            <button data-text="전신상태로 단순 자가관리 대상인지 판단합니다.">전신상태</button>
+            <button data-text="독감 유행 여부는 독감일 <b>사전확률</b>을 크게 바꿉니다.">독감 유행 여부</button>
+          </div>
+          <div class="infochips__out">확인 항목을 눌러보세요.</div>
+          <div class="oneline">독감 상담의 핵심은 “독감인가?”가 아니라 “이 환자는 <b>합병증 위험이 높은가?</b>”까지 판단하는 것이다.</div>
+        </section>
+
+        <!-- ================= 1 · Overview ================= -->
+        <section id="overview" class="section">
+          <h2><span class="sec-no">01</span> 30초 Overview</h2>
+          <p>독감은 <b>influenza virus</b>가 일으키는 급성 호흡기 감염입니다. 감기와 증상이 일부 겹치지만, 전형적인 독감은
+            <b>갑작스러운 발열·오한·근육통·두통·심한 피로</b> 같은 전신증상이 더 두드러집니다. 사람의 계절성 유행은 주로 <b>Influenza A·B</b>가 일으킵니다.</p>
+          <div class="legend">
+            <span class="chip chip--resist"><span class="sw"></span>🤒 갑작스러운 발열·오한</span>
+            <span class="chip chip--resist"><span class="sw"></span>🦴 뚜렷한 근육통</span>
+            <span class="chip chip--pseudo"><span class="sw"></span>🤕 두통</span>
+            <span class="chip chip--gn"><span class="sw"></span>😷 기침</span>
+            <span class="chip chip--resist"><span class="sw"></span>🔋 강한 피로</span>
+          </div>
+          <p>단, 독감이라고 <b>반드시 열이 나는 것은 아닙니다.</b> 많은 사람은 며칠~2주 내 회복하지만 일부는 폐렴·만성질환 악화·입원, 드물게 사망으로 이어질 수 있습니다.</p>
+          <div class="oneline">감기가 “코와 목이 불편한 병”이라면, 전형적인 독감은 “갑자기 온몸이 아픈 호흡기 감염”에 가깝다. (전형적 패턴이지 절대 진단법은 아님)</div>
+
+          <h3>시각화 · 감기 vs 독감 First Impression</h3>
+          <p>각 증상 칩을 <b>탭</b>하면 어느 쪽 pattern인지 색으로 표시됩니다.</p>
+          <div class="figure" data-sorter>
+            <div class="figure__title">Viz 1 · 증상은 어느 쪽?</div>
+            <div class="sorter">
+              <button class="sortchip" data-side="cold"><span class="txt">콧물</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="cold"><span class="txt">재채기</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="cold"><span class="txt">코막힘</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="flu"><span class="txt">39℃ 고열</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="flu"><span class="txt">심한 근육통</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="flu"><span class="txt">갑작스러운 발병</span><span class="side">?</span></button>
+              <button class="sortchip" data-side="flu"><span class="txt">심한 피로</span><span class="side">?</span></button>
+            </div>
+            <div class="sorter__legend">파랑 = 감기 쪽 · 빨강 = 독감 쪽. 증상만으로 100% 구별할 수는 없습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 병태생리 ================= -->
+        <section id="patho" class="section">
+          <h2><span class="sec-no">02</span> 몸에서는 무슨 일이 생기는가</h2>
+          <blockquote>influenza virus 노출 → 호흡기 상피세포 감염 → 바이러스 복제 → 선천면역 활성화 → 염증성 cytokine 증가 → 국소(기침·인후통) + 전신(발열·오한·근육통·두통·피로) → 면역계가 통제 → 대부분 회복</blockquote>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>왜 그렇게 몸살이 심할까?</div>
+            <p>심한 몸살은 바이러스가 근육을 직접 공격해서라기보다, <b>바이러스 감염에 대응하는 강한 전신 면역·염증반응</b>이 발열·근육통·피로를 만드는 데 큰 역할을 합니다.</p>
+          </div>
+          <div class="twopanel">
+            <div class="panel panel--normal"><h5>정상 호흡기 상피</h5><ol><li>점액층</li><li>섬모</li><li>정상 상피세포</li></ol></div>
+            <div class="panel panel--drug"><h5>Influenza 감염</h5><ol><li>상피세포 내 바이러스 복제</li><li>주변으로 염증 신호 확산</li><li>바이러스 복제 + 숙주 면역반응</li></ol></div>
+          </div>
+          <div class="mech-flow">바이러스 복제 + 숙주 면역반응 → 호흡기 증상 + 전신증상</div>
+        </section>
+
+        <!-- ================= 3 · 전파 ================= -->
+        <section id="transmission" class="section">
+          <h2><span class="sec-no">03</span> 어떻게 전파되는가</h2>
+          <p>Influenza는 전염성 호흡기 감염입니다. 주로 기침·재채기·말하기로 나오는 <b>호흡기 입자</b>로 전파되며, 오염된 물체·손을 거쳐 눈·코·입을 만지는 경로도 가능합니다.</p>
+          <div class="figure">
+            <div class="figure__title">Viz 2 · 전파 타임라인</div>
+            <div class="txtl">
+              <div class="txtl__seg pre">−1일<br>증상 전<br>전파 가능</div>
+              <div class="txtl__seg peak">Day 1</div>
+              <div class="txtl__seg peak">Day 2</div>
+              <div class="txtl__seg peak">Day 3</div>
+              <div class="txtl__seg">~5–7일<br>점차 감소</div>
+            </div>
+            <div class="txtl__cap">대부분 성인에서 증상 <b>약 1일 전</b>부터 <b>발병 후 5–7일</b>까지 전파 가능하며, 특히 <b>첫 3일</b> 전염력이 높습니다. 소아·면역저하자는 더 오래 전파 가능. 잠복기 약 1–4일(평균 2일).</div>
+          </div>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>학습 주의</div>
+            <p>모든 사람이 정확히 “7일째부터 안전하다”는 뜻이 아닙니다. 전염 가능 기간에는 <b>개인차</b>가 있습니다.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ①</span> 독감 환자는 증상이 시작되기 전에는 다른 사람에게 절대 전파하지 않는다.</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 맞다</li>
+              <li data-opt="B"><span class="opt">B</span> 틀리다</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 일부 사람은 증상 발생 약 하루 전부터 바이러스를 전파할 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">04</span> 어떤 증상이 나타나는가</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pump"><h5>⚡ 갑작스러운 시작</h5><p>“아침엔 괜찮다가 오후에 무너졌다”</p></div>
+            <div class="axis3__card volume"><h5>🦴 심한 몸살</h5><p>근육통·전신통증이 감기보다 두드러짐</p></div>
+            <div class="axis3__card pipes"><h5>🤒 발열·오한</h5><p>흔하지만 반드시는 아님</p></div>
+            <div class="axis3__card"><h5>🔋 강한 피로</h5><p>일상생활이 어려울 정도</p></div>
+          </div>
+          <p>흔한 증상: 발열/발열감·오한·기침·두통·근육통·피로·인후통. 있을 수도 있는 증상: 콧물·코막힘, 특히 소아에서는 <b>구토·설사</b>.</p>
+
+          <h3>시각화 · Symptom Fingerprint</h3>
+          <p>진단 점수가 아니라 pattern recognition용입니다. 감기 ↔ 독감을 토글해 비교하세요.</p>
+          <div class="figure" data-fingerprint>
+            <div class="figure__title">Viz 3 · 감기 vs 독감 지문</div>
+            <div class="fp__toggle">
+              <button class="cold" data-profile="cold">감기</button>
+              <button class="flu active" data-profile="flu">독감</button>
+            </div>
+            <div class="fp__rows"></div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>단순 독감으로 넘기면 안 되는 특징</div>
+            <p>❗ 심한 호흡곤란 · ❗ 지속적 흉통 · ❗ 의식 변화 · ❗ 심한 탈수 · ❗ 좋아졌다 다시 고열·기침 악화 · ❗ 만성 심폐질환의 급격한 악화</p>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 감별 ================= -->
+        <section id="ddx" class="section">
+          <h2><span class="sec-no">05</span> 이 병일까? — 감별</h2>
+          <div class="figure" data-selector>
+            <div class="figure__title">Compare · 독감 기준으로 비교</div>
+            <div class="orgselect__btns">
+              <button class="sel-btn" data-target="cold">vs 감기</button>
+              <button class="sel-btn" data-target="covid">vs COVID-19</button>
+              <button class="sel-btn" data-target="pneu">vs 세균성 폐렴</button>
+            </div>
+            <div class="sel-panel" data-panel="cold">
+              <div class="twopanel">
+                <div class="panel panel--drug"><h5>🤒 독감</h5><ol><li>갑작스러운 시작</li><li>전신증상 뚜렷</li><li>근육통 흔하고 심할 수 있음</li><li>두통·기침 흔함</li></ol></div>
+                <div class="panel panel--normal"><h5>🤧 감기</h5><ol><li>상대적으로 점진적</li><li>전신증상 대개 가벼움</li><li>코 증상·재채기 더 두드러짐</li><li>성인 고열은 비교적 드묾</li></ol></div>
+              </div>
+              <p style="font-size:13px;color:var(--ink-soft);margin-bottom:0;">콧물·재채기 중심 → 감기 / 갑자기 열·몸살·두통으로 앓아눕는다 → 독감.</p>
+            </div>
+            <div class="sel-panel" data-panel="covid">
+              <p>독감과 COVID-19 모두 발열·기침·인후통·피로·근육통·두통을 만들 수 있어 <b>증상만으로 확실히 구별하지 못할 수 있습니다.</b>
+                특히 치료 여부가 중요한 <b>고위험군</b>에서는 검사가 임상 결정에 도움이 됩니다. (둘 다 초기 항바이러스 치료가 가능)</p>
+            </div>
+            <div class="sel-panel" data-panel="pneu">
+              <p>폐렴도 발열·기침·전신쇠약을 만듭니다. 다음은 <b>하기도 합병증</b>을 더 생각하게 합니다:</p>
+              <ul class="clean" style="margin-bottom:0;">
+                <li>🚩 호흡곤란 · 저산소증 · 심한 흉통</li>
+                <li>🚩 지속·재발하는 고열 · 전신상태 악화</li>
+                <li>🚩 <b>좋아지는 듯하다 다시 열·기침 악화</b> → 이차성 세균성 폐렴 고려</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>Flu or Something Else? — 판단 훈련</h3>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">어제까지 멀쩡, 오늘 갑자기 39℃, 심한 오한+전신 근육통+기침</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 감기</li>
+                <li data-opt="B"><span class="opt">B</span> 독감 가능성 ↑</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 갑작스러운 고열·강한 전신증상은 독감 단서.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">사흘간 서서히 콧물+재채기+목 따가움, 발열 없음</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 감기 쪽</li>
+                <li data-opt="B"><span class="opt">B</span> 독감 쪽</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — 점진적·코 중심·발열 없음은 감기 pattern.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">독감 진단 4일째, 열이 떨어졌다 다시 39℃, 기침·호흡곤란 악화</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 정상 경과</li>
+                <li data-opt="B"><span class="opt">B</span> 합병증 평가 필요</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 이중악화 + 호흡곤란은 폐렴 등 합병증 평가 신호.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 경과 ================= -->
+        <section id="course" class="section">
+          <h2><span class="sec-no">06</span> 보통 어떻게 진행되는가</h2>
+          <blockquote>Day −1 일부는 증상 전 전염 가능 → Day 0 갑작스러운 오한·열·두통·몸살 → Day 1–3 🔥 가장 힘든 시기(전염력↑) → Day 3–4 전후 전신증상 감소 시작 → 이후 기침·인후통·피로가 더 남음 → 며칠~2주 내 대부분 회복</blockquote>
+          <p>질병관리청은 발열 같은 전신증상이 일반적으로 <b>약 3–4일</b> 지속한다고 설명합니다.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>🚩 좋아졌다가 다시 악화된다?</div>
+            <p>독감 <b>합병증의 중요한 신호</b>입니다. Re-evaluate.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ②</span> 독감 환자가 4일째 열이 떨어졌다가 6일째 다시 고열·심한 기침. 가장 적절한 생각은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 정상 경과이므로 무조건 관찰</li>
+              <li data-opt="B"><span class="opt">B</span> 이차성 합병증 가능성을 평가</li>
+              <li data-opt="C"><span class="opt">C</span> 감기약 성분을 두 배로 복용</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 이중악화는 폐렴 등 합병증 신호입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 치료 ================= -->
+        <section id="treatment" class="section">
+          <h2><span class="sec-no">07</span> 어떻게 치료하는가</h2>
+          <div class="oneline">감기와 결정적 차이 — Influenza에는 바이러스 자체를 표적으로 하는 <b>항바이러스제</b>가 있다.</div>
+          <p>세 가지 질문을 순서대로 골라보세요. 조합에 따라 권장 방향이 바뀝니다.</p>
+          <div class="figure" data-antiviral>
+            <div class="figure__title">Viz 5 · Antiviral Decision Flow</div>
+            <div class="hypo__row"><span class="k">① 중증 / 진행성 / 입원 필요?</span>
+              <div class="hypo__opts" data-group="severe"><button data-val="no">아니오</button><button data-val="yes">예</button></div>
+            </div>
+            <div class="hypo__row"><span class="k">② 고위험군인가?</span>
+              <div class="hypo__opts" data-group="highrisk"><button data-val="no">아니오</button><button data-val="yes">예</button></div>
+            </div>
+            <div class="hypo__row"><span class="k">③ 발병 초기(특히 48시간 이내)?</span>
+              <div class="hypo__opts" data-group="early"><button data-val="no">아니오</button><button data-val="yes">예</button></div>
+            </div>
+            <div class="hypo__result"><span class="hypo__risk"></span><div class="hypo__exp"></div></div>
+            <div class="figure__cap">“48시간”은 마법의 절대 cutoff가 아니다 — 조기치료의 중요성을 보여주는 시간 개념이다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">08</span> 약물</h2>
+
+          <h3>8-1. Oseltamivir (경구, neuraminidase inhibitor)</h3>
+          <p>바이러스가 감염된 세포에서 새 입자를 <b>방출·확산</b>하는 과정을 억제합니다. 일반적으로 <b>증상 발생 1–2일 이내</b> 시작할수록 효과가 가장 좋습니다.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>가장 흔한 오해</div>
+            <p>“48시간 지나면 타미플루는 절대 의미 없다” ❌ 지나친 단순화. <b>고위험군·중증·진행성·입원 환자</b>는 48시간이 지났더라도 도움이 될 수 있어 가능한 빨리 권고합니다(IDSA도 동일).</p>
+          </div>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 포인트 · 이상반응</div>
+            <p>오심·구토 등 위장관 증상이 흔합니다. 국내 지침은 투여 후 일부에서 <b>경련·섬망 등 신경정신계 이상반응</b> 보고로 특히 소아·청소년 <b>보호자 관찰</b>을 안내합니다.
+              다만 고열 동반 influenza <b>자체</b>에서도 신경학적 이상이 나타날 수 있음을 함께 생각합니다.</p>
+          </div>
+
+          <h3>8-2. Zanamivir (흡입) / 8-3. Peramivir (정맥)</h3>
+          <ul class="clean">
+            <li><b>Zanamivir</b> — 흡입 제형이라 흡입 능력이 중요. 기도질환 환자에서 <b>기관지경련</b> 우려로 적합성 확인(질병관리청: 소아·노약자·호흡기질환자 사용 제한적).</li>
+            <li><b>Peramivir</b> — 정맥 투여. 경구가 어렵거나 중증·입원 환자에서 활용 용이(질병관리청).</li>
+          </ul>
+
+          <h3>8-4. Baloxavir marboxil (경구 단회)</h3>
+          <p>neuraminidase inhibitor와 <b>다른 기전</b> — cap-dependent endonuclease 억제로 viral mRNA 합성을 방해합니다. 경구 <b>단회 투여</b> 장점.
+            단, 임신부 등 일부에서는 근거·권고가 달라 “한 번 먹으니 더 좋은 약”으로 단순화하면 안 됩니다(질병관리청도 임신부 자료 제한 지적).</p>
+          <div class="figure">
+            <div class="figure__title">Deep Dive · 두 기전</div>
+            <div class="twopanel">
+              <div class="panel panel--normal"><h5>Oseltamivir</h5><ol><li>감염 세포에서 새 virus 생성</li><li>neuraminidase의 바이러스 <b>방출</b> 과정 ❌ 차단</li><li>주변 세포 확산 감소</li></ol></div>
+              <div class="panel panel--drug"><h5>Baloxavir</h5><ol><li>세포 내 복제 단계</li><li>viral <b>mRNA 생성</b> 과정 ❌ 차단</li><li>바이러스 증식 감소</li></ol></div>
+            </div>
+          </div>
+
+          <h3>8-5. 해열진통제</h3>
+          <p>Acetaminophen·ibuprofen 등으로 발열·두통·근육통·인후통 완화. <b>항바이러스제와 대증치료는 경쟁 관계가 아닙니다</b> — 필요하면 함께 합니다.</p>
+
+          <h3>8-6. 항생제</h3>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>독감이면 항생제? 기본 ❌</div>
+            <p>Influenza는 바이러스 감염이라 항생제는 바이러스를 치료하지 않습니다. 다만 독감 뒤 <b>세균성 폐렴·중이염·부비동염</b>이 생길 수 있어,
+              “독감이므로 항생제” ❌ / “독감 환자에게 <b>세균성 합병증</b>이 생겨 항생제 필요” ⭕ 로 구분합니다(IDSA도 세균 동시감염 의심 시 함께 평가·치료).</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">68세 COPD 환자, 독감 증상 <b>72시간</b> 경과, 호흡기 증상 악화 중. “48시간 지났으니 항바이러스제 의미 없나요?”</div>
+            <div class="big48">48<small>h</small></div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> YES (의미 없다)</li>
+              <li data-opt="B"><span class="opt">B</span> NO (치료 고려)</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 고위험·진행성에서는 48시간을 넘겼다는 이유만으로 포기하지 않습니다. 조기치료가 가장 이득이 크지만 고위험·중증은 늦게 시작해도 이득이 있을 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 고위험군 ================= -->
+        <section id="highrisk" class="section">
+          <h2><span class="sec-no">09</span> 누가 고위험군인가</h2>
+          <p>약국 상담에서 매우 중요합니다. 아이콘을 <b>탭</b>하세요.</p>
+          <div class="checkchips" data-infochips>
+            <button data-text="<b>고령자</b> — 합병증·입원 위험이 높아 의심 시 조기 치료 우선도가 높습니다.">👴 고령</button>
+            <button data-text="<b>어린 소아</b> — 특히 영유아는 합병증 위험이 높고 발열 자체의 의미가 연령에 따라 다릅니다.">👶 소아</button>
+            <button data-text="<b>임신부</b> — influenza 합병증 위험이 높아 의심 시 조기 치료가 중요합니다.">🤰 임신</button>
+            <button data-text="<b>만성 폐질환</b>(COPD·천식 등) — 급성 악화·폐렴 위험.">🫁 폐질환</button>
+            <button data-text="<b>심혈관질환</b> — 감염이 심장 부담을 키우고 합병증 위험을 높입니다.">❤️ 심혈관</button>
+            <button data-text="<b>당뇨 등 대사질환</b> — 감염·합병증 위험 증가.">🩸 당뇨</button>
+            <button data-text="<b>면역저하</b> — 중증·지연 회복·장기 전파 위험.">🛡️ 면역저하</button>
+          </div>
+          <div class="infochips__out">고위험군 아이콘을 눌러 확인하세요.</div>
+          <div class="oneline">같은 증상이라도 <b>환자의 위험도가 다르면 행동이 달라진다.</b> (CDC·질병관리청 공통 고위험군)</div>
+        </section>
+
+        <!-- ================= 10 · 집에서 · 하지 말 것 ================= -->
+        <section id="homecare" class="section">
+          <h2><span class="sec-no">10</span> 집에서 무엇을 할 수 있는가</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>💧 충분한 수분</h5><p>발열·식욕저하로 인한 탈수 예방</p></div>
+            <div class="axis3__card pump"><h5>😴 휴식</h5><p>강한 전신 피로 → 회복에 필요</p></div>
+            <div class="axis3__card pipes"><h5>🌡️ 발열·통증 관리</h5><p>필요 시 적절한 해열진통제</p></div>
+            <div class="axis3__card"><h5>😷 접촉 줄이기</h5><p>고령·영유아·임신부·면역저하자 보호</p></div>
+          </div>
+
+          <h3>하지 말아야 할 것</h3>
+          <div class="warncards">
+            <div class="warncard"><h5>❌ “48h 지났으니 병원 불필요”</h5><ul><li>고위험·중증에선 잘못된 접근</li></ul></div>
+            <div class="warncard"><h5>❌ 열 떨어졌다고 바로 무리</h5><ul><li>기침·피로는 더 오래 지속</li></ul></div>
+            <div class="warncard"><h5>❌ 항생제를 독감약으로 생각</h5><ul><li>influenza엔 효과 없음</li></ul></div>
+            <div class="warncard"><h5>❌ 항바이러스제 가족과 나눠 먹기</h5><ul><li>연령·상태·노출·기저질환 따라 다름</li></ul></div>
+            <div class="warncard"><h5>❌ “백신 맞았으니 독감 아냐”</h5><ul><li>접종력으로 배제 불가</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · Red Flags ================= -->
+        <section id="redflags" class="section">
+          <h2><span class="sec-no">11</span> Red Flags · 언제 병원에 가야 하는가</h2>
+          <div class="figure">
+            <div class="figure__title">Treatment Traffic Light</div>
+            <div class="traffic">
+              <div class="traffic__row yellow">
+                <div class="traffic__light">🟡</div>
+                <div><h5>일반 진료 / 조기 상담</h5>
+                  <ul><li>고령·소아·임신부·만성질환자·면역저하자가 독감 의심 증상</li></ul>
+                  <div class="verd">→ 항바이러스 치료는 빨리 시작할수록 효과가 좋은 경향</div>
+                </div>
+              </div>
+              <div class="traffic__row" style="--accent:#e0872a;background:#fdefe1;border-color:#e0872a;">
+                <div class="traffic__light" style="background:#e0872a;">🟠</div>
+                <div><h5 style="color:#c0700f;">빠른 진료</h5>
+                  <ul><li>증상이 빠르게 악화 · 고열+전신상태 저하</li><li>만성질환 악화 · 물을 거의 못 마심</li><li><b>좋아지다 다시 발열·기침 악화</b>(세균성 폐렴 등)</li></ul>
+                </div>
+              </div>
+              <div class="traffic__row red">
+                <div class="traffic__light">🔴</div>
+                <div><h5>응급 평가 (성인)</h5>
+                  <ul><li>호흡곤란 · 지속 흉통/복부 압박감</li><li>지속 어지럼·혼돈·깨우기 어려움 · 경련</li><li>소변이 안 나올 정도의 탈수 · 심한 쇠약</li></ul>
+                  <div class="verd">→ 소아: 빠른 호흡·청색증·늑골 함몰·심한 탈수·반응저하·경련·다시 악화. 어린 영아의 발열은 별도 평가.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 전염과 예방접종 ================= -->
+        <section id="prevention" class="section">
+          <h2><span class="sec-no">12</span> 전염과 예방접종</h2>
+          <div class="legend">
+            <span class="chip chip--gn"><span class="sw"></span>🤧 기침예절</span>
+            <span class="chip chip--gn"><span class="sw"></span>🧼 손 씻기</span>
+            <span class="chip chip--gp"><span class="sw"></span>🌬️ 환기</span>
+            <span class="chip chip--gp"><span class="sw"></span>🏠 아플 때 집에서 쉬기</span>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>언제 학교·직장에 돌아갈까?</div>
+            <p>정확한 기준은 학교·직장·지역 행정지침에 따라 달라 “무조건 정확히 N일 격리”라고 일률적으로 말하면 안 됩니다.
+              임상적으로는 최소한 <b>전반적 호전 · 발열 없음 · 해열제 없이 안정</b>을 함께 봅니다. 국내는 해당 시점의 질병관리청·교육기관 지침을 확인하세요.</p>
+          </div>
+
+          <div class="card card--asp">
+            <div class="card__label"><span class="dot"></span>2026–2027절기 국가 예방접종 (질병관리청)</div>
+            <p>예방접종은 독감 예방에서 <b>가장 중요한 수단</b>이며, 백신은 매 절기 유행 예상 strain에 맞춰 조성이 업데이트됩니다.</p>
+            <ul class="clean">
+              <li>시행 기간: <b>2026-09-21 ~ 2027-04-30</b> (세부 시작일은 대상별로 다름)</li>
+              <li>이번 절기부터 무료접종 어린이 대상이 <b>기존 13세 → 14세</b>까지 확대</li>
+              <li>국가 지원 대상: <b>생후 6개월–14세 어린이 · 임신부 · 65세 이상 어르신</b></li>
+            </ul>
+            <p style="margin-bottom:0;"><b>어린이는 모두 1회?</b> 아닙니다. 생후 6개월~9세 미만 중 <b>처음 접종/접종력 모름</b>, 또는 <b>2026-06-30까지 총 1회만 접종</b> 등은 <b>2회 접종</b> 대상이 될 수 있습니다.</p>
+          </div>
+
+          <h3>왜 매년 맞을까?</h3>
+          <blockquote>① influenza virus가 변한다(특히 A형 표면항원) · ② 유행할 strain을 예상해 백신을 업데이트한다 (2026–2027 미국 백신은 직전 절기 대비 3개 구성 바이러스 모두 변경)</blockquote>
+          <div class="oneline">독감 백신은 한 번 맞으면 평생 기억하는 백신이 아니라, 변화하는 유행 바이러스에 맞춰 <b>매 시즌 업데이트</b>하는 백신이다.</div>
+        </section>
+
+        <!-- ================= 13 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">13</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 독감하고 감기는 같은 병이죠?</button>
+              <div class="faq__a">아닙니다. 감기는 여러 호흡기 바이러스가 만드는 증후군, 독감은 influenza virus 감염입니다.
+                <div class="ph"><b>약사:</b> 독감에는 항바이러스 치료·예방접종이라는 별도 개입이 있습니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. 열이 없으면 독감은 아니죠?</button>
+              <div class="faq__a">아닙니다. 독감에서도 열이 없을 수 있습니다. 발열은 흔하지만 모든 환자에서 나타나지 않습니다.
+                <div class="ph"><b>약사:</b> 특히 고령자·면역저하자에서 전형적 증상이 약할 수 있습니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. 타미플루는 48시간 지나면 아무 효과 없나요?</button>
+              <div class="faq__a">그렇게 단정하면 안 됩니다. 초기에 시작할수록 좋지만 중증·진행성·입원·고위험군에서는 48시간 이후에도 이득이 있을 수 있습니다.
+                <div class="ph"><b>약사:</b> 48시간 = 치료 중단 cutoff가 아니라 조기치료의 중요성을 보여주는 시간 개념.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. 독감 검사 음성이면 독감이 아닌가요?</button>
+              <div class="faq__a">검사 종류에 따라 배제할 수 없습니다. 신속항원검사는 분자진단보다 민감도가 낮아 음성이라도 가능성이 남습니다(질병관리청도 RAT 음성만으로 배제 금지 안내).
+                <div class="ph"><b>약사:</b> 고위험 환자는 유행 상황 + 임상상 + 검사 특성을 함께 고려합니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. 백신 맞았는데 독감에 걸렸어요. 실패인가요?</button>
+              <div class="faq__a">백신은 감염을 100% 차단하지 않습니다. 유행 strain 일치도·연령·면역반응 등이 영향을 줍니다. 접종 여부만으로 독감을 배제하면 안 됩니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 독감이면 무조건 타미플루를 먹어야 하나요?</button>
+              <div class="faq__a">모든 건강한 경증 환자에게 반드시 필요한 것은 아닙니다. 많은 uncomplicated influenza는 자연회복합니다. 반면 고위험·중증·진행성·입원 환자는 신속 치료 우선도가 높습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 독감약 먹으면 바로 안 옮나요?</button>
+              <div class="faq__a">아닙니다. 복용해도 즉시 전염력이 0이 되지 않습니다. 치료와 별도로 기침예절·손 위생·접촉 감소가 필요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q8. 독감 한 번 걸렸으니 올해 다시 안 걸리죠?</button>
+              <div class="faq__a">반드시 그렇지 않습니다. Influenza A·B와 서로 다른 strain이 동시/순차로 유행할 수 있어 한 번의 감염이 그 절기 모든 바이러스에 완전 면역을 보장하지 않습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Myth vs Fact ================= -->
+        <section id="myth" class="section">
+          <h2><span class="sec-no">14</span> Myth vs Fact</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">독감은 독한 감기다.</div><span class="verdict">틀림</span>
+              <div class="why">원인 바이러스와 임상적 의미가 다른 질환입니다.</div></div>
+            <div class="factrow"><div class="claim">48시간 지난 독감엔 항바이러스제를 절대 쓰지 않는다.</div><span class="verdict">틀림</span>
+              <div class="why">고위험·중증·입원 환자에서는 늦게 시작해도 치료를 권고할 수 있습니다.</div></div>
+            <div class="factrow"><div class="claim">독감은 열이 반드시 난다.</div><span class="verdict">틀림</span>
+              <div class="why">열이 없는 influenza도 가능합니다.</div></div>
+            <div class="factrow"><div class="claim">백신 맞았는데 걸렸으니 백신은 의미 없다.</div><span class="verdict">틀림</span>
+              <div class="why">백신은 감염 위험뿐 아니라 <b>중증도·합병증 부담</b>을 낮추는 것이 목표입니다.</div></div>
+            <div class="factrow"><div class="claim">항바이러스제와 항생제는 비슷한 약이다.</div><span class="verdict">틀림</span>
+              <div class="why">항바이러스제는 influenza virus, 항생제는 세균을 대상으로 합니다.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">15</span> Pharmacist Deep Dive</h2>
+          <h3>① Influenza A와 B</h3>
+          <p><b>A형</b>은 여러 동물 숙주가 있고 H1N1·H3N2처럼 HA·NA subtype으로 구분되며 큰 유행·pandemic 가능성에서 중요합니다.
+            <b>B형</b>은 주로 사람에서 순환하는 seasonal influenza의 중요한 원인입니다. “A형이면 항상 더 세다”처럼 단순화하지 말고 <b>환자의 임상 중증도·위험도</b>가 더 중요합니다.</p>
+          <h3>② Antigenic Drift</h3>
+          <blockquote>표면항원에 작은 변이가 지속 누적 → 과거 면역이 완전히 맞지 않음 → 계절성 유행 반복 → 백신 strain 업데이트 필요 (Drift = 작은 변화가 계속 쌓인다)</blockquote>
+          <h3>③ Antigenic Shift</h3>
+          <blockquote>서로 다른 A형 바이러스의 유전물질 재조합 → 큰 항원 변화 → 집단 면역 부족 → pandemic 가능성 (Shift = 큰 변화)</blockquote>
+        </section>
+
+        <!-- ================= 16 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">16</span> Case Study</h2>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case A · Typical</div>
+            <p>28세 남성. 어제 오후부터 갑자기 오한·근육통, 오늘 38.8℃·심한 두통·마른기침. 평소 건강, 증상 시작 약 20시간째.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">Q1. 감기와 독감 중 어느 pattern에 더 가까운가?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 감기</li>
+              <li data-opt="B"><span class="opt">B</span> 독감</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 갑작스러운 발병 + 발열·오한·근육통·두통은 매우 전형적인 독감.</div>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">Q2. 항바이러스 치료를 고려할 수 있는 시점인가?</div>
+            <ul class="mcq" data-answer="A">
+              <li data-opt="A"><span class="opt">A</span> YES — 초기(48h 이내)라 고려 가능</li>
+              <li data-opt="B"><span class="opt">B</span> NO — 건강하면 절대 쓰지 않음</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: A — 건강한 외래 환자라도 증상 48시간 이내면 항바이러스 치료를 고려할 수 있습니다.</div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Case B · Think Again</div>
+            <p>73세 여성, COPD·심부전 병력. 4일 전 독감 증상이 있었으나 “48시간 지나서 소용없대”라며 병원에 안 감. 오늘부터 <b>숨이 차고 기침 심해짐.</b></p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">Q1. 4일째이므로 항바이러스 치료를 고려하지 않아도 될까?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> YES</li>
+              <li data-opt="B"><span class="opt">B</span> NO</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 고령 + 만성 심폐질환 + 진행하는 호흡기 증상. 고위험·진행성에서는 48시간 이후라도 신속 치료가 권고될 수 있습니다.</div>
+          </div>
+          <div class="qcard">
+            <div class="q">Q2. 가장 중요한 추가 판단은?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">폐렴 등 합병증이 발생했는가. 새로운 호흡곤란이 생겼으므로 단순히 독감약만 먹고 집에서 지켜볼 상황이 아닙니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">Recall ③</span> 독감 항바이러스 치료의 가장 중요한 시간 원칙은?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">가능한 빨리 시작할수록 좋다. 그러나 고위험·중증 환자에서는 48시간 이후라도 치료를 포기하지 않는다.</div>
+          </div>
+          <div class="qcard">
+            <div class="q"><span class="qn">Recall ④</span> 독감이 좋아지다 다시 고열·심한 기침. 무엇을 생각할까?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">폐렴 등 이차성 합병증.</div>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ⑤</span> 예방접종을 한 사람에게 독감이 의심된다. 접종력 때문에 독감을 배제할 수 있는가?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> YES</li>
+              <li data-opt="B"><span class="opt">B</span> NO</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 백신은 위험을 낮추지만 감염 가능성을 0으로 만들지 않습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Final Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">17</span> Final Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 감기보다 influenza를 더 시사하는 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 서서히 시작된 맑은 콧물</li>
+                <li data-opt="B"><span class="opt">B</span> 반복적인 재채기</li>
+                <li data-opt="C"><span class="opt">C</span> 갑자기 발생한 고열·오한·심한 근육통</li>
+                <li data-opt="D"><span class="opt">D</span> 코 가려움</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 독감은 갑작스러운 발병·뚜렷한 전신증상이 전형적.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q2. 독감 항바이러스제 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 48시간 이후엔 어떤 환자에게도 효과 없다.</li>
+                <li data-opt="B"><span class="opt">B</span> 중증·고위험 환자는 48시간 이후라도 치료를 고려한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 독감 환자 모두에게 반드시 투여해야 한다.</li>
+                <li data-opt="D"><span class="opt">D</span> 항생제보다 약해 함께 복용해야 한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 조기치료가 가장 효과적이지만 고위험·중증·진행성·입원에서는 48시간 이후라도 권고될 수 있습니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q3. Influenza 전염에 대해 옳은 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 발열 이후에만 전염된다.</li>
+                <li data-opt="B"><span class="opt">B</span> 증상 전에는 절대 전염되지 않는다.</li>
+                <li data-opt="C"><span class="opt">C</span> 발병 후 첫 3일에 전염력이 높은 경향이 있다.</li>
+                <li data-opt="D"><span class="opt">D</span> 모두 정확히 7일째 전염력이 사라진다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 일부는 증상 약 하루 전부터 전염 가능하며 첫 3일 전염력이 높습니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q4. 독감 환자의 Red Flag에 가장 가까운 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 하루째 인후통</li>
+                <li data-opt="B"><span class="opt">B</span> 가벼운 콧물</li>
+                <li data-opt="C"><span class="opt">C</span> 열이 떨어졌다 다시 고열·호흡곤란</li>
+                <li data-opt="D"><span class="opt">D</span> 가벼운 피로</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 이중악화·호흡곤란은 폐렴 등 합병증 평가 신호.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q5. 67세 당뇨 환자가 오늘 아침 갑작스러운 발열·오한·몸살. 가장 적절한 접근은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 건강한 젊은 성인과 동일하게 무조건 며칠 관찰</li>
+                <li data-opt="B"><span class="opt">B</span> 감기약만 복용하고 48시간 이후 진료</li>
+                <li data-opt="C"><span class="opt">C</span> influenza 가능성·고위험군 여부 고려해 조기 진료·항바이러스 치료 검토</li>
+                <li data-opt="D"><span class="opt">D</span> 항생제를 우선 복용</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 고령·당뇨는 합병증 위험이 높아 의심 시 조기 치료 우선도가 높습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 18 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">18</span> 20초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>독감은 “독한 감기”가 아니라 influenza virus 감염이다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>갑작스러운 발열·오한·근육통·두통·심한 피로가 전형적이다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>독감이어도 열이 없을 수 있고, 증상만으로 COVID-19 등과 완벽히 구별 못 한다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>항바이러스제는 가능한 빨리, 특히 발병 초기일수록 효과가 좋다.</p></div>
+            <div class="factcard"><span class="n">5</span><p>그러나 고위험·중증·진행성 환자에 ‘48시간 지났으니 끝’이라는 공식은 없다.</p></div>
+            <div class="factcard"><span class="n">6</span><p>고령·소아·임신부·만성질환자·면역저하자는 합병증 위험을 먼저 생각한다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>호흡곤란 또는 좋아졌다 다시 고열·기침 악화 → 폐렴 등 합병증 평가.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이번 강의의 임상적 backbone 세 문장</h3>
+          <p class="big">① 갑자기 열 + 오한 + 심한 몸살 → 독감을 생각한다.<br>
+            ② 항바이러스제는 빠를수록 좋다 — 그러나 48시간은 절대적인 치료 종료선이 아니다.<br>
+            ③ 같은 독감이라도 건강한 25세와 75세 심부전 환자의 판단은 다르다.</p>
+          <p style="font-size:13px;opacity:.85;">※ 국내 예방접종은 질병관리청 2026–2027절기 계획(2026-08-25 발표)까지 반영했습니다.</p>
+          <p style="margin-top:18px;"><a href="../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#situation"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>독감 핵심 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">패턴</span><span>갑작스러운 열·오한·몸살</span></div>
+      <div class="qr-row"><span class="qr-k">항바이러스</span><span>빠를수록 좋다</span></div>
+      <div class="qr-row"><span class="qr-k">48h</span><span>절대 cutoff 아님(고위험·중증)</span></div>
+      <div class="qr-row"><span class="qr-k">고위험군</span><span>고령·소아·임신·만성질환·면역저하</span></div>
+      <div class="qr-row"><span class="qr-k">Red Flag</span><span>호흡곤란·이중악화</span></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
