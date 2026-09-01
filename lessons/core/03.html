@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제3강 · 이상지질혈증 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="이상지질혈증을 지질대사 → 동맥경화 → 검사 → 약물의 하나의 모델로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제3강 · 이상지질혈증</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">LDL</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제3강 · 이상지질혈증</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#need"><span class="num">1</span> 지질은 어떻게 이동하나</a></li>
+          <li><a href="#journey"><span class="num">2</span> 지질의 여행</a></li>
+          <li><a href="#athero"><span class="num">3</span> LDL이 혈관을 망가뜨린다</a></li>
+          <li><a href="#cause"><span class="num">4</span> 왜 생기는가</a></li>
+          <li><a href="#symptom"><span class="num">5</span> 증상과 Red Flags</a></li>
+          <li><a href="#labs"><span class="num">6</span> 검사 읽는 법</a></li>
+          <li><a href="#untreated"><span class="num">7</span> 치료하지 않으면</a></li>
+          <li><a href="#treat"><span class="num">8</span> 치료의 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">9</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">10</span> 약물치료</a></li>
+          <li><a href="#deepdive"><span class="num">11</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">12</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">13</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">14</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">15</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">16</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">17</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제3강</div>
+          <h1>이상지질혈증</h1>
+          <p>“LDL은 나쁘고 HDL은 좋다”를 외우는 대신 —
+            <b>지질이 왜 lipoprotein에 실려 다니고 → LDL이 왜 동맥벽을 망가뜨리며 → statin이 무엇을 바꾸는지</b>를 하나의 흐름으로.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이 강의의 근거 축</div>
+          <p>국제적으로는 <b>2025 ESC/EAS focused update</b>와 <b>2026 ACC/AHA dyslipidemia guideline</b>이 최신 축입니다.
+            특히 2026 ACC/AHA는 LDL-C뿐 아니라 <b>triglyceride-rich remnant · Lp(a) · apoB</b>까지 포함해 atherogenic lipoprotein 전체를 보는 관점을 강화했습니다.
+            <b>Statin은 여전히 치료의 기본</b>이며, 위험도가 높을수록 더 낮은 LDL-C 목표를 사용합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">52세 남성 · 건강검진</div>
+            <div class="bp" style="font-size:clamp(26px,7vw,40px);line-height:1.3;">TC 238 · LDL 162<br>HDL 55 · TG 106 <small>mg/dL</small></div>
+            <div class="quote">“콜레스테롤은 몸에 필요한 거 아닌가요? 그런데 왜 LDL을 낮춰야 하죠? 약 먹으면 간 상한다던데, 조금 높다고 꼭 먹어야 하나요?”</div>
+          </div>
+          <p>강의가 끝나면 다음에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>cholesterol은 왜 필요한가?</li>
+            <li>혈액 속 cholesterol과 LDL은 같은 말인가?</li>
+            <li>LDL은 왜 동맥경화를 일으키는가?</li>
+            <li>HDL이 높으면 LDL이 높아도 괜찮은가?</li>
+            <li>statin은 정확히 무엇을 바꾸는가?</li>
+            <li>왜 같은 LDL 160이어도 누구는 약을, 누구는 생활습관부터 하는가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 지질은 어떻게 이동하나 ================= -->
+        <section id="need" class="section">
+          <h2><span class="sec-no">01</span> 정상적인 몸에서는</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>이상지질혈증</b>이란 cholesterol·triglyceride를 운반하는 lipoprotein의 양·구성이 비정상적이어서,
+              특히 <b>atherogenic lipoprotein이 증가</b>하고 장기적으로 동맥경화성 심혈관질환(ASCVD) 위험이 높아진 상태입니다.
+              가장 중요한 대상은 대개 <b>LDL-C</b>이지만, TG↑·HDL↓·remnant↑·Lp(a)↑ 등 여러 형태가 있습니다.</p>
+          </div>
+
+          <h3>1-1. cholesterol은 나쁜 물질이 아니다</h3>
+          <p>Cholesterol은 <b>세포막 구성 · steroid hormone 합성 · bile acid 합성 · vitamin D 전구체</b>로 반드시 필요합니다.
+            따라서 목표는 “cholesterol을 없애는 것”이 아니라, <b>운반 입자가 혈액에 너무 많이 남아 동맥벽에 축적되는 것</b>을 막는 것입니다.</p>
+
+          <h3>1-2. 지질은 혈액에서 어떻게 이동할까</h3>
+          <p>혈액은 물이 많은 환경인데 cholesterol·triglyceride는 물에 잘 녹지 않습니다. 그래서 몸은 지질을 <b>lipoprotein</b>이라는 운반체에 포장합니다.</p>
+          <blockquote>혈액 = 도로 · cholesterol/TG = 화물 · lipoprotein = 트럭</blockquote>
+
+          <h3>1-3. 시각화 · Lipoprotein Cargo</h3>
+          <p>입자의 각 부분을 <b>탭</b>하면 설명이 나옵니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 1 · Lipoprotein 구조</div>
+            <div class="particle">
+              <svg viewBox="0 0 240 200" role="img" aria-label="lipoprotein 입자">
+                <circle cx="120" cy="100" r="78" fill="#fdeed9" stroke="#e0872a" stroke-width="3"/>
+                <circle cx="120" cy="100" r="46" fill="#fce8e9" stroke="#e5484d" stroke-width="2"/>
+                <text x="120" y="96" text-anchor="middle" font-size="12" fill="#b23b40" font-weight="700">TG +</text>
+                <text x="120" y="112" text-anchor="middle" font-size="12" fill="#b23b40" font-weight="700">Cholesteryl ester</text>
+                <circle cx="120" cy="22" r="9" fill="#7c5cf0"/>
+                <text x="120" y="180" text-anchor="middle" font-size="11" fill="#7b8aa0">바깥=인지질/유리 콜레스테롤 · 보라=apolipoprotein</text>
+              </svg>
+            </div>
+            <div class="checkchips">
+              <button data-text="<b>Phospholipid shell + free cholesterol</b> — 물에 닿는 바깥층. 소수성 지질을 감싸 혈액에서 운반되게 합니다.">바깥 껍질</button>
+              <button data-text="<b>Apolipoprotein</b> — 입자 표면 단백질. 어디로 갈지·어떤 receptor·효소와 작용할지를 결정합니다. (예: apoB는 atherogenic 입자의 표지)">Apolipoprotein</button>
+              <button data-text="<b>중심부(core)</b> — triglyceride와 cholesteryl ester 같은 소수성 지질이 실려 있는 화물칸.">중심 화물</button>
+            </div>
+            <div class="infochips__out">입자의 부분을 눌러보세요. — 지질은 물에 잘 녹지 않아 lipoprotein에 포장되어 이동합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 지질의 여행 ================= -->
+        <section id="journey" class="section">
+          <h2><span class="sec-no">02</span> 지질의 여행</h2>
+          <blockquote>음식 → 장에서 <b>chylomicron</b>에 포장 → 조직에 TG 전달 → 남은 remnant는 간으로 · 간에서 <b>VLDL → IDL → LDL</b> → 말초/동맥벽 · HDL은 반대로 말초 cholesterol을 간 방향으로</blockquote>
+          <p>각 입자를 <b>탭</b>해 무엇을 운반하고 어떤 임상적 의미가 있는지 확인하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 2 · Lipoprotein Journey</div>
+            <div class="checkchips">
+              <button data-text="<b>Chylomicron</b> — 장에서 만든 입자. 식사로 들어온 TG·cholesterol을 조직에 전달. 남은 remnant는 간으로.">Chylomicron</button>
+              <button data-text="<b>VLDL</b> — 간이 TG·cholesterol을 실어 내보내는 입자. TG를 조직에 주며 점점 작아집니다.">VLDL</button>
+              <button data-text="<b>IDL</b> — VLDL이 TG를 잃으며 LDL로 가는 중간 입자.">IDL</button>
+              <button data-text="<b>LDL</b> — cholesterol이 풍부한 입자. 말초로 cholesterol을 운반하지만, 혈액에 너무 많으면 <b>동맥벽에 침투</b>해 동맥경화를 일으키는 <b>핵심 치료 표적</b>.">LDL</button>
+              <button data-text="<b>HDL</b> — 말초 cholesterol을 받아 간 방향으로 옮기는 reverse cholesterol transport에 관여. 낮은 HDL-C는 위험 표지지만, <b>약으로 HDL을 높인다고 반드시 사건이 줄지는 않습니다.</b>">HDL</button>
+            </div>
+            <div class="infochips__out">입자를 눌러보세요.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>HDL 주의</div>
+            <p>“HDL이 높으면 무조건 건강하다”는 지나친 단순화입니다. 현재 치료의 주 표적은 HDL을 높이는 것보다 <b>atherogenic lipoprotein, 특히 LDL을 낮추는 것</b>입니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ①</span> LDL과 cholesterol은 같은 말일까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">아닙니다.
+              <div class="exp">cholesterol은 지질 <b>분자</b>, LDL은 그것을 운반하는 lipoprotein <b>입자</b>입니다. 우리가 재는 <b>LDL-C</b>는 “LDL 입자 안에 든 cholesterol의 양”을 뜻합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 동맥경화 ================= -->
+        <section id="athero" class="section">
+          <h2><span class="sec-no">03</span> LDL은 어떻게 혈관을 망가뜨리나</h2>
+          <blockquote>혈액 LDL↑ → 내피 아래로 침투·retention → 변형·산화 → 염증 → macrophage가 섭취 → <b>foam cell</b> → fatty streak → plaque → rupture → thrombus</blockquote>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 관점</div>
+            <p>LDL은 단순 “검사 수치”가 아니라 <b>동맥벽에 들어갈 수 있는 atherogenic particle의 지표</b>입니다.
+              그래서 ASCVD 위험은 <b>LDL 정도 × 노출 기간</b>으로 봅니다. LDL 160이 몇 달인 것과 30년인 것은 같지 않습니다.
+              (2026 ACC/AHA도 lifetime exposure를 줄이는 <b>조기 예방</b>을 강조)</p>
+          </div>
+
+          <h3>3-1. 시각화 · Atherosclerosis Timeline</h3>
+          <p>슬라이더로 <b>LDL 노출 기간(0→30년)</b>을 늘려보세요. 심근경색은 90%까지 좁아져야만 생기는 게 아닙니다 — <b>파열+혈전</b>이 핵심입니다.</p>
+          <div class="figure" data-athero>
+            <div class="figure__title">Viz 3 · 0년 → 30년</div>
+            <div class="athero__vessel">
+              <div class="athero__lumen"></div>
+              <div class="athero__plaque"></div>
+              <div class="athero__clot"></div>
+            </div>
+            <div class="athero__stage"></div>
+            <div class="athero__desc"></div>
+            <div class="athero__out"><span class="oc mi">❤️ MI</span><span class="oc stroke">🧠 Stroke</span></div>
+            <div class="athero__slider">
+              <input type="range" min="0" max="6" step="1" value="0" aria-label="LDL 노출 단계" />
+              <div class="athero__steps"><span>정상</span><span>entry</span><span>foam</span><span>streak</span><span>plaque</span><span>rupture</span><span>thrombus</span></div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ②</span> 관상동맥이 90%까지 천천히 좁아져야만 심근경색이 발생할까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">아닙니다.
+              <div class="exp">심근경색은 기존 plaque가 <b>rupture 또는 erosion</b>된 뒤 혈전이 급격히 형성되며 발생할 수 있습니다. “몇 % 막혔는가”만으로 위험을 설명할 수 없습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 원인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">04</span> 왜 생기는가</h2>
+          <div class="twopanel">
+            <div class="panel panel--drug"><h5>Primary (유전)</h5><ol><li>대표: <b>familial hypercholesterolemia(FH)</b></li><li>LDL receptor pathway 이상 등</li><li>매우 높은 LDL-C</li></ol></div>
+            <div class="panel panel--normal"><h5>Secondary</h5><ol><li>비만·당뇨·hypothyroidism</li><li>nephrotic syndrome·CKD</li><li>cholestatic liver disease·과음</li></ol></div>
+          </div>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약물도 지질에 영향</div>
+            <p>glucocorticoid · 일부 antipsychotic · retinoid · 일부 immunosuppressant · 일부 antiretroviral · estrogen 등. 영향받는 지질 종류는 약마다 다릅니다.</p>
+          </div>
+
+          <h3>시각화 · Secondary Cause Detective</h3>
+          <p>같은 “이상지질” 검사라도 패턴에 따라 의심할 원인이 다릅니다. 탭으로 두 시나리오를 비교하세요.</p>
+          <div class="figure" data-selector>
+            <div class="figure__title">Viz 4 · 패턴 → 원인</div>
+            <div class="orgselect__btns">
+              <button class="sel-btn" data-target="ldlhi">LDL 210 · TG 135</button>
+              <button class="sel-btn" data-target="tghi">LDL 115 · TG 580</button>
+            </div>
+            <div class="sel-panel" data-panel="ldlhi">
+              <div class="rowline"><span class="k">먼저 확인</span><span class="v"><b>가족력</b> · <b>TSH</b>(갑상선) · 약물 · 신장질환 · 식습관(포화지방)</span></div>
+              <div class="rowline"><span class="k">생각</span><span class="v">매우 높은 LDL → <b>FH</b>나 hypothyroidism 등 secondary cause를 적극 고려</span></div>
+            </div>
+            <div class="sel-panel" data-panel="tghi">
+              <div class="rowline"><span class="k">먼저 확인</span><span class="v"><b>alcohol</b> · <b>diabetes</b> · <b>obesity</b> · 약물</span></div>
+              <div class="rowline"><span class="k">생각</span><span class="v">높은 TG → insulin resistance·과음·비만 등이 흔히 동반. TG가 매우 높으면 pancreatitis 위험도 함께.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">05</span> 어떤 증상이 나타나는가</h2>
+          <div class="oneline">이상지질혈증은 고혈압처럼 <b>대부분 무증상</b> — LDL이 높다고 몸이 아픈 것이 아니다. 건강검진에서 발견되는 경우가 많다.</div>
+          <p>아주 심한 유전성 고콜레스테롤혈증에서는 <b>tendon xanthoma</b>(아킬레스건 등)·<b>xanthelasma</b>(눈꺼풀 황색판)가 보일 수 있으나, 없다고 FH가 아닌 것은 아닙니다.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li><b>LDL-C ≥190</b> → FH·secondary cause 적극 고려. 젊은 연령·가족 중 조기 심근경색·부모/형제의 매우 높은 cholesterol이 함께면 더 중요.</li>
+              <li><b>TG가 매우 높음</b>(수백 후반~1,000 이상) + 심한 상복부 통증·오심/구토 → <b>acute pancreatitis</b> 평가.</li>
+            </ul>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">2026 ACC/AHA도 지속적 고TG에서 statin·생활습관이 ASCVD 예방의 기본이고, <b>TG ≥1,000 mg/dL</b> 정도의 심한 상승에서는 pancreatitis 예방을 위한 TG-lowering therapy가 중요하다고 강조합니다.</p>
+        </section>
+
+        <!-- ================= 6 · 검사 ================= -->
+        <section id="labs" class="section">
+          <h2><span class="sec-no">06</span> 검사 읽는 법</h2>
+          <p>기본은 lipid profile(TC·LDL-C·HDL-C·TG). 검사지의 값을 <b>탭</b>하면 의미가 나옵니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 5 · Lipid Report Decoder</div>
+            <div class="checkchips">
+              <button data-text="<b>Total-C 225</b> — 모든 주요 lipoprotein의 cholesterol 총합. 단독으로는 정보가 부족합니다(LDL/HDL/TG 분포를 알 수 없음).">Total-C 225</button>
+              <button data-text="<b>LDL-C 145</b> — 가장 중요한 치료 표적. 단, particle number를 직접 세는 것과는 다르고 cholesterol mass를 측정/추정.">LDL-C 145</button>
+              <button data-text="<b>HDL-C 42</b> — 낮은 HDL-C는 위험과 연관되나, ‘높으니 LDL이 높아도 괜찮다’는 뜻이 아닙니다. 1차 약물 표적도 아님.">HDL-C 42</button>
+              <button data-text="<b>TG 190</b> — VLDL·chylomicron 등 TG-rich lipoprotein에 많음. metabolic syndrome·비만·당뇨와 자주 동반.">TG 190</button>
+            </div>
+            <div class="infochips__out">값을 눌러보세요.</div>
+            <div class="card card--key" style="margin:14px 0 0;">
+              <div class="card__label"><span class="dot"></span>non-HDL-C 자동 계산</div>
+              <p style="margin:0;"><b>non-HDL-C = Total − HDL = 225 − 42 = 183 mg/dL</b><br>
+                LDL + VLDL + IDL + remnant + Lp(a) 등 <b>atherogenic cholesterol을 모두 포함</b> — 특히 TG가 높을 때 유용합니다.</p>
+            </div>
+          </div>
+
+          <h3>더 약사다운 지표</h3>
+          <ul class="clean">
+            <li><b>ApoB</b> — atherogenic 입자 하나에 apoB 하나. 대략 “혈액 속 atherogenic <b>particle 개수</b>”를 반영. TG↑·당뇨·매우 낮은 LDL-C에서 LDL-C와 particle number가 어긋나는(discordance) 상황 평가에 도움(2026 ACC/AHA도 TG&gt;200·당뇨 등에서 apoB 측정 언급).</li>
+            <li><b>Lp(a)</b> — LDL 유사 입자 + apo(a). 주로 <b>유전적</b>으로 결정되며 높으면 ASCVD 위험↑. 2026 ACC/AHA는 <b>모든 성인에서 평생 한 번</b> 측정하는 방향으로 업데이트.</li>
+          </ul>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ③</span> TC 220으로 같은 A(LDL145·HDL55)와 B(LDL95·HDL95). 같은 상태라 할 수 있나요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">아닙니다.
+              <div class="exp">Total cholesterol은 lipoprotein 분포를 알려주지 못합니다. LDL·HDL·TG와 전체 ASCVD risk를 함께 해석해야 합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 치료 안하면 ================= -->
+        <section id="untreated" class="section">
+          <h2><span class="sec-no">07</span> 치료하지 않으면 어떻게 되는가</h2>
+          <blockquote>Atherogenic lipoprotein↑ → 동맥벽 lipid retention → inflammation → plaque → plaque burden↑ → rupture/thrombosis → ASCVD</blockquote>
+          <div class="warncards">
+            <div class="warncard" style="border-color:var(--hi);background:var(--hi-soft);"><h5>❤️ 관상동맥</h5><ul><li>angina · 심근경색</li></ul></div>
+            <div class="warncard" style="border-color:var(--hi);background:var(--hi-soft);"><h5>🧠 뇌동맥</h5><ul><li>ischemic stroke</li></ul></div>
+            <div class="warncard" style="border-color:var(--hi);background:var(--hi-soft);"><h5>🦵 말초동맥</h5><ul><li>peripheral arterial disease</li></ul></div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>제1강 고혈압과의 연결</div>
+            <p>고혈압=혈관벽 <b>기계적 압력</b> 부담, LDL=혈관벽 <b>atherogenic lipid</b> 부담, 흡연=내피·혈전·염증 악영향, 당뇨=대사·혈관 손상.
+              이것들이 동시에 있으면 위험은 하나씩 따로가 아닙니다 → 이상지질혈증도 <b>전체 ASCVD risk</b>가 중요.</p>
+          </div>
+
+          <h3>시각화 · Cardiovascular Risk Stack</h3>
+          <p>위험요인을 켜고 끄면 전체 ASCVD 위험이 어떻게 쌓이는지 보세요. (교육용 방향성)</p>
+          <div class="figure" data-riskstack>
+            <div class="figure__title">Viz 6 · LDL 하나가 아니라 전체 위험을 본다</div>
+            <div class="riskstack__opts">
+              <button data-w="2">LDL ↑</button>
+              <button data-w="1">고혈압</button>
+              <button data-w="2">당뇨</button>
+              <button data-w="1">흡연</button>
+              <button data-w="1">고령</button>
+            </div>
+            <div class="riskstack__gauge">
+              <div class="riskstack__level low">Overall ASCVD risk: Low</div>
+              <div class="riskstack__bar"><i style="left:0"></i></div>
+              <div style="font-size:12px;color:var(--ink-faint);">Low → Moderate → High → Very high</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">08</span> 치료의 전체 그림</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pipes"><h5>① Secondary cause</h5><p>예: hypothyroidism이면 이를 치료</p></div>
+            <div class="axis3__card volume"><h5>② 생활습관</h5><p>식사·체중·운동·금연·음주</p></div>
+            <div class="axis3__card pump"><h5>③ LDL-lowering 약물</h5><p>핵심 statin ± ezetimibe·PCSK9·bempedoic</p></div>
+            <div class="axis3__card"><h5>④ 매우 높은 TG</h5><p>별도 pancreatitis 예방(우선순위 변동)</p></div>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>LDL 목표는 모두 같지 않다</div>
+            <p>핵심 원칙: <b>위험이 높을수록 LDL을 더 낮춘다.</b> 이미 MI가 있는 환자와 젊고 위험 없는 사람에게 같은 LDL을 똑같이 해석하지 않습니다.
+              2026 ACC/AHA는 secondary prevention의 <b>very-high-risk ASCVD에서 LDL-C &lt;55 mg/dL</b>를 목표로 하며, 목표 미달 시 evidence-based nonstatin therapy를 추가하도록 권고합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">09</span> 생활습관 치료</h2>
+          <ul class="clean">
+            <li><b>포화지방↓</b> — 간 cholesterol 대사·LDL receptor에 영향 → LDL↑에 기여. 과도한 fatty meat·butter·일부 가공식품↓.</li>
+            <li><b>무엇으로 대체하느냐가 핵심</b> — 포화지방을 <b>불포화지방·질 좋은 탄수화물</b>로. “지방 줄이고 설탕 늘리기”는 나쁜 전략.</li>
+            <li><b>soluble fiber</b>(귀리·콩류) — LDL 감소에 어느 정도 도움(근거 비교적 강함). 단 매우 높은 LDL을 섬유질만으로 해결하려 하면 안 됨.</li>
+            <li><b>운동</b> — LDL을 극적으로 낮추진 못해도 TG↓·insulin sensitivity·체중·BP·CV fitness 개선.</li>
+            <li><b>체중 감소</b> — 특히 TG↑+HDL↓+insulin resistance 형태에서 매우 중요.</li>
+            <li><b>음주</b> — 간 TG 대사에 영향 → TG를 크게 높일 수 있음. severe hypertriglyceridemia에서 반드시 확인.</li>
+          </ul>
+
+          <h3>시각화 · Lifestyle → Lipid Effect</h3>
+          <p>행동을 <b>탭</b>하면 LDL·TG·HDL의 <b>방향</b>이 표시됩니다(수치가 아니라 방향성).</p>
+          <div class="figure" data-lifelipid>
+            <div class="figure__title">Viz 7 · 어디에 주로 작용하나</div>
+            <div class="lifelipid__opts">
+              <button data-act="satfat">포화지방 ↓</button>
+              <button data-act="fiber">soluble fiber</button>
+              <button data-act="weight">체중 감소</button>
+              <button data-act="exercise">운동</button>
+              <button data-act="alcohol">음주 ↓</button>
+            </div>
+            <div class="ll__gauges">
+              <div class="ll__g ldl"><h6>LDL</h6><div class="arrow dir-neu">↔</div></div>
+              <div class="ll__g tg"><h6>TG</h6><div class="arrow dir-neu">↔</div></div>
+              <div class="ll__g hdl"><h6>HDL</h6><div class="arrow dir-neu">↔</div></div>
+            </div>
+            <div class="lifelipid__note">행동을 눌러보세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">10</span> 약물치료</h2>
+
+          <h3>10-1. Statin <span style="font-size:13px;color:var(--ink-faint);">atorvastatin · rosuvastatin · pitavastatin …</span></h3>
+          <p>간의 <b>HMG-CoA reductase</b>를 억제 → hepatic cholesterol synthesis↓. 여기서 끝이 아니라, 더 중요한 다음 단계가 있습니다.</p>
+          <blockquote>간 cholesterol↓ → 간이 “부족”을 감지 → 세포표면 <b>LDL receptor↑</b> → 혈액 LDL을 더 많이 회수 → <b>plasma LDL-C↓</b></blockquote>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심</div>
+            <p>Statin은 혈액 속 LDL을 <b>직접 녹이는 약이 아니라</b>, 합성을 억제하고 LDL receptor를 늘려 <b>제거를 늘리는</b> 약입니다.</p>
+          </div>
+
+          <h4>시각화 · Statin Mechanism</h4>
+          <div class="figure" data-statinmech>
+            <div class="figure__title">Viz 8 · Statin OFF → ON</div>
+            <div class="statinmech__toggle">
+              <button class="active" data-on="0">Statin OFF</button>
+              <button data-on="1">Statin ON</button>
+            </div>
+            <div class="sm__grid">
+              <div class="sm__box"><h6>간 (Liver)</h6>
+                <div class="sm__enzyme"></div>
+                <div style="font-size:12px;color:var(--ink-faint);margin:8px 0 4px;">LDL receptor</div>
+                <div class="sm__recept"></div>
+              </div>
+              <div class="sm__box"><h6>혈액 (Blood) · LDL</h6>
+                <div class="sm__dots"></div>
+              </div>
+            </div>
+            <div class="sm__desc"></div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>대표 부작용 · “간 상하나요?”</div>
+            <p>근육 증상(myalgia, 드물게 severe myopathy/rhabdomyolysis)·일부에서 transaminase 상승. 하지만 <b>대부분에서 심각한 간손상은 매우 드뭅니다.</b>
+              “statin=간독성 약이라 오래 먹으면 간이 상한다”는 부정확합니다.</p>
+          </div>
+
+          <h3>10-2. Ezetimibe</h3>
+          <p>소장 <b>NPC1L1</b> 억제 → cholesterol 흡수↓ → 간 cholesterol pool↓ → LDL receptor↑ → LDL-C↓.
+            statin(합성↓)과 <b>다른 경로(흡수↓)</b>라 잘 맞습니다.</p>
+
+          <h3>10-3. PCSK9 monoclonal antibody <span style="font-size:13px;color:var(--ink-faint);">evolocumab · alirocumab</span></h3>
+          <p>정상적으로 LDL receptor는 LDL을 잡아 세포 안으로 갔다가 <b>재활용</b>됩니다. 그런데 <b>PCSK9</b>이 붙으면 receptor가 분해되어 수가 줄어듭니다.</p>
+          <blockquote>PCSK9 차단 → LDL receptor 재활용↑ → 표면 receptor↑ → LDL clearance↑ → LDL-C 크게↓</blockquote>
+          <h4>LDL Receptor Recycling</h4>
+          <div class="figure" data-selector>
+            <div class="figure__title">Viz 9 · 세 가지 상태</div>
+            <div class="orgselect__btns">
+              <button class="sel-btn" data-target="normal">Normal</button>
+              <button class="sel-btn" data-target="pcsk9">PCSK9 ON</button>
+              <button class="sel-btn" data-target="inhib">PCSK9 inhibitor</button>
+            </div>
+            <div class="sel-panel" data-panel="normal">
+              <div class="rowline"><span class="k">경로</span><span class="v">LDLR + LDL → endosome → LDL 분해 → <b>LDLR 재활용</b>(표면으로 복귀)</span></div>
+            </div>
+            <div class="sel-panel" data-panel="pcsk9">
+              <div class="rowline"><span class="k">경로</span><span class="v">LDLR + PCSK9 → lysosome → <b>LDLR 파괴</b> → 표면 receptor↓ → 혈액 LDL↑</span></div>
+            </div>
+            <div class="sel-panel" data-panel="inhib">
+              <div class="rowline"><span class="k">경로</span><span class="v">PCSK9 ✕ → LDLR 재활용↑↑ → 표면 receptor↑ → <b>LDL clearance↑ → LDL 크게↓</b></span></div>
+            </div>
+          </div>
+
+          <h3>10-4. Bempedoic acid</h3>
+          <p>간의 <b>ATP citrate lyase</b> 억제(HMG-CoA reductase보다 upstream) → cholesterol 합성↓ → LDL receptor↑ → LDL-C↓.
+            2026 ACC/AHA는 statin으로 충분치 않은 환자에서 ezetimibe·bempedoic acid·PCSK9 mAb 등을 <b>nonstatin option</b>으로 제시합니다.</p>
+
+          <h3>10-5. Inclisiran</h3>
+          <p><b>siRNA</b>로 간세포에서 PCSK9 <b>합성 자체</b>를 감소 → PCSK9 protein↓ → LDLR 재활용↑ → LDL↓. 투여 간격이 긴 것이 특징.
+            단 2026 ACC/AHA는 LDL 감소와 별개로 <b>hard cardiovascular outcome</b> 확인 임상시험이 진행 중임을 명시합니다.</p>
+
+          <h3>10-6. Fibrate <span style="font-size:13px;color:var(--ink-faint);">fenofibrate</span></h3>
+          <p>주로 <b>hypertriglyceridemia</b>와 연관. PPAR-α 활성 → fatty acid oxidation↑·LPL 관련 TG 대사↑ → <b>TG↓</b>.
+            부작용/주의: muscle toxicity·gallstone·renal function 고려, statin 병용 시 약물별 상호작용 차이.</p>
+
+          <h3>10-7. 약물 전체 지도</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>약물</th><th>주요 표적</th><th>핵심 효과</th></tr></thead>
+              <tbody>
+                <tr><th>Statin</th><td>HMG-CoA reductase</td><td>LDL receptor↑</td></tr>
+                <tr><th>Ezetimibe</th><td>NPC1L1</td><td>cholesterol 흡수↓</td></tr>
+                <tr><th>PCSK9 mAb</th><td>PCSK9</td><td>LDLR 재활용↑</td></tr>
+                <tr><th>Inclisiran</th><td>PCSK9 mRNA</td><td>PCSK9 합성↓</td></tr>
+                <tr><th>Bempedoic acid</th><td>ATP citrate lyase</td><td>cholesterol 합성↓</td></tr>
+                <tr><th>Fibrate</th><td>PPAR-α</td><td>TG↓</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ④</span> Statin으로 LDL-C가 감소하는 가장 중요한 설명은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> LDL이 소변으로 배출되기 때문</li>
+              <li data-opt="B"><span class="opt">B</span> 간 LDL receptor가 증가해 혈중 LDL clearance가 증가하기 때문</li>
+              <li data-opt="C"><span class="opt">C</span> 장에서 지방 흡수가 완전히 차단되기 때문</li>
+              <li data-opt="D"><span class="opt">D</span> HDL이 LDL을 직접 분해하기 때문</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 합성 억제에 대한 보상으로 LDL receptor 발현이 늘어 혈중 LDL 제거가 증가합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">11</span> 약사 Deep Dive</h2>
+          <h3>① LDL-C와 ApoB가 왜 다를 수 있을까</h3>
+          <p>두 환자가 LDL-C 120이어도, A는 <b>큰 입자 10개</b>(각 cholesterol 많음), B는 <b>작은 입자 20개</b>(각 cholesterol 적음)일 수 있습니다.
+            총 cholesterol은 비슷해도 동맥벽과 접촉할 <b>particle 수</b>는 B가 더 많습니다. <b>ApoB</b>는 particle number에 가까워 이 discordance 이해에 도움이 됩니다.</p>
+          <h3>② LDL은 얼마나 낮아도 괜찮나</h3>
+          <p>여러 임상시험에서 <b>LDL을 더 낮추면 ASCVD event가 추가로 감소</b>하는 경향이 반복 확인됐습니다(2025 ESC/EAS·2026 ACC/AHA 모두 very-high-risk에서 적극적 저하 유지).
+            단 “모든 일반인이 무조건 LDL 50”이 아니라 <b>baseline risk에 따라 강도가 달라집니다.</b></p>
+          <h3>③ Lp(a)는 왜 생활습관으로 잘 안 내려갈까</h3>
+          <p>Lp(a)는 대체로 <b>유전적</b>으로 결정되어 식사·운동만으로 큰 변화를 기대하기 어렵습니다. 그렇다고 손 놓는 게 아니라,
+            Lp(a)가 높다면 <b>다른 조절 가능한 ASCVD 위험인자를 더 철저히 관리</b>할 이유가 됩니다.</p>
+        </section>
+
+        <!-- ================= 12 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">12</span> 비슷한 개념 비교</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>LDL-C</th><th>TG</th></tr></thead>
+              <tbody>
+                <tr><th>주요 의미</th><td>atherogenic cholesterol burden</td><td>TG-rich lipoprotein 대사</td></tr>
+                <tr><th>주요 질환</th><td>ASCVD</td><td>ASCVD + 매우 높으면 pancreatitis</td></tr>
+                <tr><th>식사 영향</th><td>상대적으로 작음</td><td>큼</td></tr>
+                <tr><th>주요 약물</th><td>statin 중심</td><td>원인·위험 따라 statin/fibrate 등</td></tr>
+                <tr><th>연관 상태</th><td>FH 등</td><td>obesity·DM·alcohol 등</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>LDL</th><th>HDL</th></tr></thead>
+              <tbody>
+                <tr><th>대표 방향</th><td>간 → 말초</td><td>말초 → 간 방향 transport 관여</td></tr>
+                <tr><th>ASCVD</th><td>원인적 역할 명확</td><td>낮은 값은 risk marker</td></tr>
+                <tr><th>약물 목표</th><td>매우 중요</td><td>단순히 높이는 것이 주 목표 아님</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 13 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">13</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 콜레스테롤은 몸에 필요한데 왜 낮추나요?</button>
+              <div class="faq__a">cholesterol 자체는 필요합니다. 문제는 <b>LDL 같은 운반입자가 지나치게 많아 동맥벽에 쌓이는 것</b>. 없애는 게 아니라 혈관에 과도하게 노출되는 LDL을 줄이는 것입니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. HDL이 높은데 LDL이 높아도 괜찮나요?</button>
+              <div class="faq__a">아닙니다. HDL이 높다는 게 LDL 위험을 상쇄하는 면허증이 아닙니다. LDL이 높다면 그것 자체를 별도로 평가합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. Statin은 한번 먹으면 평생 먹나요?</button>
+              <div class="faq__a">많은 경우 장기 복용합니다. 의존성이 생겨서가 아니라, 중단하면 LDL을 높게 만드는 원래의 대사 상태가 다시 나타나기 때문입니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. Statin 먹으면 간이 상하나요?</button>
+              <div class="faq__a">심각한 간손상은 매우 드뭅니다. 일부에서 간효소가 오를 수 있어 필요한 모니터링을 하지만, statin을 단순히 ‘간에 독한 약’이라고 보는 건 옳지 않습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. LDL이 150이면 무조건 약을 먹어야 하나요?</button>
+              <div class="faq__a">그렇지 않습니다. 나이·기존 ASCVD·당뇨·BP·흡연·CKD·가족력·LDL 수준 등 전체 위험을 봅니다. 같은 150이어도 환자에 따라 크게 달라집니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 중성지방이 높은 것과 콜레스테롤 높은 건 같은 건가요?</button>
+              <div class="faq__a">아닙니다. TG와 cholesterol은 서로 다른 lipid이고 운반 입자와 임상적 의미도 다릅니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 오메가-3 먹으면 statin 대신 되나요?</button>
+              <div class="faq__a">일반적으로 그렇지 않습니다. LDL을 낮추고 ASCVD를 예방하는 목적에서 statin과 일반 건강기능식품 omega-3를 동일하게 볼 수 없습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">14</span> 흔한 오해 / 팩트체크</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">Cholesterol은 나쁜 물질이다.</div><span class="verdict">틀림</span>
+              <div class="why">세포막·steroid hormone·bile acid 등에 필요합니다.</div>
+              <div class="take"><b>실전:</b> 문제는 cholesterol 자체가 아니라 atherogenic lipoprotein의 과도한 혈중 노출.</div></div>
+            <div class="factrow"><div class="claim">HDL이 높으면 LDL이 높아도 괜찮다.</div><span class="verdict">틀림</span>
+              <div class="why">HDL-C가 LDL-related ASCVD 위험을 없애주지 않습니다.</div></div>
+            <div class="factrow"><div class="claim">Statin은 간을 망가뜨리니 가능하면 안 먹는 게 좋다.</div><span class="verdict">대체로 틀림</span>
+              <div class="why">적절한 적응증에서 statin의 ASCVD 예방 benefit은 확립돼 있습니다.</div></div>
+            <div class="factrow"><div class="claim">계란처럼 cholesterol 든 음식만 안 먹으면 LDL이 해결된다.</div><span class="verdict">틀림</span>
+              <div class="why">혈중 cholesterol은 음식 cholesterol뿐 아니라 hepatic synthesis·전체 식사 패턴·유전이 함께 결정합니다.</div></div>
+            <div class="factrow"><div class="claim">마른 사람은 고지혈증에 걸리지 않는다.</div><span class="verdict">틀림</span>
+              <div class="why">유전적 hypercholesterolemia 등 체중과 무관하게 발생할 수 있습니다.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">15</span> Case Study</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · LDL이 높은데 약이 꼭 필요한가?</div>
+            <p>43세 남성. LDL-C <b>164</b> · HDL 52 · TG 110 · BP 118/74 · 당뇨 없음 · 비흡연 · ASCVD 병력 없음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① LDL 164만으로 모두 같은 치료? ② 더 확인할 정보? ③ 생활습관은 왜 중요?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">LDL은 높은 편이지만 약물 여부·강도는 전체 ASCVD risk·가족력·지속적 LDL 수준을 함께 평가합니다.
+              <div class="exp">특히 젊은 연령에서도 높은 LDL의 <b>lifetime exposure</b>를 고려. 2026 ACC/AHA도 젊은 성인에서 LDL-C ≥160 또는 조기 ASCVD 가족력이면 더 이른 약물치료를 고려하는 방향을 강조합니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Case 2 · LDL은 별로인데 TG가 980</div>
+            <p>55세 남성. LDL-C 105 · <b>TG 980</b> · HbA1c 10.2% · 거의 매일 음주 · BMI 30.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① 어떤 원인? ② LDL만 보고 안심? ③ TG가 매우 높을 때 별도 합병증은?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">uncontrolled diabetes·obesity·alcohol이 severe hypertriglyceridemia에 크게 기여할 수 있습니다.
+              <div class="exp">TG가 이 정도면 ASCVD뿐 아니라 <b>acute pancreatitis</b> 위험이 매우 중요. “콜레스테롤약?”보다 먼저 당뇨 조절·금주·식사·TG를 빠르게 낮출 필요성을 평가합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">16</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. LDL-C가 높을 때 ASCVD 위험이 증가하는 핵심 과정은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> LDL이 심장 근육 안에서 직접 독성을 나타낸다.</li>
+                <li data-opt="B"><span class="opt">B</span> LDL particle이 동맥벽에 침투·retention되어 atherosclerosis를 촉진한다.</li>
+                <li data-opt="C"><span class="opt">C</span> LDL이 혈소판을 모두 제거한다.</li>
+                <li data-opt="D"><span class="opt">D</span> LDL이 혈압을 반드시 상승시킨다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — LDL의 동맥벽 침투·retention이 atherosclerosis의 핵심 과정입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. Statin이 LDL-C를 낮추는 가장 중요한 과정은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 신장에서 LDL 배설 증가</li>
+                <li data-opt="B"><span class="opt">B</span> HMG-CoA reductase 억제 → hepatic cholesterol↓ → LDL receptor↑</li>
+                <li data-opt="C"><span class="opt">C</span> LDL을 HDL로 직접 전환</li>
+                <li data-opt="D"><span class="opt">D</span> 장에서 모든 지방 흡수를 차단</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. Total 230, HDL 45일 때 non-HDL-C는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 45</li>
+                <li data-opt="B"><span class="opt">B</span> 185</li>
+                <li data-opt="C"><span class="opt">C</span> 230</li>
+                <li data-opt="D"><span class="opt">D</span> 275</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 230 − 45 = 185 mg/dL.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. TG가 매우 심하게 상승한 환자에서 특히 걱정할 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> Appendicitis</li>
+                <li data-opt="B"><span class="opt">B</span> Acute pancreatitis</li>
+                <li data-opt="C"><span class="opt">C</span> Asthma</li>
+                <li data-opt="D"><span class="opt">D</span> Hyperthyroidism</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. PCSK9 inhibitor가 LDL을 낮추는 핵심 기전은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> LDL receptor degradation을 줄여 receptor recycling을 증가시킨다.</li>
+                <li data-opt="B"><span class="opt">B</span> Insulin secretion을 증가시킨다.</li>
+                <li data-opt="C"><span class="opt">C</span> TG 합성을 완전히 억제한다.</li>
+                <li data-opt="D"><span class="opt">D</span> HDL을 LDL로 전환한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">17</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>cholesterol은 필요한 물질 — 문제는 atherogenic lipoprotein에 지나치게 많이 실려 오래 노출되는 것.</p></div>
+            <div class="factcard"><span class="n">2</span><p>지질은 물에 잘 안 녹아 lipoprotein이라는 운반체를 이용한다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>간에서 나온 VLDL → IDL → LDL 흐름이 지질대사의 큰 그림.</p></div>
+            <div class="factcard"><span class="n">4</span><p>LDL particle → foam cell → plaque → rupture/thrombosis가 atherosclerosis의 핵심.</p></div>
+            <div class="factcard"><span class="n">5</span><p>ASCVD 위험은 LDL 숫자가 아니라 LDL 정도 × 노출 기간 × 다른 위험요인.</p></div>
+            <div class="factcard"><span class="n">6</span><p>LDL-C가 핵심 표적 — HDL이 높다고 높은 LDL이 상쇄되지 않는다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>TG가 매우 높으면 ASCVD와 별개로 acute pancreatitis를 기억.</p></div>
+            <div class="factcard"><span class="n">8</span><p>Statin = HMG-CoA reductase 억제 → 간 cholesterol↓ → LDL receptor↑ → 혈중 LDL clearance↑.</p></div>
+            <div class="factcard"><span class="n">9</span><p>Ezetimibe=장 흡수 · PCSK9=receptor recycling · fibrate=주로 TG.</p></div>
+            <div class="factcard"><span class="n">10</span><p>치료의 목적은 검사표를 예쁘게가 아니라 심근경색·뇌졸중 ASCVD 예방.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>오늘의 여섯 질문, 이제 답할 수 있습니다</h3>
+          <p class="big">cholesterol은 필요하지만 LDL의 <b>혈중 노출</b>이 문제다 · LDL은 cholesterol을 실은 <b>입자</b>다 ·
+            LDL이 동맥벽에 쌓여 <b>plaque·혈전</b>을 만든다 · HDL이 높아도 LDL은 별도로 본다 ·
+            statin은 <b>LDL receptor를 늘려</b> 혈중 LDL을 없앤다 · 같은 LDL이어도 <b>전체 위험</b>에 따라 치료가 다르다.</p>
+          <p style="margin-top:22px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>이상지질혈증 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">핵심</span><span>LDL 정도 × 노출 기간</span></div>
+      <div class="qr-row"><span class="qr-k">non-HDL</span><span>Total − HDL</span></div>
+      <div class="qr-row"><span class="qr-k">Statin</span><span>LDL receptor↑</span></div>
+      <div class="qr-row"><span class="qr-k">TG 매우↑</span><span>pancreatitis 주의</span></div>
+      <div class="qr-row"><span class="qr-k">목표</span><span>위험 높을수록 더 낮게</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

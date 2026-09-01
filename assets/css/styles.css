@@ -1641,3 +1641,93 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   color: var(--influ); line-height: 1; margin: 8px 0;
 }
 .big48 small { font-size: .3em; color: var(--ink-faint); font-weight: 500; }
+
+/* =========================================================
+   ========  Core 03 · 이상지질혈증 전용 컴포넌트  ========
+   ========================================================= */
+:root { --ldl: #e5484d; --hdl: #0f9d6e; --tg: #e0872a; --lpa: #7c5cf0; }
+
+/* Lipoprotein 입자 SVG 라벨 */
+.particle { display: grid; place-items: center; }
+.particle svg { width: 100%; max-width: 320px; }
+
+/* Viz 3 · Atherosclerosis Timeline */
+.athero__vessel {
+  position: relative; height: 74px; border-radius: 14px; overflow: hidden;
+  background: linear-gradient(#f7d9d0,#f7d9d0); border: 2px solid #d99a8f; margin: 12px 0;
+}
+.athero__lumen { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%);
+  height: 40px; background: var(--ldl); border-radius: 8px; transition: clip-path .3s; }
+.athero__plaque {
+  position: absolute; left: 8%; top: 50%; transform: translateY(-50%);
+  height: 46px; width: 4%; background: #f0c36b; border: 1px solid #c99a2e; border-radius: 40%;
+  transition: width .3s; box-shadow: inset 0 0 6px rgba(0,0,0,.1);
+}
+.athero__clot {
+  position: absolute; left: 8%; top: 50%; transform: translateY(-50%);
+  width: 26px; height: 46px; background: #7a1526; border-radius: 40%; opacity: 0; transition: opacity .3s;
+}
+.athero__clot.show { opacity: 1; }
+.athero__stage { font-weight: 700; font-size: 15px; margin: 6px 0 4px; }
+.athero__desc { font-size: 13.5px; color: var(--ink-soft); min-height: 40px; }
+.athero__out { display: flex; gap: 10px; margin-top: 8px; }
+.athero__out .oc { font-weight: 700; font-size: 13px; border-radius: 999px; padding: 4px 12px; background: var(--surface-2); color: var(--ink-faint); }
+.athero__out .oc.on { background: var(--hi-soft); color: var(--hi); }
+.athero__slider input[type=range] { width: 100%; accent-color: var(--ldl); height: 30px; }
+.athero__steps { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-faint); font-weight: 700; }
+
+/* Viz 6 · Cardiovascular Risk Stack */
+.riskstack__opts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.riskstack__opts button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border-radius: 999px;
+  padding: 9px 15px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.riskstack__opts button:hover { border-color: var(--brand); }
+.riskstack__opts button.active { background: var(--hi); color: #fff; border-color: var(--hi); }
+.riskstack__gauge { border-radius: 14px; padding: 16px; border: 1px solid var(--line); background: var(--surface-2); text-align: center; }
+.riskstack__bar { height: 16px; border-radius: 999px; background: linear-gradient(90deg,var(--ok),var(--mid),var(--hi)); position: relative; margin: 8px 0; }
+.riskstack__bar i { position: absolute; top: -4px; width: 6px; height: 24px; background: var(--ink); border-radius: 3px; transition: left .25s; }
+.riskstack__level { font-weight: 700; font-size: 16px; }
+.riskstack__level.low { color: var(--ok); }
+.riskstack__level.mod { color: #a9750a; }
+.riskstack__level.high { color: var(--tg); }
+.riskstack__level.vhigh { color: var(--hi); }
+
+/* Viz 7 · Lifestyle → Lipid Effect */
+.lifelipid__opts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.lifelipid__opts button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border-radius: 12px;
+  padding: 10px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.lifelipid__opts button.active { background: var(--brand-soft); border-color: var(--brand); }
+.ll__gauges { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.ll__g { border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; background: var(--surface); }
+.ll__g h6 { margin: 0 0 6px; font-size: 13px; }
+.ll__g .arrow { font-size: 26px; font-weight: 700; }
+.ll__g.ldl h6 { color: var(--ldl); }
+.ll__g.tg h6 { color: var(--tg); }
+.ll__g.hdl h6 { color: var(--hdl); }
+.dir-down { color: var(--ok); }
+.dir-up { color: var(--hi); }
+.dir-neu { color: var(--ink-faint); }
+.lifelipid__note { margin-top: 12px; font-size: 13.5px; background: var(--surface-2); border-radius: 12px; padding: 12px 14px; }
+
+/* Viz 8 · Statin Mechanism */
+.statinmech__toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+.statinmech__toggle button { font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border: none; padding: 9px 20px; background: var(--surface); color: var(--ink-soft); }
+.statinmech__toggle button.active { background: var(--brand); color: #fff; }
+.sm__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sm__box { border: 1px solid var(--line); border-radius: 12px; padding: 14px; background: var(--surface); }
+.sm__box h6 { margin: 0 0 10px; font-size: 13.5px; }
+.sm__recept { display: flex; flex-wrap: wrap; gap: 6px; }
+.sm__recept span { width: 22px; height: 22px; border-radius: 5px 5px 10px 10px; background: var(--hdl); display: inline-block; }
+.sm__dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.sm__dots i { width: 16px; height: 16px; border-radius: 50%; background: var(--ldl); display: block; }
+.sm__desc { margin-top: 12px; font-size: 13.5px; background: var(--surface-2); border-radius: 12px; padding: 12px 14px; line-height: 1.6; }
+.sm__enzyme { font-size: 13px; font-weight: 700; }
+.sm__enzyme.blocked { color: var(--hi); text-decoration: line-through; }
+
+@media (max-width: 640px) {
+  .sm__grid { grid-template-columns: 1fr; }
+  .ll__gauges { grid-template-columns: 1fr; }
+}

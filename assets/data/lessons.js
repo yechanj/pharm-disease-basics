@@ -41,6 +41,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 3,
+    category: "core",
+    href: "lessons/core/03.html",
+    title: "이상지질혈증",
+    desc: "“LDL은 나쁘고 HDL은 좋다”를 넘어, 지질이 왜 lipoprotein에 실려 다니고 → LDL이 왜 동맥벽을 망가뜨리며 → non-HDL·apoB·Lp(a)로 무엇을 읽고 → statin·ezetimibe·PCSK9이 어디에 작용하는지를 하나의 흐름으로.",
+    tags: ["lipoprotein", "동맥경화", "LDL/non-HDL", "statin 기전", "ASCVD 위험"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

@@ -883,6 +883,132 @@
     compute();
   }
 
+  /* =========================================================
+     ==========  Core 03 · 이상지질혈증 인터랙션  ==========
+     ========================================================= */
+
+  /* ---------- Viz 3 · Atherosclerosis Timeline ---------- */
+  var ATHERO = [
+    { n: "0 · 정상 동맥", d: "얇고 탄력 있는 정상 혈관. 내피가 건강합니다.", plaque: 4 },
+    { n: "1 · LDL entry", d: "혈액 속 LDL particle이 내피 아래로 침투해 retention됩니다.", plaque: 12 },
+    { n: "2 · Foam cells", d: "변형·산화된 LDL을 macrophage가 섭취 → foam cell 형성.", plaque: 24 },
+    { n: "3 · Fatty streak", d: "여러 foam cell이 모여 초기 병변인 fatty streak.", plaque: 38 },
+    { n: "4 · Fibrous plaque", d: "lipid core·염증세포·평활근·fibrous cap으로 구성된 plaque가 혈관을 좁힘.", plaque: 56 },
+    { n: "5 · Plaque rupture", d: "plaque가 파열(또는 미란)되며 내부가 노출됩니다.", plaque: 66, rupture: true },
+    { n: "6 · Thrombus", d: "혈소판 활성화 → 혈전 → 급성 폐색 → 심근경색/뇌졸중.", plaque: 74, clot: true }
+  ];
+  function initAthero() {
+    var root = document.querySelector("[data-athero]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var plaque = root.querySelector(".athero__plaque");
+    var clot = root.querySelector(".athero__clot");
+    var stageEl = root.querySelector(".athero__stage");
+    var descEl = root.querySelector(".athero__desc");
+    var mi = root.querySelector(".oc.mi");
+    var stroke = root.querySelector(".oc.stroke");
+    function render() {
+      var i = parseInt(input.value, 10);
+      var s = ATHERO[i];
+      plaque.style.width = s.plaque + "%";
+      clot.classList.toggle("show", !!s.clot);
+      stageEl.textContent = s.n + "  ·  약 " + (i * 5) + "년";
+      descEl.textContent = s.d;
+      var acute = i >= 6;
+      if (mi) mi.classList.toggle("on", acute);
+      if (stroke) stroke.classList.toggle("on", acute);
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- Viz 6 · Cardiovascular Risk Stack ---------- */
+  function initRiskStack() {
+    var root = document.querySelector("[data-riskstack]");
+    if (!root) return;
+    var marker = root.querySelector(".riskstack__bar i");
+    var levelEl = root.querySelector(".riskstack__level");
+    function render() {
+      var sum = 0, max = 0;
+      root.querySelectorAll(".riskstack__opts button").forEach(function (b) {
+        var w = parseInt(b.getAttribute("data-w"), 10);
+        max += w;
+        if (b.classList.contains("active")) sum += w;
+      });
+      var pct = max ? sum / max * 100 : 0;
+      marker.style.left = "calc(" + pct + "% - 3px)";
+      var cls, txt;
+      if (sum === 0) { cls = "low"; txt = "Low"; }
+      else if (sum <= 2) { cls = "mod"; txt = "Moderate"; }
+      else if (sum <= 4) { cls = "high"; txt = "High"; }
+      else { cls = "vhigh"; txt = "Very high"; }
+      levelEl.className = "riskstack__level " + cls;
+      levelEl.textContent = "Overall ASCVD risk: " + txt;
+    }
+    root.querySelectorAll(".riskstack__opts button").forEach(function (b) {
+      b.addEventListener("click", function () { b.classList.toggle("active"); render(); });
+    });
+    render();
+  }
+
+  /* ---------- Viz 7 · Lifestyle → Lipid Effect ---------- */
+  var LIFELIPID = {
+    satfat: { ldl: "down", tg: "neu", hdl: "neu", note: "포화지방↓ → 간 LDL receptor 조절 등을 통해 주로 <b>LDL↓</b>. ‘무엇으로 대체하느냐’(불포화지방·질 좋은 탄수화물)가 중요합니다." },
+    weight: { ldl: "neu", tg: "down", hdl: "up", note: "체중 감소 → <b>TG↓</b> · insulin resistance↓ · HDL이 다소 오를 수 있음. TG↑+HDL↓ 형태에서 특히 중요." },
+    exercise: { ldl: "neu", tg: "down", hdl: "up", note: "운동은 LDL을 극적으로 낮추진 못해도 <b>TG↓</b>·insulin sensitivity·체중·BP·전반적 CV fitness를 개선." },
+    alcohol: { ldl: "neu", tg: "down", hdl: "neu", note: "음주↓ → 특히 <b>TG↓</b>. severe hypertriglyceridemia에서는 음주 여부를 반드시 확인." },
+    fiber: { ldl: "down", tg: "neu", hdl: "neu", note: "귀리·콩류 등 soluble fiber → bile acid/cholesterol 대사에 영향 → <b>LDL 다소↓</b>. 단, 매우 높은 LDL을 섬유질만으로 해결하려 하면 안 됩니다." }
+  };
+  function initLifeLipid() {
+    var root = document.querySelector("[data-lifelipid]");
+    if (!root) return;
+    var note = root.querySelector(".lifelipid__note");
+    var arrows = { down: "↓", up: "↑", neu: "↔" };
+    function setG(name, dir) {
+      var el = root.querySelector(".ll__g." + name + " .arrow");
+      if (!el) return;
+      el.textContent = arrows[dir];
+      el.className = "arrow dir-" + dir;
+    }
+    root.querySelectorAll(".lifelipid__opts button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll(".lifelipid__opts button").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        var d = LIFELIPID[b.getAttribute("data-act")];
+        setG("ldl", d.ldl); setG("tg", d.tg); setG("hdl", d.hdl);
+        if (note) note.innerHTML = d.note;
+      });
+    });
+  }
+
+  /* ---------- Viz 8 · Statin Mechanism ---------- */
+  function initStatinMech() {
+    var root = document.querySelector("[data-statinmech]");
+    if (!root) return;
+    var receptEl = root.querySelector(".sm__recept");
+    var dotsEl = root.querySelector(".sm__dots");
+    var enzymeEl = root.querySelector(".sm__enzyme");
+    var descEl = root.querySelector(".sm__desc");
+    function render(on) {
+      var receptors = on ? 7 : 3;
+      var ldl = on ? 2 : 6;
+      receptEl.innerHTML = new Array(receptors + 1).join("<span></span>");
+      dotsEl.innerHTML = new Array(ldl + 1).join("<i></i>");
+      enzymeEl.className = "sm__enzyme" + (on ? " blocked" : "");
+      enzymeEl.textContent = on ? "HMG-CoA reductase ✕ 차단" : "HMG-CoA reductase 작동";
+      descEl.innerHTML = on
+        ? "Statin이 간 cholesterol 합성을 억제 → 간이 “cholesterol 부족”을 감지 → <b>LDL receptor↑↑</b> → 혈액 속 LDL을 더 많이 회수 → <b>plasma LDL-C↓</b>. (혈액 속 LDL을 직접 녹이는 것이 아님)"
+        : "간에 cholesterol이 충분 → LDL receptor 수가 적어 혈액 속 LDL이 많이 남아 있습니다.";
+      root.querySelectorAll(".statinmech__toggle button").forEach(function (b) {
+        b.classList.toggle("active", (b.getAttribute("data-on") === "1") === on);
+      });
+    }
+    root.querySelectorAll(".statinmech__toggle button").forEach(function (b) {
+      b.addEventListener("click", function () { render(b.getAttribute("data-on") === "1"); });
+    });
+    render(false);
+  }
+
   /* ---------- init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
@@ -919,5 +1045,10 @@
     initInfoChips();
     initSymptomSorter();
     initAntiviral();
+    // Core 03 · 이상지질혈증
+    initAthero();
+    initRiskStack();
+    initLifeLipid();
+    initStatinMech();
   });
 })();
