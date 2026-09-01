@@ -7,8 +7,14 @@
 - 모바일(출퇴근) 열람 최적화 · 인터랙티브 시각화 포함
 - GitHub Pages로 호스팅
 
+## 카테고리(폴더)
+첫 페이지에서 두 폴더 중 하나를 선택합니다.
+- **Core Disease** (핵심 만성질환) — 고혈압, 당뇨병 …
+- **Everyday Disease** (일상적인 질환) — 감기·두통 등 (추가 예정)
+
 ## 강의
-- 제1강 · 고혈압 — 혈압 ≈ CO × SVR, RAAS, 진단 기준(대한고혈압학회·ESC·ACC/AHA), 생활습관, 6대 혈압약 지도
+- Core 1강 · 고혈압 — 혈압 ≈ CO × SVR, RAAS, 진단 기준(대한고혈압학회·ESC·ACC/AHA), 생활습관, 6대 혈압약 지도
+- Core 2강 · 당뇨병 — 혈당 생리, insulin resistance/β-cell, HbA1c, 합병증, 당뇨약 장기 지도
 
 ## 구조
 ```
@@ -23,6 +29,9 @@ assets/fonts/          SCDream · omyu pretty
 ## 새 강의 추가 방법
 1. `lessons/lesson-0N.html` 추가 (기존 강의 구조 복사)
 2. `assets/data/lessons.js`의 `PHARM_LESSONS` 배열에 항목 한 줄 등록
+   - `category`: `"core"` 또는 `"everyday"`
+   - `no`: 해당 폴더 안에서의 순번
+   - 허브의 폴더 선택·카드는 이 배열로부터 자동 생성됩니다.
 
 ## 로컬 확인
 정적 파일이므로 브라우저로 `index.html`을 열면 됩니다. (권장: 로컬 서버)

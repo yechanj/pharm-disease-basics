@@ -14,16 +14,18 @@
       <h1>약사를 위한 질병 기본교양</h1>
       <p>
         질병을 증상 암기가 아니라 <b>정상 생리 → 무엇이 잘못되나 → 왜 위험한가 → 약이 무엇을 건드리나</b>의
-        흐름으로 이해하는 교재입니다. 출퇴근 중 모바일로도 편하게 보세요.
+        흐름으로 이해하는 교재입니다. 아래에서 학습할 <b>폴더</b>를 먼저 선택하세요.
       </p>
     </header>
 
-    <section id="lessonGrid" class="lesson-grid" aria-label="강의 목록"></section>
+    <section id="folders" class="folder-grid" aria-label="카테고리 선택"></section>
+
+    <section id="lessonGrid" aria-label="강의 목록"></section>
   </main>
 
   <script src="assets/data/lessons.js"></script>
   <script>
-    window.PHARM_renderHub("#lessonGrid");
+    window.PHARM_renderHub("#folders", "#lessonGrid");
   </script>
 </body>
 </html>
