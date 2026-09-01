@@ -389,6 +389,300 @@
     });
   }
 
+  /* =========================================================
+     ===============  제2강 · 당뇨병 인터랙션  ===============
+     ========================================================= */
+
+  /* ---------- 오늘의 질문 옵션 (정답 미공개, 브릿지 메시지) ---------- */
+  function initCaseOptions() {
+    document.querySelectorAll("[data-case-options]").forEach(function (root) {
+      var out = root.querySelector("[data-case-bridge]");
+      root.querySelectorAll("button[data-opt]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          if (out) out.classList.add("show");
+        });
+      });
+    });
+  }
+
+  /* ---------- 시각화 1 · Glucose Journey ---------- */
+  function initGlucoseJourney() {
+    var root = document.querySelector("[data-glucose-journey]");
+    if (!root) return;
+    var blood = root.querySelector(".gj__blood");
+    var insulinOn = true;
+    var baseline = 3;
+    var count = baseline;
+    var uptake = { muscle: 0, liver: 0, adipose: 0 };
+    var timer = null;
+    var pill = root.querySelector(".gj__pill");
+    var levelEl = root.querySelector(".gj__level");
+    var organEls = {
+      muscle: root.querySelector("[data-organ-cnt='muscle']"),
+      liver: root.querySelector("[data-organ-cnt='liver']"),
+      adipose: root.querySelector("[data-organ-cnt='adipose']")
+    };
+    function renderDots() {
+      var html = "";
+      for (var i = 0; i < count; i++) html += "<span class='gj__dot'></span>";
+      blood.innerHTML = html;
+    }
+    function renderStatus() {
+      pill.className = "gj__pill " + (insulinOn ? "on" : "off");
+      pill.textContent = insulinOn ? "Insulin ON" : "Insulin OFF";
+      var lvl = count <= 5 ? "정상" : count <= 10 ? "식후 상승" : "높음";
+      levelEl.className = "gj__level " + (count <= 5 ? "bpband n" : count <= 10 ? "bpband e" : "bpband h");
+      levelEl.textContent = "혈당: " + lvl + " (glucose " + count + ")";
+      Object.keys(organEls).forEach(function (k) {
+        if (organEls[k]) organEls[k].textContent = uptake[k];
+      });
+    }
+    function tick() {
+      if (insulinOn && count > baseline) {
+        count -= 1;
+        var target = ["muscle", "liver", "adipose"][count % 3];
+        // liver는 "생산 억제"라 uptake로 세지 않고 근육/지방 위주
+        if (target === "liver") target = "muscle";
+        uptake[target] += 1;
+        renderDots(); renderStatus();
+      }
+    }
+    function ensureTimer() { if (!timer) timer = setInterval(tick, 500); }
+    root.querySelectorAll("[data-gj]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var act = btn.getAttribute("data-gj");
+        if (act === "eat") { count += 9; renderDots(); renderStatus(); ensureTimer(); }
+        else if (act === "insulin") { insulinOn = !insulinOn; renderStatus(); ensureTimer(); }
+        else if (act === "reset") { count = baseline; uptake = { muscle: 0, liver: 0, adipose: 0 }; insulinOn = true; renderDots(); renderStatus(); }
+      });
+    });
+    renderDots(); renderStatus();
+  }
+
+  /* ---------- 시각화 2 · Disease Progression ---------- */
+  function initProgression() {
+    var root = document.querySelector("[data-progression]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var stageEl = root.querySelector(".prog__stage");
+    var resFill = root.querySelector(".pbar.res .pbar__fill");
+    var secFill = root.querySelector(".pbar.sec .pbar__fill");
+    var glcFill = root.querySelector(".pbar.glc .pbar__fill");
+    var resV = root.querySelector(".pbar.res .v");
+    var secV = root.querySelector(".pbar.sec .v");
+    var glcV = root.querySelector(".pbar.glc .v");
+    var noteEl = root.querySelector(".prog__note");
+    var STAGES = [
+      { max: 15, cls: "s1", name: "Stage 1 · Normal", note: "저항 낮음 · 분비 정상 · 혈당 정상." },
+      { max: 40, cls: "s2", name: "Stage 2 · Insulin resistance", note: "저항↑ → β-cell이 더 많이 분비(보상). 혈당은 아직 거의 정상." },
+      { max: 60, cls: "s3", name: "Stage 3 · Prediabetes", note: "분비가 저항을 따라가기 어려워지며 혈당이 오르기 시작." },
+      { max: 82, cls: "s4", name: "Stage 4 · Type 2 diabetes", note: "β-cell 보상 부족 → 혈당 본격 상승." },
+      { max: 101, cls: "s5", name: "Stage 5 · Long-standing", note: "β-cell 기능 추가 감소 → 약물 강화·insulin 필요 가능." }
+    ];
+    function render() {
+      var p = parseInt(input.value, 10); // 0..100
+      var resistance = Math.min(100, 10 + p * 0.9);
+      // 분비: 초기 상승 후 하강(정점 ~45)
+      var secretion = p <= 45 ? 45 + p * 1.0 : Math.max(20, 90 - (p - 45) * 1.05);
+      // 혈당: ~35 이후 상승
+      var glucose = p <= 35 ? 20 : Math.min(100, 20 + (p - 35) * 1.25);
+      resFill.style.width = resistance + "%";
+      secFill.style.width = secretion + "%";
+      glcFill.style.width = glucose + "%";
+      if (resV) resV.textContent = Math.round(resistance);
+      if (secV) secV.textContent = Math.round(secretion);
+      if (glcV) glcV.textContent = Math.round(glucose);
+      var st = STAGES.filter(function (s) { return p < s.max; })[0] || STAGES[STAGES.length - 1];
+      stageEl.className = "prog__stage " + st.cls;
+      stageEl.textContent = st.name;
+      if (noteEl) noteEl.textContent = st.note;
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- 시각화 3 · Risk → Mechanism Map (당뇨) ---------- */
+  var DIAB_RISK = {
+    obesity: { label: "복부비만 (visceral)", chain: "FFA↑ · inflammation · adipokine 변화 → <b>insulin resistance↑</b>" },
+    inactive: { label: "운동 부족", chain: "muscle glucose utilization↓ → <b>insulin sensitivity↓</b> · 체중·visceral fat↑" },
+    genetics: { label: "유전", chain: "β-cell susceptibility · insulin action에 영향 (조절 어려운 요인)" },
+    steroid: { label: "Glucocorticoids", chain: "hepatic glucose output↑ · <b>insulin resistance↑</b> (약물 유발)" },
+    diet: { label: "식사 패턴", chain: "총 에너지 과잉 · 정제 탄수화물 · 당 음료 → 체중↑ → 대사 악화" },
+    age: { label: "나이", chain: "가령에 따른 위험↑ (단, 젊은 T2DM도 증가)" }
+  };
+  function initDiabRisk() {
+    var root = document.querySelector("[data-diabrisk]");
+    if (!root) return;
+    var out = root.querySelector(".riskmap__out");
+    root.querySelectorAll(".riskcard").forEach(function (card) {
+      card.addEventListener("click", function () {
+        root.querySelectorAll(".riskcard").forEach(function (c) { c.classList.remove("active"); });
+        card.classList.add("active");
+        var d = DIAB_RISK[card.getAttribute("data-risk")];
+        if (d) out.innerHTML = "<b>" + d.label + "</b><br>" + d.chain + "<div class='paths'><span class='pathtag sns'>→ Hyperglycemia</span></div>";
+      });
+    });
+  }
+
+  /* ---------- 시각화 4 · HbA1c Time Machine ---------- */
+  function initHbA1c() {
+    var root = document.querySelector("[data-hba1c]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var barsEl = root.querySelector(".hba1c__bars");
+    var numEl = root.querySelector(".hba1c__gauge .num");
+    var eagEl = root.querySelector(".hba1c__gauge .eag");
+    var bandEl = root.querySelector(".hba1c__gauge .band");
+    // 12주: 앞 8주 안정(≈120), 최근 4주 slider로 변동
+    barsEl.innerHTML = "";
+    for (var w = 0; w < 12; w++) {
+      var wk = document.createElement("div");
+      wk.className = "wk" + (w >= 8 ? " recent" : "");
+      wk.innerHTML = "<i></i>";
+      barsEl.appendChild(wk);
+    }
+    function render() {
+      var s = parseInt(input.value, 10); // 0..100
+      var recentG = 110 + s * 1.4;       // 최근 4주 평균 glucose
+      var oldG = 120;
+      var weeks = [];
+      var wsum = 0, gsum = 0;
+      for (var w = 0; w < 12; w++) {
+        var g = w >= 8 ? recentG : oldG;
+        var weight = w >= 8 ? 2.0 : 1.0; // 최근을 더 크게 반영
+        weeks.push(g);
+        wsum += weight; gsum += g * weight;
+      }
+      var avg = gsum / wsum;
+      var a1c = (avg + 46.7) / 28.7;
+      var bars = barsEl.querySelectorAll(".wk i");
+      weeks.forEach(function (g, i) {
+        bars[i].style.height = Math.min(100, (g - 80) * 0.9) + "px";
+      });
+      numEl.textContent = a1c.toFixed(1) + "%";
+      eagEl.textContent = "추정 평균혈당 ≈ " + Math.round(avg) + " mg/dL";
+      var cls = "n", txt = "정상 범위";
+      if (a1c >= 6.5) { cls = "h"; txt = "당뇨병 범위"; }
+      else if (a1c >= 5.7) { cls = "e"; txt = "전당뇨병 범위"; }
+      bandEl.className = "band bpband " + cls;
+      bandEl.textContent = txt;
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- 시각화 6 · Organ Damage Explorer ---------- */
+  var ODAMAGE = {
+    retina: { name: "👁 망막", what: "고혈당이 미세혈관을 손상시켜 당뇨병망막병증이 진행합니다.", feel: "초기엔 무증상, 진행되면 시야 흐림·비문·시력저하.", check: "정기 안저검사(fundus)." },
+    kidney: { name: "🫘 콩팥", what: "사구체 미세혈관 손상으로 당뇨병신장질환이 진행합니다.", feel: "초기 무증상, 진행 시 부종·단백뇨.", check: "urine albumin(ACR) · eGFR." },
+    nerve: { name: "🦶 신경", what: "말초신경 손상으로 감각이 저하됩니다.", feel: "손발 저림·통증·감각 둔화. 상처를 잘 못 느낌.", check: "monofilament 등 발 감각 검사 · 정기 발 관리." },
+    coronary: { name: "❤️ 관상동맥", what: "대혈관 죽상경화로 관상동맥질환·심근경색 위험↑.", feel: "흉통·호흡곤란(무증상 허혈도 가능).", check: "심혈관 위험 평가 · 지질 · 혈압." },
+    brain: { name: "🧠 뇌혈관", what: "죽상경화로 뇌졸중 위험이 증가합니다.", feel: "갑작스런 마비·언어장애·시야 변화.", check: "혈압·지질·흡연 등 위험요인 관리." },
+    peripheral: { name: "🦵 말초동맥", what: "말초동맥질환으로 하지 혈류가 감소합니다.", feel: "보행 시 다리 통증(파행)·상처 회복 지연.", check: "맥박·ABI 등 · 발 관리." }
+  };
+  function initOrganExplorer() {
+    var root = document.querySelector("[data-organ-explorer]");
+    if (!root) return;
+    var panel = root.querySelector(".oexp__panel");
+    function show(key) {
+      var d = ODAMAGE[key];
+      if (!d) return;
+      root.querySelectorAll(".otab").forEach(function (t) { t.classList.toggle("active", t.getAttribute("data-organ") === key); });
+      panel.innerHTML =
+        "<div class='oexp__row'><span class='k'>무슨 일이?</span>" + d.what + "</div>" +
+        "<div class='oexp__row'><span class='k'>환자는 어떻게 느낄까?</span>" + d.feel + "</div>" +
+        "<div class='oexp__row'><span class='k'>무엇을 검사할까?</span>" + d.check + "</div>";
+    }
+    root.querySelectorAll(".otab").forEach(function (t) {
+      t.addEventListener("click", function () { show(t.getAttribute("data-organ")); });
+    });
+    var first = root.querySelector(".otab");
+    if (first) show(first.getAttribute("data-organ"));
+  }
+
+  /* ---------- 시각화 8 · Drug Organ Map ---------- */
+  function initDrugOrganMap() {
+    var root = document.querySelector("[data-drugmap2]");
+    if (!root) return;
+    var cards = Array.prototype.slice.call(root.querySelectorAll(".dcard"));
+    // 카드 펼치기
+    cards.forEach(function (card) {
+      var head = card.querySelector(".dcard__head");
+      head.addEventListener("click", function () { card.classList.toggle("open"); });
+    });
+    // 장기 칩으로 필터/강조
+    root.querySelectorAll(".dorgan").forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var organ = chip.getAttribute("data-organ");
+        var isActive = chip.classList.contains("active");
+        root.querySelectorAll(".dorgan").forEach(function (c) { c.classList.remove("active"); });
+        cards.forEach(function (c) { c.classList.remove("dim", "match"); });
+        if (isActive || organ === "all") return;
+        chip.classList.add("active");
+        cards.forEach(function (c) {
+          if ((c.getAttribute("data-organs") || "").indexOf(organ) >= 0) c.classList.add("match");
+          else c.classList.add("dim");
+        });
+      });
+    });
+  }
+
+  /* ---------- Hypoglycemia Case Simulator ---------- */
+  function initHypoSim() {
+    var root = document.querySelector("[data-hyposim]");
+    if (!root) return;
+    var state = { med: "metformin", meal: "normal", ex: "none" };
+    var out = root.querySelector(".hypo__result");
+    var riskEl = out.querySelector(".hypo__risk");
+    var expEl = out.querySelector(".hypo__exp");
+    // med 위험 가중(단독 기준 큰 그림)
+    var MED_BASE = { metformin: 0, sglt2: 0, dpp4: 0, su: 2, insulin: 3 };
+    var MEAL = { normal: 0, half: 1, fast: 2 };
+    var EX = { none: 0, min30: 1, min90: 2 };
+    var MED_LABEL = { metformin: "Metformin", sglt2: "SGLT2 inhibitor", dpp4: "DPP-4 inhibitor", su: "Sulfonylurea", insulin: "Insulin" };
+    function compute() {
+      var base = MED_BASE[state.med];
+      var score = base;
+      // 저혈당 유발약일 때만 식사/운동이 위험을 크게 키움
+      if (base >= 2) { score += MEAL[state.meal] + EX[state.ex]; }
+      else { score += Math.max(0, MEAL[state.meal] - 1) * 0.3; }
+      var cls, txt, exp;
+      if (base < 2) {
+        cls = "low"; txt = "저혈당 위험: 낮음";
+        exp = MED_LABEL[state.med] + "은 단독으로는 저혈당 위험이 낮은 약입니다. 식사·운동만으로 심한 저혈당을 잘 일으키지 않습니다. (단, insulin/SU와 병용하면 달라집니다.)";
+      } else if (score >= 5) {
+        cls = "high"; txt = "저혈당 위험: 높음 🔴";
+        exp = MED_LABEL[state.med] + "은 insulin secretion을 늘리거나 insulin 그 자체입니다. 여기에 " +
+          (state.meal === "fast" ? "금식" : state.meal === "half" ? "식사량 감소" : "정상식") +
+          " + " + (state.ex === "min90" ? "장시간 운동" : state.ex === "min30" ? "운동" : "운동 없음") +
+          " 조합 → “Insulin은 증가한 상태인데 외부 glucose 공급이 감소”해 저혈당 위험이 큽니다.";
+      } else if (score >= 3) {
+        cls = "mid"; txt = "저혈당 위험: 중간";
+        exp = MED_LABEL[state.med] + " 사용 중에는 식사를 거르거나 운동이 늘면 저혈당 위험이 올라갈 수 있습니다. 규칙적 식사와 혈당 확인을 권합니다.";
+      } else {
+        cls = "low"; txt = "저혈당 위험: 낮음~중간";
+        exp = MED_LABEL[state.med] + " 사용 중이지만 현재 조합에서는 위험이 크지 않습니다. 그래도 식사·활동 변화 시 주의가 필요합니다.";
+      }
+      riskEl.className = "hypo__risk " + cls;
+      riskEl.textContent = txt;
+      expEl.textContent = exp;
+    }
+    root.querySelectorAll(".hypo__opts").forEach(function (grp) {
+      var key = grp.getAttribute("data-group");
+      grp.querySelectorAll("button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          grp.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
+          b.classList.add("active");
+          state[key] = b.getAttribute("data-val");
+          compute();
+        });
+      });
+      var first = grp.querySelector("button");
+      if (first) first.classList.add("active");
+    });
+    compute();
+  }
+
   /* ---------- init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
@@ -406,5 +700,14 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // 제2강 · 당뇨병
+    initCaseOptions();
+    initGlucoseJourney();
+    initProgression();
+    initDiabRisk();
+    initHbA1c();
+    initOrganExplorer();
+    initDrugOrganMap();
+    initHypoSim();
   });
 })();

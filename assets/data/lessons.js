@@ -13,6 +13,14 @@ window.PHARM_LESSONS = [
   },
   {
     no: 2,
+    href: "lessons/lesson-02.html",
+    title: "당뇨병",
+    desc: "“단 걸 많이 먹어서 생기는 병”이라는 오해를 넘어, 정상 혈당 조절 → insulin resistance·β-cell dysfunction → 진단(HbA1c) → 합병증 → 약이 어느 장기를 고치는가를 하나의 모델로. 저혈당 위험까지.",
+    tags: ["혈당 생리", "Insulin resistance", "HbA1c", "약물 장기지도", "저혈당"],
+    status: "ready"
+  },
+  {
+    no: 3,
     href: "#",
     title: "(준비 중)",
     desc: "다음 강의가 곧 추가됩니다.",

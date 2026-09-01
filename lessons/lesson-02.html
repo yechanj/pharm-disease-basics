@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제2강 · 당뇨병 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="당뇨병을 정상 혈당 조절 → insulin resistance → 진단 → 합병증 → 약물로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제2강 · 당뇨병</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">DM</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제2강 · 당뇨병</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#normal"><span class="num">1</span> 정상적인 혈당 조절</a></li>
+          <li><a href="#wrong"><span class="num">2</span> 무엇이 잘못되는가</a></li>
+          <li><a href="#types"><span class="num">3</span> 제1형 vs 제2형</a></li>
+          <li><a href="#cause"><span class="num">4</span> 원인과 위험요인</a></li>
+          <li><a href="#symptom"><span class="num">5</span> 증상과 Red Flags</a></li>
+          <li><a href="#diagnose"><span class="num">6</span> 진단 · HbA1c</a></li>
+          <li><a href="#complication"><span class="num">7</span> 합병증</a></li>
+          <li><a href="#treat"><span class="num">8</span> 치료의 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">9</span> 생활습관 치료</a></li>
+          <li><a href="#drugs"><span class="num">10</span> 약물 지도</a></li>
+          <li><a href="#deepdive"><span class="num">11</span> Deep Dive</a></li>
+          <li><a href="#faq"><span class="num">12</span> 비교 · FAQ · 팩트체크</a></li>
+          <li><a href="#case"><span class="num">13</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">14</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">15</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제2강</div>
+          <h1>당뇨병</h1>
+          <p>“단 걸 많이 먹어서 생기는 병”이라는 오해를 넘어 —
+            <b>정상 혈당 조절 → insulin resistance → 진단 → 합병증 → 약이 어느 장기를 고치는가</b>를 하나의 모델로 잡습니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이 강의의 범위와 근거</div>
+          <p>전체 개념을 잡되, 성인에서 가장 흔한 <b>제2형 당뇨병(T2DM)</b>을 중심으로 구성하고 제1형은 차이를 이해할 만큼 다룹니다.
+            근거의 기본 축은 <b>대한당뇨병학회 2025 진료지침(제9판)</b>과 <b>ADA Standards of Care 2026</b>입니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <p class="lead">“당뇨는 단 걸 많이 먹어서 생기는 병인가요?”</p>
+
+          <div class="case-hero">
+            <div class="who">47세 남성 · 건강검진</div>
+            <div class="bp" style="font-size:clamp(30px,8vw,46px);">공복혈당 132 <small>mg/dL</small></div>
+            <div class="bp" style="font-size:clamp(30px,8vw,46px);margin-top:0;">HbA1c 6.8 <small>%</small></div>
+            <div class="quote">“콜라도 거의 안 마시고 디저트도 별로 안 먹는데 왜 당뇨가 생겼죠? 200, 300씩 나오는 것도 아닌데 그렇게 위험한가요?”</div>
+            <div style="font-weight:700;margin-bottom:8px;">가장 먼저 떠오르는 설명은?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 설탕을 많이 먹었기 때문이다.</button>
+              <button data-opt="B"><span class="opt">B</span> 인슐린이 아예 나오지 않기 때문이다.</button>
+              <button data-opt="C"><span class="opt">C</span> 혈당을 처리하는 시스템의 균형이 무너졌다.</button>
+              <button data-opt="D"><span class="opt">D</span> 아직 당뇨라고 볼 수 없다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 바로 공개하지 않습니다 — <b>먼저 정상적인 혈당 조절부터 확인해봅시다.</b></div>
+            </div>
+          </div>
+
+          <p>강의가 끝난 뒤에는 다음을 설명할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>단 음식을 먹는 것과 당뇨병은 어떤 관계인가?</li>
+            <li>혈당이 왜 지속적으로 높아지는가?</li>
+            <li>인슐린 저항성과 인슐린 부족은 어떻게 다른가?</li>
+            <li>왜 당뇨병이 눈·콩팥·신경·심혈관을 망가뜨릴 수 있는가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 정상 혈당 조절 ================= -->
+        <section id="normal" class="section">
+          <h2><span class="sec-no">01</span> 정상적인 몸에서는</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>당뇨병</b>이란 인슐린 분비가 부족하거나 인슐린이 충분히 작용하지 못해 혈액 속 포도당이 <b>만성적으로 높아지는 질환군</b>입니다.
+              핵심은 “피에 설탕이 많다”가 아니라, 장기간 높은 혈당·대사 이상이 <b>혈관·신경·콩팥·망막·심장</b>에 손상을 축적한다는 점입니다.</p>
+          </div>
+
+          <h3>1-1. 밥을 먹으면</h3>
+          <blockquote>탄수화물 → 소화 → glucose → 소장 흡수 → 혈액으로 → 혈당 상승</blockquote>
+          <p>식후 혈당이 오르는 것은 <b>정상</b>입니다. 문제는 <b>올라간 혈당을 다시 적절히 내려놓을 수 있느냐</b>입니다.</p>
+
+          <h3>1-2. 인슐린의 등장</h3>
+          <p>혈당이 오르면 췌장의 β-cell이 감지해 insulin을 분비합니다. 인슐린은 단순한 “혈당 낮추는 호르몬”이 아니라
+            몸에 <b>“에너지가 들어왔으니 사용하고 저장하라”</b>는 신호를 보내는 호르몬입니다.</p>
+          <div class="axis3">
+            <div class="axis3__card pump"><div class="ico">💪</div><h5>근육</h5><p>glucose uptake↑ → 사용하거나 glycogen으로 저장</p></div>
+            <div class="axis3__card volume"><div class="ico">🧈</div><h5>지방조직</h5><p>glucose 이용·지방 저장↑ · lipolysis 억제</p></div>
+            <div class="axis3__card pipes"><div class="ico">🫀</div><h5>간</h5><p>“glucose 충분하니 새로 만들지 마” → hepatic glucose production↓</p></div>
+          </div>
+          <div class="oneline">혈당 조절은 <b>넣는 것(음식+간 생산)</b>과 <b>빼는 것(근육·지방·장기 이용)</b>의 균형이다.</div>
+
+          <h3>1-3. 시각화 · 식후 혈당 Journey</h3>
+          <p><b>식사하기</b>를 누르면 glucose가 혈액으로 들어오고, 인슐린이 켜져 있으면 근육·지방으로 이동합니다. <b>인슐린을 끄면</b> 어떻게 되는지 보세요.</p>
+          <div class="figure" data-glucose-journey>
+            <div class="figure__title">시각화 1 · Meal → Glucose → Insulin</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+              <button class="btn" data-gj="eat">🍚 식사하기</button>
+              <button class="btn btn--ghost" data-gj="insulin">인슐린 ON / OFF</button>
+              <button class="btn btn--ghost" data-gj="reset">↺ 리셋</button>
+            </div>
+            <div class="gj__blood"></div>
+            <div class="gj__organs">
+              <div class="gj__organ"><div class="ico">💪</div><h6>근육</h6><div class="cnt" data-organ-cnt="muscle">0</div><div class="act">glucose uptake</div></div>
+              <div class="gj__organ"><div class="ico">🫀</div><h6>간</h6><div class="cnt">–</div><div class="act">glucose 생산 억제</div></div>
+              <div class="gj__organ"><div class="ico">🧈</div><h6>지방</h6><div class="cnt" data-organ-cnt="adipose">0</div><div class="act">glucose uptake</div></div>
+            </div>
+            <div class="gj__readout"><span class="gj__pill on"></span><span class="gj__level"></span></div>
+            <div class="figure__cap">인슐린을 끄면 glucose가 혈액에 남습니다 — 뒤의 당뇨병 상태와 연결됩니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 인슐린이 제대로 작용하지 않는다면?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 근육의 glucose uptake 증가</li>
+              <li data-opt="B"><span class="opt">B</span> 간의 glucose 생산 억제 증가</li>
+              <li data-opt="C"><span class="opt">C</span> 혈액 속 glucose가 쉽게 축적</li>
+              <li data-opt="D"><span class="opt">D</span> 지방분해 감소</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C
+              <div class="exp">인슐린 작용이 감소하면 말초 조직의 glucose 이용이 줄고 간의 glucose 생산도 충분히 억제되지 않아 혈당이 상승합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 무엇이 잘못되는가 ================= -->
+        <section id="wrong" class="section">
+          <h2><span class="sec-no">02</span> 무엇이 잘못된 것인가</h2>
+          <p>제2형 당뇨병의 핵심은 <b>둘 다</b>입니다.</p>
+          <div class="twopanel">
+            <div class="panel panel--drug"><h5>① Insulin resistance</h5><p style="margin:0;font-size:13.5px;">인슐린이 분비되는데도 조직이 신호에 충분히 반응하지 못함.</p></div>
+            <div class="panel panel--drug"><h5>② Progressive β-cell dysfunction</h5><p style="margin:0;font-size:13.5px;">시간이 지나며 인슐린 분비 능력 자체가 감소.</p></div>
+          </div>
+
+          <h3>2-1. Insulin resistance란</h3>
+          <blockquote>인슐린이 “문을 열라”고 신호를 보내는데 조직이 예전만큼 잘 반응하지 않는 상태.</blockquote>
+          <p>그러면 몸은 췌장이 insulin을 <b>더 많이</b> 만들어 대응합니다 → <b>compensatory hyperinsulinemia</b>로 당분간 혈당을 유지합니다.</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>초기엔 인슐린이 “부족하기만” 한 게 아니다</div>
+            <p>T2DM 초기에는 상당 기간 <b>insulin resistance + 보상성 hyperinsulinemia</b> 상태일 수 있습니다.</p>
+          </div>
+
+          <h3>2-2. 그런데 왜 결국 당뇨병이 될까</h3>
+          <blockquote>β-cell 기능 저하 → insulin 분비 능력↓ → 저항을 더는 보상 못함 → 혈당 지속 상승 → 제2형 당뇨병</blockquote>
+
+          <h3>2-3. 시각화 · 당뇨병 진행 Timeline</h3>
+          <p>슬라이더를 움직여 <b>insulin resistance</b>, <b>insulin secretion</b>, <b>glucose</b>가 어떻게 변하는지 보세요. 초기엔 분비가 올라갔다가 후기에 내려갑니다.</p>
+          <div class="figure" data-progression>
+            <div class="figure__title">시각화 2 · Disease Progression</div>
+            <div style="text-align:center;"><span class="prog__stage s1"></span></div>
+            <div class="pbar res"><div class="pbar__lab"><span>Insulin resistance</span><span><span class="v"></span></span></div><div class="pbar__track"><div class="pbar__fill"></div></div></div>
+            <div class="pbar sec"><div class="pbar__lab"><span>Insulin secretion</span><span><span class="v"></span></span></div><div class="pbar__track"><div class="pbar__fill"></div></div></div>
+            <div class="pbar glc"><div class="pbar__lab"><span>Glucose</span><span><span class="v"></span></span></div><div class="pbar__track"><div class="pbar__fill"></div></div></div>
+            <div class="prog__slider"><input type="range" min="0" max="100" step="1" value="5" aria-label="질병 진행" /></div>
+            <div class="prog__note"></div>
+          </div>
+          <div class="oneline">제2형 당뇨병은 “인슐린이 없다”가 아니다 — <b>보상하다 못 따라가는 순간</b> 고혈당이 드러난다.</div>
+
+          <h3>2-4. 공복혈당은 왜 올라갈까</h3>
+          <p>“아무것도 안 먹었는데 왜 아침 혈당이 높죠?” — 핵심은 <b>간</b>입니다. 밤새 간은 glycogenolysis·gluconeogenesis로 glucose를 공급하는데,
+            정상이라면 insulin이 이를 억제합니다. 하지만 <b>hepatic insulin resistance</b>가 있으면 혈당이 이미 높은데도 간이 glucose 생산을 충분히 멈추지 않아 공복혈당이 상승합니다.</p>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 공복인데도 혈당이 높은 사람과 가장 관련 있는 현상은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 장에서 glucose 흡수가 계속됨</li>
+              <li data-opt="B"><span class="opt">B</span> 간의 glucose production이 충분히 억제되지 않음</li>
+              <li data-opt="C"><span class="opt">C</span> 신장이 insulin을 과도하게 생성</li>
+              <li data-opt="D"><span class="opt">D</span> 췌장이 glucagon을 완전히 만들지 못함</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">특히 T2DM에서는 hepatic insulin resistance가 공복혈당 상승에 중요한 역할을 합니다.</div>
+            </div>
+          </div>
+
+          <h3>2-5. Glucagon도 중요하다</h3>
+          <p>췌장 α-cell의 <b>glucagon</b>은 간에 “glucose를 혈액으로 내보내라”고 신호합니다. 정상은 식후 glucagon이 적절히 억제되지만,
+            T2DM에서는 이 조절이 비정상적일 수 있어 <b>hepatic glucose output↑</b>에 기여합니다.</p>
+        </section>
+
+        <!-- ================= 3 · 제1형 vs 제2형 ================= -->
+        <section id="types" class="section">
+          <h2><span class="sec-no">03</span> 왜 생기는가 · 제1형 vs 제2형</h2>
+          <div class="twopanel">
+            <div class="panel panel--drug">
+              <h5>Type 1</h5>
+              <ol><li>자가면역으로 β-cell 파괴</li><li>absolute insulin deficiency</li><li>insulin 없이는 생존 어려움</li></ol>
+            </div>
+            <div class="panel panel--normal">
+              <h5>Type 2</h5>
+              <ol><li>유전 소인 + 환경요인</li><li>insulin resistance</li><li>progressive β-cell dysfunction</li></ol>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>제1형</th><th>제2형</th></tr></thead>
+              <tbody>
+                <tr><th>핵심</th><td>insulin 절대 부족</td><td>resistance + 상대적 부족</td></tr>
+                <tr><th>주요 기전</th><td>β-cell autoimmune destruction</td><td>다인성</td></tr>
+                <tr><th>흔한 연령</th><td>모든 연령(소아·청소년 포함)</td><td>주로 성인, 젊은 층도 증가</td></tr>
+                <tr><th>체형</th><td>마른 경우도 많음</td><td>비만·복부비만 흔하나 필수 아님</td></tr>
+                <tr><th>insulin</th><td>필수</td><td>상황에 따라 필요</td></tr>
+                <tr><th>DKA</th><td>특히 중요</td><td>가능하나 상대적으로 덜 흔함</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 위험요인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">04</span> 위험요인 · Risk → Mechanism</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>대한당뇨병학회 2025 · 대표 위험요인</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>BMI ≥23 kg/m²의 과체중/비만 · 복부비만</li>
+              <li>1촌 가족력 · 전당뇨병 · 임신성당뇨 과거력</li>
+              <li>고혈압 · 이상지질혈증 · PCOS 등 insulin resistance 상태 · 심혈관질환 병력</li>
+              <li>glucocorticoid, atypical antipsychotic 등 약물</li>
+            </ul>
+          </div>
+
+          <p>각 위험요인을 <b>탭</b>하면 어떤 기전으로 <b>Hyperglycemia</b>에 연결되는지 표시됩니다.</p>
+          <div class="figure" data-diabrisk>
+            <div class="figure__title">시각화 3 · Risk Factor → Mechanism Map</div>
+            <div class="riskmap__center">Hyperglycemia</div>
+            <div class="riskmap__grid">
+              <div class="riskcard" data-risk="obesity"><span class="ico">⚖️</span>복부비만</div>
+              <div class="riskcard" data-risk="inactive"><span class="ico">🛋️</span>운동 부족</div>
+              <div class="riskcard" data-risk="genetics"><span class="ico">🧬</span>유전</div>
+              <div class="riskcard" data-risk="steroid"><span class="ico">💊</span>Glucocorticoids</div>
+              <div class="riskcard" data-risk="diet"><span class="ico">🍔</span>식사 패턴</div>
+              <div class="riskcard" data-risk="age"><span class="ico">⏳</span>나이</div>
+            </div>
+            <div class="riskmap__out">위험요인 카드를 눌러 기전을 확인하세요.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 포인트 · 약물로도 생긴다</div>
+            <p><b>glucocorticoids · atypical antipsychotics · 일부 면역억제제</b> 등이 혈당을 올릴 수 있습니다.
+              특히 스테로이드는 <b>hepatic glucose production↑ · insulin resistance↑</b>로 혈당을 크게 올릴 수 있어 약력 검토가 중요합니다.</p>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>단순화 주의</div>
+            <p>“설탕만 많이 먹으면 당뇨”는 지나친 단순화입니다. 더 중요한 것은 장기간의 <b>총 에너지 과잉·체중 증가·정제 탄수화물 중심·낮은 식이섬유·당 음료</b> 등 전체 식사 패턴입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 증상 / Red Flags ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">05</span> 어떤 증상이 나타나는가</h2>
+          <div class="oneline">제2형 당뇨병은 초기에는 아무 증상도 없을 수 있다 — 그래서 건강검진에서 처음 발견되는 경우가 많다.</div>
+
+          <h3>혈당이 상당히 오르면 나타나는 고전 증상</h3>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>Polyuria (다뇨)</h5><p>혈당↑ → 신장이 glucose 재흡수 못함 → osmotic diuresis → 소변량↑</p></div>
+            <div class="axis3__card pipes"><h5>Polydipsia (다음)</h5><p>수분 소실 → 탈수 → 갈증↑</p></div>
+            <div class="axis3__card pump"><h5>Polyphagia (다식)</h5><p>혈액엔 glucose 많아도 세포가 활용 못함 → 에너지 부족 신호</p></div>
+            <div class="axis3__card"><h5>체중 감소</h5><p>insulin deficiency 심하면 지방·단백질 분해↑</p></div>
+          </div>
+          <p>그 외 <b>피로·시야 흐림·상처 치유 지연·반복 감염·genital candidiasis·손발 저림</b> 등이 있을 수 있으나, 이것만으로 진단하지는 않습니다.</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 즉시 평가</div>
+            <ul class="clean" style="margin-bottom:8px;">
+              <li><b>DKA 의심</b> — 심한 갈증/다뇨 · 오심/구토 · 복통 · 탈수 · 빠르고 깊은 호흡 · 의식 변화 (특히 제1형)</li>
+              <li><b>HHS 의심</b> — 고령 T2DM에서 매우 심한 고혈당 · 심한 탈수 · 의식 변화</li>
+              <li><b>심한 저혈당</b> — 치료 중 혼돈·의식저하·경련·외부 도움 필요</li>
+            </ul>
+            <p style="margin-bottom:0;">대한당뇨병학회는 저혈당을 <b>&lt;70(level 1)</b>, <b>&lt;54(level 2)</b>, 외부 도움이 필요한 중증(level 3)으로 분류합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 진단 · HbA1c ================= -->
+        <section id="diagnose" class="section">
+          <h2><span class="sec-no">06</span> 어떻게 진단하는가</h2>
+          <p>진단은 네 가지 길로 생각하면 쉽습니다. (ADA 2026도 동일 기준. 명백한 고혈당이 아니라면 반복 확인이 필요합니다.)</p>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>검사</th><th>당뇨병 기준</th></tr></thead>
+              <tbody>
+                <tr><th>HbA1c</th><td class="cov-no-c">≥6.5%</td></tr>
+                <tr><th>Fasting glucose (8h 공복)</th><td class="cov-no-c">≥126 mg/dL</td></tr>
+                <tr><th>2h OGTT (75g)</th><td class="cov-no-c">≥200 mg/dL</td></tr>
+                <tr><th>Random glucose + 전형적 증상</th><td class="cov-no-c">≥200 mg/dL</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>6-1. HbA1c는 무엇인가</h3>
+          <blockquote>혈당↑ → hemoglobin glycation↑ → HbA1c↑</blockquote>
+          <p>HbA1c는 대략 <b>최근 2~3개월의 평균 혈당 노출</b>을 반영하며(최근 혈당이 조금 더 크게 반영), 공복이 필요 없다는 장점이 있습니다.
+            다만 <b>완벽한 검사는 아닙니다</b> — 적혈구 수명에 영향을 받으므로 <b>anemia 일부 · hemolysis · 최근 수혈 · hemoglobin variant · 임신 · advanced CKD</b> 등에서는 해석에 주의합니다.</p>
+
+          <h3>6-2. 시각화 · HbA1c Time Machine</h3>
+          <p>슬라이더로 <b>최근 4주 혈당</b>을 올리면 HbA1c가 비교적 빠르게 반응합니다.</p>
+          <div class="figure" data-hba1c>
+            <div class="figure__title">시각화 4 · HbA1c는 오늘의 혈당이 아니다</div>
+            <div class="hba1c__bars"></div>
+            <div class="hba1c__axis"><span>12주 전</span><span>최근 4주</span></div>
+            <div class="hba1c__gauge">
+              <div class="num"></div>
+              <div class="eag"></div>
+              <div><span class="band"></span></div>
+            </div>
+            <div class="hba1c__slider"><input type="range" min="0" max="100" step="1" value="10" aria-label="최근 4주 혈당" /></div>
+            <div class="figure__cap">HbA1c = 일정 기간 누적된 glycemic exposure의 지표.</div>
+          </div>
+
+          <h3>6-3. 공복혈당과 HbA1c가 다르면?</h3>
+          <p>예: FPG 118, HbA1c 6.7% — 실제로 가능합니다. 검사마다 보는 측면이 다르기 때문입니다.</p>
+          <ul class="clean">
+            <li><b>FPG</b> → 특정 시점의 fasting state</li>
+            <li><b>HbA1c</b> → 장기간 평균적 exposure</li>
+            <li><b>OGTT</b> → glucose challenge 처리능력</li>
+          </ul>
+
+          <h3>6-4. 전당뇨병 & Glucose Spectrum</h3>
+          <div class="figure">
+            <div class="figure__title">시각화 5 · Glucose Spectrum</div>
+            <div class="spectrum">
+              <div class="spectrum__row normal"><span class="lab">Normal</span><span class="fpg">FPG &lt;100</span><span class="a1c">A1c &lt;5.7</span></div>
+              <div class="spectrum__arrow">↓</div>
+              <div class="spectrum__row pre"><span class="lab">Prediabetes</span><span class="fpg">FPG 100–125</span><span class="a1c">A1c 5.7–6.4</span></div>
+              <div class="spectrum__arrow">↓</div>
+              <div class="spectrum__row dm"><span class="lab">Diabetes</span><span class="fpg">FPG ≥126</span><span class="a1c">A1c ≥6.5</span></div>
+            </div>
+            <div class="figure__cap">경계값은 행정적·임상적 판단을 위한 선이다. 대사 위험이 하루아침에 바뀌는 것은 아니다.</div>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>전당뇨병 = “아무것도 안 해도 된다”가 아니다</div>
+            <p>IFG(FPG 100–125), HbA1c 5.7–6.4%는 <b>T2DM 발생 위험이 증가한 상태</b>로 이해해야 합니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ③</span> HbA1c 6.8%인데 오늘 공복혈당이 112 mg/dL이면 당뇨병 가능성을 무시해도 될까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">아닙니다.
+              <div class="exp">HbA1c와 공복혈당은 서로 다른 측면을 반영합니다. HbA1c가 진단 범위라면 적절한 방법으로 확인 검사를 하고, 적혈구 상태 등 HbA1c 신뢰성에 영향을 주는 요인도 필요하면 검토합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 합병증 ================= -->
+        <section id="complication" class="section">
+          <h2><span class="sec-no">07</span> 치료하지 않으면 · 합병증</h2>
+          <blockquote>고혈당 → 단백질 glycation · oxidative stress · 대사경로 이상 → 미세·대혈관 손상 → 장기 합병증</blockquote>
+          <p>합병증은 <b>두 그룹</b>으로 나눠 생각합니다. 아래 탭을 눌러 각 장기를 살펴보세요.</p>
+
+          <div class="figure" data-organ-explorer>
+            <div class="figure__title">시각화 6 · Glucose → Organ Damage</div>
+            <div class="oexp__tabs">
+              <span style="font-size:12px;font-weight:700;color:var(--vessel);align-self:center;">Microvascular:</span>
+              <button class="otab" data-organ="retina">👁 망막</button>
+              <button class="otab" data-organ="kidney">🫘 콩팥</button>
+              <button class="otab" data-organ="nerve">🦶 신경</button>
+              <span style="font-size:12px;font-weight:700;color:var(--hi);align-self:center;margin-left:6px;">Macrovascular:</span>
+              <button class="otab macro" data-organ="coronary">❤️ 관상동맥</button>
+              <button class="otab macro" data-organ="brain">🧠 뇌</button>
+              <button class="otab macro" data-organ="peripheral">🦵 말초동맥</button>
+            </div>
+            <div class="oexp__panel"></div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>당뇨병 관리 = HbA1c 관리가 아니다</div>
+            <p>예후에는 <b>glucose · BP · LDL · smoking · obesity · kidney disease</b>가 모두 관여합니다. 실제 치료는 <b>cardiometabolic risk management</b>에 가깝습니다.</p>
+          </div>
+
+          <h3>7-1. 신경병증은 왜 발 관리와 연결될까</h3>
+          <blockquote>peripheral neuropathy → 통증/온도 감각↓ → 상처를 잘 못 느낌 → (혈류·회복능력↓) → 궤양 → 감염 → 심하면 절단 위험</blockquote>
+          <p>그래서 당뇨병 환자에서 <b>발 관리</b>가 중요합니다.</p>
+        </section>
+
+        <!-- ================= 8 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">08</span> 치료의 전체 그림</h2>
+          <p>“혈당약 고르기”부터 시작하면 큰 그림을 놓칩니다. 치료의 네 축:</p>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>1. Lifestyle / weight</h5><p>대사 환경 개선</p></div>
+            <div class="axis3__card pump"><h5>2. Glycemic control</h5><p>고혈당·저혈당 예방</p></div>
+            <div class="axis3__card pipes"><h5>3. CV / renal protection</h5><p>심혈관·신장 위험 감소</p></div>
+            <div class="axis3__card"><h5>4. Complication screening</h5><p>합병증 조기 발견·관리</p></div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>HbA1c 목표는 개인화한다</div>
+            <p>많은 비임신 성인에서 <b>&lt;7%</b>가 흔한 일반 목표이지만, <b>젊고 합병증 적고 저혈당 위험 낮으면</b> 더 엄격하게,
+              <b>고령·frailty·중증 저혈당 병력·여러 동반질환·제한된 기대여명</b>에서는 완화할 수 있습니다.</p>
+            <p style="margin-bottom:0;">궁극 목표는 예쁜 숫자가 아니라 <b>증상 예방 · 미세혈관 합병증↓ · 심혈관/신장 위험↓ · 저혈당 최소화 · 삶의 질</b>입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">09</span> 생활습관 치료</h2>
+
+          <h3>9-1. 체중</h3>
+          <blockquote>visceral adiposity↓ → insulin resistance↓ → glucose control↑</blockquote>
+          <p>혈압·지질·지방간·수면무호흡에도 도움을 줍니다.</p>
+
+          <h3>9-2. 운동</h3>
+          <p>근육은 매우 큰 glucose 소비기관입니다. 운동 중에는 <b>insulin과 독립적인 기전</b>도 포함해 muscle glucose uptake가 늘고, 장기적으로 insulin sensitivity를 개선합니다.
+            ADA 2026은 규칙적 aerobic + 주 2–3회 resistance exercise를 권고합니다.</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 포인트</div>
+            <p>운동은 좋지만 <b>insulin·sulfonylurea</b> 사용 환자에서는 운동으로 <b>hypoglycemia 위험</b>이 올라갈 수 있습니다.
+              “운동 많이 하세요”에서 끝내지 않고 <b>어떤 약을 쓰는지</b>까지 보는 것이 약사다운 상담입니다.</p>
+          </div>
+
+          <h3>9-3. 탄수화물 · 과일 · 음료</h3>
+          <ul class="clean">
+            <li>탄수화물 <b>완전 제거는 일반 원칙 아님</b> — 총량·질·portion·식이섬유·개인 혈당 반응이 중요.</li>
+            <li>정제 탄수화물 → 빠른 흡수·큰 식후 상승 / 식이섬유 풍부 식품 → 상대적으로 유리.</li>
+            <li>과일은 전면 금지 대상 아님(fiber·미량영양소·수분 포함). 단 <b>과일주스</b>는 과일과 다르게 본다.</li>
+            <li>당 함유 음료(SSB)는 빠른 glucose intake·높은 열량·낮은 satiety로 <b>줄이는 것이 매우 중요</b>.</li>
+          </ul>
+
+          <h3>9-4. 시각화 · 같은 탄수화물, 다른 여정</h3>
+          <div class="figure">
+            <div class="figure__title">시각화 7 · Same Carbohydrate, Different Journey</div>
+            <div class="foodcurve">
+              <div class="foodcard"><div class="ico">🍞</div><h6>흰 빵</h6>
+                <svg viewBox="0 0 100 60"><polyline points="0,55 15,50 30,15 50,30 100,50" fill="none" stroke="#e0872a" stroke-width="3"/></svg>
+                <div class="tag">빠른 흡수 · 큰 상승</div></div>
+              <div class="foodcard"><div class="ico">🌾</div><h6>통곡물</h6>
+                <svg viewBox="0 0 100 60"><polyline points="0,55 20,50 45,35 70,42 100,50" fill="none" stroke="#12a594" stroke-width="3"/></svg>
+                <div class="tag">완만한 상승</div></div>
+              <div class="foodcard"><div class="ico">🥤</div><h6>Sugar drink</h6>
+                <svg viewBox="0 0 100 60"><polyline points="0,55 8,52 18,8 35,22 100,48" fill="none" stroke="#e5484d" stroke-width="3"/></svg>
+                <div class="tag">매우 빠른 delivery</div></div>
+            </div>
+            <div class="figure__cap">실제 혈당 반응은 음식 양·조합·개인별로 다릅니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ④</span> “설탕만 안 먹으면 쌀밥은 마음껏 먹어도 되죠?” 어떻게 설명할까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">아닙니다.
+              <div class="exp">밥의 starch도 소화되면 glucose가 됩니다. 설탕만 보는 것이 아니라 전체 탄수화물의 양·음식의 질·식사 구성을 함께 봐야 합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">10</span> 약물치료 · 장기별 지도</h2>
+          <p>약 이름을 외우는 대신 <b>“혈당이 왜 높아졌는지”</b>에서 출발합니다. 제2형의 치료 표적:</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>표적 장기</div>
+            <p><b>간</b>(glucose 생산 과다) · <b>근육/지방</b>(insulin resistance) · <b>췌장</b>(insulin 부족) · <b>장</b>(incretin) · <b>신장</b>(glucose 재흡수) · <b>뇌/위장관</b>(식욕·체중).
+              현재는 HbA1c뿐 아니라 <b>ASCVD · heart failure · CKD · 체중 · 저혈당 위험</b>까지 함께 고려해 환자 중심으로 선택합니다(ADA 2026).</p>
+          </div>
+
+          <h3>10-1. 시각화 · Drug Organ Map</h3>
+          <p>장기 칩을 누르면 그 부위를 표적으로 하는 약이 강조됩니다. 약 카드를 누르면 <b>기전·HbA1c·체중·저혈당·특별 효과</b>가 펼쳐집니다.</p>
+          <div class="figure" data-drugmap2>
+            <div class="figure__title">시각화 8 · 장기별 당뇨약 지도</div>
+            <div class="dmap__organs">
+              <button class="dorgan" data-organ="all">전체</button>
+              <button class="dorgan" data-organ="liver">🫀 간</button>
+              <button class="dorgan" data-organ="panc">🥞 췌장</button>
+              <button class="dorgan" data-organ="gut">🧬 장(incretin)</button>
+              <button class="dorgan" data-organ="kidney">🫘 콩팥</button>
+              <button class="dorgan" data-organ="muscle">💪 근육/지방</button>
+              <button class="dorgan" data-organ="intestine">🌀 소장</button>
+            </div>
+            <div class="dmap__cards">
+              <div class="dcard liver" data-organs="liver">
+                <button class="dcard__head"><span class="organ">간</span><br><span class="name">Metformin</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>hepatic glucose production↓ · insulin sensitivity 일부 개선</span></div>
+                  <div class="r"><b>HbA1c</b><span>high</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff neu">↔/↓</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>주의</b><span>GI 부작용 · 장기 B12↓ · (드묾) lactic acidosis</span></div>
+                </div>
+              </div>
+              <div class="dcard panc" data-organs="panc">
+                <button class="dcard__head"><span class="organ">췌장</span><br><span class="name">Sulfonylurea</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>β-cell K⁺ channel → insulin secretion↑</span></div>
+                  <div class="r"><b>HbA1c</b><span>high</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff up">↑</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff up">높음</span></span></div>
+                  <div class="r"><b>주의</b><span>혈당과 무관하게 분비↑ → 식사 거르면 위험</span></div>
+                </div>
+              </div>
+              <div class="dcard gut" data-organs="gut panc">
+                <button class="dcard__head"><span class="organ">장 · 췌장</span><br><span class="name">DPP-4 inhibitor</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>DPP-4 억제 → incretin↑ → glucose-dependent insulin↑ · glucagon↓</span></div>
+                  <div class="r"><b>HbA1c</b><span>moderate</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff neu">↔</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>예</b><span>sitagliptin · linagliptin · gemigliptin</span></div>
+                </div>
+              </div>
+              <div class="dcard gut" data-organs="gut panc">
+                <button class="dcard__head"><span class="organ">장 · 췌장</span><br><span class="name">GLP-1 RA</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>GLP-1 수용체 자극 → insulin↑·glucagon↓ · 위 배출 지연 · satiety↑</span></div>
+                  <div class="r"><b>HbA1c</b><span>high</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff down">↓↓</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>특별</b><span>일부 CV benefit · 체중감소. GI 부작용(오심 등)</span></div>
+                </div>
+              </div>
+              <div class="dcard kidney" data-organs="kidney">
+                <button class="dcard__head"><span class="organ">콩팥</span><br><span class="name">SGLT2 inhibitor</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>근위세뇨관 glucose 재흡수↓ → urinary glucose 배설↑</span></div>
+                  <div class="r"><b>HbA1c</b><span>moderate</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff down">↓</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>특별</b><span>HF·CKD 보호. 생식기감염·volume↓·euglycemic DKA 주의</span></div>
+                </div>
+              </div>
+              <div class="dcard muscle" data-organs="muscle">
+                <button class="dcard__head"><span class="organ">근육/지방</span><br><span class="name">TZD (pioglitazone)</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>PPAR-γ 활성 → insulin sensitivity↑</span></div>
+                  <div class="r"><b>HbA1c</b><span>moderate~high</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff up">↑</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>주의</b><span>edema · heart failure 악화 가능</span></div>
+                </div>
+              </div>
+              <div class="dcard intestine" data-organs="intestine">
+                <button class="dcard__head"><span class="organ">소장</span><br><span class="name">α-glucosidase inhibitor</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>carbohydrate 분해 지연 → 흡수 속도↓ → 식후 혈당↓</span></div>
+                  <div class="r"><b>HbA1c</b><span>low~moderate</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff neu">↔</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff down">낮음</span></span></div>
+                  <div class="r"><b>주의</b><span>가스·복부 불편·설사. 예: acarbose · voglibose</span></div>
+                </div>
+              </div>
+              <div class="dcard panc" data-organs="panc">
+                <button class="dcard__head"><span class="organ">췌장(보충)</span><br><span class="name">Insulin</span></button>
+                <div class="dcard__body">
+                  <div class="r"><b>기전</b><span>부족한 insulin을 직접 보충</span></div>
+                  <div class="r"><b>HbA1c</b><span>very high</span></div>
+                  <div class="r"><b>체중</b><span><span class="badge-eff up">↑</span></span></div>
+                  <div class="r"><b>저혈당</b><span><span class="badge-eff up">높음</span></span></div>
+                  <div class="r"><b>대상</b><span>제1형 필수 · 제2형은 심한 고혈당/급성상황 등에서</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>SGLT2i · Euglycemic DKA</div>
+            <p>드물지만 중요 — <b>혈당이 아주 높지 않은데도 DKA</b>가 생길 수 있습니다. <b>장시간 금식·탈수·초저탄수화물 식사·급성질환·과음</b>이 위험을 높입니다(ADA 2026 강조).</p>
+          </div>
+
+          <h3>10-2. 큰 그림 표</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>약물군</th><th>핵심 표적</th><th>체중</th><th>저혈당</th></tr></thead>
+              <tbody>
+                <tr><th>Metformin</th><td>간 glucose production↓</td><td>↔/↓</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>Sulfonylurea</th><td>insulin↑</td><td>↑</td><td class="cov-no-c">높음</td></tr>
+                <tr><th>DPP-4i</th><td>incretin↑</td><td>↔</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>GLP-1 RA</th><td>incretin/식욕</td><td>↓↓</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>SGLT2i</th><td>urinary glucose↑</td><td>↓</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>TZD</th><td>insulin sensitivity↑</td><td>↑</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>α-GI</th><td>carb absorption↓</td><td>↔</td><td class="cov-yes-c">낮음</td></tr>
+                <tr><th>Insulin</th><td>insulin replacement</td><td>↑</td><td class="cov-no-c">높음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink-faint);">※ 저혈당 위험은 단독요법 기준의 큰 그림이며 병용약물·식사·신기능 등에 따라 달라질 수 있습니다.</p>
+        </section>
+
+        <!-- ================= 11 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">11</span> 약사 Deep Dive</h2>
+
+          <h3>Deep Dive 1 · 왜 SGLT2i는 혈당 외 장기효과가 있을까?</h3>
+          <p>처음엔 “소변으로 glucose를 버리는 당뇨약”으로 개발됐지만, 임상시험에서 <b>heart failure 입원 감소·CKD 진행 감소</b>가 확인되며 역할이 확장됐습니다.
+            지금은 일부 환자에서 glucose-lowering drug보다 <b>cardiorenal protective drug</b>라는 관점이 중요합니다.
+            그래서 HbA1c가 목표에 가까워도 <b>HF·CKD 때문에</b> 고려될 수 있습니다.</p>
+
+          <h3>Deep Dive 2 · Incretin effect</h3>
+          <p>같은 양의 glucose라도 <b>경구</b>가 <b>정맥</b>보다 insulin response가 더 큽니다 — 장이 음식 섭취를 감지해 incretin을 분비하기 때문입니다.
+            이 <b>incretin effect</b>를 이용한 약이 <b>DPP-4 inhibitor</b>와 <b>GLP-1 RA</b>입니다.</p>
+
+          <h3>Deep Dive 3 · 왜 당뇨가 오래되면 약을 늘릴까?</h3>
+          <p>“약을 먹었는데 더 센 약으로 바뀌면 약 때문에 심해진 건가요?” — 대부분 그렇지 않습니다.
+            T2DM에서는 시간이 지나며 <b>β-cell function이 추가로 저하</b>될 수 있어, 질환 진행에 따라 병용요법이 필요해지는 것입니다.</p>
+        </section>
+
+        <!-- ================= 12 · 비교 · FAQ · 팩트체크 ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">12</span> 비교 · FAQ · 팩트체크</h2>
+
+          <h3>12-1. 제1형 vs 제2형 vs 전당뇨병</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Type 1</th><th>Type 2</th><th>Prediabetes</th></tr></thead>
+              <tbody>
+                <tr><th>핵심</th><td>β-cell 파괴</td><td>resistance + β-cell dysfunction</td><td>glucose regulation 이상</td></tr>
+                <tr><th>insulin</th><td>거의 절대 부족</td><td>처음엔 많을 수도</td><td>대개 존재</td></tr>
+                <tr><th>약물</th><td>insulin 필수</td><td>다양</td><td>생활습관 중심, 일부 고위험군 약물 고려</td></tr>
+                <tr><th>DKA</th><td>위험 높음</td><td>가능</td><td>일반적이지 않음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>고혈당</th><th>저혈당</th></tr></thead>
+              <tbody>
+                <tr><th>대표 원인</th><td>당뇨 조절 불량</td><td>insulin/SU 등</td></tr>
+                <tr><th>갈증/다뇨</th><td>흔함</td><td>보통 아님</td></tr>
+                <tr><th>발한/떨림</th><td>보통 아님</td><td>흔함</td></tr>
+                <tr><th>심계항진</th><td>가능</td><td>흔함</td></tr>
+                <tr><th>즉각 조치</th><td>정도·원인에 따라</td><td>빠른 carbohydrate 등이 중요</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>12-2. 자주 묻는 질문 (FAQ)</h3>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 당뇨병은 단 걸 많이 먹어서 생기나요?</button>
+              <div class="faq__a">설탕 하나로 설명할 수 없습니다. 유전·체중·복부지방·운동·식습관·β-cell 기능이 복합 작용합니다. 다만 당 음료·과도한 열량은 체중·대사 악화로 위험을 높일 수 있습니다.
+                <div class="ph"><b>약사:</b> T2DM의 핵심은 insulin resistance와 β-cell dysfunction입니다.</div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 당뇨약 한번 먹으면 평생 먹어야 하나요?</button>
+              <div class="faq__a">약에 의존하게 되는 것이 아니라, 대사 이상이 지속되어 치료가 계속 필요한 경우가 많은 것입니다. 상당한 체중 감소·생활습관 변화로 혈당이 크게 개선되어 약을 줄이는 사람도 있습니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. HbA1c가 6.4%면 정상인가요?</button>
+              <div class="faq__a">완전히 정상이라 보긴 어렵습니다. 6.4%는 당뇨병 기준 6.5% 바로 아래인 prediabetes 범위입니다. 경계선 한 숫자보다 전체 위험과 추세를 봅니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. 당뇨인데 과일 먹으면 안 되나요?</button>
+              <div class="faq__a">전면 금지할 필요는 없습니다. 양·종류·전체 식사 패턴을 고려하고, 과일주스를 과일과 똑같이 보지는 않습니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. 혈당이 정상인데 당뇨약을 왜 계속 먹죠?</button>
+              <div class="faq__a">약을 복용해서 정상일 수 있습니다. 또 SGLT2i·GLP-1 RA처럼 특정 환자에서 혈당 외 <b>심혈관·신장·체중</b> 효과를 위해 쓰는 약도 있습니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. 혈당을 낮게 유지할수록 무조건 좋은가요?</button>
+              <div class="faq__a">아닙니다. 너무 강한 치료로 hypoglycemia가 반복되면 위험합니다. glucose target은 환자별로 조절합니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. 약 먹는데도 HbA1c가 올라갔어요. 내성이 생긴 건가요?</button>
+              <div class="faq__a">반드시 그렇지 않습니다. 질환 진행·β-cell 기능 감소·체중 증가·복약순응도·다른 약물·식사·질병/스트레스 등 다양한 이유가 있을 수 있습니다.</div>
+            </div>
+          </div>
+
+          <h3>12-3. 흔한 오해 / 팩트체크</h3>
+          <div class="fact">
+            <div class="factrow">
+              <div class="claim">설탕만 안 먹으면 당뇨병에 안 걸린다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">T2DM은 insulin resistance·β-cell dysfunction 중심으로 여러 유전·환경 요인이 함께 작용합니다.</div>
+              <div class="take"><b>실전:</b> 설탕만 보지 말고 전체 식사·체중·운동을 본다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">당뇨병 환자는 탄수화물을 완전히 끊어야 한다.</div>
+              <span class="verdict">대체로 틀림</span>
+              <div class="why">탄수화물의 양·질·식사 패턴이 중요하며 극단 제한이 모두에게 필요하진 않습니다. 특히 SGLT2i 사용 시 극단적 저탄수화물은 ketoacidosis 위험 관점에서 주의.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">인슐린을 맞기 시작하면 당뇨병이 엄청 심해졌다는 뜻이다.</div>
+              <span class="verdict">조건에 따라 다름</span>
+              <div class="why">제1형은 처음부터 필수이고, 제2형도 질병 진행·급성상황 등 여러 이유로 필요할 수 있습니다.</div>
+              <div class="take"><b>실전:</b> Insulin은 “마지막 벌”이 아니라 부족한 hormone을 보완하는 치료입니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">당뇨약은 신장을 망가뜨린다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">약마다 다릅니다. 오히려 SGLT2i 등은 적절한 CKD 환자에서 kidney protection을 위해 사용됩니다.</div>
+              <div class="take"><b>실전:</b> “당뇨약”을 하나의 약처럼 말하지 않는다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">HbA1c만 정상이면 당뇨병 관리는 끝이다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">치료는 혈압·LDL·신장·눈·발·체중·흡연을 포함한 종합적 위험 관리입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">13</span> Case Study</h2>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · “저는 단 걸 안 먹는데요?”</div>
+            <p>47세 남성, BMI 27.8, 허리둘레 증가, 아버지 T2DM. FPG <b>132</b>, HbA1c <b>6.8%</b>, TG <b>230</b>, 증상 없음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 위험요인은? ② 단 걸 안 먹는 게 결정적 근거인가? ③ 무증상이면 치료 불필요한가?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">과체중/복부비만 가능성 · 가족력 · hypertriglyceridemia 등 대사 위험요인을 갖고 있습니다.
+              <div class="exp">당뇨병은 단순 sugar intake가 아니라 insulin resistance·β-cell dysfunction이 함께 관여하는 질환이며, T2DM은 상당 기간 무증상일 수 있어 증상 없음이 방치의 근거가 되지 않습니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 2 · 식사를 거른 뒤 식은땀</div>
+            <p>70세 여성, T2DM 12년, <b>metformin + glimepiride</b>. 아침약은 복용했으나 검진으로 점심 거의 거름. 오후 3시 식은땀·손 떨림·두근거림·어지러움, 혈당 <b>55 mg/dL</b>.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 가장 먼저 의심? ② 어느 약이 관련? ③ 왜 식사 거른 게 문제?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">전형적 hypoglycemia(55 mg/dL = clinically significant, level 2)입니다.
+              <div class="exp">Sulfonylurea(glimepiride)는 insulin secretion을 늘리므로 섭취가 부족하면 저혈당 위험이 커집니다. <b>약 · 식사량 감소 · 고령</b> 요인을 함께 봐야 합니다.</div>
+            </div>
+          </div>
+
+          <h3>13-1. Mini Hypoglycemia Simulator</h3>
+          <p>약물 + 식사 + 운동 조합에 따라 저혈당 위험이 어떻게 달라지는지 골라보세요. (교육용 정성 표현)</p>
+          <div class="figure" data-hyposim>
+            <div class="figure__title">Mini Case · 저혈당 위험</div>
+            <div class="hypo__row"><span class="k">약물</span>
+              <div class="hypo__opts" data-group="med">
+                <button data-val="metformin">Metformin</button>
+                <button data-val="sglt2">SGLT2i</button>
+                <button data-val="dpp4">DPP-4i</button>
+                <button data-val="su">Sulfonylurea</button>
+                <button data-val="insulin">Insulin</button>
+              </div>
+            </div>
+            <div class="hypo__row"><span class="k">식사</span>
+              <div class="hypo__opts" data-group="meal">
+                <button data-val="normal">정상식</button>
+                <button data-val="half">절반</button>
+                <button data-val="fast">금식</button>
+              </div>
+            </div>
+            <div class="hypo__row"><span class="k">운동</span>
+              <div class="hypo__opts" data-group="ex">
+                <button data-val="none">없음</button>
+                <button data-val="min30">30분</button>
+                <button data-val="min90">90분</button>
+              </div>
+            </div>
+            <div class="hypo__result"><span class="hypo__risk"></span><div class="hypo__exp"></div></div>
+            <div class="figure__cap">실제 혈당 예측이 아니라, 조합에 따른 위험 방향을 이해하기 위한 교육용 도구입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">14</span> Mastery Quiz</h2>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 1. 제2형 당뇨병 초기 병태생리를 가장 잘 설명한 것은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 모든 환자에서 insulin이 완전히 분비되지 않는다.</li>
+              <li data-opt="B"><span class="opt">B</span> insulin resistance가 생기면 췌장은 처음부터 분비를 중단한다.</li>
+              <li data-opt="C"><span class="opt">C</span> insulin resistance를 보상하기 위해 insulin 분비가 증가할 수 있다.</li>
+              <li data-opt="D"><span class="opt">D</span> 간에서 glucose 생산이 완전히 사라진다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C
+              <div class="exp">초기엔 β-cell이 저항을 보상하려 분비를 늘리고, 이후 보상이 부족해지면 hyperglycemia가 나타납니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 2. 제2형에서 fasting glucose 상승과 가장 직접적으로 연결되는 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 장에서 밤새 glucose 흡수</li>
+              <li data-opt="B"><span class="opt">B</span> 간의 glucose production 억제 실패</li>
+              <li data-opt="C"><span class="opt">C</span> 신장에서 insulin 생성 증가</li>
+              <li data-opt="D"><span class="opt">D</span> 적혈구에서 glucose 생성</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">Hepatic insulin resistance로 공복에서도 hepatic glucose output이 충분히 억제되지 않을 수 있습니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 3. 다음 중 당뇨병 진단 기준에 해당하는 것은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> FPG 112 mg/dL</li>
+              <li data-opt="B"><span class="opt">B</span> HbA1c 6.2%</li>
+              <li data-opt="C"><span class="opt">C</span> 2-hour OGTT 205 mg/dL</li>
+              <li data-opt="D"><span class="opt">D</span> Random glucose 165 mg/dL (증상 없음)</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C
+              <div class="exp">2h OGTT ≥200 mg/dL은 당뇨병 진단 기준입니다. A·B는 전당뇨병 범위, D는 기준 미달.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 4. SGLT2 inhibitor의 혈당 강하 기전은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> β-cell에서 insulin을 직접 강제로 분비</li>
+              <li data-opt="B"><span class="opt">B</span> 근위세뇨관 glucose 재흡수 감소</li>
+              <li data-opt="C"><span class="opt">C</span> 장에서 carbohydrate 소화를 완전히 차단</li>
+              <li data-opt="D"><span class="opt">D</span> insulin receptor를 직접 활성화</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">SGLT2 억제 → filtered glucose 재흡수↓ → urinary glucose excretion↑.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 5. Glimepiride 복용 72세 환자가 아침약 후 식사를 거르고 오후에 식은땀·떨림·혼돈. 가장 관련성이 높은 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Hyperosmolar state</li>
+              <li data-opt="B"><span class="opt">B</span> Hypoglycemia</li>
+              <li data-opt="C"><span class="opt">C</span> Lactic acidosis</li>
+              <li data-opt="D"><span class="opt">D</span> Diabetic neuropathy</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">Sulfonylurea는 insulin secretion을 늘려 식사를 거르면 hypoglycemia 위험이 증가합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">15</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>식사→glucose↑→insulin↑→근육·지방 이용↑ + 간 생산↓ 이 정상 혈당 조절의 기본이다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>제2형의 두 핵심은 insulin resistance + β-cell dysfunction이다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>초기 저항 단계에서는 오히려 insulin이 많이 분비되는 보상 단계가 있을 수 있다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>당뇨병은 단 것만으로 생기지 않는다 — 유전·비만·활동·식사·β-cell 기능이 관여.</p></div>
+            <div class="factcard"><span class="n">5</span><p>대표 진단 기준: HbA1c ≥6.5% · FPG ≥126 · 2h OGTT ≥200 mg/dL.</p></div>
+            <div class="factcard"><span class="n">6</span><p>HbA1c는 하루 혈당이 아니라 최근 수개월의 glycemic exposure를 반영한다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>합병증 = 망막·콩팥·신경(micro) + 심근경색·뇌졸중(macro).</p></div>
+            <div class="factcard"><span class="n">8</span><p>치료는 HbA1c만이 아니라 체중·혈압·지질·심장·콩팥까지 함께 관리.</p></div>
+            <div class="factcard"><span class="n">9</span><p>약은 장기별로: Metformin=간 / SU=췌장 / GLP-1·DPP-4=장-췌장 / SGLT2=콩팥 / TZD=sensitivity.</p></div>
+            <div class="factcard"><span class="n">10</span><p>약사는 저혈당 위험과 각 약의 장기 보호 효과를 구분해 설명하는 능력이 특히 중요하다.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>오늘의 네 질문, 이제 답할 수 있습니다</h3>
+          <p class="big">① 단 음식은 위험요인 중 하나일 뿐, 핵심은 insulin resistance와 β-cell 기능이다.<br>
+            ② 간의 glucose 생산과 말초 이용의 균형이 무너져 혈당이 지속적으로 오른다.<br>
+            ③ 저항은 “반응 부족”, 부족은 “분비 부족” — 초기엔 저항+보상, 후기엔 분비 감소.<br>
+            ④ 고혈당은 미세·대혈관을 서서히 손상시켜 눈·콩팥·신경·심혈관을 위협한다.</p>
+          <p style="margin-top:22px;"><a href="../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>당뇨약 장기 지도</h5>
+      <div class="qr-row"><span class="qr-k">간</span><span>Metformin</span></div>
+      <div class="qr-row"><span class="qr-k">췌장</span><span>SU · Insulin</span></div>
+      <div class="qr-row"><span class="qr-k">장</span><span>DPP-4i · GLP-1 RA</span></div>
+      <div class="qr-row"><span class="qr-k">콩팥</span><span>SGLT2i (HF·CKD)</span></div>
+      <div class="qr-row"><span class="qr-k">진단</span><span>A1c6.5·FPG126·OGTT200</span></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

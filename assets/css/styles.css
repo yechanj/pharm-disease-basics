@@ -1254,3 +1254,199 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .matrix2 { grid-template-columns: 64px 1fr 1fr; }
   .matrix2 .cell h6 { font-size: 13px; }
 }
+
+/* =========================================================
+   ============  제2강 · 당뇨병 전용 컴포넌트  =============
+   ========================================================= */
+:root {
+  --glc: #e0872a;       /* glucose 색 */
+  --insulin: #2f6fed;   /* insulin 색 */
+  --liver: #8b5a2b;
+  --panc: #7c5cf0;
+  --gut: #12a594;
+  --kidney: #1f7ae0;
+  --muscle: #e5484d;
+}
+
+/* ---------- 오늘의 질문 옵션 리스트 ---------- */
+.case-options { display: grid; gap: 8px; margin: 8px auto 0; max-width: 460px; text-align: left; }
+.case-options button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; color: #fff;
+  border: 1px solid rgba(255,255,255,.5); background: rgba(255,255,255,.1);
+  border-radius: 10px; padding: 11px 14px; transition: background .15s; text-align: left;
+}
+.case-options button:hover { background: rgba(255,255,255,.24); }
+.case-options .opt { font-weight: 700; margin-right: 8px; opacity: .85; }
+
+/* =========================================================
+   시각화 1 · Glucose Journey
+   ========================================================= */
+.gj__blood {
+  border: 2px solid var(--glc); border-radius: 14px; padding: 14px; min-height: 92px;
+  background: repeating-linear-gradient(45deg,#fff6ec,#fff6ec 12px,#fdeed9 12px,#fdeed9 24px);
+  display: flex; flex-wrap: wrap; gap: 6px; align-content: flex-start; position: relative;
+}
+.gj__blood::before {
+  content: "혈액 (Blood)"; position: absolute; top: 6px; right: 10px; font-size: 11px; color: var(--glc); font-weight: 700;
+}
+.gj__dot { width: 15px; height: 15px; border-radius: 50%; background: var(--glc);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15); transition: transform .4s, opacity .4s; }
+.gj__organs { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; }
+.gj__organ {
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px; text-align: center; background: var(--surface);
+}
+.gj__organ .ico { font-size: 24px; }
+.gj__organ h6 { margin: 4px 0; font-size: 13px; }
+.gj__organ .cnt { font-weight: 700; color: var(--insulin); font-size: 15px; }
+.gj__organ .act { font-size: 11.5px; color: var(--ink-faint); }
+.gj__readout {
+  margin-top: 12px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; font-size: 13.5px;
+}
+.gj__pill { font-weight: 700; border-radius: 999px; padding: 4px 12px; }
+.gj__pill.on { background: var(--ok-soft); color: var(--ok); }
+.gj__pill.off { background: var(--hi-soft); color: var(--hi); }
+.gj__level { font-weight: 700; }
+
+/* =========================================================
+   시각화 2 · Disease Progression Slider
+   ========================================================= */
+.prog__stage {
+  text-align: center; font-weight: 700; font-size: 15px; padding: 8px 14px; border-radius: 999px;
+  display: inline-block; margin-bottom: 12px; background: var(--brand-soft); color: var(--brand-dark);
+}
+.prog__stage.s1 { background: var(--ok-soft); color: var(--ok); }
+.prog__stage.s2 { background: #e6efff; color: var(--insulin); }
+.prog__stage.s3 { background: var(--mid-soft); color: #a9750a; }
+.prog__stage.s4, .prog__stage.s5 { background: var(--hi-soft); color: var(--hi); }
+.pbar { margin: 10px 0; }
+.pbar__lab { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.pbar__track { height: 16px; border-radius: 999px; background: var(--surface-2); overflow: hidden; border: 1px solid var(--line); }
+.pbar__fill { height: 100%; border-radius: 999px; transition: width .2s; }
+.pbar.res .pbar__fill { background: var(--muscle); }
+.pbar.sec .pbar__fill { background: var(--insulin); }
+.pbar.glc .pbar__fill { background: var(--glc); }
+.prog__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; margin-top: 8px; }
+.prog__note { font-size: 12.5px; color: var(--ink-soft); margin-top: 6px; }
+
+/* =========================================================
+   시각화 4 · HbA1c Time Machine
+   ========================================================= */
+.hba1c__bars { display: flex; align-items: flex-end; gap: 4px; height: 120px; margin: 8px 0; }
+.hba1c__bars .wk { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.hba1c__bars .wk i { display: block; background: var(--glc); border-radius: 3px 3px 0 0; transition: height .2s, background .2s; }
+.hba1c__bars .wk.recent i { background: var(--hi); }
+.hba1c__axis { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-faint); margin-top: -4px; }
+.hba1c__gauge { text-align: center; margin: 10px 0; }
+.hba1c__gauge .num { font-size: clamp(30px,8vw,42px); font-weight: 700; color: var(--brand-dark); }
+.hba1c__gauge .eag { font-size: 13px; color: var(--ink-faint); }
+.hba1c__gauge .band { font-weight: 700; border-radius: 999px; padding: 3px 12px; font-size: 13px; display: inline-block; margin-top: 4px; }
+.hba1c__slider input[type=range] { width: 100%; accent-color: var(--hi); height: 30px; }
+
+/* =========================================================
+   시각화 5 · Glucose Spectrum (thermometer)
+   ========================================================= */
+.spectrum { display: grid; gap: 8px; }
+.spectrum__row {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center;
+  border-radius: 12px; padding: 12px 16px; border: 1px solid var(--line); font-weight: 700;
+}
+.spectrum__row .lab { font-size: 15px; }
+.spectrum__row .fpg, .spectrum__row .a1c { font-size: 13px; font-variant-numeric: tabular-nums; }
+.spectrum__row .a1c { color: var(--ink-faint); }
+.spectrum__row.normal { background: var(--ok-soft); border-color: var(--ok); }
+.spectrum__row.pre { background: var(--mid-soft); border-color: var(--mid); }
+.spectrum__row.dm { background: var(--hi-soft); border-color: var(--hi); }
+.spectrum__arrow { text-align: center; color: var(--ink-faint); font-size: 16px; }
+
+/* =========================================================
+   시각화 6 · Organ Damage Explorer
+   ========================================================= */
+.oexp__tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.oexp__tabs .otab {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border-radius: 999px;
+  padding: 9px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.oexp__tabs .otab:hover { border-color: var(--brand); }
+.oexp__tabs .otab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.oexp__tabs .otab.macro.active { background: var(--hi); border-color: var(--hi); }
+.oexp__panel { display: grid; gap: 10px; }
+.oexp__row {
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; font-size: 14px;
+}
+.oexp__row .k { font-family: var(--font-cute); font-size: 12.5px; color: var(--brand); font-weight: 700; display: block; margin-bottom: 3px; }
+
+/* =========================================================
+   시각화 7 · Food Glucose Curve
+   ========================================================= */
+.foodcurve { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.foodcard { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--surface); text-align: center; }
+.foodcard .ico { font-size: 28px; }
+.foodcard h6 { margin: 4px 0 8px; font-size: 14px; }
+.foodcard svg { width: 100%; height: 70px; }
+.foodcard .tag { font-size: 12px; color: var(--ink-soft); margin-top: 6px; }
+
+/* =========================================================
+   시각화 8 · Drug Organ Map
+   ========================================================= */
+.dmap__organs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.dmap__organs .dorgan {
+  font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; border-radius: 999px;
+  padding: 8px 13px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.dmap__organs .dorgan:hover { border-color: var(--brand); }
+.dmap__organs .dorgan.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.dmap__cards { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 12px; }
+.dcard {
+  border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow-sm);
+  border-top: 4px solid var(--accent); overflow: hidden; transition: opacity .2s, transform .15s;
+  --accent: var(--brand);
+}
+.dcard.liver { --accent: var(--liver); }
+.dcard.panc { --accent: var(--panc); }
+.dcard.gut { --accent: var(--gut); }
+.dcard.kidney { --accent: var(--kidney); }
+.dcard.muscle { --accent: var(--muscle); }
+.dcard.intestine { --accent: var(--mid); }
+.dcard__head {
+  width: 100%; text-align: left; font-family: inherit; cursor: pointer; border: none; background: none;
+  padding: 13px 14px; color: var(--ink);
+}
+.dcard__head .name { font-weight: 700; font-size: 15px; }
+.dcard__head .organ { font-size: 12px; color: var(--accent); font-weight: 700; }
+.dcard__body { display: none; padding: 0 14px 14px; font-size: 13px; }
+.dcard.open .dcard__body { display: block; animation: fadein .2s ease; }
+.dcard__body .r { display: flex; gap: 8px; padding: 5px 0; border-bottom: 1px dashed var(--line); }
+.dcard__body .r:last-child { border-bottom: none; }
+.dcard__body .r b { flex: 0 0 92px; color: var(--ink-faint); font-size: 12px; }
+.dcard.dim { opacity: .32; }
+.dcard.match { box-shadow: 0 0 0 2px var(--brand) inset; }
+.badge-eff { font-weight: 700; border-radius: 999px; padding: 1px 9px; font-size: 12px; }
+.badge-eff.up { background: var(--hi-soft); color: var(--hi); }
+.badge-eff.down { background: var(--ok-soft); color: var(--ok); }
+.badge-eff.neu { background: var(--surface-2); color: var(--ink-soft); }
+
+/* =========================================================
+   Hypoglycemia Case Simulator
+   ========================================================= */
+.hypo__row { margin: 10px 0; }
+.hypo__row > span.k { font-size: 13px; font-weight: 700; color: var(--ink-soft); display: block; margin-bottom: 6px; }
+.hypo__opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.hypo__opts button {
+  font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; border-radius: 999px;
+  padding: 8px 14px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.hypo__opts button:hover { border-color: var(--brand); }
+.hypo__opts button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.hypo__result {
+  margin-top: 16px; border-radius: 14px; padding: 16px; border: 1px solid var(--line); background: var(--surface-2);
+}
+.hypo__risk { font-weight: 700; font-size: 18px; display: inline-block; padding: 6px 16px; border-radius: 999px; }
+.hypo__risk.low { background: var(--ok-soft); color: var(--ok); }
+.hypo__risk.mid { background: var(--mid-soft); color: #a9750a; }
+.hypo__risk.high { background: var(--hi-soft); color: var(--hi); }
+.hypo__exp { font-size: 13.5px; color: var(--ink-soft); margin-top: 10px; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .gj__organs { grid-template-columns: 1fr; }
+  .foodcurve { grid-template-columns: 1fr; }
+}
