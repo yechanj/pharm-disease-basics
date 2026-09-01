@@ -39,6 +39,15 @@ window.PHARM_LESSONS = [
     desc: "“단 걸 많이 먹어서 생기는 병”이라는 오해를 넘어, 정상 혈당 조절 → insulin resistance·β-cell dysfunction → 진단(HbA1c) → 합병증 → 약이 어느 장기를 고치는가를 하나의 모델로. 저혈당 위험까지.",
     tags: ["혈당 생리", "Insulin resistance", "HbA1c", "약물 장기지도", "저혈당"],
     status: "ready"
+  },
+  {
+    no: 1,
+    category: "everyday",
+    href: "lessons/everyday-01.html",
+    title: "감기 (Common Cold)",
+    desc: "감기를 하나의 바이러스가 아닌 상기도 바이러스 감염으로 이해하고, 독감·알레르기비염·부비동염 감별, 콧물 색과 항생제, 증상별 감기약 선택, 그리고 ‘그냥 감기’로 넘기면 안 되는 Red Flag까지.",
+    tags: ["상기도 감염", "감별진단", "항생제 X", "증상별 약", "Red Flag"],
+    status: "ready"
   }
 ];
 

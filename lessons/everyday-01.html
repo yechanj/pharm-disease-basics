@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everyday 01 · 감기 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="감기를 상기도 바이러스 감염으로 이해하고, 독감·알레르기비염·부비동염 감별과 증상별 약물 선택을 배우는 약사용 강의" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">Everyday 01 · 감기</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">🩹</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>Everyday 01 · 감기</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#situation"><span class="num">0</span> 오늘의 상황</a></li>
+          <li><a href="#overview"><span class="num">1</span> 30초 Overview</a></li>
+          <li><a href="#patho"><span class="num">2</span> 몸에서 무슨 일이</a></li>
+          <li><a href="#transmission"><span class="num">3</span> 전파</a></li>
+          <li><a href="#symptom"><span class="num">4</span> 증상</a></li>
+          <li><a href="#ddx"><span class="num">5</span> 감별 (독감·알레르기·부비동염)</a></li>
+          <li><a href="#course"><span class="num">6</span> 경과</a></li>
+          <li><a href="#treatment"><span class="num">7</span> 치료 원칙</a></li>
+          <li><a href="#drugs"><span class="num">8</span> 약물</a></li>
+          <li><a href="#homecare"><span class="num">9</span> 집에서 · 하지 말 것</a></li>
+          <li><a href="#redflags"><span class="num">10</span> Red Flags</a></li>
+          <li><a href="#prevention"><span class="num">11</span> 전염과 예방</a></li>
+          <li><a href="#faq"><span class="num">12</span> FAQ</a></li>
+          <li><a href="#myth"><span class="num">13</span> Myth vs Fact</a></li>
+          <li><a href="#deepdive"><span class="num">14</span> Deep Dive</a></li>
+          <li><a href="#case"><span class="num">15</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">16</span> Final Quiz</a></li>
+          <li><a href="#summary"><span class="num">17</span> 20초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">Everyday Disease · 01 · 학습시간 약 12–15분</div>
+          <h1>감기 (Common Cold)</h1>
+          <p>가장 중요한 질문 하나 — <b>“이건 그냥 감기로 보고 증상만 조절해도 되는가, 아니면 다른 질환을 생각해야 하는가?”</b></p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>오늘 배우게 될 것</div>
+          <ul class="clean" style="margin-bottom:0;">
+            <li>감기가 실제로 어떤 <b>질환군</b>인지 설명한다</li>
+            <li>감기 vs 독감 vs 알레르기비염 vs 부비동염을 핵심 단서로 구별한다</li>
+            <li>콧물이 노랗거나 초록일 때 항생제가 필요한지 판단한다</li>
+            <li>해열진통제·비충혈제거제·진해제가 무엇을 하고 <b>무엇을 못 하는지</b> 설명한다</li>
+            <li>단순 감기로 보기 어려운 <b>Red Flag</b>를 안다</li>
+          </ul>
+        </div>
+
+        <!-- ================= 0 · 오늘의 상황 ================= -->
+        <section id="situation" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 상황</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>약국 · 32세 남성</div>
+            <p>이틀 전부터 목이 약간 따끔하더니 콧물·코막힘이 생겼고 오늘부터 기침도 조금 납니다.
+              <b>“콧물이 약간 누렇게 변했는데 세균 감염 아닌가요? 항생제 먹어야 하나요?”</b></p>
+          </div>
+
+          <p><b>무엇부터 확인하겠습니까?</b> (탭하면 왜 중요한지 나옵니다)</p>
+          <div data-situation>
+            <div class="checkchips">
+              <button data-item="fever">열</button>
+              <button data-item="body">전신 몸살</button>
+              <button data-item="dyspnea">호흡곤란</button>
+              <button data-item="duration">증상 기간</button>
+              <button data-item="course">악화/호전 양상</button>
+            </div>
+            <div class="checkchips__out">확인 항목을 눌러보세요.</div>
+          </div>
+          <div class="oneline">콧물 색 하나만으로 항생제 여부를 결정하지 않는다.</div>
+        </section>
+
+        <!-- ================= 1 · 30초 Overview ================= -->
+        <section id="overview" class="section">
+          <h2><span class="sec-no">01</span> 30초 Overview</h2>
+          <p>감기는 하나의 특정 바이러스 질환이 아니라 <b>여러 호흡기 바이러스가 일으키는 상기도 감염의 임상적 모습</b>입니다.
+            가장 흔한 원인은 <b>rhinovirus</b>이지만 200종 이상의 호흡기 바이러스가 감기 증상을 만들 수 있습니다.</p>
+
+          <div class="legend">
+            <span class="chip chip--gp"><span class="sw"></span>🤧 콧물·코막힘</span>
+            <span class="chip chip--gp"><span class="sw"></span>🤧 재채기</span>
+            <span class="chip chip--gn"><span class="sw"></span>😣 인후통</span>
+            <span class="chip chip--gn"><span class="sw"></span>😷 가벼운 기침</span>
+          </div>
+          <p>전신증상은 대개 독감보다 가볍습니다. Influenza·SARS-CoV-2·RSV도 비슷한 증상을 만들 수 있지만 임상적으로는 각각 별도로 중요하게 다룹니다.
+            CDC는 감기가 보통 <b>1주 이내</b> 지속한다고 설명하지만, <b>기침은 다른 증상보다 오래</b> 남을 수 있습니다.</p>
+          <div class="oneline">감기는 바이러스를 없애는 약을 먹는 병이라기보다, 몸이 회복하는 동안 <b>증상을 안전하게 관리</b>하는 병이다.</div>
+
+          <h3>시각화 · 감기는 어디에서 일어나는가?</h3>
+          <p>토글을 눌러 정상 ↔ 감기 비점막을 비교하세요. 감기는 주로 <b>상기도</b>(코·비강·인두) 질환입니다.</p>
+          <div class="figure airway" data-airway>
+            <div class="figure__title">Viz 1 · Upper Airway Before / After</div>
+            <div class="airway__toggle">
+              <button class="active" data-state="normal">정상</button>
+              <button data-state="cold">감기</button>
+            </div>
+            <div class="airway__stage">
+              <svg viewBox="0 0 360 210" role="img" aria-label="비강 단면 정상 vs 감기">
+                <text x="180" y="22" text-anchor="middle" fill="#7b8aa0" font-size="13">비강 단면 (Nasal cavity)</text>
+                <rect class="mucosa" x="30" y="34" width="300" height="150" rx="34"/>
+                <ellipse class="lumen" cx="180" cy="109" rx="112" ry="46"/>
+                <g class="mucus" fill="#d99a12">
+                  <circle cx="150" cy="100" r="7"/><circle cx="185" cy="118" r="8"/>
+                  <circle cx="215" cy="98" r="6"/><circle cx="165" cy="126" r="6"/>
+                </g>
+                <text x="180" y="200" text-anchor="middle" fill="#7b8aa0" font-size="12">바깥 = 점막, 안쪽 흰 부분 = 숨길(lumen)</text>
+              </svg>
+            </div>
+            <div class="airway__desc">정상 비점막 — 얇은 점액층과 정상 점막. 코로 편하게 숨을 쉴 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 병태생리 ================= -->
+        <section id="patho" class="section">
+          <h2><span class="sec-no">02</span> 몸에서는 무슨 일이 생기는가</h2>
+          <blockquote>바이러스 노출 → 코·인두 점막 감염 → 선천면역 반응 활성화 → 점막 염증 + 분비물 증가 → 콧물·코막힘·인후통·기침 → 면역계가 통제 → 대부분 자연회복</blockquote>
+          <p>코가 막히는 이유가 단순히 “콧물이 코를 채워서”만은 아닙니다. <b>염증으로 비점막 혈관이 확장되고 조직이 붓는 것</b>도 중요한 원인입니다.
+            그래서 비충혈제거제는 바이러스를 죽이는 약이 아니라 <b>부어 있는 비점막을 일시적으로 줄이는 약</b>입니다.</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>Pharmacist Note</div>
+            <p>감기 증상의 상당수는 바이러스가 조직을 직접 파괴해서라기보다 <b>바이러스에 대한 숙주의 염증·면역반응</b>과 관련됩니다.
+              이것이 증상완화제가 효과를 보일 수 있어도 감기의 <b>자연경과 자체를 크게 바꾸지는 못하는</b> 이유입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 전파 ================= -->
+        <section id="transmission" class="section">
+          <h2><span class="sec-no">03</span> 어떻게 전파되는가</h2>
+          <p>다른 사람에게 옮습니다. 단, “감기 바이러스”라는 하나가 아니라 <b>각 원인 호흡기 바이러스</b>가 전파됩니다. 탭으로 경로를 확인하세요.</p>
+          <div class="figure" data-selector>
+            <div class="figure__title">Viz 2 · Transmission</div>
+            <div class="orgselect__btns">
+              <button class="sel-btn" data-target="resp">호흡기 경로</button>
+              <button class="sel-btn" data-target="hand">손·표면 경로</button>
+            </div>
+            <div class="sel-panel" data-panel="resp">
+              <div class="rowline"><span class="k">방식</span><span class="v">기침·재채기·말하기로 발생한 <b>호흡기 입자</b>를 통한 전파</span></div>
+              <div class="rowline"><span class="k">상황</span><span class="v">가까운 공간에서 감염자의 호흡기 분비물에 노출</span></div>
+            </div>
+            <div class="sel-panel" data-panel="hand">
+              <div class="rowline"><span class="k">방식</span><span class="v">오염된 <b>손·물체</b>를 만진 뒤 눈·코·입을 만지는 경로</span></div>
+              <div class="rowline"><span class="k">예방</span><span class="v">손 씻기 + 기침예절 + 증상 있을 때 밀접 접촉 줄이기</span></div>
+            </div>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>언제 가장 전염력이 높은가?</div>
+            <p>원인 바이러스마다 달라 “정확히 ○일”이라고 외우는 것은 적절하지 않습니다. 일반적으로 <b>증상이 뚜렷한 초기</b>에 전파 위험을 특히 고려합니다.
+              CDC는 <b>증상이 전반적으로 좋아지고 해열제 없이 최소 24시간 발열이 없으면</b> 일상 재개, 이후 5일간 추가 예방조치를 권합니다(호흡기 바이러스 전반 접근).</p>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">04</span> 어떤 증상이 나타나는가</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>🤧 코 증상 중심</h5><p>콧물·코막힘·재채기</p></div>
+            <div class="axis3__card pipes"><h5>😣 목이 먼저일 수도</h5><p>인후통·따끔거림</p></div>
+            <div class="axis3__card pump"><h5>📈 점진적 시작</h5><p>갑자기 앓아눕는 독감과 대비</p></div>
+          </div>
+          <p>있을 수도 있는 증상: 두통·가벼운 몸살·피로·미열. CDC도 성인·큰 소아에서 감기 발열은 <b>보통 없거나 낮은 정도</b>라고 설명합니다.</p>
+
+          <h3>시각화 · Symptom Fingerprint</h3>
+          <p>진단 점수가 아니라 <b>전형적 임상 인상</b>을 익히는 도구입니다. 감기 ↔ 독감을 토글해 보세요.</p>
+          <div class="figure" data-fingerprint>
+            <div class="figure__title">Viz 3 · 감기 vs 독감 지문</div>
+            <div class="fp__toggle">
+              <button class="cold active" data-profile="cold">감기</button>
+              <button class="flu" data-profile="flu">독감 보기</button>
+            </div>
+            <div class="fp__rows"></div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ①</span> 감기에서 가장 중심이 되는 증상군은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 심한 전신 근육통</li>
+              <li data-opt="B"><span class="opt">B</span> 코·인후 등 상기도 증상</li>
+              <li data-opt="C"><span class="opt">C</span> 호흡곤란</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 감기는 코·인후 등 상기도 증상이 중심입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 감별 ================= -->
+        <section id="ddx" class="section">
+          <h2><span class="sec-no">05</span> 이 병일까? — 감별</h2>
+          <p>이번 강의에서 가장 중요한 부분입니다. 탭으로 비교하세요.</p>
+          <div class="figure" data-selector>
+            <div class="figure__title">Compare · 감기 기준으로 비교</div>
+            <div class="orgselect__btns">
+              <button class="sel-btn" data-target="flu">vs 독감</button>
+              <button class="sel-btn" data-target="allergy">vs 알레르기비염</button>
+              <button class="sel-btn" data-target="sinus">vs 부비동염</button>
+            </div>
+            <div class="sel-panel" data-panel="flu">
+              <div class="twopanel">
+                <div class="panel panel--normal"><h5>🤧 감기</h5><ol><li>점진적 시작</li><li>코막힘·콧물 매우 흔함</li><li>심한 몸살 대개 없음/가벼움</li><li>성인 고열 흔치 않음</li></ol></div>
+                <div class="panel panel--drug"><h5>🤒 독감</h5><ol><li>갑작스러운 시작</li><li>고열·오한 상대적으로 흔함</li><li>근육통·두통 뚜렷</li><li>피로가 상당히 심할 수 있음</li></ol></div>
+              </div>
+              <p style="font-size:13px;color:var(--ink-soft);margin-bottom:0;">“코가 귀찮다” → 감기 / “온몸이 아프고 갑자기 앓아눕는다” → 독감. 단, 증상만으로 항상 확실히 구별되진 않습니다.</p>
+            </div>
+            <div class="sel-panel" data-panel="allergy">
+              <div class="twopanel">
+                <div class="panel panel--normal"><h5>🤧 감기</h5><ol><li>감염성 · 주변에 비슷한 환자</li><li>인후통·기침 가능</li><li>며칠에 걸쳐 자연회복</li></ol></div>
+                <div class="panel panel--drug" style="background:var(--gn-soft);"><h5>🌼 알레르기비염</h5><ol><li>감염 아님</li><li>반복 재채기 · 맑은 콧물</li><li><b>코·눈 가려움</b>이 중요한 단서</li><li>특정 계절·환경과 반복 연관</li></ol></div>
+              </div>
+              <p style="font-size:13px;color:var(--ink-soft);margin-bottom:0;">“가렵다 + 반복된다” → 알레르기를 생각한다.</p>
+            </div>
+            <div class="sel-panel" data-panel="sinus">
+              <p>감기에서도 코막힘·콧물·얼굴 불편감이 생길 수 있어 <b>콧물이 노랗다는 것 하나만으로 세균성 부비동염이라 할 수 없습니다.</b> 더 중요한 것:</p>
+              <ul class="clean" style="margin-bottom:0;">
+                <li>증상의 심각도 · 지속 기간</li>
+                <li>좋아지는 추세인지, <b>좋아졌다 다시 악화</b>되는지</li>
+                <li>심한 국소 <b>얼굴 통증·압통</b> 동반 여부</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>COVID-19는?</div>
+            <p>COVID-19도 콧물·인후통·기침 등 감기처럼 보일 수 있어 증상만으로 배제할 수 없습니다. 특히 <b>중증 위험이 높은 사람</b>이 감기 비슷한 증상을 보이면
+              독감·COVID-19 검사와 <b>조기 항바이러스 치료</b> 필요성을 고려합니다.</p>
+          </div>
+
+          <h3>Cold or Something Else? — 판단 훈련</h3>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">콧물+재채기+약간의 인후통, 천천히 시작, 열 없음</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 감기 쪽 ↑</li>
+                <li data-opt="B"><span class="opt">B</span> 독감 쪽 ↑</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — 점진적 시작·코 증상 중심·발열 없음은 감기 pattern.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">오늘 아침 갑자기 39℃, 오한+두통+온몸 근육통, 심한 피로</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 감기 쪽 ↑</li>
+                <li data-opt="B"><span class="opt">B</span> 독감을 강하게 고려</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 갑작스러운 고열·강한 전신증상은 독감 단서.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">매년 봄, 맑은 콧물+연속 재채기, 눈·코가 매우 가려움</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 알레르기비염</li>
+                <li data-opt="B"><span class="opt">B</span> 세균성 폐렴</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — 가려움 + 계절 반복은 알레르기비염.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">감기가 좋아지는 듯하다 다시 뚜렷하게 악화, 심한 얼굴 통증 동반</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 그냥 감기</li>
+                <li data-opt="B"><span class="opt">B</span> 단순 감기 외 질환 재평가</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 이중악화(double sickening)+국소 얼굴 통증은 부비동염 등 재평가 신호.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 경과 ================= -->
+        <section id="course" class="section">
+          <h2><span class="sec-no">06</span> 보통 어떻게 진행되는가</h2>
+          <blockquote>Day 0 노출 → 목 따끔/코 증상 시작 → 첫 며칠에 콧물·코막힘·재채기·인후통이 가장 불편(초기 정점) → 이후 감소 → 약 1주 전후 대부분 호전 → 기침만 좀 더 남을 수 있음</blockquote>
+          <p>급성 바이러스성 기침은 다른 증상보다 오래 지속될 수 있고, NICE는 급성 기침이 <b>3–4주까지</b> 지속될 수 있다고 설명합니다.</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>중요한 판단</div>
+            <p>“며칠 지났는데 아직 기침한다 = 항생제 필요”라는 공식은 없습니다. 기간보다 <b>전체적으로 좋아지고 있는지</b>, <b>새로운 Red Flag</b>가 나타나는지가 중요합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 치료 원칙 ================= -->
+        <section id="treatment" class="section">
+          <h2><span class="sec-no">07</span> 어떻게 치료하는가</h2>
+          <p>일반적인 감기의 원인 바이러스를 제거해 병을 바로 끝내는 표준 치료는 <b>대부분 없습니다.</b> 치료의 중심은:</p>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pump"><h5>① 증상 완화</h5><p>콧물·코막힘·통증·발열·기침</p></div>
+            <div class="axis3__card volume"><h5>② 회복 돕기</h5><p>탈수 예방·수분·휴식</p></div>
+            <div class="axis3__card pipes"><h5>③ 신호 찾기</h5><p>다른 질환·합병증 신호 확인</p></div>
+            <div class="axis3__card"><h5>④ 전파 예방</h5><p>남에게 퍼뜨리지 않기</p></div>
+          </div>
+          <blockquote>가벼운 감기 증상 + Red Flag 없음 → Self-care ± 필요한 증상완화제 → 호전되면 경과 관찰 / 악화·장기지속·새 이상증상 → 진료</blockquote>
+        </section>
+
+        <!-- ================= 8 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">08</span> 약물</h2>
+          <div class="oneline">감기약은 감기를 “죽이는 약”이 아니다 — 대부분 각 증상을 일시적으로 줄이는 약이다.</div>
+          <p>모든 증상을 한꺼번에 잡으려 여러 성분을 무조건 복용하기보다 <b>실제로 불편한 증상에 맞추는 것</b>이 합리적입니다.</p>
+
+          <h3>8-1. 발열·두통·인후통·몸살</h3>
+          <p>대표: <b>Acetaminophen · NSAIDs(ibuprofen 등)</b> — 통증·발열 완화. 바이러스 제거·감기 기간 단축은 ❌.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Acetaminophen 중복 주의</div>
+            <p>종합감기약에도 acetaminophen이 든 경우가 많습니다. <b>타이레놀 계열 + 종합감기약</b>을 함께 먹을 때 중복을 확인하세요.
+              FDA도 복합 감기약과 별도 acetaminophen 제품 병용 시 과량 위험을 경고합니다.</p>
+          </div>
+
+          <h3>8-2. 코막힘 — 비충혈제거제</h3>
+          <p>경구 <b>pseudoephedrine</b> 등, 비강 국소 α-agonist. 비점막 혈관을 수축시켜 부종·코막힘 완화.</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 확인</div>
+            <p>교감신경 자극으로 <b>심계항진·불면·혈압 상승</b> 가능 → 심혈관 기저질환·병용약이 있으면 “코막힘이니 드세요”가 아니라 적합성을 확인.
+              국소 비충혈제거제는 반복 장기 사용 시 <b>rebound congestion(약물성 비염)</b> → <b>단기간</b> 사용 개념이 중요(NHS도 장기 사용 금지 안내).</p>
+          </div>
+
+          <h3>8-3. 콧물·재채기 — (1세대) 항히스타민</h3>
+          <p>일부 종합감기약에 포함. 콧물·재채기 감소를 기대하지만 <b>졸림·구강건조</b> 주의 → 운전·집중 필요 시 확인.
+            “알레르기약이라 감기엔 무효?” — 원인을 치료하진 않지만 특정 증상 완화에 쓰일 수 있고, 모든 감기에 필요한 것은 아닙니다.</p>
+
+          <h3>8-4. 기침 — 진해제 / 8-5. 가래 — 거담제</h3>
+          <p><b>Dextromethorphan</b>(진해)로 불편한 기침 완화. 단 <b>기침은 분비물 배출 역할</b>도 있어 성격·정도를 봅니다.
+            <b>Guaifenesin</b>(거담) 등은 급성 감기 기침에서 효과가 크다고 기대하기보다 증상 완화 정도로 이해(NICE: 12세 이상 제한적 근거하 도움 가능).</p>
+
+          <h3>8-6. 항생제</h3>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>초록 콧물 = 항생제? ❌</div>
+            <p>감기는 바이러스 감염이라 항생제는 감기 자체를 치료하지 않습니다. 경과 중 분비물이 진해지고 색이 변할 수 있어
+              <b>노란/초록 콧물 = 세균 = 항생제</b>는 잘못된 공식입니다. 항생제는 <b>세균성 합병증·다른 세균 질환</b>(일부 급성 세균성 부비동염·중이염·폐렴)이 의심될 때 <b>다시 평가</b>합니다.</p>
+          </div>
+
+          <h3>8-7. 소아 감기약</h3>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>⚠️ 어린아이는 성인 감기약의 축소판이 아니다</div>
+            <p>다성분 OTC 감기약은 어린 소아에서 유익성이 제한적이고 부작용·과량 위험이 있습니다. FDA는 <b>2세 미만</b>에 decongestant/antihistamine 함유 OTC 기침·감기약 사용을 권고하지 않고,
+              미국 제품은 대개 <b>4세 미만 금지</b> 표시가 있습니다. <b>한국은 반드시 국내 제품별 허가 연령·용법을 확인</b>합니다.</p>
+          </div>
+
+          <h3>8-8. 감기약 조립하기</h3>
+          <div class="card card--case" style="margin-bottom:12px;">
+            <p style="margin:0;"><b>35세 직장인</b> · 열 없음 · <b>심한 코막힘 + 콧물</b> · 기침은 거의 없음. 필요한 성분만 골라보세요.</p>
+          </div>
+          <div class="figure" data-buildmed>
+            <div class="figure__title">Viz 5 · Build Your Cold Medicine</div>
+            <div class="build__pick">
+              <button data-comp="acetaminophen"><span class="name">Acetaminophen</span><span class="sub">해열·진통</span></button>
+              <button data-comp="decongestant"><span class="name">비충혈제거제</span><span class="sub">코막힘</span></button>
+              <button data-comp="antitussive"><span class="name">진해제</span><span class="sub">기침</span></button>
+              <button data-comp="antihistamine"><span class="name">항히스타민</span><span class="sub">콧물·재채기</span></button>
+            </div>
+            <button class="btn" data-build-confirm>조립 확인 →</button>
+            <div class="build__out"></div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ②</span> 환자: “초록 콧물이니까 항생제를 먹어야겠죠?” 약사의 가장 좋은 첫 반응은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 맞다. 세균 감염이다.</li>
+              <li data-opt="B"><span class="opt">B</span> 색만으로는 세균 감염 여부를 판단할 수 없다.</li>
+              <li data-opt="C"><span class="opt">C</span> 항생제와 항바이러스제를 모두 복용한다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 콧물 색은 바이러스성 감기에서도 변합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 집에서 · 하지 말 것 ================= -->
+        <section id="homecare" class="section">
+          <h2><span class="sec-no">09</span> 집에서 무엇을 할 수 있는가</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>💧 충분한 수분</h5><p>목·코 불편감↓, 탈수 예방</p></div>
+            <div class="axis3__card pump"><h5>😴 휴식</h5><p>빨리 “죽이는” 법은 아니지만 회복에 중요</p></div>
+            <div class="axis3__card pipes"><h5>💦 생리식염수 비강</h5><p>점막 촉촉·코막힘 완화. 영유아는 saline+suction</p></div>
+            <div class="axis3__card"><h5>🍯 꿀 (1세 이상)</h5><p>기침 완화(NICE). <b>12개월 미만 금지</b></p></div>
+          </div>
+          <p>적절한 실내 습도는 건조 자극을 줄이는 데 도움이 될 수 있고, 가습기는 청결 관리가 중요합니다.</p>
+
+          <h3>하지 말아야 할 것</h3>
+          <div class="warncards">
+            <div class="warncard"><h5>❌ 남은 항생제 임의 복용</h5><ul><li>감기엔 무효</li><li>이상반응·내성 문제</li></ul></div>
+            <div class="warncard"><h5>❌ 감기약 이름만 보고 겹쳐 먹기</h5><ul><li>acetaminophen·항히스타민 중복 위험</li><li>성분표를 확인</li></ul></div>
+            <div class="warncard"><h5>❌ 비강 스프레이 습관적 장기 사용</h5><ul><li>반동성 코막힘 위험</li></ul></div>
+            <div class="warncard"><h5>❌ 소아에 성인약 임의 감량 투여</h5><ul><li>연령별 안전성·제형·허가 다름</li></ul></div>
+            <div class="warncard"><h5>❌ 기침을 무조건 완전 억제</h5><ul><li>원인·양상을 먼저 본다</li></ul></div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · Red Flags ================= -->
+        <section id="redflags" class="section">
+          <h2><span class="sec-no">10</span> Red Flags · 언제 병원에 가야 하는가</h2>
+          <p>환자가 집에 있어도 되는지 판단하는 framework입니다.</p>
+          <div class="figure">
+            <div class="figure__title">Viz 6 · Treatment Traffic Light</div>
+            <div class="traffic">
+              <div class="traffic__row green">
+                <div class="traffic__light">🟢</div>
+                <div><h5>HOME · 자가관리</h5>
+                  <ul><li>콧물+인후통+가벼운 기침</li><li>호흡 정상 · 수분 섭취 가능</li><li>전반적 상태 괜찮음</li></ul>
+                  <div class="verd">→ Self-care + 필요한 증상완화</div>
+                </div>
+              </div>
+              <div class="traffic__row yellow">
+                <div class="traffic__light">🟡</div>
+                <div><h5>CLINIC · 진료 권장</h5>
+                  <ul><li>지속적으로 호전 없음 / 좋아졌다 다시 악화</li><li>심한 귀·얼굴 통증, 지속 부비동 증상</li><li>기침 수 주 이상 지속</li><li>고위험 환자(고령·기저질환 등)</li></ul>
+                  <div class="verd">→ 진료 및 재평가 (NICE: 급성 기침이 급격 악화/3–4주 후에도 미호전 시 재평가)</div>
+                </div>
+              </div>
+              <div class="traffic__row red">
+                <div class="traffic__light">🔴</div>
+                <div><h5>URGENT · 즉각 평가</h5>
+                  <ul><li>숨쉬기 어려움</li><li>지속적 흉통·흉부 압박감</li><li>의식 흐림·심한 처짐 · 청색증</li><li>심각한 탈수·전신상태 저하</li></ul>
+                  <div class="verd">→ 긴급 평가 (집에서 버티는 상황이 아님)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 전염과 예방 ================= -->
+        <section id="prevention" class="section">
+          <h2><span class="sec-no">11</span> 전염과 예방</h2>
+          <div class="legend">
+            <span class="chip chip--gn"><span class="sw"></span>🧼 손 씻기</span>
+            <span class="chip chip--gn"><span class="sw"></span>🤧 기침예절</span>
+            <span class="chip chip--gp"><span class="sw"></span>😷 아플 때 밀접접촉↓</span>
+            <span class="chip chip--gp"><span class="sw"></span>🌬️ 환기·깨끗한 공기</span>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>감기 백신이 있는가?</div>
+            <p><b>감기 전체를 예방하는 하나의 백신은 없습니다.</b> 감기는 하나의 바이러스가 아니라 200종 이상의 호흡기 바이러스가 만드는 증후군이기 때문입니다.
+              <b>독감 백신은 influenza 예방</b>이 목표이며 rhinovirus 등 감기 원인 바이러스까지 막는 백신이 아닙니다.
+              또한 바이러스가 워낙 다양해 <b>평생 반복해서</b> 감기에 걸릴 수 있습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 12 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">12</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 콧물이 노랗거나 초록인데 항생제 먹어야 하나요?</button>
+              <div class="faq__a">색만으로 결정하지 않습니다. 바이러스성 감기에서도 염증세포·분비물 변화로 색이 변합니다.
+                <div class="ph"><b>약사:</b> 세균성 여부는 색이 아니라 기간·중증도·악화 양상·국소 증상으로 판단합니다.</div>
+              </div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. 감기약 먹으면 빨리 낫나요?</button>
+              <div class="faq__a">대부분 기간을 크게 줄이기보다 증상을 완화합니다. 일반 감기엔 원인 바이러스 제거 치료제가 없습니다.
+                <div class="ph"><b>약사:</b> 기대를 “감기를 낫게 하는 약”에서 “회복 동안 증상을 조절하는 약”으로 바꿔주는 상담이 중요합니다.</div>
+              </div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. 감기인데 항생제 먹으면 빨리 좋아지지 않나요?</button>
+              <div class="faq__a">일반 감기엔 도움이 되지 않습니다. 항생제는 세균 대상이지 바이러스를 치료하지 않으며, 불필요하면 이상반응·내성을 늘립니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. 기침이 1주 넘게 가는데 감기가 아닌가요?</button>
+              <div class="faq__a">반드시 그렇지 않습니다. 감염 후 기침은 더 오래갈 수 있고 NICE는 3–4주까지 이어질 수 있다고 안내합니다.
+                <div class="ph"><b>약사:</b> 기간만 보지 말고 악화 여부·호흡곤란·흉통·전신상태를 함께 확인합니다.</div>
+              </div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. 비타민 C 많이 먹으면 바로 낫나요?</button>
+              <div class="faq__a">즉시 치료법으로 볼 수 없습니다. 감기는 대부분 자연회복하는 바이러스 감염이며, 고용량 영양제가 치료의 핵심은 아닙니다. 수분·휴식·증상관리·Red Flag 확인이 우선입니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 독감하고 감기는 어떻게 알아요?</button>
+              <div class="faq__a">독감은 갑작스러운 발병 + 발열·오한 + 심한 근육통·피로가 감기보다 전형적입니다. 다만 증상만으로 완벽히 구분되진 않으며, 고위험 환자는 검사·조기 항바이러스 치료를 고려합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 감기 걸리면 운동해도 돼요?</button>
+              <div class="faq__a">가벼운 증상이고 상태가 괜찮으면 일률적 금지는 아니지만 억지로 할 이유는 없습니다. 발열·심한 피로·호흡기 증상이 있으면 운동뿐 아니라 타인 전파 가능성도 고려합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q8. 감기 걸리면 무조건 따뜻하게 있어야 하나요?</button>
+              <div class="faq__a">편안한 온도면 됩니다. 몸을 뜨겁게 만든다고 바이러스가 없어지지 않습니다. 편히 쉬고 수분을 섭취할 수 있는 환경이 더 중요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q9. 코감기랑 목감기는 다른 병인가요?</button>
+              <div class="faq__a">꼭 다른 질환은 아닙니다. 같은 상기도 바이러스 감염에서도 사람·시점에 따라 코 또는 목 증상이 더 두드러질 수 있습니다. 우세한 증상을 표현하는 생활용어로 이해하면 편합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · Myth vs Fact ================= -->
+        <section id="myth" class="section">
+          <h2><span class="sec-no">13</span> Myth vs Fact</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">초록 콧물 = 세균 감염이다.</div><span class="verdict">틀림</span>
+              <div class="why">바이러스성 감기 과정에서도 콧물 색은 변할 수 있습니다.</div>
+              <div class="take"><b>실전:</b> 색만으로 항생제를 결정하지 않는다.</div></div>
+            <div class="factrow"><div class="claim">감기는 항생제를 먹으면 더 빨리 낫는다.</div><span class="verdict">틀림</span>
+              <div class="why">일반 감기는 바이러스성이라 항생제가 효과 없습니다.</div></div>
+            <div class="factrow"><div class="claim">추운 데 있어서 감기에 걸렸다.</div><span class="verdict">대체로 틀림</span>
+              <div class="why">직접 원인은 호흡기 바이러스 감염입니다. 계절·환경은 접촉·유행 패턴에 영향을 주지만 추위 자체가 바이러스는 아닙니다.</div></div>
+            <div class="factrow"><div class="claim">감기약은 성분이 많을수록 좋다.</div><span class="verdict">틀림</span>
+              <div class="why">불필요한 성분은 부작용·중복 가능성만 늘립니다. 증상에 필요한 성분 선택이 핵심.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">14</span> Pharmacist Deep Dive</h2>
+          <h3>① 왜 감기약에는 성분이 이렇게 많을까?</h3>
+          <p>감기 증상은 하나의 pathway가 아닙니다. 통증·열→acetaminophen/NSAID, 비점막 부종→decongestant, 콧물·재채기→일부 antihistamine, 기침→antitussive.
+            종합감기약은 “감기 하나를 치료하는 여러 약”이 아니라 <b>서로 다른 증상을 대상으로 하는 여러 약의 조합</b>입니다.</p>
+          <h3>② 왜 rhinovirus 백신이 없을까?</h3>
+          <p>감기를 일으키는 바이러스가 지나치게 다양합니다. rhinovirus 자체도 다양하고 그 외 수많은 호흡기 바이러스가 감기 증후군을 만들어, influenza처럼 “백신 하나” 전략이 단순하지 않습니다.</p>
+          <h3>③ 감기와 ASP</h3>
+          <div class="card card--asp">
+            <div class="card__label"><span class="dot"></span>ASP POINT</div>
+            <p>Viral URI에 항생제는 효과가 없고, 불필요한 처방은 <b>부작용 + 미생물군 영향 + 내성 선택압</b>을 만듭니다.
+              “항생제를 안 주는 것 = 치료를 안 하는 것”이 아니라, <b>필요 없는 항생제를 피하면서 적절한 symptomatic care + safety netting</b>을 하는 것이 올바른 치료입니다(NICE도 uncomplicated acute URI에 항생제 미사용 권고).</p>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">15</span> Case Study</h2>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case A · Typical</div>
+            <p>29세 여성. 어제 목이 따끔, 오늘 맑은 콧물·코막힘·잦은 재채기. 체온 정상, 약간 피곤하나 일상생활 가능.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">Q1. 가장 가능성이 높은 것은?</div>
+            <ul class="mcq" data-answer="A">
+              <li data-opt="A"><span class="opt">A</span> 전형적 감기</li>
+              <li data-opt="B"><span class="opt">B</span> 폐렴</li>
+              <li data-opt="C"><span class="opt">C</span> 세균성 부비동염</li>
+              <li data-opt="D"><span class="opt">D</span> 중증 influenza</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: A — 코·인후 중심, 점진적 시작, 심한 전신증상 없음. 필요한 증상완화 + 수분·휴식 + 전염 예방 + 악화 시 재평가.</div>
+          </div>
+          <div class="qcard">
+            <div class="q">Q2. 환자: “감기 시작할 때 항생제 먹으면 빨리 잡힌다던데 주세요.” 어떻게 설명할까요?</div>
+            <button class="reveal-btn">모범 답변 보기</button>
+            <div class="answer">“일반적인 감기는 바이러스 때문에 생겨서 항생제가 감기 자체를 빨리 낫게 하지는 않습니다. 지금은 불편한 코·목 증상을 조절하면서 경과를 보는 게 더 적절합니다.”</div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Case B · Think Again</div>
+            <p>71세 남성. “감기 같다”며 방문. 오늘 아침부터 갑자기 오한·온몸 심한 통증·움직이기 어려움, 기침, <b>39℃ 발열</b>. 당뇨병·심혈관질환 있음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">Q1. 그냥 감기약을 권하고 보내도 될까?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> YES</li>
+              <li data-opt="B"><span class="opt">B</span> NO</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 갑작스러운 발병·고열·심한 근육통·강한 전신증상 → influenza 등 고려. 고령·기저질환으로 중증 위험도 중요. influenza·COVID-19 항바이러스는 <b>초기</b>가 중요하므로 “며칠 버텨보세요”는 부적절.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">Recall ③</span> 독감 쪽으로 기울게 하는 단서 두 가지는?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">① 갑작스러운 발병 ② 뚜렷한 전신증상(고열·오한·심한 근육통 등).</div>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Recall ④</span> 감기 8일째, 콧물은 거의 좋아졌지만 가벼운 기침이 남음. 호흡곤란 없고 전반적으로 호전 중. 항생제가 필요하다는 강한 단서인가?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 필요하다</li>
+              <li data-opt="B"><span class="opt">B</span> 반드시 그렇지 않다</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 감염 후 기침은 다른 증상보다 오래갈 수 있습니다. 다만 호흡곤란·흉통·악화 양상이 동반되면 재평가합니다.</div>
+          </div>
+
+          <h3>Mini Case · “약국에 세 사람이 동시에 왔다”</h3>
+          <div class="flashdeck">
+            <div class="flashcard"><div class="fc-n">Patient 1</div><div class="fc-term">콧물+목 따가움</div><div class="fc-arrow">천천히 시작 · 미열 없음 →</div><div class="fc-ans">감기 가능성 ↑</div></div>
+            <div class="flashcard warn"><div class="fc-n">Patient 2</div><div class="fc-term">갑자기 39℃</div><div class="fc-arrow">오한 + 심한 근육통 →</div><div class="fc-ans">Influenza 고려 ↑</div></div>
+            <div class="flashcard" style="background:linear-gradient(135deg,#0c6a60,#12a594);"><div class="fc-n">Patient 3</div><div class="fc-term">아침마다 재채기 10번</div><div class="fc-arrow">눈·코 간지러움 · 몇 달째 반복 →</div><div class="fc-ans">알레르기비염 고려 ↑</div></div>
+          </div>
+          <p class="flashhint">← 옆으로 넘겨보세요 · 질환 이름 암기가 아니라 pattern recognition 훈련</p>
+        </section>
+
+        <!-- ================= 16 · Final Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">16</span> Final Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 감기에 대한 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 대부분 세균성 상기도 감염이다.</li>
+                <li data-opt="B"><span class="opt">B</span> 하나의 rhinovirus만으로 발생한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 여러 종류의 호흡기 바이러스가 일으킬 수 있다.</li>
+                <li data-opt="D"><span class="opt">D</span> 대부분 항바이러스제가 필요하다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — rhinovirus가 대표적이지만 다양한 호흡기 바이러스가 원인입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q2. 감기 4일째 초록색 콧물이 생겼다며 항생제를 요구한다. 가장 적절한 설명은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 초록색이면 거의 확실한 세균 감염이다.</li>
+                <li data-opt="B"><span class="opt">B</span> 항생제를 즉시 복용해야 한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 콧물 색만으로 세균 감염 여부를 결정할 수 없다.</li>
+                <li data-opt="D"><span class="opt">D</span> 항바이러스제를 복용해야 한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 색은 바이러스성 감기에서도 변합니다. 경과·중증도·국소 증상을 함께 평가.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q3. 감기보다 독감을 더 의심하게 하는 조합은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 반복적 재채기 + 눈 가려움</li>
+                <li data-opt="B"><span class="opt">B</span> 갑작스러운 발열 + 심한 근육통 + 오한</li>
+                <li data-opt="C"><span class="opt">C</span> 점진적인 콧물 + 약한 인후통</li>
+                <li data-opt="D"><span class="opt">D</span> 맑은 콧물 + 코막힘</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 독감은 갑작스러운 발병·강한 전신증상이 전형적.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q4. 감기 환자에게 일반적으로 적절하지 <b>않은</b> 것은?</div>
+              <ul class="mcq" data-answer="D">
+                <li data-opt="A"><span class="opt">A</span> 필요 시 해열진통제로 통증 완화</li>
+                <li data-opt="B"><span class="opt">B</span> 수분을 충분히 섭취</li>
+                <li data-opt="C"><span class="opt">C</span> 증상에 필요한 약을 선택</li>
+                <li data-opt="D"><span class="opt">D</span> 세균성 합병증 증거 없이 예방 목적 항생제 복용</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: D — 일반 감기는 바이러스 감염이라 예방적 항생제는 불필요합니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q5. 55세 “감기” 환자에서 가장 먼저 의료기관 평가가 필요한 신호는?</div>
+              <ul class="mcq" data-answer="D">
+                <li data-opt="A"><span class="opt">A</span> 하루째 맑은 콧물</li>
+                <li data-opt="B"><span class="opt">B</span> 재채기</li>
+                <li data-opt="C"><span class="opt">C</span> 가벼운 인후통</li>
+                <li data-opt="D"><span class="opt">D</span> 호흡곤란과 지속적인 흉통</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: D — 호흡곤란·흉통은 단순 감기 범위를 벗어나 폐렴·심폐질환 등 평가가 필요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · 20초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">17</span> 20초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>감기는 여러 호흡기 바이러스가 만드는 상기도 감염이다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>콧물·코막힘·재채기·인후통이 중심, 전신증상은 보통 독감보다 가볍다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>갑작스러운 고열+오한+심한 몸살이면 독감을 더 생각한다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>초록·노란 콧물만으로 세균 감염·항생제 필요성을 판단하지 않는다.</p></div>
+            <div class="factcard"><span class="n">5</span><p>감기약은 대부분 바이러스를 제거하지 않고 증상을 완화한다.</p></div>
+            <div class="factcard"><span class="n">6</span><p>항생제는 일반적인 감기 자체에는 필요하지 않다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>호흡곤란·흉통·심한 전신상태 저하·비정상적 악화는 ‘그냥 감기’로 넘기지 않는다.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이번 강의에서 가져갈 사고 흐름</h3>
+          <p class="big">콧물·목·기침이 있다 → 정말 감기다운 pattern인가? → 심한 전신증상은? → 호흡곤란·흉통 등 Red Flag는?
+            → 독감/COVID 등 조기치료가 중요한 질환 가능성은? → 없다면 필요한 증상만 조절 · 항생제는 사용 안 함 · 전체적으로 좋아지는지 관찰.</p>
+          <p style="font-size:13px;opacity:.85;">※ 최신 감기 관리·항생제 사용·influenza 감별·호흡기 바이러스 전파 권고는 CDC·NICE 자료를 기준으로 교차 확인했습니다.</p>
+          <p style="margin-top:18px;"><a href="../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#situation"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>감기 핵심 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">정의</span><span>여러 바이러스·상기도 감염</span></div>
+      <div class="qr-row"><span class="qr-k">감기약</span><span>증상 완화(원인 제거 X)</span></div>
+      <div class="qr-row"><span class="qr-k">항생제</span><span>일반 감기엔 불필요</span></div>
+      <div class="qr-row"><span class="qr-k">콧물 색</span><span>세균 판단 근거 아님</span></div>
+      <div class="qr-row"><span class="qr-k">Red Flag</span><span>호흡곤란·흉통·심한 처짐</span></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

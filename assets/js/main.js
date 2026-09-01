@@ -683,6 +683,130 @@
     compute();
   }
 
+  /* =========================================================
+     ===========  Everyday 01 · 감기 인터랙션  =============
+     ========================================================= */
+
+  /* ---------- 읽기 진행바 ---------- */
+  function initReadProgress() {
+    var bar = document.querySelector(".readprog i");
+    if (!bar) return;
+    function update() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop || document.body.scrollTop) / max * 100 : 0;
+      bar.style.width = Math.min(100, Math.max(0, pct)) + "%";
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+  }
+
+  /* ---------- 오늘의 상황 · 확인 항목 칩 ---------- */
+  var SITUATION = {
+    fever: "고열이 뚜렷하면 독감 등 다른 감염 가능성도 생각합니다.",
+    body: "심한 근육통·오한·두통은 전형적 감기보다 독감 쪽 단서입니다.",
+    dyspnea: "호흡곤란은 단순 감기의 범위를 벗어나는 Red Flag입니다.",
+    duration: "증상 기간은 자연경과를 판단하는 핵심입니다.",
+    course: "좋아지다가 다시 악화되면 합병증·다른 질환을 고려합니다."
+  };
+  function initSituation() {
+    document.querySelectorAll("[data-situation]").forEach(function (root) {
+      var out = root.querySelector(".checkchips__out");
+      root.querySelectorAll("button[data-item]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          b.classList.toggle("active");
+          var txt = SITUATION[b.getAttribute("data-item")];
+          if (out && txt) out.textContent = txt;
+        });
+      });
+    });
+  }
+
+  /* ---------- Viz 1 · Upper Airway Before/After ---------- */
+  function initAirway() {
+    var root = document.querySelector("[data-airway]");
+    if (!root) return;
+    var desc = root.querySelector(".airway__desc");
+    var TXT = {
+      normal: "정상 비점막 — 얇은 점액층과 정상 점막. 코로 편하게 숨을 쉴 수 있습니다.",
+      cold: "감기 — 바이러스 감염 → 점막 염증 → 혈관 확장·분비 증가 → 점막이 붓고 점액이 늘어 코막힘·콧물·재채기가 생깁니다. (증상의 상당수는 바이러스 자체보다 우리 면역·염증 반응과 관련됩니다.)"
+    };
+    root.querySelectorAll(".airway__toggle button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var st = b.getAttribute("data-state");
+        root.querySelectorAll(".airway__toggle button").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        root.classList.toggle("is-cold", st === "cold");
+        if (desc) desc.textContent = TXT[st];
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · Symptom Fingerprint ---------- */
+  var FINGERPRINT = {
+    cold: [
+      { k: "🤧 코 증상", v: 4 }, { k: "😣 목 증상", v: 3 }, { k: "😷 기침", v: 3 },
+      { k: "🤒 고열", v: 1 }, { k: "🥴 심한 몸살", v: 1 }
+    ],
+    flu: [
+      { k: "🤧 코 증상", v: 2 }, { k: "😣 목 증상", v: 2 }, { k: "😷 기침", v: 3 },
+      { k: "🤒 고열/발열감", v: 3 }, { k: "🥴 심한 몸살·피로", v: 4 }
+    ]
+  };
+  function initFingerprint() {
+    var root = document.querySelector("[data-fingerprint]");
+    if (!root) return;
+    var rowsEl = root.querySelector(".fp__rows");
+    function render(profile) {
+      rowsEl.className = "fp__rows " + profile;
+      rowsEl.innerHTML = FINGERPRINT[profile].map(function (r) {
+        var dots = "";
+        for (var i = 1; i <= 4; i++) dots += "<i class='" + (i <= r.v ? "on" : "") + "'></i>";
+        return "<div class='fp__row'><span>" + r.k + "</span><span class='fp__dots'>" + dots + "</span></div>";
+      }).join("");
+      root.querySelectorAll(".fp__toggle button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-profile") === profile);
+      });
+    }
+    root.querySelectorAll(".fp__toggle button").forEach(function (b) {
+      b.addEventListener("click", function () { render(b.getAttribute("data-profile")); });
+    });
+    render("cold");
+  }
+
+  /* ---------- Viz 5 · Build Your Cold Medicine ---------- */
+  var BUILD = {
+    acetaminophen: { verd: "bad", txt: "이 환자는 열·통증이 없어 지금은 <b>불필요</b>합니다." },
+    decongestant: { verd: "good", txt: "심한 <b>코막힘</b>에 적절합니다. (심혈관 기저질환·병용약 확인)" },
+    antitussive: { verd: "bad", txt: "기침이 거의 없어 지금은 <b>불필요</b>합니다." },
+    antihistamine: { verd: "opt", txt: "<b>콧물</b>이 불편하면 선택적으로 고려. 졸림·구갈 주의." }
+  };
+  function initBuildMed() {
+    var root = document.querySelector("[data-buildmed]");
+    if (!root) return;
+    var out = root.querySelector(".build__out");
+    root.querySelectorAll(".build__pick button").forEach(function (b) {
+      b.addEventListener("click", function () { b.classList.toggle("active"); });
+    });
+    var confirm = root.querySelector("[data-build-confirm]");
+    if (confirm) confirm.addEventListener("click", function () {
+      var picked = Array.prototype.slice.call(root.querySelectorAll(".build__pick button.active"));
+      var html = "";
+      if (!picked.length) {
+        html = "<div class='build__line opt'>아무 성분도 선택하지 않았습니다. 증상이 가벼우면 자가관리만으로도 충분할 수 있습니다.</div>";
+      } else {
+        html = picked.map(function (b) {
+          var d = BUILD[b.getAttribute("data-comp")];
+          return "<div class='build__line " + d.verd + "'>" + b.querySelector(".name").textContent + " — " + d.txt + "</div>";
+        }).join("");
+      }
+      html += "<div class='build__line opt' style='margin-top:8px;'><b>핵심:</b> 모든 성분이 필요한 것은 아니다 — 실제로 불편한 증상에 맞춘 <b>최소한의 약물</b>을 고른다.</div>";
+      out.innerHTML = html;
+      out.classList.add("show");
+    });
+  }
+
   /* ---------- init ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     initSidebar();
@@ -709,5 +833,11 @@
     initOrganExplorer();
     initDrugOrganMap();
     initHypoSim();
+    // Everyday 01 · 감기
+    initReadProgress();
+    initSituation();
+    initAirway();
+    initFingerprint();
+    initBuildMed();
   });
 })();

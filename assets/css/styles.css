@@ -1489,3 +1489,113 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .gj__organs { grid-template-columns: 1fr; }
   .foodcurve { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   ==========  Everyday 01 · 감기 전용 컴포넌트  ==========
+   ========================================================= */
+:root {
+  --cold: #1f7ae0;
+  --flu: #e5484d;
+  --allergy: #12a594;
+  --sinus: #d99a12;
+}
+
+/* ---------- 읽기 진행바 (상단 고정) ---------- */
+.readprog {
+  position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 60;
+  background: transparent; pointer-events: none;
+}
+.readprog i {
+  display: block; height: 100%; width: 0;
+  background: linear-gradient(90deg,var(--brand),var(--gn)); transition: width .1s linear;
+}
+
+/* ---------- 오늘의 상황 · 확인 항목 칩 ---------- */
+.checkchips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.checkchips button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border-radius: 999px;
+  padding: 9px 15px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.checkchips button:hover { border-color: var(--brand); }
+.checkchips button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.checkchips__out {
+  font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px;
+  padding: 12px 14px; min-height: 44px; line-height: 1.6;
+}
+
+/* =========================================================
+   Viz 1 · Upper Airway Before/After
+   ========================================================= */
+.airway__toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; margin-bottom: 12px; }
+.airway__toggle button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border: none;
+  padding: 9px 20px; background: var(--surface); color: var(--ink-soft);
+}
+.airway__toggle button.active { background: var(--cold); color: #fff; }
+.airway__stage { display: grid; place-items: center; }
+.airway__stage svg { width: 100%; max-width: 360px; height: auto; }
+.airway .mucosa { fill: #f3b9b0; transition: all .4s; }
+.airway.is-cold .mucosa { fill: #e5776a; }
+.airway .lumen { fill: #fff; transition: all .4s; }
+.airway .mucus { opacity: 0; transition: opacity .4s; }
+.airway.is-cold .mucus { opacity: 1; }
+.airway__desc {
+  margin-top: 12px; font-size: 14px; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px; line-height: 1.6;
+}
+
+/* =========================================================
+   Viz 3 · Symptom Fingerprint
+   ========================================================= */
+.fp__toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+.fp__toggle button { font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border: none; padding: 9px 20px; background: var(--surface); color: var(--ink-soft); }
+.fp__toggle button.active.cold { background: var(--cold); color: #fff; }
+.fp__toggle button.active.flu { background: var(--flu); color: #fff; }
+.fp__rows { display: grid; gap: 10px; }
+.fp__row { display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; font-size: 13.5px; font-weight: 700; }
+.fp__dots { display: flex; gap: 5px; }
+.fp__dots i { width: 16px; height: 16px; border-radius: 50%; background: var(--line-strong); transition: background .3s; }
+.fp__rows.cold .fp__dots i.on { background: var(--cold); }
+.fp__rows.flu .fp__dots i.on { background: var(--flu); }
+
+/* =========================================================
+   Viz 5 · Build Your Cold Medicine
+   ========================================================= */
+.build__pick { display: grid; grid-template-columns: repeat(auto-fill,minmax(150px,1fr)); gap: 10px; margin: 12px 0; }
+.build__pick button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; text-align: left;
+  border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.build__pick button .sub { display: block; font-weight: 500; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+.build__pick button:hover { border-color: var(--brand); }
+.build__pick button.active { background: var(--brand-soft); border-color: var(--brand); }
+.build__out { display: none; margin-top: 8px; }
+.build__out.show { display: block; animation: fadein .2s ease; }
+.build__line { font-size: 13.5px; padding: 8px 12px; border-radius: 10px; margin-bottom: 6px; }
+.build__line.good { background: var(--ok-soft); color: #147a49; }
+.build__line.opt { background: #e6efff; color: var(--cold); }
+.build__line.bad { background: var(--hi-soft); color: var(--hi); }
+
+/* =========================================================
+   Viz 6 · Treatment Traffic Light / Red Flags
+   ========================================================= */
+.traffic { display: grid; gap: 12px; }
+.traffic__row {
+  display: grid; grid-template-columns: 66px 1fr; gap: 14px; align-items: center;
+  border-radius: 16px; padding: 16px; border: 1.5px solid var(--accent); background: var(--bg-soft, #fff);
+}
+.traffic__row.green { --accent: var(--ok); background: var(--ok-soft); }
+.traffic__row.yellow { --accent: var(--mid); background: var(--mid-soft); }
+.traffic__row.red { --accent: var(--hi); background: var(--hi-soft); }
+.traffic__light {
+  width: 54px; height: 54px; border-radius: 50%; justify-self: center; display: grid; place-items: center;
+  font-size: 24px; color: #fff; background: var(--accent);
+}
+.traffic__row h5 { margin: 0 0 6px; font-size: 15px; color: var(--accent); }
+.traffic__row ul { margin: 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-soft); }
+.traffic__row .verd { font-weight: 700; color: var(--accent); font-size: 13px; margin-top: 6px; }
+
+@media (max-width: 640px) {
+  .fp__row { grid-template-columns: 96px 1fr; }
+  .fp__dots i { width: 13px; height: 13px; }
+}
