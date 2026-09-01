@@ -1731,3 +1731,75 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .sm__grid { grid-template-columns: 1fr; }
   .ll__gauges { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   ==========  Core 04 · 비만 전용 컴포넌트  ==========
+   ========================================================= */
+:root { --fat: #e0872a; --brain: #7c5cf0; }
+
+/* Viz 1 · Hunger–Satiety Control Center */
+.hz__btns { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.hz__btns button {
+  font-family: inherit; font-weight: 700; font-size: 13.5px; cursor: pointer; border-radius: 999px;
+  padding: 9px 15px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.hz__btns button:hover { border-color: var(--brand); }
+.hz__btns button.active { background: var(--brain); color: #fff; border-color: var(--brain); }
+.hz__center {
+  text-align: center; font-weight: 700; font-size: 16px; color: #fff; border-radius: 12px;
+  padding: 12px; margin-bottom: 12px; background: linear-gradient(135deg,var(--brain),#5b3fd0);
+}
+.hz__rows { display: grid; gap: 8px; margin-bottom: 12px; }
+.hz__row { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center;
+  font-size: 13.5px; font-weight: 700; background: var(--surface-2); border: 1px solid var(--line);
+  border-radius: 10px; padding: 8px 12px; }
+.hz__row .src { color: var(--ink-faint); font-size: 12px; font-weight: 500; }
+.hz__row .arrow { font-size: 20px; font-weight: 700; }
+.hz__note { font-size: 13.5px; background: var(--surface-2); border-radius: 12px; padding: 12px 14px; margin-top: 10px; line-height: 1.6; }
+
+/* Viz 3 · Weight Loss Defense Slider */
+.wl__slider input[type=range] { width: 100%; accent-color: var(--fat); height: 30px; }
+.wl__kg { text-align: center; font-weight: 700; font-size: 20px; margin: 4px 0 12px; }
+.wl__rows { display: grid; gap: 10px; }
+.wl__row { display: grid; grid-template-columns: 130px 1fr 30px; gap: 10px; align-items: center; font-size: 13px; font-weight: 700; }
+.wl__track { height: 14px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.wl__fill { height: 100%; border-radius: 999px; transition: width .2s; }
+.wl__row.fat .wl__fill { background: var(--fat); }
+.wl__row.leptin .wl__fill { background: var(--vol); }
+.wl__row.hunger .wl__fill { background: var(--hi); }
+.wl__row.energy .wl__fill { background: var(--vessel); }
+.wl__val { font-size: 16px; text-align: center; }
+
+/* Viz 4 · BMI Calculator */
+.bmi__ctrls { display: grid; gap: 12px; margin-bottom: 12px; }
+.bmi__ctrls label { font-size: 13px; font-weight: 700; display: flex; justify-content: space-between; }
+.bmi__ctrls input[type=range] { width: 100%; accent-color: var(--brand); }
+.bmi__val { text-align: center; font-size: clamp(34px,9vw,48px); font-weight: 700; color: var(--brand-dark); line-height: 1; }
+.bmi__cat { text-align: center; margin: 6px 0 12px; }
+.bmi__cat span { font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 14px; }
+.bmi__cat span.normal { background: var(--ok-soft); color: var(--ok); }
+.bmi__cat span.pre { background: var(--mid-soft); color: #a9750a; }
+.bmi__cat span.ob { background: var(--hi-soft); color: var(--hi); }
+.bmi__layers { display: none; margin-top: 8px; }
+.bmi__layers.show { display: block; animation: fadein .2s ease; }
+
+/* Weight-loss benefit slider */
+.wlb__slider input[type=range] { width: 100%; accent-color: var(--ok); height: 30px; }
+.wlb__pct { text-align: center; font-weight: 700; font-size: 22px; color: var(--ok); }
+.wlb__out { margin-top: 10px; font-size: 14px; background: var(--ok-soft); border: 1px solid var(--ok); border-radius: 12px; padding: 12px 14px; min-height: 44px; }
+
+/* Habit Loop (정적) */
+.habit { display: grid; grid-template-columns: repeat(3,1fr) auto; gap: 8px; align-items: stretch; }
+.habit__step { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: var(--surface); text-align: center; font-size: 13px; }
+.habit__step h6 { margin: 0 0 6px; font-size: 12px; color: var(--brand); }
+.habit__arrow { display: grid; place-items: center; color: var(--ink-faint); font-weight: 700; }
+.habit__alt { margin-top: 10px; background: var(--ok-soft); border: 1px solid var(--ok); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; }
+
+/* Plateau SVG */
+.plateau svg { width: 100%; height: auto; max-width: 480px; display: block; margin: 0 auto; }
+
+@media (max-width: 640px) {
+  .hz__row { grid-template-columns: 120px 1fr; }
+  .habit { grid-template-columns: 1fr; }
+  .habit__arrow { transform: rotate(90deg); }
+}

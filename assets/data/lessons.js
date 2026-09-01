@@ -50,6 +50,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 4,
+    category: "core",
+    href: "lessons/core/04.html",
+    title: "비만",
+    desc: "“덜 먹고 많이 움직이면 된다”를 넘어, 에너지 균형 → 뇌의 식욕 조절(leptin·ghrelin·GLP-1) → 지방조직 기능 이상 → 합병증 → 감량 후 보상반응 → 비만치료제(GLP-1/GIP·NB·PT·orlistat)가 건드리는 시스템까지.",
+    tags: ["에너지 균형", "식욕 조절", "내장지방", "BMI 한계", "비만치료제"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

@@ -1050,5 +1050,155 @@
     initRiskStack();
     initLifeLipid();
     initStatinMech();
+    // Core 04 · 비만
+    initHunger();
+    initWLDefense();
+    initBmiCalc();
+    initWLBenefit();
   });
+
+  /* =========================================================
+     ==============  Core 04 · 비만 인터랙션  ==============
+     ========================================================= */
+
+  /* ---------- Viz 1 · Hunger–Satiety Control Center ---------- */
+  var HUNGER = {
+    fast: {
+      rows: [
+        { k: "Ghrelin", src: "위", dir: "up" },
+        { k: "GLP-1 / PYY", src: "장", dir: "down" },
+        { k: "Leptin", src: "지방", dir: "neu" }
+      ],
+      out: { hunger: "up", satiety: "down", energy: "neu" },
+      note: "12시간 공복 → 위에서 <b>ghrelin↑</b>, 장의 <b>GLP-1/PYY↓</b> → 뇌가 hunger를 올립니다."
+    },
+    meal: {
+      rows: [
+        { k: "Ghrelin", src: "위", dir: "down" },
+        { k: "GLP-1 / PYY", src: "장", dir: "up" },
+        { k: "Leptin", src: "지방", dir: "neu" }
+      ],
+      out: { hunger: "down", satiety: "up", energy: "up" },
+      note: "식사 → 위 팽창 + 장의 <b>GLP-1/PYY↑</b> → satiety↑ · hunger↓. (음식의 소화·대사로 TEF도 조금↑)"
+    },
+    fatloss: {
+      rows: [
+        { k: "Ghrelin", src: "위", dir: "up" },
+        { k: "GLP-1 / PYY", src: "장", dir: "neu" },
+        { k: "Leptin", src: "지방", dir: "down" }
+      ],
+      out: { hunger: "up", satiety: "down", energy: "down" },
+      note: "체지방 감소 → <b>leptin↓</b> → 뇌는 “저장이 줄었다”고 인식 → hunger↑ · energy expenditure↓. <b>이것이 감량 후 체중 재증가를 부르는 적응 반응</b>입니다."
+    }
+  };
+  function initHunger() {
+    var root = document.querySelector("[data-hunger]");
+    if (!root) return;
+    var rowsEl = root.querySelector(".hz__rows");
+    var noteEl = root.querySelector(".hz__note");
+    var arrows = { up: "↑", down: "↓", neu: "↔" };
+    function render(sc) {
+      var d = HUNGER[sc];
+      rowsEl.innerHTML = d.rows.map(function (r) {
+        return "<div class='hz__row'><span>" + r.k + " <span class='src'>· " + r.src + "</span></span>" +
+          "<span class='arrow dir-" + r.dir + "'>" + arrows[r.dir] + "</span></div>";
+      }).join("");
+      ["hunger", "satiety", "energy"].forEach(function (k) {
+        var g = root.querySelector(".ll__g." + k + " .arrow");
+        if (g) { g.textContent = arrows[d.out[k]]; g.className = "arrow dir-" + d.out[k]; }
+      });
+      if (noteEl) noteEl.innerHTML = d.note;
+      root.querySelectorAll(".hz__btns button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-sc") === sc);
+      });
+    }
+    root.querySelectorAll(".hz__btns button").forEach(function (b) {
+      b.addEventListener("click", function () { render(b.getAttribute("data-sc")); });
+    });
+    render("meal");
+  }
+
+  /* ---------- Viz 3 · Weight Loss Defense Slider ---------- */
+  function initWLDefense() {
+    var root = document.querySelector("[data-wldefense]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var kgEl = root.querySelector(".wl__kg");
+    function setBar(name, pct, arrow) {
+      var row = root.querySelector(".wl__row." + name);
+      if (!row) return;
+      row.querySelector(".wl__fill").style.width = pct + "%";
+      var v = row.querySelector(".wl__val");
+      if (v) v.textContent = arrow;
+    }
+    function render() {
+      var kg = parseInt(input.value, 10);   // 85..100 (현재 체중)
+      var lost = 100 - kg;                   // 0..15
+      var f = lost / 15;
+      if (kgEl) kgEl.textContent = kg + " kg  (−" + lost + " kg)";
+      setBar("fat", Math.max(10, 100 - f * 55), f > 0 ? "↓" : "↔");
+      setBar("leptin", Math.max(10, 100 - f * 60), f > 0 ? "↓" : "↔");
+      setBar("hunger", 30 + f * 60, f > 0 ? "↑" : "↔");
+      setBar("energy", Math.max(15, 100 - f * 45), f > 0 ? "↓" : "↔");
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- Viz 4 · BMI Calculator + Risk Layers ---------- */
+  function initBmiCalc() {
+    var root = document.querySelector("[data-bmicalc]");
+    if (!root) return;
+    var hIn = root.querySelector("[data-bmi-h]");
+    var wIn = root.querySelector("[data-bmi-w]");
+    var hLab = root.querySelector("[data-bmi-hlab]");
+    var wLab = root.querySelector("[data-bmi-wlab]");
+    var valEl = root.querySelector(".bmi__val");
+    var catEl = root.querySelector(".bmi__cat");
+    function render() {
+      var h = parseInt(hIn.value, 10), w = parseInt(wIn.value, 10);
+      if (hLab) hLab.textContent = h + " cm";
+      if (wLab) wLab.textContent = w + " kg";
+      var bmi = w / Math.pow(h / 100, 2);
+      valEl.textContent = "BMI " + bmi.toFixed(1);
+      var cls, txt;
+      if (bmi < 18.5) { cls = "normal"; txt = "저체중"; }
+      else if (bmi < 23) { cls = "normal"; txt = "정상"; }
+      else if (bmi < 25) { cls = "pre"; txt = "비만 전단계"; }
+      else if (bmi < 30) { cls = "ob"; txt = "1단계 비만 (한국 ≥25)"; }
+      else if (bmi < 35) { cls = "ob"; txt = "2단계 비만"; }
+      else { cls = "ob"; txt = "3단계 비만"; }
+      catEl.innerHTML = "<span class='" + cls + "'>" + txt + "</span>";
+    }
+    hIn.addEventListener("input", render);
+    wIn.addEventListener("input", render);
+    var toggle = root.querySelector("[data-bmi-toggle]");
+    var layers = root.querySelector(".bmi__layers");
+    if (toggle && layers) toggle.addEventListener("click", function () {
+      var shown = layers.classList.toggle("show");
+      toggle.textContent = shown ? "레이어 접기 ▲" : "BMI만 보면 끝? ▼";
+    });
+    render();
+  }
+
+  /* ---------- Weight-loss benefit slider ---------- */
+  function initWLBenefit() {
+    var root = document.querySelector("[data-wlbenefit]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var pctEl = root.querySelector(".wlb__pct");
+    var outEl = root.querySelector(".wlb__out");
+    function render() {
+      var p = parseInt(input.value, 10); // 0..20
+      pctEl.textContent = "−" + p + "%";
+      var txt;
+      if (p < 3) txt = "아직 뚜렷한 대사 개선을 말하기 이른 구간입니다. 꾸준함이 핵심.";
+      else if (p < 8) txt = "<b>5~7% 지속 감량</b> — glycemia·혈압·중성지방 등 대사지표 개선이 시작됩니다(ADA 2026).";
+      else if (p < 13) txt = "<b>~10%</b> — 더 큰 대사 개선. 지방간·수면무호흡 등에서도 이득이 커질 수 있습니다.";
+      else txt = "<b>15%+</b> — 일부 합병증에서 더 큰 개선 가능. 단 근육 보존(단백질·저항운동)을 함께 챙깁니다.";
+      outEl.innerHTML = txt + "<div style='margin-top:6px;font-size:12.5px;color:var(--ink-faint);'>성공 = 정상체중 도달만을 의미하지 않는다.</div>";
+    }
+    input.addEventListener("input", render);
+    render();
+  }
 })();
