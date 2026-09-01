@@ -25,7 +25,7 @@ window.PHARM_LESSONS = [
   {
     no: 1,
     category: "core",
-    href: "lessons/lesson-01.html",
+    href: "lessons/core/01.html",
     title: "고혈압",
     desc: "혈압 ≈ Cardiac Output × Vascular Resistance라는 지도로 고혈압의 구조를 이해하고, 무증상인데도 치료하는 이유, 진단 기준 차이(대한고혈압학회·ESC·ACC/AHA), 생활습관과 6대 혈압약이 무엇을 건드리는지까지.",
     tags: ["혈압 생리", "RAAS", "약물 지도", "진단 기준", "약사 상담"],
@@ -34,7 +34,7 @@ window.PHARM_LESSONS = [
   {
     no: 2,
     category: "core",
-    href: "lessons/lesson-02.html",
+    href: "lessons/core/02.html",
     title: "당뇨병",
     desc: "“단 걸 많이 먹어서 생기는 병”이라는 오해를 넘어, 정상 혈당 조절 → insulin resistance·β-cell dysfunction → 진단(HbA1c) → 합병증 → 약이 어느 장기를 고치는가를 하나의 모델로. 저혈당 위험까지.",
     tags: ["혈당 생리", "Insulin resistance", "HbA1c", "약물 장기지도", "저혈당"],
@@ -43,7 +43,7 @@ window.PHARM_LESSONS = [
   {
     no: 1,
     category: "everyday",
-    href: "lessons/everyday-01.html",
+    href: "lessons/everyday/01.html",
     title: "감기 (Common Cold)",
     desc: "감기를 하나의 바이러스가 아닌 상기도 바이러스 감염으로 이해하고, 독감·알레르기비염·부비동염 감별, 콧물 색과 항생제, 증상별 감기약 선택, 그리고 ‘그냥 감기’로 넘기면 안 되는 Red Flag까지.",
     tags: ["상기도 감염", "감별진단", "항생제 X", "증상별 약", "Red Flag"],
@@ -52,7 +52,7 @@ window.PHARM_LESSONS = [
   {
     no: 2,
     category: "everyday",
-    href: "lessons/everyday-02.html",
+    href: "lessons/everyday/02.html",
     title: "독감 (Influenza)",
     desc: "감기와의 증상 패턴 구별, 항바이러스제를 빨리 고려해야 하는 사람, ‘48시간이 지났으니 소용없다’는 오해 교정, 고위험군·전염 시기·2026–2027절기 예방접종, 폐렴 등 합병증 Red Flag까지.",
     tags: ["influenza", "항바이러스제", "48시간 오해", "고위험군", "예방접종"],

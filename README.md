@@ -8,29 +8,34 @@
 - GitHub Pages로 호스팅
 
 ## 카테고리(폴더)
-첫 페이지에서 두 폴더 중 하나를 선택합니다.
-- **Core Disease** (핵심 만성질환) — 고혈압, 당뇨병 …
-- **Everyday Disease** (일상적인 질환) — 감기·두통 등 (추가 예정)
+첫 페이지에서 두 폴더 중 하나를 선택합니다. 강의 파일도 폴더로 분리되어 있습니다.
+- **Core Disease** (핵심 만성질환) — `lessons/core/` — 고혈압, 당뇨병 …
+- **Everyday Disease** (일상적인 질환) — `lessons/everyday/` — 감기, 독감 …
 
 ## 강의
-- Core 1강 · 고혈압 — 혈압 ≈ CO × SVR, RAAS, 진단 기준(대한고혈압학회·ESC·ACC/AHA), 생활습관, 6대 혈압약 지도
-- Core 2강 · 당뇨병 — 혈당 생리, insulin resistance/β-cell, HbA1c, 합병증, 당뇨약 장기 지도
+- Core 01 · 고혈압 — 혈압 ≈ CO × SVR, RAAS, 진단 기준(대한고혈압학회·ESC·ACC/AHA), 생활습관, 6대 혈압약 지도
+- Core 02 · 당뇨병 — 혈당 생리, insulin resistance/β-cell, HbA1c, 합병증, 당뇨약 장기 지도
+- Everyday 01 · 감기 — 상기도 바이러스 감염, 감별, 콧물 색과 항생제, 증상별 약, Red Flag
+- Everyday 02 · 독감 — 감기와의 구별, 항바이러스 조기치료, 48h 오해, 고위험군, 예방접종
 
 ## 구조
 ```
-index.html            메인 허브 (강의 카드 자동 생성)
-lessons/lesson-0N.html 개별 강의
-assets/css/styles.css  공통 디자인 시스템 + 강의별 컴포넌트
-assets/js/main.js      공통 인터랙션(사이드바·퀴즈·시뮬레이터 등)
-assets/data/lessons.js 강의 메타데이터
-assets/fonts/          SCDream · omyu pretty
+index.html                 메인 허브 (강의 카드 자동 생성)
+lessons/core/0N.html       Core Disease 강의
+lessons/everyday/0N.html   Everyday Disease 강의
+assets/css/styles.css      공통 디자인 시스템 + 강의별 컴포넌트
+assets/js/main.js          공통 인터랙션(사이드바·퀴즈·시뮬레이터 등)
+assets/data/lessons.js     강의 메타데이터
+assets/fonts/              SCDream · omyu pretty
 ```
 
 ## 새 강의 추가 방법
-1. `lessons/lesson-0N.html` 추가 (기존 강의 구조 복사)
+1. `lessons/core/0N.html` 또는 `lessons/everyday/0N.html` 추가 (기존 강의 구조 복사)
+   - 강의 파일은 `lessons/` 기준 2단계 깊이이므로 asset 경로는 `../../assets/...`, 허브 링크는 `../../index.html`
 2. `assets/data/lessons.js`의 `PHARM_LESSONS` 배열에 항목 한 줄 등록
    - `category`: `"core"` 또는 `"everyday"`
    - `no`: 해당 폴더 안에서의 순번
+   - `href`: 예) `"lessons/everyday/03.html"`
    - 허브의 폴더 선택·카드는 이 배열로부터 자동 생성됩니다.
 
 ## 로컬 확인
