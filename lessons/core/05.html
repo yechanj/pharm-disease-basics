@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제5강 · 대사증후군 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="고혈압·당뇨·이상지질혈증·비만을 묶는 대사증후군을 insulin resistance와 위험요인 clustering으로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제5강 · 대사증후군</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">MetS</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제5강 · 대사증후군</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#network"><span class="num">1</span> 앞 4강을 하나로</a></li>
+          <li><a href="#core"><span class="num">2</span> 핵심 병태생리</a></li>
+          <li><a href="#cause"><span class="num">3</span> 왜 생기는가</a></li>
+          <li><a href="#symptom"><span class="num">4</span> 증상과 Red Flags</a></li>
+          <li><a href="#diagnose"><span class="num">5</span> 진단 · 5개 중 3개</a></li>
+          <li><a href="#continuum"><span class="num">6</span> 미래 합병증 · CKM</a></li>
+          <li><a href="#treat"><span class="num">7</span> 치료의 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">8</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">9</span> 약물치료</a></li>
+          <li><a href="#deepdive"><span class="num">10</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">11</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">12</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">13</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">14</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">15</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">16</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제5강 · 통합</div>
+          <h1>대사증후군</h1>
+          <p>고혈압·당뇨·이상지질혈증·비만은 따로가 아니다 —
+            <b>복부비만 + insulin resistance</b>라는 공통 뿌리에서 <b>혈당·TG·HDL·혈압 이상이 군집</b>되는 경고표지.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이 강의의 위치</div>
+          <p>앞 네 강의를 묶는 <b>통합 강의</b>입니다. 대사증후군은 여러 이상이 함께 모인 상태를 임상적으로 묶어 부르는 개념으로,
+            가장 널리 쓰는 방식은 <b>5개 항목 중 3개 이상</b>이면 대사증후군으로 봅니다. 2026 AHA/ACC/ADA/ASN <b>CKM guideline</b>도 같은 구조를 쓰며, 아시아인에서는 복부비만 기준을 더 낮게 적용합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">42세 남성 · 건강검진</div>
+            <div class="bp" style="font-size:clamp(20px,5.5vw,30px);line-height:1.4;">허리 94 · TG 210 · HDL 37<br>136/88 · FPG 108 · LDL 118</div>
+            <div class="quote">“당뇨도 아니고 혈압약 먹을 정도도 아니고 LDL도 그리 안 높은데, 왜 대사증후군이라고 걱정하시는 거죠?”</div>
+          </div>
+          <p>강의가 끝나면 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>대사증후군은 하나의 독립적인 병인가?</li>
+            <li>왜 복부비만·고혈당·TG↑·HDL↓·혈압↑이 같이 나타나는가?</li>
+            <li>LDL이 높지 않아도 왜 위험할 수 있는가?</li>
+            <li>대사증후군이 있으면 결국 당뇨병이 된다는 뜻인가?</li>
+            <li>“대사증후군 약”이라는 것이 따로 있는가?</li>
+          </ul>
+          <div class="oneline">아직 각 질환의 진단기준을 모두 넘지 않았는데도 위험한 이유 — 여러 위험요인이 <b>한 사람에게 군집</b>되기 때문이다.</div>
+        </section>
+
+        <!-- ================= 1 · 앞 4강을 하나로 ================= -->
+        <section id="network" class="section">
+          <h2><span class="sec-no">01</span> 정상 대사는 하나의 네트워크다</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>대사증후군</b>이란 복부비만·혈당 이상·높은 혈압·높은 TG·낮은 HDL-C 같은 대사 위험요인이 <b>한 사람에게 여러 개 함께</b> 나타나는 상태입니다.
+              “새로운 여섯 번째 질병”이라기보다 <b>여러 심혈관·당뇨 위험인자가 군집되어 있다는 경고표지</b>에 가깝습니다.</p>
+          </div>
+          <p>지방조직·간·근육·췌장·혈관·콩팥을 따로 보지 말고 <b>하나의 연결망</b>으로 보세요. 토글로 정상 ↔ insulin resistance를 비교합니다.</p>
+          <div class="figure" data-metnetwork>
+            <div class="figure__title">Viz 1 · Metabolic Network</div>
+            <div class="metnet__toggle">
+              <button class="active" data-mode="normal">정상 (식후)</button>
+              <button class="ir" data-mode="ir">Insulin resistance ON</button>
+            </div>
+            <div class="hz__rows"></div>
+            <div class="metnet__note"></div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 핵심 병태생리 ================= -->
+        <section id="core" class="section">
+          <h2><span class="sec-no">02</span> 무엇이 잘못되는가 · 핵심 축</h2>
+          <p>하나의 병태생리로 완벽히 설명할 수는 없지만, 큰 그림의 두 축은 <b>① visceral adiposity ② insulin resistance</b>입니다.</p>
+          <blockquote>Visceral fat↑ → FFA flux↑·adipokine/염증 변화 → 간·근육 insulin sensitivity↓ → <b>Insulin resistance</b> → (혈당↑ / TG↑·HDL↓ / BP↑)</blockquote>
+
+          <p>중앙 축에서 다섯 요소로 어떻게 뻗어나가는지 <b>탭</b>해 보세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 2 · Metabolic Syndrome Core</div>
+            <div style="text-align:center;font-weight:700;background:var(--hi-soft);color:var(--hi);border-radius:12px;padding:12px;margin-bottom:12px;">Visceral adiposity + Insulin resistance</div>
+            <div class="checkchips">
+              <button data-text="<b>허리둘레↑</b> — 복부(내장)지방 자체가 다섯 번째 요소이자 나머지의 공통 뿌리.">Waist ↑</button>
+              <button data-text="<b>공복혈당↑</b> — 근육 uptake↓ + 간 glucose production 억제 실패 → FPG↑. 췌장은 보상적으로 insulin↑(hyperinsulinemia).">Glucose ↑</button>
+              <button data-text="<b>TG↑</b> — FFA↑ → hepatic TG synthesis↑ → <b>VLDL 분비↑</b> → 혈중 TG-rich lipoprotein↑.">TG ↑</button>
+              <button data-text="<b>HDL↓</b> — TG-rich lipoprotein↑ → 교환·remodeling↑ → HDL 입자 내 TG↑ → HDL clearance↑ → <b>HDL-C↓</b>. 전형적 insulin-resistant dyslipidemia = TG↑ + HDL↓.">HDL ↓</button>
+              <button data-text="<b>BP↑</b> — sympathetic activation · RAAS 변화 · renal Na retention · endothelial dysfunction → vascular resistance/volume↑ → 혈압↑.">BP ↑</button>
+            </div>
+            <div class="infochips__out">중앙 축에서 각 요소로 뻗는 경로를 확인하세요.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>LDL이 정상이어도 안전하지 않을 수 있다</div>
+            <p>대사증후군에서 LDL-C는 매우 높지 않을 수 있지만 <b>TG-rich remnant↑ · small dense LDL↑ · apoB particle↑</b> 가능성이 있습니다.
+              “LDL만 정상이면 대사적으로 안전”이라고 볼 수 없습니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ①</span> 복부비만 환자의 FPG 108, TG 220이 완전히 별개의 문제일까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">반드시 그렇지 않습니다.
+              <div class="exp">복부비만·insulin resistance가 간의 glucose production과 VLDL-TG production <b>둘 다</b>에 영향을 주어 두 이상이 동시에 나타날 수 있습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 원인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">03</span> 왜 생기는가</h2>
+          <blockquote>유전적 소인 · 복부비만 · 에너지 과잉 · 운동 부족 · 나이 · 수면/OSA · 일부 약물 → insulin resistance 및 cardiometabolic dysfunction</blockquote>
+          <p>여러 요인이 결국 <b>insulin resistance · adipose dysfunction</b>으로 수렴합니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 3 · Risk Factor Convergence</div>
+            <div class="checkchips">
+              <button data-text="<b>복부비만</b> — 가장 강하게 연관된 요소 중 하나.">복부비만</button>
+              <button data-text="<b>운동 부족</b> — 근육 glucose utilization↓ · insulin sensitivity↓.">운동 부족</button>
+              <button data-text="<b>에너지 과잉</b> — 장기적으로 visceral fat accumulation.">에너지 과잉</button>
+              <button data-text="<b>나이</b> — 가령에 따라 prevalence↑.">나이</button>
+              <button data-text="<b>가족력</b> — T2DM·고혈압 등 유전적 배경.">가족력</button>
+              <button data-text="<b>수면무호흡(OSA)</b> — 비만과 밀접 + sympathetic activation·glucose 대사 악영향.">수면무호흡</button>
+              <button data-text="<b>약물</b> — glucocorticoids·일부 atypical antipsychotics(예: olanzapine → 식욕/체중↑·insulin resistance↑·TG↑)·일부 immunosuppressants.">약물</button>
+            </div>
+            <div class="infochips__out">→ 모두 <b>Insulin resistance / Adipose dysfunction</b>으로 수렴.</div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">04</span> 어떤 증상이 나타나는가</h2>
+          <div class="oneline">대사증후군 자체는 대부분 <b>무증상</b> — 허리가 크고 TG·BP·FPG가 조금 높아도 불편이 없을 수 있다. 대부분 검진에서 발견된다.</div>
+          <p>신체 단서로 <b>central obesity</b>, 그리고 목 뒤·겨드랑이의 <b>acanthosis nigricans</b>(짙은 벨벳 피부, severe insulin resistance와 연관)가 보일 수 있습니다.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 이미 합병증으로 진행한 신호</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>흉통 → coronary disease</li>
+              <li>갑작스러운 신경학적 이상 → stroke</li>
+              <li>심한 상복부통 + TG 매우 높음 → pancreatitis</li>
+              <li>심한 갈증/다뇨 + 현저한 hyperglycemia → overt diabetes / hyperglycemic crisis 평가</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 진단 ================= -->
+        <section id="diagnose" class="section">
+          <h2><span class="sec-no">05</span> 어떻게 진단하는가 · 5개 중 3개</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>항목</th><th>대표 기준</th></tr></thead>
+              <tbody>
+                <tr><th>① 허리둘레</th><td>아시아 남 ≥90 cm · 여성은 정의에 따라 <b>80–85 cm</b></td></tr>
+                <tr><th>② TG</th><td>≥150 mg/dL (또는 TG 낮추는 약 복용)</td></tr>
+                <tr><th>③ HDL-C</th><td>남 &lt;40 · 여 &lt;50</td></tr>
+                <tr><th>④ 혈압</th><td>약 ≥130/80–85 mmHg (또는 항고혈압제 복용)</td></tr>
+                <tr><th>⑤ 공복혈당</th><td>≥100 mg/dL (또는 혈당강하 치료 중)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);">※ 정의/학회에 따라 <b>여성 허리 cut-off(80 vs 85)</b>와 <b>DBP cut-off(80 vs 85)</b>가 다를 수 있습니다. 2026 AHA CKM(Asian ancestry)은 남 90·여 80 cm, BP ≥130/80을 사용합니다.</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>왜 하필 3개일까?</div>
+            <p>3은 생물학적 경계가 아닙니다. 두 개면 건강하고 세 개가 되는 순간 갑자기 위험해지는 게 아닙니다.
+              이 기준은 <b>여러 metabolic risk factor가 군집된 사람을 쉽게 찾아내기 위한 clinical screening 도구</b>입니다.</p>
+          </div>
+
+          <h3>시각화 · Metabolic Syndrome Builder</h3>
+          <p>다섯 수치를 직접 움직여 <b>0/5 → 5/5</b>를 만들어보세요. 진단은 3개에서 나뉘지만 <b>위험 게이지는 계단이 아니라 연속적</b>으로 움직입니다. (남성 기준)</p>
+          <div class="figure" data-metsbuilder>
+            <div class="figure__title">Viz 4 · 진단은 이분법, 위험은 연속</div>
+            <div class="mets__grid">
+              <div class="mets__row" data-f="waist"><span class="lab">허리 (cm)</span><input type="range" min="70" max="110" step="1" value="94" aria-label="허리둘레" /><span class="val"></span></div>
+              <div class="mets__row" data-f="tg"><span class="lab">TG</span><input type="range" min="60" max="400" step="5" value="210" aria-label="TG" /><span class="val"></span></div>
+              <div class="mets__row" data-f="hdl"><span class="lab">HDL-C</span><input type="range" min="25" max="80" step="1" value="37" aria-label="HDL" /><span class="val"></span></div>
+              <div class="mets__row" data-f="bp"><span class="lab">수축기 BP</span><input type="range" min="100" max="180" step="1" value="136" aria-label="수축기 혈압" /><span class="val"></span></div>
+              <div class="mets__row" data-f="fpg"><span class="lab">공복혈당</span><input type="range" min="70" max="160" step="1" value="108" aria-label="공복혈당" /><span class="val"></span></div>
+            </div>
+            <div class="mets__result">
+              <div class="mets__score"></div>
+              <div><span class="mets__verdict"></span></div>
+              <div class="mets__riskbar"><i></i></div>
+              <div class="mets__risklab"></div>
+              <div class="mets__note">붉은 점 = 기준 초과 항목. “위험은 2→3에서 갑자기 발생하지 않습니다.”</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 남성 · Waist 92 · TG 175 · HDL 52 · BP 124/78 · FPG 108. 몇 개 항목을 만족할까요?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 1개</li>
+              <li data-opt="B"><span class="opt">B</span> 2개</li>
+              <li data-opt="C"><span class="opt">C</span> 3개 (대사증후군)</li>
+              <li data-opt="D"><span class="opt">D</span> 4개</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 복부비만✔·TG✔·glucose✔ (HDL✘·BP✘) = 3개 → 대사증후군.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 합병증 · CKM ================= -->
+        <section id="continuum" class="section">
+          <h2><span class="sec-no">06</span> 치료하지 않으면 · 미래 위험</h2>
+          <p>대사증후군의 핵심 의미는 <b>미래 위험</b>입니다.</p>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>T2DM</h5><p>IR → hyperinsulinemia → β-cell 저하 → prediabetes → T2DM</p></div>
+            <div class="axis3__card pump"><h5>ASCVD</h5><p>고혈압·atherogenic dyslipidemia·hyperglycemia·염증 → MI/stroke/PAD</p></div>
+            <div class="axis3__card pipes"><h5>MASLD</h5><p>FFA→간 TG 축적 → 지방간 (제6강 연결)</p></div>
+            <div class="axis3__card"><h5>CKD</h5><p>당뇨·고혈압·비만 신장 부담 → CKD 위험↑</p></div>
+          </div>
+
+          <h3>현대적 관점 · CKM Continuum</h3>
+          <p>최근에는 대사증후군보다 넓은 <b>Cardiovascular-Kidney-Metabolic(CKM) syndrome</b>이 중요해지고 있습니다. 단계를 <b>탭</b>해 대사증후군의 위치를 확인하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 5 · MetS → CKM Continuum</div>
+            <div class="checkchips">
+              <button data-text="<b>Stage 0</b> — CKM 위험요인 없음.">Stage 0</button>
+              <button data-text="<b>Stage 1</b> — Excess adiposity(과체중/복부비만).">Stage 1</button>
+              <button data-text="<b>Stage 2</b> — Metabolic risk factors / CKD. <b>여기에 고혈압·high TG·대사증후군·T2DM이 위치</b>합니다.">Stage 2 · MetS</button>
+              <button data-text="<b>Stage 3</b> — Subclinical CVD(증상 전 혈관 손상).">Stage 3</button>
+              <button data-text="<b>Stage 4</b> — Clinical CVD(임상적 심혈관질환).">Stage 4</button>
+            </div>
+            <div class="infochips__out">Excess adiposity → Metabolic abnormalities/CKD → subclinical CVD → clinical CVD 라는 연속선.</div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">07</span> 치료의 전체 그림</h2>
+          <div class="oneline">가장 중요한 사실 — <b>“대사증후군 약”은 없다.</b> 원인과 각 위험요인을 동시에 관리한다.</div>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(140px,1fr));">
+            <div class="axis3__card volume"><h5>Waist</h5><p>체중·허리둘레 개선</p></div>
+            <div class="axis3__card pump"><h5>BP</h5><p>항고혈압제</p></div>
+            <div class="axis3__card pipes"><h5>Glucose</h5><p>당뇨 예방/치료</p></div>
+            <div class="axis3__card"><h5>TG/HDL</h5><p>생활습관 + 지질 관리</p></div>
+            <div class="axis3__card"><h5>LDL</h5><p>ASCVD 위험 기반 statin</p></div>
+            <div class="axis3__card"><h5>금연</h5><p>ASCVD 위험↓</p></div>
+          </div>
+          <div class="card card--key" style="margin-top:16px;">
+            <div class="card__label"><span class="dot"></span>진단은 하나, 치료는 여러 축</div>
+            <p>Metabolic Syndrome → Waist(weight) · BP(antihypertensive) · Glucose(diabetes) · TG/HDL(lifestyle+lipid) · LDL(ASCVD 기반). <b>생활습관이 모든 축의 기반</b>입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">08</span> 생활습관 치료</h2>
+          <p>대사증후군에서 lifestyle이 특히 강력한 이유 — <b>하나의 행동으로 여러 구성요소를 동시에 개선</b>할 수 있기 때문입니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 6 · One Intervention, Multiple Benefits</div>
+            <div class="checkchips">
+              <button data-text="<b>7% 체중 감소</b> → visceral fat↓ → insulin resistance↓ → <b>FPG↓ · TG↓ · BP↓ · 지방간↓</b>가 동시에 개선.">7% 체중 감소</button>
+              <button data-text="<b>운동</b> → 근육 glucose uptake↑ · insulin sensitivity↑ · TG 대사 개선 · BP 개선 · visceral fat↓.">운동</button>
+              <button data-text="<b>식사</b> → energy excess↓(내장지방↓) · 정제탄수화물/당음료↓(glucose·TG) · 포화지방 조절(LDL) · 식이섬유↑.">식사</button>
+              <button data-text="<b>절주</b> → 특히 TG 관리에 중요. alcohol↑ → hepatic TG synthesis↑ → TG↑. TG 300+매일 음주면 음주력 필수 확인.">절주</button>
+              <button data-text="<b>수면/OSA</b> → 수면부족·OSA는 appetite·SNS·insulin sensitivity에 영향. 복부비만+심한 코골이면 OSA 가능성.">수면</button>
+            </div>
+            <div class="infochips__out">대사증후군에서는 하나의 생활변화가 여러 위험요인을 동시에 건드립니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">09</span> 약물치료</h2>
+          <p>대사증후군 자체를 치료하는 단일 약은 없습니다. <b>실제로 존재하는 위험요인</b>을 치료합니다. 칩을 <b>탭</b>하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 7 · No Single Metabolic Syndrome Pill</div>
+            <div style="text-align:center;font-weight:700;color:var(--hi);border:2px dashed var(--hi);border-radius:12px;padding:12px;margin-bottom:12px;">💊 “Metabolic Syndrome Drug?” ✕ 없음</div>
+            <div class="checkchips">
+              <button data-text="<b>혈압↑</b> → ACEi/ARB · CCB · thiazide 등을 임상상황에 따라(제1강).">BP</button>
+              <button data-text="<b>LDL↑ / ASCVD 위험↑</b> → <b>statin</b>이 핵심. 진단 기준엔 LDL이 없지만 ASCVD 예방에선 매우 중요(정의 vs 실제 치료의 차이).">LDL/ASCVD</button>
+              <button data-text="<b>당뇨 발생</b> → metformin·GLP-1 RA·SGLT2i 등. obesity·CKD·HF 동반에 따라 선택(제2강).">Glucose</button>
+              <button data-text="<b>비만이 원동력</b> → 적응증에 따라 GLP-1 RA·GIP/GLP-1 등. 체중 감소가 여러 대사요소를 동시 개선(제4강).">Obesity</button>
+              <button data-text="<b>TG↑</b> → 먼저 체중·glucose·alcohol·secondary cause 교정. 전체 ASCVD risk에 따라 statin. TG 극도로 높으면 pancreatitis 예방 위해 별도 TG-lowering.">TG</button>
+            </div>
+            <div class="infochips__out">진단은 하나지만 치료는 <b>component-based</b> — 생활습관이 foundation.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ③</span> 대사증후군 환자의 HDL-C가 35입니다. HDL을 직접 55로 올리는 약이 가장 중요한 목표일까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">대개 그렇지 않습니다.
+              <div class="exp">낮은 HDL-C는 위험 <b>표지자</b>이지만, HDL 수치 자체를 약으로 올리는 것보다 weight·exercise·TG·LDL·glucose·BP·smoking 등 <b>실제로 심혈관 위험을 줄이는 요소</b> 관리가 중요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">10</span> 약사 Deep Dive</h2>
+          <h3>① 왜 LDL은 대사증후군 기준에 없을까</h3>
+          <p>대사증후군의 dyslipidemia는 전형적으로 <b>TG↑ + HDL↓</b>(insulin resistance·VLDL overproduction 반영)이고 LDL-C 자체는 반드시 높지 않을 수 있습니다.
+            하지만 LDL은 atherosclerosis의 핵심 causal factor라 실제 치료에선 여전히 매우 중요 — <b>진단 criteria에 없다고 치료에서 안 중요한 게 아닙니다.</b></p>
+          <h3>② Hyperinsulinemia는 원인일까 결과일까</h3>
+          <p>초기엔 insulin resistance에 대한 <b>보상반응</b>(insulin↑)이지만, chronic hyperinsulinemia가 다시 renal Na retention·sympathetic activity에 영향을 줄 가능성도 논의됩니다 — 단순 일방향보다 <b>상호작용하는 네트워크</b>.</p>
+          <h3>③ 대사증후군이라는 진단이 꼭 필요한가</h3>
+          <p>“각 위험요인을 개별 평가하면 되는데 굳이?”라는 비판과 “한눈에 clustering을 인식”이라는 장점이 공존합니다. 실무적으로는 진단명보다 <b>각 구성요소와 전체 심혈관 위험을 놓치지 않는 것</b>이 중요하고, 최근엔 CKM continuum 관점이 등장했습니다.</p>
+        </section>
+
+        <!-- ================= 11 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">11</span> 비슷한 질환 비교</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>비만</th><th>대사증후군</th></tr></thead>
+              <tbody>
+                <tr><th>핵심</th><td>excess adiposity</td><td>metabolic risk cluster</td></tr>
+                <tr><th>진단</th><td>BMI/waist + 임상상태</td><td>5개 중 ≥3</td></tr>
+                <tr><th>마른 사람</th><td>비만 아님</td><td>가능할 수 있음</td></tr>
+                <tr><th>비만이면 모두?</th><td colspan="2">비만이라고 모두 대사증후군은 아니다</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>대사증후군</th><th>T2DM</th></tr></thead>
+              <tbody>
+                <tr><th>핵심</th><td>여러 metabolic risk factor</td><td>chronic hyperglycemia</td></tr>
+                <tr><th>glucose</th><td>≥100이면 한 항목</td><td>FPG ≥126 등</td></tr>
+                <tr><th>반드시 당뇨?</th><td>아니오</td><td>당뇨병 자체</td></tr>
+                <tr><th>의미</th><td>향후 DM/CVD 위험↑</td><td>이미 glucose disorder 존재</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);"><b>vs 이상지질혈증:</b> 대사증후군 지질패턴은 TG↑+HDL↓이지만, 이상지질혈증은 LDL↑·TG↑·HDL↓ 등을 모두 포함하는 더 넓은 개념(제3강).</p>
+        </section>
+
+        <!-- ================= 12 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">12</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 대사증후군은 무슨 병인가요?</button>
+              <div class="faq__a">한 장기가 고장난 병이라기보다 “혈압·혈당·복부지방·중성지방 같은 여러 심혈관·당뇨 위험요인이 함께 나타난 상태”입니다.
+                <div class="ph"><b>약사:</b> insulin resistance·visceral adiposity가 주요 공통 병태생리지만 모든 환자를 한 기전으로 설명하진 않습니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. 대사증후군이면 당뇨병인가요?</button>
+              <div class="faq__a">아닙니다. 공복혈당 105처럼 아직 당뇨 기준이 아닌 사람도 대사증후군일 수 있습니다. 다만 향후 T2DM 위험은 높아집니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. 대사증후군이면 무조건 약을 먹어야 하나요?</button>
+              <div class="faq__a">아닙니다. 각 구성요소의 정도와 전체 위험에 따라 다릅니다. 생활습관이 기본이고 필요하면 BP·lipid·glucose·obesity를 약물로 치료합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. HDL이 낮아서 대사증후군이라는데 HDL 올리는 약을 먹어야 하나요?</button>
+              <div class="faq__a">보통 “HDL 숫자를 올리는 것” 자체가 주요 목표는 아닙니다. 운동·체중감량·금연이 도움되고, ASCVD 예방에선 LDL 등 다른 요소 관리가 더 중요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. 마른 사람도 대사증후군이 생길 수 있나요?</button>
+              <div class="faq__a">가능합니다. BMI가 높지 않아도 visceral fat·insulin resistance·유전 소인이 있을 수 있어 허리둘레·metabolic markers를 함께 봅니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 대사증후군은 한번 생기면 평생 가나요?</button>
+              <div class="faq__a">반드시 그렇지 않습니다. 체중감량·운동·식사개선·적절한 치료로 여러 기준에서 벗어날 수 있습니다. 다만 underlying susceptibility가 남아 장기 관리가 중요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 검진에서 “대사증후군 주의”라는데 심각한 건가요?</button>
+              <div class="faq__a">당장 응급은 아닙니다. 오히려 “심근경색·당뇨가 발생하기 전에 여러 위험요인이 모이기 시작했으니 지금 개입할 좋은 시점”으로 이해하면 좋습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">13</span> 흔한 오해 / 팩트체크</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">대사증후군은 하나의 새로운 병이다.</div><span class="verdict">조건에 따라 다름</span>
+              <div class="why">공통 병태생리는 있지만 실제로는 여러 risk factor가 군집된 임상적 syndrome입니다.</div>
+              <div class="take"><b>실전:</b> 진단명보다 각 구성요소를 확인한다.</div></div>
+            <div class="factrow"><div class="claim">5개 중 2개면 안전하고 3개부터 위험하다.</div><span class="verdict">틀림</span>
+              <div class="why">위험은 연속적. 3개는 임상 분류를 위한 cut-off입니다.</div></div>
+            <div class="factrow"><div class="claim">LDL이 정상이면 대사증후군은 별로 위험하지 않다.</div><span class="verdict">틀림</span>
+              <div class="why">고혈압·hyperglycemia·high TG·visceral adiposity 자체가 위험하고 LDL 외 atherogenic particle도 증가할 수 있습니다.</div></div>
+            <div class="factrow"><div class="claim">대사증후군이면 결국 반드시 당뇨병이 된다.</div><span class="verdict">틀림</span>
+              <div class="why">위험은 증가하지만 필연적 진행은 아닙니다.</div>
+              <div class="take"><b>실전:</b> 지금 생활습관을 바꾸는 것이 progression을 막는 치료.</div></div>
+            <div class="factrow"><div class="claim">복부비만만 없애면 나머지는 신경 쓸 필요 없다.</div><span class="verdict">틀림</span>
+              <div class="why">체중감량은 중요하지만 이미 존재하는 고혈압·이상지질혈증·hyperglycemia는 각각 평가·치료해야 합니다.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">14</span> Case Study</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · 아직 아무 병도 아닌 것 같은데요</div>
+            <p>42세 남성. Waist 94 · 136/86 · TG 188 · HDL 38 · FPG 107 · LDL 115 · HbA1c 5.9%. 증상 없음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① 항목 몇 개? ② 당뇨인가? ③ LDL이 안 높으니 안심? ④ 가장 중요한 초기 개입?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">일반 기준으로 여러 항목을 만족해 대사증후군에 해당하나 아직 당뇨 기준은 아닙니다.
+              <div class="exp">핵심은 “각 숫자가 아직 심하지 않다”가 아니라 <b>여러 이상이 한 사람에게 동시에</b> 나타난다는 것. 체중/허리·식사·운동·alcohol·smoking·전체 ASCVD risk를 평가하고 개별 위험요인에 따라 치료합니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 2 · BMI는 23인데 대사증후군?</div>
+            <p>56세 여성. BMI 23.4 · 허리 87 · TG 180 · HDL 43 · 132/82 · FPG 112. “살찐 편도 아닌데 말이 되나요?”</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① BMI=visceral fat? ② 허리둘레가 중요한 이유? ③ “마른 사람은 없다”가 틀린 이유?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">BMI는 전체 body size 지표이지 visceral fat을 직접 측정하지 않습니다.
+              <div class="exp">아시아인은 낮은 BMI에서도 visceral adiposity·metabolic risk가 나타날 수 있어 BMI만 보고 안심할 수 없습니다. → 허리둘레·metabolic markers를 함께.</div>
+            </div>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);">↑ 위의 <a href="#diagnose">Metabolic Syndrome Builder</a>로 이 환자들의 수치를 직접 넣어 점수와 연속 위험도를 확인해 보세요.</p>
+        </section>
+
+        <!-- ================= 15 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">15</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. 대사증후군의 여러 이상을 연결하는 대표적 병태생리는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> Absolute insulin deficiency만 존재</li>
+                <li data-opt="B"><span class="opt">B</span> Visceral adiposity와 insulin resistance</li>
+                <li data-opt="C"><span class="opt">C</span> 갑상선호르몬 과다만 존재</li>
+                <li data-opt="D"><span class="opt">D</span> HDL 과다 생성</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. Insulin resistance 환자에서 흔한 lipid pattern은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> TG↓ / HDL↑</li>
+                <li data-opt="B"><span class="opt">B</span> TG↑ / HDL↓</li>
+                <li data-opt="C"><span class="opt">C</span> LDL 0 / HDL 0</li>
+                <li data-opt="D"><span class="opt">D</span> Chylomicron 완전 소실</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — hepatic VLDL-TG production↑과 lipoprotein remodeling 때문.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. 대사증후군의 일반적 5가지 기준에 포함되지 <b>않는</b> 것은?</div>
+              <ul class="mcq" data-answer="D">
+                <li data-opt="A"><span class="opt">A</span> Waist circumference</li>
+                <li data-opt="B"><span class="opt">B</span> Triglyceride</li>
+                <li data-opt="C"><span class="opt">C</span> HDL-C</li>
+                <li data-opt="D"><span class="opt">D</span> LDL-C</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: D — 단, LDL-C는 실제 ASCVD 관리에서 매우 중요.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. 대사증후군 치료 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 모든 환자에게 같은 대사증후군 약을 처방한다.</li>
+                <li data-opt="B"><span class="opt">B</span> HDL을 약물로 올리는 것이 최우선이다.</li>
+                <li data-opt="C"><span class="opt">C</span> 생활습관과 각 개별 위험요인을 동시에 관리한다.</li>
+                <li data-opt="D"><span class="opt">D</span> 당뇨가 생길 때까지 치료하지 않는다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. 2개 만족하던 사람이 3번째 기준을 막 넘겼다. 가장 정확한 설명은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 전날까지 안전했는데 오늘부터 갑자기 위험 발생.</li>
+                <li data-opt="B"><span class="opt">B</span> 위험은 연속적이며 3개는 임상 분류 기준이다.</li>
+                <li data-opt="C"><span class="opt">C</span> 즉시 insulin 치료가 필요하다.</li>
+                <li data-opt="D"><span class="opt">D</span> 무조건 cardiovascular disease가 있다는 뜻이다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">16</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>대사증후군은 복부비만·혈당·혈압·TG·HDL 이상이 한 사람에게 군집된 상태.</p></div>
+            <div class="factcard"><span class="n">2</span><p>가장 중요한 공통 연결고리는 visceral adiposity + insulin resistance.</p></div>
+            <div class="factcard"><span class="n">3</span><p>IR은 공복혈당↑·간 VLDL/TG↑·HDL↓로 연결된다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>복부비만·IR은 SNS·RAAS·Na handling으로 혈압 상승에도 기여.</p></div>
+            <div class="factcard"><span class="n">5</span><p>보통 5개 중 3개 이상이지만, 2→3에서 갑자기 위험해지는 게 아니다.</p></div>
+            <div class="factcard"><span class="n">6</span><p>대개 무증상 — 핵심은 미래의 T2DM·CVD 위험 증가.</p></div>
+            <div class="factcard"><span class="n">7</span><p>LDL-C는 진단 기준엔 없지만 ASCVD 예방에선 매우 중요.</p></div>
+            <div class="factcard"><span class="n">8</span><p>“대사증후군 전용 약”은 없다 — 비만·BP·glucose·lipid를 동시에.</p></div>
+            <div class="factcard"><span class="n">9</span><p>체중감량·운동은 여러 구성요소를 한꺼번에 개선해 특히 강력.</p></div>
+            <div class="factcard"><span class="n">10</span><p>현대적으로는 더 큰 CKM continuum의 일부로 이해하면 좋다.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>오늘의 결론 — 앞 4강을 하나로</h3>
+          <p class="big">고혈압·당뇨·이상지질혈증·비만은 따로가 아니다 · 공통 뿌리는 <b>복부비만 + insulin resistance</b> ·
+            진단은 3개에서 나뉘지만 <b>위험은 연속적</b> · “대사증후군 약”은 없고 <b>각 위험요인을 동시에</b> 관리한다 ·
+            지금은 심근경색·당뇨가 오기 전 <b>개입할 좋은 시점</b>이다.</p>
+          <p style="margin-top:22px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>대사증후군 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">정의</span><span>5개 중 ≥3 (위험 군집)</span></div>
+      <div class="qr-row"><span class="qr-k">뿌리</span><span>복부비만 + IR</span></div>
+      <div class="qr-row"><span class="qr-k">지질</span><span>TG↑ + HDL↓</span></div>
+      <div class="qr-row"><span class="qr-k">LDL</span><span>기준엔 없지만 치료엔 중요</span></div>
+      <div class="qr-row"><span class="qr-k">약</span><span>전용 약 없음 · 요소별</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

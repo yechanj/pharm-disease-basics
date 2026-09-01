@@ -1055,7 +1055,100 @@
     initWLDefense();
     initBmiCalc();
     initWLBenefit();
+    // Core 05 · 대사증후군
+    initMetNetwork();
+    initMetsBuilder();
   });
+
+  /* =========================================================
+     ============  Core 05 · 대사증후군 인터랙션  ============
+     ========================================================= */
+
+  /* ---------- Metabolic Network (정상 ↔ insulin resistance) ---------- */
+  var METNET = {
+    normal: {
+      rows: [
+        { k: "췌장 insulin", dir: "up" }, { k: "근육 glucose uptake", dir: "up" },
+        { k: "간 glucose 생산", dir: "down" }, { k: "지방 저장", dir: "up" },
+        { k: "혈당 (glucose)", dir: "neu" }, { k: "TG", dir: "neu" }, { k: "혈압 (BP)", dir: "neu" }
+      ],
+      note: "식후 정상 모드 — insulin이 근육 uptake↑·간 생산↓·지방 저장↑을 조율해 혈당이 정상화됩니다. 여러 장기가 <b>하나의 네트워크</b>로 움직입니다."
+    },
+    ir: {
+      rows: [
+        { k: "췌장 insulin", dir: "up" }, { k: "근육 glucose uptake", dir: "down" },
+        { k: "간 glucose 생산", dir: "up" }, { k: "FFA / 지방 기능이상", dir: "up" },
+        { k: "혈당 (glucose)", dir: "up" }, { k: "TG", dir: "up" }, { k: "혈압 (BP)", dir: "up" }
+      ],
+      note: "Insulin resistance ON — 근육 uptake↓·간 생산 억제 실패·FFA↑ → 췌장은 insulin을 더 분비(hyperinsulinemia)하지만 <b>혈당↑·TG↑·BP↑</b>가 함께 나타납니다. 이것이 대사증후군 5요소의 공통 뿌리입니다."
+    }
+  };
+  function initMetNetwork() {
+    var root = document.querySelector("[data-metnetwork]");
+    if (!root) return;
+    var rowsEl = root.querySelector(".hz__rows");
+    var noteEl = root.querySelector(".metnet__note");
+    var arrows = { up: "↑", down: "↓", neu: "↔" };
+    function render(mode) {
+      var d = METNET[mode];
+      rowsEl.innerHTML = d.rows.map(function (r) {
+        return "<div class='hz__row'><span>" + r.k + "</span><span class='arrow dir-" + r.dir + "'>" + arrows[r.dir] + "</span></div>";
+      }).join("");
+      if (noteEl) noteEl.innerHTML = d.note;
+      root.querySelectorAll(".metnet__toggle button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-mode") === mode);
+      });
+    }
+    root.querySelectorAll(".metnet__toggle button").forEach(function (b) {
+      b.addEventListener("click", function () { render(b.getAttribute("data-mode")); });
+    });
+    render("normal");
+  }
+
+  /* ---------- Metabolic Syndrome Builder ---------- */
+  function initMetsBuilder() {
+    var root = document.querySelector("[data-metsbuilder]");
+    if (!root) return;
+    // criterion: 남성 기준 (waist≥90, TG≥150, HDL<40, BP sys≥130, FPG≥100)
+    var FACTORS = {
+      waist: { met: function (v) { return v >= 90; }, sev: function (v) { return (v - 80) / 30; }, unit: " cm" },
+      tg: { met: function (v) { return v >= 150; }, sev: function (v) { return (v - 100) / 220; }, unit: "" },
+      hdl: { met: function (v) { return v < 40; }, sev: function (v) { return (52 - v) / 30; }, unit: "" },
+      bp: { met: function (v) { return v >= 130; }, sev: function (v) { return (v - 115) / 45; }, unit: "" },
+      fpg: { met: function (v) { return v >= 100; }, sev: function (v) { return (v - 88) / 42; }, unit: "" }
+    };
+    var scoreEl = root.querySelector(".mets__score");
+    var verdictEl = root.querySelector(".mets__verdict");
+    var marker = root.querySelector(".mets__riskbar i");
+    var riskLab = root.querySelector(".mets__risklab");
+    function clamp01(x) { return Math.max(0, Math.min(1, x)); }
+    function render() {
+      var met = 0, sevSum = 0;
+      root.querySelectorAll(".mets__row").forEach(function (row) {
+        var key = row.getAttribute("data-f");
+        var f = FACTORS[key];
+        var v = parseInt(row.querySelector("input").value, 10);
+        var valEl = row.querySelector(".val");
+        var isMet = f.met(v);
+        if (isMet) met++;
+        sevSum += clamp01(f.sev(v));
+        valEl.className = "val" + (isMet ? " met" : "");
+        valEl.innerHTML = v + f.unit + "<span class='dot'></span>";
+      });
+      scoreEl.innerHTML = met + " <span class='lab'>/ 5 항목</span>";
+      var isMets = met >= 3;
+      verdictEl.className = "mets__verdict " + (isMets ? "yes" : "no");
+      verdictEl.textContent = isMets ? "대사증후군 (≥3 항목)" : "대사증후군 기준 미만";
+      var riskPct = sevSum / 5 * 100;
+      marker.style.left = "calc(" + Math.max(0, Math.min(100, riskPct)) + "% - 3px)";
+      var lvl = riskPct < 25 ? "낮음" : riskPct < 50 ? "중간" : riskPct < 75 ? "높음" : "매우 높음";
+      riskLab.textContent = "연속 위험도: " + lvl + " — 진단은 3개에서 나뉘지만 위험은 연속적으로 변합니다.";
+    }
+    root.querySelectorAll(".mets__row input").forEach(function (inp) {
+      inp.addEventListener("input", render);
+    });
+    render();
+  }
 
   /* =========================================================
      ==============  Core 04 · 비만 인터랙션  ==============

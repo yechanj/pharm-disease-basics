@@ -1803,3 +1803,38 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .habit { grid-template-columns: 1fr; }
   .habit__arrow { transform: rotate(90deg); }
 }
+
+/* =========================================================
+   ========  Core 05 · 대사증후군 전용 컴포넌트  ========
+   ========================================================= */
+
+/* Metabolic Network 토글 */
+.metnet__toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+.metnet__toggle button { font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; border: none; padding: 9px 16px; background: var(--surface); color: var(--ink-soft); }
+.metnet__toggle button.active { background: var(--brand); color: #fff; }
+.metnet__toggle button.active.ir { background: var(--hi); }
+.metnet__note { font-size: 13.5px; background: var(--surface-2); border-radius: 12px; padding: 12px 14px; margin-top: 10px; line-height: 1.6; }
+
+/* Metabolic Syndrome Builder */
+.mets__grid { display: grid; gap: 12px; }
+.mets__row { display: grid; grid-template-columns: 108px 1fr 74px; gap: 10px; align-items: center; }
+.mets__row .lab { font-size: 13px; font-weight: 700; }
+.mets__row input[type=range] { width: 100%; accent-color: var(--brand); }
+.mets__row .val { text-align: right; font-weight: 700; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.mets__row .val.met { color: var(--hi); }
+.mets__row .val .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); margin-left: 5px; }
+.mets__row .val.met .dot { background: var(--hi); }
+.mets__result { margin-top: 16px; border-radius: 14px; padding: 16px; border: 1px solid var(--line); background: var(--surface-2); text-align: center; }
+.mets__score { font-size: clamp(28px,7vw,38px); font-weight: 700; }
+.mets__score .lab { font-size: 14px; font-weight: 700; color: var(--ink-faint); }
+.mets__verdict { font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 13.5px; display: inline-block; margin: 6px 0 12px; }
+.mets__verdict.no { background: var(--ok-soft); color: var(--ok); }
+.mets__verdict.yes { background: var(--hi-soft); color: var(--hi); }
+.mets__riskbar { height: 16px; border-radius: 999px; background: linear-gradient(90deg,var(--ok),var(--mid),var(--hi)); position: relative; margin: 6px 0; }
+.mets__riskbar i { position: absolute; top: -4px; width: 6px; height: 24px; background: var(--ink); border-radius: 3px; transition: left .15s; }
+.mets__risklab { font-size: 12.5px; color: var(--ink-faint); }
+.mets__note { font-size: 12.5px; color: var(--ink-soft); margin-top: 8px; }
+
+@media (max-width: 640px) {
+  .mets__row { grid-template-columns: 84px 1fr 66px; }
+}

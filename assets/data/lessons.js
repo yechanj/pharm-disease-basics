@@ -59,6 +59,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 5,
+    category: "core",
+    href: "lessons/core/05.html",
+    title: "대사증후군",
+    desc: "앞 4강(고혈압·당뇨·이상지질혈증·비만)을 하나로 묶는 통합 강의. 복부비만+insulin resistance라는 공통 뿌리, 5개 중 3개 진단의 의미(위험은 연속적), LDL이 기준에 없는 이유, CKM continuum, 그리고 ‘전용 약이 없는’ 요소별 치료까지.",
+    tags: ["통합", "insulin resistance", "5개 중 3개", "CKM", "요소별 치료"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",
