@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제1강 · 고혈압 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="고혈압을 혈압 ≈ CO × SVR의 지도로 이해하는 약사용 학습 강의" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <!-- 모바일 상단바 -->
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제1강 · 고혈압</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <!-- 사이드바 -->
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">HTN</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제1강 · 고혈압</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#make"><span class="num">1</span> 혈압은 어떻게 만들어질까</a></li>
+          <li><a href="#regulate"><span class="num">2</span> 몸은 혈압을 어떻게 조절할까</a></li>
+          <li><a href="#broken"><span class="num">3</span> 무엇이 망가지는가</a></li>
+          <li><a href="#cause"><span class="num">4</span> 원인과 위험요인</a></li>
+          <li><a href="#symptom"><span class="num">5</span> 증상과 Red Flags</a></li>
+          <li><a href="#diagnose"><span class="num">6</span> 어떻게 진단할까</a></li>
+          <li><a href="#why-treat"><span class="num">7</span> 왜 치료할까</a></li>
+          <li><a href="#lifestyle"><span class="num">8</span> 생활습관 치료</a></li>
+          <li><a href="#drugs"><span class="num">9</span> 혈압약 지도</a></li>
+          <li><a href="#deepdive"><span class="num">10</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">11</span> 비교 · FAQ · 팩트체크</a></li>
+          <li><a href="#case"><span class="num">12</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">13</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">14</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <!-- 본문 -->
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제1강</div>
+          <h1>고혈압</h1>
+          <p>개별 혈압약을 외우기 전에 — 혈압이 <b>무엇으로 결정되고</b>, 왜 <b>무증상인데 위험</b>하며,
+            약이 <b>Volume · RAAS · Vessel · Heart-SNS</b> 중 무엇을 건드리는지 먼저 잡습니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이 강의의 설계 기준</div>
+          <p>한국에서 설명할 때는 <b>대한고혈압학회 2022 진료지침</b>을 기본 맥락으로 삼되, 국제 지침의 차이도 함께 이해합니다.
+            <b>2024 ESC</b>는 진료실 혈압 <b>≥140/90 mmHg</b>를 고혈압으로 정의하고, <b>2025 ACC/AHA</b>는 <b>≥130/80 mmHg</b>부터 고혈압으로 분류합니다.
+            누가 맞고 틀리냐의 문제가 아니라, <b>혈압에 따른 심혈관 위험이 연속적으로 증가</b>한다는 같은 사실을 서로 다른 진단·치료 전략으로 표현한 것입니다.</p>
+        </div>
+
+        <!-- ================= SECTION 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <p class="lead">“혈압이 160/100인데 아무 증상이 없습니다. 정말 약을 먹어야 하나요?”</p>
+
+          <div class="case-hero">
+            <div class="who">52세 남성 · 건강검진</div>
+            <div class="bp">162 / 98 <small>mmHg</small></div>
+            <div class="quote">“머리도 안 아프고 가슴도 안 아픈데요? 혈압이 높아도 몸에는 아무 이상이 없는 것 아닌가요?”</div>
+            <div class="btnrow">
+              <button class="chip-btn" data-case-btn="r1">증상이 없으면 괜찮다?</button>
+              <button class="chip-btn" data-case-btn="#broken">혈관 안에서는 무슨 일이?</button>
+              <button class="chip-btn" data-case-btn="#quiz">강의 끝에서 다시 풀기</button>
+            </div>
+            <div class="case-hero__reveal" data-case-reveal="r1">
+              고혈압의 가장 중요한 특징 중 하나는 <b>상당 기간 무증상일 수 있다</b>는 것입니다. …정답은 강의를 따라가며 스스로 완성해 보세요.
+            </div>
+          </div>
+
+          <p>여기서 생각해볼 질문은 세 가지입니다.</p>
+          <ul class="qlist">
+            <li>왜 혈압은 높은데 증상이 없을 수 있을까?</li>
+            <li>그런데도 왜 치료해야 할까?</li>
+            <li>한 번 측정한 162/98만으로 고혈압이라고 확정해도 될까?</li>
+          </ul>
+          <div class="oneline">이 세 질문에 강의 마지막에는 자연스럽게 답할 수 있어야 합니다.</div>
+        </section>
+
+        <!-- ================= SECTION 1 · 혈압은 어떻게 만들어질까 ================= -->
+        <section id="make" class="section">
+          <h2><span class="sec-no">01</span> 혈압은 어떻게 만들어질까</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>고혈압</b>이란 동맥 내부에 가해지는 압력이 <b>장기간 정상보다 높은 상태</b>입니다.
+              당장 통증이 없더라도 수년 동안 혈관·심장·뇌·콩팥에 부담을 주어 심근경색·뇌졸중·심부전·만성콩팥병 위험을 높이는,
+              <b>대표적인 조절 가능한 심혈관 위험요인</b>입니다.</p>
+          </div>
+
+          <h3>1-1. 혈압이란</h3>
+          <p>심장이 수축하면 혈액이 동맥으로 밀려나가고, 이 혈액이 혈관벽에 압력을 가합니다. 이것이 <b>혈압(Blood Pressure)</b>입니다.</p>
+          <ul class="clean">
+            <li><b>수축기 혈압 (SBP)</b> — 심장이 수축하여 혈액을 내보낼 때의 최고 압력</li>
+            <li><b>이완기 혈압 (DBP)</b> — 심장이 이완하여 다시 혈액을 채우는 동안 유지되는 압력</li>
+          </ul>
+          <p>따라서 <b>120/80 mmHg</b>에서 120은 수축기, 80은 이완기 혈압입니다.</p>
+
+          <h3>1-2. 반드시 기억할 공식</h3>
+          <div class="formula">Blood Pressure <span class="op">≈</span> <span class="co">Cardiac Output</span> <span class="op">×</span> <span class="svr">Systemic Vascular Resistance</span></div>
+          <p>즉 <b>혈압 ≈ 심장이 내보내는 혈액량 × 혈관이 혈류를 방해하는 정도</b>입니다.
+            수학 공식을 외우려는 것이 아니라, 고혈압이라는 질병의 구조를 이해하기 위한 <b>지도</b>입니다.</p>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Cardiac Output = HR × Stroke Volume</h5>
+              <ol><li>심박수 증가</li><li>심장 수축력 증가</li><li>혈액량 증가</li></ol>
+              <p style="margin:8px 0 0;font-size:13px;">→ 이 중 하나라도 늘면 혈압이 오를 수 있다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Systemic Vascular Resistance</h5>
+              <ol><li>혈관 직경 감소 (특히 세동맥)</li><li>교감신경 활성 증가</li><li>Angiotensin II 증가</li></ol>
+              <p style="margin:8px 0 0;font-size:13px;">→ 혈관이 수축·좁아지면 저항↑ → 혈압↑</p>
+            </div>
+          </div>
+
+          <h3>1-3. 시각화 · 혈압 결정요인 시뮬레이터</h3>
+          <p>각 요인의 <b>＋ / －</b> 버튼을 눌러 혈압계가 어떻게 반응하는지 확인하세요. <b>혈관 직경을 줄이면</b> 저항이 커져 혈압이 올라갑니다.</p>
+          <div class="figure" data-bpsim>
+            <div class="figure__title">시각화 1 · BP ≈ CO × SVR</div>
+            <div class="bpsim">
+              <div class="bpsim__col co">
+                <h5>Cardiac Output</h5>
+                <div class="sub">심장이 내보내는 혈액량</div>
+                <div class="bpsim__factor" data-factor="heart"><span>심박수 HR</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="contr"><span>수축력</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="volume"><span>혈액량</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+              </div>
+              <div class="bpsim__gauge">
+                <div class="dial"><span class="val"><span class="num"></span></span></div>
+                <div style="margin-top:2px;"><span class="unit" style="font-size:12px;color:var(--ink-faint)">mmHg (SBP / DBP)</span></div>
+                <div><span class="status ok"></span></div>
+                <div class="bpsim__derived"></div>
+              </div>
+              <div class="bpsim__col svr">
+                <h5>Vascular Resistance</h5>
+                <div class="sub">혈관이 혈류를 방해하는 정도</div>
+                <div class="bpsim__factor" data-factor="diam"><span>혈관 직경</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="sns"><span>교감신경 SNS</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="angii"><span>Angiotensin II</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+              </div>
+            </div>
+            <div class="figure__cap">이 시뮬레이터는 뒤의 <b>약물 파트(시각화 7)</b>에서 다시 연결됩니다 — 약은 이 요인들을 역이용합니다.</div>
+          </div>
+
+          <h3>1-4. 혈압은 계속 변한다</h3>
+          <p>혈압은 고정된 숫자가 아닙니다. 운동·긴장·통증에 오르고, 자는 동안 대체로 떨어집니다.
+            그래서 중요한 것은 “지금 이 순간 몇인가?”뿐 아니라 <b>“평소 지속적으로 어느 정도인가?”</b>입니다.
+            이 때문에 고혈압 진단은 보통 <b>한 번의 측정만으로 확정하지 않습니다.</b></p>
+        </section>
+
+        <!-- ================= SECTION 2 · 몸은 혈압을 어떻게 조절할까 ================= -->
+        <section id="regulate" class="section">
+          <h2><span class="sec-no">02</span> 몸은 혈압을 어떻게 조절할까</h2>
+          <p>혈압이 떨어졌다고 가정해봅시다. 몸은 주요 장기로 계속 혈액을 보내기 위해 두 갈래로 보상합니다.
+            각 단계를 <b>탭하면</b> 설명이 열립니다.</p>
+
+          <div class="figure">
+            <div class="figure__title">시각화 2 · 혈압이 떨어졌을 때 몸의 보상 (탭하여 펼치기)</div>
+            <div class="flowcol">
+              <div class="flowcol__lane sns">
+                <h5>① 교감신경계 (SNS)</h5>
+                <div class="fstep is-start">BP ↓ 감지<span class="exp">압수용체가 혈압 감소를 감지합니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep">Sympathetic tone ↑<span class="exp">교감신경 긴장도가 증가합니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep">HR ↑ · 수축력 ↑ · 혈관수축<span class="exp">심박수와 수축력이 오르고 혈관이 수축합니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep is-end">BP ↑ 회복<span class="exp">CO와 SVR이 함께 올라 혈압이 회복됩니다.</span></div>
+              </div>
+              <div class="flowcol__lane raas">
+                <h5>② RAAS + 콩팥</h5>
+                <div class="fstep is-start">Renal perfusion ↓<span class="exp">콩팥으로 가는 혈류가 감소합니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep">Renin ↑ → Ang I → (ACE) → Ang II<span class="exp">renin이 분비되고 ACE를 거쳐 Angiotensin II가 생성됩니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep">혈관수축 + Aldosterone ↑<span class="exp">Ang II는 혈관을 수축시키고 aldosterone 분비를 늘립니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep">Na/H₂O 저류<span class="exp">Aldosterone이 Na 재흡수를 늘리고 물이 따라옵니다. 콩팥은 장기간 혈압 조절의 핵심 기관입니다.</span></div>
+                <div class="farrow">↓</div>
+                <div class="fstep is-end">BP ↑ (혈액량↑ + 혈관수축↑)<span class="exp">혈액량 증가와 혈관수축이 함께 혈압을 올립니다.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>콩팥 = 장기 조절의 핵심</div>
+            <p>콩팥이 Na·물을 <b>많이 배설</b>하면 혈액량↓ → 혈압↓, 반대로 <b>보존</b>하면 혈액량↑ → 혈압↑.
+              이 지점이 뒤에서 <b>이뇨제</b>가 혈압을 낮추는 원리로 연결됩니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ①</span> 혈액량이 증가하면 왜 혈압이 올라갈까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">혈액량이 늘면 정맥환류가 증가하고 심장이 내보낼 수 있는 혈액량도 증가합니다. 결과적으로 cardiac output이 늘어 혈압 상승에 기여합니다.
+              <div class="exp">그래서 이뇨제로 Na와 물을 줄이는 것이 고혈압 치료가 될 수 있습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 3 · 무엇이 망가지는가 ================= -->
+        <section id="broken" class="section">
+          <h2><span class="sec-no">03</span> 무엇이 잘못된 것인가</h2>
+          <p>가장 흔한 고혈압은 <b>본태성(일차성) 고혈압</b>입니다. 대부분 “이 한 가지가 고장 나서”라고 설명할 수 없고,
+            여러 요소가 함께 작용해 <b>조절계가 한쪽으로 기울어진 상태</b>입니다.</p>
+          <blockquote>고령 + 유전 소인 + 비만 + 높은 Na 섭취 + 운동 부족 → SNS·RAAS 활성, Na 처리·혈관 기능 변화 → 저항↑/혈액량↑ →
+            혈압↑ → 혈관이 더 뻣뻣해짐 → 혈압이 더 쉽게 상승</blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>고혈압을 이해하는 세 축</div>
+            <p>고혈압 치료제 대부분은 결국 이 세 요소 중 하나 이상을 건드립니다.</p>
+          </div>
+          <div class="axis3">
+            <div class="axis3__card pump"><div class="ico">❤️</div><h5>Pump</h5><p>심장이 얼마나 많은 혈액을 내보내는가?</p></div>
+            <div class="axis3__card pipes"><div class="ico">🩸</div><h5>Pipes</h5><p>혈관이 얼마나 좁거나 뻣뻣한가?</p></div>
+            <div class="axis3__card volume"><div class="ico">💧</div><h5>Volume</h5><p>몸에 Na와 물이 얼마나 남아 있는가?</p></div>
+          </div>
+
+          <h3>3-1. 혈관은 왜 문제가 되는가</h3>
+          <p>건강한 동맥은 탄성이 있어 심장이 혈액을 내보낼 때 늘어나며 압력을 흡수합니다. 하지만 나이·위험인자에 노출되면
+            <b>arterial stiffness↑, endothelial dysfunction, vascular remodeling</b>이 나타납니다.
+            특히 큰 동맥이 뻣뻣해지면 수축 시 압력이 크게 올라, 노인에서는 <b>수축기 혈압만 높은 isolated systolic hypertension</b>이 흔합니다.</p>
+
+          <h3>3-2. 악순환 · 시각화</h3>
+          <p>슬라이더를 움직여 <b>고혈압에 노출된 햇수</b>에 따라 혈관이 어떻게 변하는지 보세요.</p>
+          <div class="figure" data-vessel>
+            <div class="figure__title">시각화 3 · 정상 → 만성 고혈압 혈관</div>
+            <div class="vessel__stage">
+              <svg viewBox="0 0 300 200" width="100%" style="max-width:420px" role="img" aria-label="혈관 단면 애니메이션">
+                <rect x="20" width="260" data-vessel-wall y="46" height="14" rx="4" fill="#c98a8a"/>
+                <rect x="20" width="260" data-vessel-lumen y="54" height="92" rx="6" fill="#e5484d"/>
+                <rect x="20" width="260" data-vessel-wall-b y="146" height="14" rx="4" fill="#c98a8a"/>
+                <text x="150" y="188" text-anchor="middle" fill="#7b8aa0" font-size="12">← 혈류 방향 · 붉은 부분 = 내경(lumen)</text>
+              </svg>
+            </div>
+            <div class="vessel__meta">
+              <span class="m" data-vessel-years>0년</span>
+              <span class="m" data-vessel-elastic></span>
+              <span class="m" data-vessel-sbp></span>
+            </div>
+            <div class="vessel__slider">
+              <input type="range" min="0" max="20" step="1" value="0" aria-label="고혈압 노출 햇수" />
+              <div class="lab"><span>0년</span><span>10년</span><span>20년</span></div>
+            </div>
+            <div class="figure__cap">노출이 길수록 벽은 두꺼워지고 내경은 좁아지며 탄성은 감소 → 혈압이 더 쉽게 오르는 악순환.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ②</span> 노인에서 수축기 혈압만 많이 올라가는 경우가 흔한 이유는?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">노화하면서 대동맥과 큰 동맥의 탄성이 감소하기 때문입니다.
+              <div class="exp">심장이 수축할 때 혈관이 충분히 늘어나지 못하므로 수축기 압력이 더 크게 상승할 수 있습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 4 · 원인과 위험요인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">04</span> 왜 생기는가 · 원인과 위험요인</h2>
+
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>① Primary(일차성) hypertension</h5>
+              <ol><li>명확한 단일 원인 없음</li><li>성인 고혈압의 대부분</li><li>여러 유전·환경 요소가 함께</li></ol>
+            </div>
+            <div class="panel panel--drug">
+              <h5>② Secondary(이차성) hypertension</h5>
+              <ol><li>신장질환 · primary aldosteronism</li><li>renal artery stenosis · pheochromocytoma</li><li>Cushing · 갑상선질환 · 수면무호흡</li><li><b>약물 유발</b> (약사에게 특히 중요)</li></ol>
+            </div>
+          </div>
+
+          <h3>4-1. 위험요인 지도 · 시각화</h3>
+          <p>각 위험요인을 <b>탭</b>하면 어떤 경로(Volume / Vascular resistance / SNS)로 혈압을 올리는지 표시됩니다.</p>
+          <div class="figure" data-riskmap>
+            <div class="figure__title">시각화 4 · Risk Factor Map</div>
+            <div class="riskmap__center">Persistent BP ↑</div>
+            <div class="riskmap__grid">
+              <div class="riskcard" data-risk="age"><span class="ico">⏳</span>나이</div>
+              <div class="riskcard" data-risk="genetics"><span class="ico">🧬</span>유전/가족력</div>
+              <div class="riskcard" data-risk="obesity"><span class="ico">⚖️</span>비만</div>
+              <div class="riskcard" data-risk="sodium"><span class="ico">🧂</span>고염분</div>
+              <div class="riskcard" data-risk="inactive"><span class="ico">🛋️</span>운동 부족</div>
+              <div class="riskcard" data-risk="alcohol"><span class="ico">🍶</span>과음</div>
+              <div class="riskcard" data-risk="ckd"><span class="ico">🫘</span>만성콩팥병</div>
+              <div class="riskcard" data-risk="apnea"><span class="ico">😴</span>수면무호흡</div>
+              <div class="riskcard" data-risk="drugs"><span class="ico">💊</span>약물</div>
+            </div>
+            <div class="riskmap__out">위험요인 카드를 눌러 어느 경로로 혈압을 올리는지 확인하세요.</div>
+            <div class="figure__cap">WHO도 높은 염분 섭취·비만·운동 부족·과도한 음주를 대표적인 조절 가능한 위험요인으로 제시합니다.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 포인트 · 혈압을 올릴 수 있는 약</div>
+            <div class="table-scroll">
+              <table class="data">
+                <thead><tr><th>약물/물질</th><th>혈압이 올라갈 수 있는 이유</th></tr></thead>
+                <tbody>
+                  <tr><th>NSAIDs</th><td>renal prostaglandin↓ → Na/수분 저류, 일부 항고혈압제 효과 감소</td></tr>
+                  <tr><th>경구피임약</th><td>일부 환자에서 혈압 상승</td></tr>
+                  <tr><th>Glucocorticoids</th><td>Na/수분 저류 등</td></tr>
+                  <tr><th>Sympathomimetics</th><td>교감신경 자극</td></tr>
+                  <tr><th>일부 비충혈제거제</th><td>α-adrenergic vasoconstriction</td></tr>
+                  <tr><th>Cyclosporine/Tacrolimus</th><td>신혈관수축 등</td></tr>
+                  <tr><th>ESA (조혈자극제)</th><td>여러 기전으로 혈압 상승 가능</td></tr>
+                  <tr><th>일부 항암제</th><td>VEGF pathway 억제 등</td></tr>
+                  <tr><th>감초 과량</th><td>mineralocorticoid-like effect</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ③</span> 고혈압이 잘 조절되던 환자가 관절통 때문에 ibuprofen을 거의 매일 복용한 뒤 혈압이 상승했습니다. 약이 관련 있을 가능성이 있을까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">있습니다.
+              <div class="exp">NSAID는 renal prostaglandin 합성을 억제해 신혈류·Na 배설에 영향을 주고 Na/수분 저류를 유발하며, 일부 antihypertensive effect를 약화시킵니다. 혈압이 갑자기 나빠진 환자의 <b>약력 검토</b>는 약사의 중요한 역할입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 5 · 증상과 Red Flags ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">05</span> 어떤 증상이 나타나는가</h2>
+
+          <div class="oneline">고혈압은 대부분 특별한 증상이 없습니다 — 그래서 “silent killer”라 부릅니다.</div>
+          <p>환자는 흔히 “혈압이 높은데 왜 아무렇지도 않죠?”라고 생각합니다. 하지만 혈압은 <b>증상을 만드는 숫자</b>라기보다
+            <b>장기간 혈관 위험을 높이는 노출 변수</b>라고 이해하는 편이 좋습니다.</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>“두통이 있으면 혈압 때문인가요?”</div>
+            <p>항상 그렇지는 않습니다. 오히려 <b>통증·불안 → 교감신경 활성↑ → 혈압 상승</b>이라는 반대 방향도 가능합니다.
+              “머리가 아팠는데 혈압도 높았으니 두통 원인은 고혈압이다”라고 단정하면 안 됩니다.</p>
+          </div>
+
+          <h3>심한 고혈압에서는</h3>
+          <p>혈압이 매우 심하게 상승하거나 급성 장기손상이 발생하면 심한 두통·흉통·호흡곤란·시야 변화·신경학적 이상·의식 변화가 나타날 수 있습니다.</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 즉각 응급 평가</div>
+            <p>반복 측정에서도 <b>&gt;180/120 mmHg</b>이면서 아래가 동반되면 즉각적인 응급 평가가 필요합니다.</p>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>흉통 · 호흡곤란</li>
+              <li>갑작스러운 마비·근력저하, 말이 어눌해짐</li>
+              <li>시야 변화 · 심한 등/가슴 통증</li>
+              <li>새로운 신경학적 증상</li>
+            </ul>
+            <p style="margin-bottom:0;">핵심은 혈압 수치 자체만이 아니라 <b>급성 표적장기 손상 가능성</b>입니다. AHA도 &gt;180/120 mmHg가 반복되며 흉통·호흡곤란·신경학적 이상이 있으면 응급으로 안내합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 6 · 진단 ================= -->
+        <section id="diagnose" class="section">
+          <h2><span class="sec-no">06</span> 어떻게 진단하는가</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 번 높게 나왔다 ≠ 바로 확진</div>
+            <p>혈압은 변동성이 큽니다. 따라서 <b>반복 측정 + 올바른 측정법</b>이 중요하고, 필요하면
+              <b>HBPM</b>(가정혈압)·<b>ABPM</b>(24시간 활동혈압)을 이용합니다.</p>
+          </div>
+
+          <h3>6-1. 측정부터 정확해야 한다</h3>
+          <ul class="clean">
+            <li>몇 분간 안정, 등을 지지, 발을 바닥에</li>
+            <li>팔을 심장 높이로 지지</li>
+            <li>적절한 cuff 크기 — <b>커프가 너무 작으면 실제보다 높게</b> 나올 수 있음</li>
+          </ul>
+          <p><b>가정혈압 기본 원칙:</b> 아침/저녁 각 2회 정도, 1–2분 간격, 여러 날 기록하여 평균 확인. (ESC 자료도 오전·저녁 두 번씩, 최소 3일·가능하면 7일 측정을 설명)</p>
+
+          <h3>6-2. 기준은 왜 서로 다른가</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>대한고혈압학회 / 2024 ESC</h5>
+              <ol>
+                <li>진료실 <b>≥140/90 mmHg</b> = 고혈압</li>
+                <li>가정혈압은 더 낮은 <b>≥135/85 mmHg</b>가 대응 기준</li>
+                <li>2024 ESC는 <b>elevated BP</b> 범주로 연속성 강조</li>
+              </ol>
+            </div>
+            <div class="panel panel--drug">
+              <h5>2025 ACC/AHA 분류</h5>
+              <div class="table-scroll" style="margin:0;">
+                <table class="data" style="min-width:0;">
+                  <tbody>
+                    <tr><th style="text-align:left;">&lt;120 / &lt;80</th><td class="bpband n">Normal</td></tr>
+                    <tr><th style="text-align:left;">120–129 / &lt;80</th><td class="bpband e">Elevated</td></tr>
+                    <tr><th style="text-align:left;">130–139 또는 80–89</th><td class="bpband h">Stage 1</td></tr>
+                    <tr><th style="text-align:left;">≥140 또는 ≥90</th><td class="bpband h">Stage 2</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>139 → 140의 순간 갑자기 위험해지는 게 아니다</div>
+            <p>혈압과 심혈관 위험의 관계는 <b>연속적</b>입니다. 진단 숫자는 치료·의료 의사결정을 편리하게 하기 위해 만든 <b>경계</b>일 뿐입니다.</p>
+          </div>
+
+          <h3>6-3. White-coat vs Masked · 시각화</h3>
+          <p>진료실 혈압과 가정 혈압의 조합으로 네 상태를 구분합니다. <b>칸을 탭</b>해 보세요.</p>
+          <div class="figure" data-matrix>
+            <div class="figure__title">시각화 5 · Office × Home BP 2×2</div>
+            <div class="matrix2">
+              <div class="cap"></div>
+              <div class="cap">가정 정상</div>
+              <div class="cap">가정 높음</div>
+              <div class="cap"><span class="axis-y">진료실 정상</span></div>
+              <div class="cell normo" data-cell="normo"><h6>Normotension</h6><span class="tag">지속성 정상혈압</span></div>
+              <div class="cell masked" data-cell="masked"><h6>Masked HTN</h6><span class="tag">숨은 고혈압</span></div>
+              <div class="cap"><span class="axis-y">진료실 높음</span></div>
+              <div class="cell white" data-cell="white"><h6>White-coat HTN</h6><span class="tag">진료실만 상승</span></div>
+              <div class="cell sustained" data-cell="sustained"><h6>Sustained HTN</h6><span class="tag">지속적 고혈압</span></div>
+              <div class="matrix2__out">칸을 눌러 각 상태의 의미를 확인하세요.</div>
+            </div>
+          </div>
+
+          <h3>6-4. 검사에서는 무엇을 볼까</h3>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pump"><h5>동반 위험인자</h5><p>glucose/HbA1c · lipid · 흡연 · 비만</p></div>
+            <div class="axis3__card volume"><h5>신장 상태</h5><p>creatinine/eGFR · urine albumin</p></div>
+            <div class="axis3__card pipes"><h5>전해질</h5><p>특히 Na, K — 이차성·약물선택 힌트</p></div>
+            <div class="axis3__card"><h5>장기 손상</h5><p>ECG · 심초음파 · 안저 · 신장검사</p></div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>검사 예제</div>
+            <p>58세 남자. 진료실 <b>148/92</b>, 집 7일 평균 <b>137/86</b>. “집에서는 140이 안 되는데 정상 아닌가요?”
+              → 가정혈압 기준은 진료실보다 낮으므로(≈135/85) <b>137/86도 고혈압 범위</b>에 해당할 수 있습니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q"><span class="qn">잠깐 ④</span> 진료실 156/94, 집 7일 평균 126/78이라면 무엇을 의심할까요?</div>
+            <button class="reveal-btn">정답 보기</button>
+            <div class="answer">White-coat hypertension 가능성.
+              <div class="exp">정확한 판단을 위해 HBPM이나 ABPM과 전체 임상상황을 종합합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 7 · 왜 치료할까 ================= -->
+        <section id="why-treat" class="section">
+          <h2><span class="sec-no">07</span> 치료하지 않으면 어떻게 되는가</h2>
+          <div class="oneline">혈압이 높아서 불편하니까 치료하는 것이 아니다 — 장기간의 혈관·장기 손상을 줄이기 위해서다.</div>
+
+          <p>슬라이더로 <b>누적 노출 시간</b>을 늘려 각 장기의 위험이 어떻게 강조되는지 보세요.</p>
+          <div class="figure" data-organtl>
+            <div class="figure__title">시각화 6 · 고혈압의 장기 손상 타임라인</div>
+            <div class="organtl__slider">
+              <input type="range" min="0" max="2" step="1" value="0" aria-label="누적 노출 시간" />
+              <div class="organtl__steps"><span class="on">5년</span><span>10년</span><span>20년</span></div>
+            </div>
+            <div class="organtl__grid"></div>
+            <div class="figure__cap">고혈압의 손상은 보통 하루가 아니라 <b>누적 노출</b>의 문제입니다.</div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>장기</th><th>기전 요약</th></tr></thead>
+              <tbody>
+                <tr><th>혈관</th><td>endothelial dysfunction·remodeling → 동맥경화·혈관 손상 위험↑</td></tr>
+                <tr><th>심장</th><td>좌심실 부하↑ → 좌심실 비대(LVH) → 장기적으로 심부전 위험</td></tr>
+                <tr><th>뇌</th><td>혈관 폐색·파열 위험↑ → ischemic/hemorrhagic stroke</td></tr>
+                <tr><th>콩팥</th><td>사구체·신혈관 압력 부담 → 신손상 → CKD → 다시 혈압 조절이 어려워짐</td></tr>
+                <tr><th>눈</th><td>retinal vascular damage → hypertensive retinopathy</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 8 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">08</span> 치료의 전체 그림 &amp; 생활습관</h2>
+
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>1. 혈압 자체 낮추기</h5><p>생활습관 + 필요 시 약물</p></div>
+            <div class="axis3__card pump"><h5>2. 전체 CV 위험↓</h5><p>LDL · diabetes · smoking · obesity 동반 관리</p></div>
+            <div class="axis3__card pipes"><h5>3. 원인 교정</h5><p>이차성 고혈압(aldosteronism·sleep apnea·약물)</p></div>
+            <div class="axis3__card"><h5>4. 장기 손상 예방</h5><p>궁극 목표 = MI·stroke·심부전·CKD ↓</p></div>
+          </div>
+
+          <div class="oneline">생활습관은 “약 대신 해보는 민간요법”이 아니라 고혈압 치료의 <b>기본 축</b>입니다.</div>
+          <p>2025 ACC/AHA도 체중관리·건강한 식사·Na 감소·dietary potassium·운동·음주 감소를 핵심 생활습관 중재로 권고합니다.</p>
+
+          <h3>8-1. Na 줄이기</h3>
+          <p>Na↑ → 체내 Na balance↑ → 수분 저류 → 혈액량↑ → 혈압↑. 특히 <b>salt-sensitive</b>에서 영향이 큽니다.
+            WHO는 성인에서 하루 <b>sodium 2 g 미만(소금 약 5 g 미만)</b>을 권고합니다.</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>한국인 실전 상담</div>
+            <p>소금통보다 <b>국·찌개·면 국물·김치·젓갈·가공식품·소스류</b>가 중요할 수 있습니다.
+              “소금을 아예 안 넣으세요”보다 <b>“국물 섭취와 가공식품의 sodium을 줄이는 것이 실제로 더 중요할 수 있습니다”</b>가 현실적입니다.</p>
+          </div>
+
+          <h3>8-2. 체중 감소 <span style="font-size:13px;color:var(--ok);">· 근거 강함</span></h3>
+          <p>비만에서는 SNS·RAAS·insulin resistance·renal Na handling 등 여러 경로가 혈압과 연결됩니다.
+            체중을 줄이면 혈압뿐 아니라 glucose·lipid·sleep apnea도 함께 개선됩니다.</p>
+
+          <h3>8-3. 운동</h3>
+          <p>유산소 운동은 vascular function 개선·resting SNS 조절·체중 관리·insulin sensitivity 개선으로 도움을 줍니다.
+            WHO는 <b>중강도 150분/주 또는 고강도 75분/주</b>를 권장합니다.</p>
+
+          <h3>8-4. DASH-style 식사</h3>
+          <p>특정 “고혈압 식품”이 아니라 <b>채소·과일·통곡물·견과·저지방 유제품</b>을 충분히, saturated fat과 과도한 Na를 줄이는 <b>식사 패턴</b>입니다.</p>
+
+          <h3>8-5. Potassium</h3>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>약사 주의</div>
+            <p>식이 potassium은 Na의 혈압 상승 효과를 완화할 수 있지만, <b>CKD·hyperkalemia 위험 환자에게 보충제를 무조건 권하면 안 됩니다.</b>
+              특히 <b>ACEi · ARB · MRA</b> 사용 환자에서 더 주의합니다.</p>
+          </div>
+
+          <h3>8-6. 음주 · 금연 · 스트레스/수면</h3>
+          <ul class="clean">
+            <li><b>과음</b> — “술은 혈압약과 몇 시간 띄우면 되나요?”보다, 지속적 과음 자체가 혈압 조절을 어렵게 한다는 설명이 먼저.</li>
+            <li><b>금연</b> — “담배가 혈압 숫자만 높이니까”로 좁히지 말 것. 흡연은 전체 심혈관 위험을 크게 높이므로 금연 효과가 매우 큼.</li>
+            <li><b>스트레스/수면</b> — 관련은 있으나 “스트레스만 없애면 고혈압이 치료된다”처럼 설명하면 안 됨. OSA도 혈압과 관련.</li>
+          </ul>
+        </section>
+
+        <!-- ================= SECTION 9 · 혈압약 지도 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">09</span> 약물치료 · 혈압약은 무엇을 건드릴까</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>혈압약 지도</div>
+            <p>혈압약은 암기하지 말고, 앞에서 배운 생리를 <b>역이용</b>한다고 이해합니다.</p>
+            <div class="legend" style="margin-bottom:0;">
+              <span class="chip"><span class="sw" style="background:var(--vol)"></span>Volume → Diuretics</span>
+              <span class="chip"><span class="sw" style="background:var(--raas)"></span>RAAS → ACEi·ARB·MRA</span>
+              <span class="chip"><span class="sw" style="background:var(--vessel)"></span>Vessel → CCB</span>
+              <span class="chip"><span class="sw" style="background:var(--heart)"></span>Heart/SNS → β-blocker</span>
+            </div>
+          </div>
+
+          <h3>9-1. 시각화 · Drug Mechanism Map</h3>
+          <p>약물 버튼을 누르면 그 약이 <b>어느 지점을 건드리는지</b> 경로에 표시됩니다.</p>
+          <div class="figure" data-drugmap>
+            <div class="figure__title">시각화 7 · 약물이 건드리는 지점</div>
+            <div class="drugmap__btns">
+              <button class="dbtn" data-drug="acei" data-axis="raas">ACE inhibitor</button>
+              <button class="dbtn" data-drug="arb" data-axis="raas">ARB</button>
+              <button class="dbtn" data-drug="mra" data-axis="raas">MRA</button>
+              <button class="dbtn" data-drug="ccb" data-axis="vessel">CCB</button>
+              <button class="dbtn" data-drug="thiazide" data-axis="volume">Thiazide</button>
+              <button class="dbtn" data-drug="bb" data-axis="heart">β-blocker</button>
+            </div>
+            <div class="drugmap__lanes">
+              <div class="mlane raas">
+                <h6>RAAS</h6>
+                <div class="mnode" data-node="renin">Renin</div><div class="marrow">↓</div>
+                <div class="mnode" data-node="angi">Angiotensin I</div><div class="marrow">↓ ACE</div>
+                <div class="mnode" data-node="ace">ACE</div><div class="marrow">↓</div>
+                <div class="mnode" data-node="angii">Angiotensin II</div><div class="marrow">↓</div>
+                <div class="mnode" data-node="at1">AT₁ receptor</div><div class="marrow">↓</div>
+                <div class="mnode" data-node="aldo">Aldosterone / 혈관수축</div>
+              </div>
+              <div class="mlane vessel">
+                <h6>Blood vessel</h6>
+                <div class="mnode" data-node="catype">L-type Ca channel</div><div class="marrow">↓</div>
+                <div class="mnode">평활근 수축</div><div class="marrow">↓</div>
+                <div class="mnode">혈관 직경 · SVR</div>
+              </div>
+              <div class="mlane volume">
+                <h6>Kidney</h6>
+                <div class="mnode">Kidney</div><div class="marrow">↓</div>
+                <div class="mnode" data-node="nare">Na 재흡수</div><div class="marrow">↓</div>
+                <div class="mnode">혈액량 (Volume)</div>
+              </div>
+              <div class="mlane heart">
+                <h6>Heart / SNS</h6>
+                <div class="mnode" data-node="b1">β₁ receptor</div><div class="marrow">↓</div>
+                <div class="mnode">HR · 수축력 · renin</div>
+              </div>
+            </div>
+            <div class="drugmap__out">약물 버튼을 눌러 어느 지점을 건드리는지 확인하세요.</div>
+          </div>
+
+          <h3>9-2. ACE inhibitors <span style="font-size:13px;color:var(--ink-faint);">enalapril · ramipril · perindopril</span></h3>
+          <p>ACE를 억제 → Ang II↓ → 혈관수축↓·aldosterone↓ → Na/H₂O 저류↓ → BP↓.
+            단순 혈압 감소뿐 아니라 특정 상황에서 <b>심장·신장 보호</b>가 중요합니다. 특히 albuminuric CKD에서 ACEi/ARB는 핵심(KDIGO 2024도 중등도~중증 albuminuria CKD에서 RAS inhibitor 권고/제안).</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>부작용 · 왜 기침을 할까</div>
+            <p>대표 부작용: <b>dry cough · hyperkalemia · creatinine 상승 · hypotension · (드물게) angioedema</b>.
+              ACE는 angiotensin뿐 아니라 <b>bradykinin 분해</b>에도 관여 → ACE 억제 시 <b>bradykinin↑ → 마른기침</b>에 기여.</p>
+            <p style="margin-bottom:0;">특히 조심: <b>임신 · hyperkalemia · 양측 신동맥 협착</b>.</p>
+          </div>
+
+          <h3>9-3. ARB <span style="font-size:13px;color:var(--ink-faint);">losartan · valsartan · candesartan · telmisartan</span></h3>
+          <p>Ang II의 <b>AT₁ receptor 차단</b> → 혈관수축↓·aldosterone 효과↓ → BP↓.
+            <b>실용적 차이:</b> bradykinin 증가가 크지 않아 <b>ACEi보다 마른기침이 적습니다.</b> hyperK·Cr 상승·hypotension 가능, 임신에서 사용 안 함.</p>
+
+          <h3>9-4. Calcium Channel Blockers <span style="font-size:13px;color:var(--ink-faint);">amlodipine · nifedipine (DHP)</span></h3>
+          <p>혈관 평활근의 L-type Ca channel 억제 → 세포 내 Ca²⁺ 이용↓ → 평활근 수축↓ → <b>arteriolar vasodilation</b> → SVR↓ → BP↓.
+            대표 부작용: <b>peripheral edema(발목 부종)</b> · flushing/headache · 일부 palpitations.</p>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사 포인트 · Amlodipine edema</div>
+            <p>단순히 “몸에 물이 많아서” 생기는 부종과 다릅니다. <b>precapillary arteriolar dilation</b>이 상대적으로 강해지며
+              capillary hydrostatic pressure가 증가하는 것이 핵심 기전 → <b>이뇨제를 추가한다고 다 해결되는 형태가 아닙니다.</b></p>
+          </div>
+
+          <h3>9-5. Thiazide / thiazide-like <span style="font-size:13px;color:var(--ink-faint);">HCTZ · chlorthalidone · indapamide</span></h3>
+          <p>신장에서 Na 재흡수↓ → Na·물 배설↑ → 혈액량↓ → 초기 CO↓, 장기적으로 vascular resistance도↓ → BP↓.
+            대표 부작용: <b>hyponatremia · hypokalemia · hyperuricemia · glucose metabolism 영향</b>.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>약사 포인트</div>
+            <p>통풍 환자에서 thiazide를 보면 한 번 더 생각 — <b>uric acid를 올릴 수 있기 때문</b>입니다. (제7강 통풍에서 다시 연결)</p>
+          </div>
+
+          <h3>9-6. β-blockers <span style="font-size:13px;color:var(--ink-faint);">bisoprolol · carvedilol · atenolol</span></h3>
+          <p>β-adrenergic receptor 차단 → HR↓·수축력↓·renin release↓ → BP↓.
+            <b>모든 단순 고혈압의 무조건 1차약은 아닙니다.</b> 다만 ischemic heart disease·일부 heart failure·arrhythmia·특정 tachycardia 등 동반상황에서 중요.
+            대표 부작용: bradycardia · fatigue · 운동 내성 감소 · 일부에서 bronchospasm 주의.</p>
+
+          <h3>9-7. MRA <span style="font-size:13px;color:var(--ink-faint);">spironolactone · eplerenone</span></h3>
+          <p>Aldosterone effect 차단 → Na retention↓. 특히 <b>resistant hypertension</b>에서 중요.
+            대표: <b>hyperkalemia</b>, spironolactone의 <b>gynecomastia</b>.</p>
+
+          <h3>9-8. 약물 비교 요약</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>약물군</th><th>핵심 효과</th><th>대표 부작용/주의</th></tr></thead>
+              <tbody>
+                <tr><th>ACEi</th><td>RAAS 억제</td><td>cough · hyperK · Cr 변화</td></tr>
+                <tr><th>ARB</th><td>AT₁ 차단</td><td>hyperK · Cr 변화</td></tr>
+                <tr><th>CCB</th><td>혈관확장</td><td>peripheral edema</td></tr>
+                <tr><th>Thiazide</th><td>Na/H₂O 배설</td><td>hypoNa · hypoK · uric acid↑</td></tr>
+                <tr><th>β-blocker</th><td>HR/수축력/SNS↓</td><td>bradycardia · fatigue</td></tr>
+                <tr><th>MRA</th><td>aldosterone 차단</td><td>hyperkalemia</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">
+              <span class="qn">잠깐 ⑤</span> Amlodipine을 시작한 뒤 혈압은 좋아졌는데 발목이 붓습니다. 가장 직접적으로 연결되는 기전은?
+            </div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Bradykinin 증가</li>
+              <li data-opt="B"><span class="opt">B</span> Arteriolar vasodilation</li>
+              <li data-opt="C"><span class="opt">C</span> Aldosterone 증가</li>
+              <li data-opt="D"><span class="opt">D</span> 심박수 증가</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">DHP CCB는 arteriolar dilation(특히 precapillary arteriole)을 일으켜 capillary pressure 상승에 따른 peripheral edema가 발생할 수 있습니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 10 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">10</span> 약사 Deep Dive</h2>
+
+          <h3>Deep Dive 1 · 왜 ACEi 시작 후 creatinine이 조금 올라갈 수 있을까?</h3>
+          <p>사구체 내부 압력은 <b>afferent</b>와 <b>efferent arteriole</b>의 저항에 영향을 받습니다. Ang II는 특히 <b>efferent arteriole 수축</b>에 중요합니다.</p>
+          <blockquote>ACEi/ARB → Ang II effect↓ → efferent arteriole dilation → intraglomerular pressure↓ → GFR 일시 감소 가능 → serum creatinine 상승 가능</blockquote>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>해석</div>
+            <p>ACEi/ARB 시작 후 creatinine이 약간 오른 것 자체가 곧 “약이 콩팥을 망가뜨렸다”는 뜻은 아닙니다.
+              KDIGO는 RAS inhibitor 시작·증량 뒤 <b>BP · creatinine · potassium 모니터링</b>을 강조합니다.</p>
+          </div>
+
+          <h3>Deep Dive 2 · 왜 혈압 목표가 점점 낮아질까?</h3>
+          <p>예전에는 “140/90 아래면 충분”이라는 접근이 강했지만, 고위험 환자에서 더 적극적인 혈압 감소가 CV event를 줄인다는 근거가 축적됐습니다.</p>
+          <ul class="clean">
+            <li><b>2024 ESC</b> — 잘 견디면 대부분 성인에서 SBP <b>120–129 mmHg</b> 목표</li>
+            <li><b>2025 ACC/AHA</b> — 대부분 성인 치료 목표 <b>&lt;130/80 mmHg</b></li>
+          </ul>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>단, “무조건 낮을수록 좋다”가 아니다</div>
+            <p>frailty · orthostatic hypotension · 치료 내약성 · 동반질환을 고려해야 합니다.</p>
+          </div>
+
+          <h3>Deep Dive 3 · 왜 여러 약을 같이 쓰는가?</h3>
+          <p>혈압은 여러 시스템이 동시에 조절합니다. CCB로 혈관을 확장해도 몸은 다른 혈압 유지 시스템을 활성화해 보상할 수 있습니다.
+            그래서 <b>RAAS 억제 + vasodilation + volume reduction</b>처럼 서로 다른 경로를 함께 조절하면 효과가 보완됩니다.
+            2025 ACC/AHA는 <b>stage 2</b>에서 서로 다른 두 first-line 약물의 <b>single-pill 고정용량 복합제</b>를 선호하는 전략을 제시합니다.</p>
+        </section>
+
+        <!-- ================= SECTION 11 · 비교 · FAQ · 팩트체크 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">11</span> 비교 · FAQ · 팩트체크</h2>
+
+          <h3>11-1. 혈압 상태 비교</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>상태</th><th>Office BP</th><th>Home BP</th><th>의미</th></tr></thead>
+              <tbody>
+                <tr><th>지속성 정상혈압</th><td class="cov-yes-c">정상</td><td class="cov-yes-c">정상</td><td>일반적으로 정상</td></tr>
+                <tr><th>White-coat HTN</th><td class="cov-no-c">높음</td><td class="cov-yes-c">정상</td><td>진료실에서만 상승</td></tr>
+                <tr><th>Masked HTN</th><td class="cov-yes-c">정상</td><td class="cov-no-c">높음</td><td>일상에 숨은 고혈압</td></tr>
+                <tr><th>Sustained HTN</th><td class="cov-no-c">높음</td><td class="cov-no-c">높음</td><td>지속적 고혈압</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Primary</th><th>Secondary</th></tr></thead>
+              <tbody>
+                <tr><th>원인</th><td>다인성</td><td>특정 원인 존재</td></tr>
+                <tr><th>빈도</th><td>대부분</td><td>소수</td></tr>
+                <tr><th>예</th><td>유전+노화+비만+Na</td><td>CKD · aldosteronism 등</td></tr>
+                <tr><th>치료</th><td>생활습관+약물</td><td>원인 치료가 중요</td></tr>
+                <tr><th>의심</th><td>일반적 성인 고혈압</td><td>갑작스런 발생·매우 심함·저항성</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>11-2. 자주 묻는 질문 (FAQ)</h3>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 혈압약을 한번 먹기 시작하면 평생 먹어야 하나요?</button>
+              <div class="faq__a">반드시 그런 것은 아닙니다. 약 때문에 못 끊는 것이 아니라 <b>고혈압이라는 상태가 지속</b>되기 때문에 계속 필요한 사람이 많은 것입니다.
+                체중 감소·생활습관 개선으로 충분히 좋아지면 의료진 판단 아래 줄이거나 중단하기도 합니다. 다만 임의 중단 시 다시 오를 수 있습니다.
+                <div class="ph"><b>약사 관점:</b> 고혈압은 대부분 chronic disease. 중단 후 정상 유지 여부를 확인하며 지속 모니터링이 필요합니다.</div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 혈압이 정상이 됐는데 왜 계속 먹나요?</button>
+              <div class="faq__a">약을 먹어서 정상으로 <b>유지</b>되는 것일 수 있습니다. 브레이크를 밟아 속도가 줄었는데 “줄었으니 놓자”면 다시 올라가는 것과 비슷합니다.
+                <div class="ph"><b>약사 관점:</b> 현재 혈압만이 아니라 복용 상태·home BP·CVD risk·동반질환을 함께 봅니다.</div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. 혈압이 높으면 머리가 아픈가요?</button>
+              <div class="faq__a">항상 그렇지는 않습니다. 대부분 무증상이며, 두통·스트레스 때문에 오히려 혈압이 일시적으로 올랐을 수도 있습니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. 집에서는 괜찮고 병원에서만 높은데 고혈압인가요?</button>
+              <div class="faq__a">White-coat hypertension일 수 있습니다. 집에서 정확히 여러 번 측정하거나 24시간 혈압검사를 하면 판단에 도움이 됩니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. 혈압약은 신장에 나쁜가요?</button>
+              <div class="faq__a">약마다 다릅니다. ACEi/ARB는 시작 후 creatinine이 어느 정도 변할 수 있지만, 적절한 환자에서는 오히려 <b>장기적 신장 보호</b>를 위해 중요합니다.
+                <div class="ph"><b>약사 관점:</b> ACEi/ARB에서는 serum creatinine·K⁺ 모니터링이 중요. 특히 albuminuric CKD에서 RAS blockade의 신장 보호 효과가 핵심 근거입니다.</div>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. 혈압이 150인데 오늘 짠 걸 먹어서 그런 것 아닐까요?</button>
+              <div class="faq__a">가능합니다. Na 섭취·스트레스·수면·통증으로 변동할 수 있습니다. 하지만 <b>반복적으로 높다면</b> 그날 식사 탓으로만 돌려서는 안 됩니다.</div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. 커피를 마시면 혈압이 올라가나요?</button>
+              <div class="faq__a">카페인은 일부 사람에서 단기적으로 혈압을 올릴 수 있지만 개인차가 큽니다. “고혈압이면 커피 평생 금지”보다 <b>실제 섭취 패턴과 혈압 반응</b>을 함께 보는 것이 합리적입니다.</div>
+            </div>
+          </div>
+
+          <h3>11-3. 흔한 오해 / 팩트체크</h3>
+          <div class="fact">
+            <div class="factrow">
+              <div class="claim">고혈압이면 보통 머리가 아프다.</div>
+              <span class="verdict">대체로 틀림</span>
+              <div class="why">고혈압은 대부분 무증상입니다.</div>
+              <div class="take"><b>실전:</b> 증상이 없다고 혈압이 안전하다고 판단하지 않는다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">혈압약은 한번 시작하면 의존하게 돼서 평생 끊을 수 없다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">약물 의존성이 생겨서가 아니라 고혈압이 지속되는 경우가 많기 때문입니다.</div>
+              <div class="take"><b>실전:</b> 생활습관 변화로 줄일 가능성은 있으나 임의로 중단하지 않는다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">혈압은 140/90부터 갑자기 위험하다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">CV 위험은 혈압이 높아질수록 연속적으로 증가합니다. 140/90은 의사결정용 경계값이며, 2024 ESC도 elevated BP 범주를 도입했습니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">천연 소금이나 죽염은 일반 소금과 달리 혈압에 안전하다.</div>
+              <span class="verdict">대체로 틀림</span>
+              <div class="why">혈압 관점의 핵심은 sodium입니다. “천연”이라는 이유만으로 Na 문제에서 자유로워지지 않습니다.</div>
+              <div class="take"><b>실전:</b> 제품 이름보다 실제 sodium 함량을 본다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">혈압약을 먹으면 생활습관 관리는 필요 없다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">약물과 생활습관 치료는 대체 관계가 아니라 <b>보완 관계</b>입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 12 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">12</span> Case Study</h2>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · 증상이 없는데 꼭 치료해야 하나요?</div>
+            <p>54세 남성, BMI 28, 흡연 중. 건강검진 <b>158/96</b>, 1주 뒤 진료실 <b>154/94</b>, 가정혈압 평균 <b>148/91</b>, 증상 없음.
+              “아픈 데가 전혀 없는데 약을 먹어야 할 이유가 있나요?”</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 단순 white-coat일 가능성이 높은가? ② 증상 없음이 안심 근거인가? ③ 치료의 궁극 목표는?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">진료실뿐 아니라 <b>가정혈압도 지속적으로 높아</b> 단순 white-coat로 보기 어렵습니다. 고혈압은 상당 기간 무증상일 수 있습니다.
+              <div class="exp">치료 목적은 지금의 증상 완화가 아니라 <b>stroke·MI·heart failure·CKD 같은 장기 위험 감소</b>입니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 2 · 혈압약이 안 듣는 것 같아요</div>
+            <p>68세 여성, losartan + amlodipine 복용 중. 이전 <b>128–135/75–82</b>. 최근 무릎 통증으로 약국 <b>ibuprofen</b>을 거의 매일 복용.
+              최근 <b>148–155/85–90</b>, 발목 부종도 약간 있음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 혈압 상승과 관련된 약물이 있을까? ② 발목 부종은 어떤 약과 관련? ③ 상담에서 확인할 것은?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">NSAID는 Na/수분 저류와 antihypertensive effect 저하로 혈압 상승에 기여할 수 있고, 발목 부종은 <b>amlodipine</b>과 관련 가능성이 있습니다.
+              <div class="exp">약사는 “혈압약을 더 드세요”가 아니라 <b>NSAID 사용량 · home BP · 부종 시점 · 동반약물 · 신기능</b>을 확인하고 진료 연결이 필요한지 판단하는 역할을 합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 13 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">13</span> Mastery Quiz</h2>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 1. 고혈압이 장기간 지속될 때 혈압이 더 쉽게 상승하는 악순환에 대한 설명으로 가장 적절한 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 높은 혈압은 항상 심박수를 감소시킨다.</li>
+              <li data-opt="B"><span class="opt">B</span> 장기간 높은 압력이 혈관 remodeling과 stiffness를 증가시킬 수 있다.</li>
+              <li data-opt="C"><span class="opt">C</span> 고혈압에서는 혈액량이 반드시 감소한다.</li>
+              <li data-opt="D"><span class="opt">D</span> 고혈압이 생기면 RAAS가 항상 완전히 억제된다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">장기간 높은 혈압은 혈관벽에 mechanical stress를 가해 remodeling·arterial stiffness에 기여하고, 이 변화가 다시 혈압 상승을 악화시킵니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 2. RAAS가 혈압을 상승시키는 주요 기전을 가장 잘 설명한 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Angiotensin II가 혈관확장과 Na 배설을 증가시킨다.</li>
+              <li data-opt="B"><span class="opt">B</span> Angiotensin II가 혈관수축을 유도하고 aldosterone을 증가시킨다.</li>
+              <li data-opt="C"><span class="opt">C</span> Aldosterone이 Na 배설을 증가시킨다.</li>
+              <li data-opt="D"><span class="opt">D</span> Renin이 직접 심박수를 크게 감소시킨다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">Ang II는 vasoconstriction을 일으키고 aldosterone 분비를 늘려 Na/H₂O retention을 촉진합니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 3. 진료실 152/94지만 집에서 정확히 측정한 평균이 124/76인 사람에서 우선 생각할 수 있는 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Masked hypertension</li>
+              <li data-opt="B"><span class="opt">B</span> White-coat hypertension</li>
+              <li data-opt="C"><span class="opt">C</span> Hypertensive emergency</li>
+              <li data-opt="D"><span class="opt">D</span> Resistant hypertension</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">Office BP는 높지만 out-of-office BP가 정상 → white-coat. 반대 상황이 masked hypertension입니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 4. Amlodipine 복용 환자의 발목 부종과 가장 관련 있는 기전은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Bradykinin 증가</li>
+              <li data-opt="B"><span class="opt">B</span> Precapillary arteriolar dilation</li>
+              <li data-opt="C"><span class="opt">C</span> 심한 Na 배설 증가</li>
+              <li data-opt="D"><span class="opt">D</span> Aldosterone receptor blockade</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B
+              <div class="exp">DHP CCB는 arteriolar dilation으로 capillary hydrostatic pressure 상승에 따른 peripheral edema를 일으킬 수 있습니다.</div>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;">문제 5. 반복 측정에서도 186/124이고 새로 발생한 흉통·호흡곤란이 있다. 가장 적절한 판단은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 증상이 좋아질 때까지 집에서 관찰한다.</li>
+              <li data-opt="B"><span class="opt">B</span> 소금을 줄이고 한 달 후 다시 측정한다.</li>
+              <li data-opt="C"><span class="opt">C</span> 급성 표적장기 손상 가능성이 있어 즉각적인 응급평가가 필요하다.</li>
+              <li data-opt="D"><span class="opt">D</span> 혈압약을 한 번 더 복용하면 충분하다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C
+              <div class="exp">180/120의 심한 상승에 흉통·호흡곤란 같은 급성 장기손상 의심 증상이 동반되면 hypertensive emergency 가능성을 고려해 즉각 평가가 필요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 14 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">14</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>혈압 ≈ Cardiac Output × Vascular Resistance로 생각하면 고혈압의 큰 그림이 보인다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>혈압은 심장·혈관·콩팥·SNS·RAAS가 함께 조절한다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>대부분의 고혈압은 단일 원인이 아니라 유전·노화·비만·Na·생활습관의 복합 결과다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>대부분 증상이 없다. 치료 이유는 증상이 아니라 장기적 심혈관·신장 위험이다.</p></div>
+            <div class="factcard"><span class="n">5</span><p>한 번 높은 값보다 반복 측정과 올바른 측정법이 중요하다.</p></div>
+            <div class="factcard"><span class="n">6</span><p>진료실 ≥140/90(한국·ESC) vs ≥130/80(ACC/AHA). 위험 자체엔 갑작스런 경계가 없다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>생활습관 핵심 = Na 감소·적정 체중·운동·건강한 식사·과음 감소·금연.</p></div>
+            <div class="factcard"><span class="n">8</span><p>혈압약은 Volume / RAAS / Vessel / Heart-SNS 중 어디를 건드리는지 이해한다.</p></div>
+            <div class="factcard"><span class="n">9</span><p>ACEi/ARB=RAAS, CCB=혈관, 이뇨제=Na·수분, β-blocker=심장/SNS.</p></div>
+            <div class="factcard"><span class="n">10</span><p>혈압이 매우 높으면서 흉통·호흡곤란·신경학적 이상이 있으면 즉각적인 의료 평가 영역이다.</p></div>
+          </div>
+        </section>
+
+        <!-- ================= 학습 종료 ================= -->
+        <section class="closing">
+          <h3>오늘의 세 질문, 이제 답할 수 있습니다</h3>
+          <p class="big">① 무증상일 수 있다 — 혈압은 증상이 아니라 노출 변수다.<br>
+            ② 그래도 치료한다 — 목표는 숫자가 아니라 장기 손상 예방이다.<br>
+            ③ 한 번의 162/98로 확정하지 않는다 — 반복·올바른 측정이 먼저다.</p>
+          <p style="margin-top:22px;"><a href="../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 모바일 내비 -->
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <!-- Quick Review 플로팅 -->
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>혈압약 지도 한 줄 요약</h5>
+      <div class="qr-row"><span class="qr-k">Volume</span><span>이뇨제 — Na·물↓</span></div>
+      <div class="qr-row"><span class="qr-k">RAAS</span><span>ACEi·ARB·MRA</span></div>
+      <div class="qr-row"><span class="qr-k">Vessel</span><span>CCB — 혈관확장(부종)</span></div>
+      <div class="qr-row"><span class="qr-k">Heart/SNS</span><span>β-blocker</span></div>
+      <div class="qr-row"><span class="qr-k">기준</span><span>140/90(ESC) · 130/80(ACC/AHA)</span></div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
