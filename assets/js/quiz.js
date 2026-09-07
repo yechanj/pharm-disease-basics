@@ -54,9 +54,8 @@
     return a;
   }
 
-  function levelLabel(lv) {
-    return lv === 1 ? "Core" : lv === 2 ? "Mechanism" : "Integration";
-  }
+  function levelKo(lv) { return lv === 1 ? "핵심" : lv === 2 ? "기전" : "통합"; }
+  function levelEn(lv) { return lv === 1 ? "Core" : lv === 2 ? "Mechanism" : "Integration"; }
 
   /* ---------- 데이터 로드 ---------- */
   function loadAll() {
@@ -142,22 +141,26 @@
 
     var optsHtml = item.opts.map(function (text, i) {
       var letter = String.fromCharCode(65 + i);
-      return "<li class='qd-opt' data-i='" + i + "'><span class='qd-optl'>" + letter + "</span>" + escapeHtml(text) + "</li>";
+      return "<li class='qd-opt' data-i='" + i + "'>" +
+        "<span class='qd-optl'>" + letter + "</span>" +
+        "<span class='qd-opttx'>" + escapeHtml(text) + "</span>" +
+      "</li>";
     }).join("");
 
     el.stage.innerHTML =
       "<div class='qd-quiz'>" +
-        "<div class='qd-top'>" +
-          "<div class='qd-prog'><span style='width:" + Math.round(((pos) / total) * 100) + "%'></span></div>" +
-          "<div class='qd-count'>" + (pos + 1) + " / " + total + "</div>" +
-        "</div>" +
-        "<div class='qd-meta'>" +
-          "<span class='qd-tag qd-tag--dis'>" + escapeHtml(q.disease) + "</span>" +
-          "<span class='qd-tag qd-lv qd-lv" + q.level + "'>Lv" + q.level + " · " + levelLabel(q.level) + "</span>" +
-          "<span class='qd-tag qd-tag--con'>" + escapeHtml(q.concept) + "</span>" +
-          (q.source === "extension" ? "<span class='qd-tag qd-tag--ext'>교재 밖 확장</span>" : "") +
+        "<div class='qd-prog'><span style='width:" + Math.round(((pos + 1) / total) * 100) + "%'></span></div>" +
+        "<div class='qd-head'>" +
+          "<div class='qd-qno'><span class='qd-qno-cur'>Q" + (pos + 1) + "</span>" +
+            "<span class='qd-qno-tot'>/ " + total + "</span></div>" +
+          "<span class='qd-lvpill qd-lv" + q.level + "'>Lv" + q.level + " " + levelKo(q.level) + "</span>" +
         "</div>" +
         "<div class='qd-qtext'>" + escapeHtml(q.question) + "</div>" +
+        "<div class='qd-meta'>" +
+          "<span class='qd-chip qd-chip--dis'>" + escapeHtml(q.disease) + "</span>" +
+          "<span class='qd-chip qd-chip--con'>" + escapeHtml(q.concept) + "</span>" +
+          (q.source === "extension" ? "<span class='qd-chip qd-chip--ext'>교재 밖 확장</span>" : "") +
+        "</div>" +
         "<ul class='qd-opts'>" + optsHtml + "</ul>" +
         "<div class='qd-exp' hidden></div>" +
         "<div class='qd-nav'><button class='qd-btn qd-btn--primary' id='qdNext' hidden></button></div>" +
@@ -186,8 +189,9 @@
     });
 
     var exp = el.stage.querySelector(".qd-exp");
-    exp.innerHTML = "<b>" + (ok ? "정답입니다 ✓" : "오답입니다 ✗") + "</b><span class='qd-exp-txt'>" +
-      escapeHtml(item.q.explanation) + "</span>";
+    exp.className = "qd-exp " + (ok ? "qd-exp--ok" : "qd-exp--no");
+    exp.innerHTML = "<b class='qd-exp-h'>" + (ok ? "정답입니다" : "오답입니다") + "</b>" +
+      "<span class='qd-exp-txt'>" + escapeHtml(item.q.explanation) + "</span>";
     exp.hidden = false;
 
     var next = document.getElementById("qdNext");
