@@ -1,0 +1,812 @@
+[
+  {
+    "id": "dm-l1-001",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "정의",
+    "type": "correct",
+    "question": "당뇨병(diabetes mellitus)에 대한 설명으로 가장 적절한 것은?",
+    "options": [
+      "혈액에 설탕이 많은 일시적 상태로 장기 손상과는 무관하다",
+      "췌장에 생기는 감염성 질환이다",
+      "인슐린 분비가 부족하거나 인슐린이 충분히 작용하지 못해 혈당이 만성적으로 높아지는 질환군이다",
+      "혈당이 낮아지는 것이 특징인 질환이다"
+    ],
+    "answer": 2,
+    "explanation": "당뇨병은 인슐린 분비 부족 또는 인슐린 작용 저하로 혈중 포도당이 만성적으로 높아지는 질환군입니다. 핵심은 '피에 설탕이 많다'가 아니라, 장기간의 고혈당·대사 이상이 혈관·신경·콩팥·망막·심장에 손상을 축적한다는 점입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-002",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "인슐린 작용",
+    "type": "correct",
+    "question": "인슐린의 역할을 가장 잘 설명한 것은?",
+    "options": [
+      "혈당을 올리라는 신호를 보내는 호르몬이다",
+      "간에서 glucose를 새로 만들라고 지시한다",
+      "'에너지가 들어왔으니 사용하고 저장하라'는 신호로, 근육·지방의 glucose 이용을 늘리고 간의 glucose 생산을 줄인다",
+      "지방 분해를 촉진하는 호르몬이다"
+    ],
+    "answer": 2,
+    "explanation": "인슐린은 단순한 '혈당 낮추는 호르몬'이 아니라 에너지를 사용·저장하라는 신호입니다. 근육·지방의 glucose uptake를 늘리고, 간에는 'glucose가 충분하니 새로 만들지 말라'고 해서 hepatic glucose production을 줄입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-003",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "제1형/제2형",
+    "type": "compare",
+    "question": "제1형과 제2형 당뇨병의 핵심 차이로 옳은 것은?",
+    "options": [
+      "제1형은 β-cell 자가면역 파괴로 인한 인슐린 절대 부족, 제2형은 insulin resistance + 진행성 β-cell 기능저하가 핵심이다",
+      "제1형은 insulin resistance가 핵심이고 제2형은 자가면역 파괴가 핵심이다",
+      "둘 다 자가면역으로 β-cell이 파괴된다",
+      "제2형은 반드시 비만이 있어야 진단한다"
+    ],
+    "answer": 0,
+    "explanation": "제1형은 자가면역으로 β-cell이 파괴되어 인슐린이 절대적으로 부족하고 생존에 인슐린이 필수입니다. 제2형은 insulin resistance와 진행성 β-cell dysfunction이 함께 작용하며, 비만이 흔하지만 필수 조건은 아닙니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-004",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "진단 기준",
+    "type": "correct",
+    "question": "성인 당뇨병 진단 기준으로 옳은 것은? (대한당뇨병학회·ADA)",
+    "options": [
+      "HbA1c ≥6.5% 또는 공복혈당 ≥126 mg/dL 또는 2시간 OGTT ≥200 mg/dL",
+      "HbA1c ≥5.7% 또는 공복혈당 ≥100 mg/dL",
+      "공복혈당 ≥140 mg/dL만 해당",
+      "무작위 혈당 ≥160 mg/dL이면 증상과 무관하게 진단"
+    ],
+    "answer": 0,
+    "explanation": "당뇨병 진단 기준은 HbA1c ≥6.5%, 공복혈당 ≥126 mg/dL, 2시간 OGTT(75g) ≥200 mg/dL, 또는 전형적 증상과 함께 무작위 혈당 ≥200 mg/dL입니다. 명백한 고혈당이 아니라면 반복 확인이 필요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-005",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "전당뇨병",
+    "type": "correct",
+    "question": "전당뇨병(prediabetes)에 대한 설명으로 옳은 것은?",
+    "options": [
+      "혈당이 완전히 정상이므로 관리가 필요 없다",
+      "이미 당뇨병 합병증이 확정된 단계다",
+      "공복혈당 ≥126 mg/dL부터 전당뇨병이다",
+      "공복혈당 100–125 mg/dL 또는 HbA1c 5.7–6.4%로, 당뇨병 발생 위험이 증가한 상태다"
+    ],
+    "answer": 3,
+    "explanation": "전당뇨병은 IFG(공복혈당 100–125)나 HbA1c 5.7–6.4%로 정의되며, T2DM 발생 위험이 증가한 상태입니다. '아무것도 안 해도 된다'가 아니라 생활습관 개선 등 관리가 필요한 단계입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-006",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "증상",
+    "type": "correct",
+    "question": "혈당이 상당히 오른 당뇨병에서 나타나는 고전적 3대 증상으로 묶인 것은?",
+    "options": [
+      "다뇨(polyuria) · 다음(polydipsia) · 다식(polyphagia)",
+      "발열 · 기침 · 인후통",
+      "서맥 · 저혈압 · 변비",
+      "황달 · 복수 · 소양감"
+    ],
+    "answer": 0,
+    "explanation": "혈당이 높아지면 신장이 glucose를 다 재흡수하지 못해 osmotic diuresis로 다뇨가 생기고, 수분 소실로 갈증(다음)이 늘며, 세포가 glucose를 못 쓰는 에너지 부족 신호로 다식이 나타납니다. 다만 초기 T2DM은 무증상이 흔합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-007",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "증상",
+    "type": "correct",
+    "question": "제2형 당뇨병 초기의 증상 양상으로 가장 적절한 것은?",
+    "options": [
+      "초기에는 아무 증상이 없을 수 있어 건강검진에서 처음 발견되는 경우가 많다",
+      "초기부터 반드시 심한 갈증과 체중 감소가 나타난다",
+      "항상 의식 저하로 시작된다",
+      "반드시 다뇨가 먼저 나타나야 진단할 수 있다"
+    ],
+    "answer": 0,
+    "explanation": "T2DM은 초기에 무증상인 경우가 많아 건강검진에서 우연히 발견되는 일이 흔합니다. 그래서 증상이 없다는 것이 방치의 근거가 되지 않으며, 위험요인이 있으면 선별검사가 중요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-008",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "위험요인",
+    "type": "incorrect",
+    "question": "다음 중 제2형 당뇨병의 대표적 위험요인으로 보기 어려운 것은?",
+    "options": [
+      "과체중/복부비만(BMI ≥23)",
+      "1촌 가족력·임신성당뇨 과거력",
+      "고혈압·이상지질혈증 등 insulin resistance 동반 상태",
+      "규칙적인 유산소 운동"
+    ],
+    "answer": 3,
+    "explanation": "과체중/복부비만, 가족력, 임신성당뇨 과거력, 고혈압·이상지질혈증·PCOS 등이 위험요인입니다. 규칙적 운동은 오히려 insulin sensitivity를 개선하는 보호 요인으로, 위험요인이 아닙니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-009",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "합병증",
+    "type": "compare",
+    "question": "당뇨병 합병증을 미세혈관(microvascular)과 대혈관(macrovascular)으로 나눌 때 바르게 묶인 것은?",
+    "options": [
+      "미세혈관: 심근경색·뇌졸중 / 대혈관: 망막병증",
+      "미세혈관: 폐렴·간염 / 대혈관: 신경병증",
+      "미세혈관: 망막·콩팥·신경 / 대혈관: 관상동맥·뇌·말초동맥",
+      "미세혈관: 관상동맥질환 / 대혈관: 콩팥·신경"
+    ],
+    "answer": 2,
+    "explanation": "미세혈관 합병증은 망막병증·신장병증·신경병증이고, 대혈관 합병증은 관상동맥질환(심근경색)·뇌졸중·말초동맥질환입니다. 당뇨병 관리는 두 그룹의 합병증 위험을 모두 줄이는 것을 목표로 합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-010",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "HbA1c",
+    "type": "correct",
+    "question": "HbA1c 검사에 대한 설명으로 옳은 것은?",
+    "options": [
+      "검사 당일 아침 혈당만을 반영한다",
+      "대략 최근 2~3개월의 평균 혈당 노출을 반영하며 공복이 필요 없다",
+      "반드시 8시간 공복 후 측정해야 한다",
+      "적혈구 상태와 무관하게 항상 정확하다"
+    ],
+    "answer": 1,
+    "explanation": "HbA1c는 혈당에 의한 hemoglobin glycation 정도로, 최근 약 2~3개월의 평균 혈당 노출을 반영하고 공복이 필요 없습니다. 다만 빈혈·용혈·최근 수혈·hemoglobin variant·임신·진행된 CKD 등에서는 해석에 주의가 필요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-011",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "약물 개요",
+    "type": "correct",
+    "question": "제2형 당뇨병의 대표 약물군으로 보기 어려운 것은?",
+    "options": [
+      "Metformin",
+      "Loop 이뇨제",
+      "SGLT2 억제제",
+      "GLP-1 수용체작용제"
+    ],
+    "answer": 1,
+    "explanation": "T2DM 약물군에는 Metformin, sulfonylurea, DPP-4 억제제, GLP-1 RA, SGLT2 억제제, TZD, α-glucosidase 억제제, 인슐린 등이 있습니다. Loop 이뇨제는 혈당강하제가 아니라 이뇨제입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-012",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "치료 목표",
+    "type": "correct",
+    "question": "당뇨병의 HbA1c 목표에 대한 설명으로 가장 적절한 것은?",
+    "options": [
+      "모든 환자에서 예외 없이 6.0% 미만으로 맞춘다",
+      "많은 비임신 성인에서 <7%가 흔한 일반 목표이지만, 저혈당 위험·고령·동반질환 등에 따라 개인화한다",
+      "낮을수록 무조건 좋으므로 최대한 낮춘다",
+      "HbA1c만 목표에 도달하면 다른 위험요인은 볼 필요가 없다"
+    ],
+    "answer": 1,
+    "explanation": "일반적으로 <7%가 흔한 목표지만, 젊고 합병증이 적고 저혈당 위험이 낮으면 더 엄격하게, 고령·frailty·중증 저혈당 병력·제한된 기대여명에서는 완화합니다. 궁극 목표는 합병증·저혈당 최소화와 삶의 질입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-013",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "Red Flag",
+    "type": "correct",
+    "question": "당뇨병에서 즉시 평가가 필요한 급성 응급 상황으로 보기 어려운 것은?",
+    "options": [
+      "당뇨병성 케톤산증(DKA) 의심 — 오심/구토·복통·빠르고 깊은 호흡·의식 변화",
+      "무증상이면서 HbA1c가 6.6%로 확인됨",
+      "고삼투압성 고혈당 상태(HHS) 의심 — 고령에서 매우 심한 고혈당·심한 탈수",
+      "외부 도움이 필요한 중증 저혈당"
+    ],
+    "answer": 1,
+    "explanation": "DKA, HHS, 중증 저혈당은 즉각 평가가 필요한 급성 응급입니다. 무증상 HbA1c 6.6%는 진단·관리 대상이지만 급성 응급 상황은 아닙니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-014",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "생활습관",
+    "type": "incorrect",
+    "question": "당뇨병 식사·생활습관 상담으로 적절하지 않은 것은?",
+    "options": [
+      "탄수화물은 총량·질·portion·식이섬유를 함께 고려한다",
+      "당 함유 음료(SSB)는 줄이는 것이 매우 중요하다",
+      "탄수화물을 완전히 끊는 것이 모든 환자의 기본 원칙이다",
+      "규칙적 유산소 운동에 주 2–3회 저항운동을 더한다"
+    ],
+    "answer": 2,
+    "explanation": "탄수화물 완전 제거는 일반 원칙이 아닙니다. 총량·질·portion·식이섬유·개인 혈당 반응이 중요하며, 특히 SGLT2i 사용 시 극단적 저탄수화물은 케톤산증 위험 관점에서 주의합니다. 당 음료 줄이기와 운동은 권장됩니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l1-015",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 1,
+    "concept": "합병증",
+    "type": "cause-effect",
+    "question": "당뇨병 환자에서 발 관리가 특히 강조되는 이유로 가장 적절한 것은?",
+    "options": [
+      "당뇨병이 발의 뼈를 직접 녹이기 때문에",
+      "발이 혈당을 조절하는 기관이기 때문에",
+      "말초신경병증으로 감각이 떨어져 상처를 잘 못 느끼고, 이것이 궤양·감염·절단으로 이어질 수 있어서",
+      "인슐린이 발에서만 작용하기 때문에"
+    ],
+    "answer": 2,
+    "explanation": "당뇨병성 말초신경병증은 통증·온도 감각을 떨어뜨려 상처를 잘 느끼지 못하게 합니다. 여기에 혈류·회복능력 저하가 겹치면 궤양→감염→심하면 절단으로 진행할 수 있어 발 관리가 중요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-001",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "인슐린 저항성",
+    "type": "mechanism",
+    "question": "제2형 당뇨병 초기의 병태생리를 가장 잘 설명한 것은?",
+    "options": [
+      "처음부터 췌장이 인슐린 분비를 완전히 중단한다",
+      "insulin resistance를 보상하기 위해 오히려 인슐린 분비가 증가하는 시기가 있을 수 있다",
+      "간에서 glucose 생산이 완전히 사라진다",
+      "모든 환자에서 인슐린이 전혀 분비되지 않는다"
+    ],
+    "answer": 1,
+    "explanation": "T2DM 초기에는 조직이 인슐린 신호에 잘 반응하지 못하는 insulin resistance가 생기고, 췌장이 이를 보상하려 인슐린을 더 많이 분비하는 보상성 hyperinsulinemia 시기가 있을 수 있습니다. 이후 β-cell이 보상을 못 따라가면 고혈당이 드러납니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-002",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "질병 진행",
+    "type": "cause-effect",
+    "question": "제2형 당뇨병에서 결국 지속적 고혈당이 나타나는 과정을 가장 잘 설명한 것은?",
+    "options": [
+      "insulin resistance가 사라지면서 혈당이 오른다",
+      "간이 glucose 생산을 완전히 멈추기 때문이다",
+      "근육의 glucose 이용이 갑자기 증가하기 때문이다",
+      "β-cell 기능이 저하되어 인슐린 분비가 저항을 더는 보상하지 못하면서 혈당이 지속 상승한다"
+    ],
+    "answer": 3,
+    "explanation": "초기에는 보상성 인슐린 분비로 혈당이 유지되지만, 시간이 지나며 β-cell 기능이 저하되어 인슐린 분비가 저항을 보상하지 못하는 순간 고혈당이 드러납니다. 즉 '보상하다 못 따라가는 순간'이 핵심입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-003",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "간 glucose 생산",
+    "type": "mechanism",
+    "question": "공복인데도 혈당이 높은 사람과 가장 관련 있는 현상은?",
+    "options": [
+      "hepatic insulin resistance로 간의 glucose 생산이 충분히 억제되지 않음",
+      "장에서 밤새 glucose 흡수가 계속됨",
+      "신장이 인슐린을 과도하게 생성함",
+      "적혈구에서 glucose가 새로 만들어짐"
+    ],
+    "answer": 0,
+    "explanation": "밤새 간은 glycogenolysis·gluconeogenesis로 glucose를 공급하고 정상은 인슐린이 이를 억제합니다. hepatic insulin resistance가 있으면 혈당이 이미 높은데도 간이 glucose 생산을 충분히 멈추지 않아 공복혈당이 상승합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-004",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "증상",
+    "type": "cause-effect",
+    "question": "혈당이 높을 때 다뇨(polyuria)가 생기는 기전으로 옳은 것은?",
+    "options": [
+      "인슐린이 신장에서 소변 생성을 직접 늘리기 때문",
+      "고혈당이 방광 근육을 수축시키기 때문",
+      "혈당이 높아 신장이 glucose를 다 재흡수하지 못해 osmotic diuresis가 일어나기 때문",
+      "혈당이 높으면 항이뇨호르몬이 증가하기 때문"
+    ],
+    "answer": 2,
+    "explanation": "혈당이 신장의 재흡수 능력을 넘으면 소변으로 glucose가 빠져나가고, 삼투압에 의해 물도 함께 끌려 나가는 osmotic diuresis가 생겨 소변량이 늘어납니다(다뇨). 이어 수분 소실로 갈증(다음)이 생깁니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-005",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "Metformin의 주된 혈당강하 기전으로 옳은 것은?",
+    "options": [
+      "β-cell에서 인슐린 분비를 강제로 늘린다",
+      "소변으로 glucose를 배설시킨다",
+      "장에서 탄수화물 소화를 완전히 차단한다",
+      "간의 glucose 생산을 줄이고 인슐린 감수성을 일부 개선한다"
+    ],
+    "answer": 3,
+    "explanation": "Metformin은 주로 hepatic glucose production을 줄이고 인슐린 감수성을 일부 개선합니다. 인슐린 분비를 늘리는 기전이 아니어서 단독 사용 시 저혈당 위험이 낮습니다. GI 부작용과 장기 사용 시 B12 저하에 유의합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-006",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "Sulfonylurea가 저혈당 위험이 상대적으로 높은 이유로 옳은 것은?",
+    "options": [
+      "혈당과 무관하게 β-cell의 인슐린 분비를 촉진하므로 식사를 거르면 저혈당이 생길 수 있어서",
+      "소변으로 glucose를 과도하게 배설시키기 때문",
+      "간의 glucose 생산을 완전히 차단하기 때문",
+      "장의 glucose 흡수를 모두 막기 때문"
+    ],
+    "answer": 0,
+    "explanation": "Sulfonylurea는 β-cell의 K⁺ 채널을 닫아 인슐린 분비를 늘리는데, 이 분비가 혈당 수준과 무관하게 일어납니다. 따라서 식사를 거르거나 섭취가 부족하면 저혈당 위험이 커집니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-007",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "SGLT2 억제제의 혈당강하 기전으로 옳은 것은?",
+    "options": [
+      "β-cell에서 인슐린을 직접 강제 분비시킨다",
+      "장에서 탄수화물 소화를 완전히 차단한다",
+      "insulin receptor를 직접 활성화한다",
+      "근위세뇨관에서 glucose 재흡수를 줄여 소변으로 glucose 배설을 늘린다"
+    ],
+    "answer": 3,
+    "explanation": "SGLT2 억제제는 근위세뇨관의 glucose 재흡수를 줄여 filtered glucose를 소변으로 배설시킵니다(urinary glucose excretion↑). 인슐린과 독립적으로 작용해 저혈당 위험이 낮고, 생식기 감염·volume 감소·euglycemic DKA에 유의합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-008",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "GLP-1 수용체작용제(GLP-1 RA)의 작용으로 옳지 않은 것은?",
+    "options": [
+      "소변으로 glucose를 배설시켜 혈당을 낮춘다",
+      "glucose 의존적으로 인슐린 분비를 늘린다",
+      "glucagon 분비를 줄인다",
+      "위 배출을 지연시키고 포만감을 높여 체중 감소에 기여한다"
+    ],
+    "answer": 0,
+    "explanation": "GLP-1 RA는 GLP-1 수용체를 자극해 glucose 의존적 인슐린 분비 증가, glucagon 감소, 위 배출 지연, 포만감 증가(체중 감소)로 작용합니다. 소변으로 glucose를 배설시키는 것은 SGLT2 억제제의 기전입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-009",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "α-glucosidase 억제제(acarbose 등)가 식후 혈당을 낮추는 기전은?",
+    "options": [
+      "인슐린 분비를 직접 늘린다",
+      "간의 glucose 생산을 완전히 멈춘다",
+      "소변으로 glucose를 배설시킨다",
+      "장에서 탄수화물 분해를 지연시켜 glucose 흡수 속도를 늦춘다"
+    ],
+    "answer": 3,
+    "explanation": "α-glucosidase 억제제는 소장에서 탄수화물 분해를 지연시켜 glucose 흡수 속도를 늦춰 식후 혈당 상승을 완화합니다. 가스·복부 불편·설사 등 소화기 부작용이 흔합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-010",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물기전",
+    "type": "mechanism",
+    "question": "TZD(pioglitazone)의 작용 기전으로 옳은 것은?",
+    "options": [
+      "β-cell K⁺ 채널을 닫아 인슐린 분비를 늘린다",
+      "DPP-4를 억제해 incretin을 늘린다",
+      "PPAR-γ를 활성화해 인슐린 감수성을 높인다",
+      "근위세뇨관 glucose 재흡수를 막는다"
+    ],
+    "answer": 2,
+    "explanation": "TZD는 PPAR-γ를 활성화해 인슐린 감수성을 개선합니다. 저혈당 위험은 낮지만 부종과 심부전 악화 가능성, 체중 증가에 유의해야 합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-011",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "incretin",
+    "type": "mechanism",
+    "question": "DPP-4 억제제가 혈당을 낮추는 기전으로 옳은 것은?",
+    "options": [
+      "DPP-4를 억제해 incretin을 늘려 glucose 의존적 인슐린 분비를 높이고 glucagon을 줄인다",
+      "소변으로 glucose를 배설시킨다",
+      "인슐린 감수성을 PPAR-γ로 높인다",
+      "장에서 탄수화물 흡수를 물리적으로 막는다"
+    ],
+    "answer": 0,
+    "explanation": "DPP-4 억제제는 incretin(GLP-1 등)을 분해하는 DPP-4를 억제해 incretin 작용을 늘립니다. 그 결과 glucose 의존적 인슐린 분비가 증가하고 glucagon이 줄어 혈당을 낮추며, 체중 중립·저혈당 위험이 낮은 편입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-012",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "HbA1c",
+    "type": "cause-effect",
+    "question": "빈혈·용혈·최근 수혈이 있는 환자에서 HbA1c 해석에 주의해야 하는 이유로 가장 적절한 것은?",
+    "options": [
+      "이런 상태는 혈당을 직접 낮추기 때문",
+      "이런 상태에서는 혈당이 측정되지 않기 때문",
+      "HbA1c가 적혈구 수명·상태에 영향을 받아 실제 혈당 노출을 정확히 반영하지 못할 수 있기 때문",
+      "HbA1c는 원래 혈당과 무관한 검사이기 때문"
+    ],
+    "answer": 2,
+    "explanation": "HbA1c는 적혈구 내 hemoglobin의 glycation 정도라서 적혈구 수명·상태가 달라지면 값이 왜곡될 수 있습니다. 용혈·최근 수혈·hemoglobin variant·진행된 CKD·임신 등에서는 실제 혈당 노출과 괴리가 생길 수 있어 해석에 주의합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-013",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "약물 유발",
+    "type": "cause-effect",
+    "question": "스테로이드(글루코코르티코이드)가 혈당을 올릴 수 있는 기전으로 가장 적절한 것은?",
+    "options": [
+      "인슐린 분비를 직접 늘려서",
+      "소변으로 glucose를 배설시켜서",
+      "장의 glucose 흡수를 차단해서",
+      "간의 glucose 생산을 늘리고 insulin resistance를 증가시켜서"
+    ],
+    "answer": 3,
+    "explanation": "글루코코르티코이드는 hepatic glucose production을 늘리고 insulin resistance를 증가시켜 혈당을 크게 올릴 수 있습니다. atypical antipsychotics 등도 혈당에 영향을 주므로 약력 검토가 중요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-014",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "glucagon",
+    "type": "mechanism",
+    "question": "glucagon이 혈당 조절에서 하는 역할로 옳은 것은?",
+    "options": [
+      "근육의 glucose uptake를 늘려 혈당을 낮춘다",
+      "신장에서 glucose 배설을 늘린다",
+      "장에서 탄수화물 흡수를 막는다",
+      "간에 glucose를 혈액으로 내보내라고 신호해 혈당을 올린다"
+    ],
+    "answer": 3,
+    "explanation": "췌장 α-cell의 glucagon은 간에 glucose를 혈액으로 내보내라고 신호합니다(hepatic glucose output↑). 정상은 식후 glucagon이 억제되지만, T2DM에서는 이 조절이 비정상적일 수 있어 고혈당에 기여합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-015",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "생활습관",
+    "type": "cause-effect",
+    "question": "운동이 혈당 조절에 도움이 되는 기전으로 가장 적절한 것은?",
+    "options": [
+      "근육이 큰 glucose 소비기관이며, 운동 중 인슐린과 독립적인 기전으로도 glucose uptake가 늘고 장기적으로 인슐린 감수성이 개선된다",
+      "운동은 인슐린 분비를 완전히 멈추게 한다",
+      "운동은 간의 glucose 생산만 늘린다",
+      "운동은 혈당과 무관하다"
+    ],
+    "answer": 0,
+    "explanation": "근육은 매우 큰 glucose 소비기관이며, 운동 중에는 인슐린과 독립적인 경로로도 muscle glucose uptake가 늘고 장기적으로 insulin sensitivity가 개선됩니다. 다만 인슐린·sulfonylurea 사용자는 운동으로 저혈당 위험이 커질 수 있습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-016",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "합병증",
+    "type": "cause-effect",
+    "question": "고혈당이 장기 합병증을 일으키는 과정을 가장 잘 설명한 것은?",
+    "options": [
+      "고혈당은 세균 감염을 직접 일으켜 장기를 손상시킨다",
+      "고혈당은 혈관을 넓혀 손상을 준다",
+      "고혈당이 단백질 glycation·산화 스트레스·대사경로 이상을 통해 미세·대혈관을 손상시킨다",
+      "고혈당은 오직 신경만 손상시킨다"
+    ],
+    "answer": 2,
+    "explanation": "만성 고혈당은 단백질 glycation, 산화 스트레스, 대사경로 이상 등을 통해 미세혈관과 대혈관을 서서히 손상시킵니다. 그 결과 망막·콩팥·신경(미세)과 심장·뇌·말초동맥(대혈관) 합병증이 축적됩니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-017",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "저혈당",
+    "type": "compare",
+    "question": "저혈당과 고혈당의 증상을 비교한 설명으로 옳은 것은?",
+    "options": [
+      "갈증·다뇨는 저혈당의 대표 증상이다",
+      "발한·떨림은 고혈당에서만 나타난다",
+      "발한·떨림·심계항진은 주로 저혈당에서, 갈증·다뇨는 주로 고혈당에서 흔하다",
+      "저혈당과 고혈당은 증상이 완전히 동일하다"
+    ],
+    "answer": 2,
+    "explanation": "저혈당은 교감신경 반응으로 발한·떨림·심계항진·혼돈 등이 흔하고, 고혈당(조절 불량)은 갈증·다뇨가 흔합니다. 저혈당은 빠른 탄수화물 섭취 등 즉각 조치가 중요합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l2-018",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 2,
+    "concept": "치료 진행",
+    "type": "cause-effect",
+    "question": "T2DM 환자가 시간이 지나며 약을 늘리거나 병용하게 되는 가장 흔한 이유는?",
+    "options": [
+      "이전 약이 몸에 내성을 만들어 병을 악화시키기 때문",
+      "약이 서로를 무력화하기 때문",
+      "혈당이 정상이 되면 무조건 약을 늘리기 때문",
+      "질환이 진행하며 β-cell 기능이 추가로 저하될 수 있어 병용요법이 필요해지기 때문"
+    ],
+    "answer": 3,
+    "explanation": "약 때문에 병이 심해지는 것이 아니라, T2DM은 시간이 지나며 β-cell function이 추가로 저하되는 진행성 질환이기 때문에 병용요법이 필요해지는 경우가 많습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-001",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "약물 선택",
+    "type": "integration",
+    "question": "심부전과 만성콩팥병(CKD)을 동반한 T2DM 환자에서, HbA1c가 목표에 가까워도 특정 약이 우선 고려될 수 있는 이유로 가장 적절한 것은?",
+    "options": [
+      "sulfonylurea가 심장·콩팥을 보호하기 때문",
+      "metformin이 소변으로 glucose를 배설하기 때문",
+      "인슐린이 체중을 줄여주기 때문",
+      "SGLT2 억제제가 혈당강하와 별개로 심부전 입원·CKD 진행 감소 같은 cardiorenal 보호 효과를 보이기 때문"
+    ],
+    "answer": 3,
+    "explanation": "SGLT2 억제제는 임상시험에서 심부전 입원 감소·CKD 진행 감소가 확인되어 일부 환자에서 'cardiorenal protective drug'로 자리잡았습니다. 그래서 HbA1c가 목표에 가까워도 HF·CKD 때문에 고려될 수 있습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-002",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "저혈당",
+    "type": "integration",
+    "question": "72세 환자가 metformin+glimepiride 복용 중 아침약 후 식사를 거의 거른 뒤 오후에 식은땀·손 떨림·혼돈이 생겼다. 가장 관련성이 높은 상황과 원인 약은?",
+    "options": [
+      "저혈당 — glimepiride(sulfonylurea)가 식사와 무관하게 인슐린 분비를 늘려서",
+      "젖산산증 — glimepiride 때문에",
+      "고삼투압 상태 — metformin 때문에",
+      "당뇨병성 신경병증 — metformin 때문에"
+    ],
+    "answer": 0,
+    "explanation": "전형적 저혈당입니다. sulfonylurea인 glimepiride는 혈당과 무관하게 인슐린 분비를 늘려, 식사를 거르면 저혈당 위험이 커집니다. metformin은 단독으로 저혈당을 잘 일으키지 않습니다. 약·식사량 감소·고령을 함께 고려해야 합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-003",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "약물 안전성",
+    "type": "integration",
+    "question": "SGLT2 억제제를 복용하는 환자가 급성질환으로 장시간 금식하며 극단적 저탄수화물 식사를 했다. 특히 주의해야 할 합병증은?",
+    "options": [
+      "즉각적인 고삼투압성 혼수",
+      "젖산산증만이 유일한 위험",
+      "혈당이 아주 높지 않아도 생길 수 있는 euglycemic DKA(정상혈당 케톤산증)",
+      "저나트륨혈증"
+    ],
+    "answer": 2,
+    "explanation": "SGLT2 억제제는 드물지만 혈당이 아주 높지 않은데도 DKA(euglycemic DKA)가 생길 수 있습니다. 장시간 금식·탈수·초저탄수화물 식사·급성질환·과음이 위험을 높이므로, 이런 상황에서는 특히 주의하고 필요 시 중단·평가를 고려합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-004",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "약물 선택",
+    "type": "compare",
+    "question": "체중 감소가 중요한 비만 동반 T2DM 환자에게, 체중 측면에서 상대적으로 유리한 약과 불리한 약을 바르게 짝지은 것은?",
+    "options": [
+      "유리: sulfonylurea / 불리: GLP-1 RA",
+      "유리: GLP-1 RA / 불리: sulfonylurea·인슐린",
+      "유리: 인슐린 / 불리: SGLT2 억제제",
+      "유리: TZD / 불리: metformin"
+    ],
+    "answer": 1,
+    "explanation": "GLP-1 RA는 포만감 증가·위 배출 지연으로 체중을 줄이고(↓↓), SGLT2 억제제도 체중 감소 경향이 있습니다. 반면 sulfonylurea·인슐린·TZD는 체중을 늘리는 경향이 있어, 비만 동반 환자에서는 체중 효과까지 고려해 선택합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-005",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "진단",
+    "type": "integration",
+    "question": "공복혈당 118 mg/dL, HbA1c 6.7%로 두 검사 결과가 어긋난다. 가장 적절한 해석은?",
+    "options": [
+      "FPG는 특정 시점의 공복 상태, HbA1c는 장기간 평균 노출을 반영하므로 서로 다를 수 있고, 진단 범위면 적절히 확인 검사를 한다",
+      "두 검사가 다르면 모두 무시한다",
+      "항상 더 낮은 값을 채택해 정상으로 판정한다",
+      "HbA1c는 신뢰할 수 없으므로 FPG만 본다"
+    ],
+    "answer": 0,
+    "explanation": "FPG는 특정 시점의 fasting state를, HbA1c는 장기간 평균적 glycemic exposure를 반영해 서로 다를 수 있습니다. HbA1c가 진단 범위(≥6.5%)라면 확인 검사를 하고, 적혈구 상태 등 HbA1c 신뢰성에 영향을 주는 요인도 필요 시 검토합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-006",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "치료 원칙",
+    "type": "integration",
+    "question": "'당뇨병 관리 = HbA1c만 목표에 맞추면 끝'이라는 접근이 부적절한 이유로 가장 적절한 것은?",
+    "options": [
+      "예후에는 혈당뿐 아니라 혈압·LDL·흡연·비만·신장 상태가 함께 관여해 종합적 cardiometabolic risk 관리가 필요하기 때문",
+      "HbA1c는 혈당과 무관한 지표이기 때문",
+      "HbA1c 목표만 맞추면 합병증이 전혀 생기지 않기 때문",
+      "혈압·지질은 당뇨병과 무관하기 때문"
+    ],
+    "answer": 0,
+    "explanation": "당뇨병 예후에는 glucose 외에도 혈압·LDL·흡연·비만·신장병이 모두 관여합니다. 실제 치료는 HbA1c 관리가 아니라 종합적 cardiometabolic risk management에 가깝습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-007",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "incretin",
+    "type": "integration",
+    "question": "같은 양의 glucose라도 정맥 투여보다 경구 섭취 시 인슐린 반응이 더 큰 현상(incretin effect)을 이용한 약물끼리 바르게 묶인 것은?",
+    "options": [
+      "metformin · TZD",
+      "DPP-4 억제제 · GLP-1 수용체작용제",
+      "sulfonylurea · 인슐린",
+      "SGLT2 억제제 · α-glucosidase 억제제"
+    ],
+    "answer": 1,
+    "explanation": "장이 음식 섭취를 감지해 incretin을 분비하기 때문에 경구 glucose가 정맥보다 인슐린 반응이 큽니다(incretin effect). 이를 이용한 약이 incretin 분해를 막는 DPP-4 억제제와 GLP-1 수용체를 직접 자극하는 GLP-1 RA입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-008",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "제1형/제2형",
+    "type": "integration",
+    "question": "마른 체형의 젊은 환자가 급격한 고혈당과 함께 케톤산증(DKA)으로 발현했다. 제1형/제2형 감별에서 우선 고려할 점으로 가장 적절한 것은?",
+    "options": [
+      "DKA는 제2형에서만 생기므로 제2형이 확실하다",
+      "체형이 마르고 DKA로 발현한 점은 인슐린 절대 부족(제1형) 가능성을 높이며, 제1형은 인슐린이 생존에 필수다",
+      "마른 체형이면 당뇨병이 아니다",
+      "제1형은 인슐린 없이도 잘 조절된다"
+    ],
+    "answer": 1,
+    "explanation": "제1형은 자가면역 β-cell 파괴로 인슐린이 절대적으로 부족하고, 마른 체형·DKA 발현이 상대적으로 흔하며 인슐린이 생존에 필수입니다. DKA는 제2형에서도 가능하지만 상대적으로 덜 흔합니다. 체형·발현 양상을 함께 보아 감별합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-009",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "환자 상담",
+    "type": "integration",
+    "question": "'설탕만 안 먹으면 쌀밥은 마음껏 먹어도 되죠?'라는 질문에 대한 가장 적절한 상담은?",
+    "options": [
+      "맞습니다. 설탕만 피하면 탄수화물은 제한이 없습니다",
+      "밥은 혈당과 무관하니 걱정할 필요 없습니다",
+      "탄수화물을 완전히 끊는 것이 정답입니다",
+      "밥의 starch도 소화되면 glucose가 되므로, 설탕만이 아니라 전체 탄수화물의 양·질·식사 구성을 함께 봐야 합니다"
+    ],
+    "answer": 3,
+    "explanation": "밥의 전분(starch)도 소화되면 glucose가 됩니다. 따라서 설탕만 보는 것이 아니라 전체 탄수화물 총량·질·portion·식사 구성을 함께 고려해야 합니다. 다만 탄수화물 완전 제거가 모두에게 필요한 것은 아닙니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-010",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "약물 선택",
+    "type": "integration",
+    "question": "저혈당을 특히 피해야 하는 고령 환자에서, 저혈당 위험이 낮은 약물끼리 바르게 묶은 것은?",
+    "options": [
+      "sulfonylurea · 인슐린",
+      "metformin · DPP-4 억제제 · SGLT2 억제제",
+      "glimepiride · glibenclamide",
+      "인슐린 · sulfonylurea"
+    ],
+    "answer": 1,
+    "explanation": "metformin, DPP-4 억제제, SGLT2 억제제, GLP-1 RA, TZD, α-GI는 단독 사용 시 저혈당 위험이 낮은 편입니다. 반면 sulfonylurea와 인슐린은 저혈당 위험이 높아, 저혈당을 피해야 하는 고령 환자에서는 신중히 선택합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-011",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "환자 상담",
+    "type": "integration",
+    "question": "'혈당이 정상이 됐는데 왜 당뇨약을 계속 먹느냐'는 환자에게 할 수 있는 가장 적절한 설명은?",
+    "options": [
+      "약이 없어도 이미 완치되었으니 중단해도 된다",
+      "약을 복용해서 정상으로 유지되는 것일 수 있고, SGLT2i·GLP-1 RA처럼 혈당 외에 심혈관·신장·체중 효과를 위해 쓰는 경우도 있다",
+      "혈당이 정상이면 약은 무조건 끊는 것이 원칙이다",
+      "당뇨약은 혈당과 무관하게 처방된다"
+    ],
+    "answer": 1,
+    "explanation": "약을 복용해서 정상으로 유지되는 것일 수 있어 임의 중단하면 다시 나빠질 수 있습니다. 또 SGLT2i·GLP-1 RA처럼 특정 환자에서 혈당 외의 심혈관·신장·체중 효과를 위해 유지하는 약도 있습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "dm-l3-012",
+    "disease": "당뇨병",
+    "lessonRef": "core/02.html",
+    "level": 3,
+    "concept": "약물 지도",
+    "type": "compare",
+    "question": "당뇨약을 표적 장기와 연결할 때 옳은 것은?",
+    "options": [
+      "Metformin=콩팥, SGLT2i=간, GLP-1 RA=근육, SU=소장",
+      "Metformin=간, SGLT2i=콩팥, GLP-1 RA/DPP-4i=장-췌장, SU=췌장",
+      "Metformin=췌장, SGLT2i=근육, SU=콩팥, TZD=간",
+      "모든 당뇨약이 동일하게 췌장만 표적으로 한다"
+    ],
+    "answer": 1,
+    "explanation": "Metformin은 간(glucose 생산↓), SGLT2i는 콩팥(소변 glucose 배설), GLP-1 RA·DPP-4i는 장-췌장(incretin), sulfonylurea·인슐린은 췌장, TZD는 근육/지방(insulin sensitivity)을 표적으로 합니다. 약을 외우기보다 어느 장기를 건드리는지로 이해하는 것이 핵심입니다.",
+    "source": "textbook"
+  }
+]
