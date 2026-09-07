@@ -1,0 +1,12 @@
+{
+  "updated": "2026-09-07",
+  "files": [
+    { "file": "core-01.json", "disease": "고혈압", "category": "core", "no": 1, "lessonRef": "core/01.html", "status": "ready" },
+    { "file": "core-02.json", "disease": "당뇨병", "category": "core", "no": 2, "lessonRef": "core/02.html", "status": "pending" },
+    { "file": "core-03.json", "disease": "이상지질혈증", "category": "core", "no": 3, "lessonRef": "core/03.html", "status": "pending" },
+    { "file": "core-04.json", "disease": "비만", "category": "core", "no": 4, "lessonRef": "core/04.html", "status": "pending" },
+    { "file": "core-05.json", "disease": "대사증후군", "category": "core", "no": 5, "lessonRef": "core/05.html", "status": "pending" },
+    { "file": "everyday-01.json", "disease": "감기", "category": "everyday", "no": 1, "lessonRef": "everyday/01.html", "status": "pending" },
+    { "file": "everyday-02.json", "disease": "독감", "category": "everyday", "no": 2, "lessonRef": "everyday/02.html", "status": "pending" }
+  ]
+}
