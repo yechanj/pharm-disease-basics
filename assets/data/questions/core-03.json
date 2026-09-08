@@ -8,12 +8,12 @@
     "type": "correct",
     "question": "이상지질혈증(dyslipidemia)에 대한 설명으로 가장 적절한 것은?",
     "options": [
-      "혈액에서 지질이 완전히 사라진 상태다",
-      "지질을 운반하는 lipoprotein의 양·구성이 비정상이어서 특히 atherogenic lipoprotein이 증가하고 ASCVD 위험이 높아진 상태다",
-      "간에 지방이 쌓이는 감염성 질환이다",
-      "혈당이 만성적으로 높아지는 상태다"
+      "혈액에서 지질이 완전히 사라져 세포막·호르몬 합성이 불가능해진 결핍 상태를 뜻하는 것이다",
+      "간에 세균이 감염되어 지방이 급성으로 쌓이는 전염성 소화기 감염 질환에 해당하는 것이다",
+      "혈당이 만성적으로 높아져 여러 장기에 손상을 축적하는 대사 질환에 해당하는 것을 뜻한다",
+      "지질을 운반하는 lipoprotein의 양·구성이 비정상이어서 atherogenic lipoprotein이 늘고 ASCVD 위험이 커진 상태다"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "이상지질혈증은 cholesterol·triglyceride를 운반하는 lipoprotein의 양·구성 이상으로 atherogenic lipoprotein이 증가해 동맥경화성 심혈관질환(ASCVD) 위험이 커진 상태입니다. 가장 중요한 표적은 대개 LDL-C이지만 TG↑·HDL↓·remnant↑·Lp(a)↑ 등 여러 형태가 있습니다.",
     "source": "textbook"
   },
@@ -26,12 +26,12 @@
     "type": "correct",
     "question": "cholesterol에 대한 설명으로 옳은 것은?",
     "options": [
-      "몸에 전혀 필요 없는 독성 물질이다",
+      "몸에 전혀 필요 없이 해만 끼치는 독성 물질이라 최대한 완전히 제거해야 하는 물질이다",
+      "혈당을 조절해 에너지 대사를 좌우하는 호르몬으로, 췌장에서 분비되는 물질에 해당한다",
       "세포막 구성·steroid hormone·bile acid 합성·비타민 D 전구체 등으로 반드시 필요한 물질이다",
-      "혈당을 조절하는 호르몬이다",
-      "간에서만 발견되는 단백질이다"
+      "간에서만 발견되며 다른 조직에서는 전혀 쓰이지 않는 특수 단백질에 해당하는 물질이다"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "cholesterol은 세포막 구성, steroid hormone·bile acid 합성, 비타민 D 전구체 등으로 반드시 필요합니다. 목표는 cholesterol을 없애는 것이 아니라, 운반 입자(LDL 등)가 혈액에 과도하게 남아 동맥벽에 쌓이는 것을 막는 것입니다.",
     "source": "textbook"
   },
@@ -44,12 +44,12 @@
     "type": "cause-effect",
     "question": "지질이 lipoprotein이라는 운반체에 실려 이동하는 이유로 가장 적절한 것은?",
     "options": [
-      "지질이 혈액보다 무겁기 때문",
-      "지질이 스스로 움직일 수 없기 때문",
-      "cholesterol·triglyceride가 물이 많은 혈액에 잘 녹지 않기 때문",
-      "lipoprotein이 지질을 분해하기 때문"
+      "지질이 혈액보다 무거워 스스로 가라앉기 때문에 별도의 운반체가 이를 떠받쳐야 하기 때문이다",
+      "cholesterol·triglyceride가 물이 많은 혈액에 잘 녹지 않아 입자에 포장해 운반해야 하기 때문이다",
+      "지질은 스스로 이동할 수 있지만 lipoprotein이 이동 속도를 늦추기 위해 붙잡아 두기 때문이다",
+      "lipoprotein이 지질을 분해해 작은 조각으로 만들어야만 혈액을 통해 이동할 수 있기 때문이다"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "혈액은 물이 많은 환경인데 cholesterol·triglyceride는 물에 잘 녹지 않습니다. 그래서 몸은 지질을 인지질·apolipoprotein으로 감싼 lipoprotein 입자에 포장해 운반합니다(혈액=도로, 지질=화물, lipoprotein=트럭).",
     "source": "textbook"
   },
@@ -62,12 +62,12 @@
     "type": "compare",
     "question": "'LDL'과 'cholesterol'의 관계로 옳은 것은?",
     "options": [
-      "LDL과 cholesterol은 완전히 같은 말이다",
-      "LDL은 단백질이고 cholesterol은 당이다",
-      "cholesterol은 입자, LDL은 분자다",
-      "cholesterol은 지질 분자, LDL은 그것을 운반하는 lipoprotein 입자이며 LDL-C는 LDL 입자에 든 cholesterol 양을 뜻한다"
+      "cholesterol은 지질 분자, LDL은 그것을 운반하는 입자이며 LDL-C는 LDL 안에 든 cholesterol 양이다",
+      "LDL과 cholesterol은 완전히 같은 말이라 서로 바꿔 써도 의미 차이가 전혀 없는 용어에 해당한다",
+      "LDL은 지질을 분해하는 단백질이고 cholesterol은 혈액 속을 떠도는 당의 일종에 해당하는 것이다",
+      "cholesterol은 지질을 운반하는 입자이고 LDL은 그 안에 실린 지질 분자에 해당하는 것을 뜻한다"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "cholesterol은 지질 '분자', LDL은 그것을 운반하는 lipoprotein '입자'입니다. 검사에서 재는 LDL-C는 'LDL 입자 안에 든 cholesterol의 양'을 의미합니다. 둘은 같은 말이 아닙니다.",
     "source": "textbook"
   },
@@ -80,12 +80,12 @@
     "type": "correct",
     "question": "HDL에 대한 설명으로 가장 적절한 것은?",
     "options": [
-      "낮은 HDL-C는 위험 표지이지만, 약으로 HDL을 높인다고 반드시 사건이 줄지는 않으며 1차 약물 표적도 아니다",
-      "HDL이 높으면 LDL이 높아도 위험이 상쇄되므로 안심해도 된다",
-      "HDL은 동맥벽에 cholesterol을 쌓는 주범이다",
-      "HDL을 높이는 것이 이상지질혈증 치료의 최우선 목표다"
+      "HDL이 높으면 LDL이 아무리 높아도 위험이 완전히 상쇄되므로 LDL은 볼 필요가 없어지는 것이다",
+      "HDL은 말초 조직에 cholesterol을 쌓아 동맥경화를 일으키는 대표적인 나쁜 lipoprotein에 해당한다",
+      "HDL을 약으로 최대한 높이는 것이 이상지질혈증 치료에서 가장 우선되는 핵심 목표에 해당하는 것이다",
+      "낮은 HDL-C는 위험 표지이지만 약으로 HDL을 높인다고 반드시 사건이 줄지는 않고 1차 약물 표적도 아니다"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "HDL은 말초 cholesterol을 간 방향으로 옮기는 reverse cholesterol transport에 관여합니다. 낮은 HDL-C는 위험 표지이지만, 약으로 HDL을 높인다고 반드시 심혈관 사건이 줄지는 않으며 1차 약물 표적은 atherogenic lipoprotein(특히 LDL)을 낮추는 것입니다.",
     "source": "textbook"
   },
@@ -98,12 +98,12 @@
     "type": "correct",
     "question": "이상지질혈증의 증상 양상으로 가장 적절한 것은?",
     "options": [
-      "항상 가슴 통증이 먼저 나타난다",
-      "대부분 무증상이며 건강검진에서 발견되는 경우가 많다",
-      "반드시 눈꺼풀 황색판이 보인다",
-      "LDL이 높으면 즉시 몸이 아프다"
+      "항상 가슴 통증이 가장 먼저 나타나 그 통증으로 진단하게 되는 것이 특징인 질환이다",
+      "반드시 눈꺼풀의 황색판(xanthelasma)이 보여야만 진단할 수 있는 것이 특징인 질환이다",
+      "대부분 무증상이며 건강검진에서 우연히 발견되는 경우가 많은 편에 해당하는 질환이다",
+      "LDL이 높아지면 그 즉시 몸이 아프기 시작해 통증으로 알아챌 수 있는 것이 특징인 질환이다"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "이상지질혈증은 고혈압처럼 대부분 무증상이라 건강검진에서 발견되는 경우가 많습니다. 아주 심한 유전성 고콜레스테롤혈증에서 tendon xanthoma·xanthelasma가 보일 수 있으나, 없다고 FH가 아닌 것은 아닙니다.",
     "source": "textbook"
   },
@@ -116,12 +116,12 @@
     "type": "correct",
     "question": "LDL이 동맥경화를 일으키는 과정의 순서로 옳은 것은?",
     "options": [
-      "LDL이 혈소판을 제거 → 혈관 확장 → plaque 소멸",
-      "LDL이 소변으로 배설 → 혈압 상승 → 뇌졸중",
-      "LDL이 내피 아래로 침투·retention → 산화·변형 → 염증 → macrophage 섭취 → foam cell → plaque",
-      "LDL이 근육에 직접 독성을 나타내 심근경색"
+      "LDL이 내피 아래로 침투·retention된 뒤 산화·변형되고 염증이 생겨 foam cell을 거쳐 plaque가 된다",
+      "LDL이 혈소판을 제거하고 혈관을 넓혀 오히려 기존 plaque를 소멸시키는 방향으로 작용하는 것이다",
+      "LDL이 소변으로 배설되며 그 과정에서 혈압을 올려 뇌졸중을 직접 일으키는 방향으로 작용한다",
+      "LDL이 심장 근육에 직접 스며들어 근육을 손상시켜 곧바로 심근경색을 일으키는 방향으로 작용한다"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "혈중 LDL이 많으면 내피 아래로 침투·retention되고, 변형·산화된 뒤 염증을 일으켜 macrophage가 섭취해 foam cell이 됩니다. 이것이 fatty streak→plaque→rupture→thrombus로 진행합니다.",
     "source": "textbook"
   },
@@ -134,10 +134,10 @@
     "type": "correct",
     "question": "non-HDL-C를 구하는 방법과 의미로 옳은 것은?",
     "options": [
-      "HDL − LDL로 계산하며 좋은 콜레스테롤만 반영한다",
-      "Total + HDL로 계산한다",
-      "Total − HDL로 계산하며, LDL·VLDL·IDL·remnant·Lp(a) 등 atherogenic cholesterol을 모두 포함해 특히 TG가 높을 때 유용하다",
-      "TG를 5로 나눈 값이다"
+      "HDL − LDL로 계산하며 몸에 좋은 콜레스테롤만 반영해 위험이 낮을수록 값이 커지는 지표에 해당한다",
+      "Total + HDL로 계산하며 모든 cholesterol을 합한 값으로 값이 낮을수록 위험이 큰 지표에 해당한다",
+      "Total − HDL로 계산하며 LDL·VLDL·remnant·Lp(a) 등 atherogenic cholesterol을 모두 포함해 TG↑ 때 유용하다",
+      "중성지방(TG)을 5로 나눈 값으로 계산하며 TG-rich lipoprotein만 반영하는 지표에 해당하는 것이다"
     ],
     "answer": 2,
     "explanation": "non-HDL-C = Total − HDL입니다. LDL + VLDL + IDL + remnant + Lp(a) 등 atherogenic cholesterol을 모두 포함하므로, TG가 높아 LDL-C만으로 부족할 때 특히 유용한 지표입니다.",
@@ -152,12 +152,12 @@
     "type": "correct",
     "question": "LDL-C를 낮추는 이상지질혈증 치료의 '기본' 약물은?",
     "options": [
-      "Fibrate",
-      "Loop 이뇨제",
-      "Omega-3 건강기능식품",
-      "Statin"
+      "Fibrate가 LDL을 낮추는 치료의 기본 약물이며 대부분의 환자에서 1차로 사용하는 약이다",
+      "Loop 이뇨제가 지질을 소변으로 배설시켜 LDL을 낮추는 치료의 기본 약물에 해당하는 것이다",
+      "Statin이 치료의 기본이며, 부족하면 ezetimibe·PCSK9 억제제 등 nonstatin을 추가한다",
+      "건강기능식품 omega-3가 statin을 대체하는 LDL 강하의 기본 약물로 널리 쓰이는 약에 해당한다"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Statin은 여전히 이상지질혈증 치료의 기본입니다. 위험도가 높을수록 더 낮은 LDL-C 목표를 사용하고, statin으로 부족하면 ezetimibe·PCSK9 억제제·bempedoic acid 같은 nonstatin을 추가합니다. fibrate는 주로 고중성지방혈증에 사용합니다.",
     "source": "textbook"
   },
@@ -170,10 +170,10 @@
     "type": "correct",
     "question": "이상지질혈증에서 유전성(FH)이나 이차성 원인을 적극 고려해야 하는 대표 신호는?",
     "options": [
-      "HDL-C가 60 mg/dL로 측정될 때",
-      "LDL-C ≥190 mg/dL, 특히 젊은 연령·가족 중 조기 심근경색 병력이 함께일 때",
-      "TG가 90 mg/dL일 때",
-      "Total cholesterol이 150 mg/dL일 때"
+      "HDL-C가 60 mg/dL로 비교적 높게 측정될 때 유전성 원인을 적극 고려해야 하는 신호에 해당한다",
+      "LDL-C ≥190 mg/dL, 특히 젊은 연령이거나 가족 중 조기 심근경색 병력이 함께일 때 고려한다",
+      "중성지방(TG)이 90 mg/dL로 정상 범위일 때 유전성 원인을 적극 고려해야 하는 신호에 해당한다",
+      "Total cholesterol이 150 mg/dL로 낮게 측정될 때 이차성 원인을 적극 고려해야 하는 신호에 해당한다"
     ],
     "answer": 1,
     "explanation": "LDL-C ≥190 mg/dL은 familial hypercholesterolemia나 이차성 원인을 적극 고려하게 하는 신호이며, 젊은 연령이거나 가족 중 조기 심근경색·매우 높은 cholesterol이 함께면 더 중요합니다.",
@@ -188,12 +188,12 @@
     "type": "cause-effect",
     "question": "중성지방(TG)이 매우 심하게 상승한 환자(수백 후반~1,000 이상)에서 ASCVD와 별개로 특히 주의해야 할 급성 합병증은?",
     "options": [
-      "급성 충수염",
-      "천식 발작",
-      "갑상선기능항진증",
-      "급성 췌장염(acute pancreatitis)"
+      "급성 충수염이며, 오른쪽 아랫배 통증이 동반되면 즉시 수술 평가가 필요한 상황에 해당한다",
+      "급성 췌장염(acute pancreatitis)이며, 심한 상복부 통증·오심/구토가 동반되면 즉시 평가한다",
+      "천식 발작이며, 호흡곤란과 천명이 동반되면 즉시 기관지확장제가 필요한 상황에 해당한다",
+      "갑상선기능항진증이며, 심계항진과 체중 감소가 동반되면 즉시 평가가 필요한 상황에 해당한다"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "TG가 매우 높으면(대략 ≥1,000 mg/dL 수준) 급성 췌장염 위험이 커집니다. 이 경우 pancreatitis 예방을 위한 TG-lowering therapy가 중요하며, 심한 상복부 통증·오심/구토가 동반되면 즉시 평가합니다.",
     "source": "textbook"
   },
@@ -206,10 +206,10 @@
     "type": "compare",
     "question": "일차성(primary)과 이차성(secondary) 이상지질혈증을 비교한 설명으로 옳은 것은?",
     "options": [
-      "일차성의 대표는 familial hypercholesterolemia(FH), 이차성은 비만·당뇨·갑상선저하증·신증후군·과음 등에 의한다",
-      "일차성은 약물 부작용, 이차성은 유전이 원인이다",
-      "일차성은 항상 TG만 오른다",
-      "이차성은 원인 질환과 무관하게 발생한다"
+      "일차성의 대표는 familial hypercholesterolemia(FH)이고, 이차성은 비만·당뇨·갑상선저하증·과음 등에 의한다",
+      "일차성은 약물 부작용으로 생기는 것이고, 이차성은 유전자 이상으로 생기는 것에 해당하는 분류다",
+      "일차성은 언제나 중성지방(TG)만 오르는 것이고, 이차성은 언제나 LDL만 오르는 것에 해당하는 분류다",
+      "이차성은 원인 질환과 무관하게 저절로 발생하는 것이고, 일차성만 원인 치료가 중요한 것에 해당한다"
     ],
     "answer": 0,
     "explanation": "일차성(유전)의 대표는 FH로 LDL receptor pathway 이상 등으로 매우 높은 LDL-C를 보입니다. 이차성은 비만·당뇨·hypothyroidism·nephrotic syndrome·CKD·담즙정체성 간질환·과음 등이 원인이며, 원인 질환 치료가 중요합니다.",
@@ -224,12 +224,12 @@
     "type": "correct",
     "question": "이상지질혈증에서 LDL 목표에 대한 핵심 원칙으로 옳은 것은?",
     "options": [
-      "모든 사람의 LDL 목표는 동일하다",
-      "위험이 높을수록 LDL을 더 낮춘다 — 이미 심근경색이 있는 환자와 젊고 위험 없는 사람을 같게 해석하지 않는다",
-      "LDL은 무조건 낮을수록 좋으므로 위험도와 무관하게 최대한 낮춘다",
-      "HDL이 높으면 LDL 목표는 필요 없다"
+      "위험이 높을수록 LDL을 더 낮추며, 이미 심근경색이 있는 환자와 저위험자를 같게 해석하지 않는다",
+      "모든 사람의 LDL 목표는 완전히 동일하므로 개인의 위험도를 고려할 필요가 전혀 없는 것이다",
+      "LDL은 위험도와 무관하게 무조건 낮을수록 좋으므로 누구나 최대한 낮추는 것이 원칙에 해당한다",
+      "HDL이 높으면 LDL 목표 자체가 필요 없어지므로 HDL만 확인하면 되는 것이 원칙에 해당하는 것이다"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "핵심 원칙은 '위험이 높을수록 LDL을 더 낮춘다'입니다. 2026 ACC/AHA는 이차예방의 very-high-risk ASCVD에서 LDL-C <55 mg/dL를 목표로 하고, 미달 시 근거 기반 nonstatin을 추가하도록 권고합니다.",
     "source": "textbook"
   },
@@ -242,12 +242,12 @@
     "type": "incorrect",
     "question": "이상지질혈증의 생활습관 관리로 적절하지 않은 것은?",
     "options": [
-      "포화지방을 줄이되 불포화지방·질 좋은 탄수화물로 대체한다",
-      "귀리·콩류의 soluble fiber를 늘린다",
-      "포화지방을 줄인 만큼 설탕 섭취를 늘린다",
-      "고중성지방혈증에서는 음주를 반드시 확인·조절한다"
+      "포화지방을 줄이되 불포화지방·질 좋은 탄수화물로 대체하는 것은 적절한 관리에 해당한다",
+      "귀리·콩류의 soluble fiber를 늘려 LDL을 낮추도록 돕는 것은 적절한 관리에 해당한다",
+      "고중성지방혈증에서는 음주를 반드시 확인·조절하도록 안내하는 것은 적절한 관리에 해당한다",
+      "포화지방을 줄인 만큼 설탕 섭취를 늘리는 것은 나쁜 전략으로 적절한 관리가 아니다"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "'지방 줄이고 설탕 늘리기'는 나쁜 전략입니다. 포화지방을 불포화지방·질 좋은 탄수화물로 대체하는 것이 핵심입니다. soluble fiber는 LDL 감소에 도움이 되고, 과음은 TG를 크게 높일 수 있어 고TG에서 확인이 필요합니다.",
     "source": "textbook"
   },
@@ -260,12 +260,12 @@
     "type": "correct",
     "question": "치료되지 않은 이상지질혈증이 궁극적으로 높이는 대표 질환끼리 묶인 것은?",
     "options": [
-      "폐렴 · 기관지염 · 천식",
-      "간염 · 담석 · 췌장 종양",
-      "관상동맥질환(협심증·심근경색) · 허혈성 뇌졸중 · 말초동맥질환",
-      "골다공증 · 관절염 · 통풍"
+      "폐렴·기관지염·천식 같은 호흡기 질환이 대표적으로 증가하는 합병증에 해당하는 것이다",
+      "관상동맥질환(협심증·심근경색)·허혈성 뇌졸중·말초동맥질환 같은 ASCVD가 대표적이다",
+      "간염·담석·췌장 종양 같은 소화기 질환이 대표적으로 증가하는 합병증에 해당하는 것이다",
+      "골다공증·관절염·통풍 같은 근골격계 질환이 대표적으로 증가하는 합병증에 해당하는 것이다"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "atherogenic lipoprotein 증가는 동맥벽 lipid retention→염증→plaque→파열/혈전으로 이어져 관상동맥질환(협심증·심근경색), 허혈성 뇌졸중, 말초동맥질환 같은 ASCVD를 일으킵니다.",
     "source": "textbook"
   },
@@ -278,12 +278,12 @@
     "type": "cause-effect",
     "question": "심근경색이 '관상동맥이 90%까지 서서히 좁아져야만' 생기는 것이 아니라는 설명의 핵심 근거는?",
     "options": [
-      "좁아진 정도만으로 위험이 완전히 결정되기 때문",
-      "기존 plaque가 rupture 또는 erosion된 뒤 혈전이 급격히 형성되며 심근경색이 생길 수 있기 때문",
-      "심근경색은 혈압 때문에만 생기기 때문",
-      "LDL이 근육에 직접 독성을 나타내기 때문"
+      "덜 좁은 plaque라도 rupture·erosion된 뒤 혈전이 급격히 형성되며 심근경색이 생길 수 있기 때문이다",
+      "관상동맥이 좁아진 정도만으로 심근경색 위험이 완전히 결정되므로 협착률만 보면 되기 때문이다",
+      "심근경색은 오직 혈압이 높을 때만 생기며 plaque나 혈전과는 아무 관련이 없기 때문에 그런 것이다",
+      "LDL이 심장 근육에 직접 스며들어 근육을 손상시켜 곧바로 심근경색을 일으키기 때문에 그런 것이다"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "심근경색은 협착 정도만이 아니라, 상대적으로 덜 좁은 plaque라도 rupture/erosion 후 급격한 혈전 형성으로 발생할 수 있습니다. 따라서 '몇 % 막혔는가'만으로 위험을 설명할 수 없습니다.",
     "source": "textbook"
   },
@@ -296,12 +296,12 @@
     "type": "mechanism",
     "question": "ASCVD 위험을 'LDL 정도 × 노출 기간'으로 보는 관점이 의미하는 바로 가장 적절한 것은?",
     "options": [
-      "LDL은 오늘의 수치만 중요하다",
-      "같은 LDL 160이라도 몇 달 노출과 수십 년 노출의 위험이 다르며, 조기 예방으로 lifetime exposure를 줄이는 것이 중요하다",
-      "노출 기간은 위험과 무관하다",
-      "LDL이 높아도 짧게만 높으면 평생 안전하다"
+      "LDL은 오늘 측정한 순간 수치만 중요하고 얼마나 오래 높았는지는 위험과 아무 관련이 없다는 뜻이다",
+      "노출 기간은 위험과 무관하므로 LDL이 높은 기간이 길든 짧든 결과는 완전히 같다는 것을 의미한다",
+      "LDL이 아무리 높아도 짧은 기간만 높으면 평생 어떤 위험도 없이 안전하다는 것을 의미하는 것이다",
+      "같은 LDL 160도 노출 기간이 길수록 누적 위험이 커지므로 조기 예방으로 평생 노출을 줄이는 것이 중요하다"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "LDL은 동맥벽에 침투할 수 있는 atherogenic particle의 지표라서, 위험은 LDL 정도와 노출 기간의 곱으로 이해합니다. 같은 LDL 160도 노출 기간이 길수록 누적 위험이 크므로, 조기 예방으로 lifetime exposure를 줄이는 것이 강조됩니다.",
     "source": "textbook"
   },
@@ -314,10 +314,10 @@
     "type": "mechanism",
     "question": "Statin이 혈중 LDL-C를 낮추는 핵심 기전 순서로 옳은 것은?",
     "options": [
-      "LDL을 소변으로 직접 배설시킨다",
-      "LDL을 HDL로 직접 전환한다",
-      "HMG-CoA reductase 억제 → 간 cholesterol 합성↓ → 간이 부족을 감지 → LDL receptor↑ → 혈중 LDL clearance↑",
-      "장에서 모든 지방 흡수를 차단한다"
+      "혈중을 떠도는 LDL 입자를 직접 녹여 소변으로 배설시키는 방식으로 혈중 LDL-C를 낮추는 것이다",
+      "혈액 속 LDL을 좋은 콜레스테롤인 HDL로 직접 전환시키는 방식으로 혈중 LDL-C를 낮추는 것이다",
+      "HMG-CoA reductase 억제로 간 cholesterol 합성이 줄면 LDL receptor가 늘어 혈중 LDL clearance가 커진다",
+      "소장에서 지방 흡수를 모두 차단해 몸으로 들어오는 지질 자체를 없애는 방식으로 LDL을 낮춘다"
     ],
     "answer": 2,
     "explanation": "Statin은 간의 HMG-CoA reductase를 억제해 cholesterol 합성을 줄입니다. 간이 cholesterol 부족을 감지하면 세포표면 LDL receptor를 늘려 혈중 LDL을 더 많이 회수하므로 plasma LDL-C가 떨어집니다. 즉 '녹이는 약'이 아니라 '제거를 늘리는 약'입니다.",
@@ -332,12 +332,12 @@
     "type": "mechanism",
     "question": "Ezetimibe의 작용 기전으로 옳은 것은?",
     "options": [
-      "간의 HMG-CoA reductase를 억제한다",
-      "PCSK9을 차단한다",
-      "소장의 NPC1L1을 억제해 cholesterol 흡수를 줄이고, 그 결과 간 LDL receptor가 늘어 LDL-C가 감소한다",
-      "PPAR-α를 활성화해 TG를 낮춘다"
+      "간의 HMG-CoA reductase를 억제해 cholesterol 합성을 줄이는 statin과 동일한 기전으로 작용한다",
+      "PCSK9을 차단해 LDL receptor의 재활용을 늘리는 방식으로 혈중 LDL을 크게 낮추는 약에 해당한다",
+      "PPAR-α를 활성화해 중성지방(TG) 대사를 늘려 주로 TG를 낮추는 방식으로 작용하는 약에 해당한다",
+      "소장의 NPC1L1을 억제해 cholesterol 흡수를 줄이고, 그 결과 간 LDL receptor가 늘어 LDL-C가 감소한다"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Ezetimibe는 소장의 NPC1L1을 억제해 cholesterol 흡수를 줄입니다. 간 cholesterol pool이 줄면 LDL receptor가 늘어 LDL-C가 감소하며, statin(합성 억제)과 다른 경로(흡수 억제)라 병용 효과가 좋습니다.",
     "source": "textbook"
   },
@@ -350,10 +350,10 @@
     "type": "mechanism",
     "question": "PCSK9 억제제(evolocumab 등)가 LDL을 크게 낮추는 기전으로 옳은 것은?",
     "options": [
-      "PCSK9을 차단해 LDL receptor 분해를 줄이고 receptor 재활용을 늘려 LDL clearance를 높인다",
-      "간의 cholesterol 합성을 직접 억제한다",
-      "소장에서 cholesterol 흡수를 차단한다",
-      "TG를 분해하는 효소를 활성화한다"
+      "PCSK9을 차단해 LDL receptor 분해를 줄이고 receptor 재활용을 늘려 LDL clearance를 높이는 것이다",
+      "간의 cholesterol 합성 효소를 직접 억제해 간에서 만드는 cholesterol 양 자체를 줄이는 것이다",
+      "소장에서 cholesterol 흡수를 차단해 몸으로 들어오는 cholesterol을 줄이는 방식으로 작용한다",
+      "중성지방(TG)을 분해하는 효소를 활성화해 TG-rich lipoprotein을 줄이는 방식으로 작용하는 것이다"
     ],
     "answer": 0,
     "explanation": "정상적으로 LDL receptor는 LDL을 잡아 세포 안으로 갔다가 재활용됩니다. PCSK9이 붙으면 receptor가 분해되는데, PCSK9을 차단하면 receptor 재활용이 늘어 표면 receptor가 증가하고 LDL clearance가 커져 LDL-C가 크게 감소합니다.",
@@ -368,12 +368,12 @@
     "type": "mechanism",
     "question": "Fibrate(fenofibrate)의 주된 작용과 대상으로 옳은 것은?",
     "options": [
-      "HMG-CoA reductase를 억제해 주로 LDL을 낮춘다",
-      "PPAR-α를 활성화해 주로 TG를 낮추며 고중성지방혈증과 연관된다",
-      "PCSK9을 차단해 LDL을 낮춘다",
-      "소장 cholesterol 흡수를 억제한다"
+      "HMG-CoA reductase를 억제해 주로 LDL을 낮추는 statin과 같은 계열의 약물에 해당하는 것이다",
+      "PCSK9을 차단해 LDL receptor 재활용을 늘려 주로 LDL을 낮추는 방식으로 작용하는 약에 해당한다",
+      "PPAR-α를 활성화해 주로 TG를 낮추며 고중성지방혈증과 연관되어 사용되는 약물에 해당한다",
+      "소장에서 cholesterol 흡수를 억제해 주로 LDL을 낮추는 ezetimibe와 같은 방식으로 작용하는 것이다"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Fibrate는 PPAR-α를 활성화해 fatty acid oxidation과 LPL 관련 TG 대사를 늘려 주로 TG를 낮춥니다. 근독성·담석·신기능을 고려해야 하고, statin 병용 시 약물별 상호작용 차이에 유의합니다.",
     "source": "textbook"
   },
@@ -386,12 +386,12 @@
     "type": "cause-effect",
     "question": "'statin은 간에 독한 약이라 오래 먹으면 간이 상한다'는 말이 부정확한 이유로 가장 적절한 것은?",
     "options": [
-      "statin은 간에 전혀 작용하지 않기 때문",
-      "일부에서 간효소(transaminase) 상승이 있을 수 있으나 심각한 간손상은 매우 드물고, 적절한 적응증에서 ASCVD 예방 이득이 확립돼 있기 때문",
-      "statin은 근육에만 작용하기 때문",
-      "간효소 상승은 항상 즉시 중단해야 하는 신호이기 때문"
+      "statin은 간에 전혀 작용하지 않는 약이라 간 기능에는 어떤 영향도 줄 수 없기 때문에 그런 것이다",
+      "statin은 오직 근육에만 작용하고 간은 전혀 거치지 않는 약이라 간과 무관하기 때문에 그런 것이다",
+      "일부에서 간효소 상승이 있을 수 있으나 심각한 간손상은 매우 드물고 ASCVD 예방 이득이 확립돼 있기 때문이다",
+      "간효소가 조금이라도 오르면 예외 없이 즉시 약을 중단해야 하므로 장기 복용 자체가 불가능하기 때문이다"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "statin은 일부에서 transaminase 상승이나 근육 증상(드물게 심한 myopathy)이 있을 수 있지만, 대부분에서 심각한 간손상은 매우 드뭅니다. 적절한 적응증에서 ASCVD 예방 이득이 확립돼 있어 '간독성 약'으로 단정하는 것은 부정확합니다.",
     "source": "textbook"
   },
@@ -404,12 +404,12 @@
     "type": "cause-effect",
     "question": "Total cholesterol 수치 하나만으로 지질 상태를 판단하기 어려운 이유로 가장 적절한 것은?",
     "options": [
-      "Total cholesterol은 여러 lipoprotein cholesterol의 총합이라 LDL·HDL·TG의 분포를 알 수 없기 때문",
-      "Total cholesterol은 혈당을 반영하기 때문",
-      "Total cholesterol은 항상 부정확하기 때문",
-      "Total cholesterol은 HDL만 반영하기 때문"
+      "Total cholesterol은 혈당을 반영하는 검사라서 지질 상태와는 아무 관련이 없는 지표이기 때문이다",
+      "Total cholesterol은 여러 lipoprotein cholesterol의 총합이라 LDL·HDL·TG의 분포를 알 수 없기 때문이다",
+      "Total cholesterol은 측정 방법이 부정확해 어떤 상황에서도 신뢰할 수 없는 값이기 때문에 그런 것이다",
+      "Total cholesterol은 HDL 성분만 반영하고 LDL이나 TG는 전혀 포함하지 않는 지표이기 때문에 그런 것이다"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Total cholesterol은 모든 주요 lipoprotein의 cholesterol 총합이라, 같은 값이라도 LDL·HDL·TG 분포가 전혀 다를 수 있습니다. 예로 TC 220이 LDL145/HDL55일 수도, LDL95/HDL95일 수도 있어 분포와 전체 위험을 함께 봐야 합니다.",
     "source": "textbook"
   },
@@ -422,10 +422,10 @@
     "type": "mechanism",
     "question": "간에서 만들어져 조직에 TG를 전달하며 점점 작아져 LDL로 변해가는 lipoprotein 흐름으로 옳은 것은?",
     "options": [
-      "LDL → IDL → VLDL",
-      "HDL → LDL → chylomicron",
-      "chylomicron → HDL → VLDL",
-      "VLDL → IDL → LDL"
+      "LDL → IDL → VLDL 순서로, 작은 LDL이 점점 커지며 TG가 풍부한 VLDL로 변해가는 흐름에 해당한다",
+      "HDL → LDL → chylomicron 순서로, 말초의 HDL이 변형되어 장에서 만든 chylomicron이 되는 흐름이다",
+      "chylomicron → HDL → VLDL 순서로, 장에서 만든 chylomicron이 HDL을 거쳐 VLDL이 되는 흐름에 해당한다",
+      "VLDL → IDL → LDL 순서로, 간이 내보낸 VLDL이 TG를 잃으며 작아져 cholesterol이 풍부한 LDL이 된다"
     ],
     "answer": 3,
     "explanation": "간은 TG·cholesterol을 실은 VLDL을 내보내고, VLDL이 조직에 TG를 주며 작아져 IDL을 거쳐 cholesterol이 풍부한 LDL이 됩니다. LDL은 동맥벽에 침투해 동맥경화를 일으키는 핵심 치료 표적입니다.",
@@ -440,12 +440,12 @@
     "type": "mechanism",
     "question": "Bempedoic acid의 작용 기전으로 옳은 것은?",
     "options": [
-      "소장에서 cholesterol 흡수를 차단한다",
-      "간의 ATP citrate lyase를 억제(HMG-CoA reductase보다 upstream)해 cholesterol 합성을 줄이고 LDL receptor를 늘린다",
-      "PCSK9 mRNA를 억제한다",
-      "PPAR-α를 활성화해 TG를 낮춘다"
+      "소장의 NPC1L1을 억제해 cholesterol 흡수를 줄이는 ezetimibe와 동일한 방식으로 작용하는 약이다",
+      "PCSK9의 mRNA를 억제해 간세포에서 PCSK9 합성 자체를 줄이는 방식으로 작용하는 약에 해당한다",
+      "PPAR-α를 활성화해 중성지방(TG) 대사를 늘려 주로 TG를 낮추는 방식으로 작용하는 약에 해당한다",
+      "HMG-CoA reductase보다 상류인 ATP citrate lyase를 억제해 cholesterol 합성을 줄이고 LDL receptor를 늘린다"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Bempedoic acid는 HMG-CoA reductase보다 상류인 ATP citrate lyase를 억제해 간 cholesterol 합성을 줄이고 LDL receptor를 늘려 LDL-C를 낮춥니다. statin으로 충분치 않은 환자에서 nonstatin 옵션으로 쓰입니다.",
     "source": "textbook"
   },
@@ -458,12 +458,12 @@
     "type": "compare",
     "question": "Inclisiran이 다른 PCSK9 억제 단클론항체와 다른 점으로 가장 적절한 것은?",
     "options": [
-      "소장에서 cholesterol 흡수를 막는다",
-      "HMG-CoA reductase를 억제한다",
-      "siRNA로 간세포에서 PCSK9 합성 자체를 줄이며 투여 간격이 긴 것이 특징이다",
-      "TG를 직접 분해한다"
+      "소장에서 cholesterol 흡수를 막는 방식으로 작용하며 매일 복용하는 경구약에 해당하는 약이다",
+      "siRNA로 간세포에서 PCSK9 합성 자체를 줄이며 투여 간격이 긴 것이 특징인 약물에 해당한다",
+      "HMG-CoA reductase를 억제해 간 cholesterol 합성을 줄이는 statin 계열의 약물에 해당하는 것이다",
+      "중성지방(TG)을 직접 분해하는 효소를 활성화해 TG를 낮추는 방식으로 작용하는 약에 해당한다"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Inclisiran은 siRNA로 간세포에서 PCSK9 단백질 합성 자체를 감소시켜 LDL receptor 재활용을 늘립니다. 투여 간격이 긴 것이 특징이며, LDL 감소와 별개로 hard cardiovascular outcome 확인 임상시험이 진행 중입니다.",
     "source": "textbook"
   },
@@ -476,12 +476,12 @@
     "type": "mechanism",
     "question": "ApoB가 'atherogenic 입자 개수'를 반영한다고 보는 이유로 가장 적절한 것은?",
     "options": [
-      "apoB가 HDL에만 존재하기 때문",
-      "apoB가 cholesterol을 분해하기 때문",
-      "atherogenic 입자(LDL·VLDL 등) 하나당 apoB가 하나씩 있어 대략 particle number를 반영하기 때문",
-      "apoB가 TG 양과 동일하기 때문"
+      "apoB가 몸에 좋은 HDL 입자에만 존재하는 표지 단백질이라 좋은 콜레스테롤 양을 반영하기 때문이다",
+      "atherogenic 입자(LDL·VLDL 등) 하나당 apoB가 하나씩 있어 대략 particle number를 반영하기 때문이다",
+      "apoB가 cholesterol을 직접 분해하는 효소라서 분해된 양으로 입자 수를 추정할 수 있기 때문에 그런 것이다",
+      "apoB가 혈중 중성지방(TG)의 양과 항상 정확히 같은 값을 가지므로 TG로 입자 수를 알 수 있기 때문이다"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "atherogenic 입자 하나에 apoB가 하나씩 붙어 있어 apoB는 대략 혈중 atherogenic particle 개수를 반영합니다. 그래서 TG↑·당뇨·매우 낮은 LDL-C처럼 LDL-C와 particle number가 어긋나는(discordance) 상황 평가에 도움이 됩니다.",
     "source": "textbook"
   },
@@ -494,12 +494,12 @@
     "type": "cause-effect",
     "question": "Lp(a)가 생활습관 개선만으로 잘 낮아지지 않는 이유로 가장 적절한 것은?",
     "options": [
-      "Lp(a)가 식사로만 만들어지기 때문",
-      "Lp(a)가 운동으로만 증가하기 때문",
-      "Lp(a)가 주로 유전적으로 결정되기 때문",
-      "Lp(a)는 혈액에 존재하지 않기 때문"
+      "Lp(a)는 오직 식사로 섭취한 지방으로만 만들어져 식사를 줄이면 즉시 사라지기 때문에 그런 것이다",
+      "Lp(a)는 주로 유전적으로 결정되어 식사·운동만으로 큰 변화를 기대하기 어렵기 때문에 그런 것이다",
+      "Lp(a)는 운동을 할수록 오히려 증가하는 특성이 있어 운동으로는 낮출 수 없기 때문에 그런 것이다",
+      "Lp(a)는 혈액에 존재하지 않고 조직에만 있어 혈액검사나 생활습관과 무관하기 때문에 그런 것이다"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Lp(a)는 LDL 유사 입자에 apo(a)가 붙은 것으로 주로 유전적으로 결정됩니다. 그래서 식사·운동만으로 큰 변화를 기대하기 어렵고, 높다면 다른 조절 가능한 ASCVD 위험인자를 더 철저히 관리할 근거가 됩니다.",
     "source": "textbook"
   },
@@ -512,12 +512,12 @@
     "type": "cause-effect",
     "question": "과음이 지질 검사에서 특히 주의 대상이 되는 이유로 가장 적절한 것은?",
     "options": [
-      "과음은 LDL만 낮추기 때문",
-      "과음은 HDL을 0으로 만들기 때문",
-      "과음은 지질과 무관하기 때문",
-      "과음이 간 TG 대사에 영향을 주어 중성지방(TG)을 크게 높일 수 있기 때문"
+      "과음은 LDL만 선택적으로 크게 낮춰 오히려 지질 수치를 좋게 보이게 만들기 때문에 그런 것이다",
+      "과음은 HDL을 완전히 0으로 만들어 좋은 콜레스테롤을 없애는 유일한 요인이기 때문에 그런 것이다",
+      "과음이 간의 TG 대사에 영향을 주어 중성지방(TG)을 크게 높일 수 있기 때문에 확인이 필요하다",
+      "과음은 지질 대사와 아무 관련이 없지만 검사 수치를 일시적으로 흐리게 만들기 때문에 그런 것이다"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "과음은 간 TG 대사에 영향을 주어 TG를 크게 높일 수 있습니다. 따라서 severe hypertriglyceridemia 환자에서는 음주 여부를 반드시 확인하고 조절해야 합니다.",
     "source": "textbook"
   },
@@ -530,12 +530,12 @@
     "type": "compare",
     "question": "Statin과 ezetimibe를 함께 쓰면 효과가 보완되는 이유로 가장 적절한 것은?",
     "options": [
-      "statin은 cholesterol 합성을 억제하고 ezetimibe는 장의 cholesterol 흡수를 억제해 서로 다른 경로로 작용하기 때문",
-      "둘 다 같은 효소를 억제하기 때문",
-      "ezetimibe가 statin을 분해하기 때문",
-      "둘 다 소변으로 LDL을 배설시키기 때문"
+      "두 약이 모두 HMG-CoA reductase라는 같은 효소를 억제해 효과를 두 배로 키우기 때문에 보완된다",
+      "ezetimibe가 statin을 분해해 statin의 작용을 조절하는 방식으로 서로 보완하기 때문에 그런 것이다",
+      "두 약이 모두 소변으로 LDL을 직접 배설시켜 배설 경로를 두 개로 늘리기 때문에 효과가 보완된다",
+      "statin은 cholesterol 합성을 억제하고 ezetimibe는 장의 흡수를 억제해 서로 다른 경로로 작용하기 때문이다"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "statin은 간의 cholesterol '합성'을 억제하고, ezetimibe는 소장의 cholesterol '흡수'를 억제합니다. 서로 다른 경로를 동시에 차단하므로 병용 시 LDL 강하 효과가 보완됩니다.",
     "source": "textbook"
   },
@@ -548,12 +548,12 @@
     "type": "cause-effect",
     "question": "이상지질혈증을 평가할 때 LDL 수치 하나가 아니라 '전체 ASCVD 위험'을 보는 이유로 가장 적절한 것은?",
     "options": [
-      "고혈압·흡연·당뇨 등 다른 위험요인이 함께 있으면 위험이 따로 더해지는 것이 아니라 함께 커지기 때문",
-      "LDL은 위험과 무관하기 때문",
-      "다른 위험요인은 지질과 상관없기 때문",
-      "LDL이 낮으면 다른 위험은 볼 필요가 없기 때문"
+      "LDL은 위험과 무관한 지표라서 다른 위험요인만으로 위험을 평가해야 하기 때문에 그런 것이다",
+      "다른 위험요인은 지질과 완전히 상관없어 각각 따로 관리하면 되기 때문에 함께 볼 필요가 없다",
+      "고혈압·흡연·당뇨 등이 함께 있으면 위험이 따로 더해지는 게 아니라 함께 커지기 때문에 전체를 본다",
+      "LDL이 낮으면 다른 위험요인은 어떤 상황에서도 볼 필요가 전혀 없기 때문에 LDL만 보면 된다"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "고혈압(혈관벽 기계적 압력), LDL(atherogenic lipid), 흡연(내피·혈전·염증), 당뇨(대사·혈관 손상)가 동시에 있으면 위험은 하나씩 따로가 아니라 함께 커집니다. 그래서 이상지질혈증도 전체 ASCVD risk를 함께 평가합니다.",
     "source": "textbook"
   },
@@ -566,12 +566,12 @@
     "type": "cause-effect",
     "question": "'statin을 한번 시작하면 평생 먹어야 하나'라는 질문에 대한 기전적으로 옳은 설명은?",
     "options": [
-      "statin에 의존성이 생겨 끊을 수 없기 때문이다",
-      "statin은 한 번 먹으면 평생 몸에 남기 때문이다",
       "중단하면 LDL을 높게 만들던 원래의 대사 상태가 다시 나타나기 때문에 장기 복용이 필요한 경우가 많다",
-      "statin은 원래 단기간만 복용하는 약이다"
+      "statin에 대한 의존성이 생겨 몸이 약 없이는 LDL을 조절할 수 없게 되기 때문에 끊을 수 없는 것이다",
+      "statin은 한 번 먹으면 성분이 몸에 영구히 남아 평생 작용하기 때문에 다시 먹을 필요가 없는 것이다",
+      "statin은 원래 며칠만 복용하도록 설계된 단기 약이라 평생 복용은 잘못된 사용에 해당하는 것이다"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "statin은 의존성이 생기는 것이 아니라, 중단하면 LDL을 높게 만들던 원래의 대사 상태가 다시 나타나기 때문에 많은 경우 장기 복용이 필요합니다.",
     "source": "textbook"
   },
@@ -584,12 +584,12 @@
     "type": "cause-effect",
     "question": "'계란 같은 cholesterol 든 음식만 안 먹으면 LDL이 해결된다'는 말이 틀린 이유로 가장 적절한 것은?",
     "options": [
-      "음식 cholesterol이 혈중 LDL에 유일한 결정 요인이기 때문",
-      "계란은 cholesterol이 전혀 없기 때문",
-      "LDL은 식사와 완전히 무관하기 때문",
-      "혈중 cholesterol은 음식 cholesterol뿐 아니라 간 합성·전체 식사 패턴·유전이 함께 결정하기 때문"
+      "음식으로 섭취한 cholesterol이 혈중 LDL을 결정하는 유일한 요인이라서 음식만 조절하면 되기 때문이다",
+      "혈중 cholesterol은 음식뿐 아니라 간 합성·전체 식사 패턴·유전이 함께 결정하기 때문에 그런 것이다",
+      "계란에는 cholesterol이 전혀 들어 있지 않아 먹어도 혈중 LDL과 아무 관련이 없기 때문에 그런 것이다",
+      "혈중 LDL은 식사와 완전히 무관하게 결정되므로 어떤 음식을 먹든 전혀 영향을 받지 않기 때문이다"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "혈중 cholesterol은 음식으로 섭취한 cholesterol만이 아니라 간의 hepatic synthesis, 전체 식사 패턴(특히 포화지방), 유전이 함께 결정합니다. 그래서 특정 음식 하나만 피하는 것으로 LDL이 해결되지 않습니다.",
     "source": "textbook"
   },
@@ -602,12 +602,12 @@
     "type": "integration",
     "question": "이미 심근경색을 겪은 very-high-risk 환자가 최대 내약 statin에도 LDL-C가 목표(<55 mg/dL)에 도달하지 못했다. 다음 단계로 가장 적절한 것은?",
     "options": [
-      "ezetimibe·PCSK9 억제제·bempedoic acid 같은 근거 기반 nonstatin therapy를 추가한다",
-      "statin을 중단하고 생활습관만 유지한다",
-      "HDL을 높이는 약을 최우선으로 추가한다",
-      "TG만 낮추면 되므로 fibrate만 추가한다"
+      "statin을 중단하고 생활습관 관리만 유지하면서 LDL이 저절로 떨어지기를 기다리는 것이 적절하다",
+      "ezetimibe·PCSK9 억제제·bempedoic acid 같은 근거 기반 nonstatin therapy를 추가해 LDL을 더 낮춘다",
+      "LDL 대신 HDL을 높이는 약을 최우선으로 추가해 심혈관 위험을 줄이는 것이 가장 적절한 선택이다",
+      "TG만 낮추면 위험이 해결되므로 fibrate만 추가하고 LDL은 더 이상 신경 쓰지 않는 것이 적절하다"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "2026 ACC/AHA는 secondary prevention의 very-high-risk에서 LDL-C <55 mg/dL를 목표로 하며, 최대 내약 statin으로 미달 시 ezetimibe·PCSK9 억제제·bempedoic acid 등 근거 기반 nonstatin을 추가하도록 권고합니다. HDL 상승은 우선 표적이 아닙니다.",
     "source": "textbook"
   },
@@ -620,10 +620,10 @@
     "type": "integration",
     "question": "Statin·ezetimibe·PCSK9 억제제는 모두 LDL을 낮추지만 작용점이 다르다. 세 약의 기전을 바르게 짝지은 것은?",
     "options": [
-      "statin=cholesterol 합성 억제, ezetimibe=장 흡수 억제, PCSK9 억제제=LDL receptor 재활용 증가",
-      "statin=장 흡수 억제, ezetimibe=PCSK9 차단, PCSK9 억제제=합성 억제",
-      "셋 다 소변으로 LDL을 배설시킨다",
-      "statin=TG 분해, ezetimibe=HDL 상승, PCSK9 억제제=혈압 강하"
+      "statin=cholesterol 합성 억제, ezetimibe=장 흡수 억제, PCSK9 억제제=LDL receptor 재활용 증가로 다르다",
+      "statin=장 흡수 억제, ezetimibe=PCSK9 차단, PCSK9 억제제=cholesterol 합성 억제로 작용점이 다르다",
+      "세 약 모두 소변으로 LDL을 직접 배설시키는 동일한 경로로 작용하며 강도만 다른 것에 해당한다",
+      "statin=TG 분해, ezetimibe=HDL 상승, PCSK9 억제제=혈압 강하로 각기 다른 목표를 갖는 것이다"
     ],
     "answer": 0,
     "explanation": "statin은 HMG-CoA reductase를 억제해 합성을 줄이고, ezetimibe는 NPC1L1을 억제해 장 흡수를 줄이며, PCSK9 억제제는 receptor 분해를 막아 LDL receptor 재활용을 늘립니다. 결국 세 약 모두 간 LDL receptor·clearance를 높이는 방향으로 수렴하되 작용점이 달라 병용 효과가 보완됩니다.",
@@ -638,12 +638,12 @@
     "type": "integration",
     "question": "LDL-C 105로 크게 높지 않은데 TG 980, HbA1c 10.2%, 거의 매일 음주, BMI 30인 환자. 가장 적절한 판단은?",
     "options": [
-      "LDL이 정상 범위이므로 안심하고 추적만 한다",
-      "즉시 PCSK9 억제제를 최우선으로 시작한다",
-      "TG는 위험과 무관하므로 무시한다",
-      "조절되지 않은 당뇨·비만·과음이 severe hypertriglyceridemia에 기여하며, ASCVD뿐 아니라 급성 췌장염 위험을 고려해 당뇨 조절·금주·TG 저하를 서두른다"
+      "당뇨·비만·과음이 severe hypertriglyceridemia에 기여하며 ASCVD뿐 아니라 급성 췌장염 위험을 고려해 서두른다",
+      "LDL이 정상 범위이므로 지질은 안전하다고 보고 추가 조치 없이 6개월 뒤 추적 검사만 하면 된다",
+      "가장 먼저 PCSK9 억제제를 시작해 LDL을 최대한 낮추는 것이 이 환자에게 가장 시급한 조치에 해당한다",
+      "TG는 심혈관 위험과 무관한 지표이므로 TG 980은 무시하고 LDL만 관리하면 충분한 상황에 해당한다"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "LDL이 크게 높지 않아도 TG 980은 매우 심한 고중성지방혈증으로 급성 췌장염 위험이 큽니다. 조절되지 않은 당뇨·비만·과음이 크게 기여하므로, 콜레스테롤약보다 먼저 당뇨 조절·금주·식사로 TG를 빠르게 낮출 필요를 평가합니다.",
     "source": "textbook"
   },
@@ -656,12 +656,12 @@
     "type": "integration",
     "question": "두 환자 모두 LDL-C 120으로 같지만, A는 큰 입자 소수, B는 작은 입자 다수다. ApoB를 추가로 보는 이유로 가장 적절한 것은?",
     "options": [
-      "총 cholesterol이 비슷해도 동맥벽과 접촉할 particle 수가 다를 수 있고, apoB가 particle number에 가까워 이 discordance를 파악하는 데 도움이 되기 때문",
-      "ApoB는 cholesterol 양을 더 정확히 재기 때문",
-      "ApoB는 HDL을 반영하기 때문",
-      "ApoB는 TG와 동일하기 때문"
+      "ApoB는 cholesterol의 양을 LDL-C보다 훨씬 정확하게 다시 재는 검사라서 오차를 줄여 주기 때문에 본다",
+      "ApoB는 몸에 좋은 HDL의 양을 반영하는 지표라서 좋은 콜레스테롤을 함께 평가할 수 있기 때문에 본다",
+      "ApoB는 혈중 중성지방(TG)과 항상 같은 값이라 TG를 대신해 편리하게 확인할 수 있기 때문에 보는 것이다",
+      "총 cholesterol이 비슷해도 접촉할 particle 수가 다를 수 있고 apoB가 particle number에 가까워 도움이 되기 때문이다"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "같은 LDL-C 120이라도 큰 입자 소수와 작은 입자 다수는 동맥벽과 접촉할 particle 수가 다릅니다. apoB는 입자 하나당 하나라 particle number에 가까워, LDL-C만으로 위험이 과소평가될 수 있는 discordance를 파악하는 데 유용합니다.",
     "source": "textbook"
   },
@@ -674,10 +674,10 @@
     "type": "integration",
     "question": "'LDL이 150이면 무조건 약을 먹어야 하나?'라는 질문에 대한 가장 적절한 설명은?",
     "options": [
-      "LDL 150이면 누구나 동일하게 즉시 약을 시작한다",
-      "LDL 150은 항상 정상이므로 약이 필요 없다",
-      "HDL만 높으면 LDL 150은 무시한다",
-      "나이·기존 ASCVD·당뇨·혈압·흡연·CKD·가족력·지속적 LDL 수준 등 전체 위험을 함께 평가해 결정하므로 같은 150이어도 환자마다 다르다"
+      "LDL 150이면 나이나 다른 위험요인과 무관하게 누구나 그 즉시 동일하게 약을 시작해야 하는 것이다",
+      "LDL 150은 항상 정상 범위에 속하므로 어떤 환자에게도 약이 필요 없다고 보면 되는 것에 해당한다",
+      "HDL만 높으면 LDL 150은 완전히 무시해도 되므로 HDL만 확인하면 되는 것에 해당하는 상황이다",
+      "나이·기존 ASCVD·당뇨·혈압·흡연·가족력 등 전체 위험을 함께 평가하므로 같은 150이어도 환자마다 다르다"
     ],
     "answer": 3,
     "explanation": "같은 LDL 150이어도 나이·기존 ASCVD·당뇨·혈압·흡연·CKD·가족력 등 전체 위험에 따라 치료 여부·강도가 달라집니다. 특히 젊은 성인에서 LDL-C ≥160이거나 조기 ASCVD 가족력이면 더 이른 약물치료를 고려하는 방향이 강조됩니다.",
@@ -692,10 +692,10 @@
     "type": "integration",
     "question": "'HDL이 높으니 LDL이 높아도 괜찮다'는 생각이 부적절한 이유로 가장 적절한 것은?",
     "options": [
-      "높은 HDL-C가 LDL로 인한 ASCVD 위험을 상쇄해 주지 않으므로, LDL이 높으면 그 자체를 별도로 평가해야 하기 때문",
-      "HDL이 높으면 LDL이 자동으로 낮아지기 때문",
-      "HDL은 위험과 완전히 무관하기 때문",
-      "HDL이 높으면 statin이 필요 없기 때문"
+      "높은 HDL-C가 LDL로 인한 ASCVD 위험을 상쇄해 주지 않으므로 높은 LDL은 그 자체를 별도로 평가해야 한다",
+      "HDL이 높으면 LDL 수치가 자동으로 함께 낮아지므로 LDL을 따로 확인할 필요가 없어지기 때문에 그런 것이다",
+      "HDL은 심혈관 위험과 완전히 무관한 지표라서 HDL이 높든 낮든 아무 의미가 없기 때문에 그런 것이다",
+      "HDL이 높으면 statin이 전혀 필요 없어져 LDL이 높아도 약을 쓰지 않아도 되기 때문에 그런 것이다"
     ],
     "answer": 0,
     "explanation": "낮은 HDL-C는 위험 표지이지만, 높은 HDL-C가 LDL로 인한 ASCVD 위험을 상쇄하는 '면허증'은 아닙니다. LDL이 높으면 HDL과 별개로 그 자체를 평가해야 합니다.",
@@ -710,12 +710,12 @@
     "type": "integration",
     "question": "'LDL 210 · TG 135' 패턴과 'LDL 115 · TG 580' 패턴에서 각각 우선 확인할 원인으로 바르게 짝지은 것은?",
     "options": [
-      "LDL 매우 높음 → 과음·비만 / TG 매우 높음 → 갑상선저하증",
-      "LDL 매우 높음 → FH·갑상선저하증 등 / TG 매우 높음 → 과음·당뇨·비만",
-      "두 패턴 모두 원인이 동일하다",
-      "LDL 매우 높음 → 급성 췌장염 / TG 매우 높음 → FH"
+      "LDL이 매우 높으면 FH·갑상선저하증 등을, TG가 매우 높으면 과음·당뇨·비만을 우선 확인하는 것이 옳다",
+      "LDL이 매우 높으면 과음·비만을, TG가 매우 높으면 갑상선저하증을 우선 확인하는 것이 옳은 접근이다",
+      "두 패턴 모두 원인이 완전히 동일하므로 같은 이차 원인만 확인하면 되는 것에 해당하는 상황이다",
+      "LDL이 매우 높으면 급성 췌장염을, TG가 매우 높으면 FH를 우선 확인하는 것이 옳은 접근에 해당한다"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "매우 높은 LDL은 familial hypercholesterolemia나 hypothyroidism 등 이차 원인을 적극 고려하게 하고(가족력·TSH·약물 확인), 매우 높은 TG는 과음·당뇨·비만 등 insulin resistance 관련 원인이 흔합니다(그리고 pancreatitis 위험).",
     "source": "textbook"
   },
@@ -728,12 +728,12 @@
     "type": "integration",
     "question": "'오메가-3 먹으면 statin 대신 되나요?'라는 질문에 대한 가장 적절한 상담은?",
     "options": [
-      "일반적으로 대체할 수 없습니다 — LDL을 낮추고 ASCVD를 예방하는 목적에서 statin과 일반 건강기능식품 omega-3를 동일하게 볼 수 없습니다",
-      "네, 건강기능식품 오메가-3가 statin과 동일한 효과를 냅니다",
-      "오메가-3가 LDL을 statin보다 더 낮춥니다",
-      "오메가-3는 지질과 무관합니다"
+      "네, 건강기능식품 오메가-3가 statin과 완전히 동일한 효과를 내므로 statin을 끊고 바꿔도 무방하다",
+      "LDL을 낮추고 ASCVD를 예방하는 목적에서 statin과 일반 건강기능식품 omega-3를 동일하게 볼 수 없다",
+      "오메가-3가 LDL을 statin보다 훨씬 더 크게 낮추므로 statin보다 우선 사용하는 것이 좋은 선택이다",
+      "오메가-3는 지질 대사와 완전히 무관하므로 statin 대신은커녕 지질에 어떤 영향도 주지 않는 것이다"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "LDL을 낮추고 ASCVD를 예방하는 목적에서 statin과 일반 건강기능식품 omega-3를 동일하게 볼 수 없습니다. 따라서 오메가-3가 statin을 대체한다고 보기 어렵습니다.",
     "source": "textbook"
   },
@@ -746,12 +746,12 @@
     "type": "integration",
     "question": "43세 남성이 LDL-C 164, 다른 위험요인이 뚜렷하지 않다. 'lifetime exposure' 관점에서 젊은 나이의 높은 LDL을 중요하게 보는 이유는?",
     "options": [
-      "높은 LDL이 오래 지속되면 누적 노출(LDL 정도 × 기간)이 커져 장기적으로 ASCVD 위험이 크게 증가하므로 조기 관리가 중요하기 때문",
-      "젊으면 LDL이 저절로 정상이 되기 때문",
-      "젊은 나이에는 LDL이 위험하지 않기 때문",
-      "LDL 164는 항상 즉시 약이 필요하기 때문"
+      "젊으면 대사가 활발해 LDL이 저절로 정상으로 돌아오므로 오히려 안심해도 되기 때문에 중요하지 않다",
+      "젊은 나이에는 LDL이 아무리 높아도 혈관에 전혀 해롭지 않으므로 나이가 들 때까지 기다리면 되기 때문이다",
+      "LDL 164는 나이와 무관하게 누구에게나 즉시 약이 필요한 절대적 기준이라서 젊음은 관련이 없기 때문이다",
+      "높은 LDL이 오래 지속되면 누적 노출(LDL 정도 × 기간)이 커져 장기적 ASCVD 위험이 크게 증가하기 때문이다"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "ASCVD 위험은 LDL 정도 × 노출 기간입니다. 젊은 나이의 높은 LDL은 그대로 두면 노출 기간이 길어져 누적 위험이 커집니다. 그래서 젊은 성인에서 LDL-C ≥160이거나 조기 ASCVD 가족력이면 더 이른 관리를 고려합니다.",
     "source": "textbook"
   },
@@ -764,12 +764,12 @@
     "type": "integration",
     "question": "TG↑ + HDL↓ + insulin resistance 형태의 이상지질혈증에서 특히 강조되는 생활습관 중재는?",
     "options": [
-      "식이 cholesterol만 엄격히 제한하기",
-      "포화지방을 설탕으로 대체하기",
-      "수분 섭취를 최대한 줄이기",
-      "체중 감소 — 이 형태에서 TG·HDL·insulin resistance를 함께 개선하는 데 매우 중요"
+      "식이 cholesterol만 엄격히 제한하는 것이 이 형태에서 가장 우선되는 중재에 해당하는 방법이다",
+      "포화지방을 설탕으로 대체하는 것이 이 형태에서 TG와 HDL을 개선하는 핵심 중재에 해당하는 것이다",
+      "체중 감소가 이 형태에서 TG·HDL·insulin resistance를 함께 개선하는 데 매우 중요한 중재에 해당한다",
+      "수분 섭취를 최대한 줄이는 것이 이 형태에서 지질 대사를 개선하는 중요한 중재에 해당하는 방법이다"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "TG↑·HDL↓·insulin resistance가 함께 나타나는 형태에서는 체중 감소가 특히 중요합니다. 체중을 줄이면 TG가 내려가고 HDL·insulin sensitivity가 함께 개선되는 경향이 있어 대사 전반에 도움이 됩니다.",
     "source": "textbook"
   },
@@ -782,12 +782,12 @@
     "type": "integration",
     "question": "Lp(a)가 높게 확인된 환자에서 취할 수 있는 가장 합리적인 접근은?",
     "options": [
-      "Lp(a)는 유전적이라 아무것도 할 수 없으므로 방치한다",
-      "Lp(a)가 높으면 LDL은 무시한다",
-      "Lp(a)는 위험과 무관하므로 검사 자체가 불필요하다",
-      "Lp(a) 자체는 생활습관으로 잘 안 내려가더라도, 조절 가능한 다른 ASCVD 위험인자(LDL·혈압·흡연·당뇨 등)를 더 철저히 관리한다"
+      "Lp(a) 자체는 생활습관으로 잘 안 내려가더라도 조절 가능한 다른 ASCVD 위험인자를 더 철저히 관리한다",
+      "Lp(a)는 유전적이라 아무것도 할 수 없으므로 다른 위험인자 관리도 무의미해 그대로 방치하는 것이 옳다",
+      "Lp(a)가 높으면 LDL 관리는 필요 없어지므로 LDL은 무시하고 Lp(a)만 지켜보면 되는 것에 해당한다",
+      "Lp(a)는 심혈관 위험과 무관한 지표이므로 애초에 측정할 필요조차 없는 검사에 해당하는 것을 뜻한다"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Lp(a)는 주로 유전적으로 결정되어 생활습관으로 큰 변화를 기대하기 어렵지만, 높다면 오히려 조절 가능한 다른 ASCVD 위험인자를 더 철저히 관리할 근거가 됩니다. 2026 ACC/AHA는 모든 성인에서 평생 한 번 측정하는 방향으로 업데이트했습니다.",
     "source": "textbook"
   },
@@ -800,12 +800,12 @@
     "type": "compare",
     "question": "이상지질혈증 약물과 표적을 연결할 때 옳은 것은?",
     "options": [
-      "Statin=NPC1L1, Ezetimibe=HMG-CoA reductase, Fibrate=PCSK9",
-      "Statin=PPAR-α, Fibrate=HMG-CoA reductase, Ezetimibe=PCSK9",
-      "모든 약이 동일하게 PCSK9만 표적으로 한다",
-      "Statin=HMG-CoA reductase, Ezetimibe=NPC1L1, PCSK9 억제제=PCSK9, Fibrate=PPAR-α"
+      "Statin=NPC1L1, Ezetimibe=HMG-CoA reductase, Fibrate=PCSK9로 연결되는 것이 옳은 지도에 해당한다",
+      "Statin=PPAR-α, Fibrate=HMG-CoA reductase, Ezetimibe=PCSK9로 연결되는 것이 옳은 지도에 해당한다",
+      "Statin=HMG-CoA reductase, Ezetimibe=NPC1L1, PCSK9 억제제=PCSK9, Fibrate=PPAR-α로 연결된다",
+      "표적과 무관하게 모든 약이 동일하게 PCSK9 하나만 억제하는 방식으로 작용하는 것에 해당하는 지도다"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Statin은 HMG-CoA reductase, Ezetimibe는 NPC1L1(장 흡수), PCSK9 억제제/inclisiran은 PCSK9(단백질/mRNA), Bempedoic acid는 ATP citrate lyase, Fibrate는 PPAR-α(주로 TG)를 표적으로 합니다. 약을 외우기보다 어느 표적을 건드리는지로 이해하는 것이 핵심입니다.",
     "source": "textbook"
   }
