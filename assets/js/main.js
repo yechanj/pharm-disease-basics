@@ -1062,7 +1062,200 @@
     initLiverFat();
     initMasldSpectrum();
     initFib4();
+    // Core 07 · 통풍(Gout)
+    initIceberg();
+    initUrateBalance();
+    initCascade();
+    initDissolution();
+    initAcuteChronic();
   });
+
+  /* =========================================================
+     ==============  Core 07 · 통풍(Gout) 인터랙션  ==============
+     ========================================================= */
+
+  /* ---------- Viz · Gout Iceberg ---------- */
+  function initIceberg() {
+    var root = document.querySelector("[data-iceberg]");
+    if (!root) return;
+    var flame = root.querySelector(".iceberg__flare");
+    var berg = root.querySelector(".iceberg__berg");
+    var burdenEl = root.querySelector(".iceberg__berg .burden");
+    var out = root.querySelector(".iceberg__out");
+    var burden = 100;
+    function render() {
+      burdenEl.textContent = burden + "%";
+      berg.style.transform = "scale(" + (0.55 + burden / 100 * 0.45) + ")";
+    }
+    root.querySelectorAll("[data-ice]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var act = b.getAttribute("data-ice");
+        if (act === "flare") {
+          flame.classList.add("out");
+          out.innerHTML = "<b>급성 치료(NSAID·colchicine·steroid)</b> — 수면 위 <b>불꽃(염증)</b>만 끕니다. 물밑 <b>crystal burden은 그대로</b> 남습니다.";
+        } else if (act === "ult") {
+          burden = Math.max(10, burden - 22); render();
+          out.innerHTML = "<b>장기 ULT(allopurinol 등)</b> — 물밑 <b>crystal burden</b>을 천천히 줄입니다. (지금 " + burden + "%) 즉각적인 진통은 아닙니다.";
+        } else {
+          burden = 100; flame.classList.remove("out"); render();
+          out.innerHTML = "리셋 — 발작(불꽃)은 빙산의 일각, 진짜 병은 물밑 crystal burden입니다.";
+        }
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz · Urate Balance ---------- */
+  function initUrateBalance() {
+    var root = document.querySelector("[data-urate]");
+    if (!root) return;
+    var state = { prod: 0, diet: 0, renalexc: 0, gutexc: 0 };
+    var mods = { thiazide: false, ckd: false, alcohol: false };
+    var fillEl = root.querySelector(".urate__gauge .fill");
+    var numEl = root.querySelector(".urate__gauge .num");
+    function renderBars(f) {
+      var lv = state[f], bars = "";
+      for (var i = -2; i <= 2; i++) {
+        var on = (lv > 0 && i > 0 && i <= lv) || (lv < 0 && i < 0 && i >= lv) || (i === 0);
+        bars += "<i class='" + (on ? "on" : "") + "'></i>";
+      }
+      return bars;
+    }
+    function render() {
+      var urate = 5.5 + (state.prod + state.diet) * 0.7 - (state.renalexc + state.gutexc) * 0.7;
+      if (mods.thiazide) urate += 1.1;
+      if (mods.ckd) urate += 1.6;
+      if (mods.alcohol) urate += 1.0;
+      urate = Math.max(3, Math.min(13, urate));
+      fillEl.style.width = (urate / 13 * 100) + "%";
+      numEl.innerHTML = "Serum urate ≈ <b>" + urate.toFixed(1) + "</b> mg/dL" +
+        (urate > 6.8 ? " <span style='color:var(--hi);font-size:13px'>(과포화 · 결정 형성 유리)</span>" : "");
+      root.querySelectorAll(".bpsim__factor").forEach(function (fx) {
+        var barsEl = fx.querySelector(".bars");
+        if (barsEl) barsEl.innerHTML = renderBars(fx.getAttribute("data-factor"));
+      });
+    }
+    root.addEventListener("click", function (e) {
+      var s = e.target.closest(".stepper");
+      if (s) {
+        var key = s.closest(".bpsim__factor").getAttribute("data-factor");
+        state[key] = Math.max(-2, Math.min(2, state[key] + parseInt(s.getAttribute("data-step"), 10)));
+        render(); return;
+      }
+      var m = e.target.closest(".urate__extra button");
+      if (m) {
+        var mk = m.getAttribute("data-mod");
+        mods[mk] = !mods[mk];
+        m.classList.toggle("active", mods[mk]);
+        render();
+      }
+    });
+    render();
+  }
+
+  /* ---------- Viz · Crystal → Inflammation Cascade ---------- */
+  var CASC_DRUG = {
+    colchicine: { block: ["neutrophil"], out: "<b>Colchicine</b> — microtubule 억제로 <b>neutrophil</b>의 이동·활성을 차단. uric acid는 낮추지 않지만 염증을 끕니다." },
+    nsaid: { block: ["pain"], out: "<b>NSAID</b> — COX 억제 → prostaglandin↓ → 통증·염증↓. (상류 cascade는 남지만 통증 신호를 끕니다.)" },
+    steroid: { block: ["macrophage", "nlrp3", "il1", "neutrophil"], out: "<b>Corticosteroid</b> — 광범위한 inflammatory signaling 억제. NSAID·colchicine이 어려운 환자에서도 선택 가능." }
+  };
+  function initCascade() {
+    var root = document.querySelector("[data-cascade]");
+    if (!root) return;
+    var out = root.querySelector(".casc__out");
+    function reset() {
+      root.querySelectorAll(".casc__step").forEach(function (s) { s.classList.remove("blocked", "calm"); });
+      root.querySelectorAll(".casc__btns button").forEach(function (b) { b.classList.remove("active"); });
+    }
+    root.querySelectorAll(".casc__btns button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-drug");
+        if (key === "reset") { reset(); out.innerHTML = "약을 선택하면 어느 단계를 끄는지 보입니다. <b>serum urate는 그대로 — 이 약들은 염증을 끕니다.</b>"; return; }
+        reset();
+        btn.classList.add("active");
+        var d = CASC_DRUG[key];
+        d.block.forEach(function (node) {
+          var el = root.querySelector(".casc__step[data-node='" + node + "']");
+          if (el) el.classList.add(node === "pain" ? "calm" : "blocked");
+        });
+        var pain = root.querySelector(".casc__step[data-node='pain']");
+        if (pain) pain.classList.add("calm");
+        out.innerHTML = d.out + " <b style='color:var(--urate)'>Serum urate는 그대로.</b>";
+      });
+    });
+    out.innerHTML = "약을 선택하면 어느 단계를 끄는지 보입니다. <b>serum urate는 그대로 — 이 약들은 염증을 끕니다.</b>";
+  }
+
+  /* ---------- Viz · Crystal Dissolution Simulator ---------- */
+  function initDissolution() {
+    var root = document.querySelector("[data-dissolution]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var urateEl = root.querySelector(".diss__urate");
+    var crystalsEl = root.querySelector(".diss__crystals");
+    var verdictEl = root.querySelector(".diss__verdict");
+    function render() {
+      var u = parseFloat(input.value);
+      urateEl.textContent = u.toFixed(1) + " mg/dL";
+      // 결정 개수: 높을수록 많음(과포화에서 증가), 낮을수록 감소
+      var n = Math.round(Math.max(3, (u - 4) * 7));
+      crystalsEl.innerHTML = new Array(n + 1).join("<span></span>");
+      var cls, txt;
+      if (u > 6.8) { cls = "up"; txt = "과포화 — 결정이 계속 늘어남"; }
+      else if (u >= 6) { cls = "eq"; txt = "포화점 근처 — 평형"; }
+      else if (u >= 5) { cls = "down"; txt = "<6 — 결정이 천천히 녹음"; }
+      else { cls = "down"; txt = "<5 — 결정 부담 큰 환자에서 더 빠른 dissolution"; }
+      verdictEl.className = "diss__verdict " + cls;
+      verdictEl.innerHTML = txt;
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- Viz · Acute vs Chronic Treatment Simulator ---------- */
+  function initAcuteChronic() {
+    var root = document.querySelector("[data-acutechronic]");
+    if (!root) return;
+    var mode = "flare";
+    var burden = 80;
+    var painFill = root.querySelector(".avc__meter.pain .fill");
+    var painV = root.querySelector(".avc__meter.pain .v");
+    var burdenFill = root.querySelector(".avc__meter.burden .fill");
+    var burdenV = root.querySelector(".avc__meter.burden .v");
+    var out = root.querySelector(".avc__out");
+    function setMode(m) {
+      mode = m; burden = 80;
+      root.querySelectorAll(".avc__modes button").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-mode") === m); });
+      root.querySelectorAll(".avc__btns button").forEach(function (b) { b.classList.remove("active"); });
+      render(mode === "flare" ? 100 : 0);
+      out.innerHTML = mode === "flare"
+        ? "🔥 <b>발작 중</b> — 통증 10/10. 약을 눌러보세요."
+        : "🧊 <b>발작 사이</b> — 통증은 없지만 crystal burden은 남아 있습니다. 약을 눌러보세요.";
+    }
+    function render(pain) {
+      painFill.style.width = pain + "%"; painV.textContent = "통증 " + Math.round(pain / 10) + "/10";
+      burdenFill.style.width = burden + "%"; burdenV.textContent = "Crystal " + burden + "%";
+    }
+    root.querySelectorAll(".avc__modes button").forEach(function (b) {
+      b.addEventListener("click", function () { setMode(b.getAttribute("data-mode")); });
+    });
+    root.querySelectorAll(".avc__btns button").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".avc__btns button").forEach(function (x) { x.classList.remove("active"); });
+        btn.classList.add("active");
+        var drug = btn.getAttribute("data-drug");
+        var antiInflam = drug === "nsaid" || drug === "colchicine" || drug === "steroid";
+        if (mode === "flare") {
+          if (antiInflam) { render(15); out.innerHTML = "<b>" + btn.textContent + "</b> → 염증↓ → 통증 완화. 단 <b>crystal burden(" + burden + "%)은 그대로.</b>"; }
+          else { render(100); out.innerHTML = "<b>Allopurinol</b> → 지금 통증엔 즉효 없음. 대신 <b>장기 serum urate↓</b>로 crystal을 서서히 줄입니다."; }
+        } else {
+          if (antiInflam) { render(0); out.innerHTML = "<b>" + btn.textContent + "</b> → 지금 통증이 없어 변화 없음. <b>crystal burden(" + burden + "%)도 그대로.</b>"; }
+          else { burden = Math.max(20, burden - 25); render(0); out.innerHTML = "<b>Allopurinol</b> → urate↓ → 시간이 지나며 <b>crystal burden ↓ (" + burden + "%).</b> 발작 사이에도 꾸준히 복용하는 이유입니다."; }
+        }
+      });
+    });
+    setMode("flare");
+  }
 
   /* =========================================================
      ============  Core 06 · 지방간(MASLD) 인터랙션  ============

@@ -77,6 +77,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 7,
+    category: "core",
+    href: "lessons/core/07.html",
+    title: "통풍 (Gout)",
+    desc: "“요산이 높은 병”을 넘어 Hyperuricemia → Crystal deposition → Gout flare의 3단계로 이해하고, 급성 염증 끄기(NSAID·colchicine·steroid)와 장기적으로 결정을 녹이는 요산저하치료(allopurinol·treat-to-target)를 혼동하지 않게. HLA-B*58:01·ULT 초기 발작까지.",
+    tags: ["요산/결정/염증", "colchicine", "allopurinol", "treat-to-target", "HLA-B*58:01"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",
