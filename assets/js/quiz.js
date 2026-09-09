@@ -12,6 +12,7 @@
   var DAILY_COUNT = 10;
   var LS_STATS = "pharm_quiz_stats";     // { id: {seen, correct, wrong} }
   var LS_HISTORY = "pharm_quiz_history"; // [{date, mode, score, total}]
+  var LS_CYCLE = "pharm_quiz_cycle";     // 이번 회차에 이미 출제된 문제 id 배열
 
   var ALL = [];        // 모든 문제
   var current = [];    // 이번 세션 문제들
@@ -43,6 +44,14 @@
     h.unshift(entry);
     writeLS(LS_HISTORY, h.slice(0, 30));
   }
+
+  /* ---------- 순환(coverage) 출제: 이번 회차에 이미 낸 문제 추적 ---------- */
+  function getServed() { return readLS(LS_CYCLE, []); }
+  function markServed(id) {
+    var s = getServed();
+    if (s.indexOf(id) < 0) { s.push(id); writeLS(LS_CYCLE, s); }
+  }
+  function resetCycle() { writeLS(LS_CYCLE, []); }
 
   /* ---------- 배열 셔플 (Fisher–Yates) ---------- */
   function shuffle(arr) {
@@ -83,10 +92,31 @@
     return ALL.filter(function (q) { return s[q.id] && s[q.id].wrong > 0; });
   }
 
+  /* 데일리 출제: 이번 회차에 안 낸 문제를 우선, 전부 소진되면 리셋 후 새 회차 */
+  function dailyPick() {
+    var servedSet = {};
+    getServed().forEach(function (id) { servedSet[id] = 1; });
+    var unseen = ALL.filter(function (q) { return !servedSet[q.id]; });
+    if (unseen.length === 0) { resetCycle(); unseen = ALL.slice(); } // 한 바퀴 완료 → 리셋
+    var picked = shuffle(unseen).slice(0, DAILY_COUNT);
+    if (picked.length < DAILY_COUNT) {
+      // 회차의 마지막 배치: 남은 미출제 + 새 회차에서 채움
+      resetCycle();
+      var pickedIds = {};
+      picked.forEach(function (q) { pickedIds[q.id] = 1; });
+      var rest = shuffle(ALL.filter(function (q) { return !pickedIds[q.id]; }))
+        .slice(0, DAILY_COUNT - picked.length);
+      picked = picked.concat(rest);
+    }
+    return picked;
+  }
+
   function renderStart() {
     var s = getStats();
     var answered = Object.keys(s).length;
     var wrongN = wrongPool().length;
+    var servedCount = Math.min(getServed().length, ALL.length);
+    var cycleDone = servedCount >= ALL.length && ALL.length > 0;
     var hist = readLS(LS_HISTORY, []);
 
     var histHtml = hist.length
@@ -105,6 +135,12 @@
           "<div class='qd-stat'><span class='qd-stat-n'>" + answered + "</span><span class='qd-stat-l'>학습한 문제</span></div>" +
           "<div class='qd-stat'><span class='qd-stat-n'>" + wrongN + "</span><span class='qd-stat-l'>오답 문제</span></div>" +
         "</div>" +
+        "<div class='qd-cycle'>" +
+          "<div class='qd-cycle-top'><span>이번 회차 진행</span><span class='qd-cycle-num'>" + servedCount + " / " + ALL.length + "</span></div>" +
+          "<div class='qd-cycle-bar'><span style='width:" + (ALL.length ? Math.round(servedCount / ALL.length * 100) : 0) + "%'></span></div>" +
+          (cycleDone ? "<div class='qd-cycle-done'>🎉 전체를 한 바퀴 풀었습니다 · 다음 테스트부터 새 회차로 리셋됩니다</div>" :
+            "<div class='qd-cycle-hint'>이미 푼 문제는 다시 안 나오고, 전부 풀면 자동으로 리셋돼요</div>") +
+        "</div>" +
         "<div class='qd-actions'>" +
           "<button class='qd-btn qd-btn--primary' id='qdDaily'>데일리 테스트 시작 · " + Math.min(DAILY_COUNT, ALL.length) + "문제</button>" +
           "<button class='qd-btn' id='qdWrong'" + (wrongN ? "" : " disabled") + ">오답 다시 풀기" + (wrongN ? " · " + Math.min(DAILY_COUNT, wrongN) + "문제" : " (없음)") + "</button>" +
@@ -120,8 +156,8 @@
   /* ---------- 세션 시작 ---------- */
   function startSession(mode) {
     sessionMode = mode;
-    var pool = mode === "wrong" ? wrongPool() : ALL;
-    current = shuffle(pool).slice(0, DAILY_COUNT).map(function (q) {
+    var pool = mode === "wrong" ? shuffle(wrongPool()).slice(0, DAILY_COUNT) : dailyPick();
+    current = pool.map(function (q) {
       // 보기 순서 셔플: 정답 텍스트를 추적해 새 인덱스 계산
       var order = shuffle([0, 1, 2, 3].slice(0, q.options.length));
       var opts = order.map(function (i) { return q.options[i]; });
@@ -179,6 +215,7 @@
     var ok = i === item.answer;
     if (ok) sessionScore++;
     recordAnswer(item.q.id, ok);
+    markServed(item.q.id); // 이번 회차에 푼 문제로 기록 (순환 출제용)
 
     var listEl = el.stage.querySelector(".qd-opts");
     listEl.classList.add("done");
