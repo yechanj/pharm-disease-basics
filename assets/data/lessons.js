@@ -68,6 +68,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 6,
+    category: "core",
+    href: "lessons/core/06.html",
+    title: "지방간 (MASLD)",
+    desc: "술이 아니라 대사 이상이 만드는 지방간. 간 지방대사의 균형(FFA·DNL vs 산화·VLDL) → insulin resistance → steatosis vs MASH → 왜 fibrosis가 예후의 핵심인지 → FIB-4 단계적 진단 → 체중·대사 관리와 resmetirom·semaglutide까지.",
+    tags: ["MASLD/MASH", "간 지방대사", "섬유화", "FIB-4", "resmetirom"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

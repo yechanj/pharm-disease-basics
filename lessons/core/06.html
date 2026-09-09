@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제6강 · 지방간(MASLD) — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="지방간(MASLD/MASH)을 간 지방대사·insulin resistance·섬유화·진단·치료제로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제6강 · 지방간(MASLD)</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">🫀</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제6강 · 지방간(MASLD)</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#balance"><span class="num">1</span> 정상 간의 지방대사</a></li>
+          <li><a href="#wrong"><span class="num">2</span> 무엇이 잘못되나</a></li>
+          <li><a href="#cause"><span class="num">3</span> 왜 생기는가</a></li>
+          <li><a href="#symptom"><span class="num">4</span> 증상과 Red Flags</a></li>
+          <li><a href="#diagnose"><span class="num">5</span> 진단 · FIB-4</a></li>
+          <li><a href="#untreated"><span class="num">6</span> 치료하지 않으면</a></li>
+          <li><a href="#treat"><span class="num">7</span> 치료의 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">8</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">9</span> 약물치료</a></li>
+          <li><a href="#deepdive"><span class="num">10</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">11</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">12</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">13</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">14</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">15</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">16</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제6강</div>
+          <h1>지방간 (MASLD)</h1>
+          <p>술이 아니라 <b>대사 이상</b>이 만드는 지방간 —
+            <b>간 지방대사의 균형 → insulin resistance → steatosis vs MASH → 섬유화 → 진단 → 치료</b>를 하나의 흐름으로.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>용어 · 근거 축</div>
+          <p>예전의 NAFLD/NASH 대신 최신 용어 <b>MASLD</b>(metabolic dysfunction-associated steatotic liver disease) / <b>MASH</b>(…steatohepatitis)를 씁니다.
+            MASLD는 <b>간에 지방 축적 + 하나 이상의 cardiometabolic risk factor</b>를 중심으로 정의합니다. 스펙트럼은 steatosis → MASH → fibrosis → cirrhosis → HCC까지. 2025 대한간학회도 MASLD 용어를 반영했습니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">42세 남성 · 건강검진 초음파 “moderate fatty liver”</div>
+            <div class="bp" style="font-size:clamp(20px,5.5vw,30px);line-height:1.4;">BMI 28 · 허리 96 · HbA1c 6.2<br>TG 220 · ALT 58</div>
+            <div class="quote">“저 술 거의 안 마시는데 왜 지방간이 생겼죠? 간수치도 조금밖에 안 높은데 굳이 치료해야 하나요?”</div>
+            <div style="font-weight:700;margin-bottom:8px;">술을 거의 안 마셔도 지방간이 생길 수 있을까?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 지방간은 거의 모두 술 때문이다.</button>
+              <button data-opt="B"><span class="opt">B</span> 당·지방을 먹어서 음식물이 간에 직접 붙는다.</button>
+              <button data-opt="C"><span class="opt">C</span> 대사 이상으로 간의 지방 유입·생성·배출 균형이 깨질 수 있다.</button>
+              <button data-opt="D"><span class="opt">D</span> ALT가 100 미만이면 의미가 없다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 바로 공개하지 않습니다 — <b>먼저 정상 간의 지방 대사</b>부터 확인해봅시다.</div>
+            </div>
+          </div>
+          <p>강의가 끝나면 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>술을 마시지 않아도 왜 지방간이 생기는가?</li>
+            <li>간에 지방이 조금 있는 것과 MASH는 무엇이 다른가?</li>
+            <li>ALT가 정상이어도 심한 간질환이 있을 수 있는가?</li>
+            <li>가장 중요한 예후 인자는 지방량인가, 섬유화인가?</li>
+            <li>누가 간경변까지 진행할 위험이 높은가?</li>
+            <li>왜 체중감량이 치료의 핵심인가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 정상 간 지방대사 ================= -->
+        <section id="balance" class="section">
+          <h2><span class="sec-no">01</span> 정상적인 간의 지방대사</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>MASLD</b>란 비만·insulin resistance·당뇨·이상지질혈증 같은 <b>대사 이상과 관련하여 간세포 안에 지방이 과도하게 축적</b>되는 질환입니다.
+              단순 지방 축적에서 끝날 수도 있지만 일부에서 steatosis → inflammation → fibrosis → cirrhosis로 진행합니다.</p>
+          </div>
+          <p>간 안의 triglyceride는 <b>들어오는 지방</b>(지방조직 FFA · 음식 지방 · de novo lipogenesis)과 <b>빠져나가는 지방</b>(β-oxidation · VLDL export)의 <b>균형</b>으로 결정됩니다.</p>
+
+          <p>각 요소를 <b>＋/－</b>로 조절해 간 지방이 어떻게 변하는지 보세요. <b>들어옴이 나감을 초과</b>하면 축적됩니다.</p>
+          <div class="figure" data-liverfat>
+            <div class="figure__title">Viz 1 · Liver Fat Balance</div>
+            <div class="lf__cols">
+              <div class="lf__col in">
+                <h5>들어오는 지방 (＋)</h5>
+                <div class="bpsim__factor" data-factor="ffa"><span>FFA (지방조직)</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="diet"><span>음식 지방</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="dnl"><span>De novo lipogenesis</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+              </div>
+              <div class="lf__col out">
+                <h5>나가는 지방 (－)</h5>
+                <div class="bpsim__factor" data-factor="oxid"><span>β-oxidation</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+                <div class="bpsim__factor" data-factor="vldl"><span>VLDL export</span><span class="lv"><span class="bars"></span><button class="stepper" data-step="-1" aria-label="감소">−</button><button class="stepper" data-step="1" aria-label="증가">+</button></span></div>
+              </div>
+            </div>
+            <div class="lf__gauge">
+              <div class="track"><div class="fill"></div></div>
+              <div class="num"></div>
+              <div><span class="status ok"></span></div>
+            </div>
+            <div class="figure__cap">정상 간은 “들어오는 + 만드는 지방”과 “태우는 + 내보내는 지방”의 <b>균형</b>을 유지합니다.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>insulin의 역할</div>
+            <p>정상적으로 insulin은 <b>adipose lipolysis 억제</b>·glucose utilization↑·energy storage↑를 합니다. 지방조직이 insulin에 잘 반응하면 <b>과도한 FFA가 혈액으로 쏟아지지 않습니다.</b> 이 개념이 MASLD에서 매우 중요합니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 지방 유입은 그대로인데 β-oxidation과 VLDL export가 감소하면?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 간 지방 감소</li>
+              <li data-opt="B"><span class="opt">B</span> 간 지방 증가</li>
+              <li data-opt="C"><span class="opt">C</span> 혈당만 감소</li>
+              <li data-opt="D"><span class="opt">D</span> 변화 없음</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 유입보다 처리·배출 능력이 부족하면 triglyceride가 hepatocyte에 축적됩니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 무엇이 잘못되나 ================= -->
+        <section id="wrong" class="section">
+          <h2><span class="sec-no">02</span> 무엇이 잘못되는가</h2>
+          <blockquote>복부비만 → adipose insulin resistance → lipolysis 억제 실패 → <b>FFA release↑</b> → 간 유입↑ → hepatic TG↑</blockquote>
+          <p>동시에 간에서도 insulin resistance → hepatic glucose production↑(혈당↑), 그리고 hyperinsulinemia+고탄수화물 노출로 <b>de novo lipogenesis↑</b>. 즉 <b>지방 유입↑ + 지방 생성↑</b>이 함께 일어날 수 있습니다.</p>
+
+          <h3>2-1. 지방이 쌓인 것만으로 간경변이 되나? — 아니다</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal"><h5>Simple steatosis</h5><ol><li>간세포 안 지방 축적</li><li>반드시 심한 염증·섬유화는 아님</li></ol></div>
+            <div class="panel panel--drug"><h5>MASH (옛 NASH)</h5><ol><li>지방축적 + hepatocyte injury</li><li>+ inflammation (ballooning)</li><li>섬유화 진행 위험↑</li></ol></div>
+          </div>
+          <blockquote>지방축적 심화 → lipotoxicity · mitochondrial/oxidative stress · inflammatory signaling → hepatocyte injury → 면역세포 유입 → inflammation → MASH</blockquote>
+
+          <h3>2-2. 시각화 · MASLD Disease Spectrum</h3>
+          <p>슬라이더를 움직여 보세요. <b>지방량</b>과 <b>섬유화</b>는 <b>서로 다른 게이지</b>입니다 — 지방이 줄어도 섬유화가 남을 수 있습니다.</p>
+          <div class="figure" data-masld-spectrum>
+            <div class="figure__title">Viz 3 · Normal → Cirrhosis</div>
+            <div class="mspec__stage"></div>
+            <div class="mspec__bars">
+              <div class="mspec__bar fat"><div class="lab"><span>간 지방 (steatosis)</span><span class="v"></span></div><div class="track"><div class="fill"></div></div></div>
+              <div class="mspec__bar fibro"><div class="lab"><span>섬유화 (fibrosis)</span><span class="v"></span></div><div class="track"><div class="fill"></div></div></div>
+            </div>
+            <div class="mspec__rev"></div>
+            <div class="mspec__slider">
+              <input type="range" min="0" max="4" step="1" value="0" aria-label="질환 진행 단계" />
+              <div class="mspec__steps"><span>정상</span><span>Steatosis</span><span>MASH</span><span>Fibrosis</span><span>Cirrhosis</span></div>
+            </div>
+            <div class="mspec__desc"></div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 장기 예후와 더 밀접한 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 간에 지방이 몇 % 있는가만</li>
+              <li data-opt="B"><span class="opt">B</span> 섬유화 정도</li>
+              <li data-opt="C"><span class="opt">C</span> AST가 하루 동안 얼마나 변했는가</li>
+              <li data-opt="D"><span class="opt">D</span> 체중 자체만</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — MASLD의 장기 liver outcome 예측에 <b>fibrosis stage</b>가 매우 중요. 현재 진료는 “지방간이 있나?”보다 <b>숨은 advanced fibrosis를 찾아내는 것</b>에 초점.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 원인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">03</span> 왜 생기는가 · 위험요인</h2>
+          <p>위험요인은 앞 강의와 거의 그대로 연결됩니다. 항목을 <b>탭</b>하면 주로 어떤 경로와 연결되는지 나옵니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 4 · MASLD Risk Web</div>
+            <div style="text-align:center;font-weight:700;background:var(--mid-soft);color:#a9750a;border-radius:12px;padding:12px;margin-bottom:12px;">Hepatic fat accumulation</div>
+            <div class="checkchips">
+              <button data-text="<b>복부비만/visceral fat</b> — adipose insulin resistance → FFA influx↑. 가장 중요한 위험요인.">복부비만</button>
+              <button data-text="<b>T2DM</b> — MASLD 및 <b>진행성 fibrosis</b> 위험과 강하게 연관.">당뇨(T2DM)</button>
+              <button data-text="<b>이상지질혈증</b> — 특히 hypertriglyceridemia.">이상지질혈증</button>
+              <button data-text="<b>대사증후군/고혈압</b> — cardiometabolic risk cluster의 일부. MASLD와 매우 밀접.">대사증후군</button>
+              <button data-text="<b>유전</b> — 같은 비만이어도 위험이 다름. 예: PNPLA3 variant(외울 필요는 없음).">유전</button>
+              <button data-text="<b>식사</b> — energy excess · 당 음료 · fructose 과잉 · 정제 탄수화물 → hepatic lipogenesis·체중↑.">식사</button>
+              <button data-text="<b>운동 부족</b> — 체중↑·insulin resistance·근육 glucose utilization↓.">운동 부족</button>
+              <button data-text="<b>술</b> — MASLD는 metabolic dysfunction이 핵심이나, 음주 많으면 alcohol-related/MetALD 별도 분류. ‘술 안 마셔서 지방간 없다’는 틀림.">술</button>
+              <button data-text="<b>약물</b> — amiodarone·tamoxifen·methotrexate·corticosteroids·일부 antiretroviral 등은 steatosis/steatohepatitis와 관련(약물유발성 간질환 관점 별도).">약물</button>
+            </div>
+            <div class="infochips__out">각 항목이 FFA influx · DNL · insulin resistance 등 어디로 연결되는지.</div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">04</span> 어떤 증상이 나타나는가</h2>
+          <div class="oneline">MASLD는 대부분 <b>무증상</b> — 검진 초음파·ALT 상승·CT에서 우연히 발견된다. 있어도 피로·우상복부 불편감 정도로 매우 비특이적.</div>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>ALT가 정상이라고 안전한 것은 아니다</div>
+            <p>진행된 fibrosis가 있어도 AST/ALT가 정상 범위일 수 있습니다. <b>“간수치 정상 = 지방간 없음”</b> 또는 <b>“간수치 정상 = 섬유화 없음”</b>은 틀립니다.</p>
+          </div>
+          <p>cirrhosis가 되면 복수·하지부종·황달·정맥류 출혈·hepatic encephalopathy·thrombocytopenia 등이 나타날 수 있습니다.</p>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 단순 상담 영역을 넘음</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>황달 · 복수 · 토혈/흑변 · 의식 변화</li>
+              <li>빠르게 악화되는 간기능</li>
+              <li>platelet 감소 + splenomegaly 등 portal hypertension 소견</li>
+              <li>진행성 fibrosis를 시사하는 비침습 검사 → 전문평가</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 진단 ================= -->
+        <section id="diagnose" class="section">
+          <h2><span class="sec-no">05</span> 어떻게 진단하는가</h2>
+          <p>MASLD 진료의 핵심 질문은 <b>두 단계</b>입니다. ① 간에 지방이 있는가? 그리고 더 중요하게 <b>② 진행된 fibrosis가 있는가?</b></p>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>검사</th><th>역할 / 한계</th></tr></thead>
+              <tbody>
+                <tr><th>Ultrasound</th><td>흔한 1차 · 접근성↑ / 경미한 steatosis 놓칠 수 있고 정량 제한</td></tr>
+                <tr><th>CT</th><td>다른 이유로 우연히 발견 / 단순 screening용으로 방사선 노출은 부적절</td></tr>
+                <tr><th>MRI-PDFF</th><td>지방량 정량 매우 정확 / 비용·접근성으로 모두에게는 X</td></tr>
+                <tr><th>AST/ALT</th><td>hepatocyte injury 단서 / <b>정상 ALT로 advanced disease 배제 불가</b></td></tr>
+                <tr><th>FIB-4</th><td>1차 <b>fibrosis 선별</b> 도구(진단 점수 아님)</td></tr>
+                <tr><th>Elastography(FibroScan)</th><td>간 stiffness로 fibrosis 가능성 · CAP으로 steatosis 정보</td></tr>
+                <tr><th>Liver biopsy</th><td>MASH·fibrosis 직접 평가 / invasive·sampling error → 모두에게 X</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>5-1. 시각화 · FIB-4 Learning Calculator</h3>
+          <p>값을 넣어보세요. <b>FIB-4 = Age × AST / (Platelet × √ALT)</b> — 공식 암기는 필요 없고 <b>어떤 데이터를 쓰는지</b>만 이해하면 됩니다.</p>
+          <div class="figure" data-fib4>
+            <div class="figure__title">FIB-4 (학습용)</div>
+            <div class="fib4__grid">
+              <div class="fib4__f"><label>Age (세)</label><input type="number" data-fib4-age value="55" min="18" max="100" /></div>
+              <div class="fib4__f"><label>AST (U/L)</label><input type="number" data-fib4-ast value="40" min="5" max="500" /></div>
+              <div class="fib4__f"><label>ALT (U/L)</label><input type="number" data-fib4-alt value="30" min="5" max="500" /></div>
+              <div class="fib4__f"><label>Platelet (10⁹/L)</label><input type="number" data-fib4-plt value="200" min="20" max="500" /></div>
+            </div>
+            <div class="fib4__result">
+              <div class="fib4__val"></div>
+              <div><span class="fib4__band"></span></div>
+              <div class="fib4__note">학습용 계산입니다. 연령·임상상황에 따라 cut-off와 해석이 달라집니다.</div>
+            </div>
+          </div>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>왜 platelet이 들어갈까 · 단계적 접근</div>
+            <p>advanced fibrosis/portal hypertension으로 진행하면 <b>platelet이 감소</b>할 수 있어 공식에 들어갑니다. AASLD는 일반 성인에서 <b>FIB-4 &lt;1.3</b>이면 advanced fibrosis 가능성이 낮은 군으로 일차진료 추적, 높거나 불확실하면 <b>elastography 등 2차 평가</b>를 사용합니다.
+              FIB-4는 “간경변 진단 점수”가 아니라 <b>누구를 추가 검사할지 선별하는 도구</b>입니다.</p>
+          </div>
+
+          <blockquote>Fatty liver/대사위험 발견 → <b>FIB-4</b> → (낮음: 일차진료·재평가) / (불확실·높음: elastography) → 높은 fibrosis 가능성 → 전문진료(hepatology) → 필요 시 biopsy</blockquote>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> 지방간이 있는 58세 당뇨 환자의 ALT가 29 U/L. 가장 적절한 생각은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> ALT 정상이므로 추가 위험평가 불필요</li>
+              <li data-opt="B"><span class="opt">B</span> ALT 정상이어도 fibrosis risk assessment가 필요할 수 있다</li>
+              <li data-opt="C"><span class="opt">C</span> 지방간은 반드시 통증이 있어야 진단</li>
+              <li data-opt="D"><span class="opt">D</span> 당뇨는 MASLD와 무관</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — T2DM은 MASLD·advanced fibrosis의 중요한 위험요인이라 간수치가 정상이어도 fibrosis 평가가 중요할 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 치료 안하면 ================= -->
+        <section id="untreated" class="section">
+          <h2><span class="sec-no">06</span> 치료하지 않으면</h2>
+          <p>모든 MASLD가 간경변으로 가는 것은 아니고 진행 정도는 사람마다 매우 다릅니다. 다만 일부는 steatosis → MASH → fibrosis → cirrhosis로 진행합니다.</p>
+          <p>cirrhosis가 되면 <b>portal hypertension</b>(복수·varices·splenomegaly)·<b>liver failure</b>(황달·coagulopathy·encephalopathy)·<b>HCC</b> 위험이 증가합니다.</p>
+          <div class="twopanel">
+            <div class="panel panel--drug"><h5>🫀 간질환 경로</h5><ol><li>MASH → fibrosis → cirrhosis</li><li>HCC / liver failure</li></ol></div>
+            <div class="panel panel--drug" style="background:var(--hi-soft);border-color:var(--hi);"><h5>❤️ 심혈관 경로</h5><ol><li>obesity/DM/HTN/이상지질혈증 동반</li><li>atherosclerosis → MI/stroke</li></ol></div>
+          </div>
+          <div class="oneline">MASLD 환자의 위험은 <b>간만이 아니다</b> — 간질환 위험과 심혈관 위험을 <b>동시에</b> 관리한다. (EASL도 lifestyle·cardiometabolic risk 관리를 치료 중심으로 둠)</div>
+        </section>
+
+        <!-- ================= 7 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">07</span> 치료의 전체 그림</h2>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>1. 체중·생활습관</h5><p>가장 기본</p></div>
+            <div class="axis3__card pump"><h5>2. Cardiometabolic</h5><p>당뇨·비만·지질·혈압 관리</p></div>
+            <div class="axis3__card pipes"><h5>3. Fibrosis 모니터링</h5><p>FIB-4 / elastography</p></div>
+            <div class="axis3__card"><h5>4. 선택된 MASH 약물</h5><p>liver-directed therapy</p></div>
+          </div>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 목표</div>
+            <p>❌ 초음파 문구 없애기만 · ❌ ALT 숫자 정상화만 → 보다 중요한 것은 <b>liver fibrosis 진행 감소 + cardiometabolic outcome 개선</b>입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">08</span> 생활습관 치료</h2>
+          <blockquote>체중 감소 → visceral adiposity↓ → FFA delivery↓ → insulin resistance↓ → hepatic fat↓ → inflammation·fibrosis 개선 가능</blockquote>
+          <div class="figure">
+            <div class="figure__title">Viz 7 · Weight Loss Ladder</div>
+            <div class="axis3" style="grid-template-columns:repeat(3,1fr);gap:10px;">
+              <div class="axis3__card volume"><h5>−5%</h5><p>hepatic steatosis 개선에 도움</p></div>
+              <div class="axis3__card pump"><h5>−7~10%</h5><p>MASH·fibrosis 개선 가능성↑</p></div>
+              <div class="axis3__card"><h5>더 많이</h5><p>histologic 개선 가능성 더↑</p></div>
+            </div>
+            <div class="figure__cap">“20kg 못 빼면 의미 없다”가 아니다. 개인차가 있고 절대 보장 수치는 아님.</div>
+          </div>
+          <ul class="clean">
+            <li><b>운동</b> — 체중이 크게 안 줄어도 간 지방·insulin sensitivity에 도움. “몸무게 안 빠졌으니 실패”가 아님.</li>
+            <li><b>식사</b> — 특정 “지방간 식단”은 없음. caloric excess↓·포화지방 과잉↓·당 음료↓·정제 탄수화물↓, 채소·통곡물·불포화지방 중심(지중해식이 흔히 권장).</li>
+            <li><b>Fructose</b> — 자체가 독은 아니나 <b>과도한 당 음료</b> 형태는 excess energy·hepatic DNL과 연결되어 불리.</li>
+            <li><b>술</b> — “대사가 원인이니 마음껏”이 아님. 간질환 환자에서 alcohol은 추가 손상에 기여 → 정도 평가·제한.</li>
+            <li><b>커피</b> — 관찰연구에서 일부 fibrosis 위험↓ 연관 데이터는 있으나 <b>치료제처럼 과장 금지</b>(핵심 치료 아님).</li>
+          </ul>
+        </section>
+
+        <!-- ================= 9 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">09</span> 약물치료</h2>
+          <div class="oneline">“지방간은 살 빼는 것 말고 약이 없다”는 이제 완전히 정확하지 않다 — 특정 <b>MASH + fibrosis</b> 환자 대상 승인 치료제가 등장했다.</div>
+
+          <p>치료를 <b>층(layer)</b>으로 이해하세요. 칩을 <b>탭</b>하면 각 층의 역할이 나옵니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 8 · MASLD Treatment Layers</div>
+            <div class="checkchips">
+              <button data-text="<b>Layer 1 · 모든 환자</b> — 체중/운동/식사. 치료의 기반.">L1 · 생활습관</button>
+              <button data-text="<b>Layer 2 · statin</b> — ‘지방간 치료제’는 아니지만 MASLD 환자의 dyslipidemia·ASCVD risk 관리에 매우 중요. <b>‘지방간이라 statin 피한다’는 대부분 근거 없음.</b>">L2 · Statin</button>
+              <button data-text="<b>Layer 2 · GLP-1 기반</b> — obesity·T2DM 개선 → hepatic fat·MASH 개선에 기여. 2025 FDA는 중등도~진행성 fibrosis MASH에 <b>semaglutide(Wegovy)</b> 승인(국내 허가·급여는 별도 확인).">L2 · GLP-1</button>
+              <button data-text="<b>Layer 2 · SGLT2i</b> — DM/HF/CKD 등 동반질환 + 간대사 개선 가능. 환자별.">L2 · SGLT2i</button>
+              <button data-text="<b>Layer 3 · Fibrosis 평가</b> — FIB-4 / elastography로 위험층화.">L3 · Fibrosis 평가</button>
+              <button data-text="<b>Layer 4 · Resmetirom</b> — <b>THR-β agonist</b>. 간 THR-β 활성 → hepatic lipid 대사 개선 → liver fat↓, MASH/fibrosis 개선 목표. FDA 2024: <b>비간경변 MASH + 중등도~진행성 fibrosis(F2–F3)</b>에 diet/exercise와 함께. 부작용: 설사·오심 등, thyroid axis·간검사·상호작용 고려. <b>초음파 지방간 있는 모두에게 쓰는 약이 아님.</b>">L4 · Resmetirom</button>
+            </div>
+            <div class="infochips__out">생활습관 → cardiometabolic → fibrosis 평가 → 선택된 MASH 약물 순으로 쌓입니다.</div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>치료</th><th>주로 노리는 것</th><th>모든 MASLD에?</th></tr></thead>
+              <tbody>
+                <tr><th>Statin</th><td>ASCVD risk / LDL</td><td>적응증 있으면</td></tr>
+                <tr><th>GLP-1 기반</th><td>체중·당대사 + MASH benefit</td><td>환자별</td></tr>
+                <tr><th>SGLT2i</th><td>DM/HF/CKD + 간대사 개선 가능</td><td>환자별</td></tr>
+                <tr><th>Resmetirom</th><td>MASH + fibrosis</td><td class="cov-no-c">아니오(선택 환자)</td></tr>
+                <tr><th>Vitamin E / pioglitazone</th><td>특정 환자군에서 고려돼 온 치료</td><td>전문적 선택</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ④</span> mild fatty liver·fibrosis 위험 낮은 32세가 “resmetirom 먹으면 되나요?”</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 네, 지방간이면 모두 대상입니다.</li>
+              <li data-opt="B"><span class="opt">B</span> 일반적으로 아닙니다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — resmetirom은 단순 지방축적이 있는 모두가 아니라 <b>비간경변 MASH + 중등도~진행성 fibrosis(F2–F3)</b>의 선택된 환자 대상입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">10</span> 약사 Deep Dive</h2>
+          <h3>① TG 자체는 오히려 보호적일 수 있다?</h3>
+          <p>“TG 축적 = 독성”이라 생각하기 쉽지만, hepatocyte가 FFA를 TG로 esterification해 <b>저장하는 것은 독성 lipid intermediate를 안전하게 격리하는 방어</b>일 수 있습니다. 진짜 문제는 toxic lipid species·mitochondrial/ER stress·oxidative stress가 늘어나는 <b>lipotoxicity</b>. “보이는 지방방울 자체가 모든 손상의 원인”으로 단순화하면 안 됩니다.</p>
+          <h3>② 왜 fibrosis가 핵심 예후인자인가</h3>
+          <p>지방·염증은 변화 가능하지만 fibrosis는 반복된 손상+wound-healing의 흔적입니다. <b>hepatic stellate cell 활성화 → collagen↑ → fibrosis → 간 구조 왜곡 → portal hypertension·liver failure</b>. 누적될수록 임상 결과가 악화됩니다.</p>
+          <h3>③ FIB-4는 왜 나이 때문에 조심해야 하나</h3>
+          <p>공식에 age가 직접 들어가 <b>고령에서 높게, 젊은층에서 낮게</b> 나오는 경향이 있습니다. 숫자 하나를 절대적으로 보지 말고 연령·임상 위험·다른 NIT를 함께 봅니다.</p>
+        </section>
+
+        <!-- ================= 11 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">11</span> 비슷한 질환 비교</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>MASLD (단순 steatosis)</th><th>MASH</th></tr></thead>
+              <tbody>
+                <tr><th>지방축적</th><td>O</td><td>O</td></tr>
+                <tr><th>inflammation</th><td>적거나 없음</td><td>O</td></tr>
+                <tr><th>hepatocyte injury</th><td>적음</td><td>O</td></tr>
+                <tr><th>fibrosis 위험</th><td>상대적으로 낮음</td><td class="cov-no-c">높음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>MASLD</th><th>Alcohol-related</th></tr></thead>
+              <tbody>
+                <tr><th>주된 배경</th><td>metabolic dysfunction</td><td>harmful alcohol exposure</td></tr>
+                <tr><th>obesity/DM</th><td>흔함</td><td>있을 수도</td></tr>
+                <tr><th>alcohol</th><td>낮거나 제한적</td><td>주요 원인</td></tr>
+                <tr><th>동시 존재?</th><td colspan="2">가능(MetALD). 상호 배타적이지 않음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);"><b>지방간 vs 간염:</b> “지방간”=간에 fat accumulation, “간염”=inflammation. 그래서 단순 지방간과 <b>MASH(지방+염증)</b>를 구분해야 합니다.</p>
+        </section>
+
+        <!-- ================= 12 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">12</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 술을 안 마시는데 왜 지방간인가요?</button>
+              <div class="faq__a">가장 흔한 이유는 술이 아니라 비만·insulin resistance 같은 대사 이상입니다. 복부지방에서 지방산이 간으로 많이 들어오고 간에서도 지방 합성이 늘어 축적됩니다.
+                <div class="ph"><b>약사:</b> MASLD라는 새 이름 자체가 metabolic dysfunction을 반영합니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. 마른 사람도 지방간이 생기나요?</button>
+              <div class="faq__a">가능합니다(lean MASLD). BMI가 낮아도 visceral adiposity·insulin resistance·유전 소인이 있을 수 있습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. ALT 정상인데 지방간이라고 합니다. 말이 되나요?</button>
+              <div class="faq__a">그렇습니다. ALT와 hepatic fat/fibrosis는 다른 개념입니다. ALT가 정상이어도 fatty liver나 심지어 advanced fibrosis가 있을 수 있습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. 살만 빼면 없어지나요?</button>
+              <div class="faq__a">초기엔 체중감량으로 liver fat이 크게 줄 수 있고 MASH·fibrosis도 충분한 감량으로 개선 가능성이 있습니다. 다만 진행된 cirrhosis는 완전히 되돌리기 어려울 수 있습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. 지방간이면 지방을 전혀 먹으면 안 되나요?</button>
+              <div class="faq__a">아닙니다. 간 지방은 먹은 지방이 그대로 붙는 구조가 아닙니다. 전체 energy balance·insulin resistance·탄수화물 대사·지방의 질이 중요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 지방간이면 statin을 먹으면 안 되나요?</button>
+              <div class="faq__a">대체로 아닙니다. MASLD 환자는 오히려 심혈관 위험이 높아 statin 적응증이 있으면 적극적 lipid management가 중요할 수 있습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 지방간은 간암으로 가나요?</button>
+              <div class="faq__a">모든 지방간이 그런 것은 아닙니다. 다만 MASH → fibrosis → cirrhosis로 진행하면 HCC 위험이 증가합니다. 일부는 cirrhosis 없이도 발생할 수 있어 개인 위험에 따라 감시전략이 달라집니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">13</span> 흔한 오해 / 팩트체크</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">지방간은 술 마시는 사람에게만 생긴다.</div><span class="verdict">틀림</span>
+              <div class="why">MASLD는 metabolic dysfunction과 관련된 지방간입니다.</div></div>
+            <div class="factrow"><div class="claim">간수치가 정상이면 지방간은 괜찮다.</div><span class="verdict">틀림</span>
+              <div class="why">AST/ALT만으로 fibrosis를 배제할 수 없습니다.</div>
+              <div class="take"><b>실전:</b> 위험군에서는 fibrosis risk assessment를 생각한다.</div></div>
+            <div class="factrow"><div class="claim">지방간이 있으면 지방을 먹으면 안 된다.</div><span class="verdict">틀림</span>
+              <div class="why">간 지방은 FFA influx·DNL·oxidation·VLDL export의 균형으로 결정됩니다.</div>
+              <div class="take"><b>실전:</b> 전체 식사패턴·energy balance를 본다.</div></div>
+            <div class="factrow"><div class="claim">지방간 치료는 간장약 먹는 것이다.</div><span class="verdict">대체로 틀림</span>
+              <div class="why">핵심은 체중·glucose·BP·lipid 등 metabolic drivers 관리와 fibrosis 위험 평가입니다.</div></div>
+            <div class="factrow"><div class="claim">초음파에서 지방간이면 모두 간경변으로 진행한다.</div><span class="verdict">틀림</span>
+              <div class="why">대부분 같은 속도로 진행하지 않습니다. 진행 위험 평가에 fibrosis가 특히 중요.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">14</span> Case Study</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · 간수치 조금 높은 지방간</div>
+            <p>45세 남성. BMI 29 · 허리 98 · TG 250 · HbA1c 6.3% · ALT 62 · 초음파 fatty liver · 음주 월 1~2회 소량.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① MASLD 가능성? ② 원인을 술로 설명? ③ 간수치만 반복 확인이면 충분? ④ 무엇을 함께?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">복부비만·prediabetes·hypertriglyceridemia 등 명확한 cardiometabolic risk가 있어 MASLD 가능성이 높습니다.
+              <div class="exp">중요한 건 fibrosis risk assessment·체중·glucose·lipid·BP·alcohol·다른 간질환 배제. “ALT 내려가나 보자”로 끝내면 부족합니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 2 · ALT는 정상인데 정말 위험할까?</div>
+            <p>63세 여성. T2DM 15년 · BMI 26 · <b>platelets 142,000/μL</b> · AST 42 · ALT 30(정상범위) · 초음파 fatty liver.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① ALT 정상이 안심 근거? ② platelet 감소가 눈에 들어와야 하는 이유? ③ FIB-4가 필요한 이유? ④ 언제 hepatology referral?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">장기간 T2DM은 advanced fibrosis의 중요한 위험요인이라 ALT가 정상이어도 배제할 수 없습니다.
+              <div class="exp">platelet 감소는 여러 원인이 있지만 advanced fibrosis/portal hypertension에서도 나타나 주의를 끕니다. FIB-4 같은 1차 NIT 계산 후 필요하면 elastography·전문진료로 연결. (위의 <a href="#diagnose">FIB-4 계산기</a>에 63/42/30/142를 넣어보세요.)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">15</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. MASLD의 간 지방축적 기전으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 섭취한 지방이 소화되지 않고 그대로 간에 붙는다.</li>
+                <li data-opt="B"><span class="opt">B</span> FFA influx와 de novo lipogenesis 등이 지방 처리·배출을 초과한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 모든 환자에서 VLDL 생성이 완전히 사라진다.</li>
+                <li data-opt="D"><span class="opt">D</span> 간이 glucose를 만들지 못하기 때문에 발생한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. 단순 steatosis와 MASH의 가장 중요한 차이는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> MASH에서는 지방이 전혀 없다.</li>
+                <li data-opt="B"><span class="opt">B</span> MASH에서는 hepatocyte injury와 inflammation이 동반된다.</li>
+                <li data-opt="C"><span class="opt">C</span> 단순 지방간에서만 fibrosis가 생긴다.</li>
+                <li data-opt="D"><span class="opt">D</span> MASH는 술 마시는 사람에게만 생긴다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. MASLD의 장기 liver-related prognosis에서 특히 중요한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 체중 하루 변동</li>
+                <li data-opt="B"><span class="opt">B</span> Fibrosis stage</li>
+                <li data-opt="C"><span class="opt">C</span> HDL 하나의 수치</li>
+                <li data-opt="D"><span class="opt">D</span> bilirubin이 항상 정상인지 여부만</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. 다음 중 가장 적절한 설명은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> ALT 정상은 advanced fibrosis를 완전히 배제한다.</li>
+                <li data-opt="B"><span class="opt">B</span> 모든 지방간 환자는 liver biopsy가 필요하다.</li>
+                <li data-opt="C"><span class="opt">C</span> FIB-4는 advanced fibrosis 위험 선별에 활용할 수 있다.</li>
+                <li data-opt="D"><span class="opt">D</span> 초음파에서 fatty liver면 바로 cirrhosis이다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. Resmetirom에 대한 설명으로 맞는 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 단순 mild fatty liver가 있는 모든 사람에게 사용한다.</li>
+                <li data-opt="B"><span class="opt">B</span> THR-β agonist로 선택된 noncirrhotic MASH F2–F3 환자에서 쓰는 liver-directed therapy다.</li>
+                <li data-opt="C"><span class="opt">C</span> 지방흡수만 차단하는 intestinal lipase inhibitor다.</li>
+                <li data-opt="D"><span class="opt">D</span> 간기능검사를 측정하는 진단약이다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">16</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>MASLD는 비만·당뇨·이상지질혈증 같은 metabolic dysfunction과 관련된 간 지방 축적 질환.</p></div>
+            <div class="factcard"><span class="n">2</span><p>간 지방 = (FFA 유입 + DNL) 이 (β-oxidation + VLDL 배출)보다 많을 때 축적.</p></div>
+            <div class="factcard"><span class="n">3</span><p>복부비만·IR → adipose lipolysis↑ → FFA가 간으로 많이 유입.</p></div>
+            <div class="factcard"><span class="n">4</span><p>Steatosis ≠ MASH. MASH는 지방 + hepatocyte injury + inflammation.</p></div>
+            <div class="factcard"><span class="n">5</span><p>장기 liver outcome에서 fibrosis stage가 매우 중요.</p></div>
+            <div class="factcard"><span class="n">6</span><p>ALT 정상이라고 advanced fibrosis가 없는 것은 아니다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>biopsy 대신 FIB-4 → elastography 단계적 non-invasive 평가.</p></div>
+            <div class="factcard"><span class="n">8</span><p>치료 기본 = 체중·운동·식사 + 당뇨·지질·BP 등 cardiometabolic 관리.</p></div>
+            <div class="factcard"><span class="n">9</span><p>간경변뿐 아니라 심혈관질환 위험도 함께 관리.</p></div>
+            <div class="factcard"><span class="n">10</span><p>이제 일부 MASH에서 resmetirom·semaglutide 등 질환특이 약물도 임상에. 단 모든 단순 지방간에 쓰는 게 아니다.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>오늘의 결론</h3>
+          <p class="big">술이 아니라 <b>대사 이상</b>이 흔한 원인이다 · 간 지방은 <b>유입·생성 vs 산화·배출의 균형</b> ·
+            단순 지방간과 MASH는 다르다 · <b>fibrosis가 예후의 핵심</b>이라 ALT 정상이어도 위험층화가 필요하다 ·
+            치료는 <b>간 + 심혈관 위험을 동시에</b>, 이제 선택된 MASH엔 약물도 있다.</p>
+          <p style="margin-top:22px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>MASLD 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">원인</span><span>대사 이상(술 아님)</span></div>
+      <div class="qr-row"><span class="qr-k">균형</span><span>유입·생성 vs 산화·배출</span></div>
+      <div class="qr-row"><span class="qr-k">예후</span><span>fibrosis가 핵심</span></div>
+      <div class="qr-row"><span class="qr-k">선별</span><span>FIB-4 → elastography</span></div>
+      <div class="qr-row"><span class="qr-k">치료</span><span>체중+대사, MASH엔 약물</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

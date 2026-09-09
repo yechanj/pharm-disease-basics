@@ -1982,3 +1982,57 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .daily-banner__desc { font-size: 12.5px; }
   .daily-banner__go { padding: 8px 13px; font-size: 13.5px; }
 }
+
+/* =========================================================
+   ========  Core 06 · 지방간(MASLD) 전용 컴포넌트  ========
+   ========================================================= */
+:root { --liverfat: #e0b526; --fibro: #b5651d; }
+
+/* Viz 1 · Liver Fat Balance (bpsim__factor 재사용) */
+.lf__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.lf__col { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 14px; border-top: 4px solid var(--accent); }
+.lf__col.in { --accent: var(--hi); }
+.lf__col.out { --accent: var(--ok); }
+.lf__col h5 { margin: 0 0 10px; font-size: 14px; color: var(--accent); }
+.lf__gauge { margin-top: 14px; text-align: center; }
+.lf__gauge .track { height: 20px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.lf__gauge .fill { height: 100%; background: linear-gradient(90deg,var(--ok),var(--liverfat),var(--hi)); width: 30%; transition: width .2s; }
+.lf__gauge .num { font-weight: 700; font-size: clamp(20px,5vw,26px); margin-top: 8px; }
+.lf__gauge .status { font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 13.5px; display: inline-block; margin-top: 4px; }
+.lf__gauge .status.ok { background: var(--ok-soft); color: var(--ok); }
+.lf__gauge .status.mid { background: var(--mid-soft); color: #a9750a; }
+.lf__gauge .status.hi { background: var(--hi-soft); color: var(--hi); }
+
+/* Viz 3 · MASLD Spectrum Slider */
+.mspec__stage { text-align: center; font-weight: 700; font-size: 16px; margin: 6px 0; }
+.mspec__bars { display: grid; gap: 10px; margin: 10px 0; }
+.mspec__bar .lab { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.mspec__bar .track { height: 16px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.mspec__bar .fill { height: 100%; border-radius: 999px; transition: width .25s; }
+.mspec__bar.fat .fill { background: var(--liverfat); }
+.mspec__bar.fibro .fill { background: var(--fibro); }
+.mspec__rev { text-align: center; margin: 8px 0; }
+.mspec__rev span { font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 13px; }
+.mspec__rev span.hi { background: var(--ok-soft); color: var(--ok); }
+.mspec__rev span.mid { background: var(--mid-soft); color: #a9750a; }
+.mspec__rev span.lo { background: var(--hi-soft); color: var(--hi); }
+.mspec__slider input[type=range] { width: 100%; accent-color: var(--fibro); height: 30px; }
+.mspec__steps { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink-faint); font-weight: 700; }
+.mspec__desc { font-size: 13.5px; color: var(--ink-soft); margin-top: 6px; min-height: 34px; }
+
+/* Viz · FIB-4 Learning Calculator */
+.fib4__grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 10px; margin-bottom: 12px; }
+.fib4__f { }
+.fib4__f label { font-size: 12.5px; font-weight: 700; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+.fib4__f input { width: 100%; font-family: inherit; font-size: 15px; font-weight: 700; padding: 9px 10px; border: 1px solid var(--line-strong); border-radius: 10px; text-align: center; }
+.fib4__result { border-radius: 14px; padding: 16px; text-align: center; border: 1px solid var(--line); background: var(--surface-2); }
+.fib4__val { font-size: clamp(26px,7vw,34px); font-weight: 700; }
+.fib4__band { font-weight: 700; border-radius: 999px; padding: 4px 14px; font-size: 13.5px; display: inline-block; margin-top: 6px; }
+.fib4__band.low { background: var(--ok-soft); color: var(--ok); }
+.fib4__band.ind { background: var(--mid-soft); color: #a9750a; }
+.fib4__band.high { background: var(--hi-soft); color: var(--hi); }
+.fib4__note { font-size: 12px; color: var(--ink-faint); margin-top: 8px; }
+
+@media (max-width: 640px) {
+  .lf__cols { grid-template-columns: 1fr; }
+}

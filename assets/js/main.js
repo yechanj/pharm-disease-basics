@@ -1058,7 +1058,118 @@
     // Core 05 · 대사증후군
     initMetNetwork();
     initMetsBuilder();
+    // Core 06 · 지방간(MASLD)
+    initLiverFat();
+    initMasldSpectrum();
+    initFib4();
   });
+
+  /* =========================================================
+     ============  Core 06 · 지방간(MASLD) 인터랙션  ============
+     ========================================================= */
+
+  /* ---------- Viz 1 · Liver Fat Balance ---------- */
+  function initLiverFat() {
+    var root = document.querySelector("[data-liverfat]");
+    if (!root) return;
+    // 들어옴(+): ffa, diet, dnl / 나감(−): oxid, vldl
+    var state = { ffa: 0, diet: 0, dnl: 0, oxid: 0, vldl: 0 };
+    var IN = ["ffa", "diet", "dnl"];
+    var fillEl = root.querySelector(".lf__gauge .fill");
+    var numEl = root.querySelector(".lf__gauge .num");
+    var statusEl = root.querySelector(".lf__gauge .status");
+    function renderBars(f) {
+      var lv = state[f], bars = "";
+      for (var i = -2; i <= 2; i++) {
+        var on = (lv > 0 && i > 0 && i <= lv) || (lv < 0 && i < 0 && i >= lv) || (i === 0);
+        bars += "<i class='" + (on ? "on" : "") + "'></i>";
+      }
+      return bars;
+    }
+    function render() {
+      var inSum = state.ffa + state.diet + state.dnl;
+      var outSum = state.oxid + state.vldl;
+      var fat = 34 + inSum * 9 - outSum * 9;
+      fat = Math.max(3, Math.min(100, fat));
+      fillEl.style.width = fat + "%";
+      numEl.textContent = "Hepatic fat 지표 " + Math.round(fat);
+      var cls, txt;
+      if (fat < 33) { cls = "ok"; txt = "정상 균형"; }
+      else if (fat < 60) { cls = "mid"; txt = "지방 축적(steatosis)"; }
+      else { cls = "hi"; txt = "지방 과다"; }
+      statusEl.className = "status " + cls;
+      statusEl.textContent = txt;
+      root.querySelectorAll(".bpsim__factor").forEach(function (fx) {
+        var barsEl = fx.querySelector(".bars");
+        if (barsEl) barsEl.innerHTML = renderBars(fx.getAttribute("data-factor"));
+      });
+    }
+    root.addEventListener("click", function (e) {
+      var s = e.target.closest(".stepper");
+      if (!s) return;
+      var key = s.closest(".bpsim__factor").getAttribute("data-factor");
+      state[key] = Math.max(-2, Math.min(2, state[key] + parseInt(s.getAttribute("data-step"), 10)));
+      render();
+    });
+    render();
+  }
+
+  /* ---------- Viz 3 · MASLD Spectrum Slider ---------- */
+  var MASLD_SPEC = [
+    { n: "정상 간", fat: 6, fibro: 3, rev: "hi", revT: "가역성 높음", d: "지방 축적이 거의 없는 정상 간." },
+    { n: "Steatosis (단순 지방간)", fat: 55, fibro: 8, rev: "hi", revT: "가역성 높음", d: "hepatocyte 안 지방 축적. 반드시 심한 염증·섬유화가 있는 것은 아님." },
+    { n: "MASH (지방간염)", fat: 62, fibro: 30, rev: "mid", revT: "가역성 중간", d: "지방축적 + hepatocyte injury + inflammation(ballooning). 섬유화 진행 위험↑." },
+    { n: "Fibrosis (섬유화)", fat: 55, fibro: 60, rev: "mid", revT: "가역성 감소", d: "반복된 손상·wound healing → collagen 침착. 장기 예후의 핵심 인자." },
+    { n: "Cirrhosis (간경변)", fat: 40, fibro: 92, rev: "lo", revT: "가역성 낮음", d: "간 구조 왜곡·nodule. portal hypertension·liver failure·HCC 위험." }
+  ];
+  function initMasldSpectrum() {
+    var root = document.querySelector("[data-masld-spectrum]");
+    if (!root) return;
+    var input = root.querySelector("input[type=range]");
+    var stageEl = root.querySelector(".mspec__stage");
+    var fatFill = root.querySelector(".mspec__bar.fat .fill");
+    var fatVal = root.querySelector(".mspec__bar.fat .v");
+    var fibroFill = root.querySelector(".mspec__bar.fibro .fill");
+    var fibroVal = root.querySelector(".mspec__bar.fibro .v");
+    var revEl = root.querySelector(".mspec__rev");
+    var descEl = root.querySelector(".mspec__desc");
+    function render() {
+      var s = MASLD_SPEC[parseInt(input.value, 10)];
+      stageEl.textContent = s.n;
+      fatFill.style.width = s.fat + "%"; if (fatVal) fatVal.textContent = s.fat + "%";
+      fibroFill.style.width = s.fibro + "%"; if (fibroVal) fibroVal.textContent = s.fibro + "%";
+      revEl.innerHTML = "<span class='" + s.rev + "'>" + s.revT + "</span>";
+      descEl.textContent = s.d;
+    }
+    input.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- Viz · FIB-4 Learning Calculator ---------- */
+  function initFib4() {
+    var root = document.querySelector("[data-fib4]");
+    if (!root) return;
+    var valEl = root.querySelector(".fib4__val");
+    var bandEl = root.querySelector(".fib4__band");
+    function num(sel) { var el = root.querySelector(sel); return parseFloat(el && el.value); }
+    function render() {
+      var age = num("[data-fib4-age]"), ast = num("[data-fib4-ast]"),
+        alt = num("[data-fib4-alt]"), plt = num("[data-fib4-plt]");
+      if (!(age > 0 && ast > 0 && alt > 0 && plt > 0)) {
+        valEl.textContent = "FIB-4 —"; bandEl.className = "fib4__band"; bandEl.textContent = "값을 입력하세요"; return;
+      }
+      var fib4 = (age * ast) / (plt * Math.sqrt(alt));
+      valEl.textContent = "FIB-4 " + fib4.toFixed(2);
+      var cls, txt;
+      if (fib4 < 1.3) { cls = "low"; txt = "낮은 위험군 — 일차진료 추적/재평가"; }
+      else if (fib4 <= 2.67) { cls = "ind"; txt = "불확실 — elastography 등 2차 평가"; }
+      else { cls = "high"; txt = "높은 위험 — 전문진료(hepatology) 고려"; }
+      bandEl.className = "fib4__band " + cls;
+      bandEl.textContent = txt;
+    }
+    root.querySelectorAll("input").forEach(function (i) { i.addEventListener("input", render); });
+    render();
+  }
 
   /* =========================================================
      ============  Core 05 · 대사증후군 인터랙션  ============
