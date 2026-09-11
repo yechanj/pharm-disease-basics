@@ -1906,6 +1906,36 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .qd-frow.off .qd-fcat-badge { background: var(--surface-2); color: var(--ink-faint); }
 .qd-frow.off .qd-frange { opacity: .3; pointer-events: none; }
 
+/* ---------- 과목별 진행도 ---------- */
+.qd-btn--ghost { background: transparent; border-color: var(--line); color: var(--brand); font-size: 13.5px; }
+.qd-btn--ghost:hover:not(:disabled) { background: var(--brand-soft); border-color: var(--brand); box-shadow: none; transform: none; }
+.qd-pgview { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); padding: 22px 20px 28px; }
+.qd-pgview-head { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.qd-pg-back { font-family: inherit; font-size: 13px; font-weight: 700; color: var(--brand); background: var(--brand-soft); border: none; border-radius: 8px; padding: 6px 12px; cursor: pointer; transition: filter .12s; flex: 0 0 auto; }
+.qd-pg-back:hover { filter: brightness(.93); }
+.qd-pgview-title { font-size: 15.5px; font-weight: 700; color: var(--ink); }
+.qd-pgsec { margin-bottom: 22px; }
+.qd-pgsec:last-child { margin-bottom: 0; }
+.qd-pgsec-label { font-size: 10.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.qd-pgcard { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 8px; transition: box-shadow .15s; }
+.qd-pgcard:last-child { margin-bottom: 0; }
+.qd-pgcard:hover { box-shadow: 0 4px 16px rgba(31,122,224,.09); border-color: var(--line-strong); }
+.qd-pgcard-top { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.qd-pgcard-badge { flex: 0 0 auto; font-size: 10.5px; font-weight: 700; border-radius: 6px; padding: 2px 8px; letter-spacing: .04em; }
+.qd-pgcard-badge--core { background: var(--brand-soft); color: var(--brand-dark); }
+.qd-pgcard-badge--ev { background: #dcf5f1; color: #0d8a7a; }
+.qd-pgcard-name { flex: 1; font-size: 14px; font-weight: 700; color: var(--ink); }
+.qd-pgcard-pct { flex: 0 0 auto; font-size: 15px; font-weight: 700; color: var(--brand-dark); font-variant-numeric: tabular-nums; min-width: 42px; text-align: right; }
+.qd-pgcard-pct--done { color: var(--cov-yes); }
+.qd-pgbar { height: 7px; border-radius: 999px; background: var(--surface-2); overflow: hidden; display: flex; margin-bottom: 10px; }
+.qd-pgbar-ok { height: 100%; background: var(--cov-yes); }
+.qd-pgbar-no { height: 100%; background: var(--cov-no); opacity: .75; }
+.qd-pgcard-stats { display: flex; align-items: center; gap: 14px; }
+.qd-pgstat--ok  { font-size: 12px; font-weight: 700; color: var(--cov-yes); }
+.qd-pgstat--no  { font-size: 12px; font-weight: 700; color: var(--cov-no); }
+.qd-pgstat--un  { font-size: 12px; font-weight: 700; color: var(--ink-faint); }
+.qd-pgstat--tot { font-size: 12px; color: var(--ink-faint); margin-left: auto; }
+
 /* ---------- 문제 화면 ---------- */
 .qd-quiz { padding: 0; overflow: hidden; }
 .qd-prog { height: 6px; background: var(--surface-2); }
@@ -2222,3 +2252,95 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .cae__gauge .track { height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
 .cae__gauge .fill { height: 100%; background: linear-gradient(90deg,var(--ok),var(--mid),var(--hi)); width: 0; transition: width .2s; }
 .cae__gauge .num { font-weight: 700; font-size: clamp(18px,4.5vw,22px); margin-top: 6px; }
+
+/* =========================================================
+   ======  Core 09 · 협심증·심근경색 전용 컴포넌트  =========
+   ========================================================= */
+
+/* bpsim__factor 확장 — fname·fsteppers·fhint */
+.bpsim__factor .fname { flex: 1; font-size: 13px; font-weight: 700; }
+.bpsim__factor .fsteppers { display: flex; gap: 4px; }
+.bpsim__factor .fhint { display: block; font-size: 11px; font-weight: 500; color: var(--ink-faint); margin-top: 2px; width: 100%; }
+
+/* O₂ Balance Simulator */
+.o2b__cols { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: start; }
+.o2b__side { background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; padding: 12px; }
+.o2b__side h6 { margin: 0 0 10px; font-size: 13.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.o2b__side.supply h6 { color: var(--ok); }
+.o2b__side.demand h6 { color: var(--hi); }
+.o2b__center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 8px 4px; }
+.o2b__gauge { width: 80px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.o2b__bar { width: 100%; height: 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.o2b__fill { height: 100%; transition: width .3s; }
+.o2b__bar.supply-bar .o2b__fill { background: var(--ok); }
+.o2b__bar.demand-bar .o2b__fill { background: var(--hi); }
+.o2b__label { font-size: 11px; font-weight: 700; color: var(--ink-soft); }
+.o2b__status { font-weight: 700; font-size: 13px; padding: 6px 14px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); transition: all .3s; }
+.o2b__status.border { background: var(--mid-soft); color: #a9750a; }
+.o2b__status.ischemia { background: var(--hi-soft); color: var(--hi); }
+@media (max-width: 600px) {
+  .o2b__cols { grid-template-columns: 1fr; }
+  .o2b__center { flex-direction: row; }
+}
+
+/* Stable Angina Simulator */
+.ss__bars { display: flex; flex-direction: column; gap: 10px; margin: 12px 0; }
+.ss__bar h6 { margin: 0 0 4px; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.ss__track { height: 14px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.ss__fill { height: 100%; transition: width .3s; background: var(--brand); border-radius: 999px; }
+.ss__val { font-size: 12px; font-weight: 700; color: var(--ink-soft); margin-top: 2px; }
+.ss__slider { margin: 10px 0; font-size: 13px; font-weight: 700; }
+.ss__slider input[type=range] { width: 100%; accent-color: var(--hi); margin-top: 4px; display: block; }
+
+/* ACS Flow Steps */
+.acsf__steps { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.acsf__step { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px; border-radius: 14px; border: 2px solid var(--line); background: var(--surface-2); min-width: 90px; max-width: 120px; text-align: center; font-size: 12px; opacity: .4; transition: all .3s; }
+.acsf__step.active { opacity: 1; border-color: var(--brand); background: var(--brand-soft); }
+.acsf__step[data-step="3"].active { border-color: var(--hi); background: var(--hi-soft); }
+.acsf__ico { font-size: 22px; line-height: 1; }
+.acsf__arrow { font-size: 18px; color: var(--ink-faint); flex-shrink: 0; }
+@media (max-width: 580px) { .acsf__arrow { display: none; } }
+
+/* ACS Spectrum Cards */
+.acs__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.acs__card { border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer; background: var(--surface); transition: all .2s; }
+.acs__card:hover { border-color: var(--brand); }
+.acs__card.open { border-color: var(--brand); background: var(--brand-soft); }
+.acs__card[data-acs="stemi"].open { border-color: var(--hi); background: var(--hi-soft); }
+.acs__card h5 { margin: 0 0 6px; font-size: 14px; }
+.acs__tag { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 999px; display: inline-block; }
+.acs__tag.warn { background: var(--mid-soft); color: #a9750a; }
+.acs__tag.hi { background: var(--hi-soft); color: var(--hi); }
+.acs__tag.danger { background: #3d0000; color: #ff8080; }
+.acs__detail { font-size: 13px; margin-top: 10px; line-height: 1.65; color: var(--ink-soft); }
+@media (max-width: 560px) { .acs__cards { grid-template-columns: 1fr; } }
+
+/* Time Is Muscle */
+.tim__wrap { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; }
+.tim__heart svg { width: 100%; max-width: 180px; }
+.tim__necrosis { transition: r .4s; }
+.tim__panel { display: flex; flex-direction: column; gap: 4px; }
+.tim__time { font-size: 16px; font-weight: 700; color: var(--hi); }
+.tim__desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; }
+.tim__panel input[type=range] { accent-color: var(--hi); }
+@media (max-width: 560px) { .tim__wrap { grid-template-columns: 1fr; } .tim__heart svg { max-width: 160px; margin: 0 auto; display: block; } }
+
+/* Troponin Timeline */
+.trop__graph { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
+.trop__graph svg { width: 100%; display: block; }
+.trop__line { transition: opacity .3s; }
+
+/* ACS Drug Map */
+.adm__flow { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; }
+.adm__node { font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 999px; background: var(--surface); border: 1.5px solid var(--line); text-align: center; transition: all .2s; }
+.adm__node.targeted { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); transform: scale(1.05); }
+.adm__arrow { font-size: 16px; color: var(--ink-faint); line-height: 1; }
+
+/* ACS Decision Simulation */
+.acd__row { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 12px 0; }
+.acd__group { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.acd__group b { display: block; margin-bottom: 8px; font-size: 13.5px; }
+@media (max-width: 580px) { .acd__row { grid-template-columns: 1fr; } }
+
+/* hypo__risk 추가 색상 */
+.hypo__risk.danger { background: #3d0000; color: #ff8080; }

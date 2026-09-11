@@ -1074,7 +1074,339 @@
     initStableVuln();
     initPlaque2Thrombus();
     initCae();
+    // Core 09 · 협심증과 심근경색
+    initO2Balance();
+    initStableSim();
+    initACSFlow();
+    initACSSpectrum();
+    initTimeIsMuscle();
+    initTroponinTL();
+    initACSDrugMap();
+    initACSDecision();
   });
+
+  /* =========================================================
+     ===========  Core 09 · 협심증·심근경색 인터랙션  ===========
+     ========================================================= */
+
+  /* ---------- Viz · Myocardial O₂ Balance ---------- */
+  function initO2Balance() {
+    var root = document.querySelector("[data-o2balance]");
+    if (!root) return;
+    var state = { stenosis: 0, hgb: 0, hr: 0, contractility: 0 };
+    var supplyFill = root.querySelector("#supplyFill");
+    var demandFill = root.querySelector("#demandFill");
+    var statusEl  = root.querySelector("#o2Status");
+    var labelEl   = root.querySelector("#o2Label");
+
+    function renderBars(f) {
+      var lv = state[f], bars = "";
+      for (var i = -2; i <= 2; i++) {
+        var on = (lv > 0 && i > 0 && i <= lv) || (lv < 0 && i < 0 && i >= lv) || (i === 0);
+        bars += "<i class='" + (on ? "on" : "") + "'></i>";
+      }
+      return bars;
+    }
+    function render() {
+      // supply: base 60%, stenosis↑ = supply↓, hgb↑ = supply↑
+      var supply = 60 - state.stenosis * 12 + state.hgb * 8;
+      // demand: base 40%, hr↑ and contractility↑ = demand↑
+      var demand = 40 + state.hr * 10 + state.contractility * 10;
+      supply = Math.max(10, Math.min(100, supply));
+      demand = Math.max(10, Math.min(100, demand));
+      supplyFill.style.width = supply + "%";
+      demandFill.style.width = demand + "%";
+      var ischemia = demand > supply + 8;
+      var border   = demand > supply - 8 && !ischemia;
+      statusEl.className = "o2b__status" + (ischemia ? " ischemia" : border ? " border" : "");
+      statusEl.textContent = ischemia ? "⚠ Ischemia" : border ? "경계" : "O₂ 균형";
+      labelEl.textContent = ischemia ? "공급 부족!" : "균형";
+      // update bars
+      root.querySelectorAll(".bpsim__factor").forEach(function (fx) {
+        var barsEl = fx.querySelector(".bars");
+        if (barsEl) barsEl.innerHTML = renderBars(fx.getAttribute("data-factor"));
+      });
+    }
+    root.addEventListener("click", function (e) {
+      var s = e.target.closest(".stepper");
+      if (!s) return;
+      var fx = s.closest(".bpsim__factor");
+      var key = fx.getAttribute("data-factor");
+      state[key] = Math.max(-2, Math.min(2, state[key] + parseInt(s.getAttribute("data-step"), 10)));
+      render();
+    });
+    render();
+  }
+
+  /* ---------- Viz · Stable Angina Simulator ---------- */
+  function initStableSim() {
+    var root = document.querySelector("[data-stablesim]");
+    if (!root) return;
+    var stenoSlider = root.querySelector("#ssStenoSlider");
+    var stenoVal    = root.querySelector("#ssStenoVal");
+    var stenoFill   = root.querySelector(".stenosis-fill");
+    var supplyFill2 = root.querySelector(".supply-fill");
+    var demandFill2 = root.querySelector(".demand-fill");
+    var supplyV     = root.querySelector("#ssSupply");
+    var demandV     = root.querySelector("#ssDemand");
+    var resultEl    = root.querySelector("#ssResult");
+    var mode = "rest";
+    var MODES = {
+      rest:     { demand: 35, label: "😴 안정" },
+      walk:     { demand: 60, label: "🚶 걷기" },
+      exercise: { demand: 85, label: "🏃 운동" }
+    };
+
+    function render() {
+      var steno = parseInt(stenoSlider.value, 10);
+      var maxSupply = Math.round(100 - steno * 0.7);
+      var dem = MODES[mode].demand;
+      stenoVal.textContent = steno;
+      stenoFill.style.width = steno + "%";
+      supplyFill2.style.width = maxSupply + "%";
+      demandFill2.style.width = dem + "%";
+      supplyV.textContent = maxSupply;
+      demandV.textContent = dem;
+      var ischemia = dem > maxSupply + 5;
+      resultEl.innerHTML = ischemia
+        ? "<span style='color:var(--hi);font-weight:700;'>⚠ Ischemia — 공급(" + maxSupply + ")이 수요(" + dem + ")를 따라가지 못합니다. 흉통 발생!</span>"
+        : "<span style='color:var(--ok-color,#12a594);font-weight:700;'>✓ 균형 — 공급(" + maxSupply + ") ≥ 수요(" + dem + "). 증상 없음.</span>";
+    }
+    stenoSlider.addEventListener("input", render);
+    root.querySelectorAll("[data-ss]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        mode = b.getAttribute("data-ss");
+        root.querySelectorAll("[data-ss]").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        render();
+      });
+    });
+    // set rest active by default
+    var restBtn = root.querySelector("[data-ss='rest']");
+    if (restBtn) { restBtn.classList.add("active"); }
+    render();
+  }
+
+  /* ---------- Viz · Stable → ACS Flow ---------- */
+  var ACSF_DATA = [
+    { ico: "🩺", title: "Stable stenosis", body: "Fixed coronary stenosis (예: 60%). 안정 시 혈류는 충분. 운동 시에만 일시적 ischemia가 발생합니다. Plaque는 두꺼운 fibrous cap으로 안정되어 있습니다." },
+    { ico: "💥", title: "Plaque rupture", body: "Vulnerable plaque의 thin fibrous cap이 파열됩니다. Plaque 내부(lipid core · tissue factor · collagen)가 혈액에 노출됩니다." },
+    { ico: "🔴", title: "Acute thrombosis", body: "Collagen에 platelet이 부착 → 활성화 → 응집. Coagulation cascade 작동 → thrombin → fibrin → 혈전이 빠르게 커집니다." },
+    { ico: "⚡", title: "ACS", body: "혈전이 lumen을 부분 또는 완전히 막아 coronary flow가 급감합니다. → Unstable angina · NSTEMI · STEMI 중 하나로 나타납니다." }
+  ];
+  function initACSFlow() {
+    var root = document.querySelector("[data-acsflow]");
+    if (!root) return;
+    var out   = root.querySelector(".acsf__out");
+    var steps = Array.prototype.slice.call(root.querySelectorAll(".acsf__step"));
+    var idx = 0;
+    function render() {
+      steps.forEach(function (s, k) {
+        s.classList.toggle("active", k <= idx);
+      });
+      var d = ACSF_DATA[idx];
+      out.innerHTML = "<b>" + d.ico + " " + d.title + "</b> — " + d.body;
+    }
+    root.querySelector("[data-acsf-step]").addEventListener("click", function () {
+      if (idx < ACSF_DATA.length - 1) { idx++; render(); }
+    });
+    root.querySelector("[data-acsf-reset]").addEventListener("click", function () {
+      idx = 0; render();
+    });
+    render();
+  }
+
+  /* ---------- Viz · ACS Spectrum cards ---------- */
+  var ACS_DATA = {
+    ua: {
+      tag: "Ischemia O · Necrosis X",
+      cls: "warn",
+      detail: "<b>Unstable Angina</b><br>급성 myocardial ischemia가 있지만 명확한 necrosis는 없습니다.<br><b>Troponin 정상</b> — 심근세포가 죽지 않은 상태.<br>새롭게 발생한 심한 angina / 안정시 angina / 빈도·강도 악화 angina.<br>응급 ACS 평가 필요."
+    },
+    nstemi: {
+      tag: "Ischemia O · Necrosis O · Troponin ↑",
+      cls: "hi",
+      detail: "<b>NSTEMI</b><br>급성 ischemia + myocardial necrosis가 있습니다.<br><b>Troponin 상승</b> — 심근세포가 죽었습니다.<br>ECG에서 persistent ST elevation은 전형적으로 없습니다.<br>ST depression · T-wave inversion · 정상 ECG도 가능."
+    },
+    stemi: {
+      tag: "Ischemia O · Necrosis O · ST elevation",
+      cls: "danger",
+      detail: "<b>STEMI</b><br>일반적으로 acute coronary occlusion으로 광범위하고 심한 transmural ischemia 발생.<br><b>ECG: ST-segment elevation</b> (전형적).<br>Troponin 상승.<br><b>즉각적인 reperfusion이 핵심</b> — Time is muscle."
+    }
+  };
+  function initACSSpectrum() {
+    var root = document.querySelector("[data-acsspectrum]");
+    if (!root) return;
+    root.querySelectorAll(".acs__card").forEach(function (card) {
+      var key = card.getAttribute("data-acs");
+      var d = ACS_DATA[key];
+      var tagEl = card.querySelector(".acs__tag");
+      var detEl = card.querySelector(".acs__detail");
+      if (tagEl) { tagEl.textContent = d.tag; tagEl.className = "acs__tag " + d.cls; }
+      card.addEventListener("click", function () {
+        var open = card.classList.toggle("open");
+        if (detEl) {
+          detEl.style.display = open ? "block" : "none";
+          if (open) detEl.innerHTML = d.detail;
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz · Time Is Muscle ---------- */
+  var TIM_STAGES = [
+    { label: "0분",   r: 0,  desc: "허혈 시작 직후. 아직 reversible injury 단계.", salvage: 100 },
+    { label: "20분",  r: 12, desc: "Subendocardial injury 시작. 일부 심근세포 손상 시작.", salvage: 85 },
+    { label: "1시간", r: 22, desc: "Irreversible injury 확대 시작. 빠른 reperfusion이 중요해집니다.", salvage: 65 },
+    { label: "2시간", r: 32, desc: "Necrosis 범위 확대 중. Subendocardial → transmural로 진행.", salvage: 40 },
+    { label: "4시간", r: 42, desc: "상당한 범위의 necrosis. 살릴 수 있는 심근이 줄어들고 있습니다.", salvage: 20 },
+    { label: "6시간+", r: 52, desc: "광범위한 necrosis. LV function 손상이 크게 될 수 있습니다.", salvage: 5 }
+  ];
+  function initTimeIsMuscle() {
+    var root = document.querySelector("[data-timemuscle]");
+    if (!root) return;
+    var slider   = root.querySelector("#timSlider");
+    var timeLabel = root.querySelector("#timTimeLabel");
+    var descEl   = root.querySelector("#timDesc");
+    var necEl    = root.querySelector(".tim__necrosis");
+    var necLabel = root.querySelector(".tim__necrosis-label");
+    var verdictEl = root.querySelector("#timVerdict");
+    var reperfused = false;
+
+    function render() {
+      var i = parseInt(slider.value, 10);
+      var s = TIM_STAGES[i];
+      timeLabel.textContent = s.label;
+      descEl.textContent = s.desc;
+      necEl.setAttribute("r", s.r);
+      necLabel.textContent = s.r > 0 ? "괴사" : "";
+      if (reperfused) {
+        verdictEl.innerHTML = "<span style='color:var(--ok-color,#12a594);font-weight:700;'>⚡ Reperfusion 시행! " + TIM_STAGES[parseInt(slider.value,10)].label + " 기준 salvage 가능 심근 약 " + s.salvage + "%</span>";
+      } else {
+        verdictEl.innerHTML = s.salvage < 50
+          ? "<span style='color:var(--hi);font-weight:700;'>⚠ Salvage 가능 심근이 " + s.salvage + "%로 줄었습니다. 빠른 reperfusion이 필요합니다.</span>"
+          : "";
+      }
+    }
+    slider.addEventListener("input", function () { reperfused = false; render(); });
+    root.querySelector("#timReperfuse").addEventListener("click", function () {
+      reperfused = true; render();
+    });
+    root.querySelector("#timReset").addEventListener("click", function () {
+      slider.value = 0; reperfused = false; render();
+    });
+    render();
+  }
+
+  /* ---------- Viz · Serial Troponin Timeline ---------- */
+  function initTroponinTL() {
+    var root = document.querySelector("[data-troponin]");
+    if (!root) return;
+    var normalLine = root.querySelector(".normal-line");
+    var acuteLine  = root.querySelector(".acute-line");
+    var labelEl    = root.querySelector(".trop__curve-label");
+    var descEl     = root.querySelector("#tropDesc");
+    root.querySelectorAll("[data-trop]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-trop]").forEach(function (x) { x.classList.remove("active"); });
+        b.classList.add("active");
+        var k = b.getAttribute("data-trop");
+        if (k === "normal") {
+          normalLine.style.opacity = 1;
+          acuteLine.style.opacity  = 0;
+          labelEl.textContent = "정상 — 안정적으로 낮은 수준";
+          descEl.innerHTML = "<b>정상 pattern</b> — troponin이 정상 상한 아래에서 안정적으로 유지됩니다. Rise-and-fall 없음.<br>단 한 번의 결과만으로는 충분하지 않으며, 임상상과 함께 serial 측정이 중요합니다.";
+        } else {
+          normalLine.style.opacity = 0;
+          acuteLine.style.opacity  = 1;
+          labelEl.textContent = "급성 MI — Rise-and-fall pattern";
+          descEl.innerHTML = "<b>급성 MI pattern</b> — 발병 후 수 시간 내에 troponin이 상승(rise)하고, 이후 peak 후 감소(fall)합니다.<br>초기 한 번의 검사가 정상이어도 2~3시간 후 반복(serial) 검사에서 상승할 수 있습니다. 이것이 serial troponin이 중요한 이유입니다.";
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz · ACS Drug Map ---------- */
+  var ACS_DRUGS = {
+    aspirin:  { node: "platelet", out: "<b>Aspirin</b> — COX-1 억제 → Thromboxane A₂↓ → platelet aggregation↓. ACS 초기부터 투여. Plaque rupture 후 혈전 형성을 억제합니다." },
+    p2y12:    { node: "platelet", out: "<b>P2Y12 inhibitor</b> (clopidogrel·ticagrelor·prasugrel) — ADP 경로 platelet activation 억제. Aspirin과 함께 DAPT를 구성합니다." },
+    anticoag: { node: "coag",     out: "<b>Anticoagulant</b> (heparin·enoxaparin 등) — Coagulation cascade 억제 → thrombin·fibrin 형성↓ → 추가 thrombosis 방지. 급성 ACS 처치의 핵심." },
+    nitrate:  { node: "ischemia", out: "<b>Nitrate (NTG)</b> — venodilation → preload↓ → O₂ demand↓ → ischemia 증상 완화. Plaque나 혈전 자체를 제거하지는 않습니다." },
+    bb:       { node: "ischemia", out: "<b>β-blocker</b> — HR·contractility↓ → O₂ demand↓ → ischemia↓. 급성기 및 MI 이후 적응증(LV dysfunction·arrhythmia)에서 사용." },
+    statin:   { node: "future",   out: "<b>Statin</b> — LDL-C↓ → future plaque progression↓ → recurrent ASCVD event↓. ACS 후 즉시 시작, 장기 사용. '수치가 높지 않아도' 고위험군이기 때문에 사용합니다." },
+    acei:     { node: "future",   out: "<b>ACE inhibitor / ARB</b> — LV remodeling 억제, afterload↓. LV dysfunction·고혈압·당뇨·CKD가 있는 경우 특히 중요합니다." }
+  };
+  function initACSDrugMap() {
+    var root = document.querySelector("[data-acsdrugmap]");
+    if (!root) return;
+    var out = root.querySelector(".adm__out");
+    function clearHighlight() {
+      root.querySelectorAll(".adm__node").forEach(function (n) { n.classList.remove("targeted"); });
+      root.querySelectorAll("[data-adrug]").forEach(function (b) { b.classList.remove("active"); });
+    }
+    root.querySelectorAll("[data-adrug]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-adrug");
+        if (key === "reset") { clearHighlight(); out.textContent = "약물 버튼을 눌러 어느 단계에 작용하는지 확인하세요."; return; }
+        var d = ACS_DRUGS[key];
+        if (!d) return;
+        var already = btn.classList.contains("active");
+        clearHighlight();
+        if (already) { out.textContent = "약물 버튼을 눌러 어느 단계에 작용하는지 확인하세요."; return; }
+        btn.classList.add("active");
+        var node = root.querySelector("[data-drug-node='" + d.node + "']");
+        if (node) node.classList.add("targeted");
+        out.innerHTML = d.out;
+      });
+    });
+  }
+
+  /* ---------- Viz · ACS Decision Simulation ---------- */
+  function initACSDecision() {
+    var root = document.querySelector("[data-acsdecision]");
+    if (!root) return;
+    var state = { symptom: null, ecg: null, trop: null };
+    var riskEl = root.querySelector(".hypo__risk");
+    var expEl  = root.querySelector(".hypo__exp");
+
+    function compute() {
+      var s = state.symptom, e = state.ecg, t = state.trop;
+      if (!s || !e || !t) { riskEl.textContent = "조합 선택 중..."; expEl.textContent = "세 가지를 모두 선택하면 결과가 나타납니다."; return; }
+
+      var cls, txt, exp;
+      if (s === "exertional" && e === "normal" && t === "neg") {
+        cls = "low"; txt = "Stable angina 가능성";
+        exp = "운동시 흉통 · 정상 ECG · troponin 음성. 전형적인 stable exertional angina 패턴을 생각할 수 있습니다. 만성 CAD 평가가 필요하며 ACS 응급은 아닐 수 있지만 임상 맥락을 함께 판단해야 합니다.";
+      } else if (t === "neg" && (s === "rest" || e !== "normal")) {
+        cls = "mid"; txt = "Unstable Angina 가능성";
+        exp = "Troponin 음성이지만 안정 시 흉통 또는 ECG 변화가 있습니다. ACS(unstable angina)로 평가해야 합니다. Serial troponin으로 NSTEMI를 배제하는 것이 중요합니다.";
+      } else if (t === "pos" && e !== "stup") {
+        cls = "high"; txt = "NSTEMI 가능성";
+        exp = "Troponin 상승 + ST elevation 없음(또는 ST depression/정상). NSTEMI로 평가합니다. 입원 후 조기 침습적 평가(coronary angiography) 전략을 고려합니다.";
+      } else if (e === "stup") {
+        cls = "danger"; txt = "STEMI — 즉각 reperfusion 필요!";
+        exp = "ST elevation + 흉통 + (troponin 상승 또는 상승 예상). STEMI로 평가합니다. 즉각적인 primary PCI 또는 fibrinolysis를 고려해야 하며 시간이 매우 중요합니다. Time is muscle!";
+      } else {
+        cls = "mid"; txt = "추가 평가 필요";
+        exp = "현재 조합만으로는 명확한 분류가 어렵습니다. 실제 임상에서는 전체 임상상·serial troponin·추가 ECG 등을 종합적으로 판단합니다.";
+      }
+      riskEl.className = "hypo__risk " + cls;
+      riskEl.textContent = txt;
+      expEl.textContent = exp;
+    }
+    root.querySelectorAll(".hypo__opts").forEach(function (grp) {
+      var key = grp.getAttribute("data-group");
+      grp.querySelectorAll("button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          grp.querySelectorAll("button").forEach(function (x) { x.classList.remove("active"); });
+          b.classList.add("active");
+          state[key] = b.getAttribute("data-val");
+          compute();
+        });
+      });
+    });
+    compute();
+  }
 
   /* =========================================================
      ==============  Core 08 · 동맥경화 인터랙션  ==============

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제9강 · 협심증과 심근경색 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="협심증과 심근경색을 심근 O₂ 불균형 → stable angina → plaque rupture → ACS → reperfusion의 흐름으로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제9강 · 협심증과 심근경색</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">ACS</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제9강 · 협심증·심근경색</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#coronary"><span class="num">1</span> 정상 관상동맥</a></li>
+          <li><a href="#o2"><span class="num">2</span> 심근 O₂ 균형</a></li>
+          <li><a href="#stable"><span class="num">3</span> Stable angina</a></li>
+          <li><a href="#acs"><span class="num">4</span> Plaque rupture → ACS</a></li>
+          <li><a href="#spectrum"><span class="num">5</span> UA · NSTEMI · STEMI</a></li>
+          <li><a href="#necrosis"><span class="num">6</span> 심근 괴사 · Time Is Muscle</a></li>
+          <li><a href="#symptom"><span class="num">7</span> 증상 · Red Flags</a></li>
+          <li><a href="#diagnosis"><span class="num">8</span> 진단</a></li>
+          <li><a href="#complication"><span class="num">9</span> 합병증</a></li>
+          <li><a href="#treat"><span class="num">10</span> 치료 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">11</span> 생활습관</a></li>
+          <li><a href="#drugs-stable"><span class="num">12</span> Stable angina 약물</a></li>
+          <li><a href="#drugs-acs"><span class="num">13</span> ACS 약물</a></li>
+          <li><a href="#reperfusion"><span class="num">14</span> Reperfusion</a></li>
+          <li><a href="#deepdive"><span class="num">15</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">16</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">17</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">18</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">19</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">20</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">21</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제9강 · 통합</div>
+          <h1>협심증과 심근경색</h1>
+          <p>제8강 동맥경화 plaque가 만들어진 다음 — <b>심근이 산소를 충분히 공급받지 못하면 ischemia,
+            심근세포가 실제로 죽으면 myocardial infarction</b>.
+            Stable angina에서 STEMI까지, 하나의 병태생리 흐름으로 이해합니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>핵심 관점</div>
+          <p>협심증과 심근경색은 "통증 강도의 등급"이 아닙니다.
+            <b>Stable angina</b>는 fixed stenosis로 인한 <b>일시적 O₂ 불균형</b>,
+            <b>ACS</b>는 <b>acute plaque event + thrombosis</b>라는 완전히 다른 기전입니다.
+            2025 ACC/AHA ACS guideline은 UA·NSTEMI·STEMI를 하나의 acute coronary syndrome 체계로 통합 관리합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">62세 남성 · HTN · 흡연력 20갑년</div>
+            <div class="bp" style="font-size:clamp(18px,4.5vw,26px);line-height:1.5;">
+              "언덕 오르면 가슴이 조여요 — 5분 쉬면 괜찮았는데,<br>
+              오늘 밤 가만히 있는데도 20분째 낫질 않아요."
+            </div>
+            <div class="quote">"협심증하고 심근경색은 결국 같은 병 아닌가요?"</div>
+            <div style="font-weight:700;margin-bottom:8px;">무엇이 달라졌을까요?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 심장이 갑자기 커졌다.</button>
+              <button data-opt="B"><span class="opt">B</span> 심근의 산소 공급과 필요량의 불균형이 훨씬 심해졌다.</button>
+              <button data-opt="C"><span class="opt">C</span> 혈압이 조금 올라가서 무조건 심근경색이 됐다.</button>
+              <button data-opt="D"><span class="opt">D</span> 위산이 갑자기 심장으로 이동했다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 바로 공개하지 않습니다 — <b>먼저 심장이 산소를 어떻게 공급받는지</b>부터 봅시다.</div>
+            </div>
+          </div>
+          <p>강의가 끝나면 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>심장은 언제 ischemia에 빠지는가?</li>
+            <li>Stable angina와 ACS는 어떻게 다른가?</li>
+            <li>Unstable angina와 NSTEMI의 핵심 차이는 무엇인가?</li>
+            <li>STEMI는 왜 시간이 중요한가?</li>
+            <li>Troponin은 정확히 무엇을 의미하는가?</li>
+            <li>Nitroglycerin, aspirin, statin, β-blocker는 각각 왜 쓰는가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 정상 관상동맥 ================= -->
+        <section id="coronary" class="section">
+          <h2><span class="sec-no">01</span> 정상적인 몸에서는?</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>협심증(Angina pectoris)</b>: 심근에 필요한 산소 공급이 일시적으로 부족해져 허혈성 흉통이 발생하는 상태. 심근세포가 죽지 않았으면 infarction이 아닙니다.<br>
+               <b>심근경색(Myocardial infarction, MI)</b>: 관상동맥 혈류가 심하게 감소하거나 차단되어 허혈이 지속·심화되고, 결국 심근세포 <b>괴사</b>가 발생한 상태.</p>
+          </div>
+          <p>심장도 산소를 공급받아야 합니다. 전신에 혈액을 보내는 펌프이지만, 심근 자체에 혈액을 공급하는 혈관이 따로 있습니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 1 · 관상동맥과 공급 영역</div>
+            <div class="checkchips">
+              <button data-text="<b>LAD (Left anterior descending)</b> — 좌전하행동맥. 좌심실 전벽·심실중격 앞쪽 등을 공급. LAD 폐색 = '심장마비(widow maker)'라는 별명.">LAD</button>
+              <button data-text="<b>LCx (Left circumflex)</b> — 좌회선동맥. 좌심실 측벽·후벽 일부를 공급.">LCx</button>
+              <button data-text="<b>RCA (Right coronary artery)</b> — 우관상동맥. 우심실·좌심실 하벽 등을 공급. SA node·AV node에 혈류를 제공하는 경우가 많음.">RCA</button>
+              <button data-text="<b>Diastolic perfusion</b> — 관상동맥은 주로 이완기(diastole)에 혈류가 흐릅니다. 수축기에는 심근 압박으로 혈류가 제한됩니다. 빠른 심박수(diastole 감소)가 supply에 영향을 줍니다.">이완기 관류</button>
+            </div>
+            <div class="infochips__out">관상동맥 항목을 탭해 보세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 심근 O₂ 균형 ================= -->
+        <section id="o2" class="section">
+          <h2><span class="sec-no">02</span> 심근 O₂ 공급과 수요</h2>
+          <div class="oneline">협심증의 본질: <b>심근 O₂ 공급 &lt; 심근 O₂ 수요</b></div>
+
+          <p>공급(Supply)과 수요(Demand) 중 무엇이 달라지는지 직접 조절해 보세요.</p>
+          <div class="figure" data-o2balance>
+            <div class="figure__title">Viz 2 · Myocardial O₂ Balance</div>
+            <div class="o2b__cols">
+              <div class="o2b__side supply">
+                <h6>Supply (공급)</h6>
+                <div class="bpsim__factor" data-factor="stenosis">
+                  <span class="fname">관상동맥 협착</span>
+                  <div class="bars"></div>
+                  <div class="fsteppers">
+                    <button class="stepper" data-step="-1">−</button>
+                    <button class="stepper" data-step="1">+</button>
+                  </div>
+                  <small class="fhint">협착 심할수록 supply↓</small>
+                </div>
+                <div class="bpsim__factor" data-factor="hgb">
+                  <span class="fname">Hemoglobin / O₂ sat</span>
+                  <div class="bars"></div>
+                  <div class="fsteppers">
+                    <button class="stepper" data-step="-1">−</button>
+                    <button class="stepper" data-step="1">+</button>
+                  </div>
+                  <small class="fhint">빈혈·저산소 시 supply↓</small>
+                </div>
+              </div>
+              <div class="o2b__center">
+                <div class="o2b__gauge">
+                  <div class="o2b__bar supply-bar"><div class="o2b__fill" id="supplyFill"></div></div>
+                  <div class="o2b__label" id="o2Label">균형</div>
+                  <div class="o2b__bar demand-bar"><div class="o2b__fill" id="demandFill"></div></div>
+                </div>
+                <div class="o2b__status" id="o2Status">O₂ 균형</div>
+              </div>
+              <div class="o2b__side demand">
+                <h6>Demand (수요)</h6>
+                <div class="bpsim__factor" data-factor="hr">
+                  <span class="fname">심박수 (HR)</span>
+                  <div class="bars"></div>
+                  <div class="fsteppers">
+                    <button class="stepper" data-step="-1">−</button>
+                    <button class="stepper" data-step="1">+</button>
+                  </div>
+                  <small class="fhint">운동·빈맥 시 demand↑</small>
+                </div>
+                <div class="bpsim__factor" data-factor="contractility">
+                  <span class="fname">수축력 / Wall stress</span>
+                  <div class="bars"></div>
+                  <div class="fsteppers">
+                    <button class="stepper" data-step="-1">−</button>
+                    <button class="stepper" data-step="1">+</button>
+                  </div>
+                  <small class="fhint">고혈압·흥분 시 demand↑</small>
+                </div>
+              </div>
+            </div>
+            <div class="figure__cap">운동 시 demand↑, 협착이 있으면 supply가 따라가지 못합니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 관상동맥이 60% 협착된 사람이 운동할 때만 흉통이 생기는 이유는?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 운동할 때 LDL이 순간적으로 크게 증가해서</li>
+              <li data-opt="B"><span class="opt">B</span> 운동 시 심근 O₂ 수요가 증가하지만 fixed stenosis 때문에 공급이 충분히 늘지 못해서</li>
+              <li data-opt="C"><span class="opt">C</span> 운동할 때 혈액의 O₂ 포화도가 항상 0%가 되어서</li>
+              <li data-opt="D"><span class="opt">D</span> 심근이 glucose를 사용하지 못해서</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 안정 시에는 제한된 혈류도 충분하지만, 운동으로 수요가 증가하면 fixed stenosis가 supply 증가를 막습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · Stable angina ================= -->
+        <section id="stable" class="section">
+          <h2><span class="sec-no">03</span> Stable angina</h2>
+          <blockquote>Fixed coronary stenosis → 평소 resting flow는 충분 → 운동 → O₂ demand↑ → coronary flow reserve 부족 → 일시적 ischemia → 흉통 → 휴식 → demand↓ → 호전</blockquote>
+
+          <p>운동 버튼을 눌러 ischemia가 언제 생기는지 확인하세요.</p>
+          <div class="figure" data-stablesim>
+            <div class="figure__title">Viz 3 · Stable Angina Simulator</div>
+            <div class="ss__bars">
+              <div class="ss__bar">
+                <h6>Coronary stenosis</h6>
+                <div class="ss__track"><div class="ss__fill stenosis-fill"></div></div>
+                <div class="ss__val" id="ssSteno">60%</div>
+              </div>
+              <div class="ss__bar">
+                <h6>O₂ Supply (max capacity)</h6>
+                <div class="ss__track"><div class="ss__fill supply-fill" style="background:var(--ok-color,#12a594)"></div></div>
+                <div class="ss__val" id="ssSupply">-</div>
+              </div>
+              <div class="ss__bar">
+                <h6>O₂ Demand</h6>
+                <div class="ss__track"><div class="ss__fill demand-fill" style="background:var(--hi,#e5484d)"></div></div>
+                <div class="ss__val" id="ssDemand">-</div>
+              </div>
+            </div>
+            <div class="ss__slider">
+              <label>협착 정도: <span id="ssStenoVal">60</span>%</label>
+              <input type="range" min="0" max="90" step="10" value="60" id="ssStenoSlider" />
+            </div>
+            <div class="ss__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-ss="rest">😴 안정</button>
+              <button class="btn" data-ss="walk">🚶 걷기</button>
+              <button class="btn" data-ss="exercise">🏃 운동</button>
+            </div>
+            <div class="ss__result" id="ssResult" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);"></div>
+            <div class="figure__cap">같은 협착이라도 운동 시 ischemia가 생기고 휴식하면 호전됩니다.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>Stable angina에서는 주로 <b>fixed coronary stenosis</b>가 문제입니다.<br>
+              치료 목표: ① <b>증상 감소</b>(ischemia 줄이기) + ② <b>future event 예방</b>(MI·death risk↓).<br>
+              이 두 가지는 서로 다른 목표로, 통증 관리만으로 충분하지 않습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 4 · Plaque rupture → ACS ================= -->
+        <section id="acs" class="section">
+          <h2><span class="sec-no">04</span> Plaque Rupture → ACS</h2>
+          <blockquote>Vulnerable plaque rupture/erosion → collagen·TF 노출 → <b>platelet 부착·활성화·응집</b> → coagulation cascade → fibrin → <b>thrombus</b> → coronary flow 급격히 감소 → ACS</blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>Stable angina는 주로 <b>fixed stenosis</b>의 문제이고,<br>
+              ACS는 <b>acute plaque complication + thrombosis</b>의 문제입니다.</p>
+          </div>
+
+          <p>제8강에서 배운 vulnerable plaque가 파열되면 어떻게 달라지는지 보세요.</p>
+          <div class="figure" data-acsflow>
+            <div class="figure__title">Viz 4 · Stable → ACS 전환</div>
+            <div class="acsf__steps">
+              <div class="acsf__step" data-step="0">
+                <div class="acsf__ico">🩺</div>
+                <div class="acsf__txt"><b>Stable stenosis</b><br>Fixed 60% stenosis<br>운동 시 흉통</div>
+              </div>
+              <div class="acsf__arrow">→</div>
+              <div class="acsf__step" data-step="1">
+                <div class="acsf__ico">💥</div>
+                <div class="acsf__txt"><b>Plaque rupture</b><br>Fibrous cap 파열<br>내용물 노출</div>
+              </div>
+              <div class="acsf__arrow">→</div>
+              <div class="acsf__step" data-step="2">
+                <div class="acsf__ico">🔴</div>
+                <div class="acsf__txt"><b>Thrombus</b><br>Platelet 활성화<br>Blood clot 형성</div>
+              </div>
+              <div class="acsf__arrow">→</div>
+              <div class="acsf__step" data-step="3">
+                <div class="acsf__ico">⚡</div>
+                <div class="acsf__txt"><b>ACS</b><br>Flow 급감<br>UA·NSTEMI·STEMI</div>
+              </div>
+            </div>
+            <div class="acsf__ctrl" style="margin-top:12px;">
+              <button class="btn" data-acsf-step>▶ 다음 단계</button>
+              <button class="btn btn--ghost" data-acsf-reset>↺ 리셋</button>
+            </div>
+            <div class="acsf__out" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:14px;"></div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> ACS가 stable angina와 다른 핵심 이유는?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 통증이 더 강하기 때문에</li>
+              <li data-opt="B"><span class="opt">B</span> Plaque rupture/erosion 후 acute thrombosis가 발생하기 때문에</li>
+              <li data-opt="C"><span class="opt">C</span> 나이가 더 많은 환자에게만 생기기 때문에</li>
+              <li data-opt="D"><span class="opt">D</span> 혈관이 천천히 100% 좁아져서</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — ACS의 핵심은 acute plaque event + thrombosis이며, 이 점이 stable angina의 fixed stenosis와 근본적으로 다릅니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · ACS 스펙트럼 ================= -->
+        <section id="spectrum" class="section">
+          <h2><span class="sec-no">05</span> ACS 스펙트럼: UA · NSTEMI · STEMI</h2>
+          <p>ACS는 세 가지로 분류됩니다. 카드를 탭해 차이를 확인하세요.</p>
+
+          <div class="figure" data-acsspectrum>
+            <div class="figure__title">Viz 5 · ACS Spectrum</div>
+            <div class="acs__cards">
+              <div class="acs__card" data-acs="ua">
+                <h5>Unstable Angina</h5>
+                <div class="acs__tag"></div>
+                <div class="acs__detail" style="display:none;"></div>
+              </div>
+              <div class="acs__card" data-acs="nstemi">
+                <h5>NSTEMI</h5>
+                <div class="acs__tag"></div>
+                <div class="acs__detail" style="display:none;"></div>
+              </div>
+              <div class="acs__card" data-acs="stemi">
+                <h5>STEMI</h5>
+                <div class="acs__tag"></div>
+                <div class="acs__detail" style="display:none;"></div>
+              </div>
+            </div>
+            <div class="acs__compare" style="margin-top:14px;">
+              <div class="table-scroll">
+                <table class="data" style="font-size:13px;">
+                  <thead><tr><th></th><th>UA</th><th>NSTEMI</th><th>STEMI</th></tr></thead>
+                  <tbody>
+                    <tr><th>Ischemia</th><td>✅</td><td>✅</td><td>✅ 심함</td></tr>
+                    <tr><th>Necrosis</th><td>❌</td><td>✅</td><td>✅</td></tr>
+                    <tr><th>Troponin ↑</th><td>❌</td><td>✅</td><td>✅</td></tr>
+                    <tr><th>ST elevation</th><td>❌</td><td>보통 ❌</td><td>전형적 ✅</td></tr>
+                    <tr><th>응급도</th><td>ACS 평가</td><td>ACS</td><td>즉각 reperfusion</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="figure__cap">분류는 단순히 통증 세기의 순서가 아닙니다.</div>
+          </div>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>NSTEMI vs Unstable Angina</div>
+            <p>둘을 구분하는 가장 중요한 요소는 <b>cardiac troponin 상승 유무</b>입니다.
+              High-sensitivity troponin이 보급되면서 과거 UA로 분류되던 일부 환자가 NSTEMI로 재분류됩니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 심근 괴사 · Time Is Muscle ================= -->
+        <section id="necrosis" class="section">
+          <h2><span class="sec-no">06</span> 심근세포는 왜 죽는가 · Time Is Muscle</h2>
+          <blockquote>Coronary flow↓↓ → O₂ delivery↓ → aerobic ATP 생산↓ → ion pump failure → cellular dysfunction → 지속되면 → <b>irreversible injury → necrosis</b></blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>Time is muscle</div>
+            <p>허혈이 시작되자마자 모든 심근세포가 한꺼번에 죽는 것이 아닙니다.
+              시간이 지나면서 necrosis가 <b>안쪽(subendocardial)에서 바깥쪽으로</b> 확대됩니다.
+              빠른 reperfusion → 아직 살 수 있는 심근 구제 가능.</p>
+          </div>
+
+          <p>시간을 이동시켜 necrosis가 어떻게 퍼지는지 보세요.</p>
+          <div class="figure" data-timemuscle>
+            <div class="figure__title">Viz 6 · Time Is Muscle</div>
+            <div class="tim__wrap">
+              <div class="tim__heart">
+                <svg viewBox="0 0 200 200" aria-label="심근 단면 — 허혈 진행">
+                  <circle cx="100" cy="100" r="85" fill="#fbe3e0" stroke="#e5484d" stroke-width="2"/>
+                  <circle cx="100" cy="100" r="55" fill="#fff5f5" stroke="#e5484d" stroke-width="1.5" stroke-dasharray="4 3"/>
+                  <!-- necrosis zone: subendocardial 안쪽부터 -->
+                  <circle class="tim__necrosis" cx="100" cy="100" r="0" fill="#c41c1c" opacity="0.7"/>
+                  <circle cx="100" cy="100" r="20" fill="#e8f5e9" stroke="#12a594" stroke-width="1.5"/>
+                  <text x="100" y="105" text-anchor="middle" font-size="10" fill="#106b4e" font-weight="700">LV cavity</text>
+                  <text x="100" y="168" text-anchor="middle" font-size="9" fill="#7b8aa0">epicardium</text>
+                  <text x="100" y="118" text-anchor="middle" font-size="9" fill="#c41c1c" class="tim__necrosis-label"></text>
+                </svg>
+              </div>
+              <div class="tim__panel">
+                <div class="tim__time">경과 시간: <b id="timTimeLabel">0분</b></div>
+                <input type="range" min="0" max="5" step="1" value="0" id="timSlider" style="width:100%;margin:8px 0;" />
+                <div class="tim__desc" id="timDesc">허혈 시작 직후. 아직 reversible injury 단계.</div>
+                <div class="tim__actions" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+                  <button class="btn" id="timReperfuse">⚡ Reperfusion NOW</button>
+                  <button class="btn btn--ghost" id="timReset">↺ 리셋</button>
+                </div>
+                <div class="tim__verdict" id="timVerdict" style="margin-top:8px;font-size:13px;"></div>
+              </div>
+            </div>
+            <div class="figure__cap" style="margin-top:6px; font-size:12.5px; color: var(--ink-faint);">
+              실제 손상 속도는 collateral flow·occlusion 정도·개인 차이에 따라 다릅니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> STEMI 환자가 "조금 더 참아보고 아침에 병원 가겠다"고 하면 왜 위험할까요?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">지속되는 심한 ischemia는 시간이 지나면서 irreversible myocardial necrosis를 확대할 수 있습니다. 빠른 reperfusion이 살릴 수 있는 심근을 살릴 수 있으므로 시간 자체가 치료 결과의 핵심 변수입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 증상 · Red Flags ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">07</span> 어떤 증상이 나타나는가</h2>
+
+          <h3>전형적인 ischemic chest pain</h3>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pump"><h5>성질</h5><p>pressure · squeezing · heaviness · tightness</p></div>
+            <div class="axis3__card pipes"><h5>위치</h5><p>흉골 뒤쪽 · 때로 방사(왼팔·어깨·목·턱·등)</p></div>
+            <div class="axis3__card volume"><h5>Stable 패턴</h5><p>운동·추위·감정 스트레스 → 흉통 → 수 분 지속 → 휴식 또는 NTG 후 호전</p></div>
+          </div>
+
+          <h3 style="margin-top:20px;">ACS를 더 걱정하는 패턴</h3>
+          <ul class="clean">
+            <li>휴식 중 발생 / 이전보다 쉽게·자주 발생</li>
+            <li>더 오래 지속(20분 이상)</li>
+            <li>강도 증가 / 호흡곤란·발한·구역 동반</li>
+          </ul>
+
+          <h3 style="margin-top:16px;">비전형적 presentation</h3>
+          <p style="font-size:14px;">노인·당뇨병 환자·여성·CKD 환자에서는 흉통 없이 <b>호흡곤란·극심한 피로·구역감·상복부 불편·어지러움</b>만 나타날 수 있습니다.</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 즉각 응급평가</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>새롭게 발생한 심한 흉부 압박감 (특히 수 분 이상 지속)</li>
+              <li>휴식 중 지속되는 흉통</li>
+              <li>흉통 + 식은땀</li>
+              <li>흉통 + 호흡곤란</li>
+              <li>흉통 + 실신 또는 의식저하</li>
+              <li>ACS 병력이 있는 사람의 새로운 증상 악화</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 진단 ================= -->
+        <section id="diagnosis" class="section">
+          <h2><span class="sec-no">08</span> 어떻게 진단하는가</h2>
+
+          <div class="oneline">ACS 평가의 세 축: <b>① 임상 증상/맥락 ② ECG ③ Cardiac troponin</b></div>
+
+          <h3>8-1. ECG</h3>
+          <p>급성 흉통 환자에서 즉각 시행합니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 7 · ECG 소견의 의미</div>
+            <div class="checkchips">
+              <button data-text="<b>ST elevation</b> — 보통 STEMI를 강하게 시사. 즉각적인 reperfusion 전략이 핵심. (단 모든 ST elevation = STEMI가 아닐 수 있음)">ST elevation</button>
+              <button data-text="<b>ST depression / T-wave inversion</b> — NSTEMI 또는 unstable angina에서 가능. 그러나 비특이적일 수도 있습니다.">ST depression · T inversion</button>
+              <button data-text="<b>정상 또는 비특이적 ECG</b> — NSTEMI, 심지어 일부 심근경색에서도 초기 ECG가 정상일 수 있습니다. ECG 정상 ≠ MI 배제.">정상/비특이적 ECG</button>
+              <button data-text="<b>Serial ECG</b> — 처음에 정상이어도 시간이 지나면서 변화가 나타날 수 있습니다. 반복 측정이 중요합니다.">Serial ECG</button>
+            </div>
+            <div class="infochips__out">ECG 소견을 탭해 보세요.</div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>중요한 원칙</div>
+            <p>ECG가 정상이라고 해서 MI를 배제할 수 없습니다. 특히 NSTEMI에서는 초기 ECG가 정상 또는 비특이적인 경우가 있습니다.</p>
+          </div>
+
+          <h3 style="margin-top:20px;">8-2. Troponin</h3>
+          <p>심근세포 안의 contractile protein 관련 marker. 심근세포가 <b>손상</b>되면 혈액으로 방출됩니다.</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>Troponin 상승 = myocardial injury</b>이지만,<br>
+              Troponin 상승이 반드시 type 1 MI(plaque rupture)를 의미하지는 않습니다.<br>
+              MI 진단에는 <b>troponin rise/fall pattern + myocardial ischemia의 임상 증거</b>가 필요합니다.</p>
+          </div>
+
+          <p>Troponin이 다른 원인으로도 오를 수 있습니다. 탭하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 8 · Troponin 상승의 다른 원인</div>
+            <div class="checkchips">
+              <button data-text="<b>Myocarditis</b> — 심근 자체의 염증. 젊은 환자에서도 발생.">Myocarditis</button>
+              <button data-text="<b>Heart failure</b> — 심장 부담 증가로 troponin 만성 상승 가능.">Heart failure</button>
+              <button data-text="<b>Pulmonary embolism</b> — 급성 우심실 부담. 흉통+troponin 상승이 MI처럼 보일 수 있습니다.">PE</button>
+              <button data-text="<b>CKD / Sepsis</b> — 신기능 저하로 배설 감소, 전신 염증 등으로 troponin 상승 가능.">CKD / Sepsis</button>
+            </div>
+            <div class="infochips__out">Troponin 상승 원인을 탭하세요.</div>
+          </div>
+
+          <p>Serial troponin 패턴이 왜 중요한지 보세요.</p>
+          <div class="figure" data-troponin>
+            <div class="figure__title">Viz 9 · Serial Troponin Timeline</div>
+            <div class="trop__graph">
+              <svg viewBox="0 0 320 160" aria-label="Troponin 시간에 따른 변화">
+                <line x1="40" y1="10" x2="40" y2="140" stroke="var(--border)" stroke-width="1.5"/>
+                <line x1="40" y1="140" x2="300" y2="140" stroke="var(--border)" stroke-width="1.5"/>
+                <!-- Normal reference line -->
+                <line x1="40" y1="120" x2="300" y2="120" stroke="#12a594" stroke-width="1" stroke-dasharray="4 3"/>
+                <text x="302" y="123" font-size="9" fill="#12a594">정상 상한</text>
+                <!-- X axis labels -->
+                <text x="40" y="155" text-anchor="middle" font-size="9" fill="var(--ink-soft)">0h</text>
+                <text x="100" y="155" text-anchor="middle" font-size="9" fill="var(--ink-soft)">2h</text>
+                <text x="160" y="155" text-anchor="middle" font-size="9" fill="var(--ink-soft)">4h</text>
+                <text x="220" y="155" text-anchor="middle" font-size="9" fill="var(--ink-soft)">8h</text>
+                <text x="280" y="155" text-anchor="middle" font-size="9" fill="var(--ink-soft)">12h</text>
+                <text x="170" y="10" text-anchor="middle" font-size="10" fill="var(--ink)" font-weight="600" class="trop__curve-label">곡선을 선택하세요</text>
+                <!-- Curves, hidden by default -->
+                <polyline class="trop__line normal-line" points="40,118 100,117 160,118 220,118 280,117" fill="none" stroke="#12a594" stroke-width="2" opacity="0"/>
+                <polyline class="trop__line acute-line" points="40,118 100,110 160,70 220,40 280,55" fill="none" stroke="#e5484d" stroke-width="2.5" opacity="0"/>
+              </svg>
+            </div>
+            <div class="trop__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+              <button class="btn" data-trop="normal">정상 (stable pattern)</button>
+              <button class="btn" data-trop="acute">급성 MI (rise-and-fall)</button>
+            </div>
+            <div class="trop__desc" id="tropDesc" style="margin-top:8px;font-size:14px;padding:10px;border-radius:8px;background:var(--bg-card);">
+              버튼을 눌러 패턴을 보세요. <b>단 한 번의 troponin</b>이 아니라 <b>serial change</b>가 중요합니다.
+            </div>
+          </div>
+
+          <h3 style="margin-top:20px;">8-3. 기타 검사</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>검사</th><th>역할</th></tr></thead>
+              <tbody>
+                <tr><th>Coronary angiography</th><td>culprit lesion 직접 평가 · PCI와 바로 연결 가능</td></tr>
+                <tr><th>Echocardiography</th><td>regional wall motion abnormality · LV function · mechanical complication 감별</td></tr>
+                <tr><th>CCTA (Stable)</th><td>2024 ESC chronic coronary syndrome — non-invasive 평가에서 활용</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ④</span> 흉통이 지속되는데 첫 ECG가 정상입니다. 가장 적절한 판단은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> ACS는 완전히 배제된다.</li>
+              <li data-opt="B"><span class="opt">B</span> ECG가 정상일 수 있으므로 임상상과 serial troponin을 함께 평가한다.</li>
+              <li data-opt="C"><span class="opt">C</span> 심근경색은 반드시 심한 ST elevation이 있어야 한다.</li>
+              <li data-opt="D"><span class="opt">D</span> 위염으로 확정한다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — NSTEMI 등에서는 초기 ECG가 정상 또는 비특이적일 수 있으며, troponin과 함께 임상상 전체로 판단합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 합병증 ================= -->
+        <section id="complication" class="section">
+          <h2><span class="sec-no">09</span> 치료하지 않으면 어떻게 되는가</h2>
+
+          <p>합병증 항목을 탭하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 10 · MI 합병증 지도</div>
+            <div class="checkchips">
+              <button data-text="<b>Pump failure → Heart failure</b><br>괴사된 심근은 수축하지 못합니다. 큰 MI에서 LV systolic function↓ → 심부전. 장기 remodeling으로 만성화 가능.">Pump failure / HF</button>
+              <button data-text="<b>Electrical instability</b><br>허혈성 심근은 전기적으로 불안정 → <b>ventricular tachycardia (VT) / ventricular fibrillation (VF)</b> → sudden cardiac death. MI 초기에 가장 위험.">VT / VF</button>
+              <button data-text="<b>Mechanical complications</b><br>큰 MI에서 드물지만 치명적: papillary muscle rupture(급성 MR), ventricular septal rupture(VSD), free wall rupture. 즉각적 수술이 필요.">Mechanical (rupture)</button>
+              <button data-text="<b>Cardiogenic shock</b><br>광범위 심근 괴사 → cardiac output↓↓ → hypotension → organ hypoperfusion → 쇼크. 매우 높은 사망률.">Cardiogenic shock</button>
+            </div>
+            <div class="infochips__out">합병증을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">10</span> 치료의 전체 그림</h2>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Stable angina / Chronic CAD</h5>
+              <ol>
+                <li>Symptom 감소 (ischemia↓)</li>
+                <li>Future MI·death event 예방</li>
+              </ol>
+            </div>
+            <div class="panel panel--drug">
+              <h5>ACS (급성 관상동맥증후군)</h5>
+              <ol>
+                <li>Thrombus progression 억제</li>
+                <li>Ischemia 감소</li>
+                <li>필요한 환자에서 빠른 reperfusion</li>
+                <li>이후 secondary prevention</li>
+              </ol>
+            </div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">MI 후 secondary prevention: DAPT · statin · β-blocker(적응증 내) · ACEi/ARB · cardiac rehab · 금연 · 혈압·혈당·지질 관리.</p>
+        </section>
+
+        <!-- ================= 11 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">11</span> 생활습관 치료</h2>
+          <ul class="clean">
+            <li><b>금연</b> — MI 이후 가장 중요한 수정 가능한 위험요인 중 하나. endothelial function·thrombosis·재발 위험↓.</li>
+            <li><b>Cardiac rehabilitation</b> — 2025 ACS guideline: MI 안정화 후 구조화된 cardiac rehab referral 권고. 참여가 어려우면 home-based 프로그램도 고려.</li>
+            <li><b>식사</b> — Mediterranean/DASH-like pattern: LDL↓·BP 관리·체중 관리·혈당 관리 목표.</li>
+            <li><b>혈압·당뇨·체중 관리</b> — MI 한 번 치료했다고 끝이 아닙니다. 전신 atherosclerosis가 남아 있습니다.</li>
+          </ul>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>핵심 인식</div>
+            <p>Stent를 넣어도 systemic atherosclerosis가 완치되는 것이 아닙니다. 재발 예방을 위한 적극적인 secondary prevention이 매우 중요합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 12 · Stable angina 약물 ================= -->
+        <section id="drugs-stable" class="section">
+          <h2><span class="sec-no">12</span> 약물치료 — Stable angina</h2>
+
+          <h3>12-1. Nitroglycerin (NTG)</h3>
+          <blockquote>NO donor → cGMP↑ → vascular smooth muscle relaxation → 특히 <b>venodilation</b> → venous return / preload↓ → LV wall stress↓ → myocardial O₂ demand↓ → angina relief</blockquote>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>약사가 꼭 알아야 할 포인트</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>NTG는 plaque를 녹이는 약이 아닙니다 — hemodynamic burden을 줄여 증상을 완화합니다.</li>
+              <li>부작용: headache · flushing · hypotension · dizziness.</li>
+              <li><b>절대 금기 — PDE5 inhibitor(sildenafil·tadalafil 등)와 병용 금지</b>: 심한 hypotension 위험.</li>
+            </ul>
+          </div>
+
+          <h3 style="margin-top:18px;">12-2. β-blocker</h3>
+          <blockquote>HR↓ · contractility↓ → myocardial O₂ demand↓ → angina 증상 감소</blockquote>
+          <p style="font-size:14px;">MI 이후 장기 β-blocker 사용 적응증은 LV dysfunction·arrhythmia 등 임상 상황에 따라 달라집니다.</p>
+
+          <h3 style="margin-top:18px;">12-3. Calcium channel blocker (CCB)</h3>
+          <p style="font-size:14px;">혈관 확장 및 일부 약제의 HR 감소 등을 통해 angina 증상 완화. β-blocker 내약성이 없거나 vasospastic component가 있는 경우 특히 중요.</p>
+        </section>
+
+        <!-- ================= 13 · ACS 약물 ================= -->
+        <section id="drugs-acs" class="section">
+          <h2><span class="sec-no">13</span> 약물치료 — ACS</h2>
+
+          <p>약이 <b>질환 흐름의 어느 단계를 막는지</b> 탭해 보세요.</p>
+          <div class="figure" data-acsdrugmap>
+            <div class="figure__title">Viz 11 · ACS Drug Targets</div>
+            <div class="adm__flow">
+              <span class="adm__node">Plaque rupture</span>
+              <span class="adm__arrow">↓</span>
+              <span class="adm__node" data-drug-node="platelet">Platelet 활성화</span>
+              <span class="adm__arrow">↓</span>
+              <span class="adm__node" data-drug-node="coag">Thrombin / Fibrin</span>
+              <span class="adm__arrow">↓</span>
+              <span class="adm__node">Coronary occlusion</span>
+              <span class="adm__arrow">↓</span>
+              <span class="adm__node" data-drug-node="ischemia">Ischemia</span>
+              <span class="adm__arrow">↓</span>
+              <span class="adm__node" data-drug-node="future">향후 재발 위험</span>
+            </div>
+            <div class="adm__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+              <button class="btn" data-adrug="aspirin">Aspirin</button>
+              <button class="btn" data-adrug="p2y12">P2Y12 inhibitor</button>
+              <button class="btn" data-adrug="anticoag">Anticoagulant</button>
+              <button class="btn" data-adrug="nitrate">Nitrate</button>
+              <button class="btn" data-adrug="bb">β-blocker</button>
+              <button class="btn" data-adrug="statin">Statin</button>
+              <button class="btn" data-adrug="acei">ACEi / ARB</button>
+              <button class="btn btn--ghost" data-adrug="reset">↺ 리셋</button>
+            </div>
+            <div class="adm__out" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:14px;">
+              약물 버튼을 눌러 어느 단계에 작용하는지 확인하세요.
+            </div>
+          </div>
+
+          <h3 style="margin-top:20px;">13-1. Aspirin + P2Y12 inhibitor (DAPT)</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Aspirin</h5>
+              <p>COX-1 억제 → Thromboxane A₂↓ → platelet aggregation↓</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>P2Y12 inhibitor</h5>
+              <p>대표: clopidogrel · ticagrelor · prasugrel<br>ADP 경로 platelet activation 억제</p>
+            </div>
+          </div>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>DAPT 기간 — 2025 ACS guideline 요약</div>
+            <p>출혈위험이 높지 않은 ACS 환자에서 aspirin + P2Y12 inhibitor <b>기본 12개월</b>.
+              PCI를 받는 ACS에서는 상황에 따라 ticagrelor 또는 prasugrel을 clopidogrel보다 선호합니다.
+              실제 기간은 bleeding risk·anticoagulant 병용·PCI 상태에 따라 개별화됩니다.</p>
+          </div>
+
+          <h3 style="margin-top:18px;">13-2. Anticoagulation</h3>
+          <p style="font-size:14px;">급성 ACS에서 상황에 따라 heparin·enoxaparin 등 사용. coagulation cascade/thrombin-fibrin formation을 줄여 추가 thrombosis 억제.</p>
+
+          <h3 style="margin-top:18px;">13-3. Statin</h3>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>약사가 자주 받는 질문</div>
+            <p>"콜레스테롤 수치가 별로 높지 않은데 왜 강한 statin을 먹나요?"<br>
+              → ACS가 발생한 사람은 이미 <b>매우 높은 재발 위험군</b>입니다.
+              Statin은 LDL-C를 낮추는 것을 넘어 future plaque progression과 recurrent ASCVD event를 줄입니다.</p>
+          </div>
+
+          <h3 style="margin-top:18px;">13-4. ACE inhibitor / ARB</h3>
+          <p style="font-size:14px;">LV dysfunction·고혈압·당뇨·CKD 등 상황에서 특히 중요. afterload 감소와 ventricular remodeling 억제.</p>
+        </section>
+
+        <!-- ================= 14 · Reperfusion ================= -->
+        <section id="reperfusion" class="section">
+          <h2><span class="sec-no">14</span> Reperfusion therapy</h2>
+          <blockquote>막힌 혈관을 다시 여는 것 — <b>PCI(Percutaneous Coronary Intervention)</b>가 현재 표준</blockquote>
+
+          <h3>PCI</h3>
+          <p>Catheter → balloon → stent → blood flow 복원. STEMI에서는 가능한 한 빠른 primary PCI가 핵심.</p>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 12 · STEMI Reperfusion Strategy</div>
+            <div class="checkchips">
+              <button data-text="<b>Primary PCI</b> — 가장 선호하는 reperfusion 방법. STEMI에서 door-to-balloon time 목표 90분(또는 first contact-to-device 120분). 가능하다면 fibrinolysis보다 선호.">Primary PCI</button>
+              <button data-text="<b>Fibrinolysis (혈전용해제)</b> — Primary PCI를 적시에 시행하기 어려운 일부 STEMI에서 고려. 혈전을 분해해 reperfusion. 단, 특히 intracranial hemorrhage 위험 → 적응증·금기 엄격 평가 필요.">Fibrinolysis</button>
+              <button data-text="<b>CABG (관상동맥 우회술)</b> — 특정 complex anatomy(left main·3-vessel disease 등)에서 PCI 대신 고려. 계획 수술.">CABG</button>
+            </div>
+            <div class="infochips__out">Reperfusion 전략을 탭하세요.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>왜 시간이 핵심인가</div>
+            <p>지속적인 coronary occlusion → myocardial necrosis가 계속 확대됩니다.<br>
+              <b>빠른 reperfusion = 살릴 수 있는 심근을 최대한 구제</b>.<br>
+              2025 ACS guideline은 STEMI·NSTEMI의 invasive/reperfusion 전략을 최신 근거로 통합합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">15</span> 약사 Deep Dive</h2>
+
+          <h3>① 왜 subendocardium부터 손상될까?</h3>
+          <p>Subendocardial region은 ischemia에 더 취약합니다. 이유: 높은 intramural pressure·수축기 관상동맥 압박·높은 O₂ demand. 따라서 partial/prolonged ischemia에서 subendocardial injury가 먼저 발생할 수 있고, 이것이 <b>NSTEMI의 병태생리 이해</b>에 도움이 됩니다.</p>
+
+          <h3 style="margin-top:18px;">② STEMI = 항상 완전 폐색, NSTEMI = 항상 부분 폐색?</h3>
+          <p>이렇게 단순화하면 틀릴 수 있습니다. NSTEMI에서도 complete occlusion이 있을 수 있고, STEMI 여부는 occlusion 위치·collateral circulation·myocardium supplied·ECG pattern 등에 영향받습니다.
+            <b>STEMI/NSTEMI는 ECG + clinical MI classification</b>이지 "100% vs 70% 막힘"의 단순 분류가 아닙니다.</p>
+
+          <h3 style="margin-top:18px;">③ Type 1 MI vs Type 2 MI</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Type 1 MI</h5>
+              <p>이번 강의에서 주로 다룬 형태.<br>Plaque rupture/erosion → coronary thrombosis → MI.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Type 2 MI</h5>
+              <p>Acute atherothrombosis 없이 <b>O₂ supply-demand mismatch</b>로 발생.<br>예: severe anemia · hypotension · tachyarrhythmia · severe hypoxemia.</p>
+            </div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">따라서 "Troponin 상승 + ischemia = 무조건 plaque rupture"는 아닙니다. 2025 ACS guideline은 주로 Type 1 MI의 급성 관리에 초점을 맞춥니다.</p>
+        </section>
+
+        <!-- ================= 16 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">16</span> 비슷한 질환과 비교</h2>
+
+          <h3>ACS 스펙트럼 비교</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Stable angina</th><th>Unstable angina</th><th>NSTEMI</th><th>STEMI</th></tr></thead>
+              <tbody>
+                <tr><th>Acute plaque event</th><td>보통 ❌</td><td>흔함</td><td>흔함</td><td>흔함</td></tr>
+                <tr><th>Rest pain</th><td>보통 ❌</td><td>가능</td><td>가능</td><td>가능</td></tr>
+                <tr><th>Necrosis</th><td>❌</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                <tr><th>Troponin</th><td>정상</td><td>정상</td><td>상승</td><td>상승</td></tr>
+                <tr><th>ST elevation</th><td>❌</td><td>❌</td><td>보통 ❌</td><td>전형적 ✅</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:20px;">협심증 vs GERD</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Angina</th><th>GERD / Esophageal</th></tr></thead>
+              <tbody>
+                <tr><th>느낌</th><td>pressure / heaviness</td><td>burning / 신물 역류</td></tr>
+                <tr><th>운동 연관</th><td>흔함</td><td>덜 전형적</td></tr>
+                <tr><th>식후</th><td>가능</td><td>흔함</td></tr>
+                <tr><th>휴식 호전</th><td>흔함</td><td>다양</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>중요</div>
+            <p>증상만으로 완전히 구별할 수 없습니다. 심혈관 위험이 있는 환자의 새로운 흉부 불편감은 단순 위장 증상으로 단정하지 않습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 17 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">17</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 협심증과 심근경색은 뭐가 다른가요?</button>
+              <div class="faq__a">둘 다 심장근육이 피를 충분히 받지 못하는 상태이지만, <b>협심증은 대개 일시적 ischemia</b>이고 심근경색은 혈류 부족이 심하고 오래 지속되어 <b>심근세포가 실제로 죽은 상태</b>입니다.
+                <div class="ph"><b>약사 요점:</b> ischemia → (지속·심화) → myocyte necrosis → MI.</div>
+              </div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. 가슴이 안 아프면 심근경색은 아닌가요?</button>
+              <div class="faq__a">아닙니다. 특히 노인·당뇨병 환자·여성에서는 호흡곤란·피로·구역감·어지러움 등만 나타나는 <b>silent MI·atypical presentation</b>이 가능합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. 니트로글리세린을 먹고 좋아지면 무조건 협심증인가요?</button>
+              <div class="faq__a">아닙니다. NTG 반응만으로 coronary ischemia를 확진할 수 없습니다. Esophageal spasm 등 다른 원인에서도 증상 변화가 있을 수 있습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. 심근경색에서 왜 aspirin을 빨리 쓰나요?</button>
+              <div class="faq__a">Plaque rupture 후 platelet aggregation이 혈전을 키우기 때문입니다. Aspirin은 thromboxane A₂ 경로를 억제해 thrombus progression을 줄입니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. 스텐트를 했는데 statin을 계속 먹어야 하나요?</button>
+              <div class="faq__a">일반적으로 매우 중요합니다. Stent는 culprit lesion 하나를 치료하지만 전신의 atherosclerosis가 남아 있습니다. Future plaque event를 줄이기 위한 secondary prevention이 필요합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. 왜 aspirin과 clopidogrel을 같이 먹나요(DAPT)?</button>
+              <div class="faq__a">Stent와 ACS 상황에서 platelet-mediated thrombosis를 줄이기 위해 두 platelet 경로(TXA₂ + ADP)를 동시에 억제합니다. 기간은 ACS·PCI·bleeding risk에 따라 개별화됩니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 심근경색 한 번 치료하면 다시 정상인가요?</button>
+              <div class="faq__a">아닙니다. Necrosis된 심근은 완전히 정상으로 돌아오지 않을 수 있고, 무엇보다 systemic atherosclerosis가 남아 있습니다. Secondary prevention이 매우 중요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 18 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">18</span> 흔한 오해 / 팩트체크</h2>
+          <div class="fact">
+            <div class="factrow">
+              <div class="claim">협심증은 심근경색의 가벼운 버전이다.</div>
+              <span class="verdict">대체로 틀림</span>
+              <div class="why">둘 다 ischemic heart disease라는 배경은 같지만, stable angina와 acute MI는 임상 기전과 응급도가 다릅니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">심근경색은 혈관이 천천히 100% 막혀서 생긴다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">Plaque rupture 후 thrombus가 급속히 형성되면서 발생하는 경우가 흔합니다. "서서히 100%"는 특수한 경우입니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">Troponin이 높으면 무조건 관상동맥 plaque가 터진 것이다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">Troponin은 myocardial injury marker이며 myocarditis·HF·PE·CKD·sepsis 등에서도 상승합니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">스텐트를 했으니 심혈관 질환이 완치됐다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">Stent는 culprit/local lesion을 치료하지만 systemic atherosclerosis는 계속 관리해야 합니다.</div>
+              <div class="take"><b>실전:</b> statin·DAPT·생활습관·혈압·혈당 관리를 계속합니다.</div>
+            </div>
+            <div class="factrow">
+              <div class="claim">Aspirin은 심장에 좋으니 아무나 미리 먹으면 좋다.</div>
+              <span class="verdict">틀림</span>
+              <div class="why">Bleeding risk가 있어 primary prevention에서 임의로 복용해서는 안 됩니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 19 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">19</span> Case Study</h2>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · 운동할 때만 가슴이 아파요</div>
+            <p>59세 남성. HTN · LDL 158 · 흡연자. 계단 3층 오르면 가슴 중앙 압박감, 5분 쉬면 소실. 최근 3개월 비슷한 패턴.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 어떤 형태의 ischemic syndrome? ② 왜 운동 중 발생? ③ 증상치료와 event prevention은 어떻게 다른가?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">전형적인 <b>stable exertional angina</b> 패턴. Fixed coronary stenosis로 resting supply는 충분하지만 운동 중 demand 증가를 공급이 따라가지 못합니다. 휴식하면 HR·BP가 내려가 demand가 줄어 증상이 완화됩니다.
+              <div class="exp">NTG로 통증만 줄이는 것과 statin·금연·BP 관리로 future ASCVD event를 줄이는 것은 별개의 치료 목표입니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case" style="margin-top:20px;">
+            <div class="card__label"><span class="dot"></span>Case 2 · 오늘은 쉬어도 안 낫습니다</div>
+            <p>같은 환자 6개월 후. 저녁 TV 시청 중 갑자기 흉부 압박감 발생. 30분 지속 · 식은땀 · 구역 · 호흡곤란 · 휴식 후에도 호전 없음.<br>
+               ECG: ST elevation in anterior leads. Troponin: 초기 경미한 상승 → 이후 현저한 상승.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각해보기 — ① 가장 의심되는 상황? ② 이전 stable angina와 무엇이 달라졌나? ③ 지금 최우선 목표는?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">급성 <b>STEMI</b>를 강하게 의심합니다. 기존 plaque의 rupture/erosion 후 acute thrombus가 형성되어 coronary flow가 심하게 감소했을 가능성이 높습니다.
+              <div class="exp">이 상황에서는 단순 symptom control이 아니라 <b>신속한 reperfusion(primary PCI)</b>이 최우선입니다. 2025 ACS guideline은 STEMI에서 first contact-to-device 120분을 목표로 합니다.</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">ACS 분류 시뮬레이터</h3>
+          <div class="figure" data-acsdecision>
+            <div class="figure__title">Viz 13 · ACS Decision Simulation</div>
+            <p style="font-size:13px;">증상·ECG·troponin을 선택하면 ACS 분류를 확인할 수 있습니다.</p>
+            <div class="acd__row">
+              <div class="acd__group">
+                <b>증상</b>
+                <div class="hypo__opts" data-group="symptom">
+                  <button data-val="exertional">운동시 흉통만</button>
+                  <button data-val="rest">휴식 중 흉통</button>
+                </div>
+              </div>
+              <div class="acd__group">
+                <b>ECG</b>
+                <div class="hypo__opts" data-group="ecg">
+                  <button data-val="normal">정상/비특이적</button>
+                  <button data-val="stdep">ST depression</button>
+                  <button data-val="stup">ST elevation</button>
+                </div>
+              </div>
+              <div class="acd__group">
+                <b>Troponin</b>
+                <div class="hypo__opts" data-group="trop">
+                  <button data-val="neg">음성 (정상)</button>
+                  <button data-val="pos">상승</button>
+                </div>
+              </div>
+            </div>
+            <div class="hypo__result" style="margin-top:12px;">
+              <div class="hypo__risk">선택 후 결과가 나타납니다</div>
+              <div class="hypo__exp">증상·ECG·troponin 조합을 위에서 선택하세요.</div>
+            </div>
+            <div class="figure__cap">실제 임상에서는 ECG·serial troponin·전체 임상상으로 판단하며 이 시뮬레이터는 진단 도구가 아닙니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">20</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. Stable exertional angina의 가장 핵심적인 기전은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 운동할 때 coronary plaque가 매번 rupture한다.</li>
+                <li data-opt="B"><span class="opt">B</span> 운동으로 심근 O₂ demand가 증가하지만 fixed stenosis로 supply가 충분히 증가하지 못한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 심근세포가 항상 necrosis된다.</li>
+                <li data-opt="D"><span class="opt">D</span> 운동하면 troponin이 반드시 크게 상승한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. Unstable angina와 NSTEMI를 구분하는 가장 중요한 요소는?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 환자 나이</li>
+                <li data-opt="B"><span class="opt">B</span> 통증 강도</li>
+                <li data-opt="C"><span class="opt">C</span> Myocardial necrosis의 유무와 troponin 상승</li>
+                <li data-opt="D"><span class="opt">D</span> LDL 수치</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 두 질환의 핵심 차이는 심근세포의 실제 괴사 여부입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. Troponin에 대한 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 상승하면 항상 STEMI다.</li>
+                <li data-opt="B"><span class="opt">B</span> Myocardial injury를 나타내며 MI 외 다른 질환에서도 상승할 수 있다.</li>
+                <li data-opt="C"><span class="opt">C</span> 혈소판 활성도를 직접 측정한다.</li>
+                <li data-opt="D"><span class="opt">D</span> LDL의 한 종류다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. STEMI에서 가장 중요한 치료 원칙은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 수개월 기다렸다가 지질만 측정한다.</li>
+                <li data-opt="B"><span class="opt">B</span> 가능한 한 빠르게 coronary reperfusion을 달성한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 모든 약을 중단한다.</li>
+                <li data-opt="D"><span class="opt">D</span> HDL만 상승시킨다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. DAPT(이중 항혈소판 요법)의 구성으로 맞는 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> Aspirin + Statin</li>
+                <li data-opt="B"><span class="opt">B</span> Aspirin + P2Y12 inhibitor</li>
+                <li data-opt="C"><span class="opt">C</span> β-blocker + Nitrate</li>
+                <li data-opt="D"><span class="opt">D</span> ACEi + ARB</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 2025 ACS guideline에서 출혈 위험이 높지 않은 ACS 환자에서 기본 항혈소판 전략입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 21 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">21</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>협심증의 본질은 심근 O₂ supply &lt; demand — ischemia다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>Stable angina: fixed stenosis로 운동 시 공급이 수요를 못 따라감 → 휴식하면 호전.</p></div>
+            <div class="factcard"><span class="n">3</span><p>ACS는 통증 강도 증가가 아니라 plaque rupture/erosion + acute thrombosis라는 다른 기전이다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>UA: ischemia O, necrosis X, troponin 정상. NSTEMI: necrosis O, troponin 상승. STEMI: 전형적 ST elevation.</p></div>
+            <div class="factcard"><span class="n">5</span><p>Time is muscle — STEMI에서 빠른 reperfusion = 살릴 수 있는 심근 최대화.</p></div>
+            <div class="factcard"><span class="n">6</span><p>ECG 정상 ≠ MI 배제. Serial hs-troponin + 임상상을 함께 봐야 한다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>약물 목적 구분: nitrate/β-blocker = ischemia·증상, aspirin/P2Y12 = platelet, anticoag = coagulation, statin = future risk.</p></div>
+            <div class="factcard"><span class="n">8</span><p>Stent = local lesion 치료, systemic atherosclerosis는 그대로 → DAPT·statin·금연·2차 예방이 필수.</p></div>
+            <div class="factcard"><span class="n">9</span><p>Troponin 상승 = myocardial injury. HF·PE·CKD 등에서도 오른다 — 임상 맥락이 필수.</p></div>
+            <div class="factcard"><span class="n">10</span><p>2025 ACS guideline: UA·NSTEMI·STEMI 통합 체계, DAPT 기본 12개월(출혈 위험 낮은 경우), cardiac rehab 강조.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">협심증은 <b>심근 허혈</b>이고,<br>
+            심근경색은 <b>그 허혈이 지속·심화되어 심근세포가 실제로 죽은 것</b>이다.<br>
+            ACS는 stable angina와 달리 <b>plaque rupture + acute thrombosis</b>이며 — <br>
+            <b>Time is muscle, 빠른 reperfusion이 핵심</b>이다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 <b>제10강 뇌졸중</b>에서는 같은 동맥경화·혈전이라는 병태생리가 심장이 아닌 <b>뇌혈관</b>에서 발생했을 때 어떻게 달라지는지 연결합니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>협심증·심근경색 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">핵심</span><span>O₂ supply &lt; demand → ischemia</span></div>
+      <div class="qr-row"><span class="qr-k">Stable</span><span>fixed stenosis + 운동 = 일시적 허혈</span></div>
+      <div class="qr-row"><span class="qr-k">ACS</span><span>plaque rupture + thrombosis</span></div>
+      <div class="qr-row"><span class="qr-k">차이</span><span>UA=troponin(-) / NSTEMI=troponin(+)</span></div>
+      <div class="qr-row"><span class="qr-k">STEMI</span><span>ST elevation + 즉각 reperfusion</span></div>
+      <div class="qr-row"><span class="qr-k">약</span><span>aspirin+P2Y12 platelet / statin future risk</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

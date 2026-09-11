@@ -95,6 +95,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 9,
+    category: "core",
+    href: "lessons/core/09.html",
+    title: "협심증과 심근경색",
+    desc: "제8강 동맥경화 plaque가 만들어진 다음. 심근 O₂ 공급과 수요의 불균형 → stable angina, plaque rupture + 혈전 → ACS(UA·NSTEMI·STEMI)의 흐름을 이해하고, troponin·ECG의 역할, 'Time is muscle', nitroglycerin·aspirin·P2Y12·statin의 각자 다른 목표까지.",
+    tags: ["O₂ 균형", "stable vs ACS", "troponin", "DAPT", "reperfusion"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

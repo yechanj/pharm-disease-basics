@@ -13,8 +13,10 @@
   var LS_STATS = "pharm_quiz_stats";     // { id: {seen, correct, wrong} }
   var LS_HISTORY = "pharm_quiz_history"; // [{date, mode, score, total}]
   var LS_CYCLE = "pharm_quiz_cycle";     // 이번 회차에 이미 출제된 문제 id 배열
+  var LS_FILTER = "pharm_quiz_filter";   // { coreOn, coreFrom, coreTo, everydayOn, everydayFrom, everydayTo }
 
   var ALL = [];        // 모든 문제
+  var INDEX_META = []; // 로드된 파일 메타 [{category, no, disease}]
   var current = [];    // 이번 세션 문제들
   var pos = 0;         // 현재 문제 인덱스
   var sessionScore = 0;
@@ -33,9 +35,10 @@
   function getStats() { return readLS(LS_STATS, {}); }
   function recordAnswer(id, ok) {
     var s = getStats();
-    var r = s[id] || { seen: 0, correct: 0, wrong: 0 };
+    var r = s[id] || { seen: 0, correct: 0, wrong: 0, streak: 0 };
     r.seen++;
-    if (ok) r.correct++; else r.wrong++;
+    if (ok) { r.correct++; r.streak = (r.streak || 0) + 1; }
+    else     { r.wrong++;   r.streak = 0; }
     s[id] = r;
     writeLS(LS_STATS, s);
   }
@@ -72,10 +75,14 @@
       .then(function (r) { if (!r.ok) throw new Error("index"); return r.json(); })
       .then(function (idx) {
         var ready = (idx.files || []).filter(function (f) { return f.status === "ready"; });
+        INDEX_META = ready.map(function (f) { return { category: f.category, no: f.no, disease: f.disease }; });
         return Promise.all(ready.map(function (f) {
           return fetch(Q_DIR + f.file, { cache: "no-store" })
             .then(function (r) { if (!r.ok) throw new Error(f.file); return r.json(); })
-            .then(function (list) { return list; })
+            .then(function (list) {
+              list.forEach(function (q) { q._cat = f.category; q._no = f.no; });
+              return list;
+            })
             .catch(function () { return []; });
         }));
       })
@@ -89,22 +96,78 @@
   /* ---------- 시작 화면 ---------- */
   function wrongPool() {
     var s = getStats();
-    return ALL.filter(function (q) { return s[q.id] && s[q.id].wrong > 0; });
+    return getFilteredPool().filter(function (q) { var r = s[q.id]; return r && r.wrong > 0 && (r.streak || 0) < 2; });
+  }
+
+  /* ---------- 출제 범위 필터 ---------- */
+  function getCatNos(cat) {
+    var nos = [];
+    INDEX_META.forEach(function (m) { if (m.category === cat) nos.push(m.no); });
+    return nos.sort(function (a, b) { return a - b; });
+  }
+
+  function defaultFilter() {
+    var cn = getCatNos("core"), en = getCatNos("everyday");
+    return {
+      coreOn: cn.length > 0,
+      coreFrom: cn[0] || 1,
+      coreTo: cn[cn.length - 1] || 1,
+      everydayOn: en.length > 0,
+      everydayFrom: en[0] || 1,
+      everydayTo: en[en.length - 1] || 1
+    };
+  }
+
+  function readFilter() {
+    var saved = readLS(LS_FILTER, null);
+    var def = defaultFilter();
+    if (!saved) return def;
+    var cn = getCatNos("core"), en = getCatNos("everyday");
+    function validNo(nos, v, fallback) { return nos.indexOf(v) >= 0 ? v : fallback; }
+    var cf = validNo(cn, saved.coreFrom, def.coreFrom);
+    var ct = validNo(cn, saved.coreTo, def.coreTo);
+    var ef = validNo(en, saved.everydayFrom, def.everydayFrom);
+    var et = validNo(en, saved.everydayTo, def.everydayTo);
+    if (ct < cf) ct = cf;
+    if (et < ef) et = ef;
+    return {
+      coreOn: typeof saved.coreOn === "boolean" ? saved.coreOn : def.coreOn,
+      coreFrom: cf, coreTo: ct,
+      everydayOn: typeof saved.everydayOn === "boolean" ? saved.everydayOn : def.everydayOn,
+      everydayFrom: ef, everydayTo: et
+    };
+  }
+
+  function getFilteredPool() {
+    var f = readFilter();
+    return ALL.filter(function (q) {
+      if (q._cat === "core") return f.coreOn && q._no >= f.coreFrom && q._no <= f.coreTo;
+      if (q._cat === "everyday") return f.everydayOn && q._no >= f.everydayFrom && q._no <= f.everydayTo;
+      return true;
+    });
+  }
+
+  function buildFilterSelect(nos, selected, id) {
+    return "<select id='" + id + "' class='qd-fsel'>" +
+      nos.map(function (n) {
+        return "<option value='" + n + "'" + (n === selected ? " selected" : "") + ">" + n + "강</option>";
+      }).join("") +
+    "</select>";
   }
 
   /* 데일리 출제: 이번 회차에 안 낸 문제를 우선, 전부 소진되면 리셋 후 새 회차 */
   function dailyPick() {
+    var pool = getFilteredPool();
     var servedSet = {};
     getServed().forEach(function (id) { servedSet[id] = 1; });
-    var unseen = ALL.filter(function (q) { return !servedSet[q.id]; });
-    if (unseen.length === 0) { resetCycle(); unseen = ALL.slice(); } // 한 바퀴 완료 → 리셋
+    var unseen = pool.filter(function (q) { return !servedSet[q.id]; });
+    if (unseen.length === 0) { resetCycle(); unseen = pool.slice(); }
     var picked = shuffle(unseen).slice(0, DAILY_COUNT);
     if (picked.length < DAILY_COUNT) {
-      // 회차의 마지막 배치: 남은 미출제 + 새 회차에서 채움
       resetCycle();
       var pickedIds = {};
       picked.forEach(function (q) { pickedIds[q.id] = 1; });
-      var rest = shuffle(ALL.filter(function (q) { return !pickedIds[q.id]; }))
+      var rest = shuffle(pool.filter(function (q) { return !pickedIds[q.id]; }))
         .slice(0, DAILY_COUNT - picked.length);
       picked = picked.concat(rest);
     }
@@ -112,12 +175,52 @@
   }
 
   function renderStart() {
+    var pool = getFilteredPool();
     var s = getStats();
-    var answered = Object.keys(s).length;
+    var answered = pool.filter(function (q) { return s[q.id] && s[q.id].seen > 0; }).length;
     var wrongN = wrongPool().length;
-    var servedCount = Math.min(getServed().length, ALL.length);
-    var cycleDone = servedCount >= ALL.length && ALL.length > 0;
+    var servedSet = {};
+    getServed().forEach(function (id) { servedSet[id] = 1; });
+    var servedCount = pool.filter(function (q) { return servedSet[q.id]; }).length;
+    var cycleDone = pool.length > 0 && servedCount >= pool.length;
     var hist = readLS(LS_HISTORY, []);
+
+    var coreNos = getCatNos("core");
+    var evNos = getCatNos("everyday");
+    var filt = readFilter();
+
+    var filterHtml =
+      "<div class='qd-filter'>" +
+        "<div class='qd-filter-label'>출제 범위</div>" +
+        "<div class='qd-frow" + (!filt.coreOn ? " off" : "") + "'>" +
+          "<label class='qd-ftoggle'>" +
+            "<input type='checkbox' id='qdf-core-on'" + (filt.coreOn ? " checked" : "") + ">" +
+            "<span class='qd-ftoggle-track'><span class='qd-ftoggle-thumb'></span></span>" +
+          "</label>" +
+          "<span class='qd-fcat'><span class='qd-fcat-badge qd-fcat-badge--core'>CORE</span></span>" +
+          (coreNos.length ?
+            "<div class='qd-frange'>" +
+              buildFilterSelect(coreNos, filt.coreFrom, "qdf-core-from") +
+              "<span class='qd-frange-sep'>~</span>" +
+              buildFilterSelect(coreNos, filt.coreTo, "qdf-core-to") +
+            "</div>"
+          : "<span class='qd-fno'>문제 없음</span>") +
+        "</div>" +
+        "<div class='qd-frow" + (!filt.everydayOn ? " off" : "") + "'>" +
+          "<label class='qd-ftoggle'>" +
+            "<input type='checkbox' id='qdf-ev-on'" + (filt.everydayOn ? " checked" : "") + ">" +
+            "<span class='qd-ftoggle-track'><span class='qd-ftoggle-thumb'></span></span>" +
+          "</label>" +
+          "<span class='qd-fcat'><span class='qd-fcat-badge qd-fcat-badge--ev'>EVERYDAY</span></span>" +
+          (evNos.length ?
+            "<div class='qd-frange'>" +
+              buildFilterSelect(evNos, filt.everydayFrom, "qdf-ev-from") +
+              "<span class='qd-frange-sep'>~</span>" +
+              buildFilterSelect(evNos, filt.everydayTo, "qdf-ev-to") +
+            "</div>"
+          : "<span class='qd-fno'>문제 없음</span>") +
+        "</div>" +
+      "</div>";
 
     var histHtml = hist.length
       ? hist.slice(0, 5).map(function (h) {
@@ -130,27 +233,149 @@
 
     el.stage.innerHTML =
       "<div class='qd-start'>" +
+        filterHtml +
         "<div class='qd-stat-row'>" +
-          "<div class='qd-stat'><span class='qd-stat-n'>" + ALL.length + "</span><span class='qd-stat-l'>전체 문제</span></div>" +
+          "<div class='qd-stat'><span class='qd-stat-n'>" + pool.length + "</span><span class='qd-stat-l'>선택 문제</span></div>" +
           "<div class='qd-stat'><span class='qd-stat-n'>" + answered + "</span><span class='qd-stat-l'>학습한 문제</span></div>" +
           "<div class='qd-stat'><span class='qd-stat-n'>" + wrongN + "</span><span class='qd-stat-l'>오답 문제</span></div>" +
         "</div>" +
         "<div class='qd-cycle'>" +
-          "<div class='qd-cycle-top'><span>이번 회차 진행</span><span class='qd-cycle-num'>" + servedCount + " / " + ALL.length + "</span></div>" +
-          "<div class='qd-cycle-bar'><span style='width:" + (ALL.length ? Math.round(servedCount / ALL.length * 100) : 0) + "%'></span></div>" +
+          "<div class='qd-cycle-top'><span>이번 회차 진행</span><span class='qd-cycle-num'>" + servedCount + " / " + pool.length + "</span></div>" +
+          "<div class='qd-cycle-bar'><span style='width:" + (pool.length ? Math.round(servedCount / pool.length * 100) : 0) + "%'></span></div>" +
           (cycleDone ? "<div class='qd-cycle-done'>🎉 전체를 한 바퀴 풀었습니다 · 다음 테스트부터 새 회차로 리셋됩니다</div>" :
             "<div class='qd-cycle-hint'>이미 푼 문제는 다시 안 나오고, 전부 풀면 자동으로 리셋돼요</div>") +
         "</div>" +
         "<div class='qd-actions'>" +
-          "<button class='qd-btn qd-btn--primary' id='qdDaily'>데일리 테스트 시작 · " + Math.min(DAILY_COUNT, ALL.length) + "문제</button>" +
+          (pool.length
+            ? "<button class='qd-btn qd-btn--primary' id='qdDaily'>데일리 테스트 시작 · " + Math.min(DAILY_COUNT, pool.length) + "문제</button>"
+            : "<button class='qd-btn qd-btn--primary' disabled>범위를 선택해 주세요</button>") +
           "<button class='qd-btn' id='qdWrong'" + (wrongN ? "" : " disabled") + ">오답 다시 풀기" + (wrongN ? " · " + Math.min(DAILY_COUNT, wrongN) + "문제" : " (없음)") + "</button>" +
+          "<button class='qd-btn qd-btn--ghost' id='qdProgress'>과목별 진행도</button>" +
         "</div>" +
         "<div class='qd-history'><h3>최근 기록</h3>" + histHtml + "</div>" +
       "</div>";
 
-    document.getElementById("qdDaily").addEventListener("click", function () { startSession("daily"); });
+    var db = document.getElementById("qdDaily");
+    if (db && !db.disabled) db.addEventListener("click", function () { startSession("daily"); });
     var wb = document.getElementById("qdWrong");
     if (wb && !wb.disabled) wb.addEventListener("click", function () { startSession("wrong"); });
+    var pb = document.getElementById("qdProgress");
+    if (pb) pb.addEventListener("click", function () { renderProgress(); window.scrollTo(0, 0); });
+
+    function readCurrentFilter() {
+      function gv(id, fallback) { var e = document.getElementById(id); return e ? e.value : fallback; }
+      function gc(id, fallback) { var e = document.getElementById(id); return e ? e.checked : fallback; }
+      return {
+        coreOn: gc("qdf-core-on", filt.coreOn),
+        coreFrom: parseInt(gv("qdf-core-from", filt.coreFrom), 10),
+        coreTo: parseInt(gv("qdf-core-to", filt.coreTo), 10),
+        everydayOn: gc("qdf-ev-on", filt.everydayOn),
+        everydayFrom: parseInt(gv("qdf-ev-from", filt.everydayFrom), 10),
+        everydayTo: parseInt(gv("qdf-ev-to", filt.everydayTo), 10)
+      };
+    }
+
+    function saveAndRender(f) { writeLS(LS_FILTER, f); renderStart(); }
+
+    var filterBindings = [
+      ["qdf-core-on",   function () { saveAndRender(readCurrentFilter()); }],
+      ["qdf-ev-on",     function () { saveAndRender(readCurrentFilter()); }],
+      ["qdf-core-from", function () { var f = readCurrentFilter(); if (f.coreTo < f.coreFrom) f.coreTo = f.coreFrom; saveAndRender(f); }],
+      ["qdf-core-to",   function () { var f = readCurrentFilter(); if (f.coreFrom > f.coreTo) f.coreFrom = f.coreTo; saveAndRender(f); }],
+      ["qdf-ev-from",   function () { var f = readCurrentFilter(); if (f.everydayTo < f.everydayFrom) f.everydayTo = f.everydayFrom; saveAndRender(f); }],
+      ["qdf-ev-to",     function () { var f = readCurrentFilter(); if (f.everydayFrom > f.everydayTo) f.everydayFrom = f.everydayTo; saveAndRender(f); }]
+    ];
+    filterBindings.forEach(function (b) {
+      var node = document.getElementById(b[0]);
+      if (node) node.addEventListener("change", b[1]);
+    });
+  }
+
+  /* ---------- 과목별 진행도 ---------- */
+  function renderProgress() {
+    var s = getStats();
+
+    // ALL 문제를 (category, no, disease) 단위로 묶기
+    var byKey = {};
+    var keyOrder = [];
+    ALL.forEach(function (q) {
+      var key = q._cat + "|" + q._no;
+      if (!byKey[key]) {
+        byKey[key] = { cat: q._cat, no: q._no, disease: q.disease, qs: [] };
+        keyOrder.push(key);
+      }
+      byKey[key].qs.push(q);
+    });
+    keyOrder.sort(function (a, b) {
+      var ga = byKey[a], gb = byKey[b];
+      if (ga.cat !== gb.cat) return ga.cat === "core" ? -1 : 1;
+      return ga.no - gb.no;
+    });
+
+    // 카테고리별로 그룹화
+    var sections = {}, catOrder = [];
+    keyOrder.forEach(function (key) {
+      var g = byKey[key];
+      if (!sections[g.cat]) { sections[g.cat] = []; catOrder.push(g.cat); }
+      sections[g.cat].push(g);
+    });
+
+    function cardHtml(g) {
+      var n = g.qs.length;
+      var correct = 0, wrong = 0, unseen = 0;
+      g.qs.forEach(function (q) {
+        var r = s[q.id];
+        if (!r || !r.seen) { unseen++; }
+        else if (r.wrong > 0 && (r.streak || 0) < 2) { wrong++; }
+        else { correct++; }
+      });
+      var pct     = n ? Math.round((correct + wrong) / n * 100) : 0;
+      var okPct   = n ? (correct / n * 100).toFixed(2) : 0;
+      var noPct   = n ? (wrong   / n * 100).toFixed(2) : 0;
+      var noStr   = g.no < 10 ? "0" + g.no : "" + g.no;
+      var isCo    = g.cat === "core";
+      var badge   = (isCo ? "CORE" : "EVERYDAY") + " " + noStr;
+      var bCls    = isCo ? "qd-pgcard-badge--core" : "qd-pgcard-badge--ev";
+      var pctCls  = pct >= 100 ? " qd-pgcard-pct--done" : "";
+
+      return "<div class='qd-pgcard'>" +
+        "<div class='qd-pgcard-top'>" +
+          "<span class='qd-pgcard-badge " + bCls + "'>" + badge + "</span>" +
+          "<span class='qd-pgcard-name'>" + escapeHtml(g.disease) + "</span>" +
+          "<span class='qd-pgcard-pct" + pctCls + "'>" + pct + "%</span>" +
+        "</div>" +
+        "<div class='qd-pgbar'>" +
+          "<span class='qd-pgbar-ok' style='width:" + okPct + "%'></span>" +
+          "<span class='qd-pgbar-no' style='width:" + noPct + "%'></span>" +
+        "</div>" +
+        "<div class='qd-pgcard-stats'>" +
+          "<span class='qd-pgstat--ok'>✓ " + correct + "개</span>" +
+          "<span class='qd-pgstat--no'>✗ " + wrong + "개</span>" +
+          "<span class='qd-pgstat--un'>○ " + unseen + "개</span>" +
+          "<span class='qd-pgstat--tot'>" + n + "문제</span>" +
+        "</div>" +
+      "</div>";
+    }
+
+    var sectHtml = catOrder.map(function (cat) {
+      return "<div class='qd-pgsec'>" +
+        "<div class='qd-pgsec-label'>" + (cat === "core" ? "CORE" : "EVERYDAY") + "</div>" +
+        sections[cat].map(cardHtml).join("") +
+      "</div>";
+    }).join("");
+
+    el.stage.innerHTML =
+      "<div class='qd-pgview'>" +
+        "<div class='qd-pgview-head'>" +
+          "<button class='qd-pg-back' id='qdPgBack'>← 돌아가기</button>" +
+          "<span class='qd-pgview-title'>과목별 진행도</span>" +
+        "</div>" +
+        sectHtml +
+      "</div>";
+
+    document.getElementById("qdPgBack").addEventListener("click", function () {
+      renderStart(); window.scrollTo(0, 0);
+    });
   }
 
   /* ---------- 세션 시작 ---------- */

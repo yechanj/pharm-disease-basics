@@ -1,0 +1,254 @@
+[
+  {
+    "id": "acs-l1-001",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "정의",
+    "type": "correct",
+    "question": "협심증(Angina pectoris)에 대한 설명으로 가장 적절한 것은?",
+    "options": [
+      "심근세포가 실제로 괴사되어 트로포닌이 반드시 상승하는 질환이다",
+      "심근에 필요한 산소 공급이 일시적으로 부족해져 허혈성 흉통이 발생하는 상태로, 심근세포 괴사는 없다",
+      "관상동맥이 완전히 막혀 혈류가 완전히 차단된 상태를 의미한다",
+      "심근경색과 동일한 질환으로 단지 통증 강도에서만 차이가 난다"
+    ],
+    "answer": 1,
+    "explanation": "협심증은 심근에 필요한 O₂ 공급이 수요를 따라가지 못해 일시적 ischemia와 흉통이 발생하는 상태입니다. 심근세포가 죽지 않았기 때문에 troponin 상승이 없고 infarction이 아닙니다. 심근경색과는 기전과 심각도에서 근본적으로 다릅니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-002",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "O₂ 균형",
+    "type": "correct",
+    "question": "협심증 발생의 핵심 기전을 가장 잘 설명한 것은?",
+    "options": [
+      "LDL이 갑자기 심근으로 이동해 독성을 나타낸다",
+      "심근 산소 공급이 산소 수요보다 부족한 상태가 된다",
+      "심장이 갑자기 커져서 혈관을 압박한다",
+      "혈소판이 심근세포에 직접 달라붙어 손상을 준다"
+    ],
+    "answer": 1,
+    "explanation": "협심증의 핵심은 'O₂ supply < O₂ demand'입니다. 공급 측 요인(관상동맥 협착·혈색소·산소포화도)과 수요 측 요인(심박수·수축력·wall stress)의 불균형이 ischemia를 일으킵니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-003",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "Stable angina",
+    "type": "correct",
+    "question": "Stable exertional angina의 전형적인 패턴으로 가장 적절한 것은?",
+    "options": [
+      "안정 시에만 발생하고 운동하면 오히려 좋아진다",
+      "운동·계단·추위·감정 스트레스 시 흉통 발생, 수 분 지속 후 휴식 또는 니트로글리세린으로 호전",
+      "항상 20분 이상 지속되며 휴식으로는 절대 호전되지 않는다",
+      "매번 트로포닌이 크게 상승한다"
+    ],
+    "answer": 1,
+    "explanation": "Stable angina의 특징은 운동/추위/스트레스 등 O₂ 수요가 증가하는 상황에서 예측 가능하게 발생하고, 수 분 지속 후 휴식(O₂ 수요 감소)이나 NTG(O₂ 수요 감소)로 호전된다는 점입니다. 심근세포 괴사가 없어 troponin은 정상입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-004",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "ACS 기전",
+    "type": "correct",
+    "question": "Stable angina와 ACS(급성 관상동맥증후군)를 구분하는 가장 핵심적인 차이는?",
+    "options": [
+      "나이 차이로만 구분한다",
+      "ACS에서는 acute plaque rupture/erosion 후 혈전이 형성되어 급격한 혈류 감소가 생긴다",
+      "ACS는 관상동맥 협착이 전혀 없어도 항상 발생한다",
+      "두 질환 모두 동일한 약물로 동일하게 치료한다"
+    ],
+    "answer": 1,
+    "explanation": "ACS의 핵심 기전은 vulnerable plaque의 rupture/erosion 이후 platelet 활성화 → 혈전 형성으로 coronary flow가 급격히 감소하는 것입니다. Stable angina가 fixed stenosis로 인한 O₂ 불균형인 것과 근본적으로 다릅니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-005",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "ACS 분류",
+    "type": "correct",
+    "question": "Unstable angina와 NSTEMI를 구분하는 가장 중요한 기준은?",
+    "options": [
+      "흉통의 강도 차이",
+      "심박수 차이",
+      "Cardiac troponin 상승 유무(심근세포 괴사 여부)",
+      "고혈압 동반 여부"
+    ],
+    "answer": 2,
+    "explanation": "UA와 NSTEMI 모두 ACS이며 모두 ischemia가 있지만, NSTEMI는 myocardial necrosis가 발생해 cardiac troponin이 상승합니다. UA에서는 troponin이 정상입니다. 이 점이 두 질환을 구분하는 핵심입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-006",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "STEMI",
+    "type": "correct",
+    "question": "STEMI에서 빠른 reperfusion이 중요한 이유로 가장 적절한 것은?",
+    "options": [
+      "혈압을 낮추기 위해서다",
+      "지속되는 심한 ischemia는 시간이 지나면서 심근 괴사 범위를 확대시키기 때문에 살릴 수 있는 심근을 구제한다",
+      "바이러스를 제거하기 위해서다",
+      "LDL을 즉시 낮추기 위해서다"
+    ],
+    "answer": 1,
+    "explanation": "Time is muscle — 급성 coronary occlusion 후 necrosis는 subendocardium에서 시작하여 시간이 지나면서 transmural하게 확대됩니다. 빠른 reperfusion(primary PCI 등)으로 아직 살릴 수 있는 심근을 최대한 구제할 수 있습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-007",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "Troponin",
+    "type": "correct",
+    "question": "Cardiac troponin 상승의 의미로 가장 정확한 것은?",
+    "options": [
+      "상승하면 항상 ST-elevation MI(STEMI)다",
+      "Myocardial injury를 나타내며 MI 외에도 심근염·폐색전증·심부전·CKD·패혈증 등에서도 상승할 수 있다",
+      "혈소판 수를 직접 반영한다",
+      "LDL-콜레스테롤과 동일한 지표다"
+    ],
+    "answer": 1,
+    "explanation": "Troponin은 myocardial injury의 marker입니다. MI 진단에는 troponin rise/fall pattern + myocardial ischemia의 임상적 증거가 필요합니다. 심근염·PE·HF·CKD·패혈증 등 다양한 상황에서도 상승하므로 임상 맥락과 함께 해석해야 합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l1-008",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 1,
+    "concept": "Troponin ECG",
+    "type": "correct",
+    "question": "급성 흉통 환자에서 처음 ECG가 정상이었습니다. 이에 대한 올바른 해석은?",
+    "options": [
+      "ECG가 정상이면 심근경색은 완전히 배제된다",
+      "ECG 정상 소견만으로 ACS를 배제할 수 없으며, 임상상과 serial troponin을 함께 평가해야 한다",
+      "ECG가 정상이면 반드시 위염이다",
+      "심근경색은 항상 초기부터 심한 ST elevation이 나타난다"
+    ],
+    "answer": 1,
+    "explanation": "특히 NSTEMI에서는 초기 ECG가 정상이거나 비특이적인 경우가 많습니다. ECG 정상 = MI 배제가 아닙니다. 임상상·serial hs-troponin·반복 ECG를 함께 평가해야 합니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l2-001",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 2,
+    "concept": "약물 기전",
+    "type": "correct",
+    "question": "ACS에서 aspirin을 즉시 투여하는 이유로 가장 적절한 것은?",
+    "options": [
+      "관상동맥 plaque를 직접 용해한다",
+      "COX-1 억제 → Thromboxane A₂↓ → platelet aggregation↓로 혈전 형성 및 진행을 억제한다",
+      "심박수를 즉시 낮춘다",
+      "LDL-C를 즉각적으로 낮춘다"
+    ],
+    "answer": 1,
+    "explanation": "ACS에서 plaque rupture 후 platelet이 활성화되어 혈전을 키웁니다. Aspirin은 COX-1을 비가역적으로 억제해 TXA₂ 생성을 줄이고 platelet aggregation을 억제함으로써 thrombus progression을 줄입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l2-002",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 2,
+    "concept": "약물 기전",
+    "type": "correct",
+    "question": "니트로글리세린(NTG)이 협심증 증상을 완화하는 주요 기전은?",
+    "options": [
+      "관상동맥 plaque를 직접 녹인다",
+      "NO donor로 작용해 venodilation → preload↓ → LV wall stress↓ → 심근 O₂ 수요↓",
+      "혈소판 ADP 수용체를 차단한다",
+      "HMG-CoA reductase를 억제해 LDL을 낮춘다"
+    ],
+    "answer": 1,
+    "explanation": "NTG는 NO를 방출해 cGMP↑ → vascular smooth muscle relaxation → 특히 venodilation → venous return·preload↓ → LV wall stress↓ → 심근 O₂ 수요↓로 ischemia 증상을 완화합니다. Plaque나 혈전을 직접 제거하지 않습니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l2-003",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 2,
+    "concept": "약물 상호작용",
+    "type": "caution",
+    "question": "니트로글리세린과 병용 시 심각한 저혈압 위험이 있어 절대 피해야 하는 약물 종류는?",
+    "options": [
+      "스타틴(Statin)",
+      "PDE5 inhibitor (sildenafil·tadalafil 등)",
+      "ACE inhibitor",
+      "β-blocker"
+    ],
+    "answer": 1,
+    "explanation": "NTG(NO 경로)와 PDE5 inhibitor(cGMP 분해 억제)의 병용은 cGMP가 과도하게 축적되어 심각한 hypotension이 발생할 수 있습니다. 약사 상담에서 매우 중요한 포인트입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l2-004",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 2,
+    "concept": "DAPT",
+    "type": "correct",
+    "question": "ACS에서 DAPT(이중 항혈소판 요법)의 구성으로 가장 올바른 것은?",
+    "options": [
+      "Aspirin + Statin",
+      "Aspirin + P2Y12 inhibitor (clopidogrel·ticagrelor·prasugrel 중 하나)",
+      "β-blocker + Nitrate",
+      "ACE inhibitor + ARB"
+    ],
+    "answer": 1,
+    "explanation": "DAPT는 TXA₂ 경로(aspirin)와 ADP 경로(P2Y12 inhibitor)를 동시에 차단해 platelet-mediated thrombosis를 강력히 억제합니다. 2025 ACC/AHA ACS guideline에서 출혈 위험이 높지 않은 ACS에서 기본 12개월 권고.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l2-005",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 2,
+    "concept": "스타틴",
+    "type": "correct",
+    "question": "ACS 이후 LDL-C가 크게 높지 않아도 고강도 스타틴을 사용하는 가장 중요한 이유는?",
+    "options": [
+      "스타틴이 급성 통증을 즉각적으로 줄이기 때문에",
+      "ACS가 발생한 환자는 재발 위험이 매우 높으므로 LDL을 강력히 낮춰 future plaque progression과 재발 ASCVD event를 줄이기 위해",
+      "스타틴이 혈소판을 직접 억제하기 때문에",
+      "스타틴이 심박수를 낮추기 때문에"
+    ],
+    "answer": 1,
+    "explanation": "ACS 후 환자는 very high risk ASCVD 군으로, 스타틴은 LDL-C를 낮추고 plaque 안정화·향후 사건 감소에 기여합니다. '수치가 높지 않아도' 재발 예방을 위해 사용합니다. Stent만으로 systemic atherosclerosis가 완치되지 않기 때문입니다.",
+    "source": "textbook"
+  },
+  {
+    "id": "acs-l3-001",
+    "disease": "협심증·심근경색",
+    "lessonRef": "core/09.html",
+    "level": 3,
+    "concept": "통합",
+    "type": "integration",
+    "question": "다음 중 STEMI 환자 관리에서 가장 우선순위가 높은 치료 전략은?",
+    "options": [
+      "즉시 식이 교정을 시작하고 한 달 후 검사",
+      "가능한 한 빠른 primary PCI(경피적 관상동맥 중재술)로 coronary reperfusion 달성",
+      "증상이 있어도 48시간 경과 관찰 후 결정",
+      "스타틴만 즉시 투여하고 추가 처치는 하지 않음"
+    ],
+    "answer": 1,
+    "explanation": "STEMI는 일반적으로 acute coronary occlusion으로 인한 ongoing necrosis입니다. 빠른 reperfusion이 살릴 수 있는 심근 구제의 핵심이며, 2025 ACS guideline은 primary PCI를 가장 선호하는 reperfusion 방법으로 권고합니다.",
+    "source": "textbook"
+  }
+]
