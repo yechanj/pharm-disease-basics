@@ -86,6 +86,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 8,
+    category: "core",
+    href: "lessons/core/08.html",
+    title: "동맥경화",
+    desc: "고혈압·당뇨·이상지질혈증·비만이 결국 만나는 동맥벽. LDL(apoB)의 retention → foam cell → plaque → rupture → 혈전으로 이어지는 흐름, ‘많이 좁아야 위험’이라는 오해, stable vs vulnerable plaque, CAC의 의미, statin과 antiplatelet의 역할 차이까지.",
+    tags: ["apoB retention", "foam cell/plaque", "rupture→혈전", "CAC", "statin vs 항혈소판"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

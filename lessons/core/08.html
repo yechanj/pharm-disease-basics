@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제8강 · 동맥경화 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="동맥경화를 LDL retention → foam cell → plaque → rupture → thrombus의 흐름과 예방·치료로 이해하는 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제8강 · 동맥경화</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">ATH</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제8강 · 동맥경화</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#normal"><span class="num">1</span> 정상 동맥벽</a></li>
+          <li><a href="#wrong"><span class="num">2</span> LDL → foam cell</a></li>
+          <li><a href="#plaque"><span class="num">3</span> Plaque 형성</a></li>
+          <li><a href="#plaquetype"><span class="num">4</span> Stable vs Vulnerable</a></li>
+          <li><a href="#rupture"><span class="num">5</span> Rupture → 혈전</a></li>
+          <li><a href="#cause"><span class="num">6</span> 위험요인</a></li>
+          <li><a href="#symptom"><span class="num">7</span> 증상 · Red Flags</a></li>
+          <li><a href="#evaluate"><span class="num">8</span> 평가 · CAC</a></li>
+          <li><a href="#treat"><span class="num">9</span> 치료의 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">10</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">11</span> 약물치료</a></li>
+          <li><a href="#deepdive"><span class="num">12</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">13</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">14</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">15</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">16</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">17</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">18</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제8강 · 통합</div>
+          <h1>동맥경화</h1>
+          <p>고혈압·당뇨·이상지질혈증·비만이 <b>결국 만나는 장소, 동맥벽</b> —
+            <b>LDL retention → 염증 → foam cell → plaque → rupture → 혈전 → 심근경색·뇌졸중</b>.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>핵심 관점</div>
+          <p>동맥경화 위험은 “혈관이 얼마나 좁아졌는가”만으로 결정되지 않습니다. <b>크게 좁지 않던 plaque도 파열·혈전이 생기면 급성 심근경색</b>을 일으킵니다.
+            2026 ACC/AHA는 atherogenic lipoprotein의 <b>평생 누적 노출</b>을 줄이는 것을 강조하며 apoB·Lp(a)·CAC 위험평가를 강화했습니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">55세 남성 · 건강검진 LDL-C 168 · 흉통 없음</div>
+            <div class="bp" style="font-size:clamp(20px,5.5vw,30px);line-height:1.4;">“혈관이 아직 막힌 것도 아닌데<br>왜 약으로 동맥경화를 예방하죠?”</div>
+            <div class="quote">“심근경색은 혈관이 조금씩 좁아져서 결국 100% 막히는 병 아닌가요?”</div>
+            <div style="font-weight:700;margin-bottom:8px;">70% 열려 있으면 괜찮을까? — plaque rupture가 나면?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 요산처럼 산으로 혈관을 녹인다.</button>
+              <button data-opt="B"><span class="opt">B</span> plaque가 파열되면 혈전이 급속히 커져 갑자기 막힐 수 있다.</button>
+              <button data-opt="C"><span class="opt">C</span> 반드시 100%까지 서서히 자라야만 막힌다.</button>
+              <button data-opt="D"><span class="opt">D</span> 증상이 없으면 plaque도 없다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 바로 공개하지 않습니다 — <b>먼저 정상 동맥벽과 LDL이 왜 문제가 되는지</b>부터 봅시다.</div>
+            </div>
+          </div>
+          <p>강의가 끝나면 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>LDL은 왜 혈액 속보다 동맥벽 안에 들어간 뒤 문제가 되는가?</li>
+            <li>Foam cell·plaque는 어떻게 만들어지는가?</li>
+            <li>30~50%만 좁아도 심근경색이 생길 수 있는 이유는?</li>
+            <li>안정 plaque와 위험한 plaque는 무엇이 다른가?</li>
+            <li>고혈압·당뇨·흡연은 LDL과 어떻게 함께 작용하는가?</li>
+            <li>CAC score는 무엇을 보여주는가? statin은 LDL 숫자만 낮추는 약인가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 정상 동맥벽 ================= -->
+        <section id="normal" class="section">
+          <h2><span class="sec-no">01</span> 정상적인 동맥벽</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>동맥경화(atherosclerosis)</b>는 atherogenic lipoprotein이 동맥벽에 축적되고 만성 염증·조직반응이 일어나 <b>plaque</b>가 형성되는 질환 과정입니다.
+              plaque가 커져 혈류를 제한하거나, <b>rupture/erosion되며 혈전</b>이 생기면 MI·ischemic stroke·acute limb ischemia가 발생할 수 있습니다.</p>
+          </div>
+          <p><b>Atherosclerosis</b>(지질이 풍부한 plaque)와 <b>arteriosclerosis</b>(동맥이 전반적으로 뻣뻣해지는 넓은 개념)는 엄밀히 다릅니다. 이 강의는 임상적으로 중요한 atherosclerosis 중심입니다.</p>
+          <p>동맥벽 3층을 <b>탭</b>해 보세요. endothelium은 단순한 벽지가 아니라 능동적인 조직입니다.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 1 · Healthy Artery Explorer</div>
+            <div class="checkchips">
+              <button data-text="<b>Tunica intima</b> — 가장 안쪽, 혈액과 직접 접촉. 표면의 <b>endothelium</b>은 NO를 통한 혈관이완·항혈전·염증세포 부착 억제·투과성 조절을 하는 ‘지능형 경계’.">Intima · Endothelium</button>
+              <button data-text="<b>Tunica media</b> — 주로 vascular smooth muscle cell. 혈관 수축·이완과 구조 유지.">Media</button>
+              <button data-text="<b>Tunica adventitia</b> — 바깥 결합조직. 혈관을 지지.">Adventitia</button>
+            </div>
+            <div class="infochips__out">정상 endothelium = 혈액과 혈관벽 사이의 지능형 경계(단순 막이 아님).</div>
+          </div>
+          <div class="oneline">문제는 LDL이라는 존재 자체가 아니라, <b>혈중 apoB 입자 농도가 높고 오래 유지</b>되는 것이다 → 가이드라인이 “lower, sooner”를 강조하는 이유.</div>
+        </section>
+
+        <!-- ================= 2 · LDL → foam cell ================= -->
+        <section id="wrong" class="section">
+          <h2><span class="sec-no">02</span> 무엇이 잘못되는가 · LDL → Foam Cell</h2>
+          <blockquote>① apoB 입자가 endothelium 넘어 intima로 → ② <b>retention</b>(proteoglycan 결합·머묾) → ③ 변형(oxidation) → ④ monocyte→macrophage가 섭취 → <b>foam cell</b></blockquote>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>“LDL이 혈관을 긁어 상처낸다”가 아니다</div>
+            <p>정확한 병태생리는 <b>atherogenic particle이 intima로 들어가 retention되며 국소 염증반응이 시작</b>되는 것입니다(response-to-retention).</p>
+          </div>
+          <p><b>다음 단계</b>를 눌러 혈액 속 LDL이 어떻게 foam cell이 되는지 보세요.</p>
+          <div class="figure" data-foam>
+            <div class="figure__title">Viz 2 · LDL → Foam Cell</div>
+            <div class="foam__stage">
+              <svg viewBox="0 0 420 210" role="img" aria-label="LDL이 동맥벽에 들어가 foam cell이 되는 과정">
+                <rect x="10" y="18" width="400" height="52" rx="8" fill="#fbe3e0"/>
+                <text x="20" y="14" font-size="11" fill="#7b8aa0">혈액(lumen)</text>
+                <g data-el="blood" fill="#e5484d"><circle cx="70" cy="44" r="8"/><circle cx="150" cy="50" r="8"/><circle cx="250" cy="40" r="8"/><circle cx="340" cy="48" r="8"/></g>
+                <line x1="10" y1="76" x2="410" y2="76" stroke="#12a594" stroke-width="3"/>
+                <text x="20" y="94" font-size="11" fill="#7b8aa0">동맥벽(intima)</text>
+                <circle data-el="intima" cx="110" cy="130" r="9" fill="#e5484d" style="opacity:.06"/>
+                <circle data-el="modified" cx="175" cy="132" r="10" fill="#d99a12" stroke="#a9750a" stroke-width="2" style="opacity:.06"/>
+                <circle data-el="mono" cx="250" cy="135" r="12" fill="#8b5cf6" style="opacity:.06"/>
+                <circle data-el="foam" cx="330" cy="138" r="20" fill="#e0b526" stroke="#a9750a" stroke-width="2" style="opacity:.06"/>
+                <text data-el="foam" x="330" y="142" text-anchor="middle" font-size="9" fill="#6b4e00" font-weight="700" style="opacity:.06">FOAM</text>
+              </svg>
+            </div>
+            <div class="foam__caption"></div>
+            <div class="foam__desc"></div>
+            <div class="foam__ctrl">
+              <button class="btn" data-foam-next>다음 단계 ▸</button>
+              <button class="btn btn--ghost" data-foam-reset>↺ 처음</button>
+            </div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 동맥경화 발생에 더 핵심적인 설명은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> LDL이 혈관 속에서 움직이는 것 자체</li>
+              <li data-opt="B"><span class="opt">B</span> ApoB particle이 동맥벽에 들어가 retention되는 것</li>
+              <li data-opt="C"><span class="opt">C</span> HDL이 너무 많이 존재하는 것</li>
+              <li data-opt="D"><span class="opt">D</span> 적혈구가 cholesterol을 합성하는 것</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 혈중 atherogenic particle이 많을수록 동맥벽 침투·retention 기회가 증가합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · Plaque 형성 ================= -->
+        <section id="plaque" class="section">
+          <h2><span class="sec-no">03</span> Plaque 형성</h2>
+          <p>Foam cell이 쌓이면 초기 병변 <b>fatty streak</b>(어린 나이에도 발생 가능)이 형성됩니다. 염증이 지속되면 <b>smooth muscle cell</b>이 intima로 이동해 collagen을 만들고 lipid core 위에 <b>fibrous cap</b>을 씌웁니다.</p>
+          <p>순서대로 눌러 plaque를 직접 만들어 보세요. <b>plaque 크기·염증·cap 두께는 서로 다른 지표</b>입니다.</p>
+          <div class="figure" data-plaquebuilder>
+            <div class="figure__title">Viz 3 · Build a Plaque</div>
+            <div class="pb__steps">
+              <button>LDL retention</button>
+              <button>Monocyte</button>
+              <button>Foam cells</button>
+              <button>SMC 이동</button>
+              <button>Collagen</button>
+              <button>Fibrous cap</button>
+            </div>
+            <div class="pb__vessel"><div class="pb__lumen"></div><div class="pb__plaque"></div></div>
+            <div class="pb__gauges">
+              <div class="pb__g size"><h6>Plaque size</h6><div class="track"><div class="fill"></div></div></div>
+              <div class="pb__g inflam"><h6>Inflammation</h6><div class="track"><div class="fill"></div></div></div>
+              <div class="pb__g cap"><h6>Cap 두께</h6><div class="track"><div class="fill"></div></div></div>
+            </div>
+            <div style="margin-top:10px;"><button class="btn btn--ghost" data-pb-reset>↺ 리셋</button></div>
+            <div class="figure__cap">큰 plaque와 위험한 plaque는 같은 개념이 아니다.</div>
+          </div>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>Positive remodeling</div>
+            <p>초기엔 혈관벽이 바깥으로 확장돼 lumen을 보존(<b>positive remodeling</b>)할 수 있습니다. 그래서 상당한 plaque가 있어도 내경은 넓어 보일 수 있고, <b>내경만으로 전체 plaque burden을 알 수 없습니다.</b></p>
+          </div>
+        </section>
+
+        <!-- ================= 4 · Stable vs Vulnerable ================= -->
+        <section id="plaquetype" class="section">
+          <h2><span class="sec-no">04</span> Stable vs Vulnerable Plaque</h2>
+          <p><b>Stress test: rupture</b>를 눌러 두 plaque의 차이를 보세요.</p>
+          <div class="figure" data-svp>
+            <div class="figure__title">Viz 4 · 안정 plaque vs 취약 plaque</div>
+            <div class="svp">
+              <div class="svp__card stable">
+                <h5>Stable plaque</h5>
+                <div class="svp__art">
+                  <div class="svp__core" style="height:16px;"></div>
+                  <div class="svp__cap" style="bottom:16px;height:8px;background:#8a6a2a;border-radius:3px;"></div>
+                  <div class="svp__lumen" style="height:22px;"></div>
+                  <div class="svp__clot"></div>
+                </div>
+                <ul><li>두꺼운 fibrous cap</li><li>작은 lipid core · 낮은 염증</li><li>lumen ~50% narrowing</li></ul>
+                <div class="svp__verdict"></div>
+              </div>
+              <div class="svp__card vuln">
+                <h5>Vulnerable plaque</h5>
+                <div class="svp__art">
+                  <div class="svp__core" style="height:34px;"></div>
+                  <div class="svp__cap" style="bottom:34px;height:2px;background:#b98a3a;"></div>
+                  <div class="svp__lumen" style="height:34px;"></div>
+                  <div class="svp__clot"></div>
+                </div>
+                <ul><li>얇은 fibrous cap</li><li>큰 lipid/necrotic core · 염증 많음</li><li>lumen only ~30% narrowing</li></ul>
+                <div class="svp__verdict"></div>
+              </div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="btn" data-svp-rupture>⚡ Stress test: rupture</button>
+              <button class="btn btn--ghost" data-svp-reset>↺ 리셋</button>
+            </div>
+          </div>
+          <div class="oneline">가장 많이 좁힌 plaque = 반드시 가장 위험한 plaque가 아니다. 덜 좁아도 biology가 불안정하면 rupture한다.</div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 40%만 좁히던 plaque가 심근경색을 일으킬 수 있을까?</div>
+            <ul class="mcq" data-answer="A">
+              <li data-opt="A"><span class="opt">A</span> 가능하다 — rupture 후 급속한 혈전으로 급성 폐색 가능</li>
+              <li data-opt="B"><span class="opt">B</span> 불가능하다 — 90% 이상만 위험</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: A — rupture/erosion 후 혈전이 급속히 형성되면 기존 stenosis보다 훨씬 심한 급성 폐색이 됩니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · Rupture → 혈전 ================= -->
+        <section id="rupture" class="section">
+          <h2><span class="sec-no">05</span> Plaque Rupture → 혈전</h2>
+          <blockquote>fibrous cap 파열 → collagen·tissue factor 노출 → platelet adhesion·activation·aggregation + coagulation → fibrin → <b>Thrombus</b> → 혈류 급감/폐색</blockquote>
+          <p>관상동맥이면 <b>ACS</b>(unstable angina·NSTEMI·STEMI), 뇌혈관이면 <b>ischemic stroke/TIA</b>, 말초동맥이면 <b>acute limb ischemia</b>.</p>
+          <p><b>재생</b>을 눌러 10초 타임라인을 보세요.</p>
+          <div class="figure" data-p2t>
+            <div class="figure__title">Viz 5 · Plaque to Thrombus in 10 seconds</div>
+            <div class="p2t__timeline">
+              <div class="p2t__seg">0s<br>intact</div>
+              <div class="p2t__seg">2s<br>cap 파열</div>
+              <div class="p2t__seg">4s<br>platelet 부착</div>
+              <div class="p2t__seg">6s<br>aggregate</div>
+              <div class="p2t__seg">8s<br>fibrin</div>
+              <div class="p2t__seg">10s<br>폐색</div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="btn" data-p2t-play>▶ 재생</button>
+              <button class="btn btn--ghost" data-p2t-reset>↺ 리셋</button>
+            </div>
+            <div class="p2t__contrast">
+              <div class="p2t__box slow">Plaque 형성<small>years ~ decades</small></div>
+              <div class="p2t__box fast">Acute thrombosis<small>minutes</small></div>
+            </div>
+            <div class="figure__cap">동맥경화는 수십 년, acute event는 몇 분 — 그래서 <b>예방</b>이 중요합니다.</div>
+          </div>
+
+          <h3>자연경과 · 두 갈래</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal"><h5>경로 A · 서서히 좁아짐</h5><ol><li>plaque 성장 → stenosis</li><li>운동 시 혈류 부족</li><li>stable angina · claudication</li></ol></div>
+            <div class="panel panel--drug"><h5>경로 B · 급성 사건</h5><ol><li>rupture/erosion → thrombus</li><li>급성 폐색</li><li>MI · stroke · acute limb ischemia</li></ol></div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 위험요인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">06</span> 왜 생기는가 · 위험요인</h2>
+          <p>가장 중요한 causal driver 중 하나는 <b>apoB-containing atherogenic lipoprotein</b>(LDL·remnant·Lp(a)). 항목을 <b>탭</b>하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 6 · Risk Factor Assault on Artery</div>
+            <div style="text-align:center;font-weight:700;background:var(--hi-soft);color:var(--hi);border-radius:12px;padding:12px;margin-bottom:12px;">Arterial wall</div>
+            <div class="checkchips">
+              <button data-text="<b>LDL / apoB</b> — particle burden↑ × 노출 기간↑ → arterial retention↑ → atherosclerosis↑. 핵심 causal driver.">LDL/apoB</button>
+              <button data-text="<b>고혈압</b> — 혈압↑ → arterial mechanical stress↑ · endothelial dysfunction/remodeling → 환경 악화 (제1강).">고혈압</button>
+              <button data-text="<b>흡연</b> — endothelial dysfunction·oxidative stress·inflammation·platelet activation·thrombosis. plaque 생성 + rupture 후 혈전 모두에 관여.">흡연</button>
+              <button data-text="<b>당뇨</b> — hyperglycemia+insulin resistance → endothelial dysfunction·oxidative stress·염증·이상지질혈증·glycation (제2강).">당뇨</button>
+              <button data-text="<b>CKD</b> — 염증·mineral 대사·고혈압·지질이상으로 매우 높은 CV risk. 2026 ACC/AHA는 40–75세 stage 3–4 CKD를 고위험군으로.">CKD</button>
+              <button data-text="<b>Lp(a)</b> — 유전적으로 결정되는 apoB 입자. atherogenic + prothrombotic/proinflammatory. 모든 성인 <b>평생 1회</b> 측정 권고.">Lp(a)</button>
+            </div>
+            <div class="infochips__out">모든 위험요인이 하나의 plaque에 합쳐집니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">07</span> 어떤 증상이 나타나는가</h2>
+          <div class="oneline">초기·중기 동맥경화는 대부분 <b>무증상</b> — “흉통이 없으니 동맥경화가 없다”고 말할 수 없다.</div>
+          <p>증상은 어느 혈관이냐에 따라 다릅니다.</p>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card pump"><h5>관상동맥</h5><p>운동 시 흉부 압박감·숨참(stable) / 갑작스러운 흉통·식은땀·오심(ACS)</p></div>
+            <div class="axis3__card pipes"><h5>경동맥/뇌</h5><p>편측 위약·얼굴 처짐·언어장애·시야 → TIA/stroke</p></div>
+            <div class="axis3__card volume"><h5>말초동맥</h5><p>운동 시 종아리 통증(intermittent claudication) → rest pain·궤양</p></div>
+          </div>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags · 즉각 평가</div>
+            <ul class="clean" style="margin-bottom:0;">
+              <li>지속되는 압박성 흉통(+호흡곤란·발한·오심) → ACS</li>
+              <li><b>FAST</b>: Face drooping·Arm weakness·Speech difficulty → stroke</li>
+              <li>갑작스러운 다리의 pain·pallor·pulselessness·paresthesia·paralysis → acute limb ischemia</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 평가 · CAC ================= -->
+        <section id="evaluate" class="section">
+          <h2><span class="sec-no">08</span> 어떻게 평가하는가</h2>
+          <p>“동맥경화를 보는 검사 하나”는 없습니다. 먼저 <b>위험요인</b>(BP·lipid·당뇨·흡연·신장·가족력)과 <b>전체 ASCVD 위험</b>을 평가합니다.
+            2026 ACC/AHA는 미국에서 <b>PREVENT-ASCVD</b>로 10·30년 위험을 평가하도록 권고합니다(한국은 국내 체계가 다를 수 있어 특정 계산기를 절대적으로 외울 필요는 없음). <b>같은 LDL이라도 전체 위험에 따라 치료 강도가 달라집니다.</b></p>
+
+          <h3>Coronary Artery Calcium (CAC)</h3>
+          <p>비조영 CT로 관상동맥의 <b>calcified plaque</b>를 측정합니다. 칩을 <b>탭</b>하세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 7 · CAC의 의미</div>
+            <div class="checkchips">
+              <button data-text="<b>CAC = 0</b> — calcified coronary plaque 미검출. 위험을 낮은 방향으로 재분류할 수 있으나 <b>‘atherosclerosis 0’은 아님</b>(젊은층은 noncalcified plaque 가능).">CAC = 0</button>
+              <button data-text="<b>CAC &gt; 0</b> — calcified coronary atherosclerosis가 <b>이미 존재</b>한다는 직접 증거. 높을수록 plaque burden·미래 event 위험↑.">CAC &gt; 0</button>
+              <button data-text="<b>활용</b> — primary prevention에서 치료 결정이 애매할 때 위험을 <b>재분류</b>하는 도구. 남 ≥40·여 ≥45세 적절한 위험군에서 사용(2026 ACC/AHA).">언제 쓰나</button>
+              <button data-text="<b>주의</b> — CAC는 위험도 조정 도구이지 <b>‘몇 % 막혔는지’를 직접 말하는 검사가 아님</b>. CAC 185 = 18.5% 협착 아님.">오해 주의</button>
+            </div>
+            <div class="infochips__out">CAC는 calcified plaque burden 지표 — stenosis percentage가 아닙니다.</div>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>검사</th><th>역할</th></tr></thead>
+              <tbody>
+                <tr><th>CCTA</th><td>lumen + plaque(석회/비석회) 직접 평가 · 임상 indication 있을 때</td></tr>
+                <tr><th>Carotid US</th><td>경동맥 plaque/stenosis · 무증상 전수 screening은 X</td></tr>
+                <tr><th>ABI</th><td>ankle/brachial SBP 비 · 낮으면 말초동맥질환 의심</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> CAC=0인 45세: “제 혈관엔 plaque가 하나도 없다는 뜻이죠?”</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 맞다, plaque가 전혀 없다.</li>
+              <li data-opt="B"><span class="opt">B</span> 아니다 — 아직 석회화 안 된 plaque가 있을 수 있다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — CAC는 calcified plaque를 검출. 다만 적절한 상황에서 CAC=0은 위험을 낮은 방향으로 재분류하는 데 유용할 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">09</span> 치료의 전체 그림</h2>
+          <p>이미 생긴 plaque 하나만 고치는 것이 아니라, <b>① 새 plaque 억제 ② progression 감소 ③ plaque 안정화 ④ thrombosis 위험↓ ⑤ MI/stroke event 예방</b>이 목표입니다.</p>
+          <div class="axis3" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+            <div class="axis3__card volume"><h5>① Atherogenic lipoprotein↓</h5><p>가장 중요한 축</p></div>
+            <div class="axis3__card pump"><h5>② 혈압</h5><p>기계적 stress↓</p></div>
+            <div class="axis3__card pipes"><h5>③ 당뇨/대사</h5><p>vascular injury↓</p></div>
+            <div class="axis3__card"><h5>④ 금연 + 생활습관</h5><p>전반적 위험↓</p></div>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">이미 ASCVD가 있으면 상황에 따라 <b>antiplatelet</b> 등 secondary prevention도 중요합니다.</p>
+        </section>
+
+        <!-- ================= 10 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">10</span> 생활습관 치료</h2>
+          <ul class="clean">
+            <li><b>금연</b> — 가장 중요한 개입 중 하나. LDL만이 아니라 endothelial function·thrombosis·inflammation 위험을 함께 줄임.</li>
+            <li><b>운동</b> — BP↓·insulin sensitivity↑·체중·endothelial function·심폐체력 → ASCVD risk↓.</li>
+            <li><b>식사</b> — “혈관 청소 음식”이 아니라 <b>채소·과일·통곡물·콩류·견과·불포화지방</b> 중심, 포화지방·가공육·정제 탄수화물·과도한 나트륨↓.</li>
+            <li><b>체중</b> — 비만 시 감량으로 BP·glucose·TG·염증을 동시에 개선.</li>
+          </ul>
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>건강보조제?</div>
+            <p>2026 ACC/AHA는 lipid lowering 목적의 <b>dietary supplement를 routine treatment로 권고하지 않습니다.</b> “혈관 청소 영양제”를 근거 기반 예방치료 대신 쓰는 것은 부적절합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 약물 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">11</span> 약물치료</h2>
+          <h3>11-1. LDL-lowering — Statin / Ezetimibe / PCSK9</h3>
+          <blockquote>Statin: HMG-CoA reductase↓ → 간 cholesterol↓ → LDL receptor↑ → 혈중 LDL↓ → <b>arterial apoB 노출↓</b> → plaque progression↓ · 안정화 기여</blockquote>
+          <ul class="clean">
+            <li><b>Ezetimibe</b> — NPC1L1 억제(흡수↓). statin만으로 부족할 때 추가.</li>
+            <li><b>PCSK9 inhibitor</b> — LDLR recycling↑ → LDL clearance↑↑. 고위험 ASCVD에서 강력한 LDL 감소.</li>
+          </ul>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>이미 atherosclerosis가 있을수록 더 적극적으로 LDL↓</div>
+            <p>Statin은 ASCVD 예방의 <b>기반</b>. 2026 ACC/AHA는 very-high-risk secondary prevention에서 <b>LDL-C &lt;55 mg/dL</b> 목표 제시(수치 암기보다 원리가 핵심).</p>
+          </div>
+
+          <p>LDL/apoB 농도와 노출 연수를 바꿔보세요 — <b>오늘의 LDL 한 번</b>보다 <b>평생 누적 노출</b>이 핵심입니다.</p>
+          <div class="figure" data-cae>
+            <div class="figure__title">Viz 9 · Cumulative apoB Exposure</div>
+            <div class="cae__row"><span data-cae-levellab></span><input type="range" min="70" max="220" step="5" value="160" data-cae-level aria-label="LDL 농도" /><span></span></div>
+            <div class="cae__row"><span data-cae-yearslab></span><input type="range" min="0" max="40" step="1" value="20" data-cae-years aria-label="노출 연수" /><span></span></div>
+            <div class="cae__particles"></div>
+            <div class="cae__gauge"><div class="track"><div class="fill"></div></div><div class="num"></div></div>
+            <div class="figure__cap">낮지만 오래 vs 높지만 짧게 — 왜 “lower, sooner”인지 보여줍니다.</div>
+          </div>
+
+          <h3>11-2. Antiplatelet — 목적이 다르다</h3>
+          <blockquote>Aspirin / P2Y12 inhibitor: platelet activation·aggregation↓ → <b>thrombus 형성 위험↓</b></blockquote>
+          <p>plaque 자체를 없애기보다 <b>rupture 후 혈전 사건</b>을 줄이는 역할. MI·stroke·PAD 등 established ASCVD의 <b>secondary prevention</b>에서 중요. 반면 출혈 위험 때문에 <b>건강한 사람이 모두 예방 목적으로 먹는 약은 아닙니다.</b></p>
+
+          <p>약이 <b>동맥경화 흐름의 어디를 막는지</b> 탭해 보세요.</p>
+          <div class="figure" data-infochips>
+            <div class="figure__title">Viz 10 · Drug Strategy by Disease Step</div>
+            <div class="checkchips">
+              <button data-text="<b>Statin·Ezetimibe·PCSK9</b> — LDL/apoB exposure↓ (질환의 lipid driver를 낮춤).">LDL exposure↓</button>
+              <button data-text="<b>혈압약·당뇨약</b> — vascular environment 개선. 적절한 T2DM에서 SGLT2i·GLP-1 RA는 CV outcome 개선.">혈압/당뇨 치료</button>
+              <button data-text="<b>Aspirin·P2Y12</b> — plaque rupture 후 thrombosis↓ (established ASCVD 2차 예방).">Antiplatelet</button>
+            </div>
+            <div class="infochips__out">LDL exposure → plaque → rupture → thrombus → MI. 약마다 막는 지점이 다릅니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ④</span> Statin과 aspirin의 역할 차이로 가장 적절한 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 둘 다 LDL을 직접 낮춘다.</li>
+              <li data-opt="B"><span class="opt">B</span> Statin은 atherogenic lipid exposure를, aspirin은 platelet-mediated thrombosis를 억제한다.</li>
+              <li data-opt="C"><span class="opt">C</span> Aspirin은 plaque의 cholesterol을 녹인다.</li>
+              <li data-opt="D"><span class="opt">D</span> Statin은 혈소판을 직접 제거한다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 두 약 모두 CV 예방에 등장하지만 표적이 전혀 다릅니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">12</span> 약사 Deep Dive</h2>
+          <h3>① 왜 ApoB가 중요한가</h3>
+          <p>LDL-C는 입자 안 cholesterol 양, <b>ApoB는 atherogenic particle 개수</b>에 더 가깝습니다(입자당 apoB ≈ 1). 같은 LDL-C라도 작은 입자가 많은 사람이 arterial exposure가 클 수 있습니다. 2026 ACC/AHA는 TG&gt;200·당뇨·낮은 achieved LDL 등에서 apoB가 residual risk 파악에 도움 된다고 권고.</p>
+          <h3>② Calcification은 나쁜 것? 좋은 것?</h3>
+          <p>CAC가 높으면 <b>plaque burden이 많다는 신호</b>라 장기 위험↑. 그러나 개별 plaque 수준에서 calcification이 항상 “곧 터질 plaque”는 아니며, 치료 후 plaque가 더 dense·calcified하게 <b>안정화</b>되기도 합니다. → “CAC↑ = coronary burden↑”로 이해하되 “calcium = rupture”로 단순화하지 않음.</p>
+          <h3>③ 지질질환인가 염증질환인가</h3>
+          <p>둘 중 하나가 아닙니다. <b>Atherogenic lipoprotein retention</b>이 시작·진행의 핵심 causal driver이고, 그에 대한 <b>만성 염증</b>이 progression·instability에 관여합니다 — “lipid가 불을 붙이고 inflammation이 불길을 키운다”(실제는 더 복잡).</p>
+        </section>
+
+        <!-- ================= 13 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">13</span> 비슷한 개념 비교</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Atherosclerosis</th><th>Thrombosis</th></tr></thead>
+              <tbody>
+                <tr><th>진행 속도</th><td>수년~수십 년</td><td>분~시간</td></tr>
+                <tr><th>핵심</th><td>plaque formation</td><td>blood clot</td></tr>
+                <tr><th>주요 요소</th><td>lipid + inflammation</td><td>platelet + coagulation</td></tr>
+                <tr><th>관계</th><td colspan="2">plaque가 substrate 제공 → rupture 후 급성 thrombosis</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Stable angina</th><th>MI</th></tr></thead>
+              <tbody>
+                <tr><th>기전</th><td>fixed flow-limiting stenosis</td><td>acute plaque event + thrombus</td></tr>
+                <tr><th>증상</th><td>운동 때 반복</td><td>갑작스럽고 지속 가능</td></tr>
+                <tr><th>괴사</th><td>없음</td><td>있음</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13.5px;color:var(--ink-soft);">→ 다음 <b>제9강 협심증·심근경색</b>에서 자세히. <b>Atherosclerosis</b>(lipid-rich plaque) vs <b>arteriosclerosis</b>(동맥 stiffening의 넓은 개념)도 구분.</p>
+        </section>
+
+        <!-- ================= 14 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">14</span> 자주 묻는 질문 (FAQ)</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 혈관이 몇 % 막혀야 위험한가요?</button>
+              <div class="faq__a">많이 좁을수록 혈류 제한은 중요하지만, MI 위험은 stenosis %로만 결정되지 않습니다. 덜 좁은 plaque도 rupture+혈전으로 급성 폐색을 일으킵니다.
+                <div class="ph"><b>약사:</b> plaque burden + plaque biology + thrombosis를 함께 이해합니다.</div></div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q2. LDL이 혈관에 기름때처럼 붙는 건가요?</button>
+              <div class="faq__a">정확하진 않습니다. LDL이 동맥벽 내부로 들어가 retention되고 염증·세포반응으로 plaque가 만들어지는 <b>살아 있는 염증성 병변</b>입니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q3. plaque를 약으로 완전히 녹일 수 있나요?</button>
+              <div class="faq__a">핵심 목표는 progression 억제·일부 regression·plaque 안정화·event 감소입니다. 강력한 LDL 감소로 plaque volume이 일부 줄기도 하지만 “배수관 청소”처럼 완전히 없애는 것은 아닙니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q4. 이미 생긴 동맥경화에도 statin이 의미 있나요?</button>
+              <div class="faq__a">그렇습니다. established ASCVD는 오히려 LDL 감소 benefit이 매우 큰 집단입니다. progression을 줄이고 future event를 예방합니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q5. CAC가 0이면 statin을 절대 안 먹어도 되나요?</button>
+              <div class="faq__a">아닙니다. CAC는 risk discussion의 한 요소입니다. 당뇨·매우 높은 LDL·CKD·강한 가족력 등이 있으면 CAC만으로 결정하지 않습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q6. HDL이 높으면 LDL이 높아도 괜찮나요?</button>
+              <div class="faq__a">아닙니다. HDL biology는 복잡하며, HDL-C가 높다고 높은 apoB exposure의 위험이 없어지지 않습니다.</div>
+            </div>
+            <div class="faq__item"><button class="faq__q">Q7. 혈관 건강 영양제를 먹으면 plaque가 없어지나요?</button>
+              <div class="faq__a">그렇게 입증된 일반 보충제는 없습니다. 근거 기반 예방은 LDL 관리·BP·금연·당뇨 관리·운동/식사·적절한 약물 중심입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">15</span> 흔한 오해 / 팩트체크</h2>
+          <div class="fact">
+            <div class="factrow"><div class="claim">동맥경화는 혈관 안쪽에 기름때가 물리적으로 붙는 병이다.</div><span class="verdict">대체로 틀림</span>
+              <div class="why">lipoprotein retention + 염증·면역세포·smooth muscle·ECM가 만드는 살아 있는 병변입니다.</div></div>
+            <div class="factrow"><div class="claim">혈관이 90% 이상 막혀야 심근경색이 생긴다.</div><span class="verdict">틀림</span>
+              <div class="why">덜 심한 stenosis도 rupture 후 혈전이 생기면 급성 폐색이 가능합니다.</div></div>
+            <div class="factrow"><div class="claim">LDL이 정상범위이면 동맥경화 위험이 0이다.</div><span class="verdict">틀림</span>
+              <div class="why">위험은 lifelong exposure·BP·smoking·diabetes·Lp(a)·CKD 등 전체로 결정됩니다.</div></div>
+            <div class="factrow"><div class="claim">Statin은 혈관에 쌓인 cholesterol을 직접 녹이는 약이다.</div><span class="verdict">대체로 틀림</span>
+              <div class="why">혈중 atherogenic LDL exposure를 낮춰 progression·event를 줄이는 것이 핵심.</div></div>
+            <div class="factrow"><div class="claim">Aspirin은 건강한 사람이 먹을수록 심근경색 예방에 좋다.</div><span class="verdict">틀림</span>
+              <div class="why">antiplatelet은 출혈 위험이 있어 primary prevention에서 무조건 쓰는 약이 아닙니다.</div>
+              <div class="take"><b>실전:</b> aspirin을 ‘건강보조 예방약’처럼 임의 복용하지 않는다.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">16</span> Case Study</h2>
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 1 · 증상이 없으니 괜찮나요?</div>
+            <p>50세 남성. LDL-C 176 · 148/92 · 흡연 1갑/일 · HbA1c 6.0% · 흉통 없음.</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① 증상 없음 = plaque 없음? ② atherosclerotic drivers? ③ 위험요인을 따로 보면 충분? ④ 치료 목표가 현재 증상 개선?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">동맥경화는 오래 무증상으로 진행하며, 이 환자는 LDL↑·고혈압·흡연·dysglycemia가 <b>동시에</b> 있습니다.
+              <div class="exp">치료 목표는 지금의 증상이 아니라 <b>future MI/stroke 위험 감소</b>. 위험요인을 함께(전체 ASCVD risk) 봅니다.</div>
+            </div>
+          </div>
+
+          <div class="card card--case">
+            <div class="card__label"><span class="dot"></span>Case 2 · CAC가 발견된 환자</div>
+            <p>58세 여성. LDL 142 · HDL 62 · 124/76 · 비흡연 · 당뇨 없음 · <b>아버지 52세 MI</b>. primary prevention 고민 중 CAC 시행 → <b>CAC 185</b>. “LDL이 엄청 높지도 않은데 왜 칼슘이 있나요?”</p>
+          </div>
+          <div class="qcard">
+            <div class="q" style="display:block;">먼저 생각 — ① CAC의 의미? ② CAC 185 = 18.5% 협착? ③ risk assessment에 어떤 영향? ④ 가족력은 왜 중요?</div>
+            <button class="reveal-btn">해설 보기</button>
+            <div class="answer">CAC는 calcified plaque burden 지표이지 stenosis %가 아닙니다. CAC&gt;0은 이미 coronary atherosclerosis가 존재한다는 증거.
+              <div class="exp">2026 ACC/AHA는 primary prevention에서 판단이 불확실할 때 CAC로 위험을 <b>재분류</b>하고 lipid-lowering 전략을 조정하도록 권고합니다. 조기 ASCVD 가족력도 위험을 높입니다. (위 <a href="#plaque">Plaque Builder</a>·<a href="#drugs">Cumulative Exposure</a>로 개념 복습)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">17</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. Atherosclerosis 발생의 초기 핵심 과정은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> LDL이 혈액을 산성화한다.</li>
+                <li data-opt="B"><span class="opt">B</span> ApoB-containing lipoprotein이 arterial intima에 들어가 retention된다.</li>
+                <li data-opt="C"><span class="opt">C</span> 적혈구가 foam cell로 변한다.</li>
+                <li data-opt="D"><span class="opt">D</span> calcium이 먼저 혈액을 막는다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. Foam cell은 무엇인가?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 지방(변형 LDL)을 섭취한 macrophage</li>
+                <li data-opt="B"><span class="opt">B</span> fibrin으로 구성된 platelet</li>
+                <li data-opt="C"><span class="opt">C</span> cholesterol을 합성하는 적혈구</li>
+                <li data-opt="D"><span class="opt">D</span> calcified smooth muscle cell만을 의미</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. 심근경색 기전을 가장 잘 설명한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> Plaque가 반드시 천천히 100%까지 자란다.</li>
+                <li data-opt="B"><span class="opt">B</span> Plaque rupture/erosion 후 thrombus가 급속히 형성될 수 있다.</li>
+                <li data-opt="C"><span class="opt">C</span> LDL이 갑자기 심근을 독성으로 파괴한다.</li>
+                <li data-opt="D"><span class="opt">D</span> MI에는 platelet이 관여하지 않는다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. CAC score에 대한 설명으로 맞는 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 혈관이 몇 % 좁아졌는지를 그대로 나타낸다.</li>
+                <li data-opt="B"><span class="opt">B</span> Coronary calcified plaque burden의 지표다.</li>
+                <li data-opt="C"><span class="opt">C</span> CAC 0이면 모든 noncalcified plaque도 0이다.</li>
+                <li data-opt="D"><span class="opt">D</span> LDL과 아무 관련 없는 검사다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. Statin과 antiplatelet을 가장 정확히 비교한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 둘 다 같은 기전으로 LDL을 낮춘다.</li>
+                <li data-opt="B"><span class="opt">B</span> Statin은 atherogenic lipid exposure를, antiplatelet은 thrombus formation을 억제한다.</li>
+                <li data-opt="C"><span class="opt">C</span> Aspirin은 plaque를 직접 녹인다.</li>
+                <li data-opt="D"><span class="opt">D</span> Statin은 fibrin만 분해한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 18 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">18</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>동맥경화는 기름때가 아니라 apoB lipoprotein의 동맥벽 retention과 만성 염증으로 만들어지는 plaque 질환.</p></div>
+            <div class="factcard"><span class="n">2</span><p>정상 endothelium은 혈관이완·항혈전·염증조절을 하는 active tissue.</p></div>
+            <div class="factcard"><span class="n">3</span><p>LDL/apoB → intimal retention → macrophage → foam cell → fatty streak → plaque.</p></div>
+            <div class="factcard"><span class="n">4</span><p>큰 plaque와 rupture하기 쉬운 plaque는 다르다(cap 두께·lipid core·염증).</p></div>
+            <div class="factcard"><span class="n">5</span><p>plaque는 수십 년, rupture 후 thrombosis는 수분~수시간 → 예방이 중요.</p></div>
+            <div class="factcard"><span class="n">6</span><p>그래서 MI는 혈관이 천천히 100% 좁아져야만 생기는 게 아니다.</p></div>
+            <div class="factcard"><span class="n">7</span><p>LDL뿐 아니라 고혈압·흡연·당뇨·CKD·Lp(a)가 전체 ASCVD risk에 영향.</p></div>
+            <div class="factcard"><span class="n">8</span><p>CAC는 calcified plaque burden으로 애매한 primary-prevention 위험을 재평가.</p></div>
+            <div class="factcard"><span class="n">9</span><p>치료 핵심 = LDL/apoB exposure↓ + 혈압·당뇨·흡연 관리. 고위험일수록 LDL 더 낮게.</p></div>
+            <div class="factcard"><span class="n">10</span><p>Statin=lipid driver↓, antiplatelet=rupture 후 thrombosis↓ 로 구분.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">동맥경화는 <b>수십 년에 걸친 apoB 노출</b>이 만든 plaque이고,<br>
+            심근경색은 <b>그 plaque가 파열돼 몇 분 만에 생긴 혈전</b>이다.<br>
+            그래서 <b>LDL을 일찍·오래 낮추고(statin)</b> 위험요인을 관리하며, <b>혈전은 antiplatelet</b>으로 나눠 막는다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 <b>제9강 협심증·심근경색</b>에서 오늘 만든 plaque가 실제 임상 증상으로 이어집니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>동맥경화 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">시작</span><span>apoB retention + 염증</span></div>
+      <div class="qr-row"><span class="qr-k">흐름</span><span>foam→plaque→rupture→혈전</span></div>
+      <div class="qr-row"><span class="qr-k">위험</span><span>좁기 %가 아니라 biology</span></div>
+      <div class="qr-row"><span class="qr-k">CAC</span><span>calcified burden(협착% 아님)</span></div>
+      <div class="qr-row"><span class="qr-k">약</span><span>statin=lipid / aspirin=혈전</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

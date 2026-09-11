@@ -1068,7 +1068,156 @@
     initCascade();
     initDissolution();
     initAcuteChronic();
+    // Core 08 · 동맥경화
+    initFoamCell();
+    initPlaqueBuilder();
+    initStableVuln();
+    initPlaque2Thrombus();
+    initCae();
   });
+
+  /* =========================================================
+     ==============  Core 08 · 동맥경화 인터랙션  ==============
+     ========================================================= */
+
+  /* ---------- Viz · LDL → Foam Cell ---------- */
+  var FOAM = [
+    { cap: "1 · 혈액 속 LDL(apoB)", d: "농도가 높을수록 동맥벽 안으로 들어갈 기회가 늘어납니다.", op: { blood: 1 } },
+    { cap: "2 · endothelium 통과", d: "일부 apoB 입자가 endothelium을 넘어 intima로 들어갑니다.", op: { blood: 1, intima: 1 } },
+    { cap: "3 · intima에 retention", d: "proteoglycan과 결합해 머무릅니다 — response-to-retention. (긁어서 상처를 내는 게 아님)", op: { blood: 1, intima: 1 } },
+    { cap: "4 · 변형(oxidation 등)", d: "머문 LDL이 산화·변형 → 내피가 inflammatory phenotype, adhesion molecule↑.", op: { blood: 1, intima: 1, modified: 1 } },
+    { cap: "5 · monocyte → macrophage", d: "monocyte가 intima로 들어와 macrophage로 분화합니다.", op: { blood: 1, intima: 1, modified: 1, mono: 1 } },
+    { cap: "6 · FOAM CELL", d: "macrophage가 변형 LDL을 섭취 → lipid로 가득 찬 foam cell. 축적되면 fatty streak.", op: { blood: 1, intima: 1, modified: 1, mono: 1, foam: 1 } }
+  ];
+  function initFoamCell() {
+    var root = document.querySelector("[data-foam]");
+    if (!root) return;
+    var capEl = root.querySelector(".foam__caption");
+    var descEl = root.querySelector(".foam__desc");
+    var i = 0;
+    function render() {
+      var f = FOAM[i];
+      capEl.textContent = f.cap;
+      descEl.textContent = f.d;
+      ["blood", "intima", "modified", "mono", "foam"].forEach(function (el) {
+        var node = root.querySelector("[data-el='" + el + "']");
+        if (node) node.style.opacity = f.op[el] ? 1 : 0.06;
+      });
+      var nb = root.querySelector("[data-foam-next]");
+      if (nb) nb.textContent = i >= FOAM.length - 1 ? "완료 ✓" : "다음 단계 ▸";
+    }
+    root.querySelectorAll("[data-foam-next]").forEach(function (b) {
+      b.addEventListener("click", function () { if (i < FOAM.length - 1) { i++; render(); } });
+    });
+    root.querySelectorAll("[data-foam-reset]").forEach(function (b) {
+      b.addEventListener("click", function () { i = 0; render(); });
+    });
+    render();
+  }
+
+  /* ---------- Viz · Plaque Builder ---------- */
+  var PB_STEPS = [
+    { key: "retention", size: 16, inflam: 6, cap: 0 },
+    { key: "monocyte", size: 6, inflam: 30, cap: 0 },
+    { key: "foam", size: 20, inflam: 24, cap: 0 },
+    { key: "smc", size: 16, inflam: 0, cap: 0 },
+    { key: "collagen", size: 8, inflam: -8, cap: 40 },
+    { key: "cap", size: 0, inflam: -12, cap: 45 }
+  ];
+  function initPlaqueBuilder() {
+    var root = document.querySelector("[data-plaquebuilder]");
+    if (!root) return;
+    var idx = 0, size = 0, inflam = 0, cap = 0;
+    var plaqueEl = root.querySelector(".pb__plaque");
+    var lumenEl = root.querySelector(".pb__lumen");
+    var gS = root.querySelector(".pb__g.size .fill");
+    var gI = root.querySelector(".pb__g.inflam .fill");
+    var gC = root.querySelector(".pb__g.cap .fill");
+    var btns = Array.prototype.slice.call(root.querySelectorAll(".pb__steps button"));
+    function clamp(x) { return Math.max(0, Math.min(100, x)); }
+    function render() {
+      size = clamp(size); inflam = clamp(inflam); cap = clamp(cap);
+      plaqueEl.style.height = (size * 0.55) + "px";
+      lumenEl.style.height = (60 - size * 0.4) + "px";
+      gS.style.width = size + "%"; gI.style.width = inflam + "%"; gC.style.width = cap + "%";
+      btns.forEach(function (b, k) { b.disabled = k !== idx; b.classList.toggle("done", k < idx); });
+    }
+    btns.forEach(function (b, k) {
+      b.addEventListener("click", function () {
+        if (k !== idx) return;
+        var s = PB_STEPS[k];
+        size += s.size; inflam += s.inflam; cap += s.cap; idx++;
+        render();
+      });
+    });
+    var reset = root.querySelector("[data-pb-reset]");
+    if (reset) reset.addEventListener("click", function () { idx = 0; size = 0; inflam = 0; cap = 0; render(); });
+    render();
+  }
+
+  /* ---------- Viz · Stable vs Vulnerable Plaque ---------- */
+  function initStableVuln() {
+    var root = document.querySelector("[data-svp]");
+    if (!root) return;
+    var clot = root.querySelector(".svp__card.vuln .svp__clot");
+    var vStable = root.querySelector(".svp__card.stable .svp__verdict");
+    var vVuln = root.querySelector(".svp__card.vuln .svp__verdict");
+    function stress() {
+      vStable.className = "svp__verdict ok"; vStable.textContent = "두꺼운 cap → 변화 없음 (안정)";
+      clot.style.width = "60%";
+      vVuln.className = "svp__verdict bad"; vVuln.textContent = "얇은 cap 파열 → platelet·thrombus → 급성 폐색!";
+    }
+    function reset() {
+      vStable.className = "svp__verdict"; vStable.textContent = "";
+      vVuln.className = "svp__verdict"; vVuln.textContent = "";
+      clot.style.width = "0";
+    }
+    var s = root.querySelector("[data-svp-rupture]"); if (s) s.addEventListener("click", stress);
+    var r = root.querySelector("[data-svp-reset]"); if (r) r.addEventListener("click", reset);
+  }
+
+  /* ---------- Viz · Plaque → Thrombus timeline ---------- */
+  function initPlaque2Thrombus() {
+    var root = document.querySelector("[data-p2t]");
+    if (!root) return;
+    var segs = Array.prototype.slice.call(root.querySelectorAll(".p2t__seg"));
+    var timers = [];
+    function reset() { timers.forEach(clearTimeout); timers = []; segs.forEach(function (s) { s.classList.remove("on"); }); }
+    function play() {
+      reset();
+      segs.forEach(function (s, k) { timers.push(setTimeout(function () { s.classList.add("on"); }, k * 500)); });
+    }
+    var p = root.querySelector("[data-p2t-play]"); if (p) p.addEventListener("click", play);
+    var r = root.querySelector("[data-p2t-reset]"); if (r) r.addEventListener("click", reset);
+  }
+
+  /* ---------- Viz · Cumulative apoB Exposure ---------- */
+  function initCae() {
+    var root = document.querySelector("[data-cae]");
+    if (!root) return;
+    var lvIn = root.querySelector("[data-cae-level]");
+    var yrIn = root.querySelector("[data-cae-years]");
+    var lvLab = root.querySelector("[data-cae-levellab]");
+    var yrLab = root.querySelector("[data-cae-yearslab]");
+    var particlesEl = root.querySelector(".cae__particles");
+    var fillEl = root.querySelector(".cae__gauge .fill");
+    var numEl = root.querySelector(".cae__gauge .num");
+    function render() {
+      var lv = parseInt(lvIn.value, 10);   // 70..220 (LDL-ish)
+      var yr = parseInt(yrIn.value, 10);    // 0..40
+      lvLab.textContent = "LDL/apoB ≈ " + lv + " mg/dL";
+      yrLab.textContent = yr + "년 노출";
+      var n = Math.round((lv - 40) / 8);
+      particlesEl.innerHTML = new Array(Math.max(1, Math.min(60, n)) + 1).join("<i></i>");
+      var exposure = (lv - 40) * yr;        // 누적 노출 지표
+      var pct = Math.max(0, Math.min(100, exposure / 6000 * 100));
+      fillEl.style.width = pct + "%";
+      numEl.innerHTML = "누적 apoB 노출 지표 <b>" + Math.round(exposure) + "</b>";
+    }
+    lvIn.addEventListener("input", render);
+    yrIn.addEventListener("input", render);
+    render();
+  }
 
   /* =========================================================
      ==============  Core 07 · 통풍(Gout) 인터랙션  ==============

@@ -1883,6 +1883,29 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .qd-cycle-hint { font-size: 12px; color: var(--ink-faint); }
 .qd-cycle-done { font-size: 12.5px; color: var(--cov-yes); font-weight: 700; }
 
+/* ---------- 출제 범위 필터 ---------- */
+.qd-filter { background: linear-gradient(150deg, var(--brand-soft), var(--surface-2)); border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px 12px; margin-bottom: 20px; }
+.qd-filter-label { font-size: 10.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
+.qd-frow { display: flex; align-items: center; gap: 10px; }
+.qd-frow + .qd-frow { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+.qd-ftoggle { position: relative; display: inline-flex; align-items: center; cursor: pointer; flex: 0 0 auto; }
+.qd-ftoggle input { position: absolute; opacity: 0; width: 0; height: 0; }
+.qd-ftoggle-track { display: block; width: 36px; height: 20px; background: var(--line-strong); border-radius: 999px; position: relative; transition: background .2s; cursor: pointer; }
+.qd-ftoggle input:checked + .qd-ftoggle-track { background: var(--brand); }
+.qd-ftoggle-thumb { position: absolute; top: 3px; left: 3px; width: 14px; height: 14px; background: #fff; border-radius: 50%; box-shadow: 0 1px 4px rgba(0,0,0,.2); transition: transform .2s; }
+.qd-ftoggle input:checked + .qd-ftoggle-track .qd-ftoggle-thumb { transform: translateX(16px); }
+.qd-fcat { flex: 0 0 auto; }
+.qd-fcat-badge { display: inline-block; font-size: 11.5px; font-weight: 700; border-radius: 6px; padding: 3px 9px; letter-spacing: .04em; transition: background .2s, color .2s; }
+.qd-fcat-badge--core { background: var(--brand-soft); color: var(--brand-dark); }
+.qd-fcat-badge--ev { background: #dcf5f1; color: #0d8a7a; }
+.qd-frange { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.qd-fsel { font-family: inherit; font-size: 13px; font-weight: 700; color: var(--ink); background: var(--surface); border: 1.5px solid var(--line-strong); border-radius: 9px; padding: 5px 24px 5px 9px; cursor: pointer; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237b8aa0' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 7px center; transition: border-color .15s; }
+.qd-fsel:focus { outline: none; border-color: var(--brand); }
+.qd-frange-sep { font-size: 12px; color: var(--ink-faint); font-weight: 700; }
+.qd-fno { font-size: 12px; color: var(--ink-faint); margin-left: auto; }
+.qd-frow.off .qd-fcat-badge { background: var(--surface-2); color: var(--ink-faint); }
+.qd-frow.off .qd-frange { opacity: .3; pointer-events: none; }
+
 /* ---------- 문제 화면 ---------- */
 .qd-quiz { padding: 0; overflow: hidden; }
 .qd-prog { height: 6px; background: var(--surface-2); }
@@ -2127,3 +2150,75 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .avc__btns button { font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; border-radius: 999px; padding: 8px 14px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); }
 .avc__btns button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
 .avc__out { font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 46px; }
+
+/* =========================================================
+   ==========  Core 08 · 동맥경화 전용 컴포넌트  ==========
+   ========================================================= */
+:root { --ath-cap: #d99a12; --ath-core: #e0872a; --ath-clot: #7a1526; }
+
+/* Viz · LDL → Foam Cell (단계 애니메이션) */
+.foam__stage { display: grid; place-items: center; margin: 8px 0; }
+.foam__stage svg { width: 100%; max-width: 420px; }
+.foam__caption { text-align: center; font-weight: 700; font-size: 14px; margin: 8px 0; min-height: 22px; }
+.foam__desc { font-size: 13.5px; color: var(--ink-soft); background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 40px; }
+.foam__ldl { fill: var(--ldl); transition: opacity .4s, transform .4s; }
+.foam__mono { fill: var(--anaerobe); transition: opacity .4s; }
+.foam__foam { fill: var(--liverfat); transition: opacity .4s; }
+.foam__ctrl { display: flex; gap: 8px; justify-content: center; margin-top: 10px; }
+
+/* Viz · Plaque Builder */
+.pb__steps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.pb__steps button {
+  font-family: inherit; font-weight: 700; font-size: 12.5px; cursor: pointer; border-radius: 999px;
+  padding: 8px 12px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); transition: all .15s;
+}
+.pb__steps button.done { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-dark); }
+.pb__steps button:disabled { opacity: .5; cursor: default; }
+.pb__vessel { height: 96px; border-radius: 14px; border: 2px solid #cbb8a0; background: #fdf6ea; position: relative; overflow: hidden; margin: 4px 0 12px; }
+.pb__lumen { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); height: 60px; background: var(--ldl); border-radius: 8px; transition: height .4s; }
+.pb__plaque { position: absolute; left: 10%; right: 10%; bottom: 0; height: 0; background: linear-gradient(#f0c36b,#e0872a); border-radius: 40% 40% 0 0; transition: height .4s; }
+.pb__cap { position: absolute; left: 10%; right: 10%; bottom: 0; height: 0; border-top: 0 solid #b98a3a; transition: all .4s; }
+.pb__gauges { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.pb__g { border: 1px solid var(--line); border-radius: 12px; padding: 10px; text-align: center; background: var(--surface); }
+.pb__g h6 { margin: 0 0 6px; font-size: 12px; }
+.pb__g .track { height: 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.pb__g .fill { height: 100%; width: 0; transition: width .4s; }
+.pb__g.size .fill { background: var(--ath-core); }
+.pb__g.inflam .fill { background: var(--hi); }
+.pb__g.cap .fill { background: var(--ok); }
+
+/* Viz · Stable vs Vulnerable Plaque */
+.svp { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.svp__card { border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: var(--surface); border-top: 4px solid var(--accent); }
+.svp__card.stable { --accent: var(--ok); }
+.svp__card.vuln { --accent: var(--hi); }
+.svp__card h5 { margin: 0 0 8px; font-size: 14px; color: var(--accent); }
+.svp__art { height: 70px; border-radius: 10px; background: #fdf6ea; border: 1px solid #cbb8a0; position: relative; overflow: hidden; margin-bottom: 8px; }
+.svp__lumen { position: absolute; inset: 0; margin: auto; height: 30px; background: var(--ldl); border-radius: 6px; transition: all .5s; }
+.svp__core { position: absolute; left: 20%; right: 20%; bottom: 0; background: var(--ath-core); transition: all .5s; }
+.svp__cap { position: absolute; left: 20%; right: 20%; transition: all .5s; }
+.svp__clot { position: absolute; inset: 0; margin: auto; width: 0; height: 30px; background: var(--ath-clot); border-radius: 6px; transition: width .5s; }
+.svp__card ul { margin: 0; padding-left: 18px; font-size: 12.5px; color: var(--ink-soft); }
+.svp__verdict { font-size: 12.5px; font-weight: 700; margin-top: 6px; min-height: 18px; }
+.svp__verdict.ok { color: var(--ok); }
+.svp__verdict.bad { color: var(--hi); }
+
+/* Viz · Plaque → Thrombus timeline */
+.p2t__timeline { display: flex; gap: 4px; margin: 12px 0; }
+.p2t__seg { flex: 1; text-align: center; font-size: 11px; font-weight: 700; color: var(--ink-faint); border-radius: 8px; padding: 8px 3px; background: var(--surface-2); border: 1px solid var(--line); transition: all .3s; }
+.p2t__seg.on { background: var(--hi-soft); color: var(--hi); border-color: var(--hi); }
+.p2t__contrast { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.p2t__box { border-radius: 12px; padding: 12px; text-align: center; font-weight: 700; font-size: 13px; }
+.p2t__box.slow { background: #e6efff; color: var(--cold); }
+.p2t__box.fast { background: var(--hi-soft); color: var(--hi); }
+.p2t__box small { display: block; font-weight: 500; color: var(--ink-faint); margin-top: 4px; }
+
+/* Viz · Cumulative apoB Exposure */
+.cae__slider input[type=range] { width: 100%; accent-color: var(--ldl); }
+.cae__row { display: grid; grid-template-columns: 96px 1fr 54px; gap: 10px; align-items: center; margin: 8px 0; font-size: 13px; font-weight: 700; }
+.cae__particles { border: 1px solid var(--line); border-radius: 12px; background: #fbfcfe; padding: 10px; min-height: 46px; display: flex; flex-wrap: wrap; gap: 4px; margin: 10px 0; }
+.cae__particles i { width: 8px; height: 8px; border-radius: 50%; background: var(--ldl); display: block; }
+.cae__gauge { text-align: center; }
+.cae__gauge .track { height: 18px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.cae__gauge .fill { height: 100%; background: linear-gradient(90deg,var(--ok),var(--mid),var(--hi)); width: 0; transition: width .2s; }
+.cae__gauge .num { font-weight: 700; font-size: clamp(18px,4.5vw,22px); margin-top: 6px; }
