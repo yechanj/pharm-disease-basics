@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제10강 · 뇌졸중 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="뇌졸중을 허혈성·출혈성으로 나누고, ischemic penumbra·Time is Brain·재관류치료·재발예방(antiplatelet vs anticoagulant)까지 약사용 강의" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제10강 · 뇌졸중</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">CVA</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제10강 · 뇌졸중</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#oneline"><span class="num">1</span> 한 문장으로</a></li>
+          <li><a href="#brainflow"><span class="num">2</span> 뇌혈류 생리</a></li>
+          <li><a href="#ischemic"><span class="num">3</span> 허혈성 뇌졸중</a></li>
+          <li><a href="#penumbra"><span class="num">4</span> Core vs Penumbra</a></li>
+          <li><a href="#cause"><span class="num">5</span> 원인 (AF·plaque·소혈관)</a></li>
+          <li><a href="#hemorrhagic"><span class="num">6</span> 출혈성 뇌졸중</a></li>
+          <li><a href="#symptom"><span class="num">7</span> 증상 · BE-FAST</a></li>
+          <li><a href="#tia"><span class="num">8</span> TIA</a></li>
+          <li><a href="#diagnosis"><span class="num">9</span> 진단</a></li>
+          <li><a href="#thrombolysis"><span class="num">10</span> IV thrombolysis</a></li>
+          <li><a href="#thrombectomy"><span class="num">11</span> Mechanical thrombectomy</a></li>
+          <li><a href="#hemorrhage-treat"><span class="num">12</span> 출혈성 뇌졸중 치료</a></li>
+          <li><a href="#secondary"><span class="num">13</span> 재발 예방</a></li>
+          <li><a href="#lifestyle"><span class="num">14</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">15</span> 약물 정리</a></li>
+          <li><a href="#deepdive"><span class="num">16</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">17</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">18</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">19</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">20</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">21</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">22</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제10강 · 통합</div>
+          <h1>뇌졸중</h1>
+          <p>제9강 협심증·심근경색과 같은 혈관 사고 — 이번엔 <b>뇌혈관</b>이 무대입니다.
+            <b>막히는 뇌졸중(허혈성)</b>과 <b>터지는 뇌졸중(출혈성)</b>, ischemic penumbra,
+            "Time is Brain", 재관류 치료, 그리고 원인에 따라 완전히 달라지는 재발예방 전략을 하나의 흐름으로 이해합니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>핵심 관점</div>
+          <p>뇌졸중은 <b>두 가지가 있다</b>는 점이 심근경색과 다릅니다.
+            허혈성(ischemic)과 출혈성(hemorrhagic)은 <b>치료 방향이 거의 반대</b>입니다.
+            CT로 출혈을 배제하기 전에 "뇌졸중이니까 aspirin부터"는 위험할 수 있습니다.
+            2026 AHA/ASA guideline은 빠른 영상검사와 적절한 환자에서 4.5시간 이내 alteplase 또는 tenecteplase를 권고합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">68세 남성 · HTN · 흡연력</div>
+            <div class="bp" style="font-size:clamp(17px,4vw,24px);line-height:1.6;">
+              아침 식사 중 갑자기 — 오른쪽 팔에 힘이 빠지고,
+              입이 왼쪽으로 돌아가고, 말을 제대로 못 합니다.<br>
+              <span style="color:var(--brand);">15분 후 팔 힘이 조금 좋아졌습니다.</span>
+            </div>
+            <div class="quote">"이제 괜찮아지는 것 같은데 굳이 응급실에 가야 하나요?"</div>
+            <div style="font-weight:700;margin-bottom:8px;">가족이 해야 할 행동은?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 완전히 좋아지면 괜찮다 — 잠시 지켜본다.</button>
+              <button data-opt="B"><span class="opt">B</span> 잠을 자고 내일 확인한다.</button>
+              <button data-opt="C"><span class="opt">C</span> TIA 또는 stroke일 수 있으므로 즉시 응급평가가 필요하다.</button>
+              <button data-opt="D"><span class="opt">D</span> 혈압약부터 한 알 더 먹인다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 바로 공개하지 않습니다 — <b>뇌는 혈류가 멈추면 어떤 일이 생기는지</b>부터 봅시다.</div>
+            </div>
+          </div>
+          <p>강의가 끝나면 다음 질문에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>왜 뇌졸중은 몇 분도 낭비하면 안 되는가?</li>
+            <li>허혈성 뇌졸중과 뇌출혈은 증상만으로 구별할 수 있는가?</li>
+            <li>TIA는 증상이 없어졌는데 왜 응급 평가가 필요한가?</li>
+            <li>CT는 무엇을 보려고 가장 먼저 찍는가?</li>
+            <li>혈전용해제와 혈전제거술은 어떻게 다른가?</li>
+            <li>aspirin과 anticoagulant는 왜 환자에 따라 완전히 다르게 쓰는가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 한 문장으로 ================= -->
+        <section id="oneline" class="section">
+          <h2><span class="sec-no">01</span> 한 문장으로 이해하기</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>뇌졸중(Stroke)</b>: 뇌혈관이 막히거나 터져 특정 뇌 부위의 혈액공급이 갑자기 중단되고, 그 결과 신경기능 장애가 발생하는 질환.</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:16px;">
+            <div class="panel panel--normal">
+              <h5>허혈성 뇌졸중 (Ischemic stroke, ~85%)</h5>
+              <p>혈관이 막힘 → 뇌혈류↓ → ischemia → brain tissue infarction</p>
+            </div>
+            <div class="panel panel--drug" style="border-color:var(--hi);">
+              <h5>출혈성 뇌졸중 (Hemorrhagic stroke, ~15%)</h5>
+              <p>혈관 파열 → 뇌 안/주변에 출혈 → 직접 조직 손상 + 뇌압 상승 → secondary injury</p>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:16px;">
+            <div class="card__label"><span class="dot"></span>제9강과의 연결</div>
+            <p>심근경색: 관상동맥 → 심근 손상. 뇌졸중: 뇌동맥 → 뇌 손상.<br>
+              같은 동맥경화·혈전 메커니즘이지만, <b>뇌는 출혈 가능성도 항상 함께 고려</b>해야 합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 뇌혈류 생리 ================= -->
+        <section id="brainflow" class="section">
+          <h2><span class="sec-no">02</span> 정상적인 몸에서는?</h2>
+
+          <h3>뇌는 혈류에 매우 의존한다</h3>
+          <p>뇌는 전체 체중의 약 2%이지만, 에너지 저장 능력이 제한적입니다. 지속적인 <b>glucose와 oxygen 공급</b>이 필요하고, 혈류가 끊기면 몇 분 안에 비가역적 손상이 시작됩니다.</p>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>Cerebral autoregulation</div>
+            <p>정상 뇌혈관은 혈압 변화에도 뇌혈류를 비교적 일정하게 유지합니다(cerebral arteriole 수축/이완). 하지만 <b>혈관 자체가 막히면 autoregulation으로 해결 불가</b>합니다.</p>
+          </div>
+
+          <p style="margin-top:12px;">큰 동맥이 막히면 어떻게 될지 확인해 보세요.</p>
+          <div class="figure" data-brainflow>
+            <div class="figure__title">Viz 1 · 뇌혈류 변화 탐색기</div>
+            <div class="bf__display">
+              <div class="bf__brain">
+                <svg viewBox="0 0 200 180" aria-label="뇌혈류 다이어그램">
+                  <!-- Brain outline -->
+                  <ellipse cx="100" cy="90" rx="80" ry="70" fill="#f0f4f9" stroke="var(--line-strong)" stroke-width="2"/>
+                  <!-- Midline -->
+                  <line x1="100" y1="25" x2="100" y2="155" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 3"/>
+                  <!-- Left hemisphere vessels (anterior) -->
+                  <path d="M100,30 Q70,50 55,70 Q45,90 55,115" stroke="#2f6fed" stroke-width="2.5" fill="none" stroke-linecap="round" class="bf__vessel bf__aca-left"/>
+                  <!-- MCA left -->
+                  <path d="M80,55 Q55,65 40,85 Q35,100 50,120" stroke="#2f6fed" stroke-width="3" fill="none" stroke-linecap="round" class="bf__vessel bf__mca-left"/>
+                  <!-- Right hemisphere vessels -->
+                  <path d="M100,30 Q130,50 145,70 Q155,90 145,115" stroke="#2f6fed" stroke-width="2.5" fill="none" stroke-linecap="round" class="bf__vessel bf__aca-right"/>
+                  <path d="M120,55 Q145,65 160,85 Q165,100 150,120" stroke="#2f6fed" stroke-width="3" fill="none" stroke-linecap="round" class="bf__vessel bf__mca-right"/>
+                  <!-- Posterior -->
+                  <path d="M100,155 Q80,140 70,120" stroke="#8b5cf6" stroke-width="2" fill="none" stroke-linecap="round" class="bf__vessel bf__pca-left"/>
+                  <path d="M100,155 Q120,140 130,120" stroke="#8b5cf6" stroke-width="2" fill="none" stroke-linecap="round" class="bf__vessel bf__pca-right"/>
+                  <!-- Ischemia zone (hidden by default) -->
+                  <ellipse id="bfIschemia" cx="50" cy="95" rx="32" ry="28" fill="rgba(229,72,77,0.15)" stroke="rgba(229,72,77,0.6)" stroke-width="1.5" opacity="0"/>
+                  <!-- Occlusion marker -->
+                  <circle id="bfOcclude" cx="55" cy="67" r="6" fill="#e5484d" opacity="0"/>
+                  <text id="bfOccludeLabel" x="65" y="64" font-size="9" fill="#e5484d" font-weight="600" opacity="0">폐색</text>
+                  <!-- Labels -->
+                  <text x="38" y="52" font-size="9" fill="#2f6fed" font-weight="600">MCA</text>
+                  <text x="152" y="52" font-size="9" fill="#2f6fed" font-weight="600">MCA</text>
+                  <text x="80" y="170" font-size="9" fill="#8b5cf6">Posterior</text>
+                </svg>
+              </div>
+              <div class="bf__status">
+                <div class="bf__stages">
+                  <div class="bf__stage" id="bfStage0">
+                    <span class="bf__dot" style="background:#12a594"></span>
+                    <span>정상 혈류 — autoregulation 작동</span>
+                  </div>
+                  <div class="bf__stage" id="bfStage1" style="opacity:.3;">
+                    <span class="bf__dot" style="background:#f5a623"></span>
+                    <span>Hypoperfusion — 혈류 감소</span>
+                  </div>
+                  <div class="bf__stage" id="bfStage2" style="opacity:.3;">
+                    <span class="bf__dot" style="background:#e5484d"></span>
+                    <span>Ischemia — 비가역 손상 진행 중</span>
+                  </div>
+                  <div class="bf__stage" id="bfStage3" style="opacity:.3;">
+                    <span class="bf__dot" style="background:#7b0000"></span>
+                    <span>Infarction — brain tissue death</span>
+                  </div>
+                </div>
+                <div class="bf__msg" id="bfMsg" style="margin-top:10px;font-size:13.5px;padding:10px;border-radius:8px;background:var(--bg-card);">정상 상태입니다. MCA 폐색 버튼을 눌러보세요.</div>
+              </div>
+            </div>
+            <div class="bf__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-bf="normal">🟢 정상</button>
+              <button class="btn" data-bf="occlude">🔴 Left MCA 폐색</button>
+            </div>
+            <div class="figure__cap">큰 동맥 한 곳이 막히면 downstream 뇌조직의 혈류가 급격히 감소합니다.</div>
+          </div>
+
+          <h3 style="margin-top:20px;">주요 뇌동맥</h3>
+          <div class="figure" data-infochips>
+            <div class="figure__title">뇌혈관 해부 포인트</div>
+            <div class="checkchips">
+              <button data-text="<b>MCA (Middle cerebral artery)</b> — 뇌졸중에서 가장 흔히 관련. 반대편 운동/감각 영역, 언어 담당 영역 포함. 왼쪽 MCA → 오른쪽 편마비 + 실어증.">MCA</button>
+              <button data-text="<b>ACA (Anterior cerebral artery)</b> — 전두엽 내측. ACA 폐색 → 반대편 다리 위주 편마비.">ACA</button>
+              <button data-text="<b>Posterior circulation</b> — vertebral→basilar→PCA. 뇌간·소뇌·후두엽. 어지럼·복시·조화운동불능·의식장애.">Posterior</button>
+              <button data-text="<b>Basilar artery</b> — 뇌간으로 가는 핵심 혈관. Basilar artery occlusion은 매우 위험. 2026 guideline은 선택된 환자에서 24시간 이내 EVT를 권고.">Basilar</button>
+              <button data-text="<b>Carotid artery</b> — 내경동맥. 경동맥 죽상경화 → plaque rupture → artery-to-artery embolism 또는 local thrombosis → MCA/ACA 폐색.">Carotid</button>
+            </div>
+            <div class="infochips__out">혈관 이름을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 허혈성 뇌졸중 ================= -->
+        <section id="ischemic" class="section">
+          <h2><span class="sec-no">03</span> 무엇이 잘못된 것인가? — 허혈성 뇌졸중</h2>
+
+          <h3>혈관이 막힌다</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Thrombosis</h5>
+              <p>해당 혈관에서 혈전이 직접 형성</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Embolism</h5>
+              <p>다른 곳에서 생긴 혈전이 날아와 뇌혈관을 막음 (예: 심장 → 뇌)</p>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:16px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>AF(심방세동) → left atrium에서 blood stasis → thrombus → embolus → cerebral artery → stroke.<br>
+              이것이 뒤에서 <b>anticoagulant가 중요한 이유</b>입니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 뇌졸중 치료에서 빠른 재관류가 중요한 이유는?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 이미 죽은 뇌세포를 모두 되살리기 위해</li>
+              <li data-opt="B"><span class="opt">B</span> 아직 비가역적 손상 전인 penumbra를 살리기 위해</li>
+              <li data-opt="C"><span class="opt">C</span> LDL을 즉시 정상화하기 위해</li>
+              <li data-opt="D"><span class="opt">D</span> 혈압을 항상 100/60으로 만들기 위해</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 재관류 치료의 목표는 아직 salvageable한 ischemic penumbra가 infarction으로 진행하는 것을 막는 것입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · Core vs Penumbra ================= -->
+        <section id="penumbra" class="section">
+          <h2><span class="sec-no">04</span> Ischemic Core vs Penumbra</h2>
+
+          <blockquote>뇌혈류가 갑자기 줄어든 영역은 모두 즉시 죽는 것이 아닙니다.</blockquote>
+
+          <div class="twopanel">
+            <div class="panel panel--drug" style="border-color:var(--hi);">
+              <h5>Ischemic core 🔴</h5>
+              <p>혈류가 너무 심하게 감소해 <b>이미 irreversible injury</b>가 발생한 영역 — 되살리기 어렵습니다.</p>
+            </div>
+            <div class="panel panel--normal" style="border-color:#f5a623;">
+              <h5>Ischemic penumbra 🟠</h5>
+              <p>혈류는 부족하지만 <b>아직 살릴 수 있는</b> 주변 조직 — 재관류로 rescue 가능.</p>
+            </div>
+          </div>
+
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념 — Time is Brain</div>
+            <p>Stroke 치료의 목표: <b>penumbra를 core가 되기 전에 혈류를 회복시키는 것</b>. 시간이 갈수록 penumbra가 core로 변합니다.</p>
+          </div>
+
+          <p style="margin-top:12px;">시간 슬라이더를 움직여 core가 어떻게 확대되는지 보세요.</p>
+          <div class="figure" data-penumbra>
+            <div class="figure__title">Viz 2 · Core vs Penumbra Simulator</div>
+            <div class="pb__wrap">
+              <div class="pb__svg">
+                <svg viewBox="0 0 200 200" aria-label="Core Penumbra 다이어그램">
+                  <circle cx="100" cy="100" r="90" fill="#e8f4e8" stroke="#12a594" stroke-width="1.5"/>
+                  <text x="100" y="195" text-anchor="middle" font-size="10" fill="#12a594">정상 뇌</text>
+                  <circle id="pbPenumbra" cx="100" cy="100" r="55" fill="rgba(245,166,35,0.35)" stroke="#f5a623" stroke-width="2"/>
+                  <text id="pbPenumbraLabel" x="100" y="68" text-anchor="middle" font-size="10" fill="#b36b00" font-weight="600">PENUMBRA 🟠</text>
+                  <circle id="pbCore" cx="100" cy="100" r="22" fill="rgba(229,72,77,0.6)" stroke="#e5484d" stroke-width="2.5"/>
+                  <text id="pbCoreLabel" x="100" y="104" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">CORE 🔴</text>
+                </svg>
+              </div>
+              <div class="pb__panel">
+                <div class="pb__time" id="pbTime">발생 후 0분</div>
+                <div class="pb__desc" id="pbDesc">Core는 작고 penumbra가 큽니다. 지금 recanalization → 많은 조직 구제 가능.</div>
+                <input type="range" id="pbSlider" min="0" max="6" step="1" value="0" style="width:100%;accent-color:var(--hi);margin-top:8px;"/>
+                <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-faint);">
+                  <span>0분</span><span>1시간</span><span>2시간</span><span>3시간</span><span>4시간</span><span>5시간</span><span>6시간+</span>
+                </div>
+                <button class="btn" id="pbReperfBtn" style="margin-top:12px;background:var(--hi);color:#fff;">⚡ Reperfusion NOW</button>
+                <div id="pbReperfMsg" style="display:none;margin-top:8px;padding:10px;border-radius:8px;background:var(--ok-soft,#dcf5f1);color:#0a6b5e;font-size:13.5px;"></div>
+              </div>
+            </div>
+            <div class="figure__cap">시간이 갈수록 core↑ penumbra↓. 빠른 재관류 = 살릴 수 있는 뇌조직 최대화.</div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 원인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">05</span> 왜 혈관이 막히는가?</h2>
+
+          <p>허혈성 뇌졸중의 원인은 하나가 아닙니다. 원인에 따라 재발예방 전략이 달라집니다.</p>
+          <div class="figure" data-strokesource>
+            <div class="figure__title">Viz 3 · 혈전은 어디서 왔는가?</div>
+            <div class="ss2__cards">
+              <div class="ss2__card" data-src="large">
+                <div class="ss2__ico">🩺</div>
+                <h5>Large artery atherosclerosis</h5>
+                <p class="ss2__tag">경동맥/두개내 동맥 plaque</p>
+              </div>
+              <div class="ss2__card" data-src="cardio">
+                <div class="ss2__ico">❤️</div>
+                <h5>Cardioembolism (AF 등)</h5>
+                <p class="ss2__tag">심장에서 blood stasis → 혈전</p>
+              </div>
+              <div class="ss2__card" data-src="small">
+                <div class="ss2__ico">🔬</div>
+                <h5>Small vessel disease</h5>
+                <p class="ss2__tag">HTN·당뇨 → lacunar infarction</p>
+              </div>
+            </div>
+            <div class="ss2__detail" id="ss2Detail" style="margin-top:12px;padding:12px;border-radius:10px;background:var(--bg-card);font-size:13.5px;min-height:60px;">원인 카드를 탭해 경로를 확인하세요.</div>
+            <div class="figure__cap">원인 구분이 재발예방 약 선택의 핵심 결정요인입니다.</div>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">원인별 특징</div>
+            <div class="checkchips">
+              <button data-text="<b>Large artery atherosclerosis</b> — 경동맥/두개내 혈관에 plaque → plaque rupture/thrombosis 또는 artery-to-artery embolism. 치료: antiplatelet + statin + 위험인자 관리. 경동맥 협착 심한 경우 endarterectomy 또는 stenting 고려.">Large artery</button>
+              <button data-text="<b>AF-related cardioembolism</b> — 심방세동 → left atrial blood stasis → fibrin-rich thrombus → 뇌로 embolism. 치료: <b>anticoagulation</b>(DOAC/warfarin). Platelet 위주의 aspirin은 AF stroke prevention에서 충분하지 않습니다.">AF 심방세동</button>
+              <button data-text="<b>Small vessel disease (lacunar stroke)</b> — 고혈압·당뇨가 오래 지속되면 penetrating artery 손상 → small vessel occlusion → lacunar infarction. 주로 내포·기저핵·뇌간. 치료: antiplatelet + 혈압·혈당 관리.">Small vessel</button>
+              <button data-text="<b>기타 원인</b> — arterial dissection, vasculitis, thrombophilia, PFO를 통한 paradoxical embolism 등. 젊은 뇌졸중이나 원인불명 뇌졸중에서 특히 평가 필요.">기타</button>
+            </div>
+            <div class="infochips__out">원인을 탭해 특징을 보세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 출혈성 뇌졸중 ================= -->
+        <section id="hemorrhagic" class="section">
+          <h2><span class="sec-no">06</span> 출혈성 뇌졸중은 어떻게 다른가?</h2>
+
+          <blockquote>혈관 파열 → blood가 brain parenchyma 안으로 유출 → hematoma → 주변 조직 압박 + ICP↑ → secondary injury</blockquote>
+
+          <h3>주요 원인</h3>
+          <div class="figure" data-infochips>
+            <div class="figure__title">ICH 주요 원인</div>
+            <div class="checkchips">
+              <button data-text="<b>Chronic hypertension</b> — 가장 흔한 원인. 작은 penetrating arteriole의 chronic damage → rupture risk↑. 주로 기저핵·뇌간·소뇌 등에 발생.">고혈압</button>
+              <button data-text="<b>Cerebral amyloid angiopathy (CAA)</b> — 주로 고령. Amyloid가 cortical/leptomeningeal vessel wall에 침착 → lobar hemorrhage 위험↑. 치매와 연관될 수 있음.">Amyloid angiopathy</button>
+              <button data-text="<b>Anticoagulant-associated ICH</b> — warfarin, DOAC 등이 출혈 위험을 높일 수 있음. 이것이 항응고제 사용 중 환자에서 뇌졸중 증상 시 <b>즉시 reversal agent를 고려</b>하는 이유.">항응고제 관련</button>
+              <button data-text="<b>기타</b> — AVM(동정맥기형), 뇌종양, vasculitis 등 다양한 원인 가능.">기타</button>
+            </div>
+            <div class="infochips__out">ICH 원인을 탭하세요.</div>
+          </div>
+
+          <p style="margin-top:14px;">허혈성 뇌졸중과 출혈성 뇌졸중을 비교해 보세요.</p>
+          <div class="figure" data-stroketype>
+            <div class="figure__title">Viz 4 · 막힌 뇌졸중 vs 터진 뇌졸중</div>
+            <div class="st__cols">
+              <div class="st__side ischemic">
+                <h6>허혈성 Ischemic</h6>
+                <svg viewBox="0 0 100 80" class="st__svg">
+                  <ellipse cx="50" cy="40" rx="35" ry="30" fill="#f0f4f9" stroke="var(--line-strong)" stroke-width="1.5"/>
+                  <path d="M35,30 Q50,20 65,30" stroke="#2f6fed" stroke-width="2.5" fill="none"/>
+                  <circle cx="47" cy="28" r="5" fill="#e5484d"/>
+                  <text x="47" y="20" text-anchor="middle" font-size="8" fill="#e5484d">🔴 clot</text>
+                  <ellipse cx="33" cy="48" rx="14" ry="10" fill="rgba(229,72,77,0.2)" stroke="rgba(229,72,77,0.5)" stroke-width="1"/>
+                  <text x="33" y="50" text-anchor="middle" font-size="7" fill="#a53030">허혈</text>
+                </svg>
+                <p class="st__desc">혈관 안 혈전 → downstream 뇌 허혈</p>
+              </div>
+              <div class="st__center">
+                <div class="st__q">증상만으로 구분 가능?</div>
+                <button class="btn" id="stAspBtn" style="margin:8px auto;display:block;">aspirin 먼저?</button>
+                <div class="st__ans" id="stAns" style="display:none;"></div>
+              </div>
+              <div class="st__side hemorrhagic">
+                <h6>출혈성 Hemorrhagic</h6>
+                <svg viewBox="0 0 100 80" class="st__svg">
+                  <ellipse cx="50" cy="40" rx="35" ry="30" fill="#f0f4f9" stroke="var(--line-strong)" stroke-width="1.5"/>
+                  <path d="M40,35 Q50,25 60,35" stroke="#8b5cf6" stroke-width="2.5" fill="none"/>
+                  <path d="M50,33 Q46,40 44,50 Q48,58 50,55 Q52,58 56,50 Q54,40 50,33Z" fill="rgba(229,72,77,0.7)" stroke="#e5484d" stroke-width="1"/>
+                  <text x="50" y="46" text-anchor="middle" font-size="7" fill="#fff" font-weight="700">혈종</text>
+                  <text x="48" y="27" text-anchor="middle" font-size="7" fill="#8b5cf6">💥 rupture</text>
+                </svg>
+                <p class="st__desc">혈관 파열 → 뇌 안 hematoma 형성</p>
+              </div>
+            </div>
+            <div class="figure__cap">두 뇌졸중은 치료 방향이 반대 — imaging 전 임의로 aspirin 복용은 위험할 수 있습니다.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>증상만으로 ischemic stroke와 hemorrhagic stroke를 안전하게 구별할 수 없습니다.</b><br>
+              두 유형 모두 weakness·speech disturbance 등이 나타납니다. 그래서 <b>brain CT가 먼저</b>입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 증상 · BE-FAST ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">07</span> 어떤 증상이 나타나는가? — BE-FAST</h2>
+
+          <p>뇌졸중은 어느 뇌 부위가 손상됐느냐에 따라 증상이 다릅니다. 대중에게 가장 중요한 기억법은 <b>BE-FAST</b>입니다.</p>
+
+          <div class="figure" data-befast>
+            <div class="figure__title">Viz 5 · BE-FAST 증상 지도</div>
+            <div class="bef__grid">
+              <button class="bef__btn" data-bef="balance"><span class="bef__letter">B</span>Balance</button>
+              <button class="bef__btn" data-bef="eyes"><span class="bef__letter">E</span>Eyes</button>
+              <button class="bef__btn" data-bef="face"><span class="bef__letter">F</span>Face</button>
+              <button class="bef__btn" data-bef="arm"><span class="bef__letter">A</span>Arm</button>
+              <button class="bef__btn" data-bef="speech"><span class="bef__letter">S</span>Speech</button>
+              <button class="bef__btn time" data-bef="time"><span class="bef__letter">T</span>Time</button>
+            </div>
+            <div class="bef__detail" id="befDetail" style="margin-top:12px;padding:14px;border-radius:10px;background:var(--bg-card);font-size:14px;min-height:60px;">
+              위 항목을 눌러 증상을 확인하세요.
+            </div>
+          </div>
+
+          <h3 style="margin-top:20px;">뇌 부위별 증상 패턴</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>부위</th><th>대표 증상</th></tr></thead>
+              <tbody>
+                <tr><th>Left MCA</th><td>오른쪽 편마비·감각 이상, aphasia(언어장애)</td></tr>
+                <tr><th>Right MCA</th><td>왼쪽 편마비·감각 이상, left neglect</td></tr>
+                <tr><th>Posterior circulation</th><td>현훈(vertigo), 복시(diplopia), 조화운동불능(ataxia), 연하곤란, 의식장애</td></tr>
+                <tr><th>Basilar artery</th><td>심한 의식장애, 사지마비, 호흡 이상 — 매우 위험</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>Red Flags</div>
+            <p>갑작스러운 한쪽 마비 · 갑작스러운 언어장애 · 갑작스러운 시야장애 · 심한 새로운 균형장애 · 갑작스러운 의식 변화<br>
+              특히 <b>"살면서 가장 심한 두통"</b>은 subarachnoid hemorrhage를 포함한 응급 상황을 시사합니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 15분간 언어장애와 오른팔 마비가 생겼다가 완전히 정상으로 돌아왔습니다. 가장 적절한 행동은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 증상이 없어졌으니 다음 정기검진까지 기다린다.</li>
+              <li data-opt="B"><span class="opt">B</span> TIA 가능성을 고려해 신속한 의료평가를 받는다.</li>
+              <li data-opt="C"><span class="opt">C</span> 임의로 aspirin 5정을 복용한다.</li>
+              <li data-opt="D"><span class="opt">D</span> 집에서 혈압만 반복 측정한다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 증상이 없어졌더라도 TIA는 향후 stroke의 중요한 경고신호일 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 8 · TIA ================= -->
+        <section id="tia" class="section">
+          <h2><span class="sec-no">08</span> TIA — "나았는데 왜 응급실을?"</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>TIA 정의</div>
+            <p><b>Transient ischemic attack</b>: 일시적인 뇌혈류 부족으로 focal neurologic symptom이 나타났다가 회복되지만 acute infarction은 없는 상태 (<i>tissue-based 정의</i>).</p>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>중요한 오해</div>
+            <p><b>"다 나았으니 괜찮다"가 아닙니다.</b><br>
+              TIA는 앞으로 stroke가 발생할 위험이 높은 <b>warning event</b>일 수 있습니다.<br>
+              신속한 원인평가와 예방치료가 중요합니다.</p>
+          </div>
+
+          <p style="margin-top:12px;">TIA 후 어떤 선택을 하느냐를 확인해 보세요.</p>
+          <div class="figure" data-tiawarn>
+            <div class="figure__title">Viz 6 · TIA Warning Window</div>
+            <div class="tiaw__timeline">
+              <div class="tiaw__step active" id="tiawS1">
+                <div class="tiaw__time">10:00</div>
+                <div class="tiaw__evt">🚨 팔 마비 · 언어장애 발생</div>
+              </div>
+              <div class="tiaw__arrow">→</div>
+              <div class="tiaw__step" id="tiawS2">
+                <div class="tiaw__time">10:15</div>
+                <div class="tiaw__evt">증상 사라짐</div>
+              </div>
+              <div class="tiaw__arrow">→</div>
+              <div class="tiaw__step" id="tiawS3">
+                <div class="tiaw__time">10:30</div>
+                <div class="tiaw__evt">환자: "이제 괜찮아요"</div>
+              </div>
+            </div>
+            <div class="tiaw__choice" style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn" data-tiaw="ignore">😴 그냥 집에서 쉰다</button>
+              <button class="btn" data-tiaw="eval" style="background:var(--brand);color:#fff;">🏥 즉시 응급 평가</button>
+            </div>
+            <div class="tiaw__result" id="tiawResult" style="margin-top:10px;min-height:50px;"></div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 진단 ================= -->
+        <section id="diagnosis" class="section">
+          <h2><span class="sec-no">09</span> 어떻게 진단하는가?</h2>
+
+          <blockquote>Stroke 의심 → 임상평가 + 혈당 확인 + 빠른 Brain imaging — 시간을 최소화</blockquote>
+
+          <h3>NIHSS</h3>
+          <p>National Institutes of Health Stroke Scale. Consciousness·gaze·visual field·facial palsy·motor·sensory·language·dysarthria·neglect 등을 평가. 점수 높을수록 neurologic deficit 심함. 2026 AHA/ASA guideline은 초기 stroke severity 표준화 도구로 사용합니다.</p>
+
+          <h3 style="margin-top:16px;">왜 혈당부터 확인할까?</h3>
+          <p>Hypoglycemia도 weakness·confusion 등 stroke-like deficit를 일으킬 수 있습니다 — <b>stroke mimic</b>. Glucose 확인은 빠르고 간단한 필수 단계입니다.</p>
+
+          <p style="margin-top:14px;">세 영상검사가 무엇을 보려는지 확인하세요.</p>
+          <div class="figure" data-strokeimaging>
+            <div class="figure__title">Viz 7 · Stroke Imaging Stack</div>
+            <div class="si__steps">
+              <div class="si__step" data-si="0">
+                <div class="si__ico">🧠</div>
+                <div class="si__label">Non-contrast CT</div>
+                <div class="si__q">무엇을 보는가?</div>
+              </div>
+              <div class="si__arrow">→</div>
+              <div class="si__step" data-si="1">
+                <div class="si__ico">🩸</div>
+                <div class="si__label">CT Angiography (CTA)</div>
+                <div class="si__q">무엇을 보는가?</div>
+              </div>
+              <div class="si__arrow">→</div>
+              <div class="si__step" data-si="2">
+                <div class="si__ico">💡</div>
+                <div class="si__label">MRI DWI / Perfusion</div>
+                <div class="si__q">무엇을 보는가?</div>
+              </div>
+            </div>
+            <div class="si__detail" id="siDetail" style="margin-top:12px;padding:14px;border-radius:10px;background:var(--bg-card);font-size:13.5px;min-height:60px;">
+              영상 단계를 탭해 목적을 확인하세요.
+            </div>
+          </div>
+
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>아주 초기 ischemic stroke는 CT에서 정상처럼 보일 수 있습니다.</b><br>
+              Noncontrast CT의 주요 역할: 빠른 <b>hemorrhage 배제</b>. 정상 CT ≠ stroke 없음.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> 갑자기 오른팔 마비가 발생한 환자의 noncontrast CT가 정상입니다. 가장 적절한 해석은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Stroke가 완전히 배제된다.</li>
+              <li data-opt="B"><span class="opt">B</span> 초기 ischemic stroke는 CT에서 명확하지 않을 수 있으며, 출혈이 없다는 중요한 정보를 얻었다.</li>
+              <li data-opt="C"><span class="opt">C</span> 반드시 psychiatric disease다.</li>
+              <li data-opt="D"><span class="opt">D</span> 무조건 TIA다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — Noncontrast CT의 중요한 역할 중 하나는 출혈을 빠르게 배제하는 것이며, 초기 ischemic lesion은 항상 선명하게 보이지 않을 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · IV thrombolysis ================= -->
+        <section id="thrombolysis" class="section">
+          <h2><span class="sec-no">10</span> 급성 치료 ① — IV Thrombolysis</h2>
+
+          <blockquote>막힌 혈전을 약물로 녹이려는 전략 — Alteplase / Tenecteplase</blockquote>
+
+          <h3>기전</h3>
+          <p>둘 다 tPA 계열: Plasminogen → plasmin → fibrin degradation → thrombus dissolution.</p>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Alteplase</h5>
+              <p>표준 tPA. 체중에 따른 용량 계산, 10% IV bolus + 60분 주입.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Tenecteplase</h5>
+              <p>변형 tPA — fibrin specificity↑, 단일 bolus 가능(실용적 장점). 2026 AHA/ASA는 적절한 환자에서 alteplase와 함께 권고.</p>
+            </div>
+          </div>
+
+          <div class="figure" data-thrombowin style="margin-top:14px;">
+            <div class="figure__title">Viz 8 · Thrombolysis 시간창</div>
+            <div class="tw__bar">
+              <div class="tw__seg early" title="0–4.5시간">
+                <span>0</span>
+                <div class="tw__label">일반적 치료 가능 구간<br><b>IV thrombolysis 고려</b></div>
+                <span>4.5h</span>
+              </div>
+              <div class="tw__seg late" title="4.5–9시간">
+                <div class="tw__label">Advanced imaging 선택<br><b>일부 환자 치료 가능</b></div>
+                <span>9h+</span>
+              </div>
+            </div>
+            <div class="tw__detail" id="twDetail" style="margin-top:10px;font-size:13.5px;padding:10px;border-radius:8px;background:var(--bg-card);">시간 구간을 탭해 의미를 확인하세요.</div>
+            <div class="figure__cap">2026 AHA/ASA: 적절한 환자에서 4.5시간 이내 IV thrombolysis. 일부 unknown-onset·4.5–9시간 환자는 imaging-based 치료 가능.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>왜 모두에게 주지 않을까?</div>
+            <p>가장 중요한 위험: <b>Intracranial hemorrhage (ICH)</b>.<br>
+              시간·imaging·BP·anticoagulant 사용·bleeding risk·임상 deficit 등을 빠르게 평가합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 11 · Thrombectomy ================= -->
+        <section id="thrombectomy" class="section">
+          <h2><span class="sec-no">11</span> 급성 치료 ② — Mechanical Thrombectomy</h2>
+
+          <blockquote>카테터로 혈전을 직접 제거 — 특히 Large Vessel Occlusion(LVO)에서 핵심</blockquote>
+
+          <p>대퇴/요골동맥으로 catheter → cerebral artery까지 접근 → stent retriever/aspiration → clot 제거 → reperfusion.</p>
+
+          <div class="figure" data-reperfcomp>
+            <div class="figure__title">Viz 9 · Thrombolysis vs Thrombectomy</div>
+            <div class="rc__cols">
+              <div class="rc__side">
+                <h6>IV Thrombolysis</h6>
+                <svg viewBox="0 0 100 100" class="rc__svg">
+                  <rect x="20" y="35" width="60" height="30" rx="15" fill="#f0f4f9" stroke="var(--brand)" stroke-width="2"/>
+                  <circle cx="55" cy="50" r="7" fill="#e5484d"/>
+                  <text x="55" y="54" text-anchor="middle" font-size="7" fill="#fff">clot</text>
+                  <path d="M40,50 Q35,38 38,32 Q42,28 50,30" stroke="#12a594" stroke-width="1.5" fill="none" stroke-dasharray="3 2" marker-end="url(#arrowG)"/>
+                  <text x="28" y="28" font-size="8" fill="#12a594">💊 약물</text>
+                  <text x="30" y="85" font-size="8" fill="var(--ink-soft)">fibrin 분해</text>
+                </svg>
+                <p class="rc__desc">약물이 혈액 통해 clot에 도달 → fibrin 분해</p>
+              </div>
+              <div class="rc__vs">VS</div>
+              <div class="rc__side">
+                <h6>Mechanical Thrombectomy</h6>
+                <svg viewBox="0 0 100 100" class="rc__svg">
+                  <rect x="20" y="35" width="60" height="30" rx="15" fill="#f0f4f9" stroke="var(--brand)" stroke-width="2"/>
+                  <circle cx="55" cy="50" r="7" fill="#e5484d"/>
+                  <text x="55" y="54" text-anchor="middle" font-size="7" fill="#fff">clot</text>
+                  <rect x="62" y="47" width="22" height="6" rx="3" fill="#f5a623" stroke="#c8820a" stroke-width="1"/>
+                  <line x1="84" y1="50" x2="96" y2="50" stroke="#c8820a" stroke-width="1.5"/>
+                  <text x="55" y="85" font-size="8" fill="var(--ink-soft)">물리적 제거</text>
+                </svg>
+                <p class="rc__desc">Catheter로 clot을 직접 포획·제거</p>
+              </div>
+            </div>
+            <div class="rc__note" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--brand-soft);font-size:13.5px;">
+              <b>둘은 경쟁이 아닙니다.</b> 적응되는 환자에서 IV thrombolysis 후 thrombectomy를 이어서 시행할 수 있습니다.
+            </div>
+            <div class="figure__cap">LVO에서는 thrombectomy가 핵심. 일부 환자는 24시간까지도 대상 가능(2026 guideline).</div>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">Thrombectomy 적응 포인트</div>
+            <div class="checkchips">
+              <button data-text="<b>Large vessel occlusion (LVO)</b> — ICA·proximal MCA·basilar artery 등 큰 혈관이 막힌 경우. CTA로 확인. LVO 없이 작은 혈관이면 thrombectomy 대상이 아닙니다.">LVO 확인</button>
+              <button data-text="<b>시간창 확대</b> — 2026 guideline은 anterior circulation LVO에서 late time window(24시간)까지 imaging-based 선택이 가능하도록 확대. Basilar artery occlusion에서도 24시간 이내 EVT를 일부 권고.">시간창</button>
+              <button data-text="<b>Salvageable tissue</b> — Perfusion imaging 또는 CT/MRI mismatch로 아직 살릴 penumbra가 있는지 확인. 이미 large established core → benefit 제한적.">구제 가능 조직</button>
+              <button data-text="<b>NIHSS</b> — 신경학적 결손이 경미하면 thrombectomy 이득이 불분명할 수 있음. 반면 severe deficit + LVO = 강한 적응증.">임상 중증도</button>
+            </div>
+            <div class="infochips__out">Thrombectomy 포인트를 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 출혈성 치료 ================= -->
+        <section id="hemorrhage-treat" class="section">
+          <h2><span class="sec-no">12</span> 급성 치료 ③ — 출혈성 뇌졸중 치료</h2>
+
+          <blockquote>허혈성 stroke와 방향이 거의 반대 — 혈류 회복이 아니라 출혈 확대 방지</blockquote>
+
+          <div class="figure" data-strokeopp>
+            <div class="figure__title">Viz 10 · 반대 방향의 두 치료</div>
+            <div class="so__cols">
+              <div class="so__side ischemic">
+                <h5>허혈성 Ischemic</h5>
+                <div class="so__tag blocked">혈관 막힘</div>
+                <div class="so__arrow">↓</div>
+                <div class="so__goal">혈관 열기 (Recanalization)</div>
+                <ul class="so__list">
+                  <li>IV thrombolysis</li>
+                  <li>Mechanical thrombectomy</li>
+                  <li>Antiplatelet (2차 예방)</li>
+                </ul>
+              </div>
+              <div class="so__center">VS</div>
+              <div class="so__side hemorrhagic">
+                <h5>출혈성 Hemorrhagic</h5>
+                <div class="so__tag bleeding">혈관 파열</div>
+                <div class="so__arrow">↓</div>
+                <div class="so__goal">출혈 확대 방지 · 뇌압 관리</div>
+                <ul class="so__list">
+                  <li>BP management</li>
+                  <li>Anticoagulant reversal</li>
+                  <li>Neurosurgical management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px;">항응고제 역전 — 약사에게 매우 중요</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>항응고제</th><th>역전 방법</th></tr></thead>
+              <tbody>
+                <tr><th>Warfarin</th><td>Vitamin K + PCC (prothrombin complex concentrate)</td></tr>
+                <tr><th>Dabigatran</th><td>Idarucizumab (Praxbind®)</td></tr>
+                <tr><th>Factor Xa inhibitor<br>(rivaroxaban·apixaban·edoxaban)</th><td>Andexanet alfa (Ondexxya®) 또는 상황에 따라 PCC 고려</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:6px;">빠른 reversal이 hematoma expansion 방지에 중요합니다. 약사는 환자의 항응고제 종류를 파악하고 있어야 합니다.</p>
+        </section>
+
+        <!-- ================= 13 · 재발 예방 ================= -->
+        <section id="secondary" class="section">
+          <h2><span class="sec-no">13</span> 재발 예방 — 원인을 찾는다</h2>
+
+          <blockquote>급성 치료가 끝난 뒤 가장 중요한 질문: "왜 이 환자는 stroke가 생겼나?" — 원인에 따라 예방약이 달라집니다.</blockquote>
+
+          <div class="figure" data-strokecause>
+            <div class="figure__title">Viz 11 · 원인에 따른 치료 선택</div>
+            <div class="sc__question">Stroke source는?</div>
+            <div class="sc__btns">
+              <button class="btn" data-sc="athero">Large artery atherosclerosis</button>
+              <button class="btn" data-sc="af">Atrial fibrillation (AF)</button>
+              <button class="btn" data-sc="small">Small vessel / lacunar</button>
+              <button class="btn" data-sc="unclear">원인 불명</button>
+            </div>
+            <div class="sc__result" id="scResult" style="margin-top:14px;padding:14px;border-radius:10px;background:var(--bg-card);font-size:13.5px;min-height:60px;">원인을 선택하면 치료 방향이 나타납니다.</div>
+          </div>
+
+          <div class="card card--key" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>Aspirin과 anticoagulant는 같은 "피 묽게 하는 약"이 아닙니다.</b><br>
+              Antiplatelet: platelet aggregation↓ → 동맥 혈전 예방.<br>
+              Anticoagulant: coagulation cascade↓ → AF에서 생기는 fibrin-rich thrombus 예방.<br>
+              AF stroke에 antiplatelet만 쓰는 것은 충분하지 않습니다.</p>
+          </div>
+
+          <h3 style="margin-top:18px;">단기 DAPT</h3>
+          <p>2026 AHA/ASA: 일부 minor non-cardioembolic AIS 또는 high-risk TIA에서 <b>21일 DAPT(aspirin + clopidogrel)</b> 후 single antiplatelet 전략이 재발 감소에 도움이 될 수 있습니다.</p>
+
+          <h3 style="margin-top:14px;">Statin</h3>
+          <p>Atherosclerotic stroke에서 aggressive lipid management → future stroke·MI risk 감소.</p>
+
+          <h3 style="margin-top:14px;">혈압 관리</h3>
+          <p>뇌졸중 재발예방에서 hypertension 관리는 핵심 요소입니다. 단, 급성 stroke 순간의 BP management와 장기적인 hypertension management는 다르게 생각해야 합니다.</p>
+        </section>
+
+        <!-- ================= 14 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">14</span> 생활습관</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">뇌졸중 예방 생활습관</div>
+            <div class="checkchips">
+              <button data-text="<b>금연</b> — Smoking: atherosclerosis·endothelial dysfunction·thrombosis 증가. 금연은 뇌졸중 재발예방에서 가장 중요한 생활습관 변화 중 하나입니다.">금연</button>
+              <button data-text="<b>혈압 관리</b> — 뇌출혈과 허혈성 뇌졸중 모두에서 hypertension은 핵심 위험요인. 지속적인 혈압 조절이 필요합니다.">혈압</button>
+              <button data-text="<b>운동</b> — Stroke 후 안정화되면 rehabilitation과 physical activity가 중요. 혈압·insulin resistance·체중·심혈관 건강에 도움.">운동</button>
+              <button data-text="<b>식사</b> — AHA/ASA secondary prevention guideline: 저염식 또는 Mediterranean-style dietary pattern 권고. 과음은 뇌졸중 위험을 높입니다.">식사</button>
+              <button data-text="<b>AF 관리</b> — AF가 있다면 rate/rhythm control과 함께 항응고 치료를 지속적으로 유지하는 것이 stroke 예방의 핵심입니다.">AF 관리</button>
+            </div>
+            <div class="infochips__out">생활습관 항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · 약물 정리 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">15</span> 약물치료 정리</h2>
+
+          <div class="figure" data-strokedrugmap>
+            <div class="figure__title">Viz 12 · 뇌졸중 약물 기전 지도</div>
+            <p style="font-size:13px;margin-bottom:10px;">약물을 눌러 질환 흐름에서 어디를 막는지 확인하세요.</p>
+            <div class="sdm__flow">
+              <div class="sdm__node" data-sdm-node="athero">동맥경화 · 고혈압 · 고지혈증</div>
+              <div class="sdm__arrow">↓</div>
+              <div class="sdm__node" data-sdm-node="plaque">Plaque / small vessel 손상</div>
+              <div class="sdm__arrow">↓</div>
+              <div class="sdm__node" data-sdm-node="platelet">Platelet 활성화 · 혈전 형성</div>
+              <div class="sdm__arrow">↓</div>
+              <div class="sdm__node" data-sdm-node="clot">Brain artery occlusion</div>
+              <div class="sdm__arrow">↓</div>
+              <div class="sdm__node" data-sdm-node="ischemia">뇌 허혈·경색</div>
+              <div style="margin:8px 0;border-top:2px dashed var(--line);width:100%;"></div>
+              <div class="sdm__node" data-sdm-node="af">AF → Atrial thrombus → Embolus</div>
+            </div>
+            <div class="sdm__drugs" style="margin-top:12px;">
+              <button class="btn sdm__drug-btn" data-sdm-drug="statin">Statin</button>
+              <button class="btn sdm__drug-btn" data-sdm-drug="antihtn">Antihypertensive</button>
+              <button class="btn sdm__drug-btn" data-sdm-drug="aspirin">Aspirin</button>
+              <button class="btn sdm__drug-btn" data-sdm-drug="clopi">Clopidogrel</button>
+              <button class="btn sdm__drug-btn" data-sdm-drug="doac">DOAC / Warfarin</button>
+              <button class="btn sdm__drug-btn" data-sdm-drug="tpa">Alteplase / Tenecteplase</button>
+            </div>
+            <div class="sdm__desc" id="sdmDesc" style="margin-top:10px;padding:12px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">약물을 눌러 기전과 적응증을 보세요.</div>
+          </div>
+
+          <div class="table-scroll" style="margin-top:16px;">
+            <table class="data">
+              <thead><tr><th>약물</th><th>타깃</th><th>효과</th><th>주요 적응증</th></tr></thead>
+              <tbody>
+                <tr><th>Alteplase / Tenecteplase</th><td>Fibrin clot</td><td>Thrombolysis</td><td>Acute ischemic stroke 재관류</td></tr>
+                <tr><th>Aspirin</th><td>COX-1 → TXA₂↓</td><td>Platelet aggregation↓</td><td>Non-cardioembolic stroke 예방</td></tr>
+                <tr><th>Clopidogrel</th><td>P2Y12</td><td>ADP-mediated platelet activation↓</td><td>Non-cardioembolic stroke 예방·DAPT</td></tr>
+                <tr><th>DOAC / Warfarin</th><td>Coagulation cascade</td><td>Fibrin thrombus 형성↓</td><td>AF-related cardioembolic stroke 예방</td></tr>
+                <tr><th>Statin</th><td>HMG-CoA reductase</td><td>LDL↓</td><td>Atherosclerotic risk↓</td></tr>
+                <tr><th>Idarucizumab</th><td>Dabigatran 결합</td><td>즉각적 역전</td><td>Dabigatran 관련 ICH</td></tr>
+                <tr><th>Andexanet alfa</th><td>Factor Xa inhibitor 결합</td><td>역전</td><td>Factor Xa inhibitor 관련 ICH</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">16</span> 약사 Deep Dive</h2>
+
+          <h3>① 혈전용해제와 항응고제는 왜 완전히 다른가?</h3>
+          <p>많이 혼동하는 부분입니다.</p>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Anticoagulant (항응고제)</h5>
+              <p>새 혈전이 생기거나 커지는 과정을 억제 (예: factor Xa inhibition). 이미 큰 clot을 즉시 녹이는 약이 아닙니다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Thrombolytic (혈전용해제)</h5>
+              <p>이미 형성된 fibrin clot의 fibrinolysis를 촉진 — acute clot을 녹입니다. Prevention vs active clot dissolution의 차이.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px;">② 왜 AF에서는 aspirin보다 anticoagulant인가?</h3>
+          <p>AF → left atrial stasis → <b>coagulation cascade 중심</b>의 fibrin-rich clot. 따라서 platelet만 억제하는 aspirin보다 anticoagulation이 AF stroke prevention의 핵심입니다. 이것이 AF 환자에서 aspirin으로 "stroke 예방"이 충분하지 않은 이유입니다.</p>
+
+          <h3 style="margin-top:18px;">③ Wake-up stroke도 치료할 수 있나?</h3>
+          <p>예전에는 "언제 시작했는지 모르니 시간창 초과로 치료 불가"인 경우가 많았습니다. 현재는 <b>MRI DWI-FLAIR mismatch</b> 또는 perfusion imaging 등을 이용해 "이 조직이 아직 살릴 수 있는가?"를 판단합니다.</p>
+          <p>2026 guideline은 일부 unknown-onset 또는 4.5–9시간 환자에서 영상기반 IV thrombolysis를 지지합니다. 현대 stroke treatment는 <b>clock time</b>뿐 아니라 <b>tissue time</b>이라는 개념으로 확장되고 있습니다.</p>
+
+          <h3 style="margin-top:18px;">④ 뇌졸중 후 혈압을 어떻게 관리할까?</h3>
+          <p>급성 ischemic stroke에서는 혈압을 갑자기 너무 낮추면 penumbra 혈류를 더 줄일 위험이 있습니다. ICH에서는 hematoma expansion 방지를 위한 BP management가 중요하지만, 무조건 최저로 낮추는 것이 아니라 guideline 범위에 맞춰 조절합니다. <b>급성기 BP management</b>와 <b>장기 고혈압 치료</b>는 다른 맥락입니다.</p>
+        </section>
+
+        <!-- ================= 17 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">17</span> 비슷한 질환과 비교</h2>
+
+          <h3>Ischemic vs Hemorrhagic stroke</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Ischemic</th><th>Hemorrhagic (ICH)</th></tr></thead>
+              <tbody>
+                <tr><th>문제</th><td>혈관 막힘</td><td>혈관 파열</td></tr>
+                <tr><th>뇌혈류</th><td>감소 (ischemia)</td><td>출혈 + 뇌압 상승</td></tr>
+                <tr><th>CT 초기</th><td>정상 가능 (초기)</td><td>출혈 잘 확인됨</td></tr>
+                <tr><th>Thrombolysis</th><td>일부 사용</td><td>금기</td></tr>
+                <tr><th>항응고제 역전</th><td>해당 없음</td><td>중요할 수 있음</td></tr>
+                <tr><th>핵심</th><td>Reperfusion</td><td>Bleeding control</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">TIA vs Ischemic stroke</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>TIA</th><th>Ischemic stroke</th></tr></thead>
+              <tbody>
+                <tr><th>증상 지속</th><td>일시적 (회복)</td><td>지속 가능</td></tr>
+                <tr><th>Infarction</th><td>없음 (tissue-based)</td><td>있음</td></tr>
+                <tr><th>위험</th><td>향후 stroke 경고</td><td>이미 tissue 손상</td></tr>
+                <tr><th>응급 평가</th><td>필요</td><td>필요</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">Stroke vs Bell's palsy (얼굴 마비 감별)</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Stroke (central)</th><th>Bell's palsy (peripheral)</th></tr></thead>
+              <tbody>
+                <tr><th>얼굴</th><td>한쪽 약화</td><td>한쪽 약화</td></tr>
+                <tr><th>팔·다리</th><td>동반 가능</td><td>보통 없음</td></tr>
+                <tr><th>언어장애</th><td>가능</td><td>보통 없음</td></tr>
+                <tr><th>Forehead</th><td>중추성 → 이마 상대적 보존</td><td>이마 포함</td></tr>
+                <tr><th>긴급도</th><td>응급</td><td>평가 필요하나 다름</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);">단, 실제 감별은 표만으로 하지 않으며 전체 신경학적 평가가 필요합니다.</p>
+        </section>
+
+        <!-- ================= 18 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">18</span> 자주 묻는 질문</h2>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 증상이 10분 만에 좋아졌는데 병원에 가야 하나요?</button>
+              <div class="faq__a">
+                <p>네. 일시적인 뇌혈류 부족인 TIA일 수 있고, 이후 stroke 위험이 높을 수 있기 때문에 신속한 평가가 필요합니다. 증상이 사라진 것 자체가 안심 근거가 되지 않습니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 뇌졸중 의심되면 aspirin부터 먹으면 되나요?</button>
+              <div class="faq__a">
+                <p>아닙니다. 뇌출혈일 수 있으므로 brain imaging으로 hemorrhage를 배제하기 전에 임의로 aspirin을 복용하는 것은 위험할 수 있습니다. imaging이 먼저입니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. 혈전용해제는 무조건 3시간 안에만 쓰나요?</button>
+              <div class="faq__a">
+                <p>아닙니다. 현재는 적절한 환자에서 4.5시간 이내 IV thrombolysis가 표준입니다. 일부 선택된 환자는 advanced imaging을 통해 더 늦은 시간에도 고려될 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. 혈전제거술은 4.5시간이 지나면 못 하나요?</button>
+              <div class="faq__a">
+                <p>아닙니다. LVO 환자 중 적절한 조건을 만족하면 더 늦은 시간까지 thrombectomy가 가능하고, 2026 guideline은 일부 basilar artery occlusion에서 24시간 이내 EVT도 권고합니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. 심방세동 환자가 aspirin을 먹으면 stroke 예방이 되나요?</button>
+              <div class="faq__a">
+                <p>AF-related stroke prevention에서는 anticoagulant가 핵심입니다. Antiplatelet과 anticoagulant는 작용기전과 적응증이 다르며, AF에는 anticoagulation이 필요합니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. 뇌졸중은 모두 후유증이 남나요?</button>
+              <div class="faq__a">
+                <p>아닙니다. 손상 부위·크기·재관류 시점·rehabilitation 등에 따라 결과가 크게 다릅니다. 빠른 치료와 rehabilitation으로 disability를 상당히 줄일 수 있는 환자도 있습니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. 항응고제를 먹는 환자가 뇌졸중이 생기면 어떻게 해야 하나요?</button>
+              <div class="faq__a">
+                <p>항응고제 복용 중 뇌졸중 증상이 발생하면 즉시 응급실로 가야 합니다. 허혈성인지 출혈성인지에 따라 reversal 여부가 달라집니다. 약사는 환자가 어떤 항응고제를 복용 중인지 파악하고 있는 것이 중요합니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 19 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">19</span> 흔한 오해 / Fact Check</h2>
+
+          <div class="factcheck">
+            <div class="fc-item">
+              <div class="fc-claim">"뇌졸중은 쓰러져 의식을 잃어야 생긴 것이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">한쪽 팔 weakness나 언어장애만 나타나는 경우도 많습니다. 모든 신경학적 focal deficit를 무시하면 안 됩니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"증상이 사라지면 stroke 걱정은 끝이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">TIA는 향후 stroke의 중요한 경고신호입니다. 증상이 없어진 후에도 신속한 평가와 예방치료가 필요합니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"Stroke 의심이면 aspirin부터 먹으면 된다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">출혈성 stroke를 먼저 배제해야 합니다. Hemorrhagic stroke에서 antiplatelet은 해로울 수 있습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"혈전용해제는 모든 ischemic stroke에 쓴다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">시간·증상의 disabling 여부·bleeding risk·imaging 등 eligibility를 평가합니다. 2026 guideline은 적절한 환자에서 4.5시간 내 신속한 thrombolysis를 강조합니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"Stroke 예방약은 aspirin 하나뿐이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">원인에 따라 antiplatelet·anticoagulant·statin·antihypertensive 등이 달라집니다. AF에서는 anticoagulant가 핵심입니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"AF 환자가 aspirin을 먹으면 stroke를 충분히 예방할 수 있다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">AF-related stroke는 fibrin-rich cardioembolic thrombus가 원인이라 platelet만 억제하는 aspirin으로는 충분하지 않습니다. Anticoagulation이 필요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">20</span> Case Study</h2>
+
+          <h3>Case 1 — 20분 후 좋아졌습니다</h3>
+          <div class="case-box">
+            <p><b>67세 여성</b>. 오전 8시: 갑자기 오른손 숟가락을 떨어뜨림, 말이 잘 나오지 않음. 8시 20분: 완전히 정상. 과거력: HTN·dyslipidemia·흡연자.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① 어떤 상황을 의심할까? ② 증상이 사라진 것이 안심 근거인가? ③ 임의로 aspirin을 먹고 집에서 관찰해도 될까?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                <b>TIA 가능성을 우선 생각해야 합니다.</b> 증상이 사라졌더라도:
+                <ul style="margin-top:8px;">
+                  <li>Brain imaging으로 출혈 배제 → 허혈성 여부 확인</li>
+                  <li>Vascular imaging (CTA/MRA)으로 stenosis 평가</li>
+                  <li>AF evaluation (Holter·ECG)</li>
+                  <li>Vascular risk factor assessment</li>
+                </ul>
+                <div class="exp">목표는 <b>다음 stroke가 오기 전에 원인을 발견하고 예방치료를 시작</b>하는 것입니다. 임의 aspirin 복용 전 imaging이 먼저입니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case 2 — 갑자기 오른쪽이 마비됐습니다</h3>
+          <div class="case-box">
+            <p><b>73세 남성</b>. 14:00 정상 확인. 14:20: right hemiplegia + aphasia. 15:00 응급실. CT: hemorrhage 없음. CTA: left proximal MCA occlusion.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① CT 결과를 어떻게 해석할까? ② 왜 CTA가 중요한가? ③ 4.5시간 이내라면 무엇을 고려할까? ④ LVO라는 점에서 무엇이 추가로 중요한가?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                CT에서 hemorrhage가 없고, CTA에서 proximal MCA occlusion이 확인되었습니다. 즉 <b>acute ischemic stroke + large vessel occlusion(LVO)</b>입니다.
+                <ul style="margin-top:8px;">
+                  <li>4.5시간 이내 + contraindication 없으면 → <b>IV thrombolysis 고려</b></li>
+                  <li>Proximal MCA LVO → <b>mechanical thrombectomy eligibility 빠르게 평가</b></li>
+                </ul>
+                <div class="exp">혈전제거술 평가 때문에 IV thrombolysis를 불필요하게 지연해서는 안 됩니다. 2026 guideline은 적절한 환자에서 신속한 reperfusion을 강조합니다.</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">뇌졸중 응급 시뮬레이터</h3>
+          <div class="figure" data-strokesim>
+            <div class="figure__title">Viz 13 · Stroke Emergency Simulator</div>
+            <p style="font-size:13px;">증상 발생 시점·CT 결과·CTA 결과를 선택하면 치료 방향이 나타납니다.</p>
+            <div class="acd__row">
+              <div class="acd__group">
+                <b>증상 발생</b>
+                <div class="hypo__opts" data-group="onset">
+                  <button data-val="early">1시간 전</button>
+                  <button data-val="late">5시간 전</button>
+                  <button data-val="wakeup">Wake-up</button>
+                </div>
+              </div>
+              <div class="acd__group">
+                <b>Non-contrast CT</b>
+                <div class="hypo__opts" data-group="ct">
+                  <button data-val="bleed">출혈 있음</button>
+                  <button data-val="nobleed">출혈 없음</button>
+                </div>
+              </div>
+              <div class="acd__group">
+                <b>CTA</b>
+                <div class="hypo__opts" data-group="cta">
+                  <button data-val="lvo">LVO 확인</button>
+                  <button data-val="nolvo">LVO 없음</button>
+                </div>
+              </div>
+            </div>
+            <div class="hypo__result" style="margin-top:12px;">
+              <div class="hypo__risk">선택 후 결과가 나타납니다</div>
+              <div class="hypo__exp">시간·CT·CTA를 선택하세요.</div>
+            </div>
+            <div class="figure__cap">실제 임상결정은 전체 임상상과 guideline으로 이루어지며, 이 시뮬레이터는 개념 학습용입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 21 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">21</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. Acute ischemic stroke에서 ischemic penumbra란?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 이미 완전히 괴사한 영역</li>
+                <li data-opt="B"><span class="opt">B</span> 혈류가 부족하지만 아직 salvage 가능한 뇌조직</li>
+                <li data-opt="C"><span class="opt">C</span> 뇌출혈 영역</li>
+                <li data-opt="D"><span class="opt">D</span> 정상 뇌척수액</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. 급성 편마비 환자에서 noncontrast CT를 가장 먼저 시행하는 중요한 이유는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> LDL을 측정하기 위해</li>
+                <li data-opt="B"><span class="opt">B</span> Intracranial hemorrhage 여부를 빠르게 평가하기 위해</li>
+                <li data-opt="C"><span class="opt">C</span> AF를 확진하기 위해</li>
+                <li data-opt="D"><span class="opt">D</span> 모든 ischemic lesion 크기를 항상 정확히 측정하기 위해</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — Noncontrast CT의 첫 번째 목적은 hemorrhage를 배제해 치료 방향(thrombolysis 가능 여부 등)을 결정하는 것입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. Atrial fibrillation에 의한 recurrent ischemic stroke 예방에 가장 핵심적인 약물 전략은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> Anticoagulation (DOAC/warfarin)</li>
+                <li data-opt="B"><span class="opt">B</span> Antacid</li>
+                <li data-opt="C"><span class="opt">C</span> NSAID</li>
+                <li data-opt="D"><span class="opt">D</span> Colchicine</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — AF는 cardioembolic stroke의 중요한 원인이며, 적응증과 금기가 없다면 anticoagulation이 핵심 secondary-prevention 전략입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. 2026 AHA/ASA 기준 적절한 acute ischemic stroke 환자의 IV thrombolysis 시간창으로 가장 알맞은 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 반드시 30분 이내만</li>
+                <li data-opt="B"><span class="opt">B</span> 일반적으로 4.5시간 이내, 일부 선택된 환자는 advanced imaging으로 더 늦게 고려 가능</li>
+                <li data-opt="C"><span class="opt">C</span> 48시간 이내 모두</li>
+                <li data-opt="D"><span class="opt">D</span> 증상 발생 시점과 무관</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. 다음 중 가장 위험한 설명은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> TIA도 신속한 평가가 필요하다.</li>
+                <li data-opt="B"><span class="opt">B</span> 허혈성 stroke와 hemorrhagic stroke는 치료 방향이 다르다.</li>
+                <li data-opt="C"><span class="opt">C</span> Stroke 의심이면 imaging 전에 aspirin부터 임의로 복용한다.</li>
+                <li data-opt="D"><span class="opt">D</span> LVO에서는 thrombectomy가 중요할 수 있다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 출혈성 stroke에서 antiplatelet therapy는 해로울 수 있으므로 stroke type 확인이 중요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 22 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">22</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>뇌졸중은 혈관이 막히는 허혈성(~85%)과 터지는 출혈성(~15%)으로 나뉜다 — 치료 방향이 거의 반대.</p></div>
+            <div class="factcard"><span class="n">2</span><p>허혈성 stroke: 혈류 감소 → ischemic core(이미 사망) + penumbra(아직 살릴 수 있음). Time is Brain.</p></div>
+            <div class="factcard"><span class="n">3</span><p>BE-FAST(Balance·Eyes·Face·Arm·Speech·Time) — 갑자기 생긴 신경학적 증상은 즉각 응급평가.</p></div>
+            <div class="factcard"><span class="n">4</span><p>TIA: 증상이 사라졌어도 안심 금지 — 향후 stroke의 warning event. 빠른 원인평가 필수.</p></div>
+            <div class="factcard"><span class="n">5</span><p>Noncontrast CT 첫 번째 목적: 빠른 hemorrhage 배제. 정상 CT ≠ ischemic stroke 없음.</p></div>
+            <div class="factcard"><span class="n">6</span><p>IV thrombolysis: 적절한 환자 4.5시간 이내(alteplase/tenecteplase). 일부는 advanced imaging으로 더 늦게 가능.</p></div>
+            <div class="factcard"><span class="n">7</span><p>Mechanical thrombectomy: LVO에서 핵심. 일부 환자는 24시간까지도 대상. IV thrombolysis와 경쟁 아닌 연속 치료.</p></div>
+            <div class="factcard"><span class="n">8</span><p>재발예방 핵심 분기: Non-cardioembolic → antiplatelet, AF-related → anticoagulant. 둘을 혼동하면 안 됩니다.</p></div>
+            <div class="factcard"><span class="n">9</span><p>Anticoagulant reversal: dabigatran → idarucizumab, factor Xa inhibitor → andexanet alfa/PCC. 약사 필수 지식.</p></div>
+            <div class="factcard"><span class="n">10</span><p>"Stroke니까 aspirin부터" — 출혈을 배제하지 않은 채 임의 복용은 위험. Imaging first.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">뇌졸중은 <b>막히거나 터지는 뇌혈관 사고</b>다 —<br>
+            허혈성은 penumbra를 살리기 위해 <b>Time is Brain</b>으로 재관류하고,<br>
+            재발예방은 원인에 따라 <b>antiplatelet vs anticoagulant</b>를 정확히 구분한다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 제11강부터는 <b>소화기 파트</b>의 첫 질환인 위염으로 넘어갑니다. 지금까지 비만·인슐린 저항성 → 당뇨·대사증후군 → 이상지질혈증·고혈압 → 동맥경화 → 심근경색 → 뇌졸중으로 이어지는 cardiometabolic disease story가 완결됩니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>뇌졸중 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">두 종류</span><span>허혈성 vs 출혈성 — 치료 반대</span></div>
+      <div class="qr-row"><span class="qr-k">Penumbra</span><span>아직 살릴 수 있는 뇌조직 → Time is Brain</span></div>
+      <div class="qr-row"><span class="qr-k">CT</span><span>출혈 배제가 먼저 — 정상 CT ≠ 이상 없음</span></div>
+      <div class="qr-row"><span class="qr-k">치료</span><span>IV thrombolysis ≤4.5h / LVO → thrombectomy</span></div>
+      <div class="qr-row"><span class="qr-k">예방</span><span>Non-cardioembolic → antiplatelet / AF → anticoagulant</span></div>
+      <div class="qr-row"><span class="qr-k">주의</span><span>Aspirin first ❌ — imaging before treatment</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

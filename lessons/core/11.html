@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제11강 · 위염 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="위염을 위산 과다 질환이 아닌 점막 방어·공격 균형의 붕괴로 이해 — H. pylori, NSAID, 자가면역, Correa cascade, PPI·P-CAB·제균치료" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제11강 · 위염</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">위염</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제11강 · 위염</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#oneline"><span class="num">1</span> 한 문장으로</a></li>
+          <li><a href="#normal"><span class="num">2</span> 정상 위</a></li>
+          <li><a href="#defense"><span class="num">3</span> 방어기전</a></li>
+          <li><a href="#hpylori"><span class="num">4</span> H. pylori</a></li>
+          <li><a href="#nsaid"><span class="num">5</span> NSAID 손상</a></li>
+          <li><a href="#autoimmune"><span class="num">6</span> 자가면역 위염</a></li>
+          <li><a href="#cause"><span class="num">7</span> 원인 · 위험요인</a></li>
+          <li><a href="#symptom"><span class="num">8</span> 증상 · Red Flags</a></li>
+          <li><a href="#diagnosis"><span class="num">9</span> 진단</a></li>
+          <li><a href="#atrophy"><span class="num">10</span> 위축 · 장상피화생</a></li>
+          <li><a href="#untreated"><span class="num">11</span> 치료 안 하면?</a></li>
+          <li><a href="#treat"><span class="num">12</span> 치료 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">13</span> 생활습관</a></li>
+          <li><a href="#drugs"><span class="num">14</span> 산분비억제제</a></li>
+          <li><a href="#mucoprot"><span class="num">15</span> 점막보호제</a></li>
+          <li><a href="#erad"><span class="num">16</span> H. pylori 제균</a></li>
+          <li><a href="#deepdive"><span class="num">17</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">18</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">19</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">20</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">21</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">22</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">23</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제11강 · 소화기</div>
+          <h1>위염</h1>
+          <p>속쓰림 = 위염 = 위산 과다 — 이 단순한 연결이 틀렸다는 것부터 시작합니다.
+            <b>위 점막 방어기전이 무너지는 과정</b>, H. pylori·NSAID·자가면역이 각각 어떻게 균형을 깨는지,
+            그리고 PPI가 위염의 원인치료가 아닌 이유까지 — 하나의 흐름으로 이해합니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>핵심 관점</div>
+          <p>위염은 <b>위산이 많아서 생기는 하나의 병이 아닙니다</b>.
+            점막 방어와 공격 인자의 균형이 여러 원인으로 깨진 결과입니다.
+            국내 2024 위염지침과 2025 개정 H. pylori 지침은 clarithromycin 내성 증가를 반영하고,
+            tailored therapy와 P-CAB 사용을 포함합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">45세 여성 · 약국 방문</div>
+            <div class="bp" style="font-size:clamp(16px,4vw,23px);line-height:1.65;">
+              최근 한 달: 명치가 쓰림 · 식후 더부룩함 · 가끔 메스꺼움<br>
+              <span style="color:var(--brand);">최근 ibuprofen 거의 매일 복용 (무릎 통증)</span><br>
+              <span style="color:var(--hi);">3개월 전 내시경: "만성 위축성 위염 의심"</span>
+            </div>
+            <div class="quote">"또 위염이 생긴 것 같아요. 위산이 너무 많이 나와서 그런 거죠?"</div>
+            <div style="font-weight:700;margin-bottom:8px;">이 환자의 증상 원인은?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 무조건 위산 과다</button>
+              <button data-opt="B"><span class="opt">B</span> 무조건 H. pylori</button>
+              <button data-opt="C"><span class="opt">C</span> NSAID 때문만</button>
+              <button data-opt="D"><span class="opt">D</span> 여러 원인이 가능하며 증상만으로 위염 원인을 확정할 수 없다</button>
+              <div class="case-hero__reveal" data-case-bridge>정답 공개는 잠시 후 — <b>정상 위가 강산 속에서 어떻게 살아남는지</b>부터 봅시다.</div>
+            </div>
+          </div>
+          <p>강의가 끝나면 다음 질문에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>위산은 강한데 정상 위는 왜 스스로 녹지 않는가?</li>
+            <li>H. pylori는 어떻게 만성 위염을 만드는가?</li>
+            <li>NSAID는 왜 위를 상하게 하는가?</li>
+            <li>위축성 위염과 장상피화생은 왜 중요한가?</li>
+            <li>PPI는 위염의 원인을 치료하는 약인가?</li>
+            <li>"속이 쓰리다 = 위염"이라고 말하면 왜 부정확한가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 한 문장으로 ================= -->
+        <section id="oneline" class="section">
+          <h2><span class="sec-no">01</span> 한 문장으로 이해하기</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>위염(Gastritis)</b>: 위 점막에 염증이 발생한 상태 — 단, 아래 두 가지를 반드시 구분합니다.</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:14px;">
+            <div class="panel panel--normal">
+              <h5>Gastritis (위염)</h5>
+              <p>병리학적·조직학적인 <b>inflammation</b>. 염증세포 침윤이 핵심.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Gastropathy</h5>
+              <p>염증세포 침윤보다 <b>점막손상이 중심</b>인 상태. NSAID에 의한 손상은 reactive gastropathy 성격이 강할 수 있음.</p>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>증상과 위염은 일치하지 않을 수 있다</div>
+            <p>위염이 심해도 <b>증상이 거의 없을 수 있고</b>, 반대로 속쓰림·더부룩함이 심한데 내시경에서 큰 이상이 없을 수도 있습니다. 이 경우 functional dyspepsia 같은 다른 개념을 생각해야 합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 정상 위 ================= -->
+        <section id="normal" class="section">
+          <h2><span class="sec-no">02</span> 정상적인 몸에서는?</h2>
+
+          <h3>위산은 왜 필요한가?</h3>
+          <p>위산은 나쁜 물질이 아닙니다. Protein digestion에 필요한 환경 제공, pepsinogen → pepsin 활성화, 음식으로 들어온 일부 미생물 억제, 영양소 흡수 간접 기여 등 필수적인 역할을 합니다.</p>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">위산의 주요 역할</div>
+            <div class="checkchips">
+              <button data-text="<b>Protein digestion</b> — pH 1~2의 강산 환경은 단백질 변성과 pepsin 활성화에 필요합니다. Pepsinogen은 강산에서 pepsin으로 활성화되어 단백질을 분해합니다.">단백질 소화</button>
+              <button data-text="<b>Antimicrobial barrier</b> — 강산은 음식으로 들어온 많은 미생물을 사멸시키는 '화학적 방어선' 역할을 합니다. 산분비가 크게 감소하면 일부 장관감염 위험이 증가할 수 있습니다.">미생물 방어</button>
+              <button data-text="<b>Iron / B12 absorption</b> — 위산은 nonheme iron의 흡수를 돕고, 위에서 분비되는 intrinsic factor(parietal cell 생성)는 B12 흡수에 필수적입니다. PPI 장기 복용 시 이 부분에 영향을 줄 수 있습니다.">철분·B12 흡수</button>
+              <button data-text="<b>Gastric emptying 조절</b> — 위산과 함께 소화된 내용물이 소장으로 이동하는 속도 조절에 관여합니다.">위 운동</button>
+            </div>
+            <div class="infochips__out">역할을 탭하세요.</div>
+          </div>
+
+          <h3 style="margin-top:18px;">Parietal cell은 무엇을 하는가?</h3>
+          <p>위 점막의 <b>parietal cell(벽세포)</b>에서 HCl(위산)과 intrinsic factor가 분비됩니다. 세 가지 신호(histamine·gastrin·acetylcholine)가 모두 H⁺/K⁺-ATPase(proton pump)를 통한 H⁺ 분비로 모입니다. 이것이 PPI의 타깃이 됩니다.</p>
+        </section>
+
+        <!-- ================= 3 · 방어기전 ================= -->
+        <section id="defense" class="section">
+          <h2><span class="sec-no">03</span> 위 점막 방어기전</h2>
+
+          <blockquote>pH 1–2의 강산 속에서 위가 스스로 녹지 않는 이유 — 점막 방어기전이 있기 때문입니다.</blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>위 점막의 건강 = <b>공격인자 vs 방어인자의 균형</b>.<br>
+              공격: gastric acid · pepsin · H. pylori · NSAID · bile reflux 등<br>
+              방어: mucus · bicarbonate · blood flow · epithelial repair · <b>prostaglandin</b></p>
+          </div>
+
+          <p style="margin-top:14px;">방어기전에 NSAID를 추가하면 어떻게 달라지는지 보세요.</p>
+          <div class="figure" data-gastricshield>
+            <div class="figure__title">Viz 1 · Gastric Defense Shield</div>
+            <div class="gs__wrap">
+              <div class="gs__diagram">
+                <div class="gs__acid">H⁺ H⁺ H⁺ H⁺ H⁺</div>
+                <div class="gs__layer" id="gsL1">
+                  <span class="gs__lname">Layer 1</span>
+                  <span class="gs__ldesc">Mucus layer</span>
+                  <div class="gs__lbar"><div class="gs__lbar-fill" id="gsL1Bar" style="width:100%"></div></div>
+                </div>
+                <div class="gs__layer" id="gsL2">
+                  <span class="gs__lname">Layer 2</span>
+                  <span class="gs__ldesc">HCO₃⁻ (bicarbonate)</span>
+                  <div class="gs__lbar"><div class="gs__lbar-fill" id="gsL2Bar" style="width:100%"></div></div>
+                </div>
+                <div class="gs__layer" id="gsL3">
+                  <span class="gs__lname">Layer 3</span>
+                  <span class="gs__ldesc">Epithelium + tight junction</span>
+                  <div class="gs__lbar"><div class="gs__lbar-fill" id="gsL3Bar" style="width:100%"></div></div>
+                </div>
+                <div class="gs__layer" id="gsL4">
+                  <span class="gs__lname">Layer 4</span>
+                  <span class="gs__ldesc">Mucosal blood flow</span>
+                  <div class="gs__lbar"><div class="gs__lbar-fill" id="gsL4Bar" style="width:100%"></div></div>
+                </div>
+                <div class="gs__pg" id="gsPG">
+                  <span>⚙️ Prostaglandin</span>
+                  <div class="gs__lbar"><div class="gs__lbar-fill" id="gsPGBar" style="width:100%;background:var(--ok-color,#12a594)"></div></div>
+                </div>
+                <div class="gs__mucosa">위 점막</div>
+              </div>
+              <div class="gs__status">
+                <div class="gs__acid-gauge">
+                  <div class="gs__ag-label">위산 분비량</div>
+                  <div class="gs__lbar" style="height:14px;"><div class="gs__lbar-fill" id="gsAcidBar" style="width:60%;background:var(--hi,#e5484d)"></div></div>
+                  <small id="gsAcidNote" style="font-size:11px;color:var(--ink-faint);">일정</small>
+                </div>
+                <div id="gsMsg" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">
+                  정상 상태 — 방어기전이 충분히 작동 중입니다.
+                </div>
+              </div>
+            </div>
+            <div class="gs__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-gs="normal">✅ 정상</button>
+              <button class="btn" data-gs="nsaid">💊 NSAID 복용</button>
+              <button class="btn" data-gs="restore">🔄 복구</button>
+            </div>
+            <div class="figure__cap">NSAID는 위산을 늘리지 않아도 방어막을 약화시켜 점막 손상을 일으킵니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 위산 분비량이 전혀 변하지 않았는데도 위 점막 손상이 증가할 수 있을까요?</div>
+            <ul class="mcq" data-answer="A">
+              <li data-opt="A"><span class="opt">A</span> 그렇습니다 — 방어기전이 약해지면 같은 산에도 손상이 증가합니다.</li>
+              <li data-opt="B"><span class="opt">B</span> 아닙니다 — 위 손상은 산 분비량에만 비례합니다.</li>
+              <li data-opt="C"><span class="opt">C</span> 산 분비량이 0이 돼야만 손상이 생깁니다.</li>
+              <li data-opt="D"><span class="opt">D</span> 방어기전은 항상 일정하게 유지됩니다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: A — NSAID의 대표적인 예입니다. COX 억제 → prostaglandin ↓ → 방어기전 감소 → 위 손상. 위산 자체는 변하지 않습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 4 · H. pylori ================= -->
+        <section id="hpylori" class="section">
+          <h2><span class="sec-no">04</span> H. pylori — 어떻게 위에서 살아남는가?</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 효소: Urease</div>
+            <p>Urea → urease → <b>ammonia + CO₂</b><br>
+              Ammonia가 주변 산을 중화해 H. pylori 주변에 생존 가능한 microenvironment를 만듭니다. Flagella를 이용해 mucus layer 안으로 이동합니다.</p>
+          </div>
+
+          <p style="margin-top:12px;">H. pylori가 만성 위염을 만드는 과정을 단계별로 확인하세요.</p>
+          <div class="figure" data-hpylori>
+            <div class="figure__title">Viz 2 · H. pylori Journey</div>
+            <div class="hpj__steps">
+              <div class="hpj__step active" data-step="0">
+                <div class="hpj__ico">🦠</div>
+                <div class="hpj__label">위강 도착<br><small>pH 1–2</small></div>
+              </div>
+              <div class="hpj__arrow">→</div>
+              <div class="hpj__step" data-step="1">
+                <div class="hpj__ico">⚗️</div>
+                <div class="hpj__label">Urease 활성<br><small>주변 산 중화</small></div>
+              </div>
+              <div class="hpj__arrow">→</div>
+              <div class="hpj__step" data-step="2">
+                <div class="hpj__ico">🌀</div>
+                <div class="hpj__label">점액층 통과<br><small>Flagella 이동</small></div>
+              </div>
+              <div class="hpj__arrow">→</div>
+              <div class="hpj__step" data-step="3">
+                <div class="hpj__ico">📌</div>
+                <div class="hpj__label">Epithelium 부착<br><small>Colonization</small></div>
+              </div>
+              <div class="hpj__arrow">→</div>
+              <div class="hpj__step" data-step="4">
+                <div class="hpj__ico">🔥</div>
+                <div class="hpj__label">면역반응<br><small>Chronic gastritis</small></div>
+              </div>
+            </div>
+            <div class="hpj__ctrl" style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="btn" data-hpj-step>▶ 다음 단계</button>
+              <button class="btn btn--ghost" data-hpj-reset>↺ 처음부터</button>
+            </div>
+            <div class="hpj__desc" id="hpjDesc" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:14px;min-height:44px;">
+              H. pylori가 위강에 도착했습니다. pH 1–2의 강산 속 — 어떻게 살아남을까요?
+            </div>
+
+            <h5 style="margin-top:16px;">시간 슬라이더: 만성 감염이 지속되면?</h5>
+            <input type="range" id="hpjSlider" min="0" max="4" step="1" value="0" style="width:100%;accent-color:var(--hi);"/>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-faint);">
+              <span>감염 초기</span><span>2–5년</span><span>5–10년</span><span>10년+</span><span>장기</span>
+            </div>
+            <div class="hpj__timeline" id="hpjTimeline" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;"></div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>H. pylori는 <b>"위산을 많이 만드는 세균"이 아닙니다</b>. 주된 문제는 만성 감염과 그에 대한 염증반응입니다. 위암의 중요한 위험인자이며 제균으로 위암 위험을 낮출 수 있다는 근거가 있습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 5 · NSAID injury ================= -->
+        <section id="nsaid" class="section">
+          <h2><span class="sec-no">05</span> NSAID는 왜 위를 상하게 할까?</h2>
+
+          <blockquote>NSAID → COX inhibition → prostaglandin synthesis ↓ → mucus ↓ · bicarbonate ↓ · blood flow ↓ · repair ↓ → gastric mucosal defense ↓ → erosion / ulcer 위험↑</blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 포인트</div>
+            <p>NSAID 위 손상의 주요 기전은 <b>systemic prostaglandin inhibition</b>입니다. 따라서 <b>enteric-coated NSAID라고 해서 GI risk가 사라지지 않습니다</b> — 위에서 흡수되지 않아도 혈중 prostaglandin 감소 효과는 동일합니다.</p>
+          </div>
+
+          <div class="figure" data-nsaidshield style="margin-top:12px;">
+            <div class="figure__title">Viz 3 · NSAID Cuts the Shield</div>
+            <div class="nss__flow">
+              <div class="nss__box" id="nssCOX">COX (cyclooxygenase)</div>
+              <div class="nss__arrow nss__arrow-v">↓</div>
+              <div class="nss__box" id="nssPG">Prostaglandin (PGE₂ 등)</div>
+              <div class="nss__arrow nss__arrow-v">↓</div>
+              <div class="nss__shields" id="nssShields">
+                <div class="nss__shield" id="nss-mucus">Mucus ↑</div>
+                <div class="nss__shield" id="nss-hco3">HCO₃⁻ ↑</div>
+                <div class="nss__shield" id="nss-flow">Blood flow ↑</div>
+                <div class="nss__shield" id="nss-repair">Repair ↑</div>
+              </div>
+              <div class="nss__arrow nss__arrow-v">↓</div>
+              <div class="nss__box nss__protected" id="nssProtected">보호된 점막</div>
+            </div>
+            <div class="nss__acid-note" id="nssAcidNote" style="margin-top:8px;font-size:12.5px;color:var(--ink-faint);">위산 분비량은 변하지 않습니다 ↔</div>
+            <div class="nss__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-nss="nsaid">💊 NSAID 투여</button>
+              <button class="btn btn--ghost" data-nss="normal">✅ 정상 복귀</button>
+            </div>
+            <div class="nss__msg" id="nssMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              정상 상태 — COX가 prostaglandin을 만들어 방어막을 유지합니다.
+            </div>
+            <div class="figure__cap">NSAID는 반드시 산을 늘려서 위를 상하게 하는 것이 아닙니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> Ibuprofen을 복용한 환자의 위점막 손상을 가장 적절하게 설명한 것은?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 위산을 항상 10배 증가시킨다.</li>
+              <li data-opt="B"><span class="opt">B</span> Prostaglandin 합성을 억제해 점막 방어기전을 약화시킨다.</li>
+              <li data-opt="C"><span class="opt">C</span> H. pylori를 직접 증가시킨다.</li>
+              <li data-opt="D"><span class="opt">D</span> B12를 즉시 고갈시킨다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — NSAID의 주된 위장관 독성 기전은 COX 억제 → prostaglandin ↓ → 점막 방어 감소입니다. 위산 증가가 주기전이 아닙니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 자가면역 위염 ================= -->
+        <section id="autoimmune" class="section">
+          <h2><span class="sec-no">06</span> Autoimmune Gastritis</h2>
+
+          <p>자가항체가 <b>parietal cell 및 intrinsic factor</b>를 공격합니다. 약사라면 반드시 알아야 할 중요한 유형입니다.</p>
+
+          <div class="figure" data-autoimgastritis>
+            <div class="figure__title">Viz 4 · Autoimmune Gastritis 결과</div>
+            <div class="aig__wrap">
+              <div class="aig__root">
+                <div class="aig__box root">자가항체<br><small>Parietal cell 공격</small></div>
+              </div>
+              <div class="aig__arrow-down">↓</div>
+              <div class="aig__center">
+                <div class="aig__box mid">Parietal cell 파괴</div>
+              </div>
+              <div class="aig__branches">
+                <div class="aig__branch left">
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box">HCl ↓</div>
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box warn">Achlorhydria / Hypochlorhydria</div>
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box warn">Gastrin ↑ (반응성)</div>
+                </div>
+                <div class="aig__branch right">
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box">Intrinsic Factor ↓</div>
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box warn">Vitamin B12 흡수 ↓</div>
+                  <div class="aig__arrow-v">↓</div>
+                  <div class="aig__box hi">B12 결핍 → 거대적혈구빈혈 / 신경학 증상</div>
+                </div>
+              </div>
+            </div>
+            <div class="figure__cap">위염인데 오히려 위산이 적다 — "위염 = 위산 과다"가 틀렸다는 좋은 예입니다.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>역설적 포인트</div>
+            <p>Autoimmune gastritis: parietal cell 파괴 → <b>산 감소(오히려 저산증)</b>. 그러나 intrinsic factor 감소로 B12 결핍이 발생합니다. 이것이 "위염 = 위산 과다"라는 공식이 항상 틀릴 수 있다는 가장 좋은 예입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 원인 · 위험요인 ================= -->
+        <section id="cause" class="section">
+          <h2><span class="sec-no">07</span> 원인과 위험요인</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">위염의 주요 원인</div>
+            <div class="checkchips">
+              <button data-text="<b>H. pylori</b> — 만성 gastritis의 가장 중요한 원인 중 하나. 전 세계 인구의 절반 이상이 감염되어 있으며, 국내에서도 중요한 위암 위험요인입니다.">H. pylori</button>
+              <button data-text="<b>NSAID / Aspirin</b> — COX 억제 → prostaglandin ↓ → 점막 방어 약화. 고용량·장기 사용·고위험군(고령·과거 궤양·steroid 병용 등)에서 위험 증가.">NSAID / Aspirin</button>
+              <button data-text="<b>Autoimmune</b> — Parietal cell과 intrinsic factor에 대한 자가항체. Pernicious anemia(악성빈혈)의 원인. 갑상선 질환 등 다른 자가면역 질환과 동반될 수 있음.">자가면역</button>
+              <button data-text="<b>Alcohol 과다 복용</b> — Gastric mucosal injury를 직접 일으킬 수 있습니다. 과도한 알코올은 점막 방어를 약화시킵니다.">Alcohol</button>
+              <button data-text="<b>Severe physiologic stress</b> — 중환자(쇼크·심한 화상·중증질환)에서 stress-related mucosal injury가 발생할 수 있습니다. 일상적인 심리적 스트레스와는 전혀 다른 개념입니다.">Physiologic stress</button>
+              <button data-text="<b>Bile reflux</b> — 담즙이 위로 역류해 점막을 자극할 수 있습니다.">Bile reflux</button>
+            </div>
+            <div class="infochips__out">원인을 탭해 특징을 보세요.</div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>중요한 오해</div>
+            <p><b>"스트레스를 많이 받아서 위염이 생겼다."</b><br>
+              일상적인 psychological stress가 dyspeptic symptom을 악화시킬 수 있습니다. 하지만 H. pylori gastritis나 NSAID gastropathy 같은 명확한 병태생리를 "스트레스 때문"으로 설명하면 안 됩니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 증상 · Red Flags ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">08</span> 증상과 Red Flags</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>놀랍게도 무증상일 수 있다</div>
+            <p>특히 <b>chronic gastritis는 증상이 없을 수 있습니다</b>. 증상이 있다면 epigastric pain/discomfort, nausea, early satiety, bloating, 식후 fullness 등이 나타나지만 이 증상은 위염에 특이적이지 않습니다.</p>
+          </div>
+
+          <h3 style="margin-top:16px;">증상만으로 진단하기 어려운 이유</h3>
+          <p>비슷한 증상이 functional dyspepsia, peptic ulcer, GERD, gastric cancer, pancreatobiliary disease 등에서도 발생합니다. 따라서 "속쓰림 → 위염"이라는 진단은 너무 단순합니다.</p>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>🚨 Red Flags / Alarm features</div>
+            <p>다음은 단순 OTC 위장약 상담으로 끝내지 말고 의료평가를 권유합니다.</p>
+            <ul style="margin:8px 0 0 18px;font-size:14px;">
+              <li>GI bleeding · melena · hematemesis</li>
+              <li>Unexplained iron deficiency anemia</li>
+              <li>Progressive dysphagia</li>
+              <li>Persistent vomiting</li>
+              <li>Unexplained weight loss</li>
+              <li>Palpable mass</li>
+              <li>고위험 연령/가족력과 새로운 증상</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 진단 ================= -->
+        <section id="diagnosis" class="section">
+          <h2><span class="sec-no">09</span> 어떻게 진단하는가?</h2>
+
+          <h3>위염의 가장 정확한 의미 = 조직학적 염증</h3>
+          <p>내시경에서 "위가 빨갛다"만으로 모든 gastritis를 확정할 수 없습니다. 필요한 경우 <b>biopsy</b>를 통해 inflammatory cell infiltration·atrophy·intestinal metaplasia·H. pylori 등을 평가합니다.</p>
+
+          <h3 style="margin-top:16px;">H. pylori 검사 선택</h3>
+          <p style="font-size:13px;color:var(--ink-soft);">중요: PPI는 H. pylori density를 감소시켜 일부 검사에서 false negative 가능성을 높일 수 있습니다. 제균 후 cure confirmation 시 검사 시점과 약제 중단기간을 고려해야 합니다.</p>
+
+          <div class="figure" data-hpyloritest style="margin-top:10px;">
+            <div class="figure__title">Viz 5 · H. pylori Test Selector</div>
+            <div class="hpt__question">내시경이 예정되어 있나요?</div>
+            <div class="hpt__btns">
+              <button class="btn" data-hpt="invasive">내시경 YES</button>
+              <button class="btn" data-hpt="noninvasive">내시경 NO</button>
+            </div>
+            <div class="hpt__result" id="hptResult" style="margin-top:12px;padding:12px;border-radius:10px;background:var(--bg-card);font-size:13.5px;min-height:60px;">
+              검사 방법을 선택하면 옵션이 나타납니다.
+            </div>
+          </div>
+
+          <div class="table-scroll" style="margin-top:14px;">
+            <table class="data">
+              <thead><tr><th>검사 방법</th><th>특징</th><th>주의</th></tr></thead>
+              <tbody>
+                <tr><th>Rapid urease test</th><td>내시경 biopsy 이용. 빠름.</td><td>PPI 사용 시 false negative 가능</td></tr>
+                <tr><th>Histology</th><td>조직에서 직접 확인. 위축·화생도 동시 평가</td><td>숙련된 병리 필요</td></tr>
+                <tr><th>Urea breath test</th><td>비침습. Active infection 반영. 치료 후 확인에도 사용.</td><td>PPI/항생제 4주 중단 후 권장</td></tr>
+                <tr><th>Stool antigen</th><td>비침습. 치료 후 확인 가능.</td><td>PPI 중단 권장</td></tr>
+                <tr><th>Serology</th><td>과거 노출·현재 감염 구별 어려움</td><td>Active infection 판단에 제한</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 위축 · 장상피화생 ================= -->
+        <section id="atrophy" class="section">
+          <h2><span class="sec-no">10</span> 위축성 위염과 장상피화생</h2>
+
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>위축성 위염 (Atrophic gastritis)</h5>
+              <p>정상 gastric gland가 소실되는 것. 단순히 "점막이 얇아 보인다"보다 <b>조직학적으로 gland loss</b>가 핵심입니다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>장상피화생 (Intestinal metaplasia)</h5>
+              <p>위 점막이 장 상피 phenotype으로 변화한 상태 — 만성 injury에 대한 adaptation. <b>위암 위험과 연관</b>되어 있어 중요합니다.</p>
+            </div>
+          </div>
+
+          <p style="margin-top:14px;">H. pylori gastritis → 만성 염증 → 위축 → 장상피화생 → 위암으로의 가능성을 보여주는 Correa cascade를 확인하세요.</p>
+          <div class="figure" data-correacascade>
+            <div class="figure__title">Viz 6 · Correa Cascade</div>
+            <div class="cc__flow">
+              <div class="cc__step open" data-cc="0">
+                <div class="cc__num">①</div>
+                <div class="cc__label">정상 점막</div>
+                <div class="cc__risk ok">기저 상태</div>
+              </div>
+              <div class="cc__arrow-v">↓</div>
+              <div class="cc__step" data-cc="1">
+                <div class="cc__num">②</div>
+                <div class="cc__label">만성 H. pylori 위염</div>
+                <div class="cc__risk warn">H. pylori 감염 지속</div>
+              </div>
+              <div class="cc__arrow-v">↓</div>
+              <div class="cc__step" data-cc="2">
+                <div class="cc__num">③</div>
+                <div class="cc__label">위축성 위염</div>
+                <div class="cc__risk warn">Gland 소실</div>
+              </div>
+              <div class="cc__arrow-v">↓</div>
+              <div class="cc__step" data-cc="3">
+                <div class="cc__num">④</div>
+                <div class="cc__label">장상피화생</div>
+                <div class="cc__risk mid">위험 증가</div>
+              </div>
+              <div class="cc__arrow-v">↓</div>
+              <div class="cc__step" data-cc="4">
+                <div class="cc__num">⑤</div>
+                <div class="cc__label">이형성증 (Dysplasia)</div>
+                <div class="cc__risk hi">명백한 전암 변화</div>
+              </div>
+              <div class="cc__arrow-v">↓</div>
+              <div class="cc__step" data-cc="5">
+                <div class="cc__num">⑥</div>
+                <div class="cc__label">위선암 (Gastric adenocarcinoma)</div>
+                <div class="cc__risk danger">암</div>
+              </div>
+            </div>
+            <div class="cc__desc" id="ccDesc" style="margin-top:10px;padding:12px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">
+              단계를 탭하면 설명이 나타납니다.
+            </div>
+            <div class="cc__note" style="margin-top:8px;padding:10px;border-radius:8px;background:#fff3cd;font-size:13px;color:#856404;">
+              ⚠️ <b>모든 환자가 이 순서대로 진행하는 것은 아닙니다.</b> H. pylori에 감염된 대부분의 사람은 위암이 생기지 않습니다. 하지만 Correa cascade의 각 단계는 위험도가 높아진다는 의미입니다.
+            </div>
+            <div class="figure__cap">H. pylori 제균은 cascade의 진행을 늦추거나 막는 데 도움이 될 수 있습니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> 위내시경에서 "intestinal metaplasia"라고 들은 환자: "그럼 저는 위암인가요?"</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 그렇습니다 — 장상피화생 = 위암입니다.</li>
+              <li data-opt="B"><span class="opt">B</span> 아닙니다 — 위암 자체가 아니라 위암 위험과 관련된 전암성 점막변화이며, 범위·위험인자에 따라 추적 전략을 정합니다.</li>
+              <li data-opt="C"><span class="opt">C</span> 맞습니다 — 반드시 즉시 위 절제가 필요합니다.</li>
+              <li data-opt="D"><span class="opt">D</span> 아무 의미 없는 정상 소견입니다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 장상피화생은 위암 자체가 아니라 만성 점막 변화입니다. 전암성 위험표지로 이해하고 범위와 위험요인에 따라 적절한 추적이 필요합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 치료 안 하면? ================= -->
+        <section id="untreated" class="section">
+          <h2><span class="sec-no">11</span> 치료하지 않으면 어떻게 되는가?</h2>
+
+          <div class="figure" data-threeroads>
+            <div class="figure__title">Viz 7 · 위염의 세 가지 경로</div>
+            <div class="tr__center">
+              <div class="tr__root">Gastritis / Mucosal injury</div>
+            </div>
+            <div class="tr__roads">
+              <div class="tr__road" data-tr="hpylori">
+                <div class="tr__title">H. pylori 지속</div>
+                <div class="tr__steps">
+                  <div class="tr__step">Chronic inflammation</div>
+                  <div class="tr__step warn">Atrophy</div>
+                  <div class="tr__step warn">Intestinal metaplasia</div>
+                  <div class="tr__step hi">↑ Gastric cancer risk</div>
+                  <div class="tr__step mid">Peptic ulcer 연결</div>
+                </div>
+              </div>
+              <div class="tr__road" data-tr="nsaid">
+                <div class="tr__title">NSAID 지속 노출</div>
+                <div class="tr__steps">
+                  <div class="tr__step">점막 방어 약화</div>
+                  <div class="tr__step warn">Erosion</div>
+                  <div class="tr__step hi">Peptic ulcer</div>
+                  <div class="tr__step danger">Bleeding / Perforation</div>
+                </div>
+              </div>
+              <div class="tr__road" data-tr="autoimmune">
+                <div class="tr__title">Autoimmune 진행</div>
+                <div class="tr__steps">
+                  <div class="tr__step">Parietal cell 감소</div>
+                  <div class="tr__step warn">Intrinsic factor ↓</div>
+                  <div class="tr__step hi">B12 결핍</div>
+                  <div class="tr__step hi">빈혈 / 신경학 이상</div>
+                </div>
+              </div>
+            </div>
+            <div class="figure__cap">원인에 따라 결과가 다릅니다. 치료 목표도 달라집니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">12</span> 치료의 전체 그림</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 질문</div>
+            <p>치료 전 반드시 물어야 하는 것: <b>"원인이 무엇인가?"</b><br>
+              ① H. pylori → eradication therapy<br>
+              ② NSAID → 중단/감량/대체 평가, 고위험군 PPI gastroprotection<br>
+              ③ Acid-related mucosal symptom/injury → PPI / P-CAB / H2RA<br>
+              ④ Autoimmune → B12/iron deficiency 평가·치료 + 추적</p>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>증상치료 vs 원인치료를 구분한다</div>
+            <p>PPI로 속쓰림이 좋아져도 <b>H. pylori가 사라진 것은 아닙니다</b>.<br>
+              반대로 H. pylori를 제균해도 <b>모든 dyspepsia가 사라지는 것은 아닙니다</b>.</p>
+          </div>
+        </section>
+
+        <!-- ================= 13 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">13</span> 생활습관</h2>
+
+          <p>위염에서 생활습관 이야기는 과장되기 쉽습니다. 근거에 맞는 범위를 봅니다.</p>
+
+          <div class="figure" data-triggersorter>
+            <div class="figure__title">Viz 8 · 원인(Cause) vs 증상 유발인자(Trigger)</div>
+            <p style="font-size:13px;margin-bottom:10px;">각 항목이 위염의 진짜 "원인"인지, 아니면 증상을 악화시키는 "유발인자"인지 선택해 보세요.</p>
+            <div class="ts__cards" id="tsCards">
+              <div class="ts__card" data-answer="cause" data-label="H. pylori 감염"><span>🦠 H. pylori 감염</span></div>
+              <div class="ts__card" data-answer="cause" data-label="NSAID 장기 복용"><span>💊 NSAID 장기 복용</span></div>
+              <div class="ts__card" data-answer="cause" data-label="자가면역 (항체)"><span>🧬 자가면역 (항체)</span></div>
+              <div class="ts__card" data-answer="trigger" data-label="매운 음식"><span>🌶 매운 음식</span></div>
+              <div class="ts__card" data-answer="trigger" data-label="커피 (민감한 경우)"><span>☕ 커피 (민감한 경우)</span></div>
+              <div class="ts__card" data-answer="trigger" data-label="과음 (급성 자극)"><span>🍺 과음 (급성 자극)</span></div>
+              <div class="ts__card" data-answer="trigger" data-label="불규칙한 식사"><span>⏰ 불규칙한 식사</span></div>
+            </div>
+            <div class="ts__zones" style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="ts__zone" data-zone="cause">
+                <div class="ts__zone-title">🎯 진짜 원인 (Cause)</div>
+                <div class="ts__zone-drop" id="tsCauseZone">여기에 원인 항목을 분류</div>
+              </div>
+              <div class="ts__zone" data-zone="trigger">
+                <div class="ts__zone-title">⚡ 증상 유발인자 (Trigger)</div>
+                <div class="ts__zone-drop" id="tsTriggerZone">여기에 유발인자 항목을 분류</div>
+              </div>
+            </div>
+            <div class="ts__result" id="tsResult" style="margin-top:10px;font-size:13.5px;"></div>
+            <div class="figure__cap">원인을 치료하는 것과 증상 유발인자를 조절하는 것은 다른 목표입니다.</div>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">생활습관 상담 포인트</div>
+            <div class="checkchips">
+              <button data-text="<b>금연</b> — Peptic ulcer healing과 재발, 위암 위험 등과 관련되어 있어 금연이 중요합니다.">금연</button>
+              <button data-text="<b>절주</b> — 과도한 alcohol은 gastric mucosal injury를 일으킬 수 있습니다. 줄이는 것이 좋습니다.">절주</button>
+              <button data-text="<b>매운 음식</b> — 개인에 따라 증상을 악화시킬 수 있지만, H. pylori나 autoimmune gastritis의 근본 원인은 아닙니다. 불필요한 제한보다 개인에 맞는 조절이 현실적입니다.">매운 음식</button>
+              <button data-text="<b>커피</b> — 개인에 따라 dyspeptic/reflux symptom을 악화시킬 수 있습니다. 하지만 모든 위염 환자에게 평생 금지할 근거는 부족합니다.">커피</button>
+              <button data-text="<b>식사 규칙성</b> — 규칙적인 식사가 증상 관리에 도움이 될 수 있습니다. 하지만 '끼니를 거르면 위산이 위벽을 녹여 반드시 위염이 생긴다'는 설명은 부정확합니다.">식사 규칙성</button>
+            </div>
+            <div class="infochips__out">생활습관 항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · 산분비억제제 ================= -->
+        <section id="drugs" class="section">
+          <h2><span class="sec-no">14</span> 약물치료 — 산분비억제제</h2>
+
+          <div class="figure" data-acidmap>
+            <div class="figure__title">Viz 9 · 위산 분비 경로와 약물 타깃</div>
+            <div class="am__cell">
+              <div class="am__title">Parietal Cell (벽세포)</div>
+              <div class="am__inputs">
+                <div class="am__input" id="amH2">
+                  <div class="am__sig">Histamine</div>
+                  <div class="am__rec">H₂ receptor</div>
+                  <div class="am__drug-label" id="amH2Drug" style="display:none;">H₂RA 차단 ✕</div>
+                </div>
+                <div class="am__input" id="amGast">
+                  <div class="am__sig">Gastrin</div>
+                  <div class="am__rec">CCK-B receptor</div>
+                </div>
+                <div class="am__input" id="amACh">
+                  <div class="am__sig">Acetylcholine</div>
+                  <div class="am__rec">M₃ receptor</div>
+                </div>
+              </div>
+              <div class="am__arrow-down">↓ (intracellular cAMP / Ca²⁺)</div>
+              <div class="am__pump" id="amPump">
+                <div class="am__pump-label">H⁺/K⁺-ATPase (Proton pump)</div>
+                <div class="am__pump-drug" id="amPumpDrug" style="display:none;"></div>
+              </div>
+              <div class="am__arrow-down">↓</div>
+              <div class="am__output" id="amOutput">H⁺ 분비 → 위강으로</div>
+            </div>
+            <div class="am__btns" style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+              <button class="btn am__drug-btn" data-am="h2ra">H₂RA (famotidine)</button>
+              <button class="btn am__drug-btn" data-am="ppi">PPI (omeprazole 등)</button>
+              <button class="btn am__drug-btn" data-am="pcab">P-CAB (vonoprazan 등)</button>
+              <button class="btn btn--ghost am__drug-btn" data-am="reset">↺ 리셋</button>
+            </div>
+            <div class="am__desc" id="amDesc" style="margin-top:10px;padding:12px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">
+              약물을 선택하면 타깃 부위가 강조됩니다.
+            </div>
+          </div>
+
+          <h3 style="margin-top:20px;">PPI (Proton Pump Inhibitor)</h3>
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>대표약</div>
+            <p>omeprazole · esomeprazole · lansoprazole · pantoprazole · rabeprazole</p>
+          </div>
+          <p style="margin-top:10px;">H⁺/K⁺-ATPase를 억제 → gastric acid secretion의 최종 단계 차단 → 강력한 지속적 acid suppression.</p>
+          <div class="card card--key" style="margin-top:8px;">
+            <div class="card__label"><span class="dot"></span>핵심</div>
+            <p><b>PPI는 위 점막을 코팅하는 약이 아닙니다.</b> Parietal cell의 proton pump를 억제해 산분비 자체를 강력하게 감소시킵니다. 주요 역할: peptic ulcer · NSAID gastroprotection · GERD · H. pylori 제균 acid suppression.</p>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">PPI 장기 사용 관련 주의</div>
+            <div class="checkchips">
+              <button data-text="<b>Hypomagnesemia</b> — 장기 PPI 사용과 관련. 마그네슘 수치 모니터링이 필요할 수 있으며, 증상(근육경련, 심부정맥 등)에 주의합니다.">Hypomagnesemia</button>
+              <button data-text="<b>B12 / Iron 흡수</b> — 위산 감소로 B12(IF는 영향 없음)와 nonheme iron 흡수가 감소할 수 있습니다. 특히 고령·채식주의자·저영양 환자에서 주의.">B12/Iron</button>
+              <button data-text="<b>Rebound acid hypersecretion</b> — 장기 사용 후 갑자기 중단하면 일시적으로 위산이 증가해 증상이 재발하는 것처럼 느껴질 수 있습니다. PPI 중독이 아니라 생리적 반응입니다.">Rebound</button>
+              <button data-text="<b>적응증 재평가</b> — 적응증이 없는 장기 복용은 재평가합니다. 하지만 적응증이 있는 환자(GERD·궤양·고위험 NSAID 사용 등)에서는 근거에 맞게 지속합니다. '무조건 위험'도 '무조건 안전'도 맞지 않습니다.">적응증 재평가</button>
+            </div>
+            <div class="infochips__out">PPI 주의사항을 탭하세요.</div>
+          </div>
+
+          <h3 style="margin-top:20px;">P-CAB (Potassium-competitive acid blocker)</h3>
+          <p>대표: vonoprazan · tegoprazan · fexuprazan. H⁺/K⁺-ATPase의 K⁺ binding과 경쟁해 acid secretion을 억제합니다. PPI와 달리 activation 과정이 다르고 약리학적 특성이 다릅니다. 2025 개정 국내 H. pylori 지침은 P-CAB을 H. pylori 제균요법에 활용할 수 있도록 반영했습니다.</p>
+
+          <h3 style="margin-top:18px;">H₂ Receptor Antagonist (H₂RA)</h3>
+          <p>대표: famotidine. Parietal cell의 H₂ receptor 차단 → histamine-stimulated acid secretion ↓. PPI보다 acid suppression이 상대적으로 약하고 tolerance가 발생할 수 있습니다.</p>
+        </section>
+
+        <!-- ================= 15 · 점막보호제 ================= -->
+        <section id="mucoprot" class="section">
+          <h2><span class="sec-no">15</span> 점막보호제 (Mucoprotective Agents)</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">주요 점막보호제</div>
+            <div class="checkchips">
+              <button data-text="<b>Rebamipide</b> — 점막 prostaglandin 및 방어기전, free radical/inflammatory pathway 등에 영향을 주어 mucosal protection을 돕습니다. 한국에서 매우 자주 사용됩니다. 하지만 H. pylori 감염 자체를 제거하지는 않습니다.">Rebamipide</button>
+              <button data-text="<b>Sucralfate</b> — 산성 환경에서 점막 손상부위에 protective barrier를 형성합니다. 다른 약물 흡수를 방해할 수 있어 복용 간격 주의가 필요합니다.">Sucralfate</button>
+              <button data-text="<b>중요한 큰 그림</b> — 점막보호제는 상황에 따라 symptom/mucosal healing을 돕지만, H. pylori 감염을 제거하지는 않습니다. 원인치료(제균)와 증상치료(보호제)는 목표가 다릅니다.">큰 그림</button>
+            </div>
+            <div class="infochips__out">약물을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · H. pylori 제균 ================= -->
+        <section id="erad" class="section">
+          <h2><span class="sec-no">16</span> H. pylori 제균치료</h2>
+
+          <blockquote>한 가지 항생제로 치료하지 않는다 — Acid suppression + Multiple antibiotics ± bismuth</blockquote>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>국내 최신 지침 핵심 (2025 개정)</div>
+            <p>Clarithromycin resistance가 크게 증가 → 무분별한 clarithromycin triple therapy 사용 제한.<br>
+              <b>Bismuth quadruple therapy</b> · <b>tailored therapy (분자검사 기반)</b> · <b>P-CAB 포함 regimen</b>을 두 축으로 제시.</p>
+          </div>
+
+          <p style="margin-top:12px;">왜 acid suppression이 제균에 들어갈까? → 위 pH↑ → H. pylori metabolic state와 antibiotic effectiveness에 유리 + 점막 healing.</p>
+
+          <div class="figure" data-eradbuilder style="margin-top:12px;">
+            <div class="figure__title">Viz 10 · Eradication Regimen Builder</div>
+            <p style="font-size:13px;margin-bottom:10px;">제균요법 구성요소를 선택하면 success gauge가 변합니다.</p>
+            <div class="eb__groups">
+              <div class="eb__group">
+                <div class="eb__group-title">Acid Suppressor</div>
+                <div class="eb__opts">
+                  <button class="btn eb__opt" data-eb-group="acid" data-eb-val="ppi">PPI</button>
+                  <button class="btn eb__opt" data-eb-group="acid" data-eb-val="pcab">P-CAB</button>
+                </div>
+              </div>
+              <div class="eb__group">
+                <div class="eb__group-title">Antibiotic A</div>
+                <div class="eb__opts">
+                  <button class="btn eb__opt" data-eb-group="ab1" data-eb-val="amox">Amoxicillin</button>
+                  <button class="btn eb__opt" data-eb-group="ab1" data-eb-val="tetra">Tetracycline</button>
+                </div>
+              </div>
+              <div class="eb__group">
+                <div class="eb__group-title">Antibiotic B</div>
+                <div class="eb__opts">
+                  <button class="btn eb__opt" data-eb-group="ab2" data-eb-val="clari">Clarithromycin</button>
+                  <button class="btn eb__opt" data-eb-group="ab2" data-eb-val="metro">Metronidazole</button>
+                </div>
+              </div>
+              <div class="eb__group">
+                <div class="eb__group-title">± Bismuth</div>
+                <div class="eb__opts">
+                  <button class="btn eb__opt" data-eb-group="bismuth" data-eb-val="yes">Bismuth 추가</button>
+                  <button class="btn eb__opt" data-eb-group="bismuth" data-eb-val="no">없음</button>
+                </div>
+              </div>
+            </div>
+            <div class="eb__gauge-wrap" style="margin-top:12px;">
+              <div style="font-size:13px;font-weight:700;margin-bottom:4px;">예상 제균율 (개념)</div>
+              <div class="gs__lbar" style="height:18px;border-radius:999px;"><div class="gs__lbar-fill" id="ebGauge" style="width:0%;background:var(--brand);transition:width .5s;border-radius:999px;"></div></div>
+              <div id="ebGaugePct" style="font-size:12px;color:var(--ink-faint);margin-top:2px;">0%</div>
+            </div>
+            <div class="eb__result" id="ebResult" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              요소를 선택하면 regimen이 완성됩니다.
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>약사 상담 포인트</div>
+            <p>H. pylori 제균은 약 수가 많고, 복잡한 복용 스케줄, metallic taste·nausea·diarrhea 등으로 순응도가 떨어질 수 있습니다. <b>복약순응도가 치료 성공의 핵심</b>입니다. 증상이 좋아져도 끝까지 복용해야 합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">17</span> 약사 Deep Dive</h2>
+
+          <h3>① Functional dyspepsia vs Gastritis</h3>
+          <p>Functional dyspepsia는 구조적 원인 없이 dyspeptic symptom이 있는 상태입니다. 내시경에서 의미 있는 이상 없음, 증상이 중심. Gastritis는 mucosal inflammation이 핵심이고 증상이 없을 수 있습니다. 둘은 다른 개념이지만 임상에서 구분이 까다롭습니다.</p>
+
+          <h3 style="margin-top:18px;">② PPI는 모든 dyspepsia에 맞는 약인가?</h3>
+          <p>PPI는 acid-related mucosal injury·GERD·ulcer 등에는 핵심 치료제입니다. 하지만 H. pylori gastritis에서는 원인인 세균을 치료하지 않고 증상만 억제하는 것이 됩니다. Functional dyspepsia에서도 PPI는 제한적 효과를 가질 수 있습니다. <b>적응증에 맞는 사용</b>이 중요합니다.</p>
+
+          <h3 style="margin-top:18px;">③ Helicobacter pylori 제균 후 위암 위험이 사라지나?</h3>
+          <p>제균은 gastric cancer 위험을 낮추는 데 도움이 될 수 있습니다. 하지만 이미 형성된 위축·장상피화생이 완전히 역전되는 것은 아닐 수 있습니다. 제균 후에도 위험도에 따른 추적 검사(내시경)가 별도의 문제로 중요합니다.</p>
+
+          <h3 style="margin-top:18px;">④ NSAID 고위험군에서 gastroprotection</h3>
+          <p>국내 drug-related peptic ulcer 지침은 장기 NSAID 사용 고위험군(고령·과거 궤양·고용량·steroid 병용·항응고제 병용 등)에서 PPI 예방전략을 중요하게 다룹니다. COX-2 selective NSAID도 risk 감소에 일부 도움이 되지만, 심혈관 위험을 함께 고려해야 합니다.</p>
+        </section>
+
+        <!-- ================= 18 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">18</span> 비슷한 질환과 비교</h2>
+
+          <h3>위염 vs 소화성궤양</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Gastritis</th><th>Peptic Ulcer</th></tr></thead>
+              <tbody>
+                <tr><th>기본 병변</th><td>Mucosal inflammation/injury</td><td>더 깊은 mucosal defect</td></tr>
+                <tr><th>H. pylori</th><td>주요 원인 가능</td><td>주요 원인</td></tr>
+                <tr><th>NSAID</th><td>주요 원인 가능</td><td>주요 원인</td></tr>
+                <tr><th>출혈</th><td>가능</td><td>더 중요한 합병증</td></tr>
+                <tr><th>천공</th><td>일반적으로 아님</td><td>가능</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:4px;">다음 제13강 소화성궤양에서 자세히 다룹니다.</p>
+
+          <h3 style="margin-top:18px;">위염 vs 기능성 소화불량 (Functional dyspepsia)</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Gastritis</th><th>Functional Dyspepsia</th></tr></thead>
+              <tbody>
+                <tr><th>핵심</th><td>Mucosal inflammation</td><td>구조적 원인 없이 dyspeptic symptoms</td></tr>
+                <tr><th>내시경</th><td>이상 가능</td><td>의미 있는 구조병변 없음</td></tr>
+                <tr><th>증상</th><td>없을 수도 있음</td><td>증상이 핵심</td></tr>
+                <tr><th>같은 개념?</th><td colspan="2" style="text-align:center;">아니오</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">위염 vs GERD</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Gastritis</th><th>GERD</th></tr></thead>
+              <tbody>
+                <tr><th>위치</th><td>위</td><td>식도</td></tr>
+                <tr><th>핵심</th><td>Gastric mucosal inflammation</td><td>Gastric content가 식도로 역류</td></tr>
+                <tr><th>대표 증상</th><td>비특이적</td><td>Heartburn / regurgitation</td></tr>
+                <tr><th>PPI</th><td>상황에 따라</td><td>핵심 치료 중 하나</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);">다음 제12강 GERD와 연결됩니다.</p>
+        </section>
+
+        <!-- ================= 19 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">19</span> 자주 묻는 질문</h2>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 위염은 위산이 많아서 생기나요?</button>
+              <div class="faq__a">
+                <p>항상 그렇지는 않습니다. H. pylori, NSAID, autoimmune disease 등 여러 이유로 생기며, autoimmune/atrophic gastritis에서는 산분비가 오히려 감소할 수 있습니다. 점막 방어기전 손상이 핵심입니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 매운 음식을 먹어서 위염이 생겼나요?</button>
+              <div class="faq__a">
+                <p>매운 음식이 증상을 악화시킬 수는 있지만 H. pylori나 NSAID 같은 주요 위염의 근본 원인과 동일하지 않습니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. 내시경에서 위염이라고 했는데 아무 증상이 없습니다.</button>
+              <div class="faq__a">
+                <p>가능합니다. Endoscopic/histologic gastritis와 증상 정도는 일치하지 않을 수 있습니다. 특히 chronic H. pylori gastritis는 무증상일 수 있습니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. H. pylori가 있으면 무조건 위암이 생기나요?</button>
+              <div class="faq__a">
+                <p>아닙니다. 대부분이 위암으로 진행하지 않습니다. 하지만 H. pylori는 위암의 중요한 위험요인이며 제균은 위암 위험을 낮추는 예방 전략입니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. H. pylori를 제균하면 속쓰림이 반드시 사라지나요?</button>
+              <div class="faq__a">
+                <p>H. pylori가 원인인 경우 도움이 됩니다. 하지만 H. pylori와 무관한 functional dyspepsia가 있거나, 다른 원인이 있다면 제균 후에도 증상이 지속될 수 있습니다. 또한 치료 성공 여부 확인이 중요합니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. 진통제를 먹으면 왜 위장약을 같이 주나요?</button>
+              <div class="faq__a">
+                <p>NSAID가 prostaglandin을 감소시켜 위점막 방어기전을 약화시키기 때문입니다. 고위험 환자에서는 PPI 등의 gastroprotection을 사용합니다.</p>
+              </div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. PPI를 먹으면 위가 약해져서 약 없이는 못 살게 되나요?</button>
+              <div class="faq__a">
+                <p>PPI가 중독을 만드는 것은 아닙니다. 다만 장기 사용 후 중단 시 일시적인 rebound acid hypersecretion으로 증상이 재발하는 것처럼 느껴질 수 있습니다. 필요 없는 장기복용은 재평가하되, 적응증이 있는 환자에서는 근거에 맞게 사용합니다.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">20</span> 흔한 오해 / Fact Check</h2>
+
+          <div class="factcheck">
+            <div class="fc-item">
+              <div class="fc-claim">"속이 쓰리면 위염이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">GERD, peptic ulcer, functional dyspepsia 등도 비슷한 증상을 만듭니다. 증상과 조직학적 위염은 일치하지 않을 수 있습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"위염은 위산이 너무 많이 나와서 생긴다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">원인이 다양하며 점막 방어기전 손상이 핵심입니다. Autoimmune gastritis에서는 오히려 산이 적습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"NSAID는 위산을 늘리기 때문에 위를 상하게 한다."</div>
+              <div class="fc-verdict wrong">대체로 틀림</div>
+              <div class="fc-exp">핵심은 COX inhibition → prostaglandin 감소 → mucosal defense 저하입니다. 산 자체가 늘어나는 것이 주된 기전이 아닙니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"H. pylori를 제균하면 모든 속쓰림이 사라진다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">H. pylori는 치료해야 할 원인이지만 모든 dyspeptic symptom이 감염 때문에 발생하는 것은 아닙니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"장상피화생은 위암이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">위암 자체는 아니지만 gastric cancer risk와 관련된 전암성 점막변화입니다. 적절한 추적이 필요합니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"Enteric-coated NSAID는 위에 안전하다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">NSAID 위장관 독성의 가장 중요한 기전은 systemic prostaglandin inhibition입니다. 위에서 흡수되지 않는 제형도 혈중 prostaglandin은 감소시킵니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 21 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">21</span> Case Study</h2>
+
+          <h3>Case 1 — 매일 ibuprofen을 먹고 속이 쓰립니다</h3>
+          <div class="case-box">
+            <p><b>67세 여성.</b> Knee OA로 ibuprofen 거의 매일 복용. Low-dose aspirin도 복용. 최근 epigastric discomfort. 과거 peptic ulcer history.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① 어떤 위험인자가 중요한가? ② NSAID가 위를 손상시키는 기전은? ③ 단순 제산제만으로 충분한가? ④ 약사가 어떤 약력을 추가로 확인해야 할까?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                이 환자는 <b>고령 + 만성 NSAID + aspirin 병용 + 궤양 과거력</b>으로 GI complication risk가 매우 높습니다.
+                <ul style="margin-top:8px;">
+                  <li>NSAID 필요성·대체 가능성(non-NSAID analgesic) 평가</li>
+                  <li>최소 유효용량으로 줄일 수 있는지</li>
+                  <li>PPI gastroprotection 필요성 평가 → 고위험군이므로 PPI 병용이 권고됩니다</li>
+                  <li>출혈 증상(흑변·혈변·어지럼) 여부 확인</li>
+                </ul>
+                <div class="exp">Drug-related ulcer prevention에서는 고위험 장기 NSAID 환자에 대한 PPI 사용이 중요한 전략입니다. (국내 지침 반영)</div>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case 2 — 위축성 위염과 H. pylori</h3>
+          <div class="case-box">
+            <p><b>55세 남성.</b> 건강검진 내시경: gastric atrophy + intestinal metaplasia 일부 + H. pylori positive. 특별한 증상은 없음. <br>"아픈 것도 없는데 왜 균을 치료해야 하나요?"</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① 증상이 없다는 것이 감염의 의미가 없다는 뜻인가? ② H. pylori가 장기간 어떤 점막변화를 만들 수 있는가? ③ 제균 목표가 속쓰림 제거만인가? ④ 제균 후 무엇을 확인해야 할까?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                H. pylori gastritis는 무증상일 수 있습니다. 하지만 만성 감염은 atrophy와 intestinal metaplasia 및 <b>gastric cancer risk와 연관</b>되므로 치료 목적은 단순한 증상완화가 아닙니다.
+                <ul style="margin-top:8px;">
+                  <li>최신 한국 지침은 H. pylori gastritis에서 위암 예방을 위한 제균 적응증을 확대했습니다</li>
+                  <li>치료 후 <b>eradication 성공 여부 확인</b>이 중요 (urea breath test 또는 stool antigen test)</li>
+                  <li>이미 형성된 위축·장상피화생이 제균만으로 완전히 역전되지 않을 수 있으므로 위험도에 따른 추적도 별개</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Gastritis Cause Detective</h3>
+          <div class="figure" data-causedetective>
+            <div class="figure__title">Viz 11 · 원인을 찾아라</div>
+            <p style="font-size:13px;">환자를 선택해 원인 → 기전 → 치료 표적을 확인하세요.</p>
+            <div class="cd__patients">
+              <button class="btn cd__pt" data-cd="a">Patient A<br><small>H. pylori+<br>NSAID 없음</small></button>
+              <button class="btn cd__pt" data-cd="b">Patient B<br><small>Ibuprofen daily<br>H. pylori−</small></button>
+              <button class="btn cd__pt" data-cd="c">Patient C<br><small>B12 low<br>Parietal-cell Ab+<br>Gastrin high</small></button>
+              <button class="btn cd__pt" data-cd="d">Patient D<br><small>Dyspepsia<br>내시경 정상</small></button>
+            </div>
+            <div class="cd__result" id="cdResult" style="margin-top:12px;min-height:80px;"></div>
+          </div>
+        </section>
+
+        <!-- ================= 22 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">22</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. 정상 위점막을 보호하는 대표적인 기전이 아닌 것은?</div>
+              <ul class="mcq" data-answer="D">
+                <li data-opt="A"><span class="opt">A</span> Mucus layer</li>
+                <li data-opt="B"><span class="opt">B</span> Bicarbonate 분비</li>
+                <li data-opt="C"><span class="opt">C</span> Prostaglandin</li>
+                <li data-opt="D"><span class="opt">D</span> LDL oxidation</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: D — LDL oxidation은 동맥경화 병태생리와 관련된 개념이며 위 점막 방어기전이 아닙니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. NSAID가 gastric mucosal injury를 일으키는 중요한 기전은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 위산을 항상 대량 증가시킨다.</li>
+                <li data-opt="B"><span class="opt">B</span> COX를 억제해 protective prostaglandin을 감소시킨다.</li>
+                <li data-opt="C"><span class="opt">C</span> Intrinsic factor를 직접 파괴한다.</li>
+                <li data-opt="D"><span class="opt">D</span> H. pylori를 생성한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — COX inhibition → prostaglandin ↓ → mucus·bicarbonate·blood flow 감소 → 점막 방어 약화.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. H. pylori가 강산성 위에서 생존하는 데 중요한 효소는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> ACE</li>
+                <li data-opt="B"><span class="opt">B</span> Urease</li>
+                <li data-opt="C"><span class="opt">C</span> HMG-CoA reductase</li>
+                <li data-opt="D"><span class="opt">D</span> Xanthine oxidase</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — Urease: urea → ammonia + CO₂. Ammonia가 주변 산을 중화해 생존 가능한 microenvironment를 만듭니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. Autoimmune gastritis에서 발생할 수 있는 변화로 맞는 것은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> Parietal cell loss → intrinsic factor 감소 → B12 deficiency</li>
+                <li data-opt="B"><span class="opt">B</span> Parietal cell 증가 → B12 과다</li>
+                <li data-opt="C"><span class="opt">C</span> Insulin 감소 → iron overload</li>
+                <li data-opt="D"><span class="opt">D</span> Urease 증가 → 통풍</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — Parietal cell 파괴 → HCl↓(저산증) + intrinsic factor↓ → B12 흡수↓ → megaloblastic anemia / neurologic symptoms.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. 위축성 위염과 장상피화생에 대한 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 둘 다 반드시 위암이다.</li>
+                <li data-opt="B"><span class="opt">B</span> 만성 점막손상의 결과로 나타날 수 있으며 gastric cancer risk와 관련된다.</li>
+                <li data-opt="C"><span class="opt">C</span> 증상이 반드시 심하다.</li>
+                <li data-opt="D"><span class="opt">D</span> PPI만 먹으면 반드시 완전히 역전된다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 전암성 점막변화로 이해하고 위험도에 따른 추적이 필요합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 23 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">23</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>위염은 위 점막의 염증. 단순히 '속이 쓰린 상태'와 같은 말이 아니며, 증상과 조직학적 위염은 일치하지 않을 수 있다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>정상 위는 mucus + bicarbonate + epithelial barrier + blood flow + prostaglandin으로 강산 속에서 스스로를 보호한다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>위염 = acid excess 아님. 대표 원인: H. pylori, NSAID, autoimmunity. 원인에 따라 병태생리와 치료가 달라진다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>H. pylori: urease로 산 중화 → mucus 통과 → epithelium 부착 → chronic gastritis. 위암의 중요한 위험요인.</p></div>
+            <div class="factcard"><span class="n">5</span><p>장기 H. pylori: atrophy → intestinal metaplasia → dysplasia → cancer (Correa cascade). 모든 환자가 진행하는 것은 아니지만 위험 증가.</p></div>
+            <div class="factcard"><span class="n">6</span><p>NSAID: COX 억제 → prostaglandin ↓ → 점막 방어 감소. Enteric-coated도 systemic prostaglandin 억제 효과는 동일.</p></div>
+            <div class="factcard"><span class="n">7</span><p>Autoimmune gastritis: parietal cell loss → acid↓(저산증) + intrinsic factor↓ → B12 결핍. 위염인데 산이 오히려 적다.</p></div>
+            <div class="factcard"><span class="n">8</span><p>PPI: H⁺/K⁺-ATPase 억제 → 강력한 acid suppression. 위 코팅이 아닌 산분비 억제. 모든 위염의 원인치료가 아님.</p></div>
+            <div class="factcard"><span class="n">9</span><p>H. pylori 제균: acid suppressor + 복수 항생제 ± bismuth. 2025 개정 국내 지침: clarithromycin 내성 증가 반영, tailored/quadruple therapy, P-CAB 포함.</p></div>
+            <div class="factcard"><span class="n">10</span><p>위염을 볼 때는 "무슨 증상인가?"보다 "원인이 무엇이며 장기적 점막손상 위험이 있는가?"를 묻는 것이 더 중요하다.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">위염은 위산이 많아서 생기는 하나의 병이 아니라,<br>
+            <b>점막 방어와 공격의 균형이 여러 원인으로 깨진 결과</b>다.<br>
+            원인을 찾는 것이 치료의 시작입니다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 <b>제12강 GERD</b>에서는 위 자체가 아니라 정상적인 위 내용물이 왜 식도로 올라오면 문제가 되는지로 이어집니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>위염 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">본질</span><span>공격 vs 방어 균형 붕괴 — 위산 과다만이 아님</span></div>
+      <div class="qr-row"><span class="qr-k">H. pylori</span><span>Urease → 만성 위염 → Correa cascade</span></div>
+      <div class="qr-row"><span class="qr-k">NSAID</span><span>COX↓ → prostaglandin↓ → 방어 약화</span></div>
+      <div class="qr-row"><span class="qr-k">Autoimmune</span><span>Parietal cell↓ → 산↓ + B12↓</span></div>
+      <div class="qr-row"><span class="qr-k">PPI</span><span>H+/K+-ATPase 억제 — 원인치료 아님</span></div>
+      <div class="qr-row"><span class="qr-k">제균</span><span>내성 증가 → tailored/quadruple + P-CAB</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

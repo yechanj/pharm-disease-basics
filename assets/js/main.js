@@ -1041,6 +1041,14 @@
     initAirway();
     initFingerprint();
     initBuildMed();
+    // Everyday 03 · 급성 장염
+    initFluidLoss();
+    initWateryVsInflam();
+    initNoroTransmission();
+    initHydrationGauge();
+    initORSMechanism();
+    initTrafficLight();
+    initLopeCheck();
     // Everyday 02 · 독감
     initInfoChips();
     initSymptomSorter();
@@ -1074,6 +1082,45 @@
     initStableVuln();
     initPlaque2Thrombus();
     initCae();
+    // Core 12 · GERD
+    initAntiRefluxBarrier();
+    initRefluxMechanism();
+    initRefluxVsAcidity();
+    initGERDPhenotype();
+    init24hMonitor();
+    initGERDComplication();
+    initTriggerTracker();
+    initPPITiming();
+    initPPIvsPCAB();
+    initPPIFailure();
+    initFundoplication();
+    initGERDPhenotype2();
+    // Core 11 · 위염
+    initGastricShield();
+    initHPylori();
+    initNSAIDShield();
+    initAutoimmGastritis();
+    initHPyloriTest();
+    initCorreaCascade();
+    initThreeRoads();
+    initTriggerSorter();
+    initAcidMap();
+    initEradBuilder();
+    initCauseDetective();
+    // Core 10 · 뇌졸중
+    initBrainFlow();
+    initPenumbra();
+    initStrokeSource();
+    initStrokeType();
+    initBEFAST();
+    initTIAWarn();
+    initStrokeImaging();
+    initThromboWin();
+    initReperfComp();
+    initStrokeOpp();
+    initStrokeCause();
+    initStrokeDrugMap();
+    initStrokeSim();
     // Core 09 · 협심증과 심근경색
     initO2Balance();
     initStableSim();
@@ -2079,4 +2126,1434 @@
     input.addEventListener("input", render);
     render();
   }
+
+  /* =========================================================
+     ===========  Core 10 · 뇌졸중 인터랙션  ===========
+     ========================================================= */
+
+  /* ---------- Viz 1 · Brain Blood Flow Explorer ---------- */
+  function initBrainFlow() {
+    var root = document.querySelector("[data-brainflow]");
+    if (!root) return;
+    var stages = [
+      root.querySelector("#bfStage0"),
+      root.querySelector("#bfStage1"),
+      root.querySelector("#bfStage2"),
+      root.querySelector("#bfStage3")
+    ];
+    var ischemia = root.querySelector("#bfIschemia");
+    var occlude = root.querySelector("#bfOcclude");
+    var occludeLabel = root.querySelector("#bfOccludeLabel");
+    var mcaLeft = root.querySelector(".bf__mca-left");
+    var msg = root.querySelector("#bfMsg");
+
+    function setStages(active) {
+      stages.forEach(function (s, i) {
+        if (!s) return;
+        s.style.opacity = i <= active ? "1" : "0.3";
+      });
+    }
+    function setNormal() {
+      setStages(0);
+      if (ischemia) ischemia.setAttribute("opacity", "0");
+      if (occlude) occlude.setAttribute("opacity", "0");
+      if (occludeLabel) occludeLabel.setAttribute("opacity", "0");
+      if (mcaLeft) mcaLeft.setAttribute("stroke", "#2f6fed");
+      if (msg) msg.innerHTML = "정상 상태. Autoregulation이 작동해 뇌혈류가 유지됩니다.";
+    }
+    function setOcclude() {
+      if (mcaLeft) mcaLeft.setAttribute("stroke", "#e5484d");
+      if (occlude) occlude.setAttribute("opacity", "1");
+      if (occludeLabel) occludeLabel.setAttribute("opacity", "1");
+      var step = 0;
+      var interval = setInterval(function () {
+        step++;
+        setStages(step);
+        if (ischemia) {
+          var op = Math.min(1, step * 0.35);
+          ischemia.setAttribute("opacity", String(op));
+          var rx = 20 + step * 6, ry = 16 + step * 4;
+          ischemia.setAttribute("rx", String(Math.min(rx, 38)));
+          ischemia.setAttribute("ry", String(Math.min(ry, 30)));
+        }
+        if (step >= 3) {
+          clearInterval(interval);
+          if (msg) msg.innerHTML = "<b>Infarction 진행 중</b>. Downstream tissue가 산소·포도당 공급 없이 기능을 잃어갑니다. 빠른 재관류가 필요합니다.";
+        }
+      }, 600);
+    }
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-bf]");
+      if (!btn) return;
+      var mode = btn.getAttribute("data-bf");
+      if (mode === "normal") setNormal();
+      else if (mode === "occlude") setOcclude();
+    });
+    setNormal();
+  }
+
+  /* ---------- Viz 2 · Core vs Penumbra Simulator ---------- */
+  function initPenumbra() {
+    var root = document.querySelector("[data-penumbra]");
+    if (!root) return;
+    var slider = root.querySelector("#pbSlider");
+    var timeEl = root.querySelector("#pbTime");
+    var descEl = root.querySelector("#pbDesc");
+    var core = root.querySelector("#pbCore");
+    var penumbra = root.querySelector("#pbPenumbra");
+    var reperfBtn = root.querySelector("#pbReperfBtn");
+    var reperfMsg = root.querySelector("#pbReperfMsg");
+
+    var stages = [
+      { time: "발생 후 0분", coreR: 22, penR: 55, desc: "Core는 작고 penumbra가 큽니다. 지금 reperfusion → 많은 조직 구제 가능." },
+      { time: "1시간 후", coreR: 30, penR: 50, desc: "Core가 확대되기 시작합니다. 아직 penumbra가 상당히 남아 있습니다." },
+      { time: "2시간 후", coreR: 38, penR: 44, desc: "Core 확대 진행 중. 빠른 재관류로 남은 penumbra를 구제해야 합니다." },
+      { time: "3시간 후", coreR: 44, penR: 37, desc: "Penumbra가 줄어들고 있습니다. 재관류할수록 구제 가능한 조직이 줄어듭니다." },
+      { time: "4시간 후", coreR: 50, penR: 30, desc: "Core가 많이 커졌습니다. Penumbra가 작아졌습니다. 아직 늦지 않았습니다." },
+      { time: "5시간 후", coreR: 55, penR: 22, desc: "Penumbra가 많이 줄었습니다. 살릴 수 있는 조직이 점점 감소하고 있습니다." },
+      { time: "6시간+ 경과", coreR: 60, penR: 10, desc: "Penumbra가 거의 core로 변했습니다. 이제 구제 가능한 조직이 매우 적습니다." }
+    ];
+
+    function render(val) {
+      var s = stages[val];
+      if (timeEl) timeEl.textContent = s.time;
+      if (descEl) descEl.textContent = s.desc;
+      if (core) core.setAttribute("r", String(s.coreR));
+      if (penumbra) penumbra.setAttribute("r", String(s.penR));
+      var savedPct = Math.round((s.penR - 10) / (55 - 10) * 100);
+      if (reperfBtn) reperfBtn.textContent = "⚡ Reperfusion NOW — 약 " + Math.max(0, savedPct) + "% penumbra 구제 가능";
+      if (reperfMsg) reperfMsg.style.display = "none";
+    }
+    if (slider) slider.addEventListener("input", function () { render(parseInt(slider.value, 10)); });
+    if (reperfBtn) reperfBtn.addEventListener("click", function () {
+      var val = slider ? parseInt(slider.value, 10) : 0;
+      var s = stages[val];
+      var savedPct = Math.round((s.penR - 10) / (55 - 10) * 100);
+      if (reperfMsg) {
+        reperfMsg.style.display = "block";
+        reperfMsg.innerHTML = "✅ <b>Reperfusion 시행!</b> Penumbra(약 " + Math.max(0, savedPct) + "%)를 구제했습니다. <b>Time is Brain</b> — 일찍 시행할수록 더 많은 뇌조직을 살릴 수 있습니다.";
+      }
+    });
+    render(0);
+  }
+
+  /* ---------- Viz 3 · Stroke Source Cards ---------- */
+  var STROKE_SRC = {
+    large: {
+      title: "Large Artery Atherosclerosis",
+      flow: "경동맥/두개내 동맥 plaque → plaque rupture/thrombosis 또는 artery-to-artery embolism → brain artery occlusion",
+      treatment: "재발예방: Antiplatelet + Statin + 위험인자 관리. 경동맥 협착 심한 경우 CEA 또는 stenting 고려."
+    },
+    cardio: {
+      title: "Cardioembolism (AF 등)",
+      flow: "AF → left atrial blood stasis → fibrin-rich thrombus → embolism → cerebral artery occlusion",
+      treatment: "재발예방: <b>Anticoagulation</b> (DOAC 우선). Aspirin만으로는 AF stroke prevention에 충분하지 않습니다."
+    },
+    small: {
+      title: "Small Vessel Disease (Lacunar)",
+      flow: "만성 고혈압·당뇨 → penetrating artery 손상 → small vessel occlusion → lacunar infarction (내포·기저핵·뇌간)",
+      treatment: "재발예방: Antiplatelet + 혈압 조절 + 혈당 조절. Lacunar stroke는 주로 small vessel 병변."
+    }
+  };
+  function initStrokeSource() {
+    var root = document.querySelector("[data-strokesource]");
+    if (!root) return;
+    var detail = root.querySelector("#ss2Detail");
+    root.querySelectorAll(".ss2__card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        root.querySelectorAll(".ss2__card").forEach(function (c) { c.classList.remove("open"); });
+        card.classList.add("open");
+        var src = card.getAttribute("data-src");
+        var d = STROKE_SRC[src];
+        if (detail && d) {
+          detail.innerHTML = "<b>" + d.title + "</b><br>" +
+            "<span style='color:var(--brand)'>→ " + d.flow + "</span><br>" +
+            "<span style='color:var(--ink-soft);font-size:13px;'>💊 " + d.treatment + "</span>";
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · Blocked vs Ruptured ---------- */
+  function initStrokeType() {
+    var root = document.querySelector("[data-stroketype]");
+    if (!root) return;
+    var btn = root.querySelector("#stAspBtn");
+    var ans = root.querySelector("#stAns");
+    if (!btn || !ans) return;
+    btn.addEventListener("click", function () {
+      ans.style.display = "block";
+      ans.innerHTML = "❌ <b>먼저 CT가 필요합니다.</b> 증상만으로 허혈성·출혈성을 안전하게 구별할 수 없습니다. 출혈성 stroke에서 aspirin은 해로울 수 있습니다.";
+      ans.style.padding = "10px";
+      ans.style.borderRadius = "8px";
+      ans.style.background = "var(--hi-soft)";
+      ans.style.color = "var(--hi)";
+      ans.style.fontSize = "13.5px";
+      ans.style.marginTop = "8px";
+    });
+  }
+
+  /* ---------- Viz 5 · BE-FAST Body Map ---------- */
+  var BEFAST = {
+    balance: { letter: "B", label: "Balance", icon: "🏃", desc: "<b>갑작스러운 균형 장애</b> — 걷기 어렵거나, 심한 어지럼증이 갑자기 생기거나, 특히 다른 신경학적 증상과 동반될 때 중요합니다." },
+    eyes:    { letter: "E", label: "Eyes", icon: "👁", desc: "<b>갑작스러운 시야 이상</b> — 한쪽 눈이 안 보이거나, 시야의 반쪽이 사라지거나, 복시(두 개로 보임)." },
+    face:    { letter: "F", label: "Face", icon: "😶", desc: "<b>얼굴 한쪽 처짐</b> — \"웃어보세요\" 할 때 한쪽만 올라가지 않거나 입이 돌아감. FAST의 대표 증상." },
+    arm:     { letter: "A", label: "Arm", icon: "💪", desc: "<b>팔(다리) 한쪽 힘 빠짐</b> — \"양팔을 들어보세요\" 했을 때 한쪽이 내려가거나 힘이 없음. 다리 마비도 포함." },
+    speech:  { letter: "S", label: "Speech", icon: "🗣", desc: "<b>언어장애</b> — 말이 어눌하거나(dysarthria), 말이 나오지 않거나(aphasia), 남의 말을 이해 못함. 알아들을 수 없는 말을 함." },
+    time:    { letter: "T", label: "Time — 즉시 응급의료", icon: "⏱", desc: "<b>TIME = 즉각 행동</b><br>위 증상 중 하나라도 갑자기 생기면 → <b>지체 없이 119</b>. \"기다리면 나아지겠지\"는 뇌세포를 죽이는 생각입니다. Time is Brain." }
+  };
+  function initBEFAST() {
+    var root = document.querySelector("[data-befast]");
+    if (!root) return;
+    var detail = root.querySelector("#befDetail");
+    root.querySelectorAll(".bef__btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".bef__btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-bef");
+        var d = BEFAST[key];
+        if (detail && d) {
+          detail.innerHTML = d.icon + " <b>" + d.label + "</b> — " + d.desc;
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 6 · TIA Warning Window ---------- */
+  function initTIAWarn() {
+    var root = document.querySelector("[data-tiawarn]");
+    if (!root) return;
+    var result = root.querySelector("#tiawResult");
+    var steps = [root.querySelector("#tiawS1"), root.querySelector("#tiawS2"), root.querySelector("#tiawS3")];
+    function animateSteps() {
+      var i = 0;
+      var t = setInterval(function () {
+        i++;
+        if (steps[i]) steps[i].classList.add("active");
+        if (i >= 2) clearInterval(t);
+      }, 500);
+    }
+    animateSteps();
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-tiaw]");
+      if (!btn || !result) return;
+      var choice = btn.getAttribute("data-tiaw");
+      if (choice === "ignore") {
+        result.innerHTML = "<div style='padding:12px;border-radius:8px;background:var(--hi-soft);color:var(--hi);font-size:13.5px;'>" +
+          "🚨 <b>위험한 선택입니다.</b> 증상이 사라져도 TIA 후 stroke 위험은 사라지지 않습니다. " +
+          "원인평가와 예방치료 없이 집에서 기다리면 <b>수 시간~수일 내 stroke</b>가 발생할 수 있습니다." +
+          "</div>";
+      } else {
+        result.innerHTML = "<div style='padding:12px;border-radius:8px;background:var(--ok-soft,#dcf5f1);color:#0a6b5e;font-size:13.5px;'>" +
+          "✅ <b>올바른 선택입니다.</b> 응급 평가로: brain imaging, vascular imaging, AF 검사, " +
+          "vascular risk factor 평가. 원인을 빨리 찾아 <b>재발예방 치료를 시작</b>하는 것이 목표입니다." +
+          "</div>";
+      }
+    });
+  }
+
+  /* ---------- Viz 7 · Stroke Imaging Stack ---------- */
+  var SI_DATA = [
+    {
+      label: "Non-contrast CT",
+      question: "Bleeding?",
+      detail: "<b>Non-contrast CT — 가장 먼저 시행</b><br>" +
+        "핵심 목적: <b>intracranial hemorrhage 여부 빠르게 확인</b>.<br>" +
+        "정상 CT ≠ stroke 없음. 초기 ischemic lesion은 CT에서 명확하지 않을 수 있습니다.<br>" +
+        "하지만 출혈은 CT에서 잘 보입니다 → thrombolysis 가능 여부 결정의 첫 단계."
+    },
+    {
+      label: "CT Angiography (CTA)",
+      question: "Large vessel occlusion?",
+      detail: "<b>CT Angiography — 혈관을 본다</b><br>" +
+        "핵심 목적: <b>Large vessel occlusion(LVO) 확인</b>.<br>" +
+        "ICA·proximal MCA·basilar artery 등이 막혔는지 평가.<br>" +
+        "LVO 확인 → mechanical thrombectomy eligibility 평가의 핵심 단계."
+    },
+    {
+      label: "MRI DWI / Perfusion Imaging",
+      question: "Salvageable tissue?",
+      detail: "<b>MRI / Perfusion imaging — 조직을 본다</b><br>" +
+        "DWI(Diffusion-weighted imaging): acute ischemic lesion 고감도 발견.<br>" +
+        "Perfusion imaging: 이미 죽은 core vs 아직 살릴 penumbra 구분.<br>" +
+        "DWI-FLAIR mismatch: wake-up stroke에서 치료 가능 시간창 판단에 활용 (2026 guideline)."
+    }
+  ];
+  function initStrokeImaging() {
+    var root = document.querySelector("[data-strokeimaging]");
+    if (!root) return;
+    var detail = root.querySelector("#siDetail");
+    root.querySelectorAll(".si__step").forEach(function (step) {
+      step.addEventListener("click", function () {
+        root.querySelectorAll(".si__step").forEach(function (s) { s.classList.remove("open"); });
+        step.classList.add("open");
+        var idx = parseInt(step.getAttribute("data-si"), 10);
+        var d = SI_DATA[idx];
+        if (detail && d) detail.innerHTML = d.detail;
+      });
+    });
+  }
+
+  /* ---------- Viz 8 · Thrombolysis Window ---------- */
+  function initThromboWin() {
+    var root = document.querySelector("[data-thrombowin]");
+    if (!root) return;
+    var detail = root.querySelector("#twDetail");
+    var segs = root.querySelectorAll(".tw__seg");
+    segs.forEach(function (seg) {
+      seg.addEventListener("click", function () {
+        segs.forEach(function (s) { s.classList.remove("active"); });
+        seg.classList.add("active");
+        if (detail) {
+          if (seg.classList.contains("early")) {
+            detail.innerHTML = "<b>0–4.5시간 (일반적 치료창)</b><br>" +
+              "Alteplase 또는 tenecteplase를 eligible patient에서 사용. " +
+              "빠를수록 좋습니다 — \"Time is Brain.\"<br>" +
+              "<span style='color:var(--ink-faint);font-size:12.5px;'>금기 평가 필수: BP·imaging·anticoagulant·bleeding risk 등.</span>";
+          } else {
+            detail.innerHTML = "<b>4.5–9시간 / Wake-up stroke</b><br>" +
+              "모든 환자가 대상은 아닙니다. <b>Advanced imaging</b>(DWI-FLAIR mismatch, perfusion imaging)으로 " +
+              "salvageable tissue가 있는 선택된 환자에서 고려 가능 (2026 AHA/ASA).<br>" +
+              "<span style='color:var(--ink-faint);font-size:12.5px;'>'시간만으로 결정하지 않고 imaging과 함께 본다'는 패러다임 전환.</span>";
+          }
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 9 · Reperfusion Comparison ---------- */
+  function initReperfComp() {
+    /* static display only — no interaction needed beyond CSS */
+  }
+
+  /* ---------- Viz 10 · Opposite Stroke Treatments ---------- */
+  function initStrokeOpp() {
+    /* static display only */
+  }
+
+  /* ---------- Viz 11 · Stroke Cause → Treatment ---------- */
+  var SC_DATA = {
+    athero: {
+      label: "Large Artery Atherosclerosis",
+      color: "var(--brand)",
+      result: "Antiplatelet + Statin",
+      detail: "<b>Antiplatelet</b> (aspirin ± clopidogrel) + <b>Statin</b>으로 LDL 적극 조절.<br>" +
+        "고혈압·당뇨 등 위험요인 관리. 경동맥 협착이 심한 경우 CEA 또는 stenting 평가."
+    },
+    af: {
+      label: "Atrial Fibrillation",
+      color: "var(--hi)",
+      result: "Anticoagulant (DOAC 우선)",
+      detail: "<b>Anticoagulation</b> — apixaban·rivaroxaban·edoxaban·dabigatran 등 DOAC 우선, 특정 경우 warfarin.<br>" +
+        "AF stroke는 fibrin-rich cardioembolic clot → platelet만 억제하는 aspirin으로는 충분하지 않습니다."
+    },
+    small: {
+      label: "Small Vessel / Lacunar",
+      color: "#8b5cf6",
+      result: "Antiplatelet + Risk factor control",
+      detail: "<b>Antiplatelet</b> + <b>혈압·혈당 철저 관리</b>.<br>" +
+        "Small vessel stroke는 주로 penetrating artery 손상 → antihypertensive therapy가 재발예방의 핵심."
+    },
+    unclear: {
+      label: "원인 불명 (Cryptogenic)",
+      color: "#f5a623",
+      result: "추가 검사 + 잠정적 항혈소판",
+      detail: "<b>원인 추가 평가</b>: 장기 심전도 모니터링(숨겨진 AF), 혈액 검사(thrombophilia), 심장 초음파(PFO 등).<br>" +
+        "원인을 찾을 때까지 잠정적으로 antiplatelet 사용이 일반적."
+    }
+  };
+  function initStrokeCause() {
+    var root = document.querySelector("[data-strokecause]");
+    if (!root) return;
+    var result = root.querySelector("#scResult");
+    root.querySelectorAll("[data-sc]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll("[data-sc]").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-sc");
+        var d = SC_DATA[key];
+        if (result && d) {
+          result.innerHTML = "<div style='font-size:13px;color:var(--ink-faint);margin-bottom:4px;'>원인: " + d.label + "</div>" +
+            "<div style='font-weight:700;font-size:16px;color:" + d.color + ";margin-bottom:8px;'>→ " + d.result + "</div>" +
+            d.detail;
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 12 · Stroke Drug Map ---------- */
+  var SDM_DRUGS = {
+    statin:   { nodes: ["athero", "plaque"], desc: "<b>Statin (HMG-CoA reductase 억제)</b><br>LDL↓ → atherosclerosis 진행 억제 → plaque 형성·불안정화 위험 감소. Atherosclerotic stroke secondary prevention의 핵심." },
+    antihtn:  { nodes: ["athero"], desc: "<b>Antihypertensive (혈압강하제)</b><br>고혈압 → atherosclerosis 촉진 + ICH 위험↑. 혈압 조절은 ischemic/hemorrhagic stroke 모두에서 중요한 재발예방 요소." },
+    aspirin:  { nodes: ["platelet"], desc: "<b>Aspirin (COX-1 억제 → TXA₂↓)</b><br>Platelet aggregation 억제 → 동맥 혈전 예방. Non-cardioembolic ischemic stroke 재발예방. AF stroke에는 단독으로 충분하지 않음." },
+    clopi:    { nodes: ["platelet"], desc: "<b>Clopidogrel (P2Y12 억제)</b><br>ADP-mediated platelet activation 억제. Aspirin과 함께 DAPT로 사용하거나 단독 사용. Non-cardioembolic stroke 재발예방." },
+    doac:     { nodes: ["af"], desc: "<b>DOAC / Warfarin (항응고제)</b><br>Coagulation cascade 억제 → AF에서 형성되는 fibrin-rich atrial thrombus 예방. AF-related cardioembolic stroke의 핵심 재발예방 전략." },
+    tpa:      { nodes: ["clot"], desc: "<b>Alteplase / Tenecteplase (tPA 계열)</b><br>Plasminogen → plasmin → fibrin 분해 → thrombus dissolution. 이미 형성된 acute clot을 녹이는 것 — anticoagulant와 기전이 다릅니다." }
+  };
+  function initStrokeDrugMap() {
+    var root = document.querySelector("[data-strokedrugmap]");
+    if (!root) return;
+    var desc = root.querySelector("#sdmDesc");
+    root.querySelectorAll(".sdm__drug-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".sdm__drug-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-sdm-drug");
+        var d = SDM_DRUGS[key];
+        if (!d) return;
+        root.querySelectorAll(".sdm__node").forEach(function (node) {
+          var nk = node.getAttribute("data-sdm-node");
+          node.classList.toggle("targeted", d.nodes.indexOf(nk) > -1);
+        });
+        if (desc) desc.innerHTML = d.desc;
+      });
+    });
+  }
+
+  /* ---------- Viz 13 · Stroke Emergency Simulator ---------- */
+  function initStrokeSim() {
+    var root = document.querySelector("[data-strokesim]");
+    if (!root) return;
+    var state = { onset: null, ct: null, cta: null };
+    var riskEl = root.querySelector(".hypo__risk");
+    var expEl = root.querySelector(".hypo__exp");
+
+    function update() {
+      if (!state.onset || !state.ct || !state.cta) return;
+      var risk, exp;
+      if (state.ct === "bleed") {
+        risk = "출혈성 뇌졸중 (Hemorrhagic Stroke)";
+        exp = "Thrombolysis 금기. BP management · anticoagulant reversal (해당 시) · neurosurgical 평가가 중심 치료입니다.";
+        if (riskEl) riskEl.className = "hypo__risk danger";
+      } else if (state.cta === "lvo") {
+        if (state.onset === "early") {
+          risk = "Ischemic + LVO (초기)";
+          exp = "IV thrombolysis (4.5시간 이내) + mechanical thrombectomy 모두 빠르게 평가. 가능하다면 두 치료를 연속 시행합니다.";
+        } else if (state.onset === "late") {
+          risk = "Ischemic + LVO (늦은 시간창)";
+          exp = "IV thrombolysis는 시간창 초과 가능성 — advanced imaging 평가 필요. LVO → thrombectomy는 imaging으로 salvageable tissue 확인 후 늦은 시간까지 가능.";
+        } else {
+          risk = "Ischemic + LVO (Wake-up stroke)";
+          exp = "Wake-up stroke + LVO: DWI-FLAIR mismatch 또는 perfusion imaging으로 tissue time 평가. 선택된 환자에서 IV thrombolysis 및/또는 thrombectomy 고려.";
+        }
+        if (riskEl) riskEl.className = "hypo__risk hi";
+      } else {
+        if (state.onset === "early") {
+          risk = "Ischemic Stroke (초기, LVO 없음)";
+          exp = "4.5시간 이내 + LVO 없음: IV thrombolysis evaluation. Thrombectomy는 LVO가 없으면 일반적으로 해당 없음.";
+        } else if (state.onset === "late") {
+          risk = "Ischemic Stroke (늦은 시간창, LVO 없음)";
+          exp = "4.5시간 초과 + LVO 없음: IV thrombolysis는 advanced imaging으로 일부 선택된 환자에서 가능. 원인평가와 재발예방 치료 시작.";
+        } else {
+          risk = "Ischemic Stroke (Wake-up, LVO 없음)";
+          exp = "Wake-up stroke + LVO 없음: DWI-FLAIR mismatch 또는 perfusion imaging으로 치료 가능 여부 평가. 원인평가 병행.";
+        }
+        if (riskEl) riskEl.className = "hypo__risk mid";
+      }
+      if (riskEl) riskEl.textContent = risk;
+      if (expEl) expEl.textContent = exp;
+    }
+
+    root.querySelectorAll(".hypo__opts").forEach(function (group) {
+      group.querySelectorAll("button").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          group.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+          btn.classList.add("active");
+          var g = group.getAttribute("data-group");
+          state[g] = btn.getAttribute("data-val");
+          update();
+        });
+      });
+    });
+  }
+
+
+  /* ===========  Everyday 03 · 급성 장염 인터랙션  =========== */
+
+  /* ---------- Viz 1 · Fluid Loss ---------- */
+  function initFluidLoss() {
+    var wrap = document.querySelector("[data-fluidloss]");
+    if (!wrap) return;
+    var WaterBar = document.getElementById("flsWater");
+    var NaBar = document.getElementById("flsNa");
+    var KBar = document.getElementById("flsK");
+    var RiskBar = document.getElementById("flsRisk");
+    var RiskLabel = document.getElementById("flsRiskLabel");
+    var Msg = document.getElementById("flsMsg");
+    var data = {
+      0: { w: 5, na: 4, k: 3, risk: 5, risk_lv: "🟢 낮음", risk_col: "#12a594", msg: "기준 상태 — 아직 수분 손실이 없습니다." },
+      3: { w: 30, na: 25, k: 20, risk: 25, risk_lv: "🟡 경도", risk_col: "#f59e0b", msg: "설사 3회 — 경도 탈수 가능성. ORS로 조금씩 자주 수분 보충을 권고합니다." },
+      6: { w: 60, na: 55, k: 48, risk: 55, risk_lv: "🟡 중등도", risk_col: "#f97316", msg: "설사 6회 — 중등도 탈수 가능성. ORS가 중요합니다. 탈수 징후(갈증·소변 감소)를 확인합니다." },
+      10: { w: 90, na: 85, k: 78, risk: 88, risk_lv: "🔴 심한 탈수 주의", risk_col: "#ef4444", msg: "설사 10회 + 구토 — 심한 탈수 위험. 구토로 수분 섭취도 어려울 수 있습니다. 의료기관 평가가 필요할 수 있습니다." }
+    };
+    function setBar(el, pct, col) {
+      if (!el) return;
+      el.style.width = pct + "%";
+      if (col) el.style.background = col;
+    }
+    function render(n) {
+      var d = data[n] || data[0];
+      setBar(WaterBar, d.w, "#2196f3");
+      setBar(NaBar, d.na, "#ff9800");
+      setBar(KBar, d.k, "#9c27b0");
+      setBar(RiskBar, d.risk, d.risk_col);
+      if (RiskLabel) RiskLabel.textContent = d.risk_lv;
+      if (Msg) Msg.textContent = d.msg;
+    }
+    render(0);
+    wrap.querySelectorAll("[data-fls]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-fls]").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        render(Number(btn.getAttribute("data-fls")));
+      });
+    });
+  }
+
+  /* ---------- Viz 2 · Watery vs Inflammatory ---------- */
+  function initWateryVsInflam() {
+    var wrap = document.querySelector("[data-wateryvsflam]");
+    if (!wrap) return;
+    var chips = wrap.querySelectorAll(".wvi__chip");
+    var wateryZone = document.getElementById("wviWateryZone");
+    var inflamZone = document.getElementById("wviInflamZone");
+    var result = document.getElementById("wviResult");
+    var scored = { watery: [], inflam: [] };
+    var total = chips.length;
+    var answered = 0;
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        if (chip.classList.contains("done")) return;
+        var ans = chip.getAttribute("data-wvi-ans");
+        var label = chip.getAttribute("data-label");
+        chip.classList.add("done");
+        answered++;
+        if (ans === "watery") {
+          chip.classList.add("wvi__chip--watery");
+          scored.watery.push(label);
+          if (wateryZone) wateryZone.textContent = scored.watery.join(" · ");
+        } else {
+          chip.classList.add("wvi__chip--inflam");
+          scored.inflam.push(label);
+          if (inflamZone) inflamZone.textContent = scored.inflam.join(" · ");
+        }
+        if (answered === total && result) {
+          result.innerHTML = "✅ 완료! Watery: " + scored.watery.join(", ") + " | Inflammatory: " + scored.inflam.join(", ");
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · Norovirus Transmission ---------- */
+  function initNoroTransmission() {
+    var wrap = document.querySelector("[data-norotransmission]");
+    if (!wrap) return;
+    var desc = document.getElementById("nrtDesc");
+    var info = {
+      fomite: "<b>오염된 표면·문손잡이</b><br>예방: 화장실·접촉면 정기 소독(차아염소산나트륨 등), 손씻기 후 표면 만지기.",
+      stool: "<b>대변 → 손</b><br>예방: 화장실 이용 후 비누와 물로 최소 20초 손씻기. 손소독제만으로는 부족합니다.",
+      food: "<b>손 → 음식 조리</b><br>예방: 증상 회복 후 최소 48시간 음식 조리 금지. 조리 전 손씻기.  <b>(CDC 권고)</b>",
+      water: "<b>오염된 음식·물 섭취</b><br>예방: 안전한 식수, 특히 굴 등 이매패류는 잘 익혀 먹기."
+    };
+    wrap.querySelectorAll("[data-nrt]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-nrt]").forEach(function (e) { e.classList.remove("active"); });
+        el.classList.add("active");
+        var key = el.getAttribute("data-nrt");
+        if (desc) desc.innerHTML = info[key] || "";
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · Hydration Gauge ---------- */
+  function initHydrationGauge() {
+    var wrap = document.querySelector("[data-hydrationgauge]");
+    if (!wrap) return;
+    var bar = document.getElementById("hygBar");
+    var levelLabel = document.getElementById("hygLevelLabel");
+    var msg = document.getElementById("hygMsg");
+    var score = 0;
+    var added = {};
+    function update() {
+      var pct = Math.min(score, 100);
+      if (bar) bar.style.height = pct + "%";
+      var lv, col, text;
+      if (pct < 30) { lv = "🟢 Hydrated"; col = "#12a594"; text = "탈수 징후 없음. 일반적인 수분 보충으로 충분합니다."; }
+      else if (pct < 60) { lv = "🟡 Mild Dehydration"; col = "#f59e0b"; text = "경도 탈수 가능성. ORS를 조금씩 자주 마십니다."; }
+      else if (pct < 85) { lv = "🟠 Moderate Dehydration"; col = "#f97316"; text = "중등도 탈수. ORS 적극 섭취. 개선 없으면 진료를 권고합니다."; }
+      else { lv = "🔴 Severe Dehydration"; col = "#ef4444"; text = "심한 탈수 — 신속한 의료 평가가 필요합니다."; }
+      if (bar) bar.style.background = col;
+      if (levelLabel) levelLabel.textContent = lv;
+      if (msg) msg.textContent = text;
+    }
+    wrap.querySelectorAll(".hyg__sym").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-hyg");
+        if (key === "reset") {
+          score = 0; added = {};
+          wrap.querySelectorAll(".hyg__sym").forEach(function (b) { b.classList.remove("selected"); });
+          update(); return;
+        }
+        if (added[key]) return;
+        added[key] = true;
+        score += Number(btn.getAttribute("data-score") || 0);
+        btn.classList.add("selected");
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 5 · ORS Mechanism (SGLT1) ---------- */
+  function initORSMechanism() {
+    var wrap = document.querySelector("[data-orsmechanism]");
+    if (!wrap) return;
+    var msg = document.getElementById("orsMsg");
+    var steps = [
+      "Na⁺와 Glucose가 장관 내에 존재합니다.",
+      "SGLT1이 Na⁺와 Glucose를 인식해서 함께 세포 안으로 운반합니다.",
+      "Na⁺가 세포 안으로 들어가면 삼투압 차이로 물이 따라 흡수됩니다.",
+      "결과: Glucose + Na⁺ → Water follows. 설사 중에도 SGLT1은 기능을 유지하므로 이 경로가 ORS 치료의 근거입니다."
+    ];
+    var step = 0;
+    wrap.querySelectorAll("[data-ors]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var act = btn.getAttribute("data-ors");
+        if (act === "reset") { step = 0; if (msg) msg.textContent = steps[0]; return; }
+        if (act === "demo") {
+          step = (step + 1) % steps.length;
+          if (msg) msg.textContent = steps[step];
+        }
+      });
+    });
+    if (msg) msg.textContent = steps[0];
+  }
+
+  /* ---------- Viz 6 · Traffic Light ---------- */
+  function initTrafficLight() {
+    var wrap = document.querySelector("[data-trafficlight]");
+    if (!wrap) return;
+    wrap.querySelectorAll(".tfl__level").forEach(function (level) {
+      level.addEventListener("click", function () {
+        wrap.querySelectorAll(".tfl__level").forEach(function (l) { l.classList.remove("expanded"); });
+        level.classList.toggle("expanded");
+      });
+    });
+  }
+
+  /* ---------- Loperamide Check ---------- */
+  function initLopeCheck() {
+    var wrap = document.querySelector("[data-lopecheck]");
+    if (!wrap) return;
+    var result = document.getElementById("lpcResult");
+    var data = {
+      a: { cls: "ok", html: "✅ <b>Patient A — 고려 가능</b><br>건강한 성인의 물설사, 발열·혈변 없음. 단순 물설사에서 loperamide를 고려할 수 있습니다. ORS 병행 권고." },
+      b: { cls: "danger", html: "❌ <b>Patient B — 피하세요</b><br>발열 39℃ + 혈변 + 복부경련 → 염증성 설사 가능성. Loperamide는 이 상황에서 권고되지 않습니다. <b>의료기관 평가 필요.</b> (IDSA)" },
+      c: { cls: "danger", html: "❌ <b>Patient C — 소아에게 권하지 않음</b><br>소아의 급성 설사에서 loperamide는 IDSA가 권고하지 않습니다. ORS가 핵심입니다." }
+    };
+    wrap.querySelectorAll("[data-lpc]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-lpc]").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-lpc");
+        var d = data[key];
+        if (result && d) {
+          result.innerHTML = d.html;
+          result.style.background = d.cls === "ok" ? "var(--ok-soft,#d1fae5)" : "var(--hi-soft,#fee2e2)";
+          result.style.borderLeft = d.cls === "ok" ? "4px solid var(--ok-color,#12a594)" : "4px solid var(--hi,#ef4444)";
+        }
+      });
+    });
+  }
+
+  /* ===========  Core 12 · GERD 인터랙션  =========== */
+
+  function initAntiRefluxBarrier() {
+    var root = document.querySelector("[data-antirefluxbarrier]");
+    if (!root) return;
+    var lesLabel = root.querySelector("#arbLESLabel");
+    var msg = root.querySelector("#arbMsg");
+    var FACTORS = [
+      { el: root.querySelector("#arbF1"), bar: null },
+      { el: root.querySelector("#arbF2"), bar: null },
+      { el: root.querySelector("#arbF3"), bar: null },
+      { el: root.querySelector("#arbF4"), bar: null },
+      { el: root.querySelector("#arbF5"), bar: null }
+    ];
+    FACTORS.forEach(function (f) {
+      if (f.el) f.bar = f.el.querySelector(".arb__fbar-fill");
+    });
+
+    function setState(vals, msgText, lesText) {
+      FACTORS.forEach(function (f, i) {
+        if (f.bar) f.bar.style.width = vals[i] + "%";
+      });
+      if (lesLabel) lesLabel.textContent = lesText || "LES ●CLOSED";
+      if (msg) msg.innerHTML = msgText;
+    }
+
+    root.querySelectorAll("[data-arb]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var mode = btn.getAttribute("data-arb");
+        if (mode === "normal") {
+          setState([100,100,100,100,100], "정상 상태 — LES·횡격막·연동운동·타액·중력 모두 작동 중입니다.", "LES ●CLOSED");
+        } else if (mode === "swallow") {
+          setState([60,100,100,100,100], "<b>삼키기 발생</b> — LES가 일시적으로 이완됩니다. 음식이 내려간 후 다시 닫힙니다. 이것은 정상입니다. 삼키지 않았는데도 일어나는 TLESR이 문제입니다.", "LES ◐OPEN");
+        } else if (mode === "liedown") {
+          setState([100,100,70,80,20], "<b>누운 자세</b> — Gravity 효과가 크게 감소합니다. Esophageal clearance도 감소합니다. 야간 수면 중 acid exposure가 증가하는 이유입니다.", "LES ●CLOSED");
+        } else if (mode === "sleep") {
+          setState([100,100,40,30,20], "<b>수면 중</b> — Swallowing↓ + Saliva↓ + Gravity 감소. Esophageal clearance가 가장 낮은 상태입니다. 야간 역류가 장기적으로 식도에 더 큰 손상을 줄 수 있습니다.", "LES ●CLOSED");
+        } else {
+          setState([100,100,100,100,100], "정상 상태 — LES·횡격막·연동운동·타액·중력 모두 작동 중입니다.", "LES ●CLOSED");
+        }
+      });
+    });
+  }
+
+  function initRefluxMechanism() {
+    var root = document.querySelector("[data-refluxmechanism]");
+    if (!root) return;
+    var freqBar = root.querySelector("#rfmFreqBar");
+    var barrierBar = root.querySelector("#rfmBarrierBar");
+    var msg = root.querySelector("#rfmMsg");
+    var lesEl = root.querySelector("#rfmLES");
+    var diaphEl = root.querySelector("#rfmDiaphragm");
+    var stomachEl = root.querySelector("#rfmStomach");
+
+    function setState(freq, barrier, msgText, lesStyle, diaphStyle, stomachStyle) {
+      if (freqBar) { freqBar.style.width = freq + "%"; freqBar.style.background = freq > 60 ? "var(--hi)" : freq > 35 ? "#ff9800" : "var(--ok-color,#12a594)"; }
+      if (barrierBar) barrierBar.style.width = barrier + "%";
+      if (msg) msg.innerHTML = msgText;
+      if (lesEl) lesEl.style.cssText = lesStyle || "";
+      if (diaphEl) diaphEl.style.cssText = diaphStyle || "";
+      if (stomachEl) stomachEl.style.cssText = stomachStyle || "";
+    }
+
+    root.querySelectorAll("[data-rfm]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var mode = btn.getAttribute("data-rfm");
+        if (mode === "tlesr") {
+          setState(70, 50, "<b>TLESR 발생</b> — 삼키지 않았는데 LES가 일시적으로 이완됩니다. GERD에서 가장 중요한 기전입니다. 위 내용물이 식도로 올라올 기회가 생깁니다.", "border-color:var(--hi);background:var(--hi-soft);", "", "");
+        } else if (mode === "meal") {
+          setState(65, 60, "<b>과식</b> — 위 팽창 → TLESR 빈도 증가 → 역류 가능성↑. 특히 식후 눕는 것이 더 위험합니다.", "", "", "transform:scale(1.12);background:rgba(229,72,77,.15);");
+        } else if (mode === "obesity") {
+          setState(75, 55, "<b>비만/복압 증가</b> — Intra-abdominal pressure↑ → stomach→esophagus 방향 압력 증가 → 역류↑. 체중감량이 GERD 개선에 효과적인 이유입니다.", "", "", "");
+        } else if (mode === "hiatal") {
+          setState(80, 30, "<b>Hiatal Hernia</b> — 위 일부가 횡격막 위로 올라가면서 LES와 diaphragmatic pinch가 분리됩니다. Anti-reflux barrier가 크게 약화됩니다.", "", "border-color:var(--hi);background:var(--hi-soft);", "margin-top:-10px;");
+        } else {
+          setState(20, 90, "정상 상태입니다.", "", "", "");
+        }
+      });
+    });
+    setState(20, 90, "정상 상태입니다.", "", "", "");
+  }
+
+  function initRefluxVsAcidity() {
+    var root = document.querySelector("[data-refluxvsacidity]");
+    if (!root) return;
+    var particles = root.querySelector("#rvaParticles");
+    var count = root.querySelector("#rvaCount");
+    var phFill = root.querySelector("#rvaPhFill");
+    var phText = root.querySelector("#rvaPhText");
+    var heartburn = root.querySelector("#rvaHeartburn");
+    var regurg = root.querySelector("#rvaRegurg");
+    var msg = root.querySelector("#rvaMsg");
+
+    function buildParticles(n, color) {
+      if (!particles) return;
+      particles.innerHTML = "";
+      for (var i = 0; i < n; i++) {
+        var d = document.createElement("div");
+        d.className = "rva__particle";
+        d.style.background = color;
+        particles.appendChild(d);
+      }
+    }
+
+    function setState(ppiOn) {
+      if (ppiOn) {
+        buildParticles(7, "#ff9800");
+        if (count) count.textContent = "6–8회/일";
+        if (phFill) { phFill.style.height = "30%"; phFill.style.background = "#ff9800"; }
+        if (phText) phText.textContent = "pH 4–5";
+        if (heartburn) { heartburn.style.opacity = ".3"; heartburn.style.textDecoration = "line-through"; }
+        if (regurg) regurg.style.opacity = "1";
+        if (msg) msg.innerHTML = "<b style='color:var(--brand)'>PPI 복용 중</b> — 역류 횟수는 크게 변하지 않았지만 역류물의 산도가 크게 낮아졌습니다.<br>Heartburn 감소 ↓. <b>Regurgitation은 여전히 남을 수 있습니다</b>.";
+      } else {
+        buildParticles(8, "var(--hi)");
+        if (count) count.textContent = "8회/일";
+        if (phFill) { phFill.style.height = "80%"; phFill.style.background = "var(--hi)"; }
+        if (phText) phText.textContent = "pH 1–2";
+        if (heartburn) { heartburn.style.opacity = "1"; heartburn.style.textDecoration = ""; }
+        if (regurg) regurg.style.opacity = "1";
+        if (msg) msg.textContent = "PPI 없는 상태 — 역류 횟수와 산도 모두 높습니다.";
+      }
+    }
+
+    root.querySelectorAll("[data-rva]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setState(btn.getAttribute("data-rva") === "ppi");
+      });
+    });
+    setState(false);
+  }
+
+  var GERD_PHENOTYPES = {
+    "erosion-high-pos": { name: "Erosive GERD (LA A–D)", color: "var(--hi)", more: "내시경 미란 + 비정상 acid exposure. PPI/P-CAB이 핵심치료. LA C/D = severe erosive esophagitis로 장기 유지치료 필요성이 큼. Barrett 위험 평가도 고려." },
+    "erosion-high-neg": { name: "Erosive GERD", color: "var(--hi)", more: "내시경 미란 + 비정상 acid exposure. Reflux-symptom association이 뚜렷하지 않아도 미란이 있으면 치료 대상입니다." },
+    "erosion-normal-pos": { name: "Erosive GERD (atypical acid pattern)", color: "var(--hi)", more: "미란이 있으므로 GERD. Acid exposure가 정상으로 나온 것은 검사 조건이나 day-to-day variability 때문일 수 있습니다." },
+    "erosion-normal-neg": { name: "Erosive GERD (evaluate further)", color: "var(--hi)", more: "미란이 있으므로 GERD 치료 대상. 산 노출이 정상이고 증상 연관도 없다면 EoE 등 다른 원인도 평가합니다." },
+    "normal-high-pos": { name: "NERD (Non-erosive Reflux Disease)", color: "var(--brand)", more: "내시경 정상 + 비정상 acid + symptom association (+). 전형적 NERD. PPI/P-CAB 치료 대상. Erosive보다 PPI response가 덜 일정할 수 있음." },
+    "normal-high-neg": { name: "NERD (증상 연관 불명확)", color: "var(--brand)", more: "내시경 정상 + acid ↑ + association (−). GERD 자체는 있지만 증상이 reflux와 연관되지 않을 수 있음. PPI trial 후 재평가." },
+    "normal-normal-pos": { name: "Reflux Hypersensitivity", color: "#ff9800", more: "내시경 정상 + acid 정상 + symptom association (+). 정상 범위의 역류에 식도가 과민하게 반응. PPI만으로 충분하지 않을 수 있으며 neuromodulator 등 다른 접근 필요." },
+    "normal-normal-neg": { name: "Functional Heartburn", color: "var(--ink-soft)", more: "내시경 정상 + acid 정상 + symptom association (−). 역류와 무관한 기능성 식도 질환. PPI 증량보다 진단 재평가가 중요. 로마 기준 IV의 functional esophageal disorder." }
+  };
+
+  function initGERDPhenotype() {
+    var root = document.querySelector("[data-gerdphenotype]");
+    if (!root) return;
+    var state = { endo: null, acid: null, assoc: null };
+    var resultEl = root.querySelector("#gptResult");
+
+    root.querySelectorAll(".gpt__sw").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var key = btn.getAttribute("data-gpt-key");
+        root.querySelectorAll("[data-gpt-key='" + key + "']").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        state[key] = btn.getAttribute("data-gpt-val");
+        if (state.endo && state.acid && state.assoc) {
+          var key2 = state.endo + "-" + state.acid + "-" + state.assoc;
+          var d = GERD_PHENOTYPES[key2];
+          if (d && resultEl) {
+            resultEl.innerHTML = "<div style='font-size:16px;font-weight:800;color:" + d.color + ";margin-bottom:8px;'>" + d.name + "</div>" + d.more;
+          }
+        }
+      });
+    });
+  }
+
+  function initGERDPhenotype2() {
+    var root = document.querySelector("[data-gerdphenotype2]");
+    if (!root) return;
+    var resultEl = root.querySelector("#gpt2Result");
+    var CASES = {
+      a: { key: "erosion-high-pos", title: "Patient A" },
+      b: { key: "normal-high-pos", title: "Patient B" },
+      c: { key: "normal-normal-pos", title: "Patient C" },
+      d: { key: "normal-normal-neg", title: "Patient D" }
+    };
+    root.querySelectorAll(".gpt2__pt").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".gpt2__pt").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var c = CASES[btn.getAttribute("data-gpt2")];
+        var d = GERD_PHENOTYPES[c.key];
+        if (d && resultEl) {
+          resultEl.innerHTML = "<b>" + c.title + "</b>: <span style='font-weight:700;color:" + d.color + ";'>" + d.name + "</span><br><br>" + d.more;
+        }
+      });
+    });
+  }
+
+  function init24hMonitor() {
+    var root = document.querySelector("[data-24hmonitor]");
+    if (!root) return;
+    var canvas = root.querySelector("#phmCanvas");
+    var eventsEl = root.querySelector("#phmEvents");
+    var msg = root.querySelector("#phmMsg");
+    var events = [];
+    var hour = 7;
+
+    function redraw() {
+      if (!canvas) return;
+      var ctx = canvas.getContext("2d");
+      var W = canvas.offsetWidth || 320;
+      var H = 80;
+      canvas.width = W;
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "var(--surface-2, #f5f5f5)";
+      ctx.fillRect(0, 0, W, H);
+      // pH baseline
+      ctx.strokeStyle = "#aaa";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(0, H * 0.3);
+      ctx.lineTo(W, H * 0.3);
+      ctx.stroke();
+      ctx.fillStyle = "#aaa";
+      ctx.font = "10px sans-serif";
+      ctx.fillText("pH 4", 2, H * 0.3 - 2);
+      ctx.fillText("pH 2", 2, H * 0.85);
+      // draw events as pH drops
+      events.forEach(function (ev) {
+        var x = (ev.h / 24) * W;
+        if (ev.type === "meal") {
+          ctx.fillStyle = "#66bb6a";
+          ctx.fillRect(x - 2, 0, 4, H);
+          ctx.fillStyle = "#2e7d32";
+          ctx.font = "12px sans-serif";
+          ctx.fillText("🍚", x - 6, 15);
+        } else if (ev.type === "sleep") {
+          ctx.fillStyle = "rgba(100,100,200,.2)";
+          ctx.fillRect(x, 0, W * 0.3, H);
+          ctx.fillStyle = "#666";
+          ctx.font = "10px sans-serif";
+          ctx.fillText("💤", x + 2, 14);
+        } else if (ev.type === "symptom") {
+          ctx.fillStyle = "var(--hi, #e5484d)";
+          ctx.beginPath();
+          ctx.moveTo(x - 4, H * 0.3 + 5);
+          ctx.lineTo(x, H * 0.85);
+          ctx.lineTo(x + 4, H * 0.3 + 5);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillStyle = "#e5484d";
+          ctx.font = "12px sans-serif";
+          ctx.fillText("🔥", x - 5, H - 4);
+        }
+      });
+    }
+
+    root.querySelectorAll("[data-phm]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var t = btn.getAttribute("data-phm");
+        if (t === "reset") { events = []; hour = 7; if (eventsEl) eventsEl.innerHTML = ""; if (msg) msg.textContent = "이벤트를 추가하면 24시간 pH 그래프가 업데이트됩니다."; redraw(); return; }
+        events.push({ type: t, h: hour });
+        hour = Math.min(hour + 2 + Math.floor(Math.random() * 2), 23);
+        var labels = { meal: "🍚 식사", sleep: "🛏️ 취침", symptom: "🔥 증상" };
+        if (eventsEl) { var tag = document.createElement("span"); tag.style.cssText = "font-size:12px;padding:3px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);"; tag.textContent = labels[t]; eventsEl.appendChild(tag); }
+        redraw();
+        if (msg) {
+          var symCount = events.filter(function (e) { return e.type === "symptom"; }).length;
+          var refluxCount = events.filter(function (e) { return e.type === "meal"; }).length;
+          if (symCount > 0 && refluxCount > 0) msg.innerHTML = "증상 발생 시점과 식사 후 pH 저하 시점이 겹칩니다 — <b>Symptom-reflux association (+)</b>. 이것이 GERD 확인의 핵심입니다.";
+          else msg.textContent = "더 많은 이벤트를 추가해 패턴을 확인하세요.";
+        }
+      });
+    });
+    redraw();
+  }
+
+  function initGERDComplication() {
+    var root = document.querySelector("[data-gerdcomplication]");
+    if (!root) return;
+    var steps = root.querySelectorAll(".gct__step");
+    var desc = root.querySelector("#gctDesc");
+    var GCT_TEXT = [
+      "<b>정상 식도</b> — 정상 stratified squamous epithelium. 반복 역류 없음. 위험: 기저 수준.",
+      "<b>Erosive Esophagitis</b> — 반복 acid/pepsin exposure → mucosal injury. Los Angeles grade A–D로 분류. C/D = severe.",
+      "<b>Peptic Stricture</b> — 반복 염증·healing 과정에서 fibrosis → narrowing → progressive dysphagia. PPI 장기치료로 예방 가능.",
+      "<b>Barrett Esophagus</b> — Squamous → intestinal-type columnar metaplasia. 반복 역류 injury에 대한 적응. Esophageal adenocarcinoma risk 증가와 연관. Barrett ≠ cancer.",
+      "<b>Dysplasia</b> — Low-grade / high-grade. High-grade dysplasia는 암으로 진행 위험이 높아 적극 평가 필요.",
+      "<b>Esophageal Adenocarcinoma</b> — Barrett → dysplasia → cancer의 경로. 모든 GERD 환자가 이 경로로 진행하는 것은 아닙니다."
+    ];
+    steps.forEach(function (step, i) {
+      step.addEventListener("click", function () {
+        steps.forEach(function (s) { s.classList.remove("open"); });
+        step.classList.add("open");
+        if (desc) desc.innerHTML = GCT_TEXT[i] || "";
+      });
+    });
+  }
+
+  function initTriggerTracker() {
+    var root = document.querySelector("[data-triggertacker]");
+    if (!root) return;
+    var riskBar = root.querySelector("#trkRiskBar");
+    var riskPct = root.querySelector("#trkRiskPct");
+    var trkMsg = root.querySelector("#trkMsg");
+    var state = {};
+    var IMPACTS = { bigmeal: 20, lateeat: 20, liedown: 18, obesity: 18, alcohol: 12, smoking: 10, coffee: 6, spicy: 5 };
+
+    root.querySelectorAll(".trk__item").forEach(function (item) {
+      var key = item.getAttribute("data-trk");
+      var toggle = item.querySelector(".trk__toggle");
+      state[key] = false;
+      item.addEventListener("click", function () {
+        state[key] = !state[key];
+        if (toggle) toggle.textContent = state[key] ? "ON" : "OFF";
+        item.classList.toggle("trk__item--on", state[key]);
+        var total = 0;
+        Object.keys(state).forEach(function (k) { if (state[k]) total += (IMPACTS[k] || 0); });
+        total = Math.min(total, 100);
+        if (riskBar) { riskBar.style.width = total + "%"; riskBar.style.background = total > 60 ? "var(--hi)" : total > 35 ? "#ff9800" : "var(--ok-color,#12a594)"; }
+        if (riskPct) riskPct.textContent = total < 20 ? "낮음" : total < 50 ? "중간" : "높음";
+        var on = Object.keys(state).filter(function (k) { return state[k]; });
+        if (trkMsg) {
+          if (on.length === 0) trkMsg.textContent = "모든 사람에게 동일한 trigger가 적용되지는 않습니다. 나만의 재현 가능한 trigger를 찾으세요.";
+          else {
+            var high = on.filter(function (k) { return IMPACTS[k] >= 15; });
+            trkMsg.innerHTML = "선택된 요인 " + on.length + "개. " + (high.length ? "<b>" + high.join("·") + "</b>은 역류에 영향이 큰 요인입니다." : "개인마다 다릅니다.");
+          }
+        }
+      });
+    });
+  }
+
+  function initPPITiming() {
+    var root = document.querySelector("[data-ppitiming]");
+    if (!root) return;
+    var slider = root.querySelector("#pitSlider");
+    var result = root.querySelector("#pitResult");
+    var concBar = root.querySelector("#pitConcBar");
+    var pumpBar = root.querySelector("#pitPumpBar");
+    var ppiMarker = root.querySelector("#pitPPIMarker");
+
+    var TIMING = [
+      { label: "식사 90분 전", left: "5%", concLeft: "5%", concW: "30%", pumpLeft: "40%", verdict: "ok", msg: "식사 90분 전 복용: 혈중 농도가 식사 타이밍보다 훨씬 앞서 peak에 도달합니다. 식사 시작 전 농도가 다소 감소. 식전 30–60분이 더 권장됩니다." },
+      { label: "식사 30–60분 전", left: "25%", concLeft: "25%", concW: "35%", pumpLeft: "50%", verdict: "best", msg: "<b style='color:var(--ok-color,#12a594)'>최적 타이밍 ✅</b> — 식사 30–60분 전 복용: 혈중 약물 농도 peak와 식사로 인한 proton pump activation 시점이 잘 맞습니다. 가장 효과적인 acid suppression." },
+      { label: "식사와 동시", left: "45%", concLeft: "45%", concW: "30%", pumpLeft: "45%", verdict: "sub", msg: "식사와 동시 복용: pump activation과 약물 도달이 거의 겹치지만 최적보다 덜 효과적입니다. 식전 복용보다 효과가 떨어집니다." },
+      { label: "식사 후 1시간", left: "58%", concLeft: "58%", concW: "28%", pumpLeft: "45%", verdict: "sub", msg: "식사 후 1시간: 이미 pump가 활성화된 상태에서 약물이 늦게 도달합니다. 효과가 크게 감소합니다." },
+      { label: "식사 후 5시간", left: "80%", concLeft: "80%", concW: "20%", pumpLeft: "45%", verdict: "poor", msg: "<b style='color:var(--hi)'>비최적 ⚠️</b> 식사 후 5시간: 위산 분비가 이미 진행된 후에 복용합니다. 이미 활성화·결합한 pump에는 효과가 있지만 그 이후로는 pump 교체(turnover)까지 기다려야 합니다." }
+    ];
+
+    function update() {
+      var v = parseInt(slider.value, 10);
+      var t = TIMING[v];
+      if (ppiMarker) ppiMarker.style.left = t.left;
+      if (concBar) { concBar.style.left = t.concLeft; concBar.style.width = t.concW; }
+      if (result) result.innerHTML = t.msg;
+    }
+
+    if (slider) { slider.addEventListener("input", update); update(); }
+  }
+
+  function initPPIvsPCAB() {
+    // Static visualization — rendered by HTML
+    var root = document.querySelector("[data-ppivpcab]");
+    if (!root) return;
+  }
+
+  function initPPIFailure() {
+    var root = document.querySelector("[data-ppifailure]");
+    if (!root) return;
+    var resultEl = root.querySelector("#pfdResult");
+    var state = {};
+
+    var OUTCOMES = {
+      "0fail": { msg: "<b style='color:var(--hi)'>복용법 문제 확인!</b> 식후 복용 또는 불규칙 복용은 PPI 효과를 크게 감소시킵니다. <b>먼저 타이밍과 순응도를 교정</b>하고 재평가합니다.", next: false },
+      "1high": { msg: "Acid exposure 여전히 높음 → <b>실제 persistent acid reflux</b>. PPI 용량 최적화 또는 P-CAB으로 전환·추가 고려. 또는 STEP 3으로.", next: true },
+      "1normal2pos": { msg: "Acid exposure 정상 + Symptom association (+) → <b>Reflux Hypersensitivity</b>. 역류 자체보다 식도 과민성이 문제. PPI 증량보다 neuromodulator 등 다른 접근 고려.", next: false },
+      "1normal2neg": { msg: "Acid exposure 정상 + Symptom association (−) → <b>Functional Heartburn</b>. GERD 기전이 아닌 functional esophageal disorder. PPI 계속 강화보다 진단 재평가가 중요합니다.", next: false }
+    };
+
+    root.querySelectorAll(".pfd__btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var step = parseInt(btn.getAttribute("data-pfd-step"), 10);
+        var ans = btn.getAttribute("data-pfd-ans");
+        root.querySelectorAll("[data-pfd-step='" + step + "']").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        state[step] = ans;
+
+        var outcomeKey = "";
+        if (state[0] === "fail") { outcomeKey = "0fail"; }
+        else if (state[0] === "ok") {
+          if (state[1] === "high") { outcomeKey = "1high"; }
+          else if (state[1] === "normal" && state[2]) {
+            outcomeKey = "1normal2" + state[2];
+          }
+        }
+        if (outcomeKey && OUTCOMES[outcomeKey] && resultEl) {
+          resultEl.innerHTML = "<div style='padding:12px;border-radius:10px;background:var(--bg-card);'>" + OUTCOMES[outcomeKey].msg + "</div>";
+        }
+      });
+    });
+  }
+
+  function initFundoplication() {
+    // Static visualization — rendered by HTML
+    var root = document.querySelector("[data-fundoplication]");
+    if (!root) return;
+  }
+
+  /* ===========  Core 11 · 위염 인터랙션  =========== */
+
+  function initGastricShield() {
+    var root = document.querySelector("[data-gastricshield]");
+    if (!root) return;
+    var layers = [
+      { bar: root.querySelector("#gsL1Bar"), full: 100, nsaid: 30 },
+      { bar: root.querySelector("#gsL2Bar"), full: 100, nsaid: 35 },
+      { bar: root.querySelector("#gsL3Bar"), full: 100, nsaid: 50 },
+      { bar: root.querySelector("#gsL4Bar"), full: 100, nsaid: 40 }
+    ];
+    var pgBar = root.querySelector("#gsPGBar");
+    var acidBar = root.querySelector("#gsAcidBar");
+    var acidNote = root.querySelector("#gsAcidNote");
+    var msg = root.querySelector("#gsMsg");
+
+    function setState(mode) {
+      if (mode === "nsaid") {
+        layers.forEach(function (l) { if (l.bar) l.bar.style.width = l.nsaid + "%"; });
+        if (pgBar) pgBar.style.width = "20%";
+        if (acidBar) acidBar.style.width = "60%";
+        if (acidNote) acidNote.textContent = "변화 없음 (위산은 그대로)";
+        if (msg) msg.innerHTML = "<b style='color:var(--hi)'>NSAID 복용 중</b> — Prostaglandin ↓<br>방어막이 약해졌지만 위산은 변하지 않았습니다. 같은 산에도 손상 위험이 증가합니다.";
+      } else {
+        layers.forEach(function (l) { if (l.bar) l.bar.style.width = "100%"; });
+        if (pgBar) pgBar.style.width = "100%";
+        if (acidBar) acidBar.style.width = "60%";
+        if (acidNote) acidNote.textContent = "일정";
+        if (msg) msg.textContent = "정상 상태 — 방어기전이 충분히 작동 중입니다.";
+      }
+    }
+
+    root.querySelectorAll("[data-gs]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        setState(btn.getAttribute("data-gs"));
+      });
+    });
+    setState("normal");
+  }
+
+  function initHPylori() {
+    var root = document.querySelector("[data-hpylori]");
+    if (!root) return;
+    var steps = root.querySelectorAll(".hpj__step");
+    var desc = root.querySelector("#hpjDesc");
+    var slider = root.querySelector("#hpjSlider");
+    var timeline = root.querySelector("#hpjTimeline");
+    var currentStep = 0;
+
+    var STEP_TEXT = [
+      "H. pylori가 위강에 도착했습니다. pH 1–2의 강산 속 — 어떻게 살아남을까요?",
+      "핵심 무기: <b>Urease</b>. Urea를 분해해 ammonia를 만들고 주변 산을 중화합니다. Ammonia로 산 환경에서 생존 가능한 공간을 만듭니다.",
+      "<b>Flagella(편모)</b>를 이용해 mucus layer 안으로 이동합니다. 점액층 안은 상대적으로 산이 적고 보호되어 있습니다.",
+      "위 상피세포에 <b>부착(colonization)</b>합니다. 이제 면역반응으로부터 방어하면서 장기 감염이 시작됩니다.",
+      "지속적인 감염 → 면역세포 침윤 → <b>만성 위염</b>. 이 염증이 위축·장상피화생으로 이어질 수 있습니다."
+    ];
+
+    var TIMELINE_TEXT = [
+      "감염 초기: H. pylori가 위에 정착. Acute gastric inflammation 가능. 많은 경우 무증상.",
+      "2–5년: Chronic antral gastritis 정착. Acid hypersecretion이 나타날 수 있음. Peptic ulcer 위험.",
+      "5–10년: 점진적 gastric atrophy 시작 가능. 위축 부위 확대.",
+      "10년+: Intestinal metaplasia 발생 가능. Gastric cancer 위험 증가 시작.",
+      "장기: Correa cascade 진행 — Dysplasia 가능성. 제균이 이 시점에서도 유익."
+    ];
+
+    function goToStep(n) {
+      currentStep = n;
+      steps.forEach(function (s, i) {
+        s.classList.toggle("active", i <= n);
+      });
+      if (desc) desc.innerHTML = STEP_TEXT[n] || "";
+    }
+
+    var nextBtn = root.querySelector("[data-hpj-step]");
+    var resetBtn = root.querySelector("[data-hpj-reset]");
+    if (nextBtn) nextBtn.addEventListener("click", function () {
+      goToStep(Math.min(currentStep + 1, steps.length - 1));
+    });
+    if (resetBtn) resetBtn.addEventListener("click", function () { goToStep(0); });
+
+    if (slider) {
+      slider.addEventListener("input", function () {
+        var v = parseInt(slider.value, 10);
+        if (timeline) timeline.innerHTML = TIMELINE_TEXT[v] || "";
+      });
+      if (timeline) timeline.innerHTML = TIMELINE_TEXT[0];
+    }
+
+    goToStep(0);
+  }
+
+  function initNSAIDShield() {
+    var root = document.querySelector("[data-nsaidshield]");
+    if (!root) return;
+    var shields = root.querySelectorAll(".nss__shield");
+    var pgBox = root.querySelector("#nssPG");
+    var protBox = root.querySelector("#nssProtected");
+    var msg = root.querySelector("#nssMsg");
+
+    function setState(mode) {
+      if (mode === "nsaid") {
+        if (pgBox) { pgBox.style.background = "#fce8e8"; pgBox.style.color = "var(--hi)"; pgBox.textContent = "Prostaglandin ↓↓↓"; }
+        shields.forEach(function (s) { s.style.opacity = "0.25"; s.style.textDecoration = "line-through"; });
+        if (protBox) { protBox.style.background = "#fce8e8"; protBox.textContent = "손상된 점막 ⚠️"; }
+        if (msg) msg.innerHTML = "<b style='color:var(--hi)'>NSAID 투여</b> — COX 억제 → Prostaglandin 합성 감소<br>Mucus·HCO₃⁻·Blood flow·Repair 모두 감소. <b>위산은 변하지 않았습니다.</b>";
+      } else {
+        if (pgBox) { pgBox.style.background = ""; pgBox.style.color = ""; pgBox.textContent = "Prostaglandin (PGE₂ 등)"; }
+        shields.forEach(function (s) { s.style.opacity = ""; s.style.textDecoration = ""; });
+        if (protBox) { protBox.style.background = ""; protBox.textContent = "보호된 점막"; }
+        if (msg) msg.textContent = "정상 상태 — COX가 prostaglandin을 만들어 방어막을 유지합니다.";
+      }
+    }
+
+    root.querySelectorAll("[data-nss]").forEach(function (btn) {
+      btn.addEventListener("click", function () { setState(btn.getAttribute("data-nss")); });
+    });
+    setState("normal");
+  }
+
+  function initAutoimmGastritis() {
+    // Static visualization — rendered by HTML, no additional JS needed
+    var root = document.querySelector("[data-autoimgastritis]");
+    if (!root) return;
+  }
+
+  function initHPyloriTest() {
+    var root = document.querySelector("[data-hpyloritest]");
+    if (!root) return;
+    var result = root.querySelector("#hptResult");
+
+    var RESULTS = {
+      invasive: "<b>침습 검사 (내시경 이용)</b><br>" +
+        "• <b>Rapid urease test</b>: biopsy를 이용한 빠른 검사. PPI 사용 시 false negative 가능성 — PPI 2주 중단 권장.<br>" +
+        "• <b>Histology</b>: 조직에서 H. pylori 직접 확인. 위축·장상피화생도 동시 평가 가능.<br>" +
+        "• <b>Culture</b>: 내성 확인용. 임상에서 일반적 사용 제한적.",
+      noninvasive: "<b>비침습 검사 (내시경 없이)</b><br>" +
+        "• <b>Urea Breath Test (UBT)</b>: Active infection 확인에 우수. 치료 후 eradication 확인에도 사용. PPI·항생제 4주 중단 후 권장.<br>" +
+        "• <b>Stool Antigen Test</b>: 비침습. Active infection 반영. Eradication 확인에도 사용. PPI 중단 권장.<br>" +
+        "• <b>Serology</b>: 과거 감염·현재 감염 구별 어려움. Active infection 판단에 한계. 치료 후 cure 확인에 부적합."
+    };
+
+    root.querySelectorAll("[data-hpt]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (result) result.innerHTML = RESULTS[btn.getAttribute("data-hpt")] || "";
+      });
+    });
+  }
+
+  function initCorreaCascade() {
+    var root = document.querySelector("[data-correacascade]");
+    if (!root) return;
+    var steps = root.querySelectorAll(".cc__step");
+    var desc = root.querySelector("#ccDesc");
+
+    var CC_TEXT = [
+      "<b>정상 점막</b> — 정상 gastric gland 구조. H. pylori 감염 없음. 위암 위험: 기저 수준.",
+      "<b>H. pylori 만성 위염</b> — 지속적인 H. pylori 감염으로 인한 mucosal inflammation. 많은 경우 무증상. 위험: 이 단계에서 제균이 cascade 진행을 막는 데 가장 효과적.",
+      "<b>위축성 위염 (Atrophic gastritis)</b> — 정상 gastric gland 소실. 위산 분비 감소 가능. 장상피화생 및 위암 위험이 높아지는 시작점.",
+      "<b>장상피화생 (Intestinal metaplasia)</b> — 위 점막이 장 상피 phenotype으로 변화. 위암 위험 표지. 범위·유형에 따라 추적 전략이 달라짐.",
+      "<b>이형성증 (Dysplasia)</b> — 명확한 전암성 변화. Low-grade와 high-grade dysplasia 구분. High-grade는 위암으로의 위험이 높아 적극 평가 필요.",
+      "<b>위선암 (Gastric adenocarcinoma)</b> — H. pylori 관련 intestinal type 위암의 주된 경로. 조기 발견 시 치료 가능. 국내에서 중요한 암."
+    ];
+
+    steps.forEach(function (step, i) {
+      step.addEventListener("click", function () {
+        steps.forEach(function (s) { s.classList.remove("open"); });
+        step.classList.add("open");
+        if (desc) desc.innerHTML = CC_TEXT[i] || "";
+      });
+    });
+  }
+
+  function initThreeRoads() {
+    // Static — HTML renders the diagram
+    var root = document.querySelector("[data-threeroads]");
+    if (!root) return;
+  }
+
+  function initTriggerSorter() {
+    var root = document.querySelector("[data-triggersorter]");
+    if (!root) return;
+    var cards = root.querySelectorAll(".ts__card");
+    var causeZone = root.querySelector("#tsCauseZone");
+    var triggerZone = root.querySelector("#tsTriggerZone");
+    var resultEl = root.querySelector("#tsResult");
+    var placed = {};
+
+    root.querySelectorAll("[data-zone]").forEach(function (zone) {
+      zone.addEventListener("click", function () {
+        var selectedCard = root.querySelector(".ts__card.ts__card--selected");
+        if (!selectedCard) return;
+        var label = selectedCard.getAttribute("data-label");
+        var answer = selectedCard.getAttribute("data-answer");
+        var zoneType = zone.getAttribute("data-zone");
+        placed[label] = { chosen: zoneType, correct: answer };
+        var tag = "<span class='ts__placed-tag " + (zoneType === answer ? "ts__correct" : "ts__wrong") + "'>" + label + "</span>";
+        var dropEl = zoneType === "cause" ? causeZone : triggerZone;
+        if (dropEl) {
+          if (dropEl.textContent.indexOf("여기에") !== -1) dropEl.innerHTML = "";
+          dropEl.innerHTML += tag;
+        }
+        selectedCard.classList.remove("ts__card--selected");
+        selectedCard.style.opacity = "0.4";
+
+        var total = cards.length;
+        var done = Object.keys(placed).length;
+        if (done === total) {
+          var correct = Object.values(placed).filter(function (p) { return p.chosen === p.correct; }).length;
+          if (resultEl) resultEl.innerHTML = "결과: " + correct + "/" + total + " 정답. " + (correct === total ? "완벽합니다! 원인과 유발인자를 구분할 수 있습니다." : "다시 생각해보세요. 원인(H. pylori, NSAID, 자가면역)과 증상 유발인자(음식 등)는 다릅니다.");
+        }
+      });
+    });
+
+    cards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        cards.forEach(function (c) { c.classList.remove("ts__card--selected"); });
+        card.classList.add("ts__card--selected");
+        if (resultEl) resultEl.textContent = "위의 '원인' 또는 '유발인자' 영역을 탭해 분류하세요.";
+      });
+    });
+  }
+
+  function initAcidMap() {
+    var root = document.querySelector("[data-acidmap]");
+    if (!root) return;
+    var pumpEl = root.querySelector("#amPump");
+    var pumpDrug = root.querySelector("#amPumpDrug");
+    var h2Drug = root.querySelector("#amH2Drug");
+    var h2Box = root.querySelector("#amH2");
+    var output = root.querySelector("#amOutput");
+    var desc = root.querySelector("#amDesc");
+
+    var DRUG_DATA = {
+      h2ra: {
+        pumpHighlight: false,
+        h2highlight: true,
+        h2text: "H₂RA 차단 ✕",
+        pumpText: "",
+        outputText: "H⁺ 분비 → (histamine 경로 차단됨)",
+        outputColor: "var(--ok-color,#12a594)",
+        desc: "<b>H₂RA (famotidine 등)</b> — Parietal cell의 H₂ receptor를 차단합니다. Histamine-stimulated acid secretion을 줄입니다. PPI보다 acid suppression이 약하고 tolerance가 발생할 수 있습니다. 야간 acid 억제에 일부 사용됩니다."
+      },
+      ppi: {
+        pumpHighlight: true,
+        h2highlight: false,
+        h2text: "",
+        pumpText: "PPI 억제 ✕",
+        outputText: "H⁺ 분비 크게 감소",
+        outputColor: "var(--ok-color,#12a594)",
+        desc: "<b>PPI (omeprazole, esomeprazole, lansoprazole, pantoprazole, rabeprazole)</b> — H⁺/K⁺-ATPase(Proton pump)를 비가역적으로 억제합니다. 세 가지 신호(histamine·gastrin·Ach)가 모두 proton pump에서 만나므로 PPI는 강력한 acid suppression을 제공합니다. Acid-activated prodrug이므로 식사 30–60분 전 복용이 효과적."
+      },
+      pcab: {
+        pumpHighlight: true,
+        h2highlight: false,
+        h2text: "",
+        pumpText: "P-CAB 억제 ✕",
+        outputText: "H⁺ 분비 감소",
+        outputColor: "var(--ok-color,#12a594)",
+        desc: "<b>P-CAB (vonoprazan, tegoprazan, fexuprazan)</b> — H⁺/K⁺-ATPase의 K⁺ binding site와 경쟁적으로 결합해 acid secretion을 억제합니다. Acid activation이 필요 없어 빠른 발현이 특징입니다. 2025 개정 국내 H. pylori 제균 지침에 포함됩니다."
+      },
+      reset: {
+        pumpHighlight: false,
+        h2highlight: false,
+        h2text: "",
+        pumpText: "",
+        outputText: "H⁺ 분비 → 위강으로",
+        outputColor: "",
+        desc: "약물을 선택하면 타깃 부위가 강조됩니다."
+      }
+    };
+
+    root.querySelectorAll(".am__drug-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".am__drug-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var d = DRUG_DATA[btn.getAttribute("data-am")] || DRUG_DATA.reset;
+        if (pumpEl) pumpEl.style.background = d.pumpHighlight ? "#fce8e8" : "";
+        if (pumpDrug) { pumpDrug.style.display = d.pumpText ? "" : "none"; pumpDrug.textContent = d.pumpText; }
+        if (h2Drug) { h2Drug.style.display = d.h2highlight ? "" : "none"; }
+        if (h2Box) h2Box.style.background = d.h2highlight ? "#fce8e8" : "";
+        if (output) { output.textContent = d.outputText; output.style.color = d.outputColor; }
+        if (desc) desc.innerHTML = d.desc;
+      });
+    });
+  }
+
+  function initEradBuilder() {
+    var root = document.querySelector("[data-eradbuilder]");
+    if (!root) return;
+    var gauge = root.querySelector("#ebGauge");
+    var pct = root.querySelector("#ebGaugePct");
+    var result = root.querySelector("#ebResult");
+    var state = { acid: null, ab1: null, ab2: null, bismuth: null };
+
+    function calcGauge() {
+      var score = 0;
+      var notes = [];
+      if (!state.acid) return { score: 0, text: "요소를 선택하면 regimen이 완성됩니다." };
+      if (state.acid === "pcab") { score += 30; notes.push("P-CAB: 빠른 acid suppression, H. pylori 제균요법에 유리한 pH 환경 제공"); }
+      else if (state.acid === "ppi") { score += 25; notes.push("PPI: 표준 acid suppression — 식사 전 복용이 중요"); }
+
+      if (!state.ab1) return { score: score, text: notes.join("<br>") + "<br><b>Antibiotic A를 선택하세요.</b>" };
+      if (state.ab1 === "amox") { score += 20; notes.push("Amoxicillin: resistance 드물어 선호됨"); }
+      else { score += 15; notes.push("Tetracycline: bismuth quadruple에서 사용"); }
+
+      if (!state.ab2) return { score: score, text: notes.join("<br>") + "<br><b>Antibiotic B를 선택하세요.</b>" };
+      if (state.ab2 === "clari") {
+        if (state.bismuth !== "yes") { score += 10; notes.push("⚠️ Clarithromycin: 국내 내성률 증가 — 감수성 확인 없이 사용 시 제균 실패 위험. Tailored therapy 또는 bismuth quadruple 권장"); }
+        else { score += 15; notes.push("Clarithromycin + Bismuth: bismuth 추가로 내성 부분 극복 가능"); }
+      } else {
+        score += 20; notes.push("Metronidazole: 내성 가능성 있으나 bismuth quadruple에서 효과적");
+      }
+
+      if (!state.bismuth) return { score: score, text: notes.join("<br>") + "<br><b>Bismuth 여부를 선택하세요.</b>" };
+      if (state.bismuth === "yes") { score += 15; notes.push("Bismuth: H. pylori를 직접 억제 + 다른 항생제 보완. 국내 지침 bismuth quadruple 권고."); }
+      else { notes.push("Bismuth 없음: triple therapy. Clarithromycin 내성 있는 경우 실패율 높음."); }
+
+      var total = Math.min(score, 90);
+      var label = total >= 80 ? " — 높은 예상 제균율 ✅" : total >= 60 ? " — 중간 예상 제균율" : " — 낮은 예상 제균율 ⚠️";
+      return { score: total, text: notes.join("<br>") + "<br><b style='color:var(--brand)'>" + total + "% 개념적 제균율" + label + "</b><br><small style='color:var(--ink-faint)'>*이 게이지는 개념적 이해를 위한 것입니다. 실제 제균율은 내성 패턴·순응도에 따라 달라집니다.</small>" };
+    }
+
+    root.querySelectorAll(".eb__opt").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var g = btn.getAttribute("data-eb-group");
+        root.querySelectorAll("[data-eb-group='" + g + "']").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        state[g] = btn.getAttribute("data-eb-val");
+        var res = calcGauge();
+        if (gauge) gauge.style.width = res.score + "%";
+        if (pct) pct.textContent = res.score + "%";
+        if (result) result.innerHTML = res.text;
+      });
+    });
+  }
+
+  function initCauseDetective() {
+    var root = document.querySelector("[data-causedetective]");
+    if (!root) return;
+    var resultEl = root.querySelector("#cdResult");
+
+    var CD_DATA = {
+      a: {
+        title: "Patient A — H. pylori 위염",
+        cause: "원인: <b>H. pylori 감염</b>",
+        mech: "기전: H. pylori → urease → 생존 → epithelium 부착 → 만성 염증 → atrophy/metaplasia 위험",
+        treat: "치료: <b>H. pylori 제균</b> (acid suppressor + 항생제 ± bismuth). 제균 후 eradication 성공 확인.",
+        note: "NSAID가 없으므로 NSAID 중단은 해당 없음. Symptom 개선이 있어도 제균 완료가 중요."
+      },
+      b: {
+        title: "Patient B — NSAID Gastropathy",
+        cause: "원인: <b>NSAID (ibuprofen) 장기 복용</b>",
+        mech: "기전: COX 억제 → prostaglandin ↓ → 점막 방어 약화 → erosion/ulcer 위험. 위산 자체는 증가하지 않음.",
+        treat: "치료: ① NSAID 필요성 재평가 (중단·감량·대체 가능 여부) ② 고위험군 → <b>PPI gastroprotection</b> ③ 출혈 증상 모니터링",
+        note: "H. pylori negative이므로 제균은 해당 없음. 증상치료(PPI)와 병행해 NSAID 사용 자체를 재평가."
+      },
+      c: {
+        title: "Patient C — Autoimmune Gastritis",
+        cause: "원인: <b>자가면역 — Parietal cell 자가항체</b>",
+        mech: "기전: 자가항체 → Parietal cell 파괴 → HCl↓ + Intrinsic factor↓ → B12 흡수 불가 → B12 결핍 → megaloblastic anemia. Gastrin 반응성 상승.",
+        treat: "치료: <b>Vitamin B12 보충 (parenteral or oral high-dose)</b>. 철분 결핍 평가. Gastric cancer risk 추적. 위염 자체의 근본 '치료'는 현재 없음.",
+        note: "H. pylori 제균이나 PPI가 autoimmune gastritis의 원인치료가 아닙니다. B12/iron 보충이 핵심."
+      },
+      d: {
+        title: "Patient D — Functional Dyspepsia (의심)",
+        cause: "원인: <b>구조적 이상 없음 — Functional Dyspepsia 가능성</b>",
+        mech: "기전: H. pylori negative, NSAID 없음, 자가면역 없음. Dyspeptic symptom이 있지만 내시경 이상 없음 → visceral hypersensitivity, gastric motility 이상 등 functional mechanism 가능.",
+        treat: "치료: ① H. pylori가 있다면 test-and-treat 전략 ② 생활습관 조정 ③ PPI는 제한적 효과 가능 ④ 필요 시 prokinetics",
+        note: "이 환자에서 막연하게 '위염 때문에'라고 설명하는 것은 부정확합니다. Functional dyspepsia는 별도의 개념."
+      }
+    };
+
+    root.querySelectorAll(".cd__pt").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".cd__pt").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var d = CD_DATA[btn.getAttribute("data-cd")];
+        if (!d) return;
+        if (resultEl) resultEl.innerHTML =
+          "<div style='padding:14px;border-radius:10px;background:var(--bg-card);'>" +
+          "<b style='font-size:15px;'>" + d.title + "</b><br><br>" +
+          "<div style='margin-bottom:6px;'>🎯 " + d.cause + "</div>" +
+          "<div style='margin-bottom:6px;color:var(--ink-soft);font-size:13px;'>⚙️ " + d.mech + "</div>" +
+          "<div style='margin-bottom:6px;'>💊 " + d.treat + "</div>" +
+          "<div style='font-size:12.5px;color:var(--ink-faint);border-top:1px solid var(--line);padding-top:6px;margin-top:6px;'>📝 " + d.note + "</div>" +
+          "</div>";
+      });
+    });
+  }
+
 })();

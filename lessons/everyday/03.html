@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Everyday 03 · 급성 장염·감염성 설사 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="설사를 멈추는 것보다 탈수를 막는 것이 먼저 — 물설사 vs 혈변, ORS 원리, loperamide 금기, STEC, 노로바이러스 예방까지" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">Everyday 03 · 급성 장염</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">장염</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>Everyday 03 · 장염</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 상황</a></li>
+          <li><a href="#overview"><span class="num">1</span> 30초 Overview</a></li>
+          <li><a href="#patho"><span class="num">2</span> 몸에서 무슨 일이?</a></li>
+          <li><a href="#transmission"><span class="num">3</span> 전파 경로</a></li>
+          <li><a href="#symptom"><span class="num">4</span> 증상</a></li>
+          <li><a href="#dehydration"><span class="num">5</span> 탈수 판단</a></li>
+          <li><a href="#differential"><span class="num">6</span> 감별진단</a></li>
+          <li><a href="#timeline"><span class="num">7</span> 자연경과</a></li>
+          <li><a href="#treat"><span class="num">8</span> 치료 전체 그림</a></li>
+          <li><a href="#ors"><span class="num">9</span> ORS</a></li>
+          <li><a href="#meds"><span class="num">10</span> 약물</a></li>
+          <li><a href="#homecare"><span class="num">11</span> 집에서 할 것</a></li>
+          <li><a href="#donts"><span class="num">12</span> 하지 말 것</a></li>
+          <li><a href="#redflags"><span class="num">13</span> Red Flags</a></li>
+          <li><a href="#prevention"><span class="num">14</span> 전염·예방</a></li>
+          <li><a href="#faq"><span class="num">15</span> FAQ</a></li>
+          <li><a href="#myth"><span class="num">16</span> Myth vs Fact</a></li>
+          <li><a href="#deepdive"><span class="num">17</span> Deep Dive</a></li>
+          <li><a href="#case"><span class="num">18</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">19</span> Final Quiz</a></li>
+          <li><a href="#summary"><span class="num">20</span> 20초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · Everyday 03 · 소화기</div>
+          <h1>급성 장염 · 감염성 설사</h1>
+          <p>이 강의에서 가장 중요한 질문은 "무슨 균인지"가 아닙니다.<br>
+            <b>이 환자는 수분만 잘 보충하며 지켜봐도 되는가, 아니면 검사·진료가 필요한 설사인가?</b></p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이번 강의의 핵심 4문장</div>
+          <p>1. 설사를 멈추는 것보다 <b>탈수를 막는 것이 먼저</b>다.<br>
+            2. 물설사와 혈변 설사는 <b>약물 선택이 다르다</b>.<br>
+            3. 세균 같아 보여도 <b>항생제가 항상 정답은 아니다</b>.<br>
+            4. 장염 상담 순서: <b>탈수 → 혈변·발열 → 위험요인 → 약물</b></p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 상황 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 상황</h2>
+          <div class="case-hero">
+            <div class="who">30세 여성 · 약국 방문</div>
+            <div class="bp" style="font-size:clamp(15px,4vw,22px);line-height:1.7;">
+              어젯밤부터 구토 몇 차례 · 오늘 물설사 6번<br>
+              <span style="color:var(--brand);">회사 동료 두 명도 비슷한 증상</span>
+            </div>
+            <div class="quote">"장염 같은데 지사제 먹고 설사만 멈추면 되죠?"</div>
+
+            <p style="font-weight:700;margin-bottom:8px;">무엇을 먼저 확인할까요? (탭해서 확인)</p>
+            <div class="figure" data-infochips>
+              <div class="checkchips">
+                <button data-text="<b>설사의 가장 중요한 초기 위험은 탈수와 전해질 손실</b>입니다. 물을 마실 수 있는지, 소변이 나오는지 확인합니다.">💧 물을 마실 수 있나?</button>
+                <button data-text="<b>혈변</b>은 장 점막을 침범하는 세균성 감염 등 다른 접근이 필요한 질환 가능성을 높입니다. 단순 지사제부터 쓰지 않습니다.">🩸 혈변이 있나?</button>
+                <button data-text="<b>고열</b>은 단순 물설사보다 invasive infection 가능성을 더 생각하게 합니다. 38.5℃ 이상 + 혈변이라면 더욱 주의합니다.">🌡️ 고열이 있나?</button>
+                <button data-text="<b>심한 복통</b>은 단순 위장염 외에 충수염·허혈성 장염 등 다른 원인도 고려해야 합니다.">🫄 심한 복통이 있나?</button>
+                <button data-text="<b>노출력</b> — 같은 음식을 먹은 사람 여부, 해외여행, 병원·요양시설, 최근 항생제 복용 등은 원인 추정에 매우 중요합니다.">🔍 최근 여행·음식·항생제?</button>
+              </div>
+              <div class="infochips__out">항목을 탭하세요.</div>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>첫 화면 결론</div>
+            <p>설사 횟수만 세지 말고<br>
+              <b>탈수 + 혈변 + 발열 + 복통 + 위험요인을 함께 본다</b></p>
+          </div>
+
+          <p>이번 강의가 끝나면 다음 질문에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>설사로 몸에서 무엇이 빠져나가는가?</li>
+            <li>물설사와 혈변을 동반한 설사를 어떻게 구별하는가?</li>
+            <li>ORS는 왜 그냥 물과 다른가?</li>
+            <li>Loperamide를 피해야 하는 설사는 어떤 경우인가?</li>
+            <li>세균성 설사에 항생제가 항상 필요하지 않은 이유는?</li>
+            <li>STEC에서 항생제를 피하는 이유는?</li>
+            <li>노로바이러스 예방에서 손소독제만으로 충분하지 않은 이유는?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 30초 Overview ================= -->
+        <section id="overview" class="section">
+          <h2><span class="sec-no">01</span> 30초 Overview</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>무엇인가?</div>
+            <p><b>급성 감염성 설사</b>: 바이러스·세균·기생충 등이 장관에 감염되어 급성 설사를 일으키는 상태. 구토·복통이 함께 나타나면 흔히 <b>급성 위장관염(acute gastroenteritis)</b>이라고 부릅니다.</p>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">원인 병원체</div>
+            <div class="checkchips">
+              <button data-text="<b>바이러스</b> — Norovirus, Rotavirus 등. 지역사회에서 가장 흔한 감염성 설사의 원인입니다. 항생제가 효과 없습니다.">🦠 바이러스</button>
+              <button data-text="<b>세균</b> — Salmonella, Campylobacter, Shigella, diarrheagenic E. coli(STEC 포함) 등. 혈변·고열을 동반하는 경우 더 의심합니다.">🧫 세균</button>
+              <button data-text="<b>기생충</b> — Giardia 등. 여행 후 오래 지속되는 설사에서 중요합니다.">🪱 기생충</button>
+            </div>
+            <div class="infochips__out">원인을 탭하세요.</div>
+          </div>
+
+          <div class="card card--key" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>핵심 한 줄</div>
+            <p style="font-size:16px;font-weight:800;">장염 치료의 1순위는<br>"설사를 멈추는 것"이 아니라 <span style="color:var(--brand);">"탈수를 막는 것"</span>이다.</p>
+          </div>
+
+          <p style="margin-top:12px;font-size:13.5px;">건강한 사람에서 발생하는 많은 급성 감염성 설사는 <b>자연 회복</b>합니다. IDSA는 원인과 관계없이 경도~중등도 탈수가 있는 급성 설사에서 경구수분보충액(ORS)을 1차 치료로 권고합니다.</p>
+        </section>
+
+        <!-- ================= 2 · 몸에서 무슨 일이? ================= -->
+        <section id="patho" class="section">
+          <h2><span class="sec-no">02</span> 몸에서 무슨 일이 생기는가?</h2>
+
+          <h3>설사를 하면 몸에서 무엇이 빠져나갈까?</h3>
+          <div class="figure" data-fluidloss>
+            <div class="figure__title">Viz 1 · 설사와 체액 손실</div>
+            <div class="fls__wrap">
+              <div class="fls__body">
+                <div class="fls__silhouette">
+                  <div class="fls__gut">
+                    <div class="fls__gut-label">장관</div>
+                    <div class="fls__drops" id="flsDrops"></div>
+                  </div>
+                </div>
+                <div class="fls__arrow">→ 💩</div>
+              </div>
+              <div class="fls__losses">
+                <div class="fls__loss-title">빠져나가는 것</div>
+                <div class="fls__loss-item">
+                  <span class="fls__loss-ico">💧</span>
+                  <span>Water</span>
+                  <div class="gs__lbar" style="height:10px;flex:1"><div class="gs__lbar-fill fls__bar" id="flsWater" style="width:40%"></div></div>
+                </div>
+                <div class="fls__loss-item">
+                  <span class="fls__loss-ico">🧂</span>
+                  <span>Na⁺</span>
+                  <div class="gs__lbar" style="height:10px;flex:1"><div class="gs__lbar-fill fls__bar" id="flsNa" style="width:35%;background:#ff9800"></div></div>
+                </div>
+                <div class="fls__loss-item">
+                  <span class="fls__loss-ico">⚡</span>
+                  <span>K⁺</span>
+                  <div class="gs__lbar" style="height:10px;flex:1"><div class="gs__lbar-fill fls__bar" id="flsK" style="width:30%;background:#9c27b0"></div></div>
+                </div>
+                <div class="fls__gauge-wrap" style="margin-top:10px;">
+                  <div class="fls__gauge-label">탈수 위험</div>
+                  <div class="gs__lbar" style="height:14px;"><div class="gs__lbar-fill" id="flsRisk" style="width:20%;background:var(--ok-color,#12a594)"></div></div>
+                  <div id="flsRiskLabel" style="font-size:12px;color:var(--ink-faint);">낮음</div>
+                </div>
+              </div>
+            </div>
+            <div class="fls__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-fls="3">설사 3회</button>
+              <button class="btn" data-fls="6">설사 6회</button>
+              <button class="btn" data-fls="10">설사 10회 + 구토</button>
+              <button class="btn btn--ghost" data-fls="0">↺ 리셋</button>
+            </div>
+            <div id="flsMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              설사 횟수를 선택하면 체액 손실이 표시됩니다.
+            </div>
+            <div class="figure__cap">"얼마나 쌌나?"보다 "얼마나 잃고 얼마나 보충했나?"가 중요합니다.</div>
+          </div>
+
+          <h3 style="margin-top:18px;">두 가지 패턴으로 이해한다</h3>
+          <div class="figure" data-wateryvsflam>
+            <div class="figure__title">Viz 2 · Watery vs Inflammatory 증상 분류</div>
+            <p style="font-size:13px;margin-bottom:10px;">증상 chip을 탭해서 어느 패턴에 해당하는지 분류해보세요.</p>
+            <div class="wvi__chips" id="wviChips">
+              <div class="wvi__chip" data-wvi-ans="watery" data-label="많은 물설사">💩 많은 물설사</div>
+              <div class="wvi__chip" data-wvi-ans="watery" data-label="구토">🤢 구토</div>
+              <div class="wvi__chip" data-wvi-ans="inflam" data-label="혈변">🩸 혈변</div>
+              <div class="wvi__chip" data-wvi-ans="inflam" data-label="39℃ 고열">🌡️ 39℃ 고열</div>
+              <div class="wvi__chip" data-wvi-ans="inflam" data-label="심한 복부경련">🫄 심한 복부경련</div>
+              <div class="wvi__chip" data-wvi-ans="inflam" data-label="점액변">🔴 점액변</div>
+              <div class="wvi__chip" data-wvi-ans="watery" data-label="탈수">💧 탈수</div>
+            </div>
+            <div class="wvi__zones" style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div class="wvi__zone" data-wvi-zone="watery">
+                <div class="wvi__zone-title">💧 Watery</div>
+                <div class="wvi__zone-desc">바이러스 또는 일부 독소형<br>장세포 기능 변화 → 수분 분비↑</div>
+                <div class="wvi__zone-drop" id="wviWateryZone">여기로 분류</div>
+              </div>
+              <div class="wvi__zone" data-wvi-zone="inflam">
+                <div class="wvi__zone-title">🔥 Inflammatory</div>
+                <div class="wvi__zone-desc">점막 침범 → 염증반응<br>혈액·점액 동반</div>
+                <div class="wvi__zone-drop" id="wviInflamZone">여기로 분류</div>
+              </div>
+            </div>
+            <div id="wviResult" style="margin-top:8px;font-size:13.5px;padding:8px;"></div>
+            <div class="figure__cap">혈변 + 발열 → 단순 지사제부터 먹기 전에 한 단계 더 생각한다.</div>
+          </div>
+
+          <div class="qcard" style="margin-top:14px;">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ①</span> 노로바이러스 환자를 돌본 뒤 가장 우선적인 손 위생은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 물티슈</li>
+              <li data-opt="B"><span class="opt">B</span> 향균 스프레이</li>
+              <li data-opt="C"><span class="opt">C</span> 비누와 물을 이용한 손씻기 (최소 20초)</li>
+              <li data-opt="D"><span class="opt">D</span> 장갑을 꼈으므로 필요 없음</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 알코올 손소독제는 노로바이러스에 충분하지 않습니다. CDC는 비누와 물로 최소 20초간 손씻기를 강조합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 전파 ================= -->
+        <section id="transmission" class="section">
+          <h2><span class="sec-no">03</span> 어떻게 전파되는가?</h2>
+
+          <blockquote>💩 → ✋ → 🍽️ → 👄 — 분변-경구 경로가 공통 핵심입니다.</blockquote>
+
+          <div class="figure" data-norotransmission>
+            <div class="figure__title">Viz 3 · 노로바이러스 전파 경로</div>
+            <p style="font-size:13px;margin-bottom:10px;">각 경로를 탭해 예방 방법을 확인하세요.</p>
+            <div class="nrt__center">
+              <div class="nrt__patient">🤮 감염자</div>
+            </div>
+            <div class="nrt__paths">
+              <div class="nrt__path" data-nrt="fomite">
+                <div class="nrt__path-ico">🚪</div>
+                <div class="nrt__path-label">오염된 표면·문손잡이</div>
+              </div>
+              <div class="nrt__path" data-nrt="stool">
+                <div class="nrt__path-ico">💩</div>
+                <div class="nrt__path-label">대변 → 손</div>
+              </div>
+              <div class="nrt__path" data-nrt="food">
+                <div class="nrt__path-ico">🍽</div>
+                <div class="nrt__path-label">손 → 음식 조리</div>
+              </div>
+              <div class="nrt__path" data-nrt="water">
+                <div class="nrt__path-ico">💧</div>
+                <div class="nrt__path-label">오염된 음식·물 섭취</div>
+              </div>
+            </div>
+            <div id="nrtDesc" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">
+              경로를 탭하면 예방법이 나타납니다.
+            </div>
+            <div class="figure__cap">"같이 밥만 안 먹으면 괜찮다"가 아닙니다. 화장실·손·표면·음식 준비 모두 전파에 관여할 수 있습니다.</div>
+          </div>
+
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>노로바이러스 + 손소독제</div>
+            <p><b>알코올 손소독제만으로는 충분하지 않습니다.</b> CDC는 비누와 물을 이용한 최소 20초 손씻기를 강조합니다. 손소독제는 보조적입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">04</span> 어떤 증상이 나타나는가?</h2>
+
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>흔한 증상</h5>
+              <ul style="margin:6px 0 0 16px;font-size:13.5px;">
+                <li>💩 물설사 (급성·반복적)</li>
+                <li>🤢 구토 (특히 바이러스성)</li>
+                <li>🫄 복통·복부경련</li>
+                <li>😶‍🌫️ 식욕저하·오심</li>
+                <li>🤒 미열 (경한 경우)</li>
+              </ul>
+            </div>
+            <div class="panel panel--drug">
+              <h5>🚨 주의할 구별 단서</h5>
+              <ul style="margin:6px 0 0 16px;font-size:13.5px;">
+                <li>🩸 <b>혈변</b> — 단순 바이러스성 비전형적</li>
+                <li>🌡️ <b>39℃ 이상 고열</b></li>
+                <li>🫄 <b>심한 복통·압통</b></li>
+                <li>😰 패혈증 징후</li>
+              </ul>
+              <p style="font-size:12.5px;margin-top:8px;color:var(--ink-soft);">IDSA: 혈변·발열·심한 복통 또는 패혈증 징후 시 주요 장내 병원체 검사 권고.</p>
+            </div>
+          </div>
+
+          <div class="qcard" style="margin-top:14px;">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ②</span> 단순 바이러스성 장염보다 세균성 침습성 감염을 더 생각하게 하는 것은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 물설사</li>
+              <li data-opt="B"><span class="opt">B</span> 오심</li>
+              <li data-opt="C"><span class="opt">C</span> 혈변 + 고열</li>
+              <li data-opt="D"><span class="opt">D</span> 식욕저하</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 혈변 + 고열은 장 점막을 침범하는 bacterial enteritis(Campylobacter, Shigella, Salmonella 등)를 더 생각하게 합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 5 · 탈수 ================= -->
+        <section id="dehydration" class="section">
+          <h2><span class="sec-no">05</span> 가장 중요한 판단 — 탈수</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 질문</div>
+            <p>"물을 잃고 있는 속도보다 <b>마시는 속도가 충분한가?</b>"</p>
+          </div>
+
+          <div class="figure" data-hydrationgauge style="margin-top:12px;">
+            <div class="figure__title">Viz 4 · Hydration Gauge</div>
+            <p style="font-size:13px;margin-bottom:10px;">증상을 하나씩 추가해서 탈수 수준을 확인하세요.</p>
+            <div class="hyg__gauge-wrap">
+              <div class="hyg__level" id="hygLevel" data-lv="0">
+                <div class="hyg__level-dot"></div>
+                <div class="hyg__level-label" id="hygLevelLabel">🟢 Hydrated</div>
+              </div>
+              <div class="hyg__bar-outer">
+                <div class="hyg__bar-fill" id="hygBar" style="height:5%"></div>
+              </div>
+            </div>
+            <div id="hygMsg" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              증상을 추가해 탈수 정도를 평가해보세요.
+            </div>
+            <div class="hyg__btns" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn hyg__sym" data-hyg="thirst" data-score="15">💦 심한 갈증</button>
+              <button class="btn hyg__sym" data-hyg="drymouth" data-score="15">👄 입 마름</button>
+              <button class="btn hyg__sym" data-hyg="urine" data-score="20">🚽 소변 감소</button>
+              <button class="btn hyg__sym" data-hyg="dizzy" data-score="20">😵 어지럼</button>
+              <button class="btn hyg__sym" data-hyg="nopee" data-score="25">🚱 소변 거의 없음</button>
+              <button class="btn hyg__sym" data-hyg="weak" data-score="30">🛏 일어서기 힘듦</button>
+              <button class="btn btn--ghost" data-hyg="reset">↺ 리셋</button>
+            </div>
+            <div class="figure__cap">설사 횟수보다 탈수 상태가 임상적으로 더 중요할 수 있습니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 감별진단 ================= -->
+        <section id="differential" class="section">
+          <h2><span class="sec-no">06</span> 이 병일까? — 감별진단</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">설사의 네 가지 패턴</div>
+            <div class="checkchips">
+              <button data-text="<b>바이러스성 위장관염</b> — 물설사, 구토, 복통, 주변에 비슷한 환자. 혈변 비전형적. Norovirus, Rotavirus 대표. 항생제 효과 없음.">🦠 바이러스성</button>
+              <button data-text="<b>침습성 세균성 장염</b> — 고열, 혈변, 점액변, 심한 복부경련, 뒤무직. Campylobacter, Shigella, Salmonella, STEC 등. 일부에서 항생제 고려하지만 원인 확인 필요.">🧫 세균성 (침습)</button>
+              <button data-text="<b>독소형 식중독</b> — 특정 음식을 먹은 여러 사람이 짧은 시간 내 구토. 미리 생성된 독소가 원인이므로 세균이 없어도 빠르게 발병. 금방 호전되는 경우도 있음.">☠️ 독소형 식중독</button>
+              <button data-text="<b>비감염성 원인</b> — 약물, IBS, 염증성 장질환, 갑상선질환, C. difficile(항생제 관련), 기타 소화기질환. 2주 이상 지속되면 단순 급성 장염 틀에서 다시 생각합니다.">❓ 비감염성</button>
+            </div>
+            <div class="infochips__out">패턴을 탭하세요.</div>
+          </div>
+
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>기억할 구별 포인트</div>
+            <p>① 물설사 + 구토 + 집단발생 → 바이러스성 가능성 ↑<br>
+              ② 혈변 + 고열 + 심한 복통 → invasive bacterial diarrhea 등 고려<br>
+              ③ 2주 이상 지속 → 급성 장염 이외 원인 재평가</p>
+          </div>
+        </section>
+
+        <!-- ================= 7 · 자연경과 ================= -->
+        <section id="timeline" class="section">
+          <h2><span class="sec-no">07</span> 보통 어떻게 진행되는가?</h2>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>중요</div>
+            <p><b>"장염은 정확히 3일이면 낫는다"처럼 외우지 않습니다.</b> 병원체에 따라 자연경과는 다릅니다.</p>
+          </div>
+
+          <div class="timeline-v" style="margin-top:14px;">
+            <div class="tv__item">
+              <div class="tv__dot"></div>
+              <div class="tv__content">
+                <div class="tv__label">노출</div>
+                <p>오염된 음식·물 또는 감염자 접촉</p>
+              </div>
+            </div>
+            <div class="tv__item">
+              <div class="tv__dot"></div>
+              <div class="tv__content">
+                <div class="tv__label">잠복기</div>
+                <p>병원체에 따라 <b>수 시간~수일 이상 다양</b>. Norovirus: 대개 12–48시간. 독소형: 수 시간 이내도 가능.</p>
+              </div>
+            </div>
+            <div class="tv__item tv__item--key">
+              <div class="tv__dot"></div>
+              <div class="tv__content">
+                <div class="tv__label">Acute Phase — 가장 중요한 기간</div>
+                <p>💩 설사 · 🤢 구토 · 🫄 복통<br>
+                  <b>수분 손실을 따라잡을 수 있는가?</b> — 이 질문이 핵심입니다.</p>
+              </div>
+            </div>
+            <div class="tv__item">
+              <div class="tv__dot"></div>
+              <div class="tv__content">
+                <div class="tv__label">회복 (대부분)</div>
+                <p>건강한 사람에서 대부분의 급성 감염성 설사는 자연 회복합니다.</p>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:13px;color:var(--ink-soft);margin-top:10px;">"며칠 지나면 검사를 해야 하나?" — 기간 하나만으로 결정하지 않습니다. 혈변·고열·심한 복통·탈수·면역저하·여행력·항생제 사용력·장기간 지속을 함께 봅니다.</p>
+        </section>
+
+        <!-- ================= 8 · 치료 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">08</span> 어떻게 치료하는가?</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>첫 번째 치료</div>
+            <p style="font-size:18px;font-weight:800;text-align:center;">💧 REHYDRATION</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:12px;">
+            <div class="panel panel--normal">
+              <h5>마실 수 있을 때</h5>
+              <p>ORS + 음식 섭취 유지<br>Red Flag 없으면 경과 관찰</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>마실 수 없을 때</h5>
+              <p>지속적 구토 / 심한 탈수<br>→ 의료기관 평가<br>→ 필요하면 IV fluid</p>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>그다음 질문 — 이 순서로</div>
+            <p>① 탈수 평가 + ORS<br>② 지사제가 필요한가?<br>③ 항생제가 필요한가?<br><small>지사제·항생제보다 수분이 먼저입니다.</small></p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ③</span> 급성 장염 환자에게 가장 먼저 생각해야 할 치료는?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 항생제</li>
+              <li data-opt="B"><span class="opt">B</span> Loperamide</li>
+              <li data-opt="C"><span class="opt">C</span> 경구 수분·전해질 보충 (ORS)</li>
+              <li data-opt="D"><span class="opt">D</span> Probiotic</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 설사의 가장 중요한 급성 위험은 탈수입니다. ORS는 경도~중등도 탈수 치료의 1차 선택입니다. (IDSA 권고)</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · ORS ================= -->
+        <section id="ors" class="section">
+          <h2><span class="sec-no">09</span> ORS — 왜 그냥 물과 다른가?</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>ORS의 구성</div>
+            <p>적절한 비율의 <b>물 + Na⁺ + Glucose</b> — 이 조합이 중요합니다.</p>
+          </div>
+
+          <div class="figure" data-orsmechanism style="margin-top:12px;">
+            <div class="figure__title">Viz 5 · ORS 흡수 원리 (SGLT1)</div>
+            <div class="ors__split">
+              <div class="ors__panel">
+                <div class="ors__title">물만 마실 때</div>
+                <div class="ors__diagram" id="orsWater">
+                  <div class="ors__lumen">장관 내부</div>
+                  <div class="ors__transporter" id="orsTrWater">
+                    <div class="ors__tr-label">SGLT1</div>
+                    <div class="ors__slots">
+                      <div class="ors__slot">Na⁺?</div>
+                      <div class="ors__slot">Glc?</div>
+                    </div>
+                  </div>
+                  <div class="ors__cell">장세포</div>
+                  <div class="ors__water-arrow" id="orsWaterArrow" style="opacity:.3;">💧 흡수 낮음</div>
+                </div>
+              </div>
+              <div class="ors__panel">
+                <div class="ors__title">ORS 마실 때</div>
+                <div class="ors__diagram active" id="orsORS">
+                  <div class="ors__lumen">Na⁺ + Glucose</div>
+                  <div class="ors__transporter active" id="orsTrORS">
+                    <div class="ors__tr-label">SGLT1 ✅</div>
+                    <div class="ors__slots">
+                      <div class="ors__slot active">Na⁺</div>
+                      <div class="ors__slot active">Glc</div>
+                    </div>
+                  </div>
+                  <div class="ors__cell">장세포</div>
+                  <div class="ors__water-arrow" id="orsORSArrow">💧 Water follows ↑</div>
+                </div>
+              </div>
+            </div>
+            <div class="ors__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-ors="demo">▶ 흡수 과정 보기</button>
+              <button class="btn btn--ghost" data-ors="reset">↺ 리셋</button>
+            </div>
+            <div id="orsMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              설사 중에도 SGLT1은 비교적 기능을 유지합니다. Glucose + Na⁺가 cotransport되면 물이 따라 흡수됩니다.
+            </div>
+            <div class="figure__cap">ORS는 단순히 "물을 마시는 것"보다 물과 전해질의 장 흡수를 효율적으로 이용하는 치료입니다.</div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>스포츠음료 vs ORS</div>
+            <p>가벼운 설사에서 수분 보충에는 도움이 될 수 있지만, <b>중등도 이상의 탈수나 심한 설사에서는 적절한 전해질 조성의 ORS가 더 적합합니다.</b> CDC: 심한 설사에서 스포츠음료가 손실된 전해질을 적절히 보충하지 못하므로 ORS 사용을 권고합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 약물 ================= -->
+        <section id="meds" class="section">
+          <h2><span class="sec-no">10</span> 약물치료</h2>
+
+          <h3>10-1. Loperamide</h3>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>기전 · 역할</div>
+            <p>말초 μ-opioid receptor 작용 → 장운동 감소 → 배변 횟수·urgency 감소.<br>
+              <b>면역기능 정상인 성인의 급성 물설사</b>에서 사용 고려 가능.</p>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:8px;">
+            <div class="card__label"><span class="dot"></span>🚨 피해야 하는 상황</div>
+            <ul style="margin:4px 0 0 18px;font-size:13.5px;">
+              <li>❌ <b>혈변</b></li>
+              <li>❌ <b>발열을 동반한 염증성 설사 의심</b></li>
+              <li>❌ <b>소아</b> (IDSA: 급성 설사 소아에서 loperamide 권고하지 않음)</li>
+            </ul>
+            <p style="font-size:12.5px;margin-top:6px;">IDSA: 염증성 설사·발열에서 toxic megacolon 위험 등으로 loperamide를 피하도록 권고합니다.</p>
+          </div>
+
+          <div class="card card--key" style="margin-top:8px;">
+            <div class="card__label"><span class="dot"></span>핵심 한 줄</div>
+            <p style="font-weight:800;">Loperamide는 "설사라면 무조건 먹는 약"이 아니다.</p>
+          </div>
+
+          <div class="figure" data-lopecheck style="margin-top:12px;">
+            <div class="figure__title">지사제를 줘도 될까? — 환자 선택</div>
+            <div class="lpc__patients">
+              <button class="btn lpc__pt" data-lpc="a">Patient A<br><small>27세 성인<br>물설사 4회<br>열 없음·혈변 없음</small></button>
+              <button class="btn lpc__pt" data-lpc="b">Patient B<br><small>34세 성인<br>39℃ 발열<br>혈변·복부경련</small></button>
+              <button class="btn lpc__pt" data-lpc="c">Patient C<br><small>2세 소아<br>급성 설사</small></button>
+            </div>
+            <div id="lpcResult" style="margin-top:12px;padding:14px;border-radius:12px;background:var(--bg-card);min-height:60px;font-size:13.5px;">
+              환자를 선택하면 판단이 나타납니다.
+            </div>
+          </div>
+
+          <h3 style="margin-top:20px;">10-2. Bismuth Subsalicylate</h3>
+          <p>단순 급성 설사의 빈도·지속시간을 어느 정도 줄일 수 있습니다. (CDC 설명) 단, salicylate 계열이므로 salicylate 과민·출혈 위험·항응고제 사용·특정 소아·청소년 상황을 고려합니다.</p>
+
+          <h3 style="margin-top:18px;">10-3. 항생제</h3>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>모든 장염에 필요한가? → NO</div>
+            <p>대부분의 급성 물설사, 특히 최근 해외여행이 없는 건강한 환자에서 경험적 항생제는 <b>일반적으로 권고되지 않습니다.</b></p>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:10px;">
+            <div class="figure__title">항생제를 쉽게 쓰지 않는 이유</div>
+            <div class="checkchips">
+              <button data-text="<b>바이러스면 효과 없음</b> — Norovirus, Rotavirus 등 바이러스성 장염에 항생제는 전혀 효과가 없습니다.">효과 없음 (바이러스)</button>
+              <button data-text="<b>세균성도 자연호전</b> — 많은 세균성 설사도 면역이 정상인 성인에서 자연히 호전됩니다.">자연 회복</button>
+              <button data-text="<b>C. difficile 위험</b> — 항생제는 정상 장내 세균을 죽이고 C. difficile 증식 기회를 줍니다.">C. difficile</button>
+              <button data-text="<b>STEC</b> — 특정 항생제가 HUS 위험을 높일 수 있습니다. '혈변 = 항생제'라는 공식이 틀릴 수 있습니다.">STEC (아래 참조)</button>
+              <button data-text="<b>내성·부작용</b> — 불필요한 항생제는 내성균을 키우고 부작용 위험을 높입니다.">내성·부작용</button>
+            </div>
+            <div class="infochips__out">이유를 탭하세요.</div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>🔬 Deep Dive — STEC</div>
+            <p><b>Shiga toxin-producing E. coli (STEC)</b> — 대표: E. coli O157:H7<br>
+              특징: 심한 복통 + 혈변. 발열은 없거나 심하지 않을 수 있음.<br>
+              <b>위험:</b> 특정 STEC에서 일부 항생제가 Shiga toxin 방출을 증가시켜 <b>HUS(용혈성요독증후군)</b> 위험을 높일 수 있습니다.<br>
+              IDSA: Shiga toxin 2 생성 STEC O157 및 관련 감염에서 항생제를 피하도록 권고.</p>
+            <p style="font-size:13px;margin-top:6px;color:var(--hi);font-weight:700;">"혈변 = 세균 같으니 항생제부터"도 잘못된 공식입니다.</p>
+          </div>
+
+          <h3 style="margin-top:18px;">10-4. Probiotics</h3>
+          <p>일부 상황에서 증상 기간 감소 가능성이 연구되어 있지만 균주·용량·환자·원인에 따라 결과가 일정하지 않습니다. <b>ORS를 대신하는 핵심 치료로 생각하지 않습니다.</b></p>
+
+          <div class="card card--pharm" style="margin-top:10px;">
+            <div class="card__label"><span class="dot"></span>약사 상담 우선순위</div>
+            <p>수분·전해질 → 위험 신호(Red Flag) → 필요한 증상 조절 → probiotic은 보조적 고려</p>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 집에서 할 것 ================= -->
+        <section id="homecare" class="section">
+          <h2><span class="sec-no">11</span> 집에서 무엇을 할 수 있는가?</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">집에서 할 수 있는 것</div>
+            <div class="checkchips">
+              <button data-text="<b>💧 조금씩 자주 마시기</b> — 구토가 있다면 한 번에 많은 양을 마시면 다시 토할 수 있습니다. 소량씩 → 자주 → 점차 양 증가.">조금씩 자주</button>
+              <button data-text="<b>🧂 심한 설사 시 ORS</b> — 특히 어린이·노인·반복적 물설사·탈수 징후가 있으면 중요합니다. 스포츠음료로 완전 대체하지 않습니다.">ORS</button>
+              <button data-text="<b>🍚 먹을 수 있다면 굶지 않기</b> — 급성 설사라고 장기간 금식할 필요가 없습니다. 수분 섭취가 가능해지면 소화 가능한 음식을 먹으며 영양을 회복합니다.">먹기</button>
+              <button data-text="<b>🚫 고농도 당 음료 대량 금지</b> — 고당 음료는 장내 삼투압을 높여 오히려 설사를 악화시킬 수 있습니다. (CDC Yellow Book)">당분 음료 주의</button>
+              <button data-text="<b>🧼 손씻기</b> — 화장실 사용 후, 기저귀 교체 후, 음식 조리 전, 식사 전. 비누와 물로 20초 이상.">손씻기</button>
+            </div>
+            <div class="infochips__out">항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 하지 말 것 ================= -->
+        <section id="donts" class="section">
+          <h2><span class="sec-no">12</span> 하지 말아야 할 것</h2>
+          <div class="factcheck">
+            <div class="fc-item">
+              <div class="fc-claim">❌ "물을 안 마시면 설사가 줄 것이다."</div>
+              <div class="fc-verdict wrong">위험</div>
+              <div class="fc-exp">설사량보다 탈수 위험을 증가시킵니다. 수분 보충이 치료의 핵심입니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">❌ 혈변·고열이 있는데 지사제로 무조건 막기</div>
+              <div class="fc-verdict wrong">위험</div>
+              <div class="fc-exp">염증성 설사에서는 적절하지 않을 수 있습니다. 의료 평가가 먼저입니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">❌ 남아 있는 항생제를 임의 복용</div>
+              <div class="fc-verdict wrong">위험</div>
+              <div class="fc-exp">원인에 따라 필요 없거나, 효과가 없거나, 오히려 해로울 수 있습니다. STEC에서 항생제 금기.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">❌ 모든 장염에서 금식</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">먹을 수 있다면 적절한 영양을 유지합니다. 장기 금식은 권고되지 않습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">❌ 노로바이러스 예방을 손소독제만으로 해결</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">비누와 물을 이용한 손씻기가 우선입니다. 알코올 손소독제만으로는 불충분합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · Red Flags ================= -->
+        <section id="redflags" class="section">
+          <h2><span class="sec-no">13</span> Red Flags — 언제 병원에 가야 하는가?</h2>
+
+          <div class="figure" data-trafficlight>
+            <div class="figure__title">Viz 6 · Diarrhea Traffic Light</div>
+            <div class="tfl__levels">
+              <div class="tfl__level green">
+                <div class="tfl__light">🟢</div>
+                <div class="tfl__title">HOME</div>
+                <div class="tfl__items">
+                  <div>물설사 / 혈변 없음</div>
+                  <div>고열 없음</div>
+                  <div>물을 잘 마심</div>
+                  <div>전신상태 양호</div>
+                </div>
+                <div class="tfl__action">ORS + 수분 + 경과 관찰</div>
+              </div>
+              <div class="tfl__level yellow">
+                <div class="tfl__light">🟡</div>
+                <div class="tfl__title">CLINIC</div>
+                <div class="tfl__items">
+                  <div>혈변</div>
+                  <div>고열</div>
+                  <div>지속적 설사</div>
+                  <div>심한 복통</div>
+                  <div>최근 해외여행</div>
+                  <div>최근 항생제 사용</div>
+                  <div>고위험 환자</div>
+                </div>
+                <div class="tfl__action">원인 평가 필요</div>
+              </div>
+              <div class="tfl__level red">
+                <div class="tfl__light">🔴</div>
+                <div class="tfl__title">URGENT</div>
+                <div class="tfl__items">
+                  <div>물을 전혀 못 마심</div>
+                  <div>의식 변화</div>
+                  <div>소변 거의 없음</div>
+                  <div>실신·기립성 어지럼</div>
+                  <div>심각한 탈수</div>
+                  <div>패혈증 의심</div>
+                </div>
+                <div class="tfl__action">신속한 의료 평가</div>
+              </div>
+            </div>
+            <div class="figure__cap">IDSA: 혈변·발열·심한 복부경련 또는 패혈증 징후 → 적극적 원인 평가 권고.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ④</span> 설사 환자에서 다음 중 가장 위험한 조합은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 묽은 변 2회 + 정상 소변</li>
+              <li data-opt="B"><span class="opt">B</span> 물설사 + 약간의 식욕저하</li>
+              <li data-opt="C"><span class="opt">C</span> 반복 구토 + 소변 거의 없음 + 어지럼</li>
+              <li data-opt="D"><span class="opt">D</span> 복부에서 소리가 남</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 반복 구토로 수분 섭취가 불가능하고 소변 감소 + 어지럼은 심한 탈수를 시사합니다. 긴급 평가가 필요합니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ⑤</span> 혈변 환자에서 항생제 관련 예외 병원체는?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Norovirus</li>
+              <li data-opt="B"><span class="opt">B</span> STEC</li>
+              <li data-opt="C"><span class="opt">C</span> H. pylori</li>
+              <li data-opt="D"><span class="opt">D</span> Rotavirus</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — STEC에서는 일부 항생제가 Shiga toxin 방출을 증가시켜 HUS 위험을 높일 수 있으므로 항생제를 피합니다. IDSA 권고.</div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · 예방 ================= -->
+        <section id="prevention" class="section">
+          <h2><span class="sec-no">14</span> 전염과 예방</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>집에 감염자가 있을 때</div>
+            <ul style="margin:6px 0 0 18px;font-size:13.5px;">
+              <li>🧼 비누 + 물로 손씻기 (최소 20초)</li>
+              <li>🚽 화장실·접촉면 관리</li>
+              <li>🤮 구토·설사 오염 즉시 청소</li>
+              <li>🍽️ 환자가 음식 조리하지 않기</li>
+              <li>🧺 오염된 의류·침구 조심스럽게 처리</li>
+            </ul>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>노로바이러스 — 증상 회복 후에도 주의</div>
+            <p><b>CDC 권고:</b> 노로바이러스 증상이 끝난 뒤에도 <b>최소 48시간</b>은 다른 사람을 위한 음식 조리나 환자 돌봄을 하지 않도록 권고합니다. 특히 식당·학교·어린이집·요양시설·의료기관 종사자에서 중요합니다.</p>
+            <p style="margin-top:8px;font-size:13px;">Norovirus는 회복 후에도 대변에서 <b>2주 이상 배출</b>될 수 있습니다. "2주 격리"의 의미가 아니라, 회복 후에도 손위생을 철저히 하는 이유입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 15 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">15</span> 사람들이 실제로 묻는 질문</h2>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 장염이면 무조건 굶어야 하나요?</button>
+              <div class="faq__a"><p>아닙니다. 가장 중요한 것은 수분 공급이며, 먹을 수 있다면 적절하게 식사를 재개합니다. 장기간 금식보다 탈수 방지와 영양 유지가 중요합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 설사하면 포카리 같은 스포츠음료 마시면 되나요?</button>
+              <div class="faq__a"><p>가벼운 경우 수분 보충에는 도움이 될 수 있지만 심한 설사나 탈수 치료에서는 ORS가 더 적절합니다. 특히 어린이와 중등도 탈수에서는 단순 음료를 ORS와 동일하게 보지 않습니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. 지사제 먹으면 장염이 빨리 낫나요?</button>
+              <div class="faq__a"><p>증상을 줄일 뿐 원인을 치료하는 것은 아닙니다. 성인의 단순 물설사에서는 사용할 수 있지만 혈변·발열이 있으면 피하고 의료 평가가 필요합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. 세균성 장염이면 무조건 항생제죠?</button>
+              <div class="faq__a"><p>아닙니다. 일부 세균성 장염도 자연 회복하며 원인에 따라 항생제의 이득과 위험이 다릅니다. 특히 STEC에서는 특정 항생제를 피해야 합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. 설사만 하는데 노로바이러스일 수 있나요?</button>
+              <div class="faq__a"><p>가능합니다. 노로바이러스는 구토가 흔하지만 모든 사람이 동일한 증상을 보이지는 않습니다. 특히 주변에 동시다발적으로 구토·설사가 발생하면 outbreak 가능성을 생각합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. 혈변이 조금 섞였는데 치질 아닐까요?</button>
+              <div class="faq__a"><p>가능하지만 급성 설사와 함께 새롭게 생긴 혈변이라면 감염성 장염 등도 고려해야 합니다. 혈변을 단순히 치질이라고 자가진단하게 해서는 안 됩니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. 가족이 노로바이러스인데 손소독제만 쓰면 되죠?</button>
+              <div class="faq__a"><p>손소독제만으로는 충분하지 않습니다. 노로바이러스에서는 비누와 물을 이용한 손씻기가 더 중요합니다. CDC도 동일하게 강조합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q8. 유산균을 먹으면 장염이 바로 낫나요?</button>
+              <div class="faq__a"><p>핵심 치료는 아닙니다. 효과는 균주와 상황에 따라 다릅니다. Probiotic보다 ORS와 Red Flag 확인이 먼저입니다.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · Myth vs Fact ================= -->
+        <section id="myth" class="section">
+          <h2><span class="sec-no">16</span> Myth vs Fact</h2>
+          <div class="factcheck">
+            <div class="fc-item">
+              <div class="fc-claim">"설사는 빨리 멈출수록 좋다."</div>
+              <div class="fc-verdict partial">조건에 따라 다름</div>
+              <div class="fc-exp">불편함을 줄이는 것은 도움이 되지만 혈변·발열이 있는 염증성 설사에서는 장운동억제제를 피해야 할 수 있습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"장염에는 항생제를 먹으면 빨리 낫는다."</div>
+              <div class="fc-verdict wrong">대체로 틀림</div>
+              <div class="fc-exp">대부분의 급성 물설사에서 경험적 항생제가 필요하지 않습니다. 바이러스에는 효과 없음, 세균성도 많은 경우 자연 회복, STEC에서는 오히려 해롭습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"설사하면 굶는 것이 좋다."</div>
+              <div class="fc-verdict wrong">대체로 틀림</div>
+              <div class="fc-exp">수분과 영양을 유지하는 것이 중요합니다. 장기간 금식은 권고되지 않습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"노로바이러스는 알코올 손소독제로 예방하면 된다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">비누와 물을 통한 손씻기가 우선입니다. 알코올 손소독제는 노로바이러스에 충분하지 않습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"혈변이면 항생제를 바로 먹어야 한다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">STEC처럼 항생제를 피해야 하는 감염도 있습니다. 원인 평가 없이 혈변 = 항생제 공식은 위험합니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">17</span> Pharmacist Deep Dive</h2>
+
+          <h3>① ORS는 왜 위대한 치료인가?</h3>
+          <p>설사에서는 장의 분비가 증가하지만 Na⁺–glucose cotransport(SGLT1)는 유지됩니다. 그래서 병원체를 제거하지 않아도 탈수를 막아 사망 위험을 크게 낮출 수 있습니다. 개발도상국의 영아 설사 사망률을 극적으로 낮춘 치료입니다.</p>
+
+          <h3 style="margin-top:18px;">② Secretory vs Inflammatory — 임상 framework</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>Secretory/Watery</th><th>Inflammatory</th></tr></thead>
+              <tbody>
+                <tr><th>기전</th><td>독소·바이러스 → 분비↑</td><td>점막 침범 → 염증</td></tr>
+                <tr><th>변</th><td>많은 양의 묽은 변</td><td>혈액·점액</td></tr>
+                <tr><th>발열</th><td>경미하거나 없음</td><td>흔함</td></tr>
+                <tr><th>복통</th><td>경련성</td><td>심함</td></tr>
+                <tr><th>Loperamide</th><td>고려 가능</td><td>피할 것</td></tr>
+                <tr><th>항생제</th><td>대부분 불필요</td><td>원인에 따라</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);">이 구분이 완벽한 병원체 진단법은 아니지만 약국 상담에서 매우 강력한 첫 번째 framework입니다.</p>
+
+          <h3 style="margin-top:18px;">③ 항생제와 STEC — HUS 위험</h3>
+          <p>STEC → Shiga toxin → endothelial injury → 혈소판 감소 + 용혈성 빈혈 + 급성 신손상 → <b>HUS(hemolytic uremic syndrome)</b>. 일반적으로 "세균 → 항생제"가 맞는 공식이라고 학습하기 쉽지만, infectious diarrhea에서는 틀릴 수 있습니다. <b>설사에서 항생제 치료는 병원체와 임상상에 따라 달라진다</b>는 것이 핵심입니다.</p>
+        </section>
+
+        <!-- ================= 18 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">18</span> Case Study</h2>
+
+          <h3>Case A — 전형적인 장염</h3>
+          <div class="case-box">
+            <p><b>26세 남성.</b> 어제 회사 회식 후 새벽부터 구토와 물설사. 동료 3명도 비슷한 증상. 37.4℃. 혈변 없음. 복통은 배변 전에만 약간. 물을 조금씩 마실 수 있고 소변도 나옴.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 현재 가장 중요한 치료는?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 항생제</li>
+                <li data-opt="B"><span class="opt">B</span> ORS와 충분한 수분</li>
+                <li data-opt="C"><span class="opt">C</span> 고용량 지사제</li>
+                <li data-opt="D"><span class="opt">D</span> 금식</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 혈변·고열·심한 복통·탈수가 없는 전형적인 급성 물설사에서 ORS와 수분 보충이 핵심입니다.</div>
+            </div>
+            <div class="qcard" style="margin-top:12px;">
+              <div class="q" style="display:block;">Q2. 세균 배양검사가 반드시 필요한 전형적 상황인가?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">
+                <b>그렇지 않습니다.</b> 혈변·고열·심한 복통·패혈증 등의 단서가 없고 가벼운 급성 물설사라면 대부분 지지요법이 중심입니다.<br><br>
+                <b>약국 상담 예시:</b> "지금 가장 중요한 건 설사를 억지로 완전히 멈추는 것보다 빠져나가는 수분과 전해질을 보충하는 겁니다. 조금씩 자주 드세요. 혈변이나 고열, 심한 복통이 생기거나 물도 유지하기 어려워지면 진료를 받으셔야 합니다."
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case B — 다시 생각하기</h3>
+          <div class="case-box">
+            <p><b>42세 여성.</b> 어제부터 설사 시작. 오늘: 39.1℃, 심한 복부경련, 혈변 5회.<br>
+              환자 말: "회의가 있어서 지사제 강한 걸 먹고 일단 설사를 막고 싶어요."</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. Loperamide로 일단 증상을 막아도 될까?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">
+                <b>권하지 않습니다.</b> 발열과 혈변이 있는 염증성 설사 가능성이 있기 때문입니다.
+              </div>
+            </div>
+            <div class="qcard" style="margin-top:12px;">
+              <div class="q" style="display:block;">Q2. 항생제를 바로 임의로 시작할까?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">
+                <b>그것도 아닙니다.</b> 혈변은 세균성 감염을 시사하지만 STEC 등 항생제를 피해야 할 원인도 있습니다. 의료기관 평가 → 원인 검사 → 상태와 원인에 따른 치료가 적절합니다.
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Mini Case — 세 명의 설사 환자</h3>
+          <div class="figure" data-infochips>
+            <div class="figure__title">세 환자의 적절한 행동</div>
+            <div class="checkchips">
+              <button data-text="<b>Patient 1</b> — 물설사 3회, 열 없음, 잘 마심 → <b>HOME 가능성 ↑</b>. ORS + 수분. 혈변·고열·심한 복통 생기면 진료.">Patient 1 (물설사 3회)</button>
+              <button data-text="<b>Patient 2</b> — 혈변 + 39℃ + 복통 → <b>CLINIC / 원인 평가</b>. Loperamide 피하기. 항생제도 원인 확인 후. 의료기관 방문 권고.">Patient 2 (혈변+발열)</button>
+              <button data-text="<b>Patient 3</b> — 물설사 10회 + 반복 구토, 일어서면 어지럽고 소변 거의 없음 → <b>심한 탈수 — 신속한 평가</b>. IV fluid 등 의료처치 필요.">Patient 3 (심한 탈수)</button>
+            </div>
+            <div class="infochips__out">환자를 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 19 · Final Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">19</span> Final Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 1. 급성 감염성 설사에서 가장 우선적인 치료 원칙은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 모든 환자에게 항생제</li>
+                <li data-opt="B"><span class="opt">B</span> 모든 환자에게 지사제</li>
+                <li data-opt="C"><span class="opt">C</span> 수분과 전해질 보충 (ORS)</li>
+                <li data-opt="D"><span class="opt">D</span> 완전 금식</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 탈수가 가장 중요한 급성 위험. ORS는 1차 치료. (IDSA)</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 2. Loperamide를 피하는 것이 가장 적절한 상황은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 건강한 성인의 가벼운 물설사</li>
+                <li data-opt="B"><span class="opt">B</span> 열 없이 3회의 묽은 변</li>
+                <li data-opt="C"><span class="opt">C</span> 혈변과 39℃ 발열</li>
+                <li data-opt="D"><span class="opt">D</span> 여행 중 단순 물설사</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 혈변+발열은 침습성·염증성 설사를 시사. Antimotility drug 단독 사용을 피합니다. (IDSA)</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 3. 급성 설사에서 경험적 항생제에 대한 설명으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 대부분의 물설사에 필요하다.</li>
+                <li data-opt="B"><span class="opt">B</span> 혈변이면 무조건 즉시 복용한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 대부분의 단순 급성 물설사에서 필요하지 않다.</li>
+                <li data-opt="D"><span class="opt">D</span> 바이러스성 장염에도 효과가 있다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 최근 해외여행이 없는 대부분의 급성 물설사에서 경험적 항생제는 권고되지 않습니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 4. 노로바이러스 감염자가 있는 가정에서 가장 적절한 행동은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 손소독제만 사용한다.</li>
+                <li data-opt="B"><span class="opt">B</span> 비누와 물로 손을 자주 씻는다.</li>
+                <li data-opt="C"><span class="opt">C</span> 설사가 멎는 즉시 가족 음식을 조리한다.</li>
+                <li data-opt="D"><span class="opt">D</span> 화장실을 청소할 필요 없다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 비누+물로 손씻기가 핵심. 증상 회복 후 최소 48시간은 음식 조리 피하기. (CDC)</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 5. 35세 환자가 혈변과 심한 복통이 있다. 가장 적절한 설명은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 세균 같으므로 남은 항생제를 바로 먹는다.</li>
+                <li data-opt="B"><span class="opt">B</span> 지사제로 먼저 멈추고 기다린다.</li>
+                <li data-opt="C"><span class="opt">C</span> Invasive infection 및 STEC 등을 고려해 의료기관 평가가 필요하다.</li>
+                <li data-opt="D"><span class="opt">D</span> 탈수만 없으면 항상 문제가 없다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 혈변·발열·심한 복통은 병원체 검사 적응증. STEC처럼 항생제를 피해야 하는 경우도 있어 임의 치료보다 평가가 먼저입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · 20초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">20</span> 20초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>'장염'은 바이러스·세균·기생충 등 다양한 원인의 급성 위장관 감염을 일상적으로 부르는 말이다.</p></div>
+            <div class="factcard"><span class="n">2</span><p>설사 치료의 첫 번째 목표는 설사를 멈추는 것이 아니라 <b>탈수를 막는 것</b>이다.</p></div>
+            <div class="factcard"><span class="n">3</span><p>물설사와 <b>혈변·고열이 동반된 염증성 설사</b>를 구별한다. 약물 선택이 달라진다.</p></div>
+            <div class="factcard"><span class="n">4</span><p>ORS = 물 + Na⁺ + Glucose. SGLT1를 통한 cotransport → 설사 중에도 수분·전해질 흡수 가능.</p></div>
+            <div class="factcard"><span class="n">5</span><p>Loperamide는 건강한 성인의 단순 물설사에서 고려할 수 있지만 <b>혈변·발열이 있으면 피한다</b>.</p></div>
+            <div class="factcard"><span class="n">6</span><p>대부분의 단순 급성 물설사에 항생제는 필요하지 않다. 바이러스에는 효과 없고, 세균도 많은 경우 자연 회복.</p></div>
+            <div class="factcard"><span class="n">7</span><p>혈변이라고 무조건 항생제를 쓰지 않는다 — <b>STEC에서 특정 항생제는 HUS 위험을 높일 수 있다</b>.</p></div>
+            <div class="factcard"><span class="n">8</span><p>노로바이러스에서는 손소독제만 믿지 말고 <b>비누와 물로 손을 씻는다</b>. 증상 회복 후 최소 48시간 음식 조리 피하기.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">장염 상담의 순서는<br>
+            <b>탈수 → 혈변·발열 → 위험요인 → 약물</b>이다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 강의에서는 또 다른 일상 질환으로 이어집니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>급성 장염 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">1순위</span><span>탈수 막기 — ORS/수분</span></div>
+      <div class="qr-row"><span class="qr-k">구별</span><span>물설사 vs 혈변+고열 (약물 선택 달라짐)</span></div>
+      <div class="qr-row"><span class="qr-k">Loperamide</span><span>혈변·발열 시 피하기</span></div>
+      <div class="qr-row"><span class="qr-k">항생제</span><span>단순 물설사 불필요 / STEC 금기</span></div>
+      <div class="qr-row"><span class="qr-k">노로</span><span>비누+물 손씻기 / 회복 후 48h 조리 금지</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

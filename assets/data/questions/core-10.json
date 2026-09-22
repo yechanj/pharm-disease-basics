@@ -1,0 +1,254 @@
+[
+  {
+    "id": "stroke-l1-001",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "정의/분류",
+    "type": "concept",
+    "question": "뇌졸중의 두 가지 주요 유형으로 올바른 것은?",
+    "options": [
+      "허혈성(혈관 막힘)과 출혈성(혈관 파열)",
+      "급성과 만성",
+      "심인성과 폐인성",
+      "전엽성과 후엽성"
+    ],
+    "answer": 0,
+    "explanation": "뇌졸중은 크게 혈관이 막히는 허혈성 뇌졸중(~85%)과 혈관이 터지는 출혈성 뇌졸중(~15%)으로 나뉩니다. 두 유형은 치료 방향이 거의 반대입니다.",
+    "source": "2026 AHA/ASA Stroke Guideline"
+  },
+  {
+    "id": "stroke-l1-002",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "Penumbra",
+    "type": "concept",
+    "question": "Ischemic penumbra란?",
+    "options": [
+      "이미 완전히 괴사한 뇌조직",
+      "혈류가 부족하지만 아직 살릴 수 있는 주변 뇌조직",
+      "정상 뇌척수액이 있는 영역",
+      "두개골 안쪽 막"
+    ],
+    "answer": 1,
+    "explanation": "Ischemic penumbra는 혈류가 부족하지만 아직 irreversible injury가 발생하지 않아 재관류로 구제 가능한 영역입니다. Stroke 치료 목표 중 하나는 penumbra를 살리는 것입니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  },
+  {
+    "id": "stroke-l1-003",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "BE-FAST",
+    "type": "recognition",
+    "question": "뇌졸중 대중교육 BE-FAST에서 'F'는 무엇을 의미하는가?",
+    "options": [
+      "Fever — 열",
+      "Face — 얼굴 한쪽 처짐",
+      "Fatigue — 피로",
+      "Fluid — 부종"
+    ],
+    "answer": 1,
+    "explanation": "BE-FAST: Balance(균형 장애), Eyes(시야 이상), Face(얼굴 처짐), Arm(팔 힘 빠짐), Speech(언어장애), Time(즉각 응급의료). 이 중 하나라도 갑자기 생기면 즉시 119를 부릅니다.",
+    "source": "AHA Stroke Awareness"
+  },
+  {
+    "id": "stroke-l1-004",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "CT 진단",
+    "type": "concept",
+    "question": "급성 뇌졸중 의심 시 Non-contrast CT를 가장 먼저 시행하는 주된 이유는?",
+    "options": [
+      "LDL 수치를 확인하기 위해",
+      "심방세동을 진단하기 위해",
+      "Intracranial hemorrhage 여부를 빠르게 평가하기 위해",
+      "모든 ischemic lesion을 정확히 측정하기 위해"
+    ],
+    "answer": 2,
+    "explanation": "Noncontrast CT의 주요 역할 중 하나는 빠른 hemorrhage 배제입니다. 출혈이 있으면 thrombolysis가 금기이므로, CT로 먼저 출혈을 배제한 뒤 치료 방향을 결정합니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  },
+  {
+    "id": "stroke-l1-005",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "TIA",
+    "type": "clinical",
+    "question": "TIA(일과성 허혈발작)에 대한 올바른 설명은?",
+    "options": [
+      "증상이 완전히 사라졌으면 위험하지 않다.",
+      "항상 24시간 이상 증상이 지속된다.",
+      "증상이 일시적으로 회복되지만 향후 stroke 위험이 높은 warning event일 수 있다.",
+      "출혈성 뇌졸중의 초기 단계다."
+    ],
+    "answer": 2,
+    "explanation": "TIA는 일시적 신경학적 증상이 회복되지만 acute infarction이 없는 상태입니다. 증상이 사라진 것이 안심 근거가 아니며, 향후 stroke의 중요한 경고신호입니다. 신속한 원인평가와 예방치료가 필요합니다.",
+    "source": "2026 AHA/ASA TIA/Stroke Guideline"
+  },
+  {
+    "id": "stroke-l1-006",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "IV thrombolysis",
+    "type": "treatment",
+    "question": "2026 AHA/ASA guideline 기준 적절한 acute ischemic stroke 환자에서 IV thrombolysis의 일반적인 시간창은?",
+    "options": [
+      "증상 발생 후 30분 이내",
+      "증상 발생 후 4.5시간 이내",
+      "증상 발생 후 24시간 이내",
+      "시간에 관계없이 언제나 가능"
+    ],
+    "answer": 1,
+    "explanation": "2026 AHA/ASA guideline은 적절한 환자에서 증상 발생 후 4.5시간 이내 IV thrombolysis(alteplase 또는 tenecteplase)를 권고합니다. 일부 선택된 환자는 advanced imaging으로 더 늦게 가능합니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  },
+  {
+    "id": "stroke-l1-007",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "재발예방",
+    "type": "treatment",
+    "question": "심방세동(AF)에 의한 허혈성 뇌졸중 재발예방의 핵심 약물 전략은?",
+    "options": [
+      "Aspirin 단독",
+      "Anticoagulation (DOAC 또는 warfarin)",
+      "Statin 단독",
+      "NSAID"
+    ],
+    "answer": 1,
+    "explanation": "AF-related cardioembolic stroke는 fibrin-rich thrombus가 원인이므로 anticoagulation이 핵심입니다. Aspirin만으로는 AF stroke prevention에 충분하지 않습니다.",
+    "source": "AHA/ASA Secondary Prevention Guideline"
+  },
+  {
+    "id": "stroke-l1-008",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 1,
+    "concept": "출혈성 치료",
+    "type": "treatment",
+    "question": "Warfarin 복용 중인 환자가 intracranial hemorrhage(ICH)가 발생했을 때 우선 고려해야 할 것은?",
+    "options": [
+      "Aspirin 즉시 투여",
+      "Warfarin 용량을 2배로 늘리기",
+      "Vitamin K + PCC 등으로 빠른 anticoagulant reversal",
+      "IV alteplase 즉시 투여"
+    ],
+    "answer": 2,
+    "explanation": "ICH에서 항응고제 복용 중이라면 빠른 reversal이 hematoma expansion 방지에 중요합니다. Warfarin: Vitamin K + PCC, dabigatran: idarucizumab, factor Xa inhibitor: andexanet alfa/PCC.",
+    "source": "2026 AHA/ASA ICH Guideline"
+  },
+  {
+    "id": "stroke-l2-001",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 2,
+    "concept": "기전/원인",
+    "type": "mechanism",
+    "question": "심방세동(AF)이 허혈성 뇌졸중을 일으키는 기전으로 가장 적절한 것은?",
+    "options": [
+      "좌심실에서 calcium이 과다 분비되어 관상동맥을 막는다.",
+      "AF → left atrial blood stasis → fibrin-rich thrombus 형성 → embolism → cerebral artery occlusion",
+      "AF → 심박수 감소 → 뇌혈류 증가 → 뇌압 상승",
+      "AF → LDL 급격 상승 → 뇌동맥 plaque 형성"
+    ],
+    "answer": 1,
+    "explanation": "AF에서는 left atrium의 blood stasis로 fibrin-rich thrombus가 형성되고, 이것이 embolism이 되어 cerebral artery를 막습니다. 이 기전 때문에 AF에서는 anticoagulation이 핵심입니다.",
+    "source": "2026 AHA/ASA Stroke Guideline"
+  },
+  {
+    "id": "stroke-l2-002",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 2,
+    "concept": "약물 기전",
+    "type": "mechanism",
+    "question": "Alteplase(tPA)의 작용기전으로 올바른 것은?",
+    "options": [
+      "Platelet COX-1을 억제해 TXA₂를 줄인다.",
+      "Factor Xa를 직접 억제해 응고를 예방한다.",
+      "Plasminogen을 plasmin으로 전환시켜 fibrin clot을 분해한다.",
+      "P2Y12 수용체를 차단해 ADP-mediated platelet aggregation을 줄인다."
+    ],
+    "answer": 2,
+    "explanation": "Alteplase(tPA)는 plasminogen을 plasmin으로 활성화하여 fibrin을 분해합니다. 이미 형성된 혈전을 녹이는 것으로, anticoagulant(새 혈전 예방)와 기전이 다릅니다.",
+    "source": "Pharmacology — tPA mechanism"
+  },
+  {
+    "id": "stroke-l2-003",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 2,
+    "concept": "약물 상호작용/선택",
+    "type": "caution",
+    "question": "허혈성 뇌졸중 재발예방에서 antiplatelet과 anticoagulant의 차이를 가장 잘 설명한 것은?",
+    "options": [
+      "둘 다 동일한 기전으로 혈전을 예방한다.",
+      "Antiplatelet은 platelet aggregation 억제로 동맥 혈전에 유리, anticoagulant는 coagulation cascade 억제로 AF 관련 fibrin-rich thrombus에 유리하다.",
+      "Anticoagulant는 이미 형성된 clot을 즉시 녹인다.",
+      "모든 뇌졸중 환자에게 둘을 장기간 동시에 사용한다."
+    ],
+    "answer": 1,
+    "explanation": "Antiplatelet은 동맥 혈전(platelet 중심)을 예방하고, anticoagulant는 AF에서 생기는 fibrin-rich 심방 혈전을 예방합니다. 원인에 따라 선택이 달라집니다.",
+    "source": "AHA/ASA Secondary Prevention Guideline"
+  },
+  {
+    "id": "stroke-l2-004",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 2,
+    "concept": "진단",
+    "type": "clinical",
+    "question": "CTA(CT Angiography)가 acute ischemic stroke 평가에서 중요한 이유는?",
+    "options": [
+      "혈당 수치를 확인하기 위해",
+      "Large vessel occlusion(LVO) 여부를 확인해 thrombectomy 적응증을 판단하기 위해",
+      "Troponin 상승 여부를 확인하기 위해",
+      "뇌척수액 성분을 분석하기 위해"
+    ],
+    "answer": 1,
+    "explanation": "CTA는 ICA·proximal MCA·basilar artery 등 큰 혈관이 막혔는지 평가합니다. LVO 확인은 mechanical thrombectomy eligibility 판단의 핵심 단계입니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  },
+  {
+    "id": "stroke-l2-005",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 2,
+    "concept": "wake-up stroke",
+    "type": "concept",
+    "question": "Wake-up stroke에서 치료 가능 여부를 결정하는 데 사용되는 영상 기법은?",
+    "options": [
+      "단순 흉부 X-ray",
+      "복부 CT",
+      "MRI DWI-FLAIR mismatch 또는 perfusion imaging",
+      "골밀도 측정"
+    ],
+    "answer": 2,
+    "explanation": "Wake-up stroke에서는 언제 증상이 시작됐는지 모르므로, DWI-FLAIR mismatch 또는 perfusion imaging으로 'tissue time'을 평가합니다. Salvageable tissue가 있으면 일부 선택된 환자에서 thrombolysis를 고려할 수 있습니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  },
+  {
+    "id": "stroke-l3-001",
+    "disease": "뇌졸중",
+    "lessonRef": "core/10.html",
+    "level": 3,
+    "concept": "종합",
+    "type": "clinical",
+    "question": "68세 남성, 갑자기 오른쪽 편마비와 실어증 발생 후 1시간 경과. Non-contrast CT: 출혈 없음. CTA: left proximal MCA occlusion. 이 환자에서 가장 적절한 다음 단계는?",
+    "options": [
+      "CT 결과가 정상이므로 입원 없이 귀가",
+      "아직 출혈이 없으므로 aspirin만 복용",
+      "IV thrombolysis evaluation + mechanical thrombectomy eligibility 빠르게 평가",
+      "dabigatran을 즉시 시작해 항응고"
+    ],
+    "answer": 2,
+    "explanation": "CT에서 출혈 없음 + CTA에서 proximal MCA LVO가 확인된 4.5시간 이내 acute ischemic stroke입니다. Contraindication이 없다면 IV thrombolysis를 고려하고, LVO이므로 mechanical thrombectomy eligibility를 동시에 빠르게 평가합니다.",
+    "source": "2026 AHA/ASA Acute Ischemic Stroke Guideline"
+  }
+]

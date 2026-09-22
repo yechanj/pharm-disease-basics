@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>제12강 · GERD — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="GERD는 위산 과다 질환이 아닌 역류 방어 시스템의 균형 붕괴 — LES·TLESR·NERD·P-CAB·PPI 복용 타이밍까지" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">제12강 · GERD</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">GERD</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>제12강 · GERD</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#oneline"><span class="num">1</span> 한 문장으로</a></li>
+          <li><a href="#normal"><span class="num">2</span> 정상 역류 방어</a></li>
+          <li><a href="#mechanism"><span class="num">3</span> 왜 역류가 생기나</a></li>
+          <li><a href="#acid"><span class="num">4</span> 산만 문제인가?</a></li>
+          <li><a href="#phenotype"><span class="num">5</span> GERD 형태</a></li>
+          <li><a href="#symptom"><span class="num">6</span> 증상</a></li>
+          <li><a href="#alarm"><span class="num">7</span> Alarm Features</a></li>
+          <li><a href="#diagnosis"><span class="num">8</span> 진단</a></li>
+          <li><a href="#complication"><span class="num">9</span> 합병증</a></li>
+          <li><a href="#treat"><span class="num">10</span> 치료 전체 그림</a></li>
+          <li><a href="#lifestyle"><span class="num">11</span> 생활습관</a></li>
+          <li><a href="#basic"><span class="num">12</span> 제산제·알긴산·H₂RA</a></li>
+          <li><a href="#ppi"><span class="num">13</span> PPI</a></li>
+          <li><a href="#pcab"><span class="num">14</span> P-CAB</a></li>
+          <li><a href="#refractory"><span class="num">15</span> Refractory GERD</a></li>
+          <li><a href="#surgery"><span class="num">16</span> 수술·시술</a></li>
+          <li><a href="#deepdive"><span class="num">17</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">18</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">19</span> FAQ</a></li>
+          <li><a href="#factcheck"><span class="num">20</span> 팩트체크</a></li>
+          <li><a href="#case"><span class="num">21</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">22</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">23</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · 제12강 · 소화기</div>
+          <h1>위식도역류질환 (GERD)</h1>
+          <p>"역류성 식도염 = 위산이 많아서"라는 단순한 이해에서 벗어납니다.
+            <b>역류 방지 시스템이 왜 무너지는지</b>, 내시경이 정상이어도 GERD일 수 있는 이유,
+            PPI를 왜 식전에 먹어야 하는지 — 하나의 흐름으로 이해합니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>핵심 관점</div>
+          <p>GERD의 본질은 <b>위산이 존재한다는 것이 아니라, 위 내용물이 있어서는 안 될 식도로 반복적으로 올라온다는 것</b>입니다.
+            PPI는 역류를 물리적으로 막는 약이 아니라 역류물의 산도를 낮추는 약입니다.
+            2025 Seoul Consensus focused update는 NERD·경증·중증 erosive disease에 따른 개별화 치료를 강조하고 P-CAB을 주요 옵션으로 포함합니다.</p>
+        </div>
+
+        <!-- ================= 0 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">42세 남성 · 약국 방문</div>
+            <div class="bp" style="font-size:clamp(15px,4vw,22px);line-height:1.65;">
+              야식 후 가슴이 화끈거림 · 신물이 목까지 올라옴<br>
+              <span style="color:var(--brand);">아침에 목이 잠기는 느낌</span><br>
+              <span style="color:var(--ok-color,#12a594);">위내시경 결과: "식도 점막에 뚜렷한 미란 없음"</span>
+            </div>
+            <div class="quote">"내시경이 정상인데 그럼 역류성 식도염이 아닌 건가요?"</div>
+            <div style="font-weight:700;margin-bottom:8px;">가장 적절한 답변은?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 맞다. GERD는 반드시 식도 미란이 보여야 한다.</button>
+              <button data-opt="B"><span class="opt">B</span> 아니다. 증상은 있지만 미란이 없는 NERD도 있다.</button>
+              <button data-opt="C"><span class="opt">C</span> GERD는 반드시 위궤양이 있어야 한다.</button>
+              <button data-opt="D"><span class="opt">D</span> 내시경보다 혈액검사가 더 중요하다.</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 B — <b>먼저 정상적인 역류 방지 시스템부터 살펴봅시다.</b></div>
+            </div>
+          </div>
+          <p>강의가 끝나면 다음 질문에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>위 내용물이 식도로 올라오지 않도록 무엇이 막고 있는가?</li>
+            <li>GERD는 위산이 많아서 생기는 병인가?</li>
+            <li>내시경이 정상인데도 GERD일 수 있는가?</li>
+            <li>NERD와 erosive esophagitis는 무엇이 다른가?</li>
+            <li>PPI는 왜 식전에 복용하라고 하는가?</li>
+            <li>P-CAB은 PPI와 무엇이 다른가?</li>
+            <li>야식·비만·눕는 자세가 왜 역류를 악화시킬까?</li>
+            <li>Barrett esophagus는 왜 중요한가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 1 · 한 문장으로 ================= -->
+        <section id="oneline" class="section">
+          <h2><span class="sec-no">01</span> 한 문장으로 이해하기</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>한 문장 정의</div>
+            <p><b>GERD(Gastroesophageal Reflux Disease)</b>: 위 내용물이 식도로 역류하여 불편한 증상 또는 식도 손상(합병증)을 일으키는 상태.</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:14px;">
+            <div class="panel panel--normal">
+              <h5>GER (생리적 역류)</h5>
+              <p>건강한 사람도 식후 소량의 역류가 발생할 수 있습니다. <b>어느 정도는 생리적으로 가능</b>합니다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>GERD (질환)</h5>
+              <p>너무 자주 발생하거나, 오래 지속되거나, 점막 손상이 일어나거나, <b>삶의 질을 떨어뜨리는 증상</b>이 생기는 경우.</p>
+            </div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>이번 강의의 핵심 질문</div>
+            <ul style="margin:4px 0 0 18px;font-size:14px;">
+              <li>정상적으로 무엇이 역류를 막는가?</li>
+              <li>LES가 항상 약해서 GERD가 생기는가?</li>
+              <li>산만 문제인가, 역류 자체가 문제인가?</li>
+              <li>내시경과 pH 검사는 각각 무엇을 보여주는가?</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 2 · 정상 역류 방어 ================= -->
+        <section id="normal" class="section">
+          <h2><span class="sec-no">02</span> 정상적인 몸에서는?</h2>
+
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>위 (Stomach)</h5>
+              <p>강한 산을 견디도록 설계. Mucus·bicarbonate·mucosal defense 존재.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>식도 (Esophagus)</h5>
+              <p>위처럼 강력한 acid-defense system 없음. <b>반복 acid exposure에 취약</b>합니다.</p>
+            </div>
+          </div>
+
+          <h3 style="margin-top:18px;">Anti-Reflux Barrier = 문 하나가 아니다</h3>
+          <p>정상적인 역류 방지는 여러 요소가 함께 작동합니다.</p>
+
+          <div class="figure" data-antirefluxbarrier>
+            <div class="figure__title">Viz 1 · Anti-Reflux Barrier</div>
+            <div class="arb__wrap">
+              <div class="arb__diagram">
+                <div class="arb__esophagus">
+                  <div class="arb__tube-label">식도 (Esophagus)</div>
+                  <div class="arb__peristalsis" id="arbPeristalsis">⬇ Peristalsis</div>
+                </div>
+                <div class="arb__les-zone">
+                  <div class="arb__les" id="arbLES">
+                    <span id="arbLESLabel">LES ●CLOSED</span>
+                  </div>
+                  <div class="arb__diaphragm" id="arbDiaphragm">
+                    <span>Diaphragm</span>
+                  </div>
+                </div>
+                <div class="arb__stomach">
+                  <div class="arb__stomach-label">위 (Stomach)</div>
+                  <div class="arb__acid">H⁺ H⁺ H⁺</div>
+                </div>
+              </div>
+              <div class="arb__factors">
+                <div class="arb__factor" id="arbF1">
+                  <span class="arb__ficon">🚪</span>
+                  <span class="arb__fname">LES</span>
+                  <div class="arb__fbar"><div class="arb__fbar-fill" style="width:100%"></div></div>
+                </div>
+                <div class="arb__factor" id="arbF2">
+                  <span class="arb__ficon">🫁</span>
+                  <span class="arb__fname">Diaphragm</span>
+                  <div class="arb__fbar"><div class="arb__fbar-fill" style="width:100%"></div></div>
+                </div>
+                <div class="arb__factor" id="arbF3">
+                  <span class="arb__ficon">🔄</span>
+                  <span class="arb__fname">Peristalsis</span>
+                  <div class="arb__fbar"><div class="arb__fbar-fill" style="width:100%"></div></div>
+                </div>
+                <div class="arb__factor" id="arbF4">
+                  <span class="arb__ficon">💧</span>
+                  <span class="arb__fname">Saliva</span>
+                  <div class="arb__fbar"><div class="arb__fbar-fill" style="width:100%"></div></div>
+                </div>
+                <div class="arb__factor" id="arbF5">
+                  <span class="arb__ficon">⬇</span>
+                  <span class="arb__fname">Gravity</span>
+                  <div class="arb__fbar"><div class="arb__fbar-fill" style="width:100%"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="arb__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-arb="normal">✅ 정상</button>
+              <button class="btn" data-arb="swallow">삼키기 (LES 일시 개방)</button>
+              <button class="btn" data-arb="liedown">😴 눕기 (gravity ↓)</button>
+              <button class="btn" data-arb="sleep">🌙 수면 중</button>
+              <button class="btn btn--ghost" data-arb="reset">↺ 리셋</button>
+            </div>
+            <div class="arb__msg" id="arbMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              정상 상태 — LES·횡격막·연동운동·타액·중력 모두 작동 중입니다.
+            </div>
+            <div class="figure__cap">역류 방지는 "LES 하나의 힘"이 아닙니다. 여러 요소가 동시에 작동합니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ①</span> 위산 분비가 정상이어도 GERD가 생길 수 있을까요?</div>
+            <ul class="mcq" data-answer="A">
+              <li data-opt="A"><span class="opt">A</span> 그렇습니다 — 역류 방어 장치가 약해지면 정상적인 산도 식도에 문제를 일으킵니다.</li>
+              <li data-opt="B"><span class="opt">B</span> 아닙니다 — GERD는 반드시 위산 과다여야 합니다.</li>
+              <li data-opt="C"><span class="opt">C</span> 위산이 0이 돼야만 GERD가 생깁니다.</li>
+              <li data-opt="D"><span class="opt">D</span> LES는 항상 완전히 닫혀 있습니다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: A — GERD의 핵심은 산의 총량보다 식도로의 역류 빈도·지속시간·식도 민감성입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 3 · 왜 역류가 생기나 ================= -->
+        <section id="mechanism" class="section">
+          <h2><span class="sec-no">03</span> 무엇이 잘못된 것인가?</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>가장 중요한 기전: TLESR</div>
+            <p><b>Transient LES Relaxation (TLESR)</b> — 삼키지 않았는데도 LES가 일시적으로 이완됩니다.<br>
+              GERD에서 LES가 항상 축 늘어진 것은 아닙니다. 많은 역류 에피소드가 TLESR과 관련됩니다.</p>
+          </div>
+
+          <div class="figure" data-refluxmechanism style="margin-top:12px;">
+            <div class="figure__title">Viz 2 · Why Reflux Happens</div>
+            <div class="rfm__cols">
+              <div class="rfm__diagram">
+                <div class="rfm__esoph">Esophagus</div>
+                <div class="rfm__les-box">
+                  <div class="rfm__les" id="rfmLES">LES</div>
+                  <div class="rfm__diaphragm" id="rfmDiaphragm">Diaphragm</div>
+                </div>
+                <div class="rfm__stomach" id="rfmStomach">
+                  <div class="rfm__stomach-inner">Stomach</div>
+                  <div class="rfm__pressure" id="rfmPressure">↑ Pressure</div>
+                </div>
+                <div class="rfm__particle-zone" id="rfmParticles"></div>
+              </div>
+              <div class="rfm__gauge-zone">
+                <div class="rfm__gauge">
+                  <div class="rfm__gauge-label">역류 빈도</div>
+                  <div class="gs__lbar" style="height:14px;"><div class="gs__lbar-fill" id="rfmFreqBar" style="width:20%;background:var(--ok-color,#12a594)"></div></div>
+                </div>
+                <div class="rfm__gauge" style="margin-top:8px;">
+                  <div class="rfm__gauge-label">Barrier 강도</div>
+                  <div class="gs__lbar" style="height:14px;"><div class="gs__lbar-fill" id="rfmBarrierBar" style="width:90%"></div></div>
+                </div>
+                <div id="rfmMsg" style="margin-top:10px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13px;min-height:50px;">
+                  정상 상태입니다.
+                </div>
+              </div>
+            </div>
+            <div class="rfm__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-rfm="tlesr">⚡ TLESR 발생</button>
+              <button class="btn" data-rfm="meal">🍽 과식</button>
+              <button class="btn" data-rfm="obesity">⚖️ 비만 (복압↑)</button>
+              <button class="btn" data-rfm="hiatal">🫁 Hiatal Hernia</button>
+              <button class="btn btn--ghost" data-rfm="reset">↺ 리셋</button>
+            </div>
+            <div class="figure__cap">GERD = 위산 과다 + 역류 빈도 + 식도 clearance + 식도 민감성 — 모두 중요합니다.</div>
+          </div>
+
+          <h3 style="margin-top:18px;">눕는 것이 왜 중요할까?</h3>
+          <p>서 있을 때: gravity가 역류물을 위로 되돌리는 데 도움 → 자연 clearance.<br>
+            누우면: gravity 효과 감소 + 수면 중 swallowing·saliva 감소 → <b>esophageal acid clearance 크게 감소</b>.</p>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 공식</div>
+            <p>GERD 증상 = <b>역류 빈도 × 역류 지속시간 × 식도 민감성</b><br>
+              단순히 "위산 분비량 ↑" 하나로 설명되지 않습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 4 · 산만 문제인가 ================= -->
+        <section id="acid" class="section">
+          <h2><span class="sec-no">04</span> 산만 문제일까?</h2>
+
+          <blockquote>역류되는 물질에는 acid + pepsin + 음식 + bile이 포함될 수 있습니다.</blockquote>
+
+          <div class="figure" data-refluxvsacidity>
+            <div class="figure__title">Viz 3 · Reflux vs Acidity — PPI를 켜면?</div>
+            <div class="rva__display">
+              <div class="rva__col">
+                <div class="rva__title">역류 횟수</div>
+                <div class="rva__particles" id="rvaParticles"></div>
+                <div class="rva__count" id="rvaCount">8회/일</div>
+              </div>
+              <div class="rva__col">
+                <div class="rva__title">역류물 산도</div>
+                <div class="rva__bar-wrap">
+                  <div class="rva__ph-bar">
+                    <div class="rva__ph-fill" id="rvaPhFill" style="height:80%;background:var(--hi)"></div>
+                  </div>
+                  <div class="rva__ph-label">
+                    <span>산성 (pH 1–2)</span>
+                    <span id="rvaPhText" style="font-weight:800;font-size:16px;">pH 2</span>
+                    <span>중성 (pH 7)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="rva__col">
+                <div class="rva__title">증상</div>
+                <div class="rva__symptom">
+                  <div class="rva__sym" id="rvaHeartburn">🔥 Heartburn</div>
+                  <div class="rva__sym" id="rvaRegurg">🤢 Regurgitation</div>
+                </div>
+              </div>
+            </div>
+            <div class="rva__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-rva="ppi">💊 PPI 복용</button>
+              <button class="btn btn--ghost" data-rva="off">↺ 중단</button>
+            </div>
+            <div class="rva__msg" id="rvaMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              PPI 없는 상태 — 역류 횟수와 산도 모두 높습니다.
+            </div>
+            <div class="figure__cap">PPI는 역류물의 산도를 낮춥니다. 물리적 역류 횟수 자체를 크게 줄이는 약은 아닙니다.</div>
+          </div>
+
+          <div class="card card--pharm" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>왜 중요한가</div>
+            <p>PPI 복용 후 heartburn은 크게 좋아졌는데 <b>regurgitation이 남는 환자</b>가 있습니다. PPI로 산도는 낮아졌지만 역류 사건 자체가 완전히 사라진 것이 아니기 때문입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 5 · GERD 형태 ================= -->
+        <section id="phenotype" class="section">
+          <h2><span class="sec-no">05</span> GERD는 어떤 형태가 있는가?</h2>
+
+          <div class="figure" data-gerdphenotype>
+            <div class="figure__title">Viz 4 · GERD Phenotype Explorer</div>
+            <p style="font-size:13px;margin-bottom:12px;">3개의 스위치를 조합해 어떤 phenotype이 나오는지 확인하세요.</p>
+            <div class="gpt__switches">
+              <div class="gpt__sw-group">
+                <div class="gpt__sw-label">STEP 1 — 내시경 결과</div>
+                <div class="gpt__sw-btns">
+                  <button class="btn gpt__sw" data-gpt-key="endo" data-gpt-val="erosion">미란 있음</button>
+                  <button class="btn gpt__sw" data-gpt-key="endo" data-gpt-val="normal">정상 (미란 없음)</button>
+                </div>
+              </div>
+              <div class="gpt__sw-group">
+                <div class="gpt__sw-label">STEP 2 — Acid Exposure (pH monitoring)</div>
+                <div class="gpt__sw-btns">
+                  <button class="btn gpt__sw" data-gpt-key="acid" data-gpt-val="high">비정상 (높음)</button>
+                  <button class="btn gpt__sw" data-gpt-key="acid" data-gpt-val="normal">정상 범위</button>
+                </div>
+              </div>
+              <div class="gpt__sw-group">
+                <div class="gpt__sw-label">STEP 3 — Reflux-Symptom Association</div>
+                <div class="gpt__sw-btns">
+                  <button class="btn gpt__sw" data-gpt-key="assoc" data-gpt-val="pos">연관 있음 (+)</button>
+                  <button class="btn gpt__sw" data-gpt-key="assoc" data-gpt-val="neg">연관 없음 (−)</button>
+                </div>
+              </div>
+            </div>
+            <div class="gpt__result" id="gptResult" style="margin-top:14px;padding:14px;border-radius:12px;background:var(--bg-card);min-height:80px;font-size:13.5px;">
+              위의 스위치를 선택하면 phenotype이 나타납니다.
+            </div>
+          </div>
+
+          <div class="card card--key" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>LA Classification (참고)</div>
+            <p>Erosive esophagitis는 Los Angeles classification으로 Grade A~D를 사용합니다.<br>
+              <b>LA C/D = Severe erosive esophagitis</b> — 세부 기준보다 C/D가 더 심한 형태라는 것이 중요합니다.</p>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ②</span> 내시경이 정상인데 heartburn과 regurgitation이 반복됩니다. GERD가 아닐까요?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> 그렇습니다 — 내시경 정상이면 반드시 GERD 아닙니다.</li>
+              <li data-opt="B"><span class="opt">B</span> 아닙니다 — NERD에서는 visible erosion 없이도 GERD가 가능합니다.</li>
+              <li data-opt="C"><span class="opt">C</span> 내시경보다 혈액검사가 항상 결정적입니다.</li>
+              <li data-opt="D"><span class="opt">D</span> 증상만 있으면 자동으로 functional heartburn입니다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — NERD(Non-erosive reflux disease): 전형적 reflux symptom이 있지만 endoscopy에서 visible erosion이 없는 형태. "내시경 정상 = GERD 없음"은 아닙니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 6 · 증상 ================= -->
+        <section id="symptom" class="section">
+          <h2><span class="sec-no">06</span> 어떤 증상이 나타나는가?</h2>
+
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>전형적 증상</h5>
+              <p><b>Heartburn</b>: 흉골 뒤 burning sensation, 위에서 가슴 위로 올라오는 느낌.<br>
+                <b>Regurgitation</b>: 신물 또는 음식물이 입·목 방향으로 올라오는 느낌.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>기타 / 비전형적</h5>
+              <p>Chest discomfort, belching, epigastric discomfort, dysphagia, nausea 등.<br>
+                Extraesophageal: chronic cough, hoarseness, laryngitis (원인은 다양 — GERD만이 아님).</p>
+            </div>
+          </div>
+
+          <div class="card card--key" style="margin-top:14px;">
+            <div class="card__label"><span class="dot"></span>Extraesophageal 증상의 함정</div>
+            <p>만성 기침·목 쉰 소리는 원인이 매우 다양합니다. <b>"목이 쉬었으니 역류성 식도염"이라고 단정하면 안 됩니다.</b> ENT·호흡기·알레르기 원인을 먼저 고려해야 할 수 있습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 7 · Alarm Features ================= -->
+        <section id="alarm" class="section">
+          <h2><span class="sec-no">07</span> Alarm Features — 이것은 단순 OTC로 끝내지 않는다</h2>
+
+          <div class="card card--pharm">
+            <div class="card__label"><span class="dot"></span>🚨 Alarm Features</div>
+            <ul style="margin:8px 0 0 18px;font-size:14px;">
+              <li><b>Dysphagia</b> — 음식이 걸리는 느낌</li>
+              <li><b>Odynophagia</b> — 삼킬 때 통증</li>
+              <li><b>GI bleeding</b> — melena / hematemesis</li>
+              <li><b>Unexplained anemia</b></li>
+              <li><b>Unintentional weight loss</b></li>
+              <li><b>Persistent vomiting</b></li>
+              <li>진행하는 증상 또는 암 고위험 상황</li>
+            </ul>
+          </div>
+
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>흉통의 함정</div>
+            <p>GERD와 ischemic heart disease는 증상이 겹칠 수 있습니다. 새로운 흉부 압박감·운동과 연관된 통증·식은땀·호흡곤란이 있다면 <b>"역류겠지"라고 단정하면 안 됩니다.</b></p>
+          </div>
+        </section>
+
+        <!-- ================= 8 · 진단 ================= -->
+        <section id="diagnosis" class="section">
+          <h2><span class="sec-no">08</span> 어떻게 진단하는가?</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>진단 접근</div>
+            <p>GERD는 모든 환자가 내시경부터 하는 질환이 아닙니다. <b>전형적 증상 + alarm 없음 → empiric acid-suppression trial</b>이 실용적인 첫 단계입니다. (2020 Seoul Consensus 권고)</p>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">진단 방법 선택</div>
+            <div class="checkchips">
+              <button data-text="<b>Empiric PPI trial</b> — 전형적 heartburn+regurgitation, alarm 없음 → PPI trial을 진단 목적으로 사용. 반응 여부가 GERD 가능성을 높이는 단서. 단, 다른 진단도 PPI에 반응할 수 있어 확진 수단은 아닙니다.">PPI Trial</button>
+              <button data-text="<b>내시경</b> — Alarm symptom, 치료 실패, 중증/재발 평가, Barrett 위험 평가, 합병증 의심 시. Erosive esophagitis 확인, LA grade, Barrett esophagus, 다른 질환 감별.">내시경</button>
+              <button data-text="<b>24시간 pH monitoring</b> — 내시경 정상인데 진단 불명확 시 중요. 식도의 acid exposure time 측정. 증상과 reflux event의 시간적 연관성 평가 가능.">24h pH Monitoring</button>
+              <button data-text="<b>pH-Impedance monitoring</b> — Acid reflux뿐 아니라 non-acid reflux도 감지. PPI 치료 중에도 사용 가능. Symptom association 평가.">pH-Impedance</button>
+              <button data-text="<b>Manometry</b> — 식도 압력·운동 측정. GERD 직접 확진보다는 achalasia 등 motility disorder 감별, 수술 전 평가, pH probe 위치 확인에 활용.">Manometry</button>
+            </div>
+            <div class="infochips__out">진단 방법을 탭하세요.</div>
+          </div>
+
+          <div class="figure" data-24hmonitor style="margin-top:14px;">
+            <div class="figure__title">Viz 5 · 24h Reflux Monitor Simulation</div>
+            <p style="font-size:13px;margin-bottom:8px;">타임라인에서 이벤트를 추가하고 증상과 역류가 일치하는지 확인하세요.</p>
+            <div class="phm__timeline">
+              <div class="phm__tl-wrap">
+                <div class="phm__ph-graph" id="phmGraph">
+                  <canvas id="phmCanvas" width="320" height="80" style="width:100%;height:80px;border-radius:8px;background:var(--surface-2);"></canvas>
+                </div>
+                <div class="phm__events" id="phmEvents" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;"></div>
+              </div>
+            </div>
+            <div class="phm__btns" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;">
+              <button class="btn" data-phm="meal">🍚 식사 추가</button>
+              <button class="btn" data-phm="sleep">🛏️ 취침</button>
+              <button class="btn" data-phm="symptom">🔥 증상 발생</button>
+              <button class="btn btn--ghost" data-phm="reset">↺ 리셋</button>
+            </div>
+            <div class="phm__msg" id="phmMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              이벤트를 추가하면 24시간 pH 그래프가 업데이트됩니다.
+            </div>
+            <div class="figure__cap">증상과 pH 저하 시점이 겹치면 symptom association (+). 이것이 GERD 확인의 핵심입니다.</div>
+          </div>
+
+          <div class="qcard">
+            <div class="q" style="display:block;"><span class="qn">잠깐 ③</span> PPI를 충분히 복용했는데 heartburn이 계속됩니다. 가장 적절한 생각은?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> PPI 용량을 무한정 늘린다.</li>
+              <li data-opt="B"><span class="opt">B</span> 모든 증상이 acid reflux 때문이라고 가정한다.</li>
+              <li data-opt="C"><span class="opt">C</span> 복용법·진단을 재평가하고 reflux hypersensitivity나 functional heartburn도 고려한다.</li>
+              <li data-opt="D"><span class="opt">D</span> 무조건 위암이다.</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — PPI non-response는 잘못된 복용법, persistent reflux, reflux hypersensitivity, functional heartburn 등 다양한 원인이 있습니다. 진단을 재평가합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 9 · 합병증 ================= -->
+        <section id="complication" class="section">
+          <h2><span class="sec-no">09</span> 치료하지 않으면 어떻게 되는가?</h2>
+
+          <div class="figure" data-gerdcomplication>
+            <div class="figure__title">Viz 6 · GERD Complication Timeline</div>
+            <div class="gct__flow">
+              <div class="gct__step open" data-gct="0">
+                <div class="gct__label">정상 식도</div>
+              </div>
+              <div class="gct__arrow">↓ 반복 역류</div>
+              <div class="gct__step" data-gct="1">
+                <div class="gct__label">Erosive Esophagitis</div>
+                <div class="gct__sub">점막 손상</div>
+              </div>
+              <div class="gct__split">
+                <div class="gct__branch">
+                  <div class="gct__step" data-gct="2">
+                    <div class="gct__label">Peptic Stricture</div>
+                    <div class="gct__sub">염증·섬유화 → 협착 → dysphagia</div>
+                  </div>
+                </div>
+                <div class="gct__branch">
+                  <div class="gct__step" data-gct="3">
+                    <div class="gct__label">Barrett Esophagus</div>
+                    <div class="gct__sub">Squamous → Columnar metaplasia</div>
+                  </div>
+                  <div class="gct__arrow">↓</div>
+                  <div class="gct__step" data-gct="4">
+                    <div class="gct__label">Dysplasia</div>
+                    <div class="gct__sub hi">전암성 변화</div>
+                  </div>
+                  <div class="gct__arrow">↓</div>
+                  <div class="gct__step" data-gct="5">
+                    <div class="gct__label">Esophageal Adenocarcinoma</div>
+                    <div class="gct__sub danger">암</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gct__desc" id="gctDesc" style="margin-top:10px;padding:12px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:50px;">
+              단계를 탭하면 설명이 나타납니다.
+            </div>
+            <div class="gct__note" style="margin-top:8px;padding:10px;border-radius:8px;background:#fff3cd;font-size:13px;color:#856404;">
+              ⚠️ 모든 GERD가 이 경로로 진행하는 것은 아닙니다. Barrett = 암이 아니며 adenocarcinoma risk 증가와 관련된 metaplasia입니다.
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 치료 전체 그림 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">10</span> 치료의 전체 그림</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>GERD 치료 목표</div>
+            <p>① 증상 조절 ② 식도염 healing ③ 합병증 예방 ④ 최소한의 효과적인 장기치료 유지<br>
+              2025 Seoul focused update: phenotype에 맞는 개별화 치료 + 가능한 최소 유효 용량 또는 on-demand 전략 강조.</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:12px;">
+            <div class="panel panel--normal">
+              <h5>치료의 4축</h5>
+              <ol style="margin:8px 0 0 18px;font-size:13.5px;">
+                <li>생활습관</li>
+                <li>Acid suppression (antacid → H₂RA → PPI/P-CAB)</li>
+                <li>Refractory disease 재평가</li>
+                <li>Selected patient: antireflux procedure</li>
+              </ol>
+            </div>
+            <div class="panel panel--drug">
+              <h5>Phenotype에 따른 접근</h5>
+              <p style="font-size:13px;">NERD: PPI/P-CAB ± on-demand 전략<br>
+                경증 erosive (LA A/B): 초기치료 후 유지 재평가<br>
+                중증 erosive (LA C/D): 장기 유지치료 필요성 큼<br>
+                Functional heartburn: acid suppression 이외 접근</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 생활습관 ================= -->
+        <section id="lifestyle" class="section">
+          <h2><span class="sec-no">11</span> 생활습관</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심: 개별화</div>
+            <p>모든 음식을 일률적으로 금지하는 것이 아닙니다. <b>본인의 증상을 재현하는 trigger가 명확하다면 그것을 줄이는 것</b>이 실용적입니다.</p>
+          </div>
+
+          <div class="figure" data-triggertacker style="margin-top:12px;">
+            <div class="figure__title">Viz 7 · Personal Reflux Trigger Tracker</div>
+            <p style="font-size:13px;margin-bottom:10px;">각 요인을 ON/OFF해서 내 역류에 영향을 주는 것을 찾아보세요.</p>
+            <div class="trk__grid">
+              <div class="trk__item" data-trk="bigmeal" data-impact="high">
+                <div class="trk__ico">🍽</div>
+                <div class="trk__label">큰 식사</div>
+                <div class="trk__toggle" id="trk-bigmeal">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="lateeat" data-impact="high">
+                <div class="trk__ico">🌙</div>
+                <div class="trk__label">야식</div>
+                <div class="trk__toggle" id="trk-lateeat">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="alcohol" data-impact="mod">
+                <div class="trk__ico">🍺</div>
+                <div class="trk__label">알코올</div>
+                <div class="trk__toggle" id="trk-alcohol">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="coffee" data-impact="low">
+                <div class="trk__ico">☕</div>
+                <div class="trk__label">커피</div>
+                <div class="trk__toggle" id="trk-coffee">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="spicy" data-impact="low">
+                <div class="trk__ico">🌶</div>
+                <div class="trk__label">매운 음식</div>
+                <div class="trk__toggle" id="trk-spicy">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="liedown" data-impact="high">
+                <div class="trk__ico">🛋</div>
+                <div class="trk__label">식후 눕기</div>
+                <div class="trk__toggle" id="trk-liedown">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="obesity" data-impact="high">
+                <div class="trk__ico">⚖️</div>
+                <div class="trk__label">과체중</div>
+                <div class="trk__toggle" id="trk-obesity">OFF</div>
+              </div>
+              <div class="trk__item" data-trk="smoking" data-impact="mod">
+                <div class="trk__ico">🚬</div>
+                <div class="trk__label">흡연</div>
+                <div class="trk__toggle" id="trk-smoking">OFF</div>
+              </div>
+            </div>
+            <div class="trk__result-bar" style="margin-top:10px;">
+              <div class="rfm__gauge-label">역류 위험 요인 합산</div>
+              <div class="gs__lbar" style="height:14px;"><div class="gs__lbar-fill" id="trkRiskBar" style="width:5%;background:var(--ok-color,#12a594)"></div></div>
+              <div id="trkRiskPct" style="font-size:12px;color:var(--ink-faint);">낮음</div>
+            </div>
+            <div id="trkMsg" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;">
+              모든 사람에게 동일한 trigger가 적용되지는 않습니다. 나만의 재현 가능한 trigger를 찾으세요.
+            </div>
+            <div class="figure__cap">ACG는 trigger food avoidance를 개별 적용하는 조건부 권고로 제시합니다.</div>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:12px;">
+            <div class="figure__title">근거 있는 생활습관</div>
+            <div class="checkchips">
+              <button data-text="<b>체중감량 (비만/과체중)</b> — ACG 강한 권고. 복압 감소 → 역류 감소. 가장 근거가 강한 생활습관 중 하나입니다.">체중감량</button>
+              <button data-text="<b>취침 전 식사 피하기</b> — 취침 2–3시간 이내 식사를 피합니다. 야간 역류가 있는 환자에서 효과적.">취침 전 식사 피하기</button>
+              <button data-text="<b>Head-of-bed elevation</b> — 야간 역류가 문제라면 침대 머리쪽을 높입니다. 베개만 여러 개 쌓으면 복압이 높아질 수 있어 상체 전체를 기울이는 방식이 합리적.">Head-of-bed 높이기</button>
+              <button data-text="<b>개별적 trigger food 조절</b> — 커피·초콜릿·매운 음식·감귤류를 모든 환자에게 평생 금지할 필요는 없습니다. 본인이 재현 가능한 trigger를 찾아 줄이는 방식이 적절합니다.">개별 Trigger 조절</button>
+              <button data-text="<b>금연</b> — 전반적 건강 이점 + GERD symptom management에도 권고됩니다.">금연</button>
+            </div>
+            <div class="infochips__out">생활습관 항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 기본 약물 ================= -->
+        <section id="basic" class="section">
+          <h2><span class="sec-no">12</span> 약물치료 — 제산제 · 알긴산 · H₂RA</h2>
+
+          <div class="figure" data-infochips>
+            <div class="figure__title">기본 약물</div>
+            <div class="checkchips">
+              <button data-text="<b>제산제 (Antacid)</b> — Aluminum/Magnesium hydroxide 등. 이미 존재하는 위산을 직접 중화 → 빠른 증상 완화. 작용시간 짧음. Erosive esophagitis healing의 핵심 치료는 아닙니다.">제산제</button>
+              <button data-text="<b>알긴산 (Alginate)</b> — 위 내용물 위에 raft 형태의 barrier를 형성합니다. 식후 역류와 regurgitation에서 도움이 될 수 있습니다. 특히 postprandial symptom이 중심인 환자에서 활용.">알긴산</button>
+              <button data-text="<b>H₂RA (famotidine 등)</b> — H₂ receptor 차단 → histamine-stimulated acid secretion 감소. 비교적 빠른 작용. 반복 투여 시 tolerance(tachyphylaxis) 발생 가능 → 지속 강력 acid suppression에 PPI보다 불리합니다. 야간 증상에 추가 사용하는 경우도 있습니다.">H₂RA</button>
+            </div>
+            <div class="infochips__out">약물을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 13 · PPI ================= -->
+        <section id="ppi" class="section">
+          <h2><span class="sec-no">13</span> PPI — Proton Pump Inhibitor</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>대표약 · 기전</div>
+            <p>omeprazole · esomeprazole · pantoprazole · lansoprazole · rabeprazole<br>
+              Parietal cell의 <b>H⁺/K⁺-ATPase를 비가역적으로 억제</b> → acid secretion 크게 감소.<br>
+              Erosive esophagitis healing과 유지에서 H₂RA보다 효과적 → 주요 guideline의 기본치료.</p>
+          </div>
+
+          <h3 style="margin-top:16px;">왜 식전에 먹나? — 약사에게 가장 중요한 부분</h3>
+          <p>대부분의 PPI는 prodrug 형태로 흡수 → 혈액 → parietal cell에서 산에 의해 활성화 → 활성화된 proton pump에 결합. 식사를 하면 proton pump가 활성화되므로 <b>식사 30–60분 전 복용</b>이 약효 발현에 유리합니다.</p>
+
+          <div class="figure" data-ppitiming>
+            <div class="figure__title">Viz 8 · PPI Timing Simulator</div>
+            <p style="font-size:13px;margin-bottom:10px;">복용 시각(슬라이더)을 움직여 식사 전후 PPI 혈중 농도와 pump activation 타이밍을 비교하세요.</p>
+            <div class="pit__display">
+              <div class="pit__timeline">
+                <div class="pit__marker" id="pitPPIMarker" style="left:20%">
+                  <div class="pit__marker-label">PPI 복용</div>
+                </div>
+                <div class="pit__marker pit__marker--meal" id="pitMealMarker" style="left:50%">
+                  <div class="pit__marker-label">🍚 식사</div>
+                </div>
+                <div class="pit__bar-bg">
+                  <div class="pit__conc-bar" id="pitConcBar" style="left:20%;width:35%;background:var(--brand);opacity:.5;"></div>
+                  <div class="pit__pump-bar" id="pitPumpBar" style="left:50%;width:25%;background:var(--ok-color,#12a594);opacity:.5;"></div>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:10px;">
+              <label style="font-size:12px;min-width:100px;">PPI 복용 시각</label>
+              <input type="range" id="pitSlider" min="0" max="4" step="1" value="1" style="flex:1;accent-color:var(--brand);" />
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--ink-faint);">
+              <span>식사 90분 전</span><span>식사 30–60분 전</span><span>식사와 동시</span><span>식사 후 1h</span><span>식사 후 5h</span>
+            </div>
+            <div class="pit__result" id="pitResult" style="margin-top:8px;padding:10px;border-radius:8px;background:var(--bg-card);font-size:13.5px;min-height:44px;"></div>
+            <div class="figure__cap">아침 식사 30–60분 전 복용이 일반적으로 권장됩니다.</div>
+          </div>
+
+          <h3 style="margin-top:18px;">PPI 장기 사용에 대해</h3>
+          <div class="figure" data-infochips>
+            <div class="figure__title">PPI 안전성</div>
+            <div class="checkchips">
+              <button data-text="<b>단기 부작용</b> — Headache, diarrhea, abdominal discomfort 등. 일반적으로 경미합니다.">단기 부작용</button>
+              <button data-text="<b>장기 사용 및 연관성 주의</b> — CKD, 골절, 감염, 인지기능 등과의 연관성이 관찰연구에서 보고됐지만 대부분 관찰연구의 confounding이 큽니다. C. difficile 감염과의 연관성은 고려합니다. 인과관계가 확립된 것은 아닙니다.">장기 연관성</button>
+              <button data-text="<b>Rebound acid hypersecretion</b> — 장기 사용 후 중단 시 일시적으로 acid가 증가해 증상이 재발하는 것처럼 느껴질 수 있습니다. '중독'이 아닌 생리적 반응입니다. 단계적 감량 또는 on-demand 전략을 고려합니다.">Rebound</button>
+              <button data-text="<b>결론</b> — 적응증이 있으면 필요한 기간 사용. 이유 없는 장기 고용량은 재평가. 근거 없는 공포 때문에 필요한 치료를 중단할 필요는 없습니다.">결론</button>
+            </div>
+            <div class="infochips__out">항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · P-CAB ================= -->
+        <section id="pcab" class="section">
+          <h2><span class="sec-no">14</span> P-CAB — Potassium-Competitive Acid Blocker</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>대표약 · 기전</div>
+            <p>tegoprazan · fexuprazan · vonoprazan<br>
+              H⁺/K⁺-ATPase의 <b>K⁺ binding site와 경쟁적으로 결합</b> → acid secretion 강력 억제.<br>
+              2025 Seoul Consensus: P-CAB을 GERD 초기·유지치료의 중요한 옵션으로 포함.</p>
+          </div>
+
+          <div class="figure" data-ppivpcab style="margin-top:12px;">
+            <div class="figure__title">Viz 9 · PPI vs P-CAB</div>
+            <div class="pvc__cols">
+              <div class="pvc__panel" id="pvcPPI">
+                <div class="pvc__title">PPI</div>
+                <div class="pvc__cell">
+                  <div class="pvc__path">
+                    <div class="pvc__box">Prodrug (비활성)</div>
+                    <div class="pvc__arrow">↓ 흡수 → 혈액</div>
+                    <div class="pvc__box">Parietal cell canaliculus</div>
+                    <div class="pvc__arrow">↓ 산에 의해 활성화</div>
+                    <div class="pvc__box active">Activated drug</div>
+                    <div class="pvc__arrow">↓ 비가역적 결합</div>
+                    <div class="pvc__box pump">H⁺/K⁺-ATPase ✕</div>
+                  </div>
+                </div>
+              </div>
+              <div class="pvc__vs">vs</div>
+              <div class="pvc__panel" id="pvcPCAB">
+                <div class="pvc__title">P-CAB</div>
+                <div class="pvc__cell">
+                  <div class="pvc__path">
+                    <div class="pvc__box">활성 형태</div>
+                    <div class="pvc__arrow">↓ 흡수 → 혈액</div>
+                    <div class="pvc__box">Parietal cell</div>
+                    <div class="pvc__arrow">↓ 직접 K⁺ 경쟁적 억제</div>
+                    <div class="pvc__box pump">H⁺/K⁺-ATPase ✕</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="table-scroll" style="margin-top:12px;">
+              <table class="data">
+                <thead><tr><th></th><th>PPI</th><th>P-CAB</th></tr></thead>
+                <tbody>
+                  <tr><th>표적</th><td>Proton pump</td><td>Proton pump</td></tr>
+                  <tr><th>방식</th><td>Acid activation 필요, 비가역적</td><td>K⁺ 경쟁적 억제</td></tr>
+                  <tr><th>Onset</th><td>상대적으로 느림</td><td>빠름</td></tr>
+                  <tr><th>식사 timing</th><td>중요 (식전 30–60분)</td><td>상대적으로 덜 중요</td></tr>
+                  <tr><th>역할</th><td>표준 치료</td><td>최신 주요 선택지</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 15 · Refractory GERD ================= -->
+        <section id="refractory" class="section">
+          <h2><span class="sec-no">15</span> Refractory GERD</h2>
+
+          <blockquote>"PPI를 먹는데도 계속 쓰려요" — 약을 바꾸기 전에 먼저 확인할 것이 있습니다.</blockquote>
+
+          <div class="figure" data-ppifailure>
+            <div class="figure__title">Viz 10 · PPI Failure Detective</div>
+            <p style="font-size:13px;margin-bottom:10px;">단계를 순서대로 평가하세요.</p>
+            <div class="pfd__steps">
+              <div class="pfd__step" data-pfd="0">
+                <div class="pfd__num">STEP 1</div>
+                <div class="pfd__q">복용법이 올바른가?</div>
+                <div class="pfd__opts">
+                  <button class="btn pfd__btn" data-pfd-step="0" data-pfd-ans="ok">식전 30–60분, 매일 복용 ✅</button>
+                  <button class="btn pfd__btn" data-pfd-step="0" data-pfd-ans="fail">불규칙·식후 복용 ⚠️</button>
+                </div>
+              </div>
+              <div class="pfd__step" data-pfd="1">
+                <div class="pfd__num">STEP 2</div>
+                <div class="pfd__q">pH monitoring: acid exposure?</div>
+                <div class="pfd__opts">
+                  <button class="btn pfd__btn" data-pfd-step="1" data-pfd-ans="high">비정상 (acid↑)</button>
+                  <button class="btn pfd__btn" data-pfd-step="1" data-pfd-ans="normal">정상 범위</button>
+                </div>
+              </div>
+              <div class="pfd__step" data-pfd="2">
+                <div class="pfd__num">STEP 3</div>
+                <div class="pfd__q">Reflux-symptom association?</div>
+                <div class="pfd__opts">
+                  <button class="btn pfd__btn" data-pfd-step="2" data-pfd-ans="pos">연관 있음 (+)</button>
+                  <button class="btn pfd__btn" data-pfd-step="2" data-pfd-ans="neg">연관 없음 (−)</button>
+                </div>
+              </div>
+            </div>
+            <div class="pfd__result" id="pfdResult" style="margin-top:12px;min-height:80px;"></div>
+            <div class="figure__cap">PPI 증량 전에 복용법·진단 재확인이 먼저입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · 수술·시술 ================= -->
+        <section id="surgery" class="section">
+          <h2><span class="sec-no">16</span> 수술 및 시술</h2>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>누구에게나 수술하지 않는다</div>
+            <p>Selected patient에서: <b>Fundoplication</b> — 위 fundus를 distal esophagus 주변에 감쌉니다.<br>
+              LES barrier 강화 → reflux 감소.<br>
+              <b>중요한 조건: 수술 전 GERD를 객관적으로 확인해야 합니다</b>. Functional heartburn 환자에게 시행하면 결과가 좋지 않습니다.</p>
+          </div>
+
+          <div class="figure" data-fundoplication style="margin-top:12px;">
+            <div class="figure__title">Viz 11 · Fundoplication</div>
+            <div class="fnd__compare">
+              <div class="fnd__panel">
+                <div class="fnd__title">수술 전</div>
+                <div class="fnd__diagram pre">
+                  <div class="fnd__esoph">Esophagus</div>
+                  <div class="fnd__les-weak">LES (약함)</div>
+                  <div class="fnd__stomach-pre">
+                    <div>Stomach</div>
+                    <div class="fnd__reflux-arrow">↑ reflux</div>
+                  </div>
+                </div>
+              </div>
+              <div class="fnd__arrow-h">→</div>
+              <div class="fnd__panel">
+                <div class="fnd__title">수술 후 (Fundoplication)</div>
+                <div class="fnd__diagram post">
+                  <div class="fnd__esoph">Esophagus</div>
+                  <div class="fnd__les-strong">LES + Fundus wrap 💪</div>
+                  <div class="fnd__stomach-post">
+                    <div>Stomach</div>
+                    <div class="fnd__ok-label" style="color:var(--ok-color,#12a594);font-size:12px;">↓ reflux 감소</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="figure__cap">수술은 기계적 역류 방어를 강화합니다. 적절한 환자 선택이 핵심입니다.</div>
+          </div>
+
+          <div class="figure" data-infochips style="margin-top:10px;">
+            <div class="figure__title">수술 고려 상황</div>
+            <div class="checkchips">
+              <button data-text="<b>객관적 GERD + 증상 지속</b> — pH monitoring 등으로 GERD가 확인됐고 약물로 충분히 조절되지 않는 경우.">객관적 GERD</button>
+              <button data-text="<b>Large hiatal hernia</b> — 해부학적 문제가 있는 경우.">큰 열공탈장</button>
+              <button data-text="<b>Predominant regurgitation</b> — Regurgitation이 주 증상이고 PPI 반응이 불충분한 경우.">Regurgitation 중심</button>
+              <button data-text="<b>장기 약물 의존 최소화</b> — 선택적으로 장기 투약 부담을 줄이고 싶은 환자에서 고려. 하지만 GERD를 객관적으로 먼저 확인.">약물 최소화 희망</button>
+            </div>
+            <div class="infochips__out">항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 17 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">17</span> 약사 Deep Dive</h2>
+
+          <h3>① PPI를 먹었는데 regurgitation이 남는 이유</h3>
+          <p>PPI: acid production ↓. 하지만 TLESR 또는 hiatal hernia를 직접 없애지 않습니다. Reflux frequency ≈ 유사. Reflux acidity ↓. 따라서 <b>heartburn은 크게 좋아지는데 regurgitation이 남는 환자</b>가 있습니다.</p>
+
+          <h3 style="margin-top:18px;">② NERD 환자가 PPI 반응이 덜 일정한 이유</h3>
+          <p>NERD라고 묶인 환자 안에 true acid reflux + reflux hypersensitivity + functional heartburn이 섞여 있을 수 있습니다. Erosive esophagitis보다 PPI response가 평균적으로 덜 일정합니다.</p>
+
+          <h3 style="margin-top:18px;">③ Rebound acid hypersecretion</h3>
+          <p>장기 PPI → gastric acidity ↓ → gastrin ↑ → 중단 후 일시적 acid rebound → heartburn 재발처럼 느껴짐. <b>"PPI 중독"이 아닌 생리적 반응</b>입니다. 단계적 감량 또는 on-demand 전략을 사용할 수 있습니다.</p>
+
+          <h3 style="margin-top:18px;">④ Barrett esophagus: squamous → columnar 변환 이유</h3>
+          <p>정상 esophagus: stratified squamous epithelium. 반복 reflux injury → repair/adaptation → <b>intestinal-type columnar metaplasia</b>. 산 환경을 견디는 쪽으로의 적응이지만 그 대가로 dysplasia / adenocarcinoma risk가 증가합니다.</p>
+        </section>
+
+        <!-- ================= 18 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">18</span> 비슷한 질환과 비교</h2>
+
+          <h3>GERD vs 위염</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>GERD</th><th>Gastritis (제11강)</th></tr></thead>
+              <tbody>
+                <tr><th>위치</th><td>식도</td><td>위</td></tr>
+                <tr><th>핵심</th><td>위 내용물의 식도 역류</td><td>위 점막 염증</td></tr>
+                <tr><th>Heartburn</th><td>특징적</td><td>가능하지만 비특이적</td></tr>
+                <tr><th>Regurgitation</th><td>특징적</td><td>일반적이지 않음</td></tr>
+                <tr><th>주요 원인</th><td>Barrier dysfunction, TLESR</td><td>H. pylori, NSAID, 자가면역</td></tr>
+                <tr><th>PPI</th><td>핵심치료</td><td>원인에 따라 (원인치료 아님)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">GERD vs 협심증</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>GERD</th><th>Angina / ACS</th></tr></thead>
+              <tbody>
+                <tr><th>느낌</th><td>Burning (타는 느낌)</td><td>Pressure / Heaviness (눌리는 느낌) 흔함</td></tr>
+                <tr><th>식후</th><td>흔함</td><td>가능</td></tr>
+                <tr><th>눕기</th><td>악화 가능</td><td>전형적이지 않음</td></tr>
+                <tr><th>운동</th><td>전형적 trigger 아님</td><td>중요한 trigger</td></tr>
+                <tr><th>주의</th><td colspan="2" style="text-align:center;color:var(--hi);font-weight:700;">증상만으로 완전히 구분할 수 없습니다</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 19 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">19</span> 자주 묻는 질문</h2>
+          <div class="faq">
+            <div class="faq__item">
+              <button class="faq__q">Q1. 역류성 식도염은 위산이 너무 많아서 생기나요?</button>
+              <div class="faq__a"><p>꼭 그렇지 않습니다. 핵심은 역류 barrier, 역류 빈도, clearance, 식도 민감성입니다. 정상적인 양의 위산도 식도로 반복 역류하면 문제를 일으킵니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q2. 내시경이 정상인데 역류성 식도염이래요. 가능한가요?</button>
+              <div class="faq__a"><p>가능합니다. NERD(Non-erosive reflux disease)에서 visible erosion은 없지만 병적 역류와 증상이 존재할 수 있습니다. "역류성 식도염"이라는 표현은 엄밀하게는 erosive disease에 더 어울리지만 일상적으로 GERD 전체를 지칭하는 경우가 많습니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q3. PPI를 오래 먹으면 위험하지 않나요?</button>
+              <div class="faq__a"><p>적응증이 있다면 효과적이고 일반적으로 안전합니다. 여러 장기 outcome과의 연관성이 보고됐지만 대부분 관찰연구의 confounding이 크고 인과관계가 확립되지 않았습니다. 불필요한 장기 고용량은 재평가하되, 근거 없는 공포 때문에 필요한 치료를 중단할 필요는 없습니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q4. 매운 음식, 커피, 초콜릿을 평생 끊어야 하나요?</button>
+              <div class="faq__a"><p>아닙니다. 본인의 증상을 반복적으로 유발하는 것이 명확하다면 줄이는 방식이 실용적입니다. 모든 사람에게 일률적으로 금지할 근거는 강하지 않습니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q5. 목이 쉬고 기침이 나는데 위산 역류 때문인가요?</button>
+              <div class="faq__a"><p>가능하지만 반드시 그렇지는 않습니다. 만성 기침·호흡기·ENT·알레르기 등 다른 원인을 먼저 고려해야 할 수 있습니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q6. PPI를 식후에 먹어도 되나요?</button>
+              <div class="faq__a"><p>일반적으로 식사 30–60분 전 복용이 proton pump activation 시 약효를 최대화합니다. 식후 복용은 효과가 덜 최적화될 수 있습니다. 특히 erosive disease에서 충분한 acid suppression이 필요한 경우 타이밍이 중요합니다.</p></div>
+            </div>
+            <div class="faq__item">
+              <button class="faq__q">Q7. GERD는 완치되나요?</button>
+              <div class="faq__a"><p>환자마다 다릅니다. 체중감소나 생활습관 교정으로 크게 좋아지는 경우도 있지만, hiatal hernia나 지속적인 barrier dysfunction이 있으면 재발하는 만성·재발성 질환으로 관리합니다. 2025 Seoul update는 phenotype별 장기치료 전략을 강조합니다.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 20 · 팩트체크 ================= -->
+        <section id="factcheck" class="section">
+          <h2><span class="sec-no">20</span> 흔한 오해 / Fact Check</h2>
+          <div class="factcheck">
+            <div class="fc-item">
+              <div class="fc-claim">"GERD는 위산이 너무 많이 나와서 생긴다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">핵심은 reflux barrier 기능, TLESR 빈도, clearance, 식도 민감성입니다. 위산 총량만의 문제가 아닙니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"내시경이 정상이라면 GERD가 아니다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">NERD(Non-erosive reflux disease)가 존재합니다. Visible erosion 없이도 GERD 가능합니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"PPI는 역류 자체를 막는다."</div>
+              <div class="fc-verdict wrong">대체로 틀림</div>
+              <div class="fc-exp">PPI의 주요 효과는 gastric acid secretion을 낮추는 것입니다. TLESR 자체를 막지는 않습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"GERD 환자는 커피·초콜릿·매운 음식을 모두 평생 끊어야 한다."</div>
+              <div class="fc-verdict wrong">대체로 틀림</div>
+              <div class="fc-exp">개인별 trigger를 중심으로 조절하는 것이 근거에 맞습니다. 일률적 금지는 권고되지 않습니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"Barrett esophagus는 식도암이다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">Barrett은 squamous → columnar metaplasia로 esophageal adenocarcinoma risk 증가와 관련된 전암성 변화이지, 암 자체는 아닙니다.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-claim">"PPI는 식후에 먹어도 똑같다."</div>
+              <div class="fc-verdict wrong">틀림</div>
+              <div class="fc-exp">대부분의 PPI는 식사로 인한 proton pump activation 시 약효가 최대화됩니다. 식전 30–60분 복용이 효과적입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 21 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">21</span> Case Study</h2>
+
+          <h3>Case 1 — 내시경은 정상인데 매일 속쓰림</h3>
+          <div class="case-box">
+            <p><b>38세 남성.</b> BMI 29. 야식 주 5회. 누우면 heartburn, sour regurgitation. 내시경 정상. Alarm symptom 없음.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① GERD를 배제할 수 있는가? ② 어떤 phenotype을 생각할 수 있는가? ③ 가장 실용적인 초기 치료는? ④ 생활습관에서 무엇을 바꿀까?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                내시경이 정상이어도 <b>NERD 가능성</b>이 있습니다. 전형적 heartburn/regurgitation + alarm 없음 → 초기 empiric acid suppression trial을 고려합니다.
+                <ul style="margin-top:8px;">
+                  <li><b>체중감량</b> (BMI 29 → 과체중): ACG 강한 권고</li>
+                  <li><b>야식 줄이기</b>: 취침 2–3시간 전 식사 피하기</li>
+                  <li><b>식후 바로 눕지 않기</b></li>
+                  <li>PPI trial: 식전 30–60분 복용 방법 설명</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case 2 — PPI를 먹는데 계속 아픕니다</h3>
+          <div class="case-box">
+            <p><b>46세 여성.</b> 4개월째 heartburn. PPI 복용 중이지만 "아침 먹고 나서 생각나면 먹음". 내시경 정상. PPI 증량해도 애매. pH-impedance: acid exposure 정상. Reflux-symptom association 없음.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">먼저 생각해보기 — ① PPI 복용 timing 문제? ② 정상 acid exposure가 의미하는 것은? ③ symptom association도 없다면?</div>
+              <button class="reveal-btn">해설 보기</button>
+              <div class="answer">
+                우선 <b>PPI 복용 timing이 적절하지 않았으므로 이를 먼저 교정</b>해야 합니다. 식전 30–60분 복용으로 바꾸고 재평가.
+                <br><br>그럼에도 pH-impedance에서 acid exposure 정상 + reflux-symptom association 없음이라면:
+                <ul style="margin-top:8px;">
+                  <li><b>Functional heartburn</b>을 고려합니다</li>
+                  <li>PPI를 계속 강화하기보다 <b>진단을 재평가</b>하는 것이 중요합니다</li>
+                  <li>다른 functional esophageal disorder나 다른 원인 고려</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">GERD Phenotype Detective</h3>
+          <div class="figure" data-gerdphenotype2>
+            <div class="figure__title">Viz (Case) · 세 환자의 검사 결과</div>
+            <p style="font-size:13px;margin-bottom:10px;">환자를 선택해 어떤 phenotype인지 확인하세요.</p>
+            <div class="gpt2__patients" style="display:flex;gap:10px;flex-wrap:wrap;">
+              <button class="btn gpt2__pt" data-gpt2="a">Patient A<br><small>Endoscopy: erosion+<br>Acid exposure: ↑</small></button>
+              <button class="btn gpt2__pt" data-gpt2="b">Patient B<br><small>Endoscopy: normal<br>Acid: ↑<br>Assoc: +</small></button>
+              <button class="btn gpt2__pt" data-gpt2="c">Patient C<br><small>Endoscopy: normal<br>Acid: normal<br>Assoc: +</small></button>
+              <button class="btn gpt2__pt" data-gpt2="d">Patient D<br><small>Endoscopy: normal<br>Acid: normal<br>Assoc: −</small></button>
+            </div>
+            <div class="gpt2__result" id="gpt2Result" style="margin-top:12px;padding:14px;border-radius:12px;background:var(--bg-card);min-height:80px;font-size:13.5px;">
+              환자를 선택하면 phenotype이 나타납니다.
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 22 · Mastery Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">22</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 1. GERD의 병태생리를 가장 잘 설명한 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 모든 환자에서 위산 생성량이 비정상적으로 많다.</li>
+                <li data-opt="B"><span class="opt">B</span> 위 내용물의 식도 역류와 식도 노출·clearance·민감성이 중요하다.</li>
+                <li data-opt="C"><span class="opt">C</span> H. pylori 감염이 반드시 존재한다.</li>
+                <li data-opt="D"><span class="opt">D</span> 식도에서 위산이 직접 만들어진다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — GERD = reflux burden × clearance × esophageal sensitivity. 단순 위산 과다가 아닙니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 2. NERD에 대한 설명으로 맞는 것은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> GERD 증상이 있지만 내시경에서 visible erosion이 없다.</li>
+                <li data-opt="B"><span class="opt">B</span> 위궤양을 의미한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 모든 pH 검사가 정상이어야 한다.</li>
+                <li data-opt="D"><span class="opt">D</span> GERD가 아니다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — Non-erosive reflux disease: 전형적 reflux symptom + 내시경 정상.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 3. PPI가 GERD 증상을 줄이는 핵심 기전은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> LES를 물리적으로 봉합한다.</li>
+                <li data-opt="B"><span class="opt">B</span> H⁺/K⁺-ATPase를 억제해 위산 분비를 낮춘다.</li>
+                <li data-opt="C"><span class="opt">C</span> 위를 비운다.</li>
+                <li data-opt="D"><span class="opt">D</span> 식도 신경을 완전히 차단한다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — H⁺/K⁺-ATPase(proton pump) 비가역적 억제 → acid secretion 감소.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 4. 야간 GERD 증상이 있는 환자의 생활습관 조언으로 가장 적절한 것은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 모든 음식을 금식한다.</li>
+                <li data-opt="B"><span class="opt">B</span> 취침 직전 큰 식사를 한다.</li>
+                <li data-opt="C"><span class="opt">C</span> 취침 2–3시간 전 식사를 피하고 필요하면 침대 머리를 높인다.</li>
+                <li data-opt="D"><span class="opt">D</span> 물도 평생 마시지 않는다.</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 야간 역류 시 취침 전 식사 피하기 + head-of-bed elevation이 권고됩니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">문제 5. pH monitoring 정상 + reflux-symptom association 없음인 heartburn 환자에서 고려할 것은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> Functional heartburn</li>
+                <li data-opt="B"><span class="opt">B</span> 반드시 severe erosive esophagitis</li>
+                <li data-opt="C"><span class="opt">C</span> STEMI</li>
+                <li data-opt="D"><span class="opt">D</span> H. pylori 감염만</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — Acid exposure 정상 + symptom association 없음 → functional heartburn. PPI 증량보다 진단 재평가가 먼저입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 23 · 30초 Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">23</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>GERD = 위 내용물이 식도로 역류해 증상 또는 합병증을 만드는 만성·재발성 질환. GER 자체는 어느 정도 생리적.</p></div>
+            <div class="factcard"><span class="n">2</span><p>정상 역류 방어: LES + Diaphragm + 식도 연동운동 + Saliva + Gravity — 다중 시스템. 하나가 아님.</p></div>
+            <div class="factcard"><span class="n">3</span><p>GERD ≠ 위산 과다. TLESR, hiatal hernia, 복압 증가, 식도 clearance·민감성이 핵심.</p></div>
+            <div class="factcard"><span class="n">4</span><p>PPI는 역류를 물리적으로 막는 약이 아니라 역류물의 산도를 낮추는 약. Regurgitation이 남을 수 있는 이유.</p></div>
+            <div class="factcard"><span class="n">5</span><p>내시경 정상 ≠ GERD 없음. NERD(erosion 없는 GERD), reflux hypersensitivity, functional heartburn이 있음.</p></div>
+            <div class="factcard"><span class="n">6</span><p>진단: 전형 증상 + alarm 없음 → PPI trial. 치료 실패·alarm → 내시경. 불명확 → pH monitoring / pH-impedance.</p></div>
+            <div class="factcard"><span class="n">7</span><p>생활습관: 체중감량(비만), 취침 전 식사 피하기, head-of-bed elevation이 효과적. 음식은 개인별 trigger 조절.</p></div>
+            <div class="factcard"><span class="n">8</span><p>PPI: H⁺/K⁺-ATPase 비가역적 억제. 식전 30–60분 복용. P-CAB: K⁺ 경쟁 억제, 빠른 onset, 식사 timing 의존성 낮음.</p></div>
+            <div class="factcard"><span class="n">9</span><p>PPI가 안 들으면 ① 복용법 확인 ② 진단 재평가 (reflux hypersensitivity? functional heartburn?) — 용량만 올리지 않음.</p></div>
+            <div class="factcard"><span class="n">10</span><p>Barrett esophagus = metaplasia. 암 자체 아님. 하지만 adenocarcinoma risk 증가와 연관 → 추적 필요.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">GERD의 본질은 위산이 존재한다는 것이 아니라,<br>
+            <b>위 내용물이 있어서는 안 될 식도로 반복적으로 올라온다</b>는 것이다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 <b>제13강 소화성궤양</b>에서는 위산과 H. pylori·NSAID가 어떻게 위·십이지장에 구멍을 만드는지로 이어집니다.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>GERD 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">본질</span><span>역류 방어 실패 — 위산 과다가 아님</span></div>
+      <div class="qr-row"><span class="qr-k">NERD</span><span>내시경 정상이어도 GERD 가능</span></div>
+      <div class="qr-row"><span class="qr-k">PPI</span><span>산도 낮춤 · 역류 자체를 막는 약 아님</span></div>
+      <div class="qr-row"><span class="qr-k">PPI 타이밍</span><span>식전 30–60분 → pump activation과 일치</span></div>
+      <div class="qr-row"><span class="qr-k">P-CAB</span><span>K⁺ 경쟁 · 빠른 onset · 식전 덜 중요</span></div>
+      <div class="qr-row"><span class="qr-k">Barrett</span><span>Metaplasia — 암 아님, 추적 필요</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

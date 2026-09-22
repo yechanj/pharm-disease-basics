@@ -104,6 +104,42 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 10,
+    category: "core",
+    href: "lessons/core/10.html",
+    title: "뇌졸중",
+    desc: "제9강 심근경색과 같은 혈관 사고이지만 이번엔 뇌. 허혈성(막힘)과 출혈성(터짐)의 치료 방향이 반대라는 것, ischemic penumbra와 Time is Brain, 4.5시간 IV thrombolysis·LVO에서 thrombectomy, 그리고 재발예방에서 원인에 따라 antiplatelet vs anticoagulant를 구분하는 것까지.",
+    tags: ["허혈성 vs 출혈성", "penumbra", "BE-FAST", "thrombolysis", "antiplatelet vs anticoagulant"],
+    status: "ready"
+  },
+  {
+    no: 11,
+    category: "core",
+    href: "lessons/core/11.html",
+    title: "위염",
+    desc: ""속쓰림 = 위산 과다"라는 단순 공식을 깨는 강의. 정상 위 점막 방어기전(prostaglandin·mucus·bicarbonate)이 무너지는 세 가지 길 — H. pylori·NSAID·자가면역 — 과 Correa cascade, 그리고 PPI가 왜 위염의 원인치료가 아닌지까지.",
+    tags: ["점막 방어", "H. pylori / Correa cascade", "NSAID gastropathy", "autoimmune / B12", "PPI·P-CAB·제균"],
+    status: "ready"
+  },
+  {
+    no: 12,
+    category: "core",
+    href: "lessons/core/12.html",
+    title: "위식도역류질환 (GERD)",
+    desc: ""역류성 식도염 = 위산 과다"를 깨는 강의. LES·TLESR·횡격막의 역류 방어 시스템, 내시경이 정상인데도 GERD인 NERD, PPI가 식전에 효과적인 이유, P-CAB과의 차이, refractory GERD 평가 흐름까지. 2025 Seoul update 반영.",
+    tags: ["역류 방어 시스템", "TLESR / NERD", "PPI 타이밍", "P-CAB", "Barrett esophagus"],
+    status: "ready"
+  },
+  {
+    no: 3,
+    category: "everyday",
+    href: "lessons/everyday/03.html",
+    title: "급성 장염·감염성 설사",
+    desc: ""설사를 멈추는 것보다 탈수를 막는 것이 먼저." 물설사와 혈변을 동반한 설사의 구별, ORS와 SGLT1 원리, Loperamide를 피해야 하는 경우, STEC와 HUS, 노로바이러스 예방까지. 장염 상담의 순서: 탈수 → 혈변·발열 → 위험요인 → 약물.",
+    tags: ["탈수·ORS", "Watery vs Inflammatory", "Loperamide 금기", "STEC·HUS", "노로바이러스"],
+    status: "ready"
+  },
+  {
     no: 1,
     category: "everyday",
     href: "lessons/everyday/01.html",

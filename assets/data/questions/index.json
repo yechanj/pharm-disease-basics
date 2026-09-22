@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-11",
+  "updated": "2026-09-22",
   "files": [
     { "file": "core-01.json", "disease": "고혈압", "category": "core", "no": 1, "lessonRef": "core/01.html", "status": "ready" },
     { "file": "core-02.json", "disease": "당뇨병", "category": "core", "no": 2, "lessonRef": "core/02.html", "status": "ready" },
@@ -7,6 +7,7 @@
     { "file": "core-04.json", "disease": "비만", "category": "core", "no": 4, "lessonRef": "core/04.html", "status": "ready" },
     { "file": "core-05.json", "disease": "대사증후군", "category": "core", "no": 5, "lessonRef": "core/05.html", "status": "ready" },
     { "file": "core-09.json", "disease": "협심증·심근경색", "category": "core", "no": 9, "lessonRef": "core/09.html", "status": "ready" },
+    { "file": "core-10.json", "disease": "뇌졸중", "category": "core", "no": 10, "lessonRef": "core/10.html", "status": "ready" },
     { "file": "everyday-01.json", "disease": "감기", "category": "everyday", "no": 1, "lessonRef": "everyday/01.html", "status": "ready" },
     { "file": "everyday-02.json", "disease": "독감", "category": "everyday", "no": 2, "lessonRef": "everyday/02.html", "status": "ready" }
   ]

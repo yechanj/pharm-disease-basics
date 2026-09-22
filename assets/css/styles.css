@@ -2344,3 +2344,476 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 
 /* hypo__risk 추가 색상 */
 .hypo__risk.danger { background: #3d0000; color: #ff8080; }
+.hypo__risk.mid { background: #fff3cd; color: #856404; }
+
+/* =====================================================
+   Core 10 · 뇌졸중 컴포넌트
+   ===================================================== */
+
+/* Brain Blood Flow Explorer */
+.bf__display { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; }
+.bf__brain svg { width: 100%; max-width: 180px; display: block; }
+.bf__stages { display: flex; flex-direction: column; gap: 8px; }
+.bf__stage { display: flex; align-items: center; gap: 8px; font-size: 13px; transition: opacity .3s; }
+.bf__dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.bf__msg { min-height: 44px; }
+.bf__vessel { transition: stroke .4s; }
+@media (max-width: 560px) { .bf__display { grid-template-columns: 1fr; } .bf__brain svg { max-width: 150px; margin: 0 auto; } }
+
+/* Core vs Penumbra */
+.pb__wrap { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: start; }
+.pb__svg svg { width: 100%; max-width: 180px; display: block; }
+.pb__time { font-size: 16px; font-weight: 700; color: var(--hi); }
+.pb__desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; margin-top: 4px; }
+@media (max-width: 560px) { .pb__wrap { grid-template-columns: 1fr; } .pb__svg svg { max-width: 150px; margin: 0 auto; display: block; } }
+
+/* Stroke Source Cards */
+.ss2__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.ss2__card { border: 2px solid var(--line); border-radius: 14px; padding: 14px; cursor: pointer; background: var(--surface); transition: all .2s; text-align: center; }
+.ss2__card:hover { border-color: var(--brand); }
+.ss2__card.open { border-color: var(--brand); background: var(--brand-soft); }
+.ss2__ico { font-size: 24px; line-height: 1; margin-bottom: 6px; }
+.ss2__card h5 { margin: 0 0 4px; font-size: 13px; }
+.ss2__tag { font-size: 11px; color: var(--ink-soft); margin: 0; }
+@media (max-width: 560px) { .ss2__cards { grid-template-columns: 1fr; } }
+
+/* Blocked vs Ruptured */
+.st__cols { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 10px; align-items: start; }
+.st__side { text-align: center; }
+.st__side h6 { font-size: 13px; font-weight: 700; margin: 0 0 6px; }
+.st__svg { width: 100%; max-width: 120px; display: block; margin: 0 auto; }
+.st__desc { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+.st__center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.st__q { font-size: 12px; font-weight: 700; text-align: center; color: var(--ink-soft); }
+@media (max-width: 540px) { .st__cols { grid-template-columns: 1fr; } .st__center { flex-direction: row; flex-wrap: wrap; justify-content: center; } }
+
+/* BE-FAST Body Map */
+.bef__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.bef__btn { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 8px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); cursor: pointer; transition: all .2s; font-size: 13px; font-weight: 600; }
+.bef__btn:hover { border-color: var(--brand); background: var(--brand-soft); }
+.bef__btn.active { border-color: var(--brand); background: var(--brand-soft); }
+.bef__btn.time { border-color: var(--hi); background: var(--hi-soft); color: var(--hi); }
+.bef__btn.time.active { background: var(--hi); color: #fff; }
+.bef__letter { font-size: 22px; font-weight: 900; line-height: 1; }
+@media (max-width: 500px) { .bef__grid { grid-template-columns: repeat(2,1fr); } }
+
+/* TIA Warning Window */
+.tiaw__timeline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tiaw__step { display: flex; flex-direction: column; align-items: center; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); min-width: 90px; text-align: center; font-size: 12px; opacity: .4; transition: all .3s; }
+.tiaw__step.active { opacity: 1; border-color: var(--brand); background: var(--brand-soft); }
+.tiaw__time { font-size: 11px; color: var(--ink-faint); margin-bottom: 4px; }
+.tiaw__evt { font-size: 12px; font-weight: 600; }
+.tiaw__arrow { font-size: 18px; color: var(--ink-faint); flex-shrink: 0; }
+@media (max-width: 500px) { .tiaw__arrow { display: none; } }
+
+/* Stroke Imaging Stack */
+.si__steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.si__step { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 10px; border-radius: 14px; border: 2px solid var(--line); background: var(--surface-2); min-width: 90px; max-width: 130px; text-align: center; cursor: pointer; transition: all .2s; }
+.si__step:hover { border-color: var(--brand); }
+.si__step.open { border-color: var(--brand); background: var(--brand-soft); }
+.si__ico { font-size: 22px; line-height: 1; }
+.si__label { font-size: 12px; font-weight: 700; }
+.si__q { font-size: 11px; color: var(--ink-faint); }
+.si__arrow { font-size: 18px; color: var(--ink-faint); flex-shrink: 0; }
+@media (max-width: 500px) { .si__arrow { display: none; } }
+
+/* Thrombolysis Window */
+.tw__bar { display: flex; border-radius: 12px; overflow: hidden; height: 70px; cursor: pointer; }
+.tw__seg { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px; text-align: center; font-size: 11px; font-weight: 600; transition: filter .2s; position: relative; }
+.tw__seg.early { background: linear-gradient(135deg, #e8f8ef, #d0f0e0); border: 2px solid #12a594; color: #0a6b5e; }
+.tw__seg.late { background: linear-gradient(135deg, #fff3cd, #fde8b0); border: 2px solid #f5a623; border-left: none; color: #7a4f00; }
+.tw__seg.active { filter: brightness(0.92); }
+.tw__seg span { font-size: 12px; font-weight: 700; }
+.tw__label { line-height: 1.35; }
+
+/* Reperfusion Comparison */
+.rc__cols { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 10px; align-items: start; }
+.rc__side { text-align: center; }
+.rc__side h6 { font-size: 13px; font-weight: 700; margin: 0 0 6px; }
+.rc__svg { width: 100%; max-width: 120px; display: block; margin: 0 auto; }
+.rc__desc { font-size: 12px; color: var(--ink-soft); margin-top: 4px; }
+.rc__vs { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--ink-faint); padding-top: 36px; }
+@media (max-width: 500px) { .rc__cols { grid-template-columns: 1fr; } .rc__vs { padding-top: 0; } }
+
+/* Opposite Stroke Treatments */
+.so__cols { display: grid; grid-template-columns: 1fr 40px 1fr; gap: 10px; align-items: start; }
+.so__side { padding: 14px; border-radius: 14px; border: 2px solid var(--line); background: var(--surface-2); }
+.so__side.ischemic { border-color: var(--brand); background: var(--brand-soft); }
+.so__side.hemorrhagic { border-color: var(--hi); background: var(--hi-soft); }
+.so__side h5 { margin: 0 0 8px; font-size: 14px; }
+.so__tag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; display: inline-block; margin-bottom: 6px; }
+.so__tag.blocked { background: var(--brand-soft); color: var(--brand-dark); border: 1.5px solid var(--brand); }
+.so__tag.bleeding { background: var(--hi-soft); color: var(--hi); border: 1.5px solid var(--hi); }
+.so__arrow { font-size: 18px; font-weight: 700; color: var(--ink-faint); margin: 4px 0; display: block; }
+.so__goal { font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+.so__list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-soft); }
+.so__center { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: var(--ink-faint); padding-top: 50px; }
+@media (max-width: 540px) { .so__cols { grid-template-columns: 1fr; } .so__center { padding-top: 0; text-align: center; } }
+
+/* Stroke Drug Map */
+.sdm__flow { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 14px; }
+.sdm__node { font-weight: 700; font-size: 13px; padding: 8px 18px; border-radius: 999px; background: var(--surface); border: 1.5px solid var(--line); text-align: center; transition: all .2s; }
+.sdm__node.targeted { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-dark); transform: scale(1.05); }
+.sdm__arrow { font-size: 16px; color: var(--ink-faint); line-height: 1; }
+.sdm__drugs { display: flex; flex-wrap: wrap; gap: 8px; }
+.sdm__drug-btn.active { background: var(--brand); color: #fff; }
+
+/* ============================================================
+   Core 11 · 위염 컴포넌트
+   ============================================================ */
+
+/* Gastric Shield (data-gastricshield) */
+.gs__wrap { display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: start; }
+.gs__diagram { display: flex; flex-direction: column; gap: 6px; padding: 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface-2); }
+.gs__acid { text-align: center; font-size: 16px; font-weight: 800; color: var(--hi); letter-spacing: 4px; padding: 6px; }
+.gs__layer { background: var(--surface); border: 1.5px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+.gs__lname { font-size: 11px; color: var(--ink-faint); display: block; }
+.gs__ldesc { font-size: 13px; font-weight: 700; display: block; margin-bottom: 4px; }
+.gs__lbar { width: 100%; height: 10px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.gs__lbar-fill { height: 100%; background: var(--brand); border-radius: 999px; transition: width .6s; }
+.gs__pg { background: #e8f5e9; border: 1.5px solid #66bb6a; border-radius: 10px; padding: 8px 12px; }
+.gs__mucosa { text-align: center; font-size: 12px; font-weight: 700; padding: 8px; background: var(--brand-soft); border-radius: 8px; color: var(--brand-dark); }
+.gs__status { display: flex; flex-direction: column; gap: 8px; }
+.gs__ag-label { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+@media (max-width: 540px) { .gs__wrap { grid-template-columns: 1fr; } }
+
+/* H. pylori Journey (data-hpylori) */
+.hpj__steps { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.hpj__step { display: flex; flex-direction: column; align-items: center; padding: 10px 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); min-width: 76px; text-align: center; opacity: .45; transition: opacity .3s, border-color .3s; font-size: 12px; }
+.hpj__step.active { opacity: 1; border-color: var(--brand); background: var(--brand-soft); }
+.hpj__ico { font-size: 22px; margin-bottom: 4px; }
+.hpj__label { line-height: 1.35; font-weight: 600; }
+.hpj__arrow { font-size: 20px; color: var(--ink-faint); padding: 0 2px; }
+
+/* NSAID Shield (data-nsaidshield) */
+.nss__flow { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.nss__box { padding: 8px 20px; border-radius: 10px; background: var(--surface); border: 1.5px solid var(--line); font-weight: 700; font-size: 13.5px; text-align: center; transition: all .4s; }
+.nss__arrow-v { font-size: 20px; color: var(--ink-faint); line-height: 1; }
+.nss__shields { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.nss__shield { padding: 6px 14px; border-radius: 8px; background: #e8f5e9; border: 1.5px solid #66bb6a; font-size: 12.5px; font-weight: 700; transition: all .4s; }
+.nss__protected { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-dark); }
+
+/* Autoimmune Gastritis (data-autoimgastritis) */
+.aig__wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.aig__root, .aig__center { text-align: center; }
+.aig__box { padding: 8px 18px; border-radius: 10px; background: var(--surface); border: 1.5px solid var(--line); font-size: 13px; font-weight: 700; text-align: center; display: inline-block; }
+.aig__box.root { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+.aig__box.mid { background: #fff3cd; border-color: #ffc107; }
+.aig__box.warn { background: #fff3cd; border-color: #ffc107; font-size: 12.5px; }
+.aig__box.hi { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); font-size: 12.5px; }
+.aig__branches { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
+.aig__branch { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.aig__arrow-down, .aig__arrow-v { font-size: 18px; color: var(--ink-faint); text-align: center; }
+@media (max-width: 540px) { .aig__branches { grid-template-columns: 1fr; } }
+
+/* Correa Cascade (data-correacascade) */
+.cc__flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.cc__step { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); cursor: pointer; width: 100%; max-width: 420px; transition: border-color .2s, background .2s; }
+.cc__step:hover, .cc__step.open { border-color: var(--brand); background: var(--brand-soft); }
+.cc__num { font-size: 18px; font-weight: 800; color: var(--ink-faint); min-width: 24px; }
+.cc__label { font-size: 13.5px; font-weight: 700; flex: 1; }
+.cc__risk { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.cc__risk.ok { background: #e8f5e9; color: #2e7d32; }
+.cc__risk.warn { background: #fff3cd; color: #856404; }
+.cc__risk.mid { background: #ffe0b2; color: #e65100; }
+.cc__risk.hi { background: var(--hi-soft); color: var(--hi); }
+.cc__risk.danger { background: var(--hi); color: #fff; }
+.cc__arrow-v { font-size: 18px; color: var(--ink-faint); line-height: 1.8; }
+
+/* Three Roads (data-threeroads) */
+.tr__center { text-align: center; margin-bottom: 12px; }
+.tr__root { display: inline-block; padding: 10px 24px; border-radius: 12px; background: var(--brand-soft); border: 2px solid var(--brand); font-weight: 800; font-size: 14px; color: var(--brand-dark); }
+.tr__roads { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tr__road { border-radius: 12px; border: 1.5px solid var(--line); overflow: hidden; }
+.tr__title { padding: 8px 12px; font-size: 13px; font-weight: 700; background: var(--surface-2); border-bottom: 1px solid var(--line); }
+.tr__steps { display: flex; flex-direction: column; gap: 4px; padding: 10px; }
+.tr__step { font-size: 12.5px; padding: 5px 10px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); }
+.tr__step.warn { background: #fff3cd; border-color: #ffc107; }
+.tr__step.hi { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); font-weight: 700; }
+.tr__step.mid { background: #ffe0b2; border-color: #ff9800; }
+.tr__step.danger { background: var(--hi); color: #fff; font-weight: 700; }
+@media (max-width: 560px) { .tr__roads { grid-template-columns: 1fr; } }
+
+/* Trigger Sorter (data-triggersorter) */
+.ts__cards { display: flex; flex-wrap: wrap; gap: 8px; }
+.ts__card { padding: 8px 14px; border-radius: 10px; background: var(--surface-2); border: 2px solid var(--line); cursor: pointer; font-size: 13px; transition: border-color .2s, background .2s; }
+.ts__card:hover { border-color: var(--brand); }
+.ts__card.ts__card--selected { border-color: var(--brand); background: var(--brand-soft); }
+.ts__zone { border: 2px dashed var(--line); border-radius: 12px; padding: 10px; min-height: 80px; cursor: pointer; transition: border-color .2s; }
+.ts__zone:hover { border-color: var(--brand); }
+.ts__zone-title { font-size: 12.5px; font-weight: 700; margin-bottom: 8px; }
+.ts__zone-drop { font-size: 12px; color: var(--ink-faint); }
+.ts__placed-tag { display: inline-block; padding: 3px 8px; border-radius: 999px; font-size: 12px; margin: 2px; }
+.ts__correct { background: #e8f5e9; color: #2e7d32; border: 1px solid #66bb6a; }
+.ts__wrong { background: var(--hi-soft); color: var(--hi); border: 1px solid var(--hi); }
+
+/* Acid Map (data-acidmap) */
+.am__cell { border: 2px solid var(--brand); border-radius: 16px; padding: 16px; background: var(--brand-soft); max-width: 420px; margin: 0 auto; }
+.am__title { font-size: 13px; font-weight: 800; text-align: center; margin-bottom: 12px; color: var(--brand-dark); }
+.am__inputs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+.am__input { text-align: center; padding: 8px 12px; border-radius: 10px; background: var(--surface); border: 1.5px solid var(--line); min-width: 90px; transition: background .3s; }
+.am__sig { font-size: 11px; color: var(--ink-faint); }
+.am__rec { font-size: 12px; font-weight: 700; }
+.am__drug-label { font-size: 11px; color: var(--hi); font-weight: 700; margin-top: 3px; }
+.am__arrow-down { text-align: center; font-size: 14px; color: var(--ink-faint); padding: 4px 0; }
+.am__pump { background: var(--surface); border: 2px solid var(--brand); border-radius: 12px; padding: 10px 16px; text-align: center; transition: background .3s; }
+.am__pump-label { font-size: 13px; font-weight: 700; }
+.am__pump-drug { font-size: 12px; color: var(--hi); font-weight: 700; margin-top: 3px; }
+.am__output { text-align: center; font-size: 13px; font-weight: 700; padding: 8px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); transition: color .3s; }
+.am__drug-btn.active { background: var(--brand); color: #fff; }
+
+/* Eradication Builder (data-eradbuilder) */
+.eb__groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.eb__group { border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--surface-2); }
+.eb__group-title { font-size: 12px; font-weight: 700; color: var(--ink-faint); margin-bottom: 8px; }
+.eb__opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.eb__opt { font-size: 12.5px; padding: 5px 12px; }
+.eb__opt.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+@media (max-width: 480px) { .eb__groups { grid-template-columns: 1fr; } }
+
+/* Cause Detective (data-causedetective) */
+.cd__patients { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.cd__pt { font-size: 12px; padding: 10px 6px; line-height: 1.35; border-radius: 10px; }
+.cd__pt.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+@media (max-width: 480px) { .cd__patients { grid-template-columns: repeat(2, 1fr); } }
+
+/* Factcheck component */
+.factcheck { display: flex; flex-direction: column; gap: 10px; }
+.fc-item { border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); padding: 12px 14px; }
+.fc-claim { font-size: 13.5px; font-weight: 700; margin-bottom: 6px; }
+.fc-verdict { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.fc-verdict.wrong { background: var(--hi-soft); color: var(--hi); border: 1.5px solid var(--hi); }
+.fc-verdict.partial { background: #fff3cd; color: #856404; border: 1.5px solid #ffc107; }
+.fc-exp { font-size: 13px; color: var(--ink-soft); }
+
+/* ============================================================
+   Core 12 · GERD 컴포넌트
+   ============================================================ */
+
+/* Anti-Reflux Barrier (data-antirefluxbarrier) */
+.arb__wrap { display: grid; grid-template-columns: 180px 1fr; gap: 14px; align-items: start; }
+.arb__diagram { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); }
+.arb__tube-label { font-size: 11px; color: var(--ink-faint); }
+.arb__esophagus { width: 50px; background: #e3f2fd; border: 2px solid #42a5f5; border-radius: 8px 8px 0 0; padding: 8px 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.arb__peristalsis { font-size: 10px; color: var(--brand); }
+.arb__les-zone { display: flex; flex-direction: column; align-items: center; width: 100%; }
+.arb__les { width: 68px; padding: 6px 0; text-align: center; font-size: 11px; font-weight: 700; background: var(--brand-soft); border: 2px solid var(--brand); border-radius: 6px; transition: all .3s; }
+.arb__diaphragm { width: 100px; padding: 5px 0; text-align: center; font-size: 11px; background: #fff3e0; border: 2px solid #ff9800; border-radius: 4px; margin-top: 2px; transition: all .3s; }
+.arb__stomach { width: 80px; padding: 12px 0; text-align: center; background: #fce4ec; border: 2px solid #ef9a9a; border-radius: 0 0 14px 14px; display: flex; flex-direction: column; align-items: center; }
+.arb__stomach-label { font-size: 11px; color: var(--ink-soft); }
+.arb__acid { font-size: 11px; color: var(--hi); font-weight: 700; margin-top: 2px; }
+.arb__factors { display: flex; flex-direction: column; gap: 6px; }
+.arb__factor { display: grid; grid-template-columns: 20px 80px 1fr; gap: 6px; align-items: center; }
+.arb__ficon { font-size: 14px; }
+.arb__fname { font-size: 12px; font-weight: 700; }
+.arb__fbar { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.arb__fbar-fill { height: 100%; background: var(--brand); border-radius: 999px; transition: width .5s; }
+@media (max-width: 520px) { .arb__wrap { grid-template-columns: 1fr; } }
+
+/* Reflux Mechanism (data-refluxmechanism) */
+.rfm__cols { display: grid; grid-template-columns: 1fr 180px; gap: 12px; }
+.rfm__diagram { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); position: relative; }
+.rfm__esoph { font-size: 12px; font-weight: 700; padding: 6px 16px; background: #e3f2fd; border: 2px solid #42a5f5; border-radius: 8px; }
+.rfm__les-box { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.rfm__les { font-size: 11px; font-weight: 700; padding: 5px 14px; background: var(--brand-soft); border: 2px solid var(--brand); border-radius: 6px; transition: all .3s; }
+.rfm__diaphragm { font-size: 11px; padding: 4px 16px; background: #fff3e0; border: 2px solid #ff9800; border-radius: 4px; transition: all .3s; }
+.rfm__stomach { font-size: 12px; font-weight: 700; padding: 16px; background: #fce4ec; border: 2px solid #ef9a9a; border-radius: 10px; text-align: center; transition: all .4s; }
+.rfm__stomach-inner { font-size: 12px; }
+.rfm__pressure { font-size: 11px; color: var(--hi); }
+.rfm__particle-zone { min-height: 20px; }
+.rfm__gauge-zone { display: flex; flex-direction: column; gap: 8px; }
+.rfm__gauge { }
+.rfm__gauge-label { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
+@media (max-width: 520px) { .rfm__cols { grid-template-columns: 1fr; } }
+
+/* Reflux vs Acidity (data-refluxvsacidity) */
+.rva__display { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; align-items: start; }
+.rva__col { text-align: center; padding: 10px; border-radius: 12px; background: var(--surface-2); border: 1px solid var(--line); }
+.rva__title { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+.rva__particles { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; min-height: 50px; padding: 4px; }
+.rva__particle { width: 18px; height: 18px; border-radius: 50%; }
+.rva__count { font-size: 13px; font-weight: 700; margin-top: 4px; }
+.rva__bar-wrap { display: flex; gap: 6px; align-items: center; justify-content: center; }
+.rva__ph-bar { width: 20px; height: 80px; border-radius: 4px; background: var(--line); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.rva__ph-fill { width: 100%; transition: height .6s, background .6s; }
+.rva__ph-label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--ink-faint); text-align: left; height: 80px; justify-content: space-between; }
+.rva__symptom { display: flex; flex-direction: column; gap: 6px; }
+.rva__sym { font-size: 13px; padding: 5px 8px; border-radius: 8px; background: var(--hi-soft); border: 1px solid var(--hi); transition: opacity .4s; }
+@media (max-width: 480px) { .rva__display { grid-template-columns: 1fr; } }
+
+/* GERD Phenotype (data-gerdphenotype) */
+.gpt__switches { display: flex; flex-direction: column; gap: 12px; }
+.gpt__sw-group { padding: 10px 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.gpt__sw-label { font-size: 12px; font-weight: 700; color: var(--ink-faint); margin-bottom: 8px; }
+.gpt__sw-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.gpt__sw { font-size: 12.5px; padding: 6px 14px; }
+.gpt__sw.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* 24h Monitor (data-24hmonitor) */
+.phm__tl-wrap { padding: 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.phm__ph-graph { margin-bottom: 6px; }
+
+/* GERD Complication Timeline (data-gerdcomplication) */
+.gct__flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.gct__step { width: 100%; max-width: 400px; padding: 10px 16px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); cursor: pointer; transition: border-color .2s, background .2s; }
+.gct__step:hover, .gct__step.open { border-color: var(--brand); background: var(--brand-soft); }
+.gct__label { font-size: 13.5px; font-weight: 700; }
+.gct__sub { font-size: 12px; color: var(--ink-soft); margin-top: 2px; }
+.gct__sub.hi { color: var(--hi); font-weight: 700; }
+.gct__sub.danger { color: var(--hi); font-weight: 800; }
+.gct__arrow { font-size: 18px; color: var(--ink-faint); text-align: center; padding: 2px 0; }
+.gct__split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%; max-width: 400px; }
+.gct__branch { display: flex; flex-direction: column; align-items: center; gap: 0; }
+@media (max-width: 480px) { .gct__split { grid-template-columns: 1fr; } }
+
+/* Trigger Tracker (data-triggertacker) */
+.trk__grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+.trk__item { padding: 10px 6px; border-radius: 12px; background: var(--surface-2); border: 2px solid var(--line); text-align: center; cursor: pointer; transition: border-color .2s, background .2s; }
+.trk__item:hover { border-color: var(--brand); }
+.trk__item.trk__item--on { border-color: var(--hi); background: var(--hi-soft); }
+.trk__ico { font-size: 20px; margin-bottom: 3px; }
+.trk__label { font-size: 11px; font-weight: 700; display: block; margin-bottom: 3px; }
+.trk__toggle { font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--line); font-weight: 700; display: inline-block; }
+.trk__item.trk__item--on .trk__toggle { background: var(--hi); color: #fff; }
+@media (max-width: 480px) { .trk__grid { grid-template-columns: repeat(2,1fr); } }
+
+/* PPI Timing (data-ppitiming) */
+.pit__display { padding: 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.pit__timeline { position: relative; height: 50px; }
+.pit__bar-bg { position: absolute; top: 28px; left: 0; right: 0; height: 12px; border-radius: 6px; background: var(--line); overflow: visible; }
+.pit__conc-bar { position: absolute; top: 0; height: 12px; border-radius: 6px; transition: left .4s, width .4s; }
+.pit__pump-bar { position: absolute; top: 0; height: 12px; border-radius: 6px; }
+.pit__marker { position: absolute; top: 2px; display: flex; flex-direction: column; align-items: center; transition: left .4s; }
+.pit__marker::after { content: ""; width: 2px; height: 22px; background: var(--brand); display: block; margin-top: 2px; }
+.pit__marker--meal::after { background: var(--ok-color,#12a594); }
+.pit__marker-label { font-size: 10px; font-weight: 700; white-space: nowrap; }
+
+/* PPI vs P-CAB (data-ppivpcab) */
+.pvc__cols { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: start; }
+.pvc__vs { display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--ink-faint); padding-top: 30px; }
+.pvc__panel { border: 1.5px solid var(--line); border-radius: 14px; overflow: hidden; }
+.pvc__title { padding: 8px 12px; font-size: 13px; font-weight: 800; text-align: center; background: var(--brand-soft); color: var(--brand-dark); border-bottom: 1px solid var(--line); }
+.pvc__cell { padding: 12px; }
+.pvc__path { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.pvc__box { padding: 6px 14px; border-radius: 8px; background: var(--surface); border: 1.5px solid var(--line); font-size: 12px; font-weight: 700; text-align: center; }
+.pvc__box.active { background: var(--brand-soft); border-color: var(--brand); }
+.pvc__box.pump { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+.pvc__arrow { font-size: 13px; color: var(--ink-faint); }
+@media (max-width: 480px) { .pvc__cols { grid-template-columns: 1fr; } .pvc__vs { padding: 0; } }
+
+/* PPI Failure Detective (data-ppifailure) */
+.pfd__steps { display: flex; flex-direction: column; gap: 10px; }
+.pfd__step { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); }
+.pfd__num { font-size: 11px; font-weight: 700; color: var(--brand); margin-bottom: 4px; }
+.pfd__q { font-size: 13.5px; font-weight: 700; margin-bottom: 8px; }
+.pfd__opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.pfd__btn { font-size: 12.5px; padding: 5px 12px; }
+.pfd__btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* Fundoplication (data-fundoplication) */
+.fnd__compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center; }
+.fnd__arrow-h { font-size: 24px; font-weight: 700; color: var(--brand); text-align: center; }
+.fnd__panel { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.fnd__title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+.fnd__diagram { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px; border-radius: 14px; border: 1.5px solid var(--line); background: var(--surface-2); width: 100%; }
+.fnd__esoph { font-size: 12px; padding: 6px 14px; background: #e3f2fd; border: 2px solid #42a5f5; border-radius: 6px; }
+.fnd__les-weak { font-size: 11px; padding: 5px 12px; background: var(--hi-soft); border: 2px solid var(--hi); border-radius: 6px; color: var(--hi); }
+.fnd__les-strong { font-size: 11px; padding: 5px 12px; background: #e8f5e9; border: 2px solid #66bb6a; border-radius: 6px; color: #2e7d32; text-align: center; }
+.fnd__stomach-pre { font-size: 12px; padding: 12px; background: #fce4ec; border: 2px solid #ef9a9a; border-radius: 10px; text-align: center; }
+.fnd__reflux-arrow { color: var(--hi); font-weight: 700; font-size: 13px; margin-top: 4px; }
+.fnd__stomach-post { font-size: 12px; padding: 12px; background: #e8f5e9; border: 2px solid #66bb6a; border-radius: 10px; text-align: center; }
+@media (max-width: 520px) { .fnd__compare { grid-template-columns: 1fr; } .fnd__arrow-h { transform: rotate(90deg); } }
+
+/* =====================================================
+   Everyday 03 · 급성 장염·감염성 설사
+   ===================================================== */
+
+/* Fluid Loss (data-fluidloss) */
+.fls__wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+.fls__body { display: flex; align-items: center; gap: 8px; }
+.fls__silhouette { width: 70px; min-width: 60px; }
+.fls__gut { position: relative; width: 60px; height: 90px; background: #fce4ec; border: 2px solid #ef9a9a; border-radius: 20px 20px 10px 10px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.fls__gut-label { font-size: 9px; font-weight: 700; color: #c62828; z-index: 1; }
+.fls__drops { position: absolute; bottom: 0; left: 0; right: 0; height: 60%; display: flex; flex-wrap: wrap; gap: 2px; padding: 4px; }
+.fls__arrow { font-size: 18px; color: var(--ink-faint); }
+.fls__losses { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.fls__loss-title { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+.fls__loss-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.fls__loss-ico { font-size: 16px; width: 24px; text-align: center; }
+.fls__bar { height: 100%; border-radius: 4px; transition: width .5s ease; }
+.fls__gauge-wrap { padding: 8px; background: var(--bg-card); border-radius: 8px; }
+.fls__gauge-label { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+@media (max-width: 500px) { .fls__wrap { grid-template-columns: 1fr; } }
+
+/* Watery vs Inflammatory (data-wateryvsflam) */
+.wvi__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.wvi__chip { padding: 7px 13px; border-radius: 20px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 13px; cursor: pointer; transition: background .2s, opacity .2s; }
+.wvi__chip:hover { border-color: var(--brand); }
+.wvi__chip.done { opacity: .5; cursor: default; }
+.wvi__chip--watery { background: #e3f2fd; border-color: #42a5f5; color: #1565c0; }
+.wvi__chip--inflam { background: #fce4ec; border-color: #ef9a9a; color: #c62828; }
+.wvi__zones { }
+.wvi__zone { padding: 12px; border-radius: 12px; border: 2px solid var(--line); }
+.wvi__zone[data-wvi-zone="watery"] { background: #e3f2fd; border-color: #90caf9; }
+.wvi__zone[data-wvi-zone="inflam"] { background: #fce4ec; border-color: #ef9a9a; }
+.wvi__zone-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.wvi__zone-desc { font-size: 11.5px; color: var(--ink-soft); margin-bottom: 6px; }
+.wvi__zone-drop { font-size: 12px; padding: 6px; border-radius: 8px; background: rgba(255,255,255,.5); min-height: 28px; }
+
+/* Norovirus Transmission (data-norotransmission) */
+.nrt__center { display: flex; justify-content: center; margin: 10px 0 6px; }
+.nrt__patient { font-size: 20px; font-weight: 800; text-align: center; padding: 8px 18px; background: var(--hi-soft); border: 2px solid var(--hi); border-radius: 12px; }
+.nrt__paths { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.nrt__path { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 10px; background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 12px; cursor: pointer; transition: border-color .2s, background .2s; }
+.nrt__path:hover, .nrt__path.active { border-color: var(--brand); background: var(--brand-soft); }
+.nrt__path-ico { font-size: 28px; }
+.nrt__path-label { font-size: 12px; font-weight: 700; text-align: center; }
+
+/* Hydration Gauge (data-hydrationgauge) */
+.hyg__gauge-wrap { display: flex; align-items: center; gap: 12px; }
+.hyg__bar-outer { width: 24px; height: 120px; background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; align-items: flex-end; }
+.hyg__bar-fill { width: 100%; border-radius: 0 0 10px 10px; transition: height .5s ease, background .4s; }
+.hyg__level { flex: 1; }
+.hyg__level-label { font-size: 14px; font-weight: 800; margin-bottom: 8px; }
+.hyg__btns { }
+.hyg__sym.selected { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* ORS Mechanism (data-orsmechanism) */
+.ors__split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ors__panel { display: flex; flex-direction: column; gap: 6px; }
+.ors__title { font-size: 13px; font-weight: 800; text-align: center; margin-bottom: 4px; }
+.ors__diagram { padding: 12px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ors__diagram.active { border-color: var(--brand); background: var(--brand-soft); }
+.ors__lumen { font-size: 11.5px; padding: 5px 10px; background: #e3f2fd; border: 1px solid #90caf9; border-radius: 6px; text-align: center; }
+.ors__transporter { padding: 6px 10px; border-radius: 8px; border: 2px solid var(--line); background: var(--surface); text-align: center; }
+.ors__transporter.active { border-color: var(--brand); background: var(--brand-soft); }
+.ors__tr-label { font-size: 12px; font-weight: 800; margin-bottom: 4px; }
+.ors__slots { display: flex; gap: 4px; justify-content: center; }
+.ors__slot { font-size: 11px; padding: 3px 7px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 6px; }
+.ors__slot.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.ors__cell { font-size: 11px; padding: 5px 12px; background: #e8f5e9; border: 1px solid #66bb6a; border-radius: 6px; }
+.ors__water-arrow { font-size: 13px; font-weight: 700; color: var(--ink-faint); transition: color .3s; }
+@media (max-width: 480px) { .ors__split { grid-template-columns: 1fr; } }
+
+/* Traffic Light (data-trafficlight) */
+.tfl__levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.tfl__level { padding: 12px 8px; border-radius: 14px; border: 2px solid var(--line); cursor: pointer; transition: box-shadow .2s; text-align: center; }
+.tfl__level.green { background: #f0fdf4; border-color: #86efac; }
+.tfl__level.yellow { background: #fefce8; border-color: #fde047; }
+.tfl__level.red { background: #fef2f2; border-color: #fca5a5; }
+.tfl__level.expanded { box-shadow: 0 4px 14px rgba(0,0,0,.12); }
+.tfl__light { font-size: 22px; margin-bottom: 4px; }
+.tfl__title { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.tfl__items { font-size: 12px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 6px; }
+.tfl__action { font-size: 12px; font-weight: 700; padding: 5px 8px; border-radius: 8px; background: rgba(255,255,255,.7); }
+.tfl__level.green .tfl__action { color: #16a34a; }
+.tfl__level.yellow .tfl__action { color: #b45309; }
+.tfl__level.red .tfl__action { color: #dc2626; }
+@media (max-width: 500px) { .tfl__levels { grid-template-columns: 1fr; } }
+
+/* Loperamide Check (data-lopecheck) */
+.lpc__patients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.lpc__pt { display: flex; flex-direction: column; gap: 4px; font-size: 13px; height: auto; min-height: 80px; padding: 12px 8px; border-radius: 12px; text-align: center; }
+.lpc__pt.active { border-color: var(--brand); background: var(--brand-soft); }
+@media (max-width: 480px) { .lpc__patients { grid-template-columns: 1fr; } }
+
