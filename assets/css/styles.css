@@ -2811,9 +2811,183 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .tfl__level.red .tfl__action { color: #dc2626; }
 @media (max-width: 500px) { .tfl__levels { grid-template-columns: 1fr; } }
 
+/* =====================================================
+   Core 13 · 소화성궤양 (PUD)
+   ===================================================== */
+
+/* Ulcer Balance Scale (data-ulcerbalance) */
+.ubs__wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.ubs__scale { width: 100%; }
+.ubs__beam { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: start; transition: transform .5s ease; }
+.ubs__side { padding: 10px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); }
+.ubs__attack { border-color: var(--hi); background: var(--hi-soft); }
+.ubs__defend { border-color: var(--ok-color,#12a594); background: #d1fae5; }
+.ubs__side-title { font-size: 12px; font-weight: 800; margin-bottom: 6px; }
+.ubs__items { display: flex; flex-direction: column; gap: 4px; }
+.ubs__item { font-size: 12px; padding: 3px 8px; background: rgba(255,255,255,.6); border-radius: 6px; }
+.ubs__pivot { font-size: 22px; display: flex; align-items: center; justify-content: center; padding-top: 20px; }
+.ubs__result { padding: 10px 14px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; font-weight: 700; text-align: center; width: 100%; transition: background .3s; }
+
+/* H. pylori Paths (data-hpyloripath) */
+.hpp__center { display: flex; justify-content: center; margin: 8px 0; }
+.hpp__source { font-size: 16px; font-weight: 800; padding: 8px 18px; background: var(--hi-soft); border: 2px solid var(--hi); border-radius: 10px; }
+.hpp__paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.hpp__path { padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); cursor: pointer; transition: border-color .2s, background .2s; }
+.hpp__path.active, .hpp__path:hover { border-color: var(--brand); background: var(--brand-soft); }
+.hpp__path-title { font-size: 12px; font-weight: 800; margin-bottom: 6px; }
+.hpp__path-arrow { text-align: center; font-size: 16px; color: var(--ink-faint); }
+.hpp__path-step { font-size: 11.5px; padding: 4px 8px; margin: 2px 0; background: rgba(255,255,255,.5); border-radius: 6px; }
+.hpp__path-result { font-size: 13px; font-weight: 800; text-align: center; margin-top: 6px; padding: 6px; border-radius: 8px; background: var(--brand); color: #fff; }
+@media (max-width: 480px) { .hpp__paths { grid-template-columns: 1fr; } }
+
+/* NSAID Double Hit (data-nsaiddoublehit) */
+.nsh__top { display: flex; justify-content: center; margin: 6px 0; }
+.nsh__source { font-size: 16px; font-weight: 800; padding: 8px 18px; background: var(--hi-soft); border: 2px solid var(--hi); border-radius: 10px; }
+.nsh__paths { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+.nsh__path { padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); transition: opacity .3s, border-color .3s; }
+.nsh__path-label { font-size: 12px; font-weight: 800; margin-bottom: 8px; }
+.nsh__steps { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.nsh__step { font-size: 11.5px; padding: 4px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; text-align: center; }
+.nsh__step.highlight { background: var(--hi-soft); border-color: var(--hi); font-weight: 700; }
+.nsh__arr { font-size: 14px; color: var(--ink-faint); }
+.nsh__result { font-size: 12px; font-weight: 800; padding: 6px 12px; border-radius: 8px; background: var(--hi); color: #fff; }
+.nsh__merge { margin-top: 10px; padding: 10px; border-radius: 10px; background: var(--hi-soft); border: 2px solid var(--hi); text-align: center; }
+.nsh__merge-label { font-size: 14px; font-weight: 800; color: var(--hi); }
+@media (max-width: 480px) { .nsh__paths { grid-template-columns: 1fr; } }
+
+/* GI Risk Stack (data-giriskstack) */
+.grs__gauge-row { display: flex; align-items: center; gap: 10px; }
+.grs__gauge-label { font-size: 12px; font-weight: 700; white-space: nowrap; }
+.grs__chip.selected { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* Ulcer Depth (data-ulcerdepth) */
+.uld__wrap { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; }
+.uld__wall { display: flex; flex-direction: column; gap: 2px; width: 90px; position: relative; }
+.uld__layer { padding: 8px 10px; border-radius: 6px; border: 1.5px solid var(--line); background: var(--surface-2); transition: background .3s, border-color .3s; }
+.uld__layer[data-layer="0"] { background: #fce4ec; border-color: #ef9a9a; }
+.uld__layer[data-layer="1"] { background: #fff3e0; border-color: #ffcc80; }
+.uld__layer[data-layer="2"] { background: #f3e5f5; border-color: #ce93d8; }
+.uld__layer[data-layer="3"] { background: #e8f5e9; border-color: #a5d6a7; }
+.uld__layer.damaged { opacity: .35; }
+.uld__layer-name { font-size: 11px; font-weight: 800; display: block; }
+.uld__layer-note { font-size: 10px; color: var(--ink-soft); }
+.uld__ulcer-hole { width: 28px; border-radius: 0 0 14px 14px; margin: 0 auto; transition: height .4s ease, background .4s; }
+.uld__info { padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; border-left: 4px solid var(--line); transition: background .3s, border-left-color .3s; }
+@media (max-width: 480px) { .uld__wrap { grid-template-columns: 1fr; } .uld__wall { width: 100%; flex-direction: row; } }
+
+/* Ulcer Drug Target Map (data-ulcerdrugs) */
+.udg__wall { padding: 14px; border-radius: 14px; background: var(--surface-2); border: 1.5px solid var(--line); }
+.udg__layer-label { font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 10px; }
+.udg__drugs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.udg__drug { padding: 10px; border-radius: 10px; border: 2px solid var(--line); background: var(--surface); cursor: pointer; transition: border-color .2s, background .2s; }
+.udg__drug:hover, .udg__drug.active { border-color: var(--brand); background: var(--brand-soft); }
+.udg__drug-target { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+.udg__drug-desc { font-size: 11px; color: var(--ink-soft); }
+@media (max-width: 480px) { .udg__drugs { grid-template-columns: 1fr; } }
+
+/* Ulcer Recurrence Loop (data-ulcerrecurrence) */
+.url__compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.url__path { padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); }
+.url__path-title { font-size: 13px; font-weight: 800; text-align: center; margin-bottom: 8px; }
+.url__steps { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.url__step { font-size: 11.5px; padding: 5px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; text-align: center; }
+.url__step.warn { background: var(--hi-soft); border-color: var(--hi); font-weight: 700; color: var(--hi); }
+.url__step.ok { background: #d1fae5; border-color: #34d399; font-weight: 700; color: #065f46; }
+.url__arr { font-size: 13px; color: var(--ink-faint); }
+.url__arr.warn-arr { font-size: 13px; color: var(--hi); font-weight: 700; }
+@media (max-width: 480px) { .url__compare { grid-template-columns: 1fr; } }
+
+/* Ulcer Emergency Simulator (data-ulceremergency) */
+.ues__patients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 4px; }
+.ues__patient { padding: 12px 8px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface-2); cursor: pointer; text-align: center; transition: border-color .2s, background .2s; }
+.ues__patient:hover, .ues__patient.active { border-color: var(--brand); background: var(--brand-soft); }
+.ues__pt-label { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+.ues__pt-desc { font-size: 11.5px; color: var(--ink-soft); }
+.ues__choices { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+@media (max-width: 480px) { .ues__patients { grid-template-columns: 1fr; } }
+
 /* Loperamide Check (data-lopecheck) */
 .lpc__patients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .lpc__pt { display: flex; flex-direction: column; gap: 4px; font-size: 13px; height: auto; min-height: 80px; padding: 12px 8px; border-radius: 12px; text-align: center; }
 .lpc__pt.active { border-color: var(--brand); background: var(--brand-soft); }
 @media (max-width: 480px) { .lpc__patients { grid-template-columns: 1fr; } }
+
+/* ==========================================================
+   Everyday 04 · 수족구병 (HFMD)  ·  prefix: hfmd__
+   ========================================================== */
+
+/* Body Map */
+.hfmd__bodymap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+.hfmd__zone-btn { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 16px 10px; border-radius: 14px; background: var(--surface-2); border: 2px solid var(--line); cursor: pointer; transition: border-color .2s, background .2s; width: 100%; }
+.hfmd__zone-btn:hover, .hfmd__zone-btn.active { border-color: var(--brand); background: var(--brand-soft); }
+.hfmd__zone-ico { font-size: 28px; }
+.hfmd__zone-lbl { font-size: 13px; font-weight: 700; }
+.hfmd__bodyinfo { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 60px; line-height: 1.6; }
+
+/* Transmission Playground */
+.hfmd__transmit-center { display: flex; justify-content: center; margin: 6px 0; }
+.hfmd__infected { font-size: 15px; font-weight: 800; padding: 8px 18px; background: var(--hi-soft); border: 2px solid var(--hi); border-radius: 12px; }
+.hfmd__routes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 10px 0; }
+.hfmd__route { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 14px 8px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); cursor: pointer; transition: border-color .2s, background .2s; width: 100%; }
+.hfmd__route:hover, .hfmd__route.active { border-color: var(--brand); background: var(--brand-soft); }
+.hfmd__route-ico { font-size: 26px; }
+.hfmd__route-lbl { font-size: 12px; font-weight: 700; text-align: center; }
+.hfmd__target { text-align: center; font-size: 15px; font-weight: 700; margin: 6px 0; }
+.hfmd__routedesc { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 50px; line-height: 1.6; }
+
+/* Symptom Matcher */
+.hfmd__symchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.hfmd__sym-chip { padding: 8px 14px; border-radius: 20px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 13px; cursor: pointer; transition: background .2s, border-color .2s; }
+.hfmd__sym-chip:hover { border-color: var(--brand); }
+.hfmd__sym-chip.match { background: #d1fae5; border-color: #34d399; color: #065f46; }
+.hfmd__sym-chip.nomatch { background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
+.hfmd__sym-chip.revealed { cursor: default; pointer-events: none; }
+.hfmd__symresult { margin-top: 10px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 40px; line-height: 1.6; }
+
+/* Differential selector tabs */
+.hfmd__diffbtns { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.hfmd__diffbtns .sel-btn { flex: 1; min-width: 0; padding: 8px 6px; font-size: 12.5px; }
+.hfmd__compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+.hfmd__compare-col { padding: 12px; border-radius: 12px; border: 2px solid var(--line); }
+.hfmd__compare-col--hfmd { background: #e3f2fd; border-color: #90caf9; }
+.hfmd__compare-col--other { background: #f3e5f5; border-color: #ce93d8; }
+.hfmd__compare-col h5 { font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+.hfmd__compare-row { font-size: 12.5px; margin-bottom: 5px; }
+.hfmd__compare-row strong { display: block; font-size: 11px; color: var(--ink-soft); }
+.hfmd__compare-mem { margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: #fffbeb; border-left: 3px solid #f59e0b; font-size: 13px; line-height: 1.6; }
+@media (max-width: 420px) { .hfmd__compare { grid-template-columns: 1fr; } }
+
+/* Hydration Check */
+.hfmd__hyd-step { padding: 16px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); }
+.hfmd__hyd-q { font-size: 15px; font-weight: 800; margin-bottom: 12px; line-height: 1.5; }
+.hfmd__hyd-btns { display: flex; gap: 10px; }
+.hfmd__hyd-btn { flex: 1; padding: 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); font-size: 14px; font-weight: 700; cursor: pointer; transition: background .2s, border-color .2s; }
+.hfmd__hyd-btn:hover { border-color: var(--brand); background: var(--brand-soft); }
+.hfmd__hyd-result { padding: 16px; border-radius: 12px; font-size: 14px; font-weight: 700; text-align: center; line-height: 1.6; }
+.hfmd__hyd-result.safe { background: #d1fae5; color: #065f46; border: 2px solid #34d399; }
+.hfmd__hyd-result.caution { background: #fef3c7; color: #92400e; border: 2px solid #fbbf24; }
+.hfmd__hyd-result.urgent { background: #fee2e2; color: #991b1b; border: 2px solid #f87171; }
+
+/* Return-to-School Flip Card */
+.hfmd__school-card { border: 2px solid var(--line); border-radius: 14px; padding: 16px; background: var(--surface-2); }
+.hfmd__school-q { font-size: 15px; font-weight: 800; margin-bottom: 12px; line-height: 1.5; }
+.hfmd__school-flip-btn { width: 100%; padding: 10px; border-radius: 10px; background: var(--brand); color: #fff; font-weight: 700; font-size: 14px; border: none; cursor: pointer; transition: opacity .2s; }
+.hfmd__school-flip-btn:hover { opacity: .88; }
+.hfmd__school-back { margin-top: 12px; }
+.hfmd__stabs { display: flex; gap: 8px; margin-bottom: 10px; }
+.hfmd__stab { flex: 1; padding: 8px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); font-size: 13px; font-weight: 700; cursor: pointer; transition: background .2s; }
+.hfmd__stab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+.hfmd__school-content { padding: 14px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; line-height: 1.7; min-height: 60px; }
+
+/* Hydration comparison (two-child card) */
+.hfmd__hydcomp { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.hfmd__hydcomp-col { padding: 14px; border-radius: 12px; border: 2px solid var(--line); }
+.hfmd__hydcomp-col--ok { background: #f0fdf4; border-color: #86efac; }
+.hfmd__hydcomp-col--bad { background: #fef2f2; border-color: #fca5a5; }
+.hfmd__hydcomp-col h5 { font-size: 13.5px; font-weight: 800; margin-bottom: 8px; }
+.hfmd__hydcomp-col .hc-item { font-size: 12.5px; margin-bottom: 4px; }
+.hfmd__hydcomp-verdict { margin-top: 8px; padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; }
+.hfmd__hydcomp-col--ok .hfmd__hydcomp-verdict { background: #bbf7d0; color: #14532d; }
+.hfmd__hydcomp-col--bad .hfmd__hydcomp-verdict { background: #fecaca; color: #7f1d1d; }
+@media (max-width: 420px) { .hfmd__hydcomp { grid-template-columns: 1fr; } }
 

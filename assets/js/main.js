@@ -1026,6 +1026,12 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // Everyday 04 · 수족구병
+    initHFMDBodyMap();
+    initHFMDTransmit();
+    initHFMDSymMatch();
+    initHFMDHydration();
+    initHFMDSchool();
     // 제2강 · 당뇨병
     initCaseOptions();
     initGlucoseJourney();
@@ -1041,6 +1047,15 @@
     initAirway();
     initFingerprint();
     initBuildMed();
+    // Core 13 · 소화성궤양
+    initUlcerBalance();
+    initHPyloriPath();
+    initNSAIDDoubleHit();
+    initGIRiskStack();
+    initUlcerDepth();
+    initUlcerDrugs();
+    initUlcerRecurrence();
+    initUlcerEmergency();
     // Everyday 03 · 급성 장염
     initFluidLoss();
     initWateryVsInflam();
@@ -1131,6 +1146,141 @@
     initACSDrugMap();
     initACSDecision();
   });
+
+  /* =========================================================
+     ===========  Everyday 04 · 수족구병 (HFMD)  ===========
+     ========================================================= */
+
+  function initHFMDBodyMap() {
+    var root = document.querySelector("[data-hfmdbodymap]");
+    if (!root) return;
+    var info = root.querySelector(".hfmd__bodyinfo");
+    var DATA = {
+      mouth: "<b>👄 입</b> — 통증성 수포·궤양이 혀, 잇몸, 볼 안쪽, 입천장 등에 생깁니다. 먹거나 마실 때 아파서 침을 많이 흘리기도 합니다. <b>가장 중요한 부위</b> — 입안 통증이 수분 섭취를 방해합니다.",
+      hands: "<b>✋ 손바닥</b> — 손바닥과 손가락에 편평하거나 약간 솟은 붉은 병변 또는 작은 수포가 생깁니다. 수족구병의 핵심 감별 단서입니다.",
+      feet: "<b>🦶 발바닥</b> — 발바닥에도 병변이 생긴다는 점이 중요합니다. 일반적인 바이러스 발진은 손바닥·발바닥을 상대적으로 덜 침범합니다.",
+      butt: "<b>🍑 엉덩이·팔·다리</b> — 수족구라는 이름과 달리 엉덩이·팔·다리에도 병변이 생길 수 있습니다. Hand + Foot + Mouth는 대표 위치이지 유일한 위치가 아닙니다."
+    };
+    root.querySelectorAll(".hfmd__zone-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".hfmd__zone-btn").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-bzone");
+        if (info && DATA[key]) info.innerHTML = DATA[key];
+      });
+    });
+  }
+
+  function initHFMDTransmit() {
+    var root = document.querySelector("[data-hfmdtransmit]");
+    if (!root) return;
+    var desc = root.querySelector(".hfmd__routedesc");
+    var DATA = {
+      cup:    "🥤 <b>컵·식기 공유하지 않기</b> — 침 속 바이러스가 공유된 컵을 통해 전달됩니다. 아이들이 같은 컵을 쓰지 않도록 합니다.",
+      toy:    "🧸 <b>장난감·표면 소독</b> — 바이러스가 표면에 남아 있을 수 있습니다. 자주 닿는 장난감과 문손잡이 등을 정기적으로 소독합니다.",
+      touch:  "✋ <b>비누와 물로 손씻기</b> — 직접 접촉 후 손위생이 가장 중요합니다. 비누와 물로 20초 이상 씻습니다.",
+      diaper: "🚼 <b>기저귀 교체 전후 철저한 손위생</b> — 대변-경구 경로는 매우 중요합니다. 기저귀 교체 후 반드시 비누와 물로 손을 씻습니다."
+    };
+    root.querySelectorAll(".hfmd__route").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        root.querySelectorAll(".hfmd__route").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var key = btn.getAttribute("data-route");
+        if (desc && DATA[key]) desc.innerHTML = DATA[key];
+      });
+    });
+  }
+
+  function initHFMDSymMatch() {
+    var root = document.querySelector("[data-hfmdsymatch]");
+    if (!root) return;
+    var result = root.querySelector(".hfmd__symresult");
+    var chips = root.querySelectorAll(".hfmd__sym-chip");
+    var revealed = 0;
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        if (chip.classList.contains("revealed")) return;
+        chip.classList.add("revealed");
+        chip.classList.add(chip.getAttribute("data-sym-ans") === "match" ? "match" : "nomatch");
+        revealed++;
+        if (!result) return;
+        if (revealed < chips.length) {
+          result.innerHTML = "모든 chip을 탭해 분류해보세요. (" + revealed + "/" + chips.length + " 완료)";
+        } else {
+          result.innerHTML = "<b>🟢 HFMD 강한 단서:</b> 손바닥·발바닥 발진, 입안 통증성 궤양, 통증으로 인한 침흘림<br><b>🔴 다른 진단 고려:</b> 심한 가려움·몸통 중심 광범위 수포·여러 단계 병변 동시 → 수두(Varicella) 생각";
+        }
+      });
+    });
+  }
+
+  function initHFMDHydration() {
+    var root = document.querySelector("[data-hfmdhydration]");
+    if (!root) return;
+    var contentEl = root.querySelector(".hfmd__hyd-content");
+    if (!contentEl) return;
+    var STEPS = [
+      { q: "① 물이나 음료를 마실 수 있나요?",        yes: 1, no: "drink" },
+      { q: "② 소변이 나오나요? (최근 몇 시간 기준)", yes: 2, no: "urine" },
+      { q: "③ 아이가 활동하거나 반응하나요?",        yes: "safe", no: "lethargy" }
+    ];
+    var RESULTS = {
+      safe:     { cls: "safe",    html: "🟢 <b>현재: 관찰</b> — 수분 가능·소변 정상·활동 가능. 통증 조절 + 수분 유지를 계속합니다." },
+      drink:    { cls: "urgent",  html: "🔴 <b>빠른 진료 권고</b> — 물을 전혀 마실 수 없는 상태. 구강통으로 인한 탈수 위험이 높습니다." },
+      urine:    { cls: "caution", html: "🟡 <b>진료 고려</b> — 소변량 감소는 탈수 신호일 수 있습니다. 다른 탈수 증상과 함께 의료기관 평가를 고려합니다." },
+      lethargy: { cls: "urgent",  html: "🔴 <b>빠른 진료 권고</b> — 처짐·반응 저하는 중증 탈수 또는 신경계 문제의 경고 신호일 수 있습니다." }
+    };
+    function showStep(idx) {
+      var s = STEPS[idx];
+      contentEl.innerHTML =
+        "<div class='hfmd__hyd-step'>" +
+        "<div class='hfmd__hyd-q'>" + s.q + "</div>" +
+        "<div class='hfmd__hyd-btns'>" +
+        "<button class='hfmd__hyd-btn' data-ha='yes'>✅ 예</button>" +
+        "<button class='hfmd__hyd-btn' data-ha='no'>❌ 아니오</button>" +
+        "</div></div>";
+      contentEl.querySelectorAll(".hfmd__hyd-btn").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var next = btn.getAttribute("data-ha") === "yes" ? s.yes : s.no;
+          if (typeof next === "number") { showStep(next); return; }
+          var r = RESULTS[next];
+          contentEl.innerHTML =
+            "<div class='hfmd__hyd-result " + r.cls + "'>" + r.html + "</div>" +
+            "<button class='btn btn--ghost' style='margin-top:10px;width:100%;' id='hfmdHydReset'>↺ 다시 평가</button>";
+          var rb = document.getElementById("hfmdHydReset");
+          if (rb) rb.addEventListener("click", function () { showStep(0); });
+        });
+      });
+    }
+    showStep(0);
+  }
+
+  function initHFMDSchool() {
+    var root = document.querySelector("[data-hfmdschool]");
+    if (!root) return;
+    var flipBtn = root.querySelector(".hfmd__school-flip-btn");
+    var back = root.querySelector(".hfmd__school-back");
+    var content = root.querySelector(".hfmd__school-content");
+    var TAB_DATA = {
+      kr:   "🇰🇷 <b>한국 (질병관리청)</b><br>2026년 질병관리청은 수족구병 의심 증상이 있으면 어린이집·유치원 등원을 중지하고 다중이용시설 이용을 자제하도록 권고했습니다. <b>회복 후 등원</b>을 안내합니다.<br><br><small style='color:var(--ink-soft)'>해당 시설 및 관할 보건당국의 최신 지침을 함께 확인합니다.</small>",
+      intl: "🌎 <b>미국 CDC / AAP</b><br>일반적으로 다음을 만족하면 등원 가능으로 안내:<br>• 발열이 없음<br>• 활동할 만큼 상태가 좋음<br>• 구강 병변으로 인한 조절 안 되는 침흘림 없음<br><br><small style='color:var(--ink-soft)'>바이러스 배출 기간 ≠ 등원 기준. 지역 유행 시 보건당국 별도 지침 따름.</small>"
+    };
+    if (back) back.style.display = "none";
+    if (flipBtn && back) {
+      flipBtn.addEventListener("click", function () {
+        var showing = back.style.display !== "none";
+        back.style.display = showing ? "none" : "block";
+        flipBtn.textContent = showing ? "기준 보기 ↓" : "접기 ↑";
+      });
+    }
+    if (content) content.innerHTML = TAB_DATA.kr;
+    root.querySelectorAll(".hfmd__stab").forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        root.querySelectorAll(".hfmd__stab").forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        if (content) content.innerHTML = TAB_DATA[tab.getAttribute("data-stab")] || "";
+      });
+    });
+  }
 
   /* =========================================================
      ===========  Core 09 · 협심증·심근경색 인터랙션  ===========
@@ -2567,6 +2717,233 @@
     });
   }
 
+
+  /* ===========  Core 13 · 소화성궤양 인터랙션  =========== */
+
+  /* ---------- Viz 1 · Ulcer Balance Scale ---------- */
+  function initUlcerBalance() {
+    var wrap = document.querySelector("[data-ulcerbalance]");
+    if (!wrap) return;
+    var beam = document.getElementById("ubsBeam");
+    var result = document.getElementById("ubsResult");
+    var state = { hpylori: false, nsaid: false };
+    var info = {
+      base:   { tilt: 0,   cls: "",          text: "균형 유지 — 점막 보호" },
+      hp:     { tilt: -8,  cls: "tilt-left",  text: "H. pylori: 만성 염증 → 방어 약화, 산분비 조절 변화 → 궤양 위험 ↑" },
+      nsaid:  { tilt: -8,  cls: "tilt-left",  text: "NSAID: Prostaglandin ↓ → Mucus·HCO₃⁻·Blood flow ↓ → 점막 방어 약화" },
+      both:   { tilt: -15, cls: "tilt-left",  text: "H. pylori + NSAID 동시: 궤양 위험이 더 크게 증가합니다." }
+    };
+    function render() {
+      var key = state.hpylori && state.nsaid ? "both" : state.hpylori ? "hp" : state.nsaid ? "nsaid" : "base";
+      var d = info[key];
+      if (beam) { beam.style.transform = "rotate(" + d.tilt + "deg)"; }
+      if (result) {
+        result.textContent = d.text;
+        result.style.background = key === "base" ? "" : "var(--hi-soft)";
+        result.style.borderLeft = key === "base" ? "" : "4px solid var(--hi)";
+      }
+    }
+    wrap.querySelectorAll("[data-ubs]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var act = btn.getAttribute("data-ubs");
+        if (act === "reset") { state.hpylori = false; state.nsaid = false; wrap.querySelectorAll("[data-ubs]").forEach(function (b) { b.classList.remove("active"); }); }
+        else if (act === "hpylori") { state.hpylori = !state.hpylori; btn.classList.toggle("active", state.hpylori); }
+        else if (act === "nsaid") { state.nsaid = !state.nsaid; btn.classList.toggle("active", state.nsaid); }
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz 2 · H. pylori Two Paths ---------- */
+  function initHPyloriPath() {
+    var wrap = document.querySelector("[data-hpyloripath]");
+    if (!wrap) return;
+    var desc = document.getElementById("hppDesc");
+    var info = {
+      duo: "<b>십이지장궤양 경로</b> — H. pylori antral gastritis → somatostatin↓ → gastrin↑ → acid output↑ → duodenal acid load↑ → gastric metaplasia → H. pylori colonization → 십이지장궤양. 세균이 위에 있어도 병변은 십이지장에 생깁니다.",
+      gas: "<b>위궤양 경로</b> — H. pylori corpus/pangastritis → 만성 염증·mucosal defense↓ → 점막 방어 약화 → 위궤양 위험 증가. 위산 분비가 감소되는 경우도 있습니다."
+    };
+    wrap.querySelectorAll("[data-hpp]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-hpp]").forEach(function (e) { e.classList.remove("active"); });
+        el.classList.add("active");
+        if (desc) desc.innerHTML = info[el.getAttribute("data-hpp")] || "";
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · NSAID Double Hit ---------- */
+  function initNSAIDDoubleHit() {
+    var wrap = document.querySelector("[data-nsaiddoublehit]");
+    if (!wrap) return;
+    var pathA = document.getElementById("nshPathA");
+    var pathB = document.getElementById("nshPathB");
+    wrap.querySelectorAll("[data-nsh]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var act = btn.getAttribute("data-nsh");
+        if (act === "reset") {
+          if (pathA) { pathA.style.opacity = "1"; pathA.style.borderColor = ""; }
+          if (pathB) { pathB.style.opacity = "1"; pathB.style.borderColor = ""; }
+        } else if (act === "a") {
+          if (pathA) { pathA.style.opacity = "1"; pathA.style.borderColor = "var(--brand)"; }
+          if (pathB) { pathB.style.opacity = "0.35"; pathB.style.borderColor = ""; }
+        } else if (act === "b") {
+          if (pathA) { pathA.style.opacity = "0.35"; pathA.style.borderColor = ""; }
+          if (pathB) { pathB.style.opacity = "1"; pathB.style.borderColor = "var(--hi)"; }
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · GI Risk Stack ---------- */
+  function initGIRiskStack() {
+    var wrap = document.querySelector("[data-giriskstack]");
+    if (!wrap) return;
+    var bar = document.getElementById("grsBar");
+    var label = document.getElementById("grsLevelLabel");
+    var msg = document.getElementById("grsMsg");
+    var score = 0;
+    var added = {};
+    function update() {
+      var pct = Math.min(score, 100);
+      var col, lv, text;
+      if (pct < 25)  { col = "#12a594"; lv = "낮음";    text = "GI 합병증 위험이 낮습니다. 일반적인 관찰이면 충분합니다."; }
+      else if (pct < 50) { col = "#f59e0b"; lv = "중간"; text = "위험인자가 쌓이고 있습니다. NSAID 최소화·H. pylori 확인을 고려합니다."; }
+      else if (pct < 75) { col = "#f97316"; lv = "높음";   text = "GI risk가 높습니다. PPI gastroprotection을 강하게 고려합니다."; }
+      else               { col = "#ef4444"; lv = "매우 높음"; text = "⚠️ 매우 높은 위험 — NSAID 재평가 + PPI 필수 + H. pylori 확인 + 주의 깊은 모니터링."; }
+      if (bar)   { bar.style.width = pct + "%"; bar.style.background = col; }
+      if (label) label.textContent = lv;
+      if (msg)   msg.textContent = text;
+    }
+    wrap.querySelectorAll(".grs__chip").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var act = btn.getAttribute("data-grs");
+        if (act === "reset") {
+          score = 0; added = {};
+          wrap.querySelectorAll(".grs__chip").forEach(function (b) { b.classList.remove("selected"); });
+          update(); return;
+        }
+        if (added[act]) return;
+        added[act] = true;
+        score += Number(btn.getAttribute("data-score") || 0);
+        btn.classList.add("selected");
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 5 · Ulcer Depth ---------- */
+  function initUlcerDepth() {
+    var wrap = document.querySelector("[data-ulcerdepth]");
+    if (!wrap) return;
+    var hole = document.getElementById("uldHole");
+    var info = document.getElementById("uldInfo");
+    var layers = wrap.querySelectorAll(".uld__layer");
+    var data = {
+      0: { depth: "18px", col: "#f59e0b", danger: "low",    text: "Gastritis / Erosion — 표면 점막 손상. 통증·불편감이 주증상. 출혈·천공은 일반적으로 드뭅니다." },
+      1: { depth: "50px", col: "#f97316", danger: "mid",    text: "궤양 (Submucosa까지) — 깊어진 결손. 혈관이 지나는 층 근처. 출혈 위험이 증가합니다." },
+      2: { depth: "80px", col: "#ef4444", danger: "high",   text: "혈관 도달 — 혈관이 침식되면 melena·hematemesis 같은 GI bleeding 위험이 높습니다. Life-threatening." },
+      3: { depth: "110px",col: "#b91c1c", danger: "urgent", text: "Full-thickness 관통 → Perforation — 위·십이지장 내용물이 복강으로 유출 → peritonitis. 즉각적인 응급처치 필요." }
+    };
+    wrap.querySelectorAll("[data-uld]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-uld]").forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var lv = Number(btn.getAttribute("data-uld"));
+        var d = data[lv];
+        if (hole) { hole.style.height = d.depth; hole.style.background = d.col; }
+        layers.forEach(function (layer) {
+          var n = Number(layer.getAttribute("data-layer"));
+          layer.classList.toggle("damaged", n <= lv);
+        });
+        if (info) {
+          info.textContent = d.text;
+          info.style.borderLeft = "4px solid " + d.col;
+          info.style.background = d.danger === "urgent" ? "#fef2f2" : d.danger === "high" ? "#fff7ed" : "var(--bg-card)";
+        }
+      });
+    });
+  }
+
+  /* ---------- Viz 6 · Ulcer Drug Target Map ---------- */
+  function initUlcerDrugs() {
+    var wrap = document.querySelector("[data-ulcerdrugs]");
+    if (!wrap) return;
+    var msg = document.getElementById("udgMsg");
+    var info = {
+      ppi:   "<b>PPI / P-CAB</b> — Parietal cell의 H⁺/K⁺-ATPase를 억제(PPI: 비가역적 / P-CAB: 가역적 K⁺ 경쟁). 산분비를 강력히 억제해 ulcer healing 환경을 만들고 출혈 부위의 clot을 안정시킵니다.",
+      h2ra:  "<b>H2RA (famotidine 등)</b> — Parietal cell의 Histamine H2 receptor를 차단해 acid↓. PPI보다 약한 편이지만 H2RA도 ulcer 치료에 사용됩니다.",
+      sucral:"<b>Sucralfate</b> — 궤양 표면에 protective barrier를 형성해 acid·pepsin으로부터 병변을 보호합니다. 위산에 의해 활성화되므로 공복에 투여합니다.",
+      miso:  "<b>Misoprostol (PGE1 analogue)</b> — 감소된 prostaglandin을 보충 → mucus·bicarbonate↑, mucosal blood flow↑. NSAID-induced ulcer 예방에 논리적으로 적합하지만 diarrhea·cramp가 흔하고 <b>임신부 금기</b>입니다."
+    };
+    wrap.querySelectorAll("[data-udg]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-udg]").forEach(function (e) { e.classList.remove("active"); });
+        el.classList.add("active");
+        if (msg) msg.innerHTML = info[el.getAttribute("data-udg")] || "";
+      });
+    });
+  }
+
+  /* ---------- Viz 7 · Ulcer Recurrence Loop ---------- */
+  function initUlcerRecurrence() {
+    var wrap = document.querySelector("[data-ulcerrecurrence]");
+    if (!wrap) return;
+    // Static — already rendered by HTML, no additional JS needed
+  }
+
+  /* ---------- Viz 8 · Ulcer Emergency Simulator ---------- */
+  function initUlcerEmergency() {
+    var wrap = document.querySelector("[data-ulceremergency]");
+    if (!wrap) return;
+    var selectedLabel = document.getElementById("uesSelected");
+    var choices = document.getElementById("uesChoices");
+    var result = document.getElementById("uesResult");
+    var currentPt = null;
+    var answers = {
+      a: {
+        otc:       { ok: false, html: "❌ 단순 OTC 약으로 지켜보기엔 3주 지속 증상은 내시경 등 평가가 필요할 수 있습니다." },
+        clinic:    { ok: true,  html: "✅ 3주 지속 명치 통증 → <b>외래 평가 권고</b>가 적절합니다. 내시경 및 H. pylori 검사를 포함한 평가가 필요할 수 있습니다." },
+        emergency: { ok: false, html: "❌ 위급한 Red Flag(출혈·천공 신호)는 없어 즉시 응급실이 필요한 상황은 아닙니다." }
+      },
+      b: {
+        otc:       { ok: false, html: "❌ 흑색변 + 빈맥은 GI bleeding의 Red Flag입니다. OTC 약으로 지켜보는 것은 위험합니다." },
+        clinic:    { ok: false, html: "⚠️ Melena + 빈맥 110회는 즉각적인 평가가 필요합니다. 외래 예약보다 더 신속한 평가가 필요합니다." },
+        emergency: { ok: true,  html: "✅ 흑색변 + 어지럼 + 빈맥 → <b>상부위장관 출혈 가능성</b> → 즉시 응급실 평가가 맞습니다." }
+      },
+      c: {
+        otc:       { ok: false, html: "❌ Board-like rigidity는 복막 자극 신호입니다. 제산제로 해결할 수 있는 상황이 아닙니다." },
+        clinic:    { ok: false, html: "❌ 갑작스러운 극심한 복통 + 복벽 경직은 perforation 등 응급상황을 의심합니다." },
+        emergency: { ok: true,  html: "✅ 갑작스러운 극심한 복통 + board-like rigidity → <b>Ulcer perforation 의심</b> → 즉시 응급실. 지체 시 peritonitis·sepsis로 악화될 수 있습니다." }
+      }
+    };
+    wrap.querySelectorAll("[data-ues-pt]").forEach(function (pt) {
+      pt.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-ues-pt]").forEach(function (p) { p.classList.remove("active"); });
+        pt.classList.add("active");
+        currentPt = pt.getAttribute("data-ues-pt");
+        if (selectedLabel) selectedLabel.textContent = "선택된 환자: Patient " + currentPt.toUpperCase() + " — 이제 대응을 선택하세요.";
+        if (choices) choices.style.display = "flex";
+        if (result) result.innerHTML = "";
+      });
+    });
+    if (choices) {
+      choices.querySelectorAll("[data-ues-choice]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          if (!currentPt) return;
+          var choice = btn.getAttribute("data-ues-choice");
+          var d = (answers[currentPt] || {})[choice];
+          if (result && d) {
+            result.innerHTML = d.html;
+            result.style.background = d.ok ? "var(--ok-soft,#d1fae5)" : "var(--hi-soft,#fee2e2)";
+            result.style.borderLeft = d.ok ? "4px solid var(--ok-color,#12a594)" : "4px solid var(--hi,#ef4444)";
+          }
+        });
+      });
+    }
+  }
 
   /* ===========  Everyday 03 · 급성 장염 인터랙션  =========== */
 

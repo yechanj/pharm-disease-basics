@@ -131,6 +131,24 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 13,
+    category: "core",
+    href: "lessons/core/13.html",
+    title: "소화성궤양 (PUD)",
+    desc: "H. pylori와 NSAID가 어떻게 위·십이지장 점막을 파고드는지, 출혈·천공이 왜 단순 통증보다 무서운지, PPI로 healing 환경을 만드는 것과 제균으로 원인을 제거하는 것이 왜 함께 필요한지까지. Test of cure와 NSAID gastroprotection 결정도 다룹니다.",
+    tags: ["H. pylori + NSAID", "공격-방어 불균형", "출혈·천공·폐색", "PPI healing", "제균 + test of cure"],
+    status: "ready"
+  },
+  {
+    no: 4,
+    category: "everyday",
+    href: "lessons/everyday/04.html",
+    title: "수족구병 (HFMD)",
+    desc: "\"손·발의 발진보다 먼저 — 입안 통증 때문에 아이가 물을 마실 수 있는가?\" Enterovirus 원인·전파·수두·헤르팡기나 감별, 탈수 예방이 핵심인 이유, Aspirin 금기, 등원 기준(질병관리청·CDC)까지.",
+    tags: ["HFMD·enterovirus", "손발입 감별", "탈수 예방", "Aspirin 금기", "등원 기준"],
+    status: "ready"
+  },
+  {
     no: 3,
     category: "everyday",
     href: "lessons/everyday/03.html",
