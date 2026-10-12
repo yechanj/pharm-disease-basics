@@ -29,8 +29,18 @@ Everyday Disease는 더 가볍게: 오늘의 상황 → 증상/병태생리 → 
 - **FAQ**: `.faq` > `.faq__item` > `.faq__q` + `.faq__a` (아코디언)
 - **Factcheck**: `.factcheck` > `.fc-item` > `.fc-claim` + `.fc-verdict` + `.fc-exp`
 - **Case reveal**: `.qcard` > `.reveal-btn` + `.answer`
-- **30초 Summary**: `.eightcards` > `.factcard` (8장 카드)
+- **30초 Summary**: `.eightcards` > `.factcard` > `span.n` + `p` (8장 카드)
 - **Quick Review 패널**: `.quickrev` + `.quickrev__btn` + `.quickrev__panel` + `.qr-row`
+- **페이지 끝**: `section.closing` (한 문장 정리 + 다음 강의) → `nav.bottomnav` → `.quickrev`
+
+### 공용 레이아웃 클래스 (새로 지어내지 말고 이것을 사용)
+- 시각화 틀: `.figure` > `.figure__title` + 내용 + `.figure__cap`
+- 2단 비교: `.twopanel` > `.panel.panel--normal` / `.panel.panel--drug` (제목은 `h5`)
+- 표: `.table-scroll` > `table.data`
+- 세로 단계: `.timeline-v` > `.tv__item`(강조는 `.tv__item--key`) > `.tv__dot` + `.tv__content` > `.tv__label` + `p`
+- 팩트체크 판정: `.fc-verdict.wrong` / `.fc-verdict.partial`
+- 버튼: `.btn`, `.btn--ghost`
+- 새 강의는 **직전 강의 HTML을 먼저 읽고** 같은 마크업을 따른다
 
 ### 인터랙티브 시각화
 - 컨테이너에 `data-*` attribute 부여 → JS `init*()` 함수에서 `querySelector("[data-xxx]")`로 연결
@@ -61,12 +71,20 @@ function initXxx() {
 node -e "var fs=require('fs'); var js=fs.readFileSync('assets/js/main.js','utf8'); try{new Function(js);console.log('OK');}catch(e){console.error(e.message);}"
 ```
 
+### 클래스 검증
+HTML에 쓴 class가 styles.css에 실제로 있는지 확인 (없는 클래스는 무스타일로 렌더링됨 — 문법 검사로는 안 잡힘):
+```
+node -e "var fs=require('fs'),h=fs.readFileSync('lessons/core/NN.html','utf8'),c=fs.readFileSync('assets/css/styles.css','utf8'),s={};(h.match(/class=\"[^\"]+\"/g)||[]).forEach(function(m){m.slice(7,-1).split(/\s+/).forEach(function(k){s[k]=1})});console.log(Object.keys(s).filter(function(k){return c.indexOf('.'+k)<0}).join(', '))"
+```
+`mcq-exp`, `case-box`는 CSS 정의가 없어도 정상 (JS 훅·의미용 클래스).
+
 ---
 
 ## CSS 규칙
 - 새 강의 컴포넌트 CSS는 `styles.css` **끝에 추가**
-- 강의별 prefix로 충돌 방지 (Core 11: `gs__`, `hpj__` / Core 12: `arb__`, `rfm__` / Everyday 03: `fls__`, `wvi__`, `nrt__`, `hyg__`, `ors__`, `tfl__`, `lpc__`)
-- `var(--brand)`, `var(--hi)`, `var(--ok-color)`, `var(--surface-2)`, `var(--line)` 등 CSS 변수 적극 활용
+- 강의별 prefix로 충돌 방지 (Core 11: `gs__`, `hpj__` / Core 12: `arb__`, `rfm__` / Core 15: `cst__` / Everyday 03: `fls__`, `wvi__`, `nrt__`, `hyg__`, `ors__`, `tfl__`, `lpc__`)
+- CSS 변수 적극 활용: `var(--brand)`, `var(--brand-soft)`, `var(--surface)`, `var(--surface-2)`, `var(--line)`, `var(--ink-soft)`, 상태색 `var(--ok)`/`var(--ok-soft)`, `var(--mid)`/`var(--mid-soft)`, `var(--hi)`/`var(--hi-soft)`
+- `--ok-color`, `--bg-card`는 **정의되어 있지 않음** — 사용 금지
 
 ---
 
@@ -79,7 +97,7 @@ node -e "var fs=require('fs'); var js=fs.readFileSync('assets/js/main.js','utf8'
 ### 카드/콜아웃 색상 의미
 - `.card--key` (파랑): 핵심 개념·원칙
 - `.card--pharm` (초록/테마컬러): 약사 관점·임상 적용
-- `.card--warn` (빨강): 주의·금기·위험
+- `.card--caution` (빨강): 주의·금기·위험
 
 ### lessons.js `desc` 필드
 문자열 안에 큰따옴표 포함 시 반드시 이스케이프: `\"텍스트\"` — 이스케이프 없으면 허브 페이지 전체가 로드되지 않음

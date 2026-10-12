@@ -140,6 +140,24 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 14,
+    category: "core",
+    href: "lessons/core/14.html",
+    title: "과민성장증후군 (IBS)",
+    desc: "내시경이 정상인데 왜 이렇게 아픈가? Disorder of Gut-Brain Interaction으로서의 IBS — visceral hypersensitivity, 병태생리 4요소, Bristol Scale로 아형 분류, Rome IV 진단, Low-FODMAP 3단계, IBS-C/D 약물, 그리고 TCA가 \"항우울제\"가 아닌 neuromodulator인 이유까지. 검사 정상 ≠ 증상 가짜.",
+    tags: ["gut-brain interaction", "visceral hypersensitivity", "Rome IV", "Low-FODMAP", "IBS-C/D 약물"],
+    status: "ready"
+  },
+  {
+    no: 15,
+    category: "core",
+    href: "lessons/core/15.html",
+    title: "변비 (Constipation)",
+    desc: "\"며칠 못 봤다\"가 변비의 전부가 아닙니다. 변이 대장을 천천히 지나가는 transit 문제와, 직장까지 온 변을 내보내지 못하는 배출장애를 구분하고 — 변비 유발 약물, Rome IV, red flag, fiber·PEG·자극성 하제·linaclotide·prucalopride의 기전 차이, opioid 변비와 PAMORA, 그리고 완하제보다 biofeedback이 필요한 환자까지.",
+    tags: ["transit vs outlet", "약물 유발 변비", "PEG·완하제 기전", "OIC·PAMORA", "biofeedback"],
+    status: "ready"
+  },
+  {
     no: 4,
     category: "everyday",
     href: "lessons/everyday/04.html",

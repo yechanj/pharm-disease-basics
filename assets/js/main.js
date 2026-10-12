@@ -1047,6 +1047,29 @@
     initAirway();
     initFingerprint();
     initBuildMed();
+    // Core 15 · 변비
+    initDefecCoord();
+    initColonTransit();
+    initClosedDoor();
+    initMedConstip();
+    initConstipGate();
+    initConstipBranch();
+    initImpaction();
+    initToiletPosture();
+    initOsmotic();
+    initSecretagogue();
+    initLaxMap();
+    initPamora();
+    initBiofeedback();
+    initConstipDetective();
+    // Core 14 · 과민성장증후군 (IBS)
+    initGutBrainAxis();
+    initVisceralViz();
+    initIBSMixer();
+    initRomeIVCB();
+    initIBSTreatMap();
+    initPainVolume();
+    initIBSRedFlag();
     // Core 13 · 소화성궤양
     initUlcerBalance();
     initHPyloriPath();
@@ -2719,6 +2742,660 @@
 
 
   /* ===========  Core 13 · 소화성궤양 인터랙션  =========== */
+
+  /* =====================================================================
+     Core 15 · 변비
+     ===================================================================== */
+  function cstEl(root, key) { return root.querySelector("[data-el='" + key + "']"); }
+  function cstOut(el, html, tone) {
+    if (!el) return;
+    el.innerHTML = html;
+    el.className = "cst__out" + (tone ? " is-" + tone : "");
+  }
+
+  /* ---------- Viz 1 · Defecation Coordination ---------- */
+  function initDefecCoord() {
+    var root = document.querySelector("[data-defeccoord]");
+    if (!root) return;
+    var state = { push: false, relax: false };
+    var canal = cstEl(root, "canal"), gate = cstEl(root, "gate");
+    function update() {
+      cstEl(root, "rectal").style.width = (state.push ? 85 : 20) + "%";
+      cstEl(root, "anal").style.width = (state.relax ? 15 : 80) + "%";
+      root.querySelectorAll("[data-act]").forEach(function (b) {
+        var a = b.getAttribute("data-act");
+        if (a !== "reset") b.classList.toggle("on", state[a]);
+      });
+      gate.textContent = state.relax ? "열림" : "닫힘";
+      canal.classList.toggle("is-open", state.relax);
+      canal.classList.toggle("is-out", state.push && state.relax);
+      canal.classList.toggle("is-blocked", state.push && !state.relax);
+      var out = cstEl(root, "out");
+      if (state.push && state.relax) cstOut(out, "✅ <b>배변 성공</b> — 직장 압력 ↑ + 출구 이완이 동시에 일어났습니다.", "ok");
+      else if (state.push) cstOut(out, "⛔ <b>Blocked</b> — 힘은 주는데 골반저·괄약근이 닫혀 있습니다. 이것이 dyssynergic defecation의 모습입니다.", "bad");
+      else if (state.relax) cstOut(out, "출구는 열렸지만 밀어내는 힘이 없습니다. 변이 내려오지 않습니다.", "mid");
+      else cstOut(out, "안정 상태 — 항문괄약근이 닫혀 변을 붙잡고 있습니다.");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "reset") { state.push = false; state.relax = false; }
+        else state[a] = !state[a];
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 2 · Colon Transit Simulator ---------- */
+  function initColonTransit() {
+    var root = document.querySelector("[data-colontransit]");
+    if (!root) return;
+    var LV = [
+      { t: 10, w: 92, tone: "bad", msg: "<b>Bristol 7형</b> — 물을 흡수할 시간이 없어 액체 상태로 나옵니다 (설사)." },
+      { t: 30, w: 72, tone: "mid", msg: "<b>Bristol 5–6형</b> — 무르고 형태가 흐트러진 변." },
+      { t: 50, w: 50, tone: "ok", msg: "<b>Bristol 3–4형</b> — 형태가 잡힌 부드러운 변." },
+      { t: 75, w: 28, tone: "mid", msg: "<b>Bristol 2형</b> — 수분이 많이 흡수되어 울퉁불퉁하고 단단합니다." },
+      { t: 95, w: 10, tone: "bad", msg: "<b>Bristol 1형</b> — 토끼똥처럼 마르고 분리된 덩어리. 배변도 드물어집니다 (slow-transit constipation)." }
+    ];
+    root.querySelectorAll("[data-lv]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-lv]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var d = LV[+b.getAttribute("data-lv")];
+        cstEl(root, "time").style.width = d.t + "%";
+        cstEl(root, "absorb").style.width = d.t + "%";
+        cstEl(root, "water").style.width = d.w + "%";
+        cstOut(cstEl(root, "out"), d.msg, d.tone);
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · Push Against a Closed Door ---------- */
+  function initClosedDoor() {
+    var root = document.querySelector("[data-closeddoor]");
+    if (!root) return;
+    var MODE = {
+      normal: { anal: 15, door: "🚪 문 열림 → 💩 통과", tone: "ok", msg: "힘을 줄 때 항문 압력이 <b>떨어집니다</b>. 밀어내는 힘 &gt; 출구 저항 → 배변 성공." },
+      dys: { anal: 90, door: "💩 → 🚪 문 닫힘", tone: "bad", msg: "힘을 줄 때 항문 압력이 <b>같이 올라갑니다</b>. 닫힌 문을 계속 미는 상태 — 변이 아무리 부드러워도 나오지 못합니다." }
+    };
+    root.querySelectorAll("[data-mode]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-mode]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var d = MODE[b.getAttribute("data-mode")];
+        cstEl(root, "anal").style.width = d.anal + "%";
+        var door = cstEl(root, "door");
+        door.textContent = d.door;
+        door.classList.toggle("is-closed", d.tone === "bad");
+        cstOut(cstEl(root, "out"), d.msg, d.tone);
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · Medication Constipation Checker ---------- */
+  function initMedConstip() {
+    var root = document.querySelector("[data-medconstip]");
+    if (!root) return;
+    var MED = {
+      opioid: { paths: ["mot", "sec"], msg: "<b>Opioid</b> — 장의 μ receptor 활성 → 추진운동 ↓ + 분비 ↓ + 수분 흡수 ↑. 가장 대표적인 약물성 변비이며 내성이 잘 생기지 않습니다." },
+      antichol: { paths: ["mot", "sec"], msg: "<b>Anticholinergic</b> — 1세대 항히스타민, 방광 항무스카린제, 일부 항정신병약. Acetylcholine 차단 → 장운동·분비 ↓." },
+      tca: { paths: ["mot", "sec"], msg: "<b>TCA</b> — 항콜린 작용이 강합니다. 지난 강의에서 IBS-D에는 이 작용을 이용했지만, 변비 환자에게는 악화 요인입니다." },
+      verapamil: { paths: ["mot"], msg: "<b>Verapamil</b> — 장 평활근의 calcium channel 차단 → 수축력 ↓. CCB 중 변비가 가장 흔합니다." },
+      iron: { paths: ["hard"], msg: "<b>철분제</b> — 변이 단단해지고 위장 증상이 생깁니다. 변 색도 검게 변합니다. 임의 중단보다 제형·일정 조정을 먼저." },
+      calcium: { paths: ["hard"], msg: "<b>칼슘 보충제</b> — 일부 환자에서 변비. 특히 calcium carbonate." },
+      alum: { paths: ["mot", "hard"], msg: "<b>Aluminum 함유 제산제</b> — 변비를 유발합니다. 반대로 magnesium 제산제는 설사 쪽 — 그래서 둘을 섞은 복합제가 많습니다." }
+    };
+    var on = {};
+    function update(last) {
+      var n = { mot: 0, sec: 0, hard: 0 };
+      Object.keys(on).forEach(function (k) { if (on[k]) MED[k].paths.forEach(function (p) { n[p]++; }); });
+      ["mot", "sec", "hard"].forEach(function (p) {
+        cstEl(root, "n-" + p).textContent = n[p];
+        var box = root.querySelector("[data-path='" + p + "']");
+        box.classList.toggle("on", n[p] > 0);
+        box.classList.toggle("heavy", n[p] >= 2);
+      });
+      var total = Object.keys(on).filter(function (k) { return on[k]; }).length;
+      var msg = last && on[last] ? MED[last].msg : (total ? "선택된 약 " + total + "개." : "약을 탭하면 기전 설명이 나타납니다.");
+      if (total >= 3) msg += "<br><b>⚠️ 변비 유발 약물이 " + total + "개 겹쳤습니다 — 완하제를 더하기 전에 처방 검토가 먼저입니다.</b>";
+      cstOut(cstEl(root, "out"), msg, total >= 3 ? "bad" : "");
+    }
+    root.querySelectorAll("[data-med]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-med");
+        if (k === "reset") {
+          on = {};
+          root.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+          update();
+          return;
+        }
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        update(k);
+      });
+    });
+  }
+
+  /* ---------- Viz 5 · Constipation Red Flag Gate ---------- */
+  function initConstipGate() {
+    var root = document.querySelector("[data-constipgate]");
+    if (!root) return;
+    function update() {
+      var chips = root.querySelectorAll(".cst__chip.on");
+      var reds = [];
+      chips.forEach(function (c) { if (c.getAttribute("data-flag") === "1") reds.push(c.getAttribute("data-why")); });
+      var out = cstEl(root, "out");
+      if (!chips.length) cstOut(out, "증상을 선택하면 분류 결과가 나타납니다.");
+      else if (reds.length) cstOut(out, "🚨 <b>Further evaluation needed</b><br>• " + reds.join("<br>• "), "bad");
+      else cstOut(out, "✅ <b>Functional pattern likely</b> — Red flag 없음. 복용 약물을 확인하고 생활습관 + fiber/PEG부터 시작할 수 있습니다.", "ok");
+    }
+    root.querySelectorAll("[data-flag]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.getAttribute("data-flag") === "reset") {
+          root.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+        } else {
+          b.classList.toggle("on");
+        }
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 6 · Diagnostic Branch ---------- */
+  function initConstipBranch() {
+    var root = document.querySelector("[data-constipbranch]");
+    if (!root) return;
+    var NODES = {
+      alarm: { q: "변비 증상이 있는 환자입니다. <b>Alarm feature</b>(혈변·체중감소·빈혈·새로운 배변습관 변화 등)가 있습니까?", opts: [["있다", "organic"], ["없다", "secondary"]] },
+      organic: { end: "🔭 <b>기질적 질환 평가</b> — 대장내시경 등. Functional constipation으로 단정하지 않습니다.", tone: "bad" },
+      secondary: { q: "<b>변비 유발 약물</b>이나 이차 원인(갑상선기능저하·고칼슘혈증·당뇨 등)이 있습니까?", opts: [["있다 → 조정 후에도 지속", "trial"], ["없다", "trial"]] },
+      trial: { q: "<b>표준치료</b>(생활습관 + fiber + PEG)를 충분히 시도했습니다. 반응이 있습니까?", opts: [["호전됨", "maintain"], ["지속됨", "pattern"]] },
+      maintain: { end: "✅ <b>현재 치료 유지</b> — 전문검사는 필요하지 않습니다.", tone: "ok" },
+      pattern: { q: "남아 있는 <b>주된 증상</b>은 무엇입니까?", opts: [["드물고 딱딱한 변", "transit"], ["막힌 느낌·잔변감·손으로 누름", "outlet"]] },
+      transit: { end: "⏱️ <b>Transit 평가 고려</b> (colon transit study) + stimulant·secretagogue·prucalopride 단계로 진행.", tone: "mid" },
+      outlet: { end: "🎈 <b>Balloon expulsion test · anorectal manometry</b> → dyssynergia가 확인되면 biofeedback.", tone: "mid" }
+    };
+    var trail = [];
+    function render(key) {
+      var n = NODES[key];
+      var opts = cstEl(root, "opts");
+      cstEl(root, "trail").innerHTML = trail.map(function (t) { return "<span>" + t + "</span>"; }).join("");
+      opts.innerHTML = "";
+      if (n.end) {
+        cstOut(cstEl(root, "q"), n.end, n.tone);
+      } else {
+        cstOut(cstEl(root, "q"), n.q);
+        n.opts.forEach(function (o) {
+          var b = document.createElement("button");
+          b.className = "cst__chip";
+          b.textContent = o[0];
+          b.addEventListener("click", function () { trail.push(o[0]); render(o[1]); });
+          opts.appendChild(b);
+        });
+      }
+      if (trail.length) {
+        var r = document.createElement("button");
+        r.className = "btn btn--ghost";
+        r.textContent = "↺ 처음부터";
+        r.addEventListener("click", function () { trail = []; render("alarm"); });
+        opts.appendChild(r);
+      }
+    }
+    render("alarm");
+  }
+
+  /* ---------- Viz 7 · Impaction & Overflow ---------- */
+  function initImpaction() {
+    var root = document.querySelector("[data-impaction]");
+    if (!root) return;
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var flow = b.getAttribute("data-act") === "flow";
+        cstEl(root, "rectum").classList.toggle("is-overflow", flow);
+        if (flow) cstOut(cstEl(root, "out"), "💧 <b>Overflow diarrhea</b> — 단단한 덩어리를 통과하지 못한 묽은 변이 옆으로 새어 나옵니다. 겉으로는 설사·변실금처럼 보입니다.", "bad");
+        else cstOut(cstEl(root, "out"), "직장에 단단한 변 덩어리가 쌓여 있습니다. 주로 <b>쇠약한 고령자, 신경질환, opioid 복용</b> 환자에서 문제가 됩니다.");
+      });
+    });
+  }
+
+  /* ---------- Viz 8 · Toilet Posture ---------- */
+  function initToiletPosture() {
+    var root = document.querySelector("[data-toiletposture]");
+    if (!root) return;
+    root.querySelectorAll("[data-pos]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-pos]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var stool = b.getAttribute("data-pos") === "stool";
+        cstEl(root, "seg").classList.toggle("is-straight", stool);
+        if (stool) cstOut(cstEl(root, "out"), "무릎이 고관절보다 높아짐 → 고관절 굴곡 ↑ → anorectal angle이 <b>펴져</b> 변이 지나가기 유리해집니다.", "ok");
+        else cstOut(cstEl(root, "out"), "무릎이 고관절과 같은 높이 — anorectal angle이 꺾여 있어 변이 지나가는 길이 굽어 있습니다.");
+      });
+    });
+  }
+
+  /* ---------- Viz 9 · Osmotic Laxative ---------- */
+  function initOsmotic() {
+    var root = document.querySelector("[data-osmotic]");
+    if (!root) return;
+    var LV = [
+      { body: "🪨", w: 15, tone: "", msg: "Bristol 1형 — 수분이 빠져나간 단단한 변." },
+      { body: "🔹💧 🪨 💧", w: 40, tone: "mid", msg: "PEG 입자(🔹)가 lumen에 남아 물(💧)을 붙잡기 시작합니다. 변이 조금 부드러워집니다." },
+      { body: "🔹💧💧 💩 💧💧🔹", w: 65, tone: "ok", msg: "✅ <b>목표 달성</b> — Bristol 3–4형. 부드럽고 형태가 있는 변." },
+      { body: "🔹💧💧💧🔹💧💧💧🔹", w: 92, tone: "bad", msg: "⚠️ <b>과량</b> — 묽은 변·복부 팽만. PEG는 용량을 조절해 가며 맞추는 약입니다." }
+    ];
+    var lv = 0;
+    function update() {
+      var d = LV[lv];
+      cstEl(root, "body").textContent = d.body;
+      cstEl(root, "water").style.width = d.w + "%";
+      cstOut(cstEl(root, "out"), d.msg, d.tone);
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        lv = b.getAttribute("data-act") === "reset" ? 0 : Math.min(lv + 1, LV.length - 1);
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 10 · Secretagogue Water Channel ---------- */
+  function initSecretagogue() {
+    var root = document.querySelector("[data-secretagogue]");
+    if (!root) return;
+    var MSG = [
+      "Linaclotide는 거의 흡수되지 않고 <b>장관 내에서 국소적으로</b> 작용합니다.",
+      "GC-C는 장 상피세포의 lumen 쪽 표면에 있는 수용체입니다.",
+      "cGMP가 세포 안에서 2차 전달자로 작용합니다. 세포 밖으로 나간 cGMP는 <b>내장 통증 신경</b>의 흥분도 낮춥니다.",
+      "CFTR 채널이 열려 음이온이 lumen으로 나갑니다.",
+      "삼투로 물이 따라 나옵니다. 지나치면 <b>설사</b> — 가장 흔한 부작용입니다."
+    ];
+    var steps = root.querySelectorAll("[data-step]");
+    var cur = -1;
+    function update() {
+      steps.forEach(function (s, i) { s.classList.toggle("on", i <= cur); s.classList.toggle("cur", i === cur); });
+      cstOut(cstEl(root, "out"), cur < 0 ? "버튼을 눌러 한 단계씩 따라가 보세요." : MSG[cur], cur === steps.length - 1 ? "ok" : "");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = b.getAttribute("data-act") === "reset" ? -1 : Math.min(cur + 1, steps.length - 1);
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 11 · Laxative Mechanism Map ---------- */
+  function initLaxMap() {
+    var root = document.querySelector("[data-laxmap]");
+    if (!root) return;
+    var LAX = {
+      psyllium: { t: ["bulk"], msg: "<b>Psyllium</b> — 물을 흡수해 gel을 만들고 변의 부피와 수분을 늘립니다. 충분한 물과 함께, 천천히 증량." },
+      peg: { t: ["water"], msg: "<b>PEG</b> — 흡수되지 않고 lumen에 남아 삼투로 물을 붙잡습니다. 장을 자극하지 않습니다. CIC 강한 권고." },
+      bisacodyl: { t: ["motility", "secretion"], msg: "<b>Bisacodyl</b> — 장 점막·신경을 자극해 수축과 분비를 모두 늘립니다. 빠르고 강력 → 단기·rescue. 복부 경련 가능." },
+      linaclotide: { t: ["secretion"], msg: "<b>Linaclotide</b> — GC-C → cGMP → CFTR. 상피세포가 Cl⁻·HCO₃⁻와 물을 분비하게 합니다. 통증 신호 감소 효과도." },
+      prucalopride: { t: ["motility"], msg: "<b>Prucalopride</b> — 5-HT₄ agonist. Enteric neuron을 통해 대장의 추진운동(HAPC)을 늘립니다." }
+    };
+    root.querySelectorAll("[data-lax]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-lax]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var d = LAX[b.getAttribute("data-lax")];
+        root.querySelectorAll("[data-target]").forEach(function (t) {
+          t.classList.toggle("on", d.t.indexOf(t.getAttribute("data-target")) >= 0);
+        });
+        cstOut(cstEl(root, "out"), d.msg);
+      });
+    });
+  }
+
+  /* ---------- Viz 12 · PAMORA ---------- */
+  function initPamora() {
+    var root = document.querySelector("[data-pamora]");
+    if (!root) return;
+    var state = { opioid: false, pamora: false };
+    function update() {
+      root.querySelectorAll("[data-act]").forEach(function (b) {
+        var a = b.getAttribute("data-act");
+        if (a !== "reset") b.classList.toggle("on", state[a]);
+      });
+      var brain = cstEl(root, "brain"), gut = cstEl(root, "gut"), out = cstEl(root, "out");
+      var gutBlocked = state.opioid && state.pamora;
+      brain.className = "cst__organ" + (state.opioid ? " is-good" : "");
+      gut.className = "cst__organ" + (gutBlocked ? " is-good" : state.opioid ? " is-bad" : "");
+      cstEl(root, "brain-t").textContent = state.opioid ? "Opioid 결합 → 진통 ✅" : "비어 있음";
+      cstEl(root, "gut-t").textContent = gutBlocked ? "PAMORA가 차단 → 장기능 회복" : state.opioid ? "Opioid 결합 → 변비 ⛔" : state.pamora ? "PAMORA 결합 (opioid 없음)" : "비어 있음";
+      if (gutBlocked) cstOut(out, "✅ <b>Pain control maintained + Bowel function improved</b><br>PAMORA는 BBB를 거의 통과하지 못해 뇌의 진통 효과는 그대로 두고 장의 μ receptor만 차단합니다.", "ok");
+      else if (state.opioid) cstOut(out, "Opioid는 뇌와 장의 μ receptor에 <b>모두</b> 결합합니다. 진통은 얻지만 장운동·분비가 떨어져 변비가 생깁니다.", "bad");
+      else if (state.pamora) cstOut(out, "Opioid가 없으면 PAMORA는 할 일이 없습니다 — OIC에만 쓰는 기전 특이적 치료입니다.");
+      else cstOut(out, "Opioid를 먼저 켜보세요.");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "reset") { state.opioid = false; state.pamora = false; }
+        else state[a] = !state[a];
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 13 · Biofeedback Trainer ---------- */
+  function initBiofeedback() {
+    var root = document.querySelector("[data-biofeedback]");
+    if (!root) return;
+    var push = 0, relax = 0;
+    function update() {
+      var rectal = 20 + push * 22;
+      var anal = Math.max(10, 60 + push * 10 - relax * 28);
+      cstEl(root, "rectal").style.width = Math.min(rectal, 95) + "%";
+      cstEl(root, "anal").style.width = Math.min(anal, 95) + "%";
+      var out = cstEl(root, "out");
+      if (!push && !relax) cstOut(out, "힘을 주면 직장 압력이 오릅니다. 그런데 이 환자는 힘을 줄 때 항문도 함께 조여집니다.");
+      else if (rectal > anal + 25) cstOut(out, "✅ <b>Effective defecation</b> — 직장 압력이 항문 압력을 충분히 넘어섰습니다. 힘을 더 주는 것이 아니라 <b>이완을 배운 것</b>이 열쇠였습니다.", "ok");
+      else if (push >= 2 && relax === 0) cstOut(out, "⛔ 세게 밀수록 항문 압력도 따라 올라갑니다. <b>Push harder만으로는 실패</b>합니다 — 완하제를 올리는 것과 같은 상황입니다.", "bad");
+      else cstOut(out, "아직 직장 압력이 출구 저항을 충분히 넘지 못합니다. Push와 이완의 조합을 찾아보세요.", "mid");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "reset") { push = 0; relax = 0; }
+        else if (a === "push") push = Math.min(push + 1, 3);
+        else relax = Math.min(relax + 1, 3);
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 14 · Constipation Mechanism Detective ---------- */
+  function initConstipDetective() {
+    var root = document.querySelector("[data-constipdetective]");
+    if (!root) return;
+    var PT = {
+      a: { mech: "transit", tx: "laxative", why: "딱딱한 변 + 드문 배변, 출구 증상 없음 → <b>transit(slow/normal) 문제</b>. Fiber·PEG부터 시작하고 반응이 없으면 다음 단계로." },
+      b: { mech: "outlet", tx: "biofeedback", why: "변은 부드러운데 배출 실패 + manual maneuver → <b>defecatory disorder</b>. 검사로 확인 후 biofeedback." },
+      c: { mech: "drug", tx: "pamora", why: "Opioid 시작 후 새로 생긴 변비 → <b>OIC</b>. Bowel regimen(stimulant ± osmotic)을 쓰고, 부족하면 PAMORA를 고려." }
+    };
+    var cur = null, pick = {};
+    function evaluate() {
+      var out = cstEl(root, "out");
+      if (!pick.mech || !pick.tx) { cstOut(out, "기전과 치료를 모두 선택하세요."); return; }
+      var d = PT[cur];
+      var okM = pick.mech === d.mech, okT = pick.tx === d.tx;
+      if (okM && okT) cstOut(out, "✅ <b>정확합니다.</b> " + d.why, "ok");
+      else cstOut(out, "❌ " + (okM ? "기전은 맞지만 치료가 어긋났습니다." : okT ? "치료는 맞지만 기전을 다시 생각해 보세요." : "기전과 치료 모두 다시 생각해 보세요.") + "<br>" + d.why, "bad");
+    }
+    root.querySelectorAll("[data-pt]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-pt]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        cur = b.getAttribute("data-pt");
+        pick = {};
+        root.querySelectorAll("[data-group] .cst__chip").forEach(function (x) { x.classList.remove("on"); });
+        cstEl(root, "steps").style.display = "block";
+        cstOut(cstEl(root, "out"), "기전과 치료를 모두 선택하세요.");
+      });
+    });
+    root.querySelectorAll("[data-group]").forEach(function (g) {
+      g.querySelectorAll(".cst__chip").forEach(function (b) {
+        b.addEventListener("click", function () {
+          g.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          pick[g.getAttribute("data-group")] = b.getAttribute("data-v");
+          evaluate();
+        });
+      });
+    });
+  }
+
+  /* =====================================================================
+     Core 14 · 과민성장증후군 (IBS)
+     ===================================================================== */
+
+  /* ---------- Gut-Brain Axis ---------- */
+  function initGutBrainAxis() {
+    var root = document.querySelector("[data-gutbrainaxis]");
+    if (!root) return;
+    var btns = root.querySelectorAll(".gba__btn");
+    var brainDesc = root.querySelector("#gba-brain-desc");
+    var gutDesc = root.querySelector("#gba-gut-desc");
+    var result = root.querySelector("#gba-result");
+    var arrowDown = root.querySelector("#gba-down");
+    var arrowUp = root.querySelector("#gba-up");
+    var data = {
+      normal: {
+        brain: "하행 억제 신호 정상 → 장 통증 신호 조절",
+        gut: "정상 역치 → 적당한 신호만 올라감",
+        result: "정상: 뇌의 하행 억제가 장 통증 신호를 적절히 조절합니다",
+        down: "↓ 하행 억제 (강함)",
+        up: "↑ 장 신호 (약함)",
+        cls: ""
+      },
+      ibs: {
+        brain: "하행 억제 감소 → 중추 감작(central sensitization) 발생",
+        gut: "역치 저하 → 과도한 신호 올라감 (visceral hypersensitivity)",
+        result: "IBS: 뇌의 억제가 약해지고, 장은 과민 신호를 강하게 보냅니다 → 통증↑",
+        down: "↓ 하행 억제 감소 ⚠️",
+        up: "↑ 장 신호 과다 🔥",
+        cls: "gba__result--ibs"
+      }
+    };
+    btns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        btns.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var d = data[btn.getAttribute("data-mode")];
+        if (!d) return;
+        if (brainDesc) brainDesc.textContent = d.brain;
+        if (gutDesc) gutDesc.textContent = d.gut;
+        if (result) { result.textContent = d.result; result.className = "gba__result " + d.cls; }
+        if (arrowDown) arrowDown.textContent = d.down;
+        if (arrowUp) arrowUp.textContent = d.up;
+      });
+    });
+  }
+
+  /* ---------- Visceral Visualization ---------- */
+  function initVisceralViz() {
+    var root = document.querySelector("[data-visceralviz]");
+    if (!root) return;
+    var btn = root.querySelector("#vsv-demo-btn");
+    var fillA = root.querySelector("#vsv-fillA");
+    var fillB = root.querySelector("#vsv-fillB");
+    var labelA = root.querySelector("#vsv-labelA");
+    var labelB = root.querySelector("#vsv-labelB");
+    if (!btn) return;
+    var ran = false;
+    btn.addEventListener("click", function () {
+      if (ran) {
+        if (fillA) { fillA.style.transition = "none"; fillA.style.width = "0%"; }
+        if (fillB) { fillB.style.transition = "none"; fillB.style.width = "0%"; }
+        if (labelA) labelA.textContent = "통증 2/10";
+        if (labelB) labelB.textContent = "통증 7/10";
+        btn.textContent = "시뮬레이션 보기";
+        ran = false;
+        return;
+      }
+      ran = true;
+      btn.textContent = "초기화";
+      if (labelA) labelA.textContent = "";
+      if (labelB) labelB.textContent = "";
+      if (fillA) { fillA.style.width = "0%"; fillA.style.transition = "none"; }
+      if (fillB) { fillB.style.width = "0%"; fillB.style.transition = "none"; }
+      setTimeout(function () {
+        if (fillA) { fillA.style.transition = "width 1.2s ease"; fillA.style.width = "20%"; }
+        setTimeout(function () { if (labelA) labelA.textContent = "통증 2/10"; }, 1000);
+        setTimeout(function () {
+          if (fillB) { fillB.style.transition = "width 1.4s ease"; fillB.style.width = "70%"; }
+          setTimeout(function () { if (labelB) labelB.textContent = "통증 7/10"; }, 1200);
+        }, 800);
+      }, 50);
+    });
+  }
+
+  /* ---------- IBS Mechanism Mixer ---------- */
+  function initIBSMixer() {
+    var root = document.querySelector("[data-ibsmixer]");
+    if (!root) return;
+    var togs = root.querySelectorAll(".ibx__tog");
+    var fpain = root.querySelector("#ibx-fill-pain");
+    var fbloat = root.querySelector("#ibx-fill-bloat");
+    var fdiarr = root.querySelector("#ibx-fill-diarr");
+    var fconst = root.querySelector("#ibx-fill-const");
+    var note = root.querySelector("#ibx-note");
+    var state = { sensitivity: true, motility: true, microbiome: true, stress: true };
+    function update() {
+      var s = state;
+      var pain = 0, bloat = 0, diarr = 0, cnst = 0;
+      if (s.sensitivity) { pain += 40; bloat += 20; }
+      if (s.motility) { diarr += 30; cnst += 25; }
+      if (s.microbiome) { bloat += 35; diarr += 15; }
+      if (s.stress) { pain += 35; bloat += 20; diarr += 15; cnst += 20; }
+      if (fpain) fpain.style.width = Math.min(pain, 95) + "%";
+      if (fbloat) fbloat.style.width = Math.min(bloat, 95) + "%";
+      if (fdiarr) fdiarr.style.width = Math.min(diarr, 95) + "%";
+      if (fconst) fconst.style.width = Math.min(cnst, 95) + "%";
+      var total = [s.sensitivity, s.motility, s.microbiome, s.stress].filter(Boolean).length;
+      var msgs = ["모든 요소 꺼짐 — 증상 없음", "1개 요소 활성", "2개 요소 활성 — 증상 중등도", "3개 요소 활성 — 증상 다양", "4가지 요소 모두 활성 → 증상이 가장 다양하게 나타납니다"];
+      if (note) note.textContent = msgs[total] || "";
+    }
+    togs.forEach(function (tog) {
+      tog.addEventListener("click", function () {
+        var f = tog.getAttribute("data-factor");
+        state[f] = !state[f];
+        tog.classList.toggle("active", state[f]);
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Rome IV Checkbox Builder ---------- */
+  function initRomeIVCB() {
+    var root = document.querySelector("[data-romeivcb]");
+    if (!root) return;
+    var cbs = root.querySelectorAll("input[type='checkbox']");
+    var result = root.querySelector("#riv-result");
+    if (!result) return;
+    function update() {
+      var base = root.querySelector("[data-riv='base']");
+      var b1 = root.querySelector("[data-riv='bowel1']");
+      var b2 = root.querySelector("[data-riv='bowel2']");
+      var b3 = root.querySelector("[data-riv='bowel3']");
+      if (!base || !base.checked) {
+        result.textContent = "반복적 복통 기준(①)이 충족되어야 합니다";
+        result.className = "riv__result riv__result--none";
+        return;
+      }
+      var sub = [b1, b2, b3].filter(function (c) { return c && c.checked; }).length;
+      if (sub < 2) {
+        result.textContent = "① 충족. 배변 관련 기준 " + sub + "/3 — " + (2 - sub) + "개 더 필요합니다";
+        result.className = "riv__result riv__result--partial";
+      } else {
+        result.textContent = "Rome IV 기준 충족 ✅ — IBS 진단 가능";
+        result.className = "riv__result riv__result--ok";
+      }
+    }
+    cbs.forEach(function (cb) { cb.addEventListener("change", update); });
+  }
+
+  /* ---------- IBS Treatment Map ---------- */
+  function initIBSTreatMap() {
+    var root = document.querySelector("[data-ibstreatmap]");
+    if (!root) return;
+    var tabs = root.querySelectorAll(".itm__tab");
+    var ladder = root.querySelector("#itm-ladder");
+    if (!ladder) return;
+    var content = {
+      all: [
+        { step: "모든 아형 공통 — 1단계", items: ["환자 교육 + 안심: \"통증은 진짜이고, 관리 가능한 질환\"", "규칙적 식사, 과식·고지방·알코올·카페인 제한", "유산소 운동 (30분/일 이상)", "스트레스 관리, 수면 규칙화"], cls: "itm__step--1" },
+        { step: "증상 패턴별 접근 — 2단계", items: ["Bristol Scale로 아형 확인 (C/D/M)", "아형에 맞는 약물 시작", "Low-FODMAP 식이 시도 (팽만·가스 심할 때)"], cls: "itm__step--2" },
+        { step: "반응 불충분 시 — 3단계", items: ["Neuromodulators (TCA 저용량 10–25mg)", "Gut-directed CBT / 최면요법", "Probiotics 시도 (4–6주)"], cls: "itm__step--3" }
+      ],
+      c: [
+        { step: "IBS-C 1단계", items: ["Psyllium (수용성 섬유) + 충분한 수분", "식이 조절, Low-FODMAP (Polyol 제한)", "규칙적 배변 시간"], cls: "itm__step--1" },
+        { step: "IBS-C 2단계", items: ["PEG (삼투성 완하제): 변 부드럽게", "Linaclotide: 변비 + 통증 동시 개선 (GC-C)", "Lubiprostone: 여성 IBS-C"], cls: "itm__step--2" },
+        { step: "IBS-C 3단계", items: ["Prucalopride (5-HT4 효현제)", "SSRI: 운동성↑ + 불안 동반 시", "TCA 주의: 변비 악화 가능"], cls: "itm__step--3" }
+      ],
+      d: [
+        { step: "IBS-D 1단계", items: ["Loperamide: 설사·긴박감 조절 (통증 효과 없음)", "식이: Low-FODMAP, 카페인·지방 줄이기", "규칙적 식사"], cls: "itm__step--1" },
+        { step: "IBS-D 2단계", items: ["Rifaximin (2주): 장내 세균 불균형·SIBO 동반 시", "Ondansetron (5-HT3 길항): 설사·긴박감", "Cholestyramine: 담낭절제술 후 IBS-D"], cls: "itm__step--2" },
+        { step: "IBS-D 3단계", items: ["TCA 저용량 (10–25mg): 통증 + 운동성↓ (IBS-D에 적합)", "Gut-directed CBT / 최면요법", "SNRI (duloxetine): 통증+불안 동반"], cls: "itm__step--3" }
+      ],
+      pain: [
+        { step: "복통 중심 — 1단계", items: ["Antispasmodics: Mebeverine, Hyoscine (식전 30분)", "Low-FODMAP 식이", "생활습관 기본"], cls: "itm__step--1" },
+        { step: "복통 중심 — 2단계", items: ["TCA 저용량 (10–25mg): 가장 근거 강한 통증 neuromodulator", "IBS-D: TCA 선호 / IBS-C: TCA 주의 (SSRI 선호)", "Linaclotide (IBS-C 복통): GC-C 경로로 통증↓"], cls: "itm__step--2" },
+        { step: "복통 중심 — 3단계", items: ["Gut-directed hypnotherapy / CBT", "SNRI (duloxetine): 통증+우울·불안 동반", "전문과 의뢰"], cls: "itm__step--3" }
+      ]
+    };
+    function render(key) {
+      var steps = content[key] || content.all;
+      ladder.innerHTML = steps.map(function (s, i) {
+        return (i > 0 ? "<div class='itm__step-arrow'>▼</div>" : "") +
+          "<div class='itm__step " + s.cls + "'><div class='itm__step-name'>" + s.step + "</div><ul class='itm__step-list'>" +
+          s.items.map(function (it) { return "<li>" + it + "</li>"; }).join("") +
+          "</ul></div>";
+      }).join("");
+    }
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        tabs.forEach(function (t) { t.classList.remove("active"); });
+        tab.classList.add("active");
+        render(tab.getAttribute("data-subtype"));
+      });
+    });
+    render("all");
+  }
+
+  /* ---------- Pain Volume Control (TCA) ---------- */
+  function initPainVolume() {
+    var root = document.querySelector("[data-painvolume]");
+    if (!root) return;
+    var btn = root.querySelector("#pvl-btn");
+    var fill = root.querySelector("#pvl-fill");
+    var icon = root.querySelector("#pvl-icon");
+    var score = root.querySelector("#pvl-score");
+    if (!btn) return;
+    var on = false;
+    btn.addEventListener("click", function () {
+      on = !on;
+      if (on) {
+        btn.textContent = "← TCA 끄기";
+        if (fill) { fill.style.transition = "height 1s ease"; fill.style.height = "30%"; }
+        if (icon) icon.textContent = "🔇";
+        if (score) { score.textContent = "통증 3/10"; score.style.color = "var(--ok)"; }
+      } else {
+        btn.textContent = "TCA 켜기 →";
+        if (fill) { fill.style.transition = "height 1s ease"; fill.style.height = "80%"; }
+        if (icon) icon.textContent = "📢";
+        if (score) { score.textContent = "통증 7/10"; score.style.color = "var(--hi)"; }
+      }
+    });
+  }
+
+  /* ---------- IBS Red Flag Classifier ---------- */
+  function initIBSRedFlag() {
+    var root = document.querySelector("[data-ibsredflag]");
+    if (!root) return;
+    var ptns = root.querySelectorAll(".irf__pt");
+    var result = root.querySelector("#irf-result");
+    if (!result) return;
+    var data = {
+      a: { ok: true, title: "Patient A — IBS 가능", body: "25세 여성, 2년, 내시경 정상, Red Flag 없음 → <b>Rome IV 기준 확인</b> 후 IBS 진단 가능. 스트레스 악화, 혈변 없음, 젊은 여성 — IBS-M 패턴. 생활습관 + Low-FODMAP + 증상별 약물로 시작합니다." },
+      b: { ok: false, title: "Patient B — 🚨 Red Flags — 대장내시경 필요", body: "<b>Red Flags 복수 해당:</b><br>① 52세 이후 새 증상<br>② 간헐적 혈변<br>③ 의도치 않은 체중 감소 3kg<br>④ 대장암 가족력<br>→ IBS로 단정 금지. <b>즉시 대장내시경</b> 권유. 대장암·IBD·허혈성 대장염 배제 필요." },
+      c: { ok: true, title: "Patient C — PI-IBS 가능", body: "35세 남성, 급성 장염 후 3개월. Red Flag 없음, 혈액검사 정상 → <b>PI-IBS (Post-Infection IBS)</b> 고려. 급성 장염 후 10–25%에서 IBS 발생. IBS-D 접근. Rifaximin이 PI-IBS에 특히 도움됩니다." }
+    };
+    ptns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        ptns.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var d = data[btn.getAttribute("data-irf")];
+        if (!d) return;
+        result.style.display = "block";
+        result.className = "irf__result " + (d.ok ? "irf__result--ok" : "irf__result--danger");
+        result.innerHTML = "<b>" + d.title + "</b><br><br>" + d.body;
+      });
+    });
+  }
 
   /* ---------- Viz 1 · Ulcer Balance Scale ---------- */
   function initUlcerBalance() {
