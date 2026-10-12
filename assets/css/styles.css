@@ -2685,7 +2685,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .pit__pump-bar { position: absolute; top: 0; height: 12px; border-radius: 6px; }
 .pit__marker { position: absolute; top: 2px; display: flex; flex-direction: column; align-items: center; transition: left .4s; }
 .pit__marker::after { content: ""; width: 2px; height: 22px; background: var(--brand); display: block; margin-top: 2px; }
-.pit__marker--meal::after { background: var(--ok-color,#12a594); }
+.pit__marker--meal::after { background: var(--ok); }
 .pit__marker-label { font-size: 10px; font-weight: 700; white-space: nowrap; }
 
 /* PPI vs P-CAB (data-ppivpcab) */
@@ -2741,7 +2741,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .fls__loss-item { display: flex; align-items: center; gap: 8px; font-size: 13px; }
 .fls__loss-ico { font-size: 16px; width: 24px; text-align: center; }
 .fls__bar { height: 100%; border-radius: 4px; transition: width .5s ease; }
-.fls__gauge-wrap { padding: 8px; background: var(--bg-card); border-radius: 8px; }
+.fls__gauge-wrap { padding: 8px; background: var(--surface-2); border-radius: 8px; }
 .fls__gauge-label { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
 @media (max-width: 500px) { .fls__wrap { grid-template-columns: 1fr; } }
 
@@ -2821,12 +2821,12 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .ubs__beam { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: start; transition: transform .5s ease; }
 .ubs__side { padding: 10px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); }
 .ubs__attack { border-color: var(--hi); background: var(--hi-soft); }
-.ubs__defend { border-color: var(--ok-color,#12a594); background: #d1fae5; }
+.ubs__defend { border-color: var(--ok); background: #d1fae5; }
 .ubs__side-title { font-size: 12px; font-weight: 800; margin-bottom: 6px; }
 .ubs__items { display: flex; flex-direction: column; gap: 4px; }
 .ubs__item { font-size: 12px; padding: 3px 8px; background: rgba(255,255,255,.6); border-radius: 6px; }
 .ubs__pivot { font-size: 22px; display: flex; align-items: center; justify-content: center; padding-top: 20px; }
-.ubs__result { padding: 10px 14px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; font-weight: 700; text-align: center; width: 100%; transition: background .3s; }
+.ubs__result { padding: 10px 14px; border-radius: 10px; background: var(--surface-2); font-size: 13.5px; font-weight: 700; text-align: center; width: 100%; transition: background .3s; }
 
 /* H. pylori Paths (data-hpyloripath) */
 .hpp__center { display: flex; justify-content: center; margin: 8px 0; }
@@ -2872,7 +2872,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .uld__layer-name { font-size: 11px; font-weight: 800; display: block; }
 .uld__layer-note { font-size: 10px; color: var(--ink-soft); }
 .uld__ulcer-hole { width: 28px; border-radius: 0 0 14px 14px; margin: 0 auto; transition: height .4s ease, background .4s; }
-.uld__info { padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; border-left: 4px solid var(--line); transition: background .3s, border-left-color .3s; }
+.uld__info { padding: 12px; border-radius: 10px; background: var(--surface-2); font-size: 13.5px; border-left: 4px solid var(--line); transition: background .3s, border-left-color .3s; }
 @media (max-width: 480px) { .uld__wrap { grid-template-columns: 1fr; } .uld__wall { width: 100%; flex-direction: row; } }
 
 /* Ulcer Drug Target Map (data-ulcerdrugs) */
@@ -2922,7 +2922,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .hfmd__zone-btn:hover, .hfmd__zone-btn.active { border-color: var(--brand); background: var(--brand-soft); }
 .hfmd__zone-ico { font-size: 28px; }
 .hfmd__zone-lbl { font-size: 13px; font-weight: 700; }
-.hfmd__bodyinfo { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 60px; line-height: 1.6; }
+.hfmd__bodyinfo { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13.5px; min-height: 60px; line-height: 1.6; }
 
 /* Transmission Playground */
 .hfmd__transmit-center { display: flex; justify-content: center; margin: 6px 0; }
@@ -2933,7 +2933,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .hfmd__route-ico { font-size: 26px; }
 .hfmd__route-lbl { font-size: 12px; font-weight: 700; text-align: center; }
 .hfmd__target { text-align: center; font-size: 15px; font-weight: 700; margin: 6px 0; }
-.hfmd__routedesc { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 50px; line-height: 1.6; }
+.hfmd__routedesc { margin-top: 8px; padding: 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13.5px; min-height: 50px; line-height: 1.6; }
 
 /* Symptom Matcher */
 .hfmd__symchips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
@@ -2942,7 +2942,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .hfmd__sym-chip.match { background: #d1fae5; border-color: #34d399; color: #065f46; }
 .hfmd__sym-chip.nomatch { background: #fee2e2; border-color: #fca5a5; color: #991b1b; }
 .hfmd__sym-chip.revealed { cursor: default; pointer-events: none; }
-.hfmd__symresult { margin-top: 10px; padding: 12px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; min-height: 40px; line-height: 1.6; }
+.hfmd__symresult { margin-top: 10px; padding: 12px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13.5px; min-height: 40px; line-height: 1.6; }
 
 /* Differential selector tabs */
 .hfmd__diffbtns { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
@@ -2977,7 +2977,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .hfmd__stabs { display: flex; gap: 8px; margin-bottom: 10px; }
 .hfmd__stab { flex: 1; padding: 8px; border-radius: 8px; border: 1.5px solid var(--line); background: var(--surface); font-size: 13px; font-weight: 700; cursor: pointer; transition: background .2s; }
 .hfmd__stab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
-.hfmd__school-content { padding: 14px; border-radius: 10px; background: var(--bg-card); font-size: 13.5px; line-height: 1.7; min-height: 60px; }
+.hfmd__school-content { padding: 14px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); font-size: 13.5px; line-height: 1.7; min-height: 60px; }
 
 /* Hydration comparison (two-child card) */
 .hfmd__hydcomp { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
@@ -3112,7 +3112,7 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .pvl__vol-bar { width: 32px; height: 80px; background: #e5e7eb; border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
 .pvl__vol-fill { width: 100%; border-radius: 6px; transition: height 1s ease; }
 .pvl__vol-high { background: var(--hi); }
-.pvl__vol-low { background: var(--ok-color, #10b981); }
+.pvl__vol-low { background: var(--ok); }
 .pvl__vol-icon { font-size: 22px; }
 .pvl__desc { font-size: 12px; color: var(--ink-soft); line-height: 1.5; margin-bottom: 6px; }
 .pvl__pain-score { font-size: 15px; font-weight: 800; }
@@ -3295,3 +3295,109 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .tv__content p { margin: 2px 0 0; font-size: 13.5px; color: var(--ink-soft); }
 .tv__item--key .tv__dot { background: var(--hi); border-color: var(--hi); }
 .tv__item--key .tv__label { color: var(--hi); }
+
+/* ==========================================================
+   Everyday 05 · 알레르기비염  ·  prefix: alr__
+   ========================================================== */
+
+/* 큰 문장 · 공용 출력 박스 */
+.alr__big { text-align: center; font-size: clamp(17px, 4.6vw, 22px); font-weight: 800; line-height: 1.5; padding: 18px 14px; border-radius: 16px; background: var(--brand-soft); color: var(--brand-dark); margin: 16px 0; }
+.alr__big small { display: block; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); margin-bottom: 4px; }
+.alr__out { font-size: 13.5px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; min-height: 44px; line-height: 1.6; margin-top: 10px; }
+.alr__out.ok { background: var(--ok-soft); border-color: var(--ok); }
+.alr__out.no { background: var(--hi-soft); border-color: var(--hi); }
+.alr__out.mid { background: var(--mid-soft); border-color: var(--mid); }
+
+/* 선택 버튼 (Matcher · Detective 공용) */
+.alr__opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.alr__opt { font-family: inherit; font-size: 13.5px; font-weight: 700; padding: 12px 8px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); cursor: pointer; transition: border-color .2s, background .2s; }
+.alr__opt:hover { border-color: var(--brand); }
+.alr__opt.correct { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.alr__opt.wrong { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+.alr__opt:disabled { cursor: default; }
+
+/* Viz 1 · Cold vs Allergy Matcher */
+.alr__match-prog { font-size: 12.5px; font-weight: 700; color: var(--ink-faint); }
+.alr__match-chip { text-align: center; font-size: 18px; font-weight: 800; padding: 18px 12px; margin: 8px 0 10px; border-radius: 14px; background: var(--surface-2); border: 2px dashed var(--line-strong); }
+.alr__bins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.alr__bin { padding: 10px; border-radius: 12px; border: 2px solid var(--line); min-height: 84px; }
+.alr__bin--alr { background: var(--ok-soft); border-color: var(--ok); }
+.alr__bin--cold { background: var(--brand-soft); border-color: var(--brand); }
+.alr__bin h5 { margin: 0 0 6px; font-size: 13px; font-weight: 800; }
+.alr__bin-list span { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); margin: 2px; }
+.alr__match-final { display: none; text-align: center; }
+.alr__match-final.show { display: block; }
+
+/* Viz 2 · Histamine vs Inflammation */
+.alr__phases { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.alr__phase { padding: 12px 10px; border-radius: 14px; border: 2px solid var(--line); background: var(--surface); text-align: center; }
+.alr__phase-title { font-size: 12.5px; font-weight: 800; color: var(--ink-soft); margin-bottom: 8px; }
+.alr__node { font-size: 12.5px; font-weight: 700; padding: 7px 8px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.alr__node--med { background: var(--mid-soft); border-color: var(--mid); }
+.alr__arrow { font-size: 13px; font-weight: 800; color: var(--ink-faint); line-height: 1.5; }
+.alr__block { display: none; font-size: 11.5px; font-weight: 800; color: var(--ok); margin-bottom: 4px; }
+.alr__phases.is-ah .alr__block[data-block="ah"],
+.alr__phases.is-incs .alr__block[data-block="incs"] { display: block; }
+.alr__sx { font-size: 13px; font-weight: 800; padding: 8px; border-radius: 10px; background: var(--hi-soft); color: var(--hi); transition: opacity .4s; }
+.alr__sx.low { opacity: .45; }
+.alr__meter { height: 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; margin-top: 8px; }
+.alr__meter i { display: block; height: 100%; width: 100%; background: var(--hi); transition: width .5s ease; }
+.alr__meter-lbl { font-size: 11.5px; color: var(--ink-faint); margin-top: 4px; }
+@media (max-width: 420px) { .alr__phases { grid-template-columns: 1fr; } }
+
+/* Viz 3 · Allergy Detective */
+.alr__scene { font-size: 15.5px; font-weight: 800; line-height: 1.5; padding: 14px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); margin: 8px 0 10px; }
+
+/* Viz 4 · Fingerprint (fp__ 재사용 + 알레르기 색) */
+.fp__toggle button.active.alr { background: var(--pharm); color: #fff; }
+.fp__rows.alr .fp__dots i.on { background: var(--pharm); }
+
+/* Viz 5 · Trigger Timeline */
+.alr__expo { display: grid; gap: 8px; margin-top: 12px; }
+.alr__expo-row { display: grid; grid-template-columns: 72px 1fr; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface); opacity: .4; transition: opacity .4s, border-color .4s, background .4s; }
+.alr__expo-row.on { opacity: 1; border-color: var(--mid); background: var(--mid-soft); }
+.alr__expo-row.on.late { border-color: var(--hi); background: var(--hi-soft); }
+.alr__expo-t { font-size: 13px; font-weight: 800; color: var(--ink-soft); }
+.alr__expo-d { font-size: 13.5px; font-weight: 700; }
+.alr__expo-d small { display: block; font-size: 12px; font-weight: 500; color: var(--ink-soft); }
+
+/* Viz 6 · Symptom Selector */
+.alr__rx { display: grid; gap: 8px; margin-top: 4px; }
+.alr__rx-card { padding: 12px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); opacity: .45; transition: opacity .3s, border-color .3s, background .3s; }
+.alr__rx-card.on { opacity: 1; border-color: var(--brand); background: var(--brand-soft); }
+.alr__rx-card b { display: block; font-size: 14px; }
+.alr__rx-card span { font-size: 12.5px; color: var(--ink-soft); }
+
+/* Viz 7 · Decongestant Rebound */
+.alr__cycle { display: grid; gap: 6px; margin: 10px 0; }
+.alr__cyc { padding: 9px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); font-size: 13.5px; font-weight: 700; opacity: .5; transition: opacity .3s, border-color .3s, background .3s; }
+.alr__cyc.on { opacity: 1; border-color: var(--hi); background: var(--hi-soft); }
+.alr__cyc.on.good { border-color: var(--ok); background: var(--ok-soft); }
+.alr__loop { font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+
+/* Viz 8 · Nasal Spray Simulator */
+.alr__spray { display: grid; grid-template-columns: minmax(0, 240px) 1fr; gap: 16px; align-items: center; }
+.alr__spray svg { width: 100%; height: auto; display: block; }
+.alr__nose-out { fill: var(--surface); stroke: var(--line-strong); stroke-width: 2; }
+.alr__nose-cav { fill: var(--surface-2); }
+.alr__nose-septum { fill: var(--hi); }
+.alr__nose-lat { fill: none; stroke: var(--ok); stroke-width: 5; stroke-linecap: round; }
+.alr__nose-txt { font-size: 10.5px; font-weight: 700; fill: var(--ink-soft); }
+.alr__nozzle { transform: translate(78px, 162px); transition: transform .45s ease; }
+.alr__nozzle-body { fill: var(--brand-dark); }
+.alr__nozzle-cone { fill: var(--ink-faint); opacity: .4; transition: fill .3s; }
+.alr__spray.is-ok .alr__nozzle-cone { fill: var(--ok); opacity: .6; }
+.alr__spray.is-mid .alr__nozzle-cone { fill: var(--mid); opacity: .6; }
+.alr__spray.is-no .alr__nozzle-cone { fill: var(--hi); opacity: .6; }
+.alr__legend { font-size: 12px; color: var(--ink-soft); text-align: center; margin-top: 4px; }
+.alr__lg { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin: 0 4px 0 8px; vertical-align: middle; }
+.alr__lg--no { background: var(--hi); }
+.alr__lg--ok { background: var(--ok); }
+.alr__ctl-lbl { font-size: 12.5px; font-weight: 700; color: var(--ink-soft); margin: 10px 0 6px; }
+.alr__hands { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+.alr__hand { text-align: center; padding: 12px 8px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); font-size: 15px; font-weight: 800; color: var(--ink-soft); transition: border-color .3s, background .3s, color .3s; }
+.alr__hand.on { border-color: var(--brand); background: var(--brand-soft); color: var(--brand-dark); }
+@media (max-width: 560px) {
+  .alr__spray { grid-template-columns: 1fr; }
+  .alr__spray svg { max-width: 260px; margin: 0 auto; }
+}

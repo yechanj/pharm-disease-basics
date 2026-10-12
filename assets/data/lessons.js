@@ -158,6 +158,15 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 5,
+    category: "everyday",
+    href: "lessons/everyday/05.html",
+    title: "알레르기비염",
+    desc: "\"가렵나요? 반복되나요?\" 감기와 구별하는 증상 조합과 반복 pattern, 항히스타민제가 코막힘에 약한 이유와 비강 스테로이드(INCS)를 우선하는 상황, septum을 피하는 비강분무법, 코막힘 스프레이의 rebound congestion, 알레르기 검사·면역치료까지.",
+    tags: ["가려움·반복성", "항히스타민 vs INCS", "비강분무 technique", "Rebound congestion", "면역치료"],
+    status: "ready"
+  },
+  {
     no: 4,
     category: "everyday",
     href: "lessons/everyday/04.html",

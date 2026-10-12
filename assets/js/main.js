@@ -1026,6 +1026,15 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // Everyday 05 · 알레르기비염
+    initAlrMatch();
+    initAlrMast();
+    initAlrDetect();
+    initAlrFinger();
+    initAlrExpo();
+    initAlrPick();
+    initAlrRebound();
+    initAlrSpray();
     // Everyday 04 · 수족구병
     initHFMDBodyMap();
     initHFMDTransmit();
@@ -1169,6 +1178,308 @@
     initACSDrugMap();
     initACSDecision();
   });
+
+  /* =========================================================
+     ===========  Everyday 05 · 알레르기비염  ===========
+     ========================================================= */
+
+  /* ---------- Viz 1 · Cold vs Allergy Matcher ---------- */
+  function initAlrMatch() {
+    var root = document.querySelector("[data-alrmatch]");
+    if (!root) return;
+    var ITEMS = [
+      { t: "👁️ 눈 가려움", side: "alr", why: "코·눈 가려움은 histamine 반응의 대표 신호입니다." },
+      { t: "🌡️ 38.5℃ 발열", side: "cold", why: "알레르기비염은 열을 만들지 않습니다. 발열은 감염 쪽을 다시 생각하게 합니다." },
+      { t: "🤧 아침마다 연속 재채기", side: "alr", why: "매일 같은 시간·환경에서 재현되는 연속 재채기는 알레르기 pattern입니다." },
+      { t: "😣 인후통", side: "cold", why: "인후통·기침은 상기도 감염에서 상대적으로 더 흔합니다." },
+      { t: "🌸 매년 봄 반복", side: "alr", why: "계절마다 반복되는 것은 알레르겐 노출과 연결된 가장 강한 단서 중 하나입니다." },
+      { t: "🥵 심한 몸살", side: "cold", why: "전신 근육통은 감염에 대한 전신 염증반응입니다. 알레르기비염에서는 전형적이지 않습니다." }
+    ];
+    var NAME = { alr: "알레르기비염", cold: "감기" };
+    var chip = root.querySelector(".alr__match-chip");
+    var prog = root.querySelector(".alr__match-prog");
+    var btns = root.querySelector(".alr__match-btns");
+    var out = root.querySelector(".alr__out");
+    var fin = root.querySelector(".alr__match-final");
+    var idx = 0, score = 0;
+
+    function show() {
+      var done = idx >= ITEMS.length;
+      chip.style.display = done ? "none" : "";
+      btns.style.display = done ? "none" : "";
+      fin.classList.toggle("show", done);
+      if (done) { prog.textContent = "완료 · " + score + " / " + ITEMS.length + " 정답"; return; }
+      chip.textContent = ITEMS[idx].t;
+      prog.textContent = (idx + 1) + " / " + ITEMS.length;
+    }
+    btns.querySelectorAll("[data-pick]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var it = ITEMS[idx];
+        var ok = b.getAttribute("data-pick") === it.side;
+        if (ok) score++;
+        out.className = "alr__out " + (ok ? "ok" : "no");
+        out.innerHTML = (ok ? "✅ 맞아요" : "❌ 반대쪽이에요") + " — <b>" + it.t + "</b> → " + NAME[it.side] + " 쪽. " + it.why;
+        var tag = document.createElement("span");
+        tag.textContent = it.t;
+        root.querySelector("[data-bin='" + it.side + "']").appendChild(tag);
+        idx++;
+        show();
+      });
+    });
+    root.querySelector("[data-alr-reset]").addEventListener("click", function () {
+      idx = 0; score = 0;
+      root.querySelectorAll("[data-bin]").forEach(function (el) { el.innerHTML = ""; });
+      out.className = "alr__out";
+      out.textContent = "증상을 보고 한쪽을 선택하세요.";
+      show();
+    });
+    show();
+  }
+
+  /* ---------- Viz 2 · Histamine vs Inflammation ---------- */
+  function initAlrMast() {
+    var root = document.querySelector("[data-alrmast]");
+    if (!root) return;
+    var phases = root.querySelector(".alr__phases");
+    var out = root.querySelector(".alr__out");
+    var DATA = {
+      none: { early: 100, late: 100, txt: "약이 없으면 두 단계가 모두 진행됩니다. 먼저 재채기·가려움·콧물, 이어서 점막 부종으로 인한 코막힘." },
+      ah:   { early: 25, late: 85, txt: "<b>H1 항히스타민제</b>는 histamine → H1 수용체 화살표를 끊습니다. 재채기·가려움·콧물은 뚜렷이 줄지만, 여러 mediator가 만드는 <b>점막 부종(코막힘)은 상대적으로 남습니다.</b>" },
+      incs: { early: 35, late: 30, txt: "<b>비강 스테로이드</b>는 특정 mediator 하나가 아니라 염증반응 전체를 넓게 억제합니다. 그래서 <b>코막힘을 포함한 비강 증상 전반</b>에 효과적입니다. 단, 충분한 효과에는 꾸준한 사용이 필요합니다." }
+    };
+    function set(k) {
+      var d = DATA[k];
+      phases.className = "alr__phases is-" + k;
+      ["early", "late"].forEach(function (p) {
+        root.querySelector("[data-meter='" + p + "']").style.width = d[p] + "%";
+        root.querySelector("[data-sx='" + p + "']").classList.toggle("low", d[p] < 50);
+      });
+      out.innerHTML = d.txt;
+      root.querySelectorAll("[data-drug]").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-drug") === k);
+      });
+    }
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () { set(b.getAttribute("data-drug")); });
+    });
+    set("none");
+  }
+
+  /* ---------- Viz 3 · Allergy Detective ---------- */
+  function initAlrDetect() {
+    var root = document.querySelector("[data-alrdetect]");
+    if (!root) return;
+    var SCENES = [
+      { q: "\"침구를 털거나 청소할 때마다 재채기와 콧물이 심해져요.\"", a: "mite", why: "침구·먼지와 연결되고 연중 반복된다면 <b>집먼지진드기</b> 가능성이 높습니다." },
+      { q: "\"매년 4월, 야외활동을 한 날에 눈과 코가 가려워요.\"", a: "pollen", why: "매년 같은 계절 + 야외 노출 → <b>꽃가루</b> 가능성이 높습니다." },
+      { q: "\"고양이를 키우는 친구 집에만 가면 눈·코가 가렵고 재채기가 나요.\"", a: "pet", why: "특정 동물이 있는 공간에서 재현 → <b>동물 알레르겐</b> 가능성이 높습니다." },
+      { q: "\"향수 냄새만 맡으면 코가 막혀요. 가렵지는 않고, 알레르기 검사는 음성이었어요.\"", a: "irritant", why: "가려움·재채기가 적고 감작도 확인되지 않음 → <b>비알레르기성 trigger</b>도 고려합니다. 모든 비염이 알레르기는 아닙니다." }
+    ];
+    var scene = root.querySelector(".alr__scene");
+    var prog = root.querySelector(".alr__match-prog");
+    var out = root.querySelector(".alr__out");
+    var next = root.querySelector("[data-alr-next]");
+    var opts = root.querySelectorAll(".alr__opt");
+    var idx = 0;
+
+    function show() {
+      scene.textContent = SCENES[idx].q;
+      prog.textContent = (idx + 1) + " / " + SCENES.length;
+      opts.forEach(function (o) { o.classList.remove("correct", "wrong"); o.disabled = false; });
+      out.className = "alr__out";
+      out.textContent = "상황을 읽고 가장 가능성 높은 원인을 고르세요.";
+      next.style.display = "none";
+    }
+    opts.forEach(function (o) {
+      o.addEventListener("click", function () {
+        var s = SCENES[idx];
+        var ok = o.getAttribute("data-ans") === s.a;
+        opts.forEach(function (x) {
+          x.disabled = true;
+          if (x.getAttribute("data-ans") === s.a) x.classList.add("correct");
+        });
+        if (!ok) o.classList.add("wrong");
+        out.className = "alr__out " + (ok ? "ok" : "no");
+        out.innerHTML = (ok ? "✅ " : "❌ ") + s.why;
+        next.textContent = idx === SCENES.length - 1 ? "↺ 처음부터" : "다음 상황 →";
+        next.style.display = "";
+      });
+    });
+    next.addEventListener("click", function () {
+      idx = (idx + 1) % SCENES.length;
+      show();
+    });
+    show();
+  }
+
+  /* ---------- Viz 4 · Allergy Symptom Fingerprint (fp__ CSS 재사용) ---------- */
+  function initAlrFinger() {
+    var root = document.querySelector("[data-alrfinger]");
+    if (!root) return;
+    var KEYS = ["가려움", "재채기", "맑은 콧물", "코막힘", "인후통·기침", "발열", "몸살", "반복성"];
+    var PROFILE = {
+      alr:  [4, 4, 4, 3, 1, 0, 0, 4],
+      cold: [1, 2, 3, 3, 3, 1, 1, 0]
+    };
+    var rowsEl = root.querySelector(".fp__rows");
+    function render(p) {
+      rowsEl.className = "fp__rows " + p;
+      rowsEl.innerHTML = KEYS.map(function (k, i) {
+        var dots = "";
+        for (var n = 1; n <= 4; n++) dots += "<i class='" + (n <= PROFILE[p][i] ? "on" : "") + "'></i>";
+        return "<div class='fp__row'><span>" + k + "</span><span class='fp__dots'>" + dots + "</span></div>";
+      }).join("");
+      root.querySelectorAll(".fp__toggle button").forEach(function (b) {
+        b.classList.toggle("active", b.getAttribute("data-profile") === p);
+      });
+    }
+    root.querySelectorAll(".fp__toggle button").forEach(function (b) {
+      b.addEventListener("click", function () { render(b.getAttribute("data-profile")); });
+    });
+    render("alr");
+  }
+
+  /* ---------- Viz 5 · Trigger Timeline ---------- */
+  function initAlrExpo() {
+    var root = document.querySelector("[data-alrexpo]");
+    if (!root) return;
+    var btn = root.querySelector("[data-alr-expo]");
+    var rows = root.querySelectorAll(".alr__expo-row");
+    var timers = [];
+    btn.addEventListener("click", function () {
+      timers.forEach(clearTimeout);
+      timers = [];
+      rows.forEach(function (r) { r.classList.remove("on"); });
+      rows.forEach(function (r, i) {
+        timers.push(setTimeout(function () { r.classList.add("on"); }, i * 800));
+      });
+      btn.textContent = "↺ 다시 털기";
+    });
+  }
+
+  /* ---------- Viz 6 · Symptom Selector ---------- */
+  function initAlrPick() {
+    var root = document.querySelector("[data-alrpick]");
+    if (!root) return;
+    var out = root.querySelector(".alr__out");
+    var sel = {};
+    function card(k, on) { root.querySelector("[data-rx='" + k + "']").classList.toggle("on", on); }
+    function render() {
+      var hist = sel.sneeze || sel.itch || sel.runny;
+      var incs = !!(sel.block || sel.persist);
+      var eye = !!sel.eye;
+      card("incs", incs);
+      card("ah", !!hist && !incs);
+      card("eye", eye);
+      var msg;
+      if (!hist && !incs && !eye) msg = "증상을 선택하면 어느 약물군이 강조되는지 보여줍니다.";
+      else if (incs && sel.block && !hist) msg = "<b>코막힘 중심</b> → INCS. 경구 항히스타민제는 코막힘에 상대적으로 약합니다.";
+      else if (incs) msg = "<b>코막힘이 있거나 지속적·수면 방해</b> → INCS 중심으로 생각합니다. INCS는 재채기·가려움·콧물까지 함께 조절합니다.";
+      else if (hist) msg = "<b>재채기·가려움·콧물 위주의 간헐적 증상</b> → 2세대 경구 항히스타민제가 편리한 선택이 될 수 있습니다.";
+      else msg = "<b>눈 증상 위주</b> → 경구 또는 점안 항히스타민제를 고려할 수 있습니다.";
+      if (eye && (hist || incs)) msg += " 눈 가려움이 동반되면 점안제 추가도 고려합니다.";
+      out.innerHTML = msg;
+    }
+    root.querySelectorAll("[data-sx]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-sx");
+        sel[k] = !sel[k];
+        b.classList.toggle("active", sel[k]);
+        render();
+      });
+    });
+  }
+
+  /* ---------- Viz 7 · Decongestant Rebound ---------- */
+  function initAlrRebound() {
+    var root = document.querySelector("[data-alrrebound]");
+    if (!root) return;
+    var MSG = [
+      "코가 막혀 답답합니다.",
+      "혈관수축 스프레이(oxymetazoline 계열)를 뿌립니다. α-agonist가 점막 혈관을 수축시킵니다.",
+      "몇 분 안에 뻥 뚫립니다. 그래서 '제일 잘 듣는 약'으로 기억됩니다.",
+      "약효가 끝나면 혈관이 다시 확장됩니다. 반복 사용할수록 반동성 충혈이 커집니다.",
+      "전보다 더 막힌 느낌 → 또 뿌리게 됩니다."
+    ];
+    var nodes = root.querySelectorAll(".alr__cyc");
+    var out = root.querySelector(".alr__out");
+    var loopEl = root.querySelector("[data-alr-loop]");
+    var meter = root.querySelector("[data-meter='base']");
+    var stepBtn = root.querySelector("[data-alr-step]");
+    var idx = -1, loops = 0;
+
+    function render() {
+      nodes.forEach(function (n, i) { n.classList.toggle("on", i === idx); });
+      loopEl.textContent = loops;
+      meter.style.width = Math.min(100, 35 + loops * 22) + "%";
+      stepBtn.textContent = idx === 4 ? "↻ 또 뿌린다" : "▶ 다음 단계";
+      if (idx < 0) {
+        out.className = "alr__out";
+        out.textContent = "코막힘 스프레이를 '매일' 쓰면 어떤 일이 생길까요?";
+      } else if (loops >= 2 && idx >= 3) {
+        out.className = "alr__out no";
+        out.innerHTML = "<b>Rhinitis medicamentosa</b> — 약이 코막힘의 원인이 된 상태입니다. 혈관수축성 스프레이는 <b>단기간만</b> 사용하고, 지속적인 코막힘에는 INCS 등 다른 접근을 생각합니다.";
+      } else {
+        out.className = "alr__out" + (idx === 2 ? " ok" : "");
+        out.textContent = MSG[idx];
+      }
+    }
+    stepBtn.addEventListener("click", function () {
+      if (idx === 4) { loops++; idx = 1; } else idx++;
+      render();
+    });
+    root.querySelector("[data-alr-reset]").addEventListener("click", function () {
+      idx = -1; loops = 0;
+      render();
+    });
+    render();
+  }
+
+  /* ---------- Viz 8 · Nasal Spray Simulator ---------- */
+  function initAlrSpray() {
+    var root = document.querySelector("[data-alrspray]");
+    if (!root) return;
+    var wrap = root.querySelector(".alr__spray");
+    var nozzle = root.querySelector(".alr__nozzle");
+    var out = root.querySelector(".alr__out");
+    // 정면도: 환자의 오른쪽 콧구멍 = 화면 왼쪽
+    var X = { right: 78, left: 162 };
+    var ANG = { septum: 24, straight: 0, lateral: -16 };
+    var RES = {
+      septum:   { cls: "no",  txt: "❌ <b>Too medial</b> — 약이 비중격에 반복적으로 닿으면 자극과 비출혈 가능성이 높아집니다." },
+      straight: { cls: "mid", txt: "△ <b>조금 더 바깥쪽으로</b> — 똑바로 위보다는 같은 쪽 귀 방향으로 살짝 기울입니다." },
+      lateral:  { cls: "ok",  txt: "✅ <b>Correct direction</b> — 비중격을 피해 바깥쪽 벽(같은 쪽 귀 방향)으로 분무합니다." }
+    };
+    var state = { side: "right", dir: "" };
+
+    function render() {
+      var a = (ANG[state.dir] || 0) * (state.side === "right" ? 1 : -1);
+      nozzle.style.transform = "translate(" + X[state.side] + "px, 162px) rotate(" + a + "deg)";
+      var r = RES[state.dir];
+      wrap.className = "alr__spray" + (r ? " is-" + r.cls : "");
+      out.className = "alr__out" + (r ? " " + r.cls : "");
+      out.innerHTML = r ? r.txt : "노즐 방향을 선택하세요.";
+      root.querySelectorAll("[data-hand]").forEach(function (h) {
+        h.classList.toggle("on", h.getAttribute("data-hand") === state.side);
+      });
+      root.querySelectorAll(".hypo__opts").forEach(function (grp) {
+        var key = grp.getAttribute("data-group");
+        grp.querySelectorAll("button").forEach(function (b) {
+          b.classList.toggle("active", b.getAttribute("data-val") === state[key]);
+        });
+      });
+    }
+    root.querySelectorAll(".hypo__opts").forEach(function (grp) {
+      var key = grp.getAttribute("data-group");
+      grp.querySelectorAll("button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          state[key] = b.getAttribute("data-val");
+          render();
+        });
+      });
+    });
+    render();
+  }
 
   /* =========================================================
      ===========  Everyday 04 · 수족구병 (HFMD)  ===========
@@ -1390,7 +1701,7 @@
       var ischemia = dem > maxSupply + 5;
       resultEl.innerHTML = ischemia
         ? "<span style='color:var(--hi);font-weight:700;'>⚠ Ischemia — 공급(" + maxSupply + ")이 수요(" + dem + ")를 따라가지 못합니다. 흉통 발생!</span>"
-        : "<span style='color:var(--ok-color,#12a594);font-weight:700;'>✓ 균형 — 공급(" + maxSupply + ") ≥ 수요(" + dem + "). 증상 없음.</span>";
+        : "<span style='color:var(--ok);font-weight:700;'>✓ 균형 — 공급(" + maxSupply + ") ≥ 수요(" + dem + "). 증상 없음.</span>";
     }
     stenoSlider.addEventListener("input", render);
     root.querySelectorAll("[data-ss]").forEach(function (b) {
@@ -1501,7 +1812,7 @@
       necEl.setAttribute("r", s.r);
       necLabel.textContent = s.r > 0 ? "괴사" : "";
       if (reperfused) {
-        verdictEl.innerHTML = "<span style='color:var(--ok-color,#12a594);font-weight:700;'>⚡ Reperfusion 시행! " + TIM_STAGES[parseInt(slider.value,10)].label + " 기준 salvage 가능 심근 약 " + s.salvage + "%</span>";
+        verdictEl.innerHTML = "<span style='color:var(--ok);font-weight:700;'>⚡ Reperfusion 시행! " + TIM_STAGES[parseInt(slider.value,10)].label + " 기준 salvage 가능 심근 약 " + s.salvage + "%</span>";
       } else {
         verdictEl.innerHTML = s.salvage < 50
           ? "<span style='color:var(--hi);font-weight:700;'>⚠ Salvage 가능 심근이 " + s.salvage + "%로 줄었습니다. 빠른 reperfusion이 필요합니다.</span>"
@@ -3538,7 +3849,7 @@
         if (info) {
           info.textContent = d.text;
           info.style.borderLeft = "4px solid " + d.col;
-          info.style.background = d.danger === "urgent" ? "#fef2f2" : d.danger === "high" ? "#fff7ed" : "var(--bg-card)";
+          info.style.background = d.danger === "urgent" ? "#fef2f2" : d.danger === "high" ? "#fff7ed" : "var(--surface-2)";
         }
       });
     });
@@ -3615,7 +3926,7 @@
           if (result && d) {
             result.innerHTML = d.html;
             result.style.background = d.ok ? "var(--ok-soft,#d1fae5)" : "var(--hi-soft,#fee2e2)";
-            result.style.borderLeft = d.ok ? "4px solid var(--ok-color,#12a594)" : "4px solid var(--hi,#ef4444)";
+            result.style.borderLeft = d.ok ? "4px solid var(--ok)" : "4px solid var(--hi,#ef4444)";
           }
         });
       });
@@ -3814,7 +4125,7 @@
         if (result && d) {
           result.innerHTML = d.html;
           result.style.background = d.cls === "ok" ? "var(--ok-soft,#d1fae5)" : "var(--hi-soft,#fee2e2)";
-          result.style.borderLeft = d.cls === "ok" ? "4px solid var(--ok-color,#12a594)" : "4px solid var(--hi,#ef4444)";
+          result.style.borderLeft = d.cls === "ok" ? "4px solid var(--ok)" : "4px solid var(--hi,#ef4444)";
         }
       });
     });
@@ -3875,7 +4186,7 @@
     var stomachEl = root.querySelector("#rfmStomach");
 
     function setState(freq, barrier, msgText, lesStyle, diaphStyle, stomachStyle) {
-      if (freqBar) { freqBar.style.width = freq + "%"; freqBar.style.background = freq > 60 ? "var(--hi)" : freq > 35 ? "#ff9800" : "var(--ok-color,#12a594)"; }
+      if (freqBar) { freqBar.style.width = freq + "%"; freqBar.style.background = freq > 60 ? "var(--hi)" : freq > 35 ? "#ff9800" : "var(--ok)"; }
       if (barrierBar) barrierBar.style.width = barrier + "%";
       if (msg) msg.innerHTML = msgText;
       if (lesEl) lesEl.style.cssText = lesStyle || "";
@@ -4130,7 +4441,7 @@
         var total = 0;
         Object.keys(state).forEach(function (k) { if (state[k]) total += (IMPACTS[k] || 0); });
         total = Math.min(total, 100);
-        if (riskBar) { riskBar.style.width = total + "%"; riskBar.style.background = total > 60 ? "var(--hi)" : total > 35 ? "#ff9800" : "var(--ok-color,#12a594)"; }
+        if (riskBar) { riskBar.style.width = total + "%"; riskBar.style.background = total > 60 ? "var(--hi)" : total > 35 ? "#ff9800" : "var(--ok)"; }
         if (riskPct) riskPct.textContent = total < 20 ? "낮음" : total < 50 ? "중간" : "높음";
         var on = Object.keys(state).filter(function (k) { return state[k]; });
         if (trkMsg) {
@@ -4155,7 +4466,7 @@
 
     var TIMING = [
       { label: "식사 90분 전", left: "5%", concLeft: "5%", concW: "30%", pumpLeft: "40%", verdict: "ok", msg: "식사 90분 전 복용: 혈중 농도가 식사 타이밍보다 훨씬 앞서 peak에 도달합니다. 식사 시작 전 농도가 다소 감소. 식전 30–60분이 더 권장됩니다." },
-      { label: "식사 30–60분 전", left: "25%", concLeft: "25%", concW: "35%", pumpLeft: "50%", verdict: "best", msg: "<b style='color:var(--ok-color,#12a594)'>최적 타이밍 ✅</b> — 식사 30–60분 전 복용: 혈중 약물 농도 peak와 식사로 인한 proton pump activation 시점이 잘 맞습니다. 가장 효과적인 acid suppression." },
+      { label: "식사 30–60분 전", left: "25%", concLeft: "25%", concW: "35%", pumpLeft: "50%", verdict: "best", msg: "<b style='color:var(--ok)'>최적 타이밍 ✅</b> — 식사 30–60분 전 복용: 혈중 약물 농도 peak와 식사로 인한 proton pump activation 시점이 잘 맞습니다. 가장 효과적인 acid suppression." },
       { label: "식사와 동시", left: "45%", concLeft: "45%", concW: "30%", pumpLeft: "45%", verdict: "sub", msg: "식사와 동시 복용: pump activation과 약물 도달이 거의 겹치지만 최적보다 덜 효과적입니다. 식전 복용보다 효과가 떨어집니다." },
       { label: "식사 후 1시간", left: "58%", concLeft: "58%", concW: "28%", pumpLeft: "45%", verdict: "sub", msg: "식사 후 1시간: 이미 pump가 활성화된 상태에서 약물이 늦게 도달합니다. 효과가 크게 감소합니다." },
       { label: "식사 후 5시간", left: "80%", concLeft: "80%", concW: "20%", pumpLeft: "45%", verdict: "poor", msg: "<b style='color:var(--hi)'>비최적 ⚠️</b> 식사 후 5시간: 위산 분비가 이미 진행된 후에 복용합니다. 이미 활성화·결합한 pump에는 효과가 있지만 그 이후로는 pump 교체(turnover)까지 기다려야 합니다." }
@@ -4208,7 +4519,7 @@
           }
         }
         if (outcomeKey && OUTCOMES[outcomeKey] && resultEl) {
-          resultEl.innerHTML = "<div style='padding:12px;border-radius:10px;background:var(--bg-card);'>" + OUTCOMES[outcomeKey].msg + "</div>";
+          resultEl.innerHTML = "<div style='padding:12px;border-radius:10px;background:var(--surface-2);'>" + OUTCOMES[outcomeKey].msg + "</div>";
         }
       });
     });
@@ -4459,7 +4770,7 @@
         h2text: "H₂RA 차단 ✕",
         pumpText: "",
         outputText: "H⁺ 분비 → (histamine 경로 차단됨)",
-        outputColor: "var(--ok-color,#12a594)",
+        outputColor: "var(--ok)",
         desc: "<b>H₂RA (famotidine 등)</b> — Parietal cell의 H₂ receptor를 차단합니다. Histamine-stimulated acid secretion을 줄입니다. PPI보다 acid suppression이 약하고 tolerance가 발생할 수 있습니다. 야간 acid 억제에 일부 사용됩니다."
       },
       ppi: {
@@ -4468,7 +4779,7 @@
         h2text: "",
         pumpText: "PPI 억제 ✕",
         outputText: "H⁺ 분비 크게 감소",
-        outputColor: "var(--ok-color,#12a594)",
+        outputColor: "var(--ok)",
         desc: "<b>PPI (omeprazole, esomeprazole, lansoprazole, pantoprazole, rabeprazole)</b> — H⁺/K⁺-ATPase(Proton pump)를 비가역적으로 억제합니다. 세 가지 신호(histamine·gastrin·Ach)가 모두 proton pump에서 만나므로 PPI는 강력한 acid suppression을 제공합니다. Acid-activated prodrug이므로 식사 30–60분 전 복용이 효과적."
       },
       pcab: {
@@ -4477,7 +4788,7 @@
         h2text: "",
         pumpText: "P-CAB 억제 ✕",
         outputText: "H⁺ 분비 감소",
-        outputColor: "var(--ok-color,#12a594)",
+        outputColor: "var(--ok)",
         desc: "<b>P-CAB (vonoprazan, tegoprazan, fexuprazan)</b> — H⁺/K⁺-ATPase의 K⁺ binding site와 경쟁적으로 결합해 acid secretion을 억제합니다. Acid activation이 필요 없어 빠른 발현이 특징입니다. 2025 개정 국내 H. pylori 제균 지침에 포함됩니다."
       },
       reset: {
@@ -4599,7 +4910,7 @@
         var d = CD_DATA[btn.getAttribute("data-cd")];
         if (!d) return;
         if (resultEl) resultEl.innerHTML =
-          "<div style='padding:14px;border-radius:10px;background:var(--bg-card);'>" +
+          "<div style='padding:14px;border-radius:10px;background:var(--surface-2);'>" +
           "<b style='font-size:15px;'>" + d.title + "</b><br><br>" +
           "<div style='margin-bottom:6px;'>🎯 " + d.cause + "</div>" +
           "<div style='margin-bottom:6px;color:var(--ink-soft);font-size:13px;'>⚙️ " + d.mech + "</div>" +
