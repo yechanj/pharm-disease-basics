@@ -1026,6 +1026,23 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // Everyday 07 · 다래끼
+    initStyAnat();
+    initStyPath();
+    initStyMatch();
+    initStyWarm();
+    initStyHeat();
+    initStyPop();
+    initStySpread();
+    initStyDo();
+    // Everyday 06 · 결막염
+    initCjvAnat();
+    initCjvThree();
+    initCjvChain();
+    initCjvMatch();
+    initCjvTriage();
+    initCjvDrop();
+    initCjvLens();
     // Everyday 05 · 알레르기비염
     initAlrMatch();
     initAlrMast();
@@ -1178,6 +1195,499 @@
     initACSDrugMap();
     initACSDecision();
   });
+
+  /* =========================================================
+     ===========  Everyday 07 · 다래끼  ===========
+     ========================================================= */
+
+  /* ---------- Viz 1 · Eyelid Anatomy ---------- */
+  function initStyAnat() {
+    var root = document.querySelector("[data-styanat]");
+    if (!root) return;
+    var wrap = root.querySelector(".sty__lid-wrap");
+    var out = root.querySelector(".sty__out");
+    var STATE = {
+      normal: { cls: "", t: "정상 — 속눈썹 모낭, Zeis/Moll 샘(눈꺼풀 가장자리 앞쪽), meibomian gland(눈꺼풀 안쪽 tarsal plate)가 각자 자리에 있습니다." },
+      ext: { cls: "no", t: "<b>External Stye</b> — 속눈썹 뿌리·Zeis/Moll 샘 주위가 붉게 부풀며, <b>속눈썹 모낭/주변 gland의 급성 감염</b>입니다. 겉으로는 작은 여드름 같은 붉은 혹." },
+      int: { cls: "no", t: "<b>Internal Stye</b> — 눈꺼풀 안쪽 meibomian gland 하나가 붉게 팽창합니다. <b>Meibomian gland의 급성 감염·염증</b>으로 눈꺼풀이 더 넓게 붓습니다." },
+      chal: { cls: "mid", t: "<b>Chalazion</b> — 같은 meibomian gland가 막혀 노란 lipid plug가 남은 모습. <b>감염보다는 막힘과 만성 염증</b>이 중심이라 대개 덜 아픕니다." }
+    };
+    var PART = {
+      follicle: "<b>Eyelash follicle</b> — 속눈썹 뿌리. 이 주변의 급성 감염이 <b>외다래끼</b>입니다.",
+      zeis: "<b>Zeis(sebaceous) · Moll(변형 땀샘) gland</b> — 속눈썹 모낭 옆의 작은 샘. 외다래끼와 연관됩니다. Outside = lash-associated gland.",
+      meib: "<b>Meibomian gland</b> — 눈꺼풀 안쪽 tarsal plate 속의 큰 기름샘. 급성 감염이면 <b>속다래끼</b>, 막힘이 지속되면 <b>콩다래끼</b>. Inside = meibomian gland."
+    };
+    function setState(s) {
+      wrap.className = "sty__lid-wrap is-" + s;
+      root.querySelectorAll("[data-state]").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-state") === s); });
+      wrap.querySelectorAll("[data-part]").forEach(function (p) { p.classList.remove("sel"); });
+      out.className = "sty__out " + STATE[s].cls;
+      out.innerHTML = STATE[s].t;
+    }
+    root.querySelectorAll("[data-state]").forEach(function (b) {
+      b.addEventListener("click", function () { setState(b.getAttribute("data-state")); });
+    });
+    wrap.querySelectorAll("[data-part]").forEach(function (p) {
+      p.addEventListener("click", function () {
+        wrap.querySelectorAll("[data-part]").forEach(function (x) { x.classList.remove("sel"); });
+        p.classList.add("sel");
+        out.className = "sty__out";
+        out.innerHTML = PART[p.getAttribute("data-part")];
+      });
+    });
+    setState("normal");
+  }
+
+  /* ---------- Viz 2 · Stye → Chalazion ---------- */
+  function initStyPath() {
+    var root = document.querySelector("[data-stypath]");
+    if (!root) return;
+    var out = root.querySelector(".sty__out");
+    var P = {
+      a: { cls: "ok", t: "✅ <b>A · 배출 → 사라짐</b> — 고름이 자연 배출되며 통증·부종이 줄고 대부분 약 1주 안팎에 호전됩니다. 온찜질이 이 경로를 돕습니다." },
+      b: { cls: "mid", t: "🟡 <b>B · 통증은 사라졌지만 덩어리 지속</b> → <b>Chalazion</b>. 급성 염증은 가라앉았지만 gland가 계속 막혀 단단한 결절로 남은 상태입니다. 오래 지속되면 안과 평가를 권합니다." }
+    };
+    root.querySelectorAll("[data-path]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var p = P[b.getAttribute("data-path")];
+        root.querySelectorAll("[data-path]").forEach(function (x) { x.classList.toggle("active", x === b); });
+        out.className = "sty__out " + p.cls;
+        out.innerHTML = p.t;
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · Pain × Location Matcher ---------- */
+  function initStyMatch() {
+    var root = document.querySelector("[data-stymatch]");
+    if (!root) return;
+    var pain = root.querySelector("[data-in='pain']");
+    var loc = root.querySelector("[data-in='loc']");
+    var painV = root.querySelector("[data-val='pain']");
+    var locV = root.querySelector("[data-val='loc']");
+    var box = root.querySelector(".sty__result");
+    function label(v, lo, mid, hi) { return v < 34 ? lo : v < 67 ? mid : hi; }
+    function render() {
+      var p = +pain.value, l = +loc.value;
+      painV.textContent = label(p, "거의 없음", "중간", "심함");
+      locV.textContent = label(l, "가장자리", "중간", "깊숙이");
+      var hot = p >= 50, deep = l >= 50, cls, name, why;
+      if (hot && !deep) { cls = "hot"; name = "External Hordeolum ↑"; why = "속눈썹 바로 옆의 통증성 병변 — 외다래끼. 온찜질 + 눈꺼풀 위생."; }
+      else if (hot && deep) { cls = "hot"; name = "Internal Hordeolum ↑"; why = "눈꺼풀 안쪽·깊은 곳의 통증성 병변 — 속다래끼(meibomian gland 급성 염증). 눈꺼풀이 더 넓게 붓기도 합니다."; }
+      else if (!hot && deep) { cls = "mid"; name = "Chalazion ↑"; why = "깊고 단단하며 통증이 적은 혹 — 콩다래끼. 오래 지속되면 안과 평가."; }
+      else { cls = ""; name = "작고 덜 아픈 가장자리 병변"; why = "초기 다래끼나 눈꺼풀염 등 — 경과를 관찰하고 온찜질·눈꺼풀 위생. 지속되면 평가."; }
+      box.className = "sty__result " + cls;
+      box.innerHTML = "<b class='name'>" + name + "</b>" + why + "<br><small>⚠️ 눈꺼풀 전체로 퍼지거나 발열·시력 이상이 있으면 이 분류를 넘어 cellulitis를 먼저 평가합니다.</small>";
+    }
+    pain.addEventListener("input", render);
+    loc.addEventListener("input", render);
+    render();
+  }
+
+  /* ---------- Viz 4 · Warm Compress Mechanism ---------- */
+  function initStyWarm() {
+    var root = document.querySelector("[data-stywarm]");
+    if (!root) return;
+    var wrap = root.querySelector(".sty__warm");
+    var out = root.querySelector(".sty__out");
+    var visc = root.querySelector("[data-meter='visc']");
+    var drain = root.querySelector("[data-meter='drain']");
+    root.querySelectorAll(".sty__blob").forEach(function (b, i) { b.style.setProperty("--i", i); });
+    function set(warm) {
+      wrap.classList.toggle("is-warm", warm);
+      visc.style.width = warm ? "25%" : "90%";
+      drain.style.width = warm ? "85%" : "10%";
+      out.className = "sty__out " + (warm ? "ok" : "");
+      out.innerHTML = warm
+        ? "🔥 열 → 기름의 <b>점도 ↓</b> → 막힌 내용물이 gland opening 쪽으로 움직임 → <b>배출 ↑</b> → 염증 감소."
+        : "막힌 gland 안에 끈적하게 굳은 기름이 있습니다.";
+    }
+    root.querySelector("[data-warm-start]").addEventListener("click", function () { set(true); });
+    root.querySelector("[data-warm-reset]").addEventListener("click", function () { set(false); });
+    set(false);
+  }
+
+  /* ---------- Viz 5 · Warm Compress Simulator ---------- */
+  function initStyHeat() {
+    var root = document.querySelector("[data-styheat]");
+    if (!root) return;
+    var out = root.querySelector(".sty__out");
+    var massage = root.querySelector(".sty__massage");
+    var R = {
+      ice: { cls: "no", ok: false, t: "❌ <b>얼음</b> — 기름이 더 굳어 배출에 불리합니다. 다래끼는 차갑게가 아니라 <b>따뜻하게</b>." },
+      hot: { cls: "no", ok: false, t: "❌ <b>화상 입을 만큼 뜨겁게</b> — 눈꺼풀 피부는 얇습니다. 뜨거울수록 좋은 것이 아닙니다." },
+      comfy: { cls: "ok", ok: true, t: "✅ <b>편안하게 따뜻한 수건을 일정 시간(약 5–15분) 유지</b> — 하루 여러 번 반복하며 gland 분비물의 배출을 돕습니다." }
+    };
+    root.querySelectorAll("[data-heat]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var r = R[b.getAttribute("data-heat")];
+        root.querySelectorAll("[data-heat]").forEach(function (x) { x.classList.remove("correct", "wrong"); });
+        b.classList.add(r.ok ? "correct" : "wrong");
+        out.className = "sty__out " + r.cls;
+        out.innerHTML = r.t;
+        massage.classList.toggle("show", r.ok);
+      });
+    });
+  }
+
+  /* ---------- Viz 6 · POP IT? ---------- */
+  function initStyPop() {
+    var root = document.querySelector("[data-stypop]");
+    if (!root) return;
+    var wrap = root.querySelector(".sty__pop");
+    var out = root.querySelector(".sty__out");
+    var R = {
+      pop: { cls: "no", c: "is-pop", t: "❌ <b>직접 짠다</b> — 붉은 감염 영역이 눈꺼풀 주변으로 퍼집니다. <b>강제로 압출하면 감염을 주변 조직으로 퍼뜨릴 수 있습니다.</b>" },
+      warm: { cls: "ok", c: "is-warm", t: "✅ <b>온찜질한다</b> — 점도가 낮아진 내용물이 <b>자연 배출</b>되고 병변이 가라앉습니다. 따뜻하게 → 배출을 돕는다." }
+    };
+    function set(k) {
+      wrap.className = "sty__pop" + (k ? " " + R[k].c : "");
+      out.className = "sty__out " + (k ? R[k].cls : "");
+      out.innerHTML = k ? R[k].t : "선택하세요.";
+      root.querySelectorAll("[data-pop]").forEach(function (b) {
+        b.classList.remove("correct", "wrong");
+        if (b.getAttribute("data-pop") === k) b.classList.add(k === "warm" ? "correct" : "wrong");
+      });
+    }
+    root.querySelectorAll("[data-pop]").forEach(function (b) {
+      b.addEventListener("click", function () { set(b.getAttribute("data-pop")); });
+    });
+    root.querySelector("[data-pop-reset]").addEventListener("click", function () { set(null); });
+    set(null);
+  }
+
+  /* ---------- Viz 7 · Point vs Whole Lid ---------- */
+  function initStySpread() {
+    var root = document.querySelector("[data-styspread]");
+    if (!root) return;
+    var viz = root.querySelector(".sty__spreadviz");
+    var out = root.querySelector(".sty__out");
+    var S = {
+      focal: { cls: "ok", t: "<b>FOCAL</b> — 작은 painful bump. <b>Stye pattern</b>: 온찜질 + 경과 관찰." },
+      diffuse: { cls: "mid", t: "<b>DIFFUSE</b> — 눈꺼풀 전체의 홍반·부종. <b>Cellulitis?</b> 점 하나가 아니라 눈꺼풀 전체로 퍼진다 → 빠른 진료." },
+      orbital: { cls: "no", t: "<b>ORBITAL</b> — 눈 움직임 제한 · 안구 돌출 · 시력변화. <b>Urgent</b> — orbital cellulitis 등 안와 감염 평가." }
+    };
+    function set(k) {
+      viz.className = "sty__spreadviz is-" + k;
+      out.className = "sty__out " + S[k].cls;
+      out.innerHTML = S[k].t;
+      root.querySelectorAll("[data-sp]").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-sp") === k); });
+    }
+    root.querySelectorAll("[data-sp]").forEach(function (b) {
+      b.addEventListener("click", function () { set(b.getAttribute("data-sp")); });
+    });
+    set("focal");
+  }
+
+  /* ---------- Viz 8 · What Do I Do? ---------- */
+  function initStyDo() {
+    var root = document.querySelector("[data-stydo]");
+    if (!root) return;
+    var CASES = [
+      { q: "작은 아픈 혹, 열 없음. 시력 정상.", a: "home", why: "전형적인 작은 국소 다래끼 — <b>온찜질 + 눈꺼풀 위생</b>으로 집에서 관리하며 경과를 봅니다." },
+      { q: "통증은 없어졌지만 한 달째 단단한 혹이 남아 있음.", a: "routine", why: "Chalazion 가능성 — 오래 지속되므로 <b>안과 평가</b>(필요시 steroid injection·배농 등)를 권합니다." },
+      { q: "눈꺼풀 전체가 붓고 붉음, 39℃ 발열.", a: "urgent", why: "눈꺼풀 전체 확산 + 발열 — <b>preseptal cellulitis</b> 등을 평가해야 합니다. 신속한 진료." },
+      { q: "같은 위치에 계속 재발하고, 모양이 이전과 다름.", a: "routine", why: "반복적·비전형적 병변 — blepharitis 평가와 함께 드물게 eyelid tumor를 배제하기 위한 <b>안과 평가</b>가 필요합니다." },
+      { q: "눈이 앞으로 튀어나온 듯하고, 눈을 움직일 때 아프며 시야가 흐림.", a: "urgent", why: "안구 돌출·운동통·시력저하 — 단순 다래끼가 아닙니다. <b>orbital cellulitis 등 응급 평가</b>." }
+    ];
+    var prog = root.querySelector(".sty__prog");
+    var box = root.querySelector(".sty__case");
+    var out = root.querySelector(".sty__out");
+    var next = root.querySelector("[data-do-next]");
+    var opts = root.querySelectorAll("[data-do]");
+    var idx = 0;
+    function show() {
+      prog.textContent = (idx + 1) + " / " + CASES.length;
+      box.textContent = CASES[idx].q;
+      opts.forEach(function (o) { o.classList.remove("correct", "wrong"); o.disabled = false; });
+      out.className = "sty__out";
+      out.textContent = "환자 상황을 보고 가장 적절한 대응을 고르세요.";
+      next.style.display = "none";
+    }
+    opts.forEach(function (o) {
+      o.addEventListener("click", function () {
+        var c = CASES[idx];
+        var ok = o.getAttribute("data-do") === c.a;
+        opts.forEach(function (x) {
+          x.disabled = true;
+          if (x.getAttribute("data-do") === c.a) x.classList.add("correct");
+        });
+        if (!ok) o.classList.add("wrong");
+        out.className = "sty__out " + (ok ? "ok" : "no");
+        out.innerHTML = (ok ? "✅ " : "❌ ") + c.why;
+        next.textContent = idx === CASES.length - 1 ? "↺ 처음부터" : "다음 →";
+        next.style.display = "";
+      });
+    });
+    next.addEventListener("click", function () { idx = (idx + 1) % CASES.length; show(); });
+    show();
+  }
+
+  /* =========================================================
+     ===========  Everyday 06 · 결막염  ===========
+     ========================================================= */
+
+  /* ---------- Viz 1 · Conjunctiva vs Cornea ---------- */
+  function initCjvAnat() {
+    var root = document.querySelector("[data-cjvanat]");
+    if (!root) return;
+    var eye = root.querySelector(".cjv__eye");
+    var out = root.querySelector(".cjv__out");
+    var TXT = {
+      conj: { cls: "mid", t: "<b>결막 (Conjunctiva)</b> — 결막염에서는 이 부위가 충혈되고 분비물·이물감이 생길 수 있습니다. 심한 통증과 시력저하는 전형적이지 않습니다." },
+      cornea: { cls: "no", t: "<b>각막 (Cornea)</b> — 동공 앞의 투명한 구조. 각막이 침범되면 <b>통증·눈부심·시력저하</b>가 나타날 수 있으며 더 중요하게 평가해야 합니다." },
+      lid: { cls: "", t: "<b>눈꺼풀</b> — 눈꺼풀 안쪽도 결막으로 덮여 있습니다. 부종·분비물로 속눈썹이 붙을 수 있습니다." }
+    };
+    var STATE = {
+      normal: "정상 — 결막은 옅은 투명막, 각막은 동공 앞의 맑은 구조입니다.",
+      conj: "결막염 — 결막의 혈관이 확장되어 <b>충혈</b>됩니다. 각막은 맑게 유지됩니다.",
+      kera: "각막염 — 중앙의 각막에 염증(흰 혼탁)이 생깁니다. <b>빨간 눈 + 통증·눈부심·시력저하</b>를 기억하세요."
+    };
+    function setState(s) {
+      eye.className = "cjv__eye is-" + s;
+      root.querySelectorAll("[data-state]").forEach(function (b) { b.classList.toggle("active", b.getAttribute("data-state") === s); });
+      out.className = "cjv__out" + (s === "kera" ? " no" : s === "conj" ? " mid" : "");
+      out.innerHTML = STATE[s];
+      eye.querySelectorAll("[data-part]").forEach(function (p) { p.classList.remove("sel"); });
+    }
+    root.querySelectorAll("[data-state]").forEach(function (b) {
+      b.addEventListener("click", function () { setState(b.getAttribute("data-state")); });
+    });
+    eye.querySelectorAll("[data-part]").forEach(function (p) {
+      p.addEventListener("click", function () {
+        var k = p.getAttribute("data-part");
+        eye.querySelectorAll("[data-part]").forEach(function (x) { x.classList.remove("sel"); });
+        p.classList.add("sel");
+        out.className = "cjv__out " + TXT[k].cls;
+        out.innerHTML = TXT[k].t;
+      });
+    });
+    setState("normal");
+  }
+
+  /* ---------- Viz 2 · Three Pink Eyes ---------- */
+  function initCjvThree() {
+    var root = document.querySelector("[data-cjvthree]");
+    if (!root) return;
+    var CASES = [
+      { a: "allergic", s: ["😖 심한 가려움", "👀 양쪽 눈", "💧 눈물", "🤧 코 가려움·재채기"], why: "<b>Allergic</b> — 양안 + 가려움 + 알레르기비염 동반. 알레르겐에 대한 면역반응이라 옮지 않습니다." },
+      { a: "viral", s: ["💧 물 같은 눈물", "🤧 감기 증상", "👁️ 한쪽에서 시작해 반대쪽으로", "😣 모래 들어간 느낌"], why: "<b>Viral</b> — watery discharge + 호흡기 증상 + 한쪽 → 반대쪽. 대부분 자연회복하며 항생제는 효과가 없습니다." },
+      { a: "bacterial", s: ["🟡 노랗고 끈적한 분비물", "🌅 아침에 눈꺼풀이 붙음", "🔴 충혈", "🔁 닦아도 다시 생김"], why: "<b>Bacterial</b> — mucopurulent discharge. 단, 눈곱만으로 확진하지 않으며 경증은 자연호전도 많습니다." }
+    ];
+    var box = root.querySelector(".cjv__case");
+    var prog = root.querySelector(".cjv__prog");
+    var out = root.querySelector(".cjv__out");
+    var next = root.querySelector("[data-cjv-next]");
+    var opts = root.querySelectorAll(".cjv__opt");
+    var idx = 0;
+    function show() {
+      box.innerHTML = CASES[idx].s.map(function (t) { return "<div>" + t + "</div>"; }).join("");
+      prog.textContent = (idx + 1) + " / " + CASES.length;
+      opts.forEach(function (o) { o.classList.remove("correct", "wrong"); o.disabled = false; });
+      out.className = "cjv__out";
+      out.textContent = "증상 조합을 보고 가장 가능성 높은 유형을 고르세요.";
+      next.style.display = "none";
+    }
+    opts.forEach(function (o) {
+      o.addEventListener("click", function () {
+        var c = CASES[idx];
+        var ok = o.getAttribute("data-ans") === c.a;
+        opts.forEach(function (x) {
+          x.disabled = true;
+          if (x.getAttribute("data-ans") === c.a) x.classList.add("correct");
+        });
+        if (!ok) o.classList.add("wrong");
+        out.className = "cjv__out " + (ok ? "ok" : "no");
+        out.innerHTML = (ok ? "✅ " : "❌ ") + c.why;
+        next.textContent = idx === CASES.length - 1 ? "↺ 처음부터" : "다음 눈 →";
+        next.style.display = "";
+      });
+    });
+    next.addEventListener("click", function () { idx = (idx + 1) % CASES.length; show(); });
+    show();
+  }
+
+  /* ---------- Viz 3 · Transmission Chain ---------- */
+  function initCjvChain() {
+    var root = document.querySelector("[data-cjvchain]");
+    if (!root) return;
+    var out = root.querySelector(".cjv__out");
+    var CUTS = { rub: ["rub"], wash: ["wash1", "wash2"], towel: ["towel"] };
+    var NAME = { rub: "눈 비비지 않기", wash: "손 씻기", towel: "수건 공유 안 하기" };
+    var on = {};
+    function render() {
+      var cut = {};
+      Object.keys(on).forEach(function (k) { if (on[k]) CUTS[k].forEach(function (l) { cut[l] = true; }); });
+      root.querySelectorAll("[data-link]").forEach(function (l) { l.classList.toggle("cut", !!cut[l.getAttribute("data-link")]); });
+      root.querySelectorAll("[data-stop]").forEach(function (b) { b.classList.toggle("on", !!on[b.getAttribute("data-stop")]); });
+      var names = Object.keys(on).filter(function (k) { return on[k]; }).map(function (k) { return NAME[k]; });
+      if (!names.length) { out.className = "cjv__out"; out.textContent = "전파 경로가 열려 있습니다."; return; }
+      if (names.length === 3) { out.className = "cjv__out ok"; out.innerHTML = "✅ <b>세 곳을 모두 차단</b> — 가장 확실한 예방입니다. 결막염 예방은 눈보다 <b>손 관리</b>가 중요합니다."; return; }
+      out.className = "cjv__out mid";
+      out.innerHTML = "🔗 <b>" + names.join(" + ") + "</b>로 chain이 끊겼습니다. 다른 경로가 남아 있으니 나머지도 막아 보세요.";
+    }
+    root.querySelectorAll("[data-stop]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-stop");
+        on[k] = !on[k];
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz 4 · Symptom Matcher (탭으로 chip → 칸) ---------- */
+  function initCjvMatch() {
+    var root = document.querySelector("[data-cjvmatch]");
+    if (!root) return;
+    var chips = root.querySelectorAll(".cjv__chip");
+    var out = root.querySelector(".cjv__out");
+    var NAME = { viral: "Viral", bacterial: "Bacterial", allergic: "Allergic", flag: "Red Flag" };
+    var sel = null, done = 0;
+    chips.forEach(function (c) {
+      c.addEventListener("click", function () {
+        if (sel) sel.classList.remove("sel");
+        sel = c;
+        c.classList.add("sel");
+        out.className = "cjv__out";
+        out.innerHTML = "<b>" + c.textContent + "</b> — 어울리는 칸을 탭하세요. (" + done + " / " + chips.length + ")";
+      });
+    });
+    root.querySelectorAll("[data-bin]").forEach(function (bin) {
+      bin.addEventListener("click", function () {
+        if (!sel) { out.className = "cjv__out"; out.textContent = "먼저 증상 chip을 탭하세요."; return; }
+        var ans = sel.getAttribute("data-ans");
+        var key = bin.getAttribute("data-bin");
+        if (ans !== key) {
+          bin.classList.add("shake");
+          setTimeout(function () { bin.classList.remove("shake"); }, 400);
+          out.className = "cjv__out no";
+          out.innerHTML = "❌ <b>" + sel.textContent + "</b>은(는) " + NAME[key] + " 쪽이 아니에요. 다시 골라보세요.";
+          return;
+        }
+        var tag = document.createElement("i");
+        tag.textContent = sel.textContent;
+        bin.querySelector(".cjv__bin-list").appendChild(tag);
+        sel.classList.remove("sel");
+        sel.classList.add("placed");
+        sel = null;
+        done++;
+        out.className = "cjv__out ok";
+        out.innerHTML = done === chips.length
+          ? "✅ 모두 완료! 가려움 → Allergic · 물 같은 눈물 → Viral · 끈적한 분비물 → Bacterial · <b>통증·눈부심·시력저하 → Red Flag</b>"
+          : "✅ 맞아요 — " + NAME[key] + " 쪽입니다. (" + done + " / " + chips.length + ")";
+      });
+    });
+  }
+
+  /* ---------- Viz 5 · Red Eye Triage ---------- */
+  function initCjvTriage() {
+    var root = document.querySelector("[data-cjvtriage]");
+    if (!root) return;
+    var STEPS = [
+      { q: "심한 눈 통증이 있나요?", yes: "red" },
+      { q: "빛을 보면 아프거나 눈을 뜨기 힘든가요? (photophobia)", yes: "red" },
+      { q: "닦아도 흐린 시야가 지속되거나 시력이 떨어졌나요?", yes: "red" },
+      { q: "콘택트렌즈를 착용하나요?", yes: "lens" },
+      { q: "양쪽 눈이 심하게 가렵나요?", yes: "allergic" },
+      { q: "물 같은 눈물이 나고 감기·접촉력이 있나요?", yes: "viral" },
+      { q: "노랗고 끈적한 고름성 분비물이 뚜렷한가요?", yes: "bacterial" }
+    ];
+    var RES = {
+      red: { cls: "no", t: "🚨 <b>Simple conjunctivitis라고 가정하지 말 것</b> — 통증·눈부심·시력저하는 각막염 등을 생각하게 합니다. → 안과 평가" },
+      lens: { cls: "no", t: "👓 <b>렌즈를 빼고 각막염 위험을 확인</b> — 통증·눈부심·시야 흐림이 있으면 신속한 안과 평가. 증상이 있는 동안 렌즈 착용 중단." },
+      allergic: { cls: "ok", t: "🌼 <b>Allergic 가능성 ↑</b> — 알레르겐 회피 + 냉찜질 + 인공눈물 + 점안 antihistamine / mast-cell stabilizer. 옮지 않습니다." },
+      viral: { cls: "ok", t: "🤧 <b>Viral 가능성 ↑</b> — 증상 완화 + 전염 예방 + 경과 관찰. 항생제는 효과가 없고 손 관리가 중요합니다." },
+      bacterial: { cls: "mid", t: "🦠 <b>Bacterial 고려</b> — 경증은 자연호전도 많고, 일부에서 topical antibiotic을 고려합니다. 분비물 하나만으로 확진하지 않습니다." },
+      unclear: { cls: "mid", t: "❓ <b>뚜렷한 유형 없음</b> — 지속되거나 악화되면 진료를 권하고, 그동안 인공눈물·냉찜질·손 관리를 합니다." }
+    };
+    var prog = root.querySelector(".cjv__prog");
+    var qEl = root.querySelector(".cjv__q");
+    var opts = root.querySelector(".cjv__opts");
+    var out = root.querySelector(".cjv__out");
+    var idx = 0;
+    function ask() {
+      opts.style.display = "";
+      qEl.textContent = STEPS[idx].q;
+      prog.textContent = (idx + 1) + " / " + STEPS.length;
+      out.className = "cjv__out";
+      out.textContent = "";
+    }
+    function result(k) {
+      opts.style.display = "none";
+      prog.textContent = "결과";
+      qEl.textContent = "RED EYE → 판단";
+      out.className = "cjv__out " + RES[k].cls;
+      out.innerHTML = RES[k].t;
+    }
+    root.querySelectorAll("[data-yn]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.getAttribute("data-yn") === "yes") { result(STEPS[idx].yes); return; }
+        idx++;
+        if (idx >= STEPS.length) result("unclear"); else ask();
+      });
+    });
+    root.querySelector("[data-cjv-reset]").addEventListener("click", function () { idx = 0; ask(); });
+    ask();
+  }
+
+  /* ---------- Viz 6 · Eyedrop Simulator ---------- */
+  function initCjvDrop() {
+    var root = document.querySelector("[data-cjvdrop]");
+    if (!root) return;
+    var wrap = root.querySelector(".cjv__drop");
+    var bottle = root.querySelector(".cjv__bottle");
+    var out = root.querySelector(".cjv__out");
+    var POS = {
+      cornea: { x: 100, y: 90, cls: "no", t: "❌ <b>각막 위로 직접</b> — 용기 끝이 눈에 가까워 오염·자극 위험이 큽니다. 각막에 직접 떨어뜨리려 하지 않습니다." },
+      lash: { x: 38, y: 115, cls: "no", t: "❌ <b>용기 끝이 속눈썹에 닿음</b> — 용기가 오염되어 다시 눈에 병원체가 들어갈 수 있습니다." },
+      sac: { x: 110, y: 117, cls: "ok", t: "✅ <b>아래 눈꺼풀을 당긴 pocket</b>(conjunctival sac)에 닿지 않게 1방울. <b>한 방울이면 충분합니다.</b>" }
+    };
+    root.querySelectorAll("[data-pos]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-pos"), p = POS[k];
+        bottle.style.transform = "translate(" + p.x + "px, " + p.y + "px) rotate(65deg)";
+        wrap.className = "cjv__drop is-" + p.cls;
+        out.className = "cjv__out " + p.cls;
+        out.innerHTML = p.t;
+        root.querySelectorAll("[data-pos]").forEach(function (x) { x.classList.toggle("active", x === b); });
+      });
+    });
+  }
+
+  /* ---------- Viz 7 · Contact Lens Danger Card ---------- */
+  function initCjvLens() {
+    var root = document.querySelector("[data-cjvlens]");
+    if (!root) return;
+    var out = root.querySelector(".cjv__out");
+    var sel = {};
+    function render() {
+      var danger = (sel.pain && sel.photo) || sel.vision;
+      var any = sel.red || sel.pain || sel.photo || sel.vision;
+      root.classList.toggle("is-danger", !!danger);
+      if (danger) {
+        out.className = "cjv__out no";
+        out.innerHTML = "<div class='cjv__alert'>🚨 CORNEAL INFECTION?<br>빠른 안과 평가</div><b>렌즈를 즉시 제거</b>하세요. 렌즈 + 통증 + 눈부심 또는 시야 변화는 감염성 각막염의 warning pattern이며 영구적 시력저하로 이어질 수 있습니다.";
+      } else if (sel.pain || sel.photo) {
+        out.className = "cjv__out mid";
+        out.innerHTML = "⚠️ <b>렌즈를 제거</b>하고 상태를 확인하세요. 통증이나 눈부심이 있으면 단순 결막염으로 단정하지 말고 안과 평가를 권합니다.";
+      } else if (sel.red) {
+        out.className = "cjv__out ok";
+        out.innerHTML = "<b>렌즈를 제거하고 상태 확인</b> — 통증·눈부심·시야 변화가 생기면 바로 안과 평가. 증상이 있는 동안 렌즈 착용을 중단합니다.";
+      } else {
+        out.className = "cjv__out";
+        out.textContent = any ? "" : "증상을 선택하세요.";
+      }
+    }
+    root.querySelectorAll("[data-sx]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-sx");
+        sel[k] = !sel[k];
+        b.classList.toggle("active", sel[k]);
+        render();
+      });
+    });
+  }
 
   /* =========================================================
      ===========  Everyday 05 · 알레르기비염  ===========

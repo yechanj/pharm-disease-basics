@@ -158,6 +158,24 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 7,
+    category: "everyday",
+    href: "lessons/everyday/07.html",
+    title: "다래끼 (Stye · Hordeolum)",
+    desc: "\"아픈가? 국소적인가, 눈꺼풀 전체로 퍼지는가?\" 다래끼·콩다래끼·결막염 구별, 온찜질이 핵심인 이유, 짜면 안 되는 이유, 항생제 안약이 필수가 아닌 이유, OTC 다래끼 연고의 성분, 안와주위염 Red Flag까지.",
+    tags: ["다래끼 vs 콩다래끼", "온찜질 원리", "짜지 않기", "항생제 필수 아님", "Cellulitis Red Flag"],
+    status: "ready"
+  },
+  {
+    no: 6,
+    category: "everyday",
+    href: "lessons/everyday/06.html",
+    title: "결막염 (Conjunctivitis)",
+    desc: "\"눈이 빨갛다\"보다 먼저 통증·눈부심·시력저하를 확인하는 Red Eye Triage. 바이러스성·세균성·알레르기성 감별, \"눈곱 = 항생제 안약\" 공식의 오류, 콘택트렌즈와 각막염, 스테로이드 안약 주의, 점안법까지.",
+    tags: ["Red Eye Triage", "바이러스·세균·알레르기", "항생제 안약 오해", "렌즈·각막염", "점안법"],
+    status: "ready"
+  },
+  {
     no: 5,
     category: "everyday",
     href: "lessons/everyday/05.html",
