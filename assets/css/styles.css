@@ -3606,3 +3606,274 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
 .sty__spreadviz.is-orbital .sty__lidzone { fill: rgba(229, 72, 77, .55); }
 .sty__spreadviz.is-orbital .sty__globe { transform: scale(1.25); }
 .sty__spreadviz.is-orbital .sty__arrows { opacity: 1; }
+
+
+/* ===================================================================
+   Core 16 · 설사 (dia__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+/* --- Viz 2 · osmotic vs secretory --- */
+.dia__duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.dia__side { padding: 12px 10px; border-radius: 12px; border: 1.5px solid var(--hi); background: var(--hi-soft); text-align: center; transition: background .3s, border-color .3s; }
+.dia__side small { display: block; font-size: 11.5px; color: var(--ink-soft); line-height: 1.45; margin-top: 6px; }
+.dia__side.is-calm { border-color: var(--ok); background: var(--ok-soft); }
+.dia__side.is-bad { border-color: var(--hi); box-shadow: 0 0 0 3px var(--hi-soft); }
+.dia__side-title { font-size: 13.5px; font-weight: 800; margin-bottom: 6px; }
+.dia__tokens { font-size: 13px; font-weight: 800; color: var(--ink-soft); min-height: 24px; letter-spacing: 1px; }
+.dia__drops { font-size: 17px; min-height: 30px; line-height: 1.5; word-break: break-all; }
+
+/* --- Viz 6 · microbiome --- */
+.dia__biome { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; padding: 12px; border-radius: 14px 14px 0 0; background: var(--surface-2); border: 1.5px solid var(--line); border-bottom: 0; }
+.dia__bug { aspect-ratio: 1; border-radius: 50%; transition: background .4s, transform .4s, opacity .4s; }
+.dia__bug--0 { background: var(--gp); }
+.dia__bug--1 { background: var(--gn); }
+.dia__bug--2 { background: var(--anaerobe); }
+.dia__bug--3 { background: var(--pseudo); }
+.dia__bug--gone { background: var(--line); opacity: .45; transform: scale(.55); }
+.dia__bug--cd { background: var(--hi); border-radius: 30%; transform: scale(1.05); }
+.dia__wall { padding: 8px; text-align: center; font-size: 12px; font-weight: 700; color: #fff; background: #d9a38f; border-radius: 0 0 14px 14px; transition: background .4s; }
+.dia__wall.is-inflamed { background: var(--hi); }
+
+/* --- slider (Viz 7 · Viz 12) --- */
+.dia__slider { margin: 8px 0; }
+.dia__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.dia__slider label b { color: var(--ink); }
+.dia__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 7 · dehydration gauge --- */
+.dia__gauge { position: relative; height: 16px; margin: 14px 0 4px; border-radius: 999px; background: linear-gradient(90deg, var(--ok) 0 30%, var(--mid) 30% 64%, var(--hi) 64% 100%); }
+.dia__gauge i { position: absolute; top: -5px; width: 6px; height: 26px; margin-left: -3px; border-radius: 3px; background: var(--ink); box-shadow: 0 0 0 2px var(--surface); transition: left .4s ease; }
+.dia__gauge-lab { display: grid; grid-template-columns: 30% 34% 36%; font-size: 11px; font-weight: 700; color: var(--ink-faint); text-align: center; }
+.dia__signs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+.dia__signs > div { padding: 8px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); text-align: center; }
+.dia__signs small { display: block; font-size: 11px; color: var(--ink-faint); }
+.dia__signs b { font-size: 13px; }
+
+/* --- Viz 9 · SGLT1 --- */
+.dia__sglt { display: grid; grid-template-columns: 1fr 72px 1fr; gap: 6px; align-items: stretch; margin-bottom: 12px; }
+.dia__sglt-box { padding: 10px 8px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; font-size: 13.5px; font-weight: 800; }
+.dia__sglt-box small { display: block; font-size: 11px; font-weight: 700; color: var(--ink-faint); margin-bottom: 4px; }
+.dia__sglt-gate { display: flex; align-items: center; justify-content: center; border-radius: 10px; font-size: 12px; font-weight: 800; background: var(--line); color: var(--ink-faint); transition: background .3s, color .3s; }
+.dia__sglt-gate.is-on { background: var(--brand); color: #fff; }
+
+/* --- Viz 11 · chronic sorter --- */
+.dia__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.dia__card { padding: 12px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.dia__card p { font-size: 13px; margin: 0 0 8px; line-height: 1.55; }
+.dia__card.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.dia__card.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.dia__bins { display: flex; flex-wrap: wrap; gap: 5px; }
+.dia__bin { flex: 1 1 auto; font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 6px 8px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.dia__bin.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.dia__bin.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.dia__fb { font-size: 12.5px; line-height: 1.55; margin-top: 6px; }
+.dia__fb:empty { display: none; }
+
+/* --- Viz 12 · gap --- */
+.dia__gapnum { text-align: center; font-size: 15px; font-weight: 700; margin: 8px 0 12px; }
+.dia__gapnum b { font-size: 28px; color: var(--brand); }
+
+@media (max-width: 520px) {
+  .dia__duo, .dia__cards { grid-template-columns: 1fr; }
+  .dia__sglt { grid-template-columns: 1fr 56px 1fr; }
+}
+
+
+/* ===================================================================
+   Core 17 · 담석증 (gbs__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+/* --- 담도 해부 SVG (Viz 1 · Viz 6) --- */
+.gbs__anat { max-width: 440px; margin: 4px auto 12px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); padding: 6px; }
+.gbs__anat svg { display: block; width: 100%; height: auto; }
+.gbs__lbl { font-size: 12px; font-weight: 800; fill: #7a3e2a; text-anchor: middle; }
+.gbs__lbl--s { font-size: 9.5px; fill: var(--ink-soft); }
+.gbs__gblbl { fill: #4d6614; transition: opacity .4s; }
+.gbs__liver { fill: #e9bba9; stroke: #c98b74; stroke-width: 2; transition: fill .5s; }
+.gbs__duo { fill: #f3d9c8; stroke: #c9a58f; stroke-width: 2; }
+.gbs__panc { fill: #f6e2b6; stroke: #d4b46d; stroke-width: 2; transition: fill .4s, stroke .4s; }
+.gbs__duct { fill: none; stroke: #8fae3a; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; transition: stroke-width .5s, stroke .5s; }
+.gbs__duct--cystic { stroke-width: 5; }
+.gbs__duct--panc { stroke: #d4b46d; stroke-width: 4; }
+.gbs__gbwrap { transform-box: view-box; transform-origin: 205px 150px; transition: transform .6s ease, opacity .4s; }
+.gbs__gb { fill: #d5e7a3; stroke: #8fae3a; stroke-width: 2.5; transition: fill .4s, stroke .4s, stroke-width .4s; }
+.gbs__oddi { fill: var(--hi); stroke: #fff; stroke-width: 1.5; transition: fill .4s; }
+.gbs__gbstones circle { fill: #8b5a2b; }
+.gbs__stone { fill: #8b5a2b; stroke: #fff; stroke-width: 1.5; transform-box: view-box; transition: transform .6s ease; }
+.gbs__bugs circle { fill: var(--hi); }
+.gbs__bugs { opacity: 0; transition: opacity .4s; }
+.gbs__flow { fill: none; stroke: #4d6614; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 8; opacity: 0; transition: opacity .3s; animation: gbs-flow 1s linear infinite; }
+@keyframes gbs-flow { to { stroke-dashoffset: -20; } }
+
+/* Viz 1 상태 */
+.j-fast .gbs__flow--gb { opacity: 1; }
+.j-meal .gbs__flow--cbd { opacity: 1; animation-duration: .5s; }
+.j-meal .gbs__gbwrap { transform: scale(.72); }
+.j-meal .gbs__oddi, .j-none .gbs__oddi { fill: var(--ok); }
+.j-none .gbs__flow--cbd { opacity: 1; animation-duration: 1.6s; }
+.j-none .gbs__gbwrap, .j-none .gbs__gblbl { opacity: 0; }
+
+/* Viz 6 상태 */
+.st-gb .gbs__gb { fill: #d5e7a3; }
+.st-colic .gbs__gb { fill: var(--mid-soft); stroke: var(--mid); }
+.st-chole .gbs__gb { fill: var(--hi-soft); stroke: var(--hi); stroke-width: 4; }
+.st-chole .gbs__gbwrap { transform: scale(1.08); }
+.st-cbd .gbs__duct--up, .st-cbd .gbs__duct--cbd,
+.st-cholang .gbs__duct--up, .st-cholang .gbs__duct--cbd,
+.st-panc .gbs__duct--up, .st-panc .gbs__duct--cbd { stroke-width: 10; }
+.st-cbd .gbs__liver, .st-cholang .gbs__liver, .st-panc .gbs__liver { fill: #f1d36a; }
+.st-cholang .gbs__duct--up, .st-cholang .gbs__duct--cbd { stroke: var(--hi); }
+.st-cholang .gbs__bugs { opacity: 1; }
+.st-panc .gbs__panc { fill: var(--hi-soft); stroke: var(--hi); }
+.st-panc .gbs__duct--panc { stroke: var(--hi); stroke-width: 6; }
+
+.gbs__locs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.gbs__locs button { font-family: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; padding: 9px 6px; border-radius: 9px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.gbs__locs button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.gbs__cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.gbs__cards3 > div { padding: 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.gbs__cards3 small { display: block; font-size: 11px; font-weight: 800; color: var(--brand); margin-bottom: 3px; }
+.gbs__cards3 p { font-size: 12.5px; line-height: 1.55; margin: 0; }
+
+/* --- slider (Viz 2 · Viz 5) --- */
+.gbs__slider { margin: 8px 0; }
+.gbs__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.gbs__slider label b { color: var(--ink); }
+.gbs__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 2 · jar --- */
+.gbs__jar { margin: 12px auto; max-width: 280px; height: 96px; border-radius: 48px; border: 2.5px solid #8fae3a; background: #eef5d6; padding: 10px 22px; }
+.gbs__jar-in { height: 100%; display: flex; flex-wrap: wrap; align-items: flex-end; align-content: flex-end; justify-content: center; gap: 4px; }
+.gbs__jar-in i { display: block; border-radius: 45%; background: #c9a227; box-shadow: inset -2px -2px 0 rgba(0,0,0,.18); }
+
+/* --- Viz 3 · targets --- */
+.gbs__targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+
+/* --- Viz 4 · lane --- */
+.gbs__lane { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px; }
+.gbs__slot { padding: 10px 6px; min-height: 66px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface-2); text-align: center; font-size: 22px; transition: background .3s, border-color .3s; }
+.gbs__slot small { display: block; font-size: 11px; font-weight: 700; color: var(--ink-faint); }
+.gbs__slot:last-child span { font-size: 12px; font-weight: 700; color: var(--ok); }
+.gbs__slot.is-block { border-color: var(--hi); background: var(--hi-soft); }
+
+/* --- Viz 5 · badges / Viz 9 · state --- */
+.gbs__badges, .gbs__state { display: grid; gap: 8px; margin: 12px 0; }
+.gbs__badges { grid-template-columns: repeat(3, 1fr); }
+.gbs__state { grid-template-columns: 1fr 1fr; margin-top: 0; }
+.gbs__badges > div, .gbs__state > div { padding: 9px 8px; border-radius: 10px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; transition: background .3s, border-color .3s; }
+.gbs__badges small, .gbs__state small { display: block; font-size: 11px; color: var(--ink-faint); }
+.gbs__badges b, .gbs__state b { font-size: 13px; }
+.gbs__badges > div.is-on, .gbs__state > div.is-bad { background: var(--hi-soft); border-color: var(--hi); }
+.gbs__state > div.is-mid { background: var(--mid-soft); border-color: var(--mid); }
+.gbs__state > div.is-ok { background: var(--ok-soft); border-color: var(--ok); }
+.gbs__bileline { text-align: center; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+
+/* --- Viz 10 · where quiz --- */
+.gbs__qlist { display: grid; gap: 10px; margin-bottom: 12px; }
+.gbs__q { padding: 12px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.gbs__q p { font-size: 13px; margin: 0 0 8px; line-height: 1.55; font-weight: 700; }
+.gbs__q.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.gbs__q.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.gbs__opts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.gbs__opt { font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 7px 4px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.gbs__opt.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.gbs__opt.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.gbs__fb { font-size: 12.5px; line-height: 1.55; margin-top: 6px; }
+.gbs__fb:empty { display: none; }
+
+@media (max-width: 520px) {
+  .gbs__cards3 { grid-template-columns: 1fr; }
+  .gbs__locs { grid-template-columns: 1fr 1fr; }
+  .gbs__opts { grid-template-columns: 1fr 1fr; }
+}
+
+
+/* ===================================================================
+   Core 18 · 간염 (hep__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+/* --- Viz 2 · injury vs function --- */
+.hep__duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+.hep__box { padding: 10px 12px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); }
+.hep__box-title { font-size: 12.5px; font-weight: 800; color: var(--brand); margin-bottom: 2px; }
+.hep__box .cst__meter { grid-template-columns: 64px 1fr; }
+
+/* --- Viz 3 · bilirubin chain --- */
+.hep__chain { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-bottom: 12px; }
+.hep__chain span { padding: 7px 10px; border-radius: 9px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 12px; font-weight: 700; transition: background .3s, border-color .3s; }
+.hep__chain span + span::before { content: "→ "; color: var(--ink-faint); }
+.hep__chain span.is-bad { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+.hep__signs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
+.hep__signs > div { padding: 8px 4px; border-radius: 10px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; transition: background .3s, border-color .3s; }
+.hep__signs small { display: block; font-size: 10.5px; color: var(--ink-faint); line-height: 1.3; }
+.hep__signs b { font-size: 12.5px; }
+.hep__signs > div.is-bad { background: var(--mid-soft); border-color: var(--mid); }
+
+/* --- slider (Viz 5) --- */
+.hep__slider { margin: 8px 0; }
+.hep__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.hep__slider label b { color: var(--ink); }
+.hep__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 4 · HAV life --- */
+.hep__life { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.hep__life span { padding: 8px 11px; border-radius: 9px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 12.5px; font-weight: 700; }
+.hep__life span + span::before { content: "→ "; color: var(--ink-faint); }
+.hep__life span.is-ok { background: var(--ok-soft); border-color: var(--ok); }
+.hep__nochronic { margin-top: 10px; padding: 9px 12px; border-radius: 10px; border: 1.5px dashed var(--hi); color: var(--hi); font-size: 13px; font-weight: 700; }
+
+/* --- Viz 6 · serology --- */
+.hep__toggles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.hep__toggles button { font-family: inherit; font-size: 13px; font-weight: 700; cursor: pointer; padding: 12px 6px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.hep__toggles button b { display: block; font-size: 22px; line-height: 1.2; }
+.hep__toggles button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.hep__verdict { text-align: center; font-size: 18px; font-weight: 800; padding: 10px; border-radius: 12px; margin-bottom: 10px; background: var(--surface-2); }
+.hep__verdict.is-ok { color: var(--ok); background: var(--ok-soft); }
+.hep__verdict.is-mid { color: var(--mid); background: var(--mid-soft); }
+.hep__verdict.is-bad { color: var(--hi); background: var(--hi-soft); }
+
+/* --- Viz 7 · HBV natural history --- */
+.hep__nh { display: grid; gap: 4px; justify-items: center; }
+.hep__nh > div { padding: 7px 14px; border-radius: 9px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 13px; font-weight: 700; text-align: center; }
+.hep__nh > div + div::before { content: "↓"; display: block; font-size: 11px; color: var(--ink-faint); line-height: 1; margin-bottom: 2px; }
+.hep__nh > div.is-bad, .hep__nh span.is-bad { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+.hep__nh > .hep__nh-split { display: flex; gap: 12px; padding: 0; border: 0; background: none; }
+.hep__nh-split::before { display: none !important; }
+.hep__nh span { padding: 7px 14px; border-radius: 9px; border: 1.5px solid; }
+.hep__nh-direct { margin-top: 10px; text-align: center; padding: 8px; border-radius: 10px; border: 1.5px dashed var(--hi); color: var(--hi); font-size: 13px; }
+
+/* --- Viz 8 · blocked step --- */
+.cst__step.hep__blocked { color: var(--hi); border-color: var(--hi); background: var(--hi-soft); text-decoration: line-through; opacity: .75; }
+
+/* --- Viz 12 · ABC cards --- */
+.hep__abc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 10px; }
+.hep__abc-card { padding: 12px 8px; border-radius: 12px; text-align: center; border: 2px solid; min-height: 118px; }
+.hep__abc-card p { font-size: 12.5px; line-height: 1.5; margin: 6px 0 0; }
+.hep__abc-l { font-size: 26px; font-weight: 800; line-height: 1; }
+.hep__abc-card--a { border-color: var(--ok); background: var(--ok-soft); }
+.hep__abc-card--a .hep__abc-l { color: var(--ok); }
+.hep__abc-card--b { border-color: var(--mid); background: var(--mid-soft); }
+.hep__abc-card--b .hep__abc-l { color: var(--mid); }
+.hep__abc-card--c { border-color: var(--brand); background: var(--brand-soft); }
+.hep__abc-card--c .hep__abc-l { color: var(--brand); }
+
+/* --- Viz 13 · lab decoder --- */
+.hep__labs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.hep__lab { padding: 10px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.hep__lab > b { display: block; font-size: 15px; margin-bottom: 6px; }
+.hep__lab.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.hep__lab.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.hep__bins { display: flex; flex-wrap: wrap; gap: 4px; }
+.hep__bin { flex: 1 1 auto; font-family: inherit; font-size: 10.5px; font-weight: 800; cursor: pointer; padding: 6px 4px; border-radius: 7px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.hep__bin.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.hep__bin.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.hep__fb { font-size: 12px; line-height: 1.5; margin-top: 6px; }
+.hep__fb:empty { display: none; }
+
+@media (max-width: 520px) {
+  .hep__duo, .hep__labs { grid-template-columns: 1fr; }
+  .hep__signs { grid-template-columns: repeat(3, 1fr); }
+  .hep__abc { gap: 5px; }
+  .hep__abc-card { padding: 10px 5px; }
+  .hep__abc-card p { font-size: 11.5px; }
+}

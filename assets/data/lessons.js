@@ -158,6 +158,33 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 16,
+    category: "core",
+    href: "lessons/core/16.html",
+    title: "설사 (Diarrhea)",
+    desc: "\"설사는 빨리 멈춰야 한다\"를 넘어, 장의 수분 균형과 SGLT1 → osmotic·secretory·inflammatory·motility 네 기전 → 감염성·약물성 설사와 C. difficile → 탈수와 ORS가 물보다 나은 이유 → loperamide를 써도 되는 환자와 피해야 하는 환자 → 항생제가 대부분 필요 없는 이유와 STEC → 4주 이상 지속되는 만성설사 감별까지.",
+    tags: ["4가지 기전", "ORS·SGLT1", "loperamide safety gate", "C. difficile", "만성설사 감별"],
+    status: "ready"
+  },
+  {
+    no: 17,
+    category: "core",
+    href: "lessons/core/17.html",
+    title: "담석증 (Gallstone Disease)",
+    desc: "\"돌이 있다\"보다 \"돌이 어디를 막았나\". 담즙 생성·저장과 CCK → cholesterol·pigment stone이 생기는 이유와 약물 위험인자 → 담낭관을 잠깐 막으면 산통, 계속 막으면 담낭염, 총담관이면 황달, 감염이 더해지면 담관염, 팽대부면 췌장염 → 초음파·MRCP·EUS·ERCP의 역할 → 담낭절제술과 ERCP가 서로 다른 것을 치료하는 이유, UDCA의 현실까지.",
+    tags: ["돌의 위치 = 진단", "산통 vs 담낭염", "담관염·source control", "US→MRCP/EUS→ERCP", "담낭절제술 vs ERCP"],
+    status: "ready"
+  },
+  {
+    no: 18,
+    category: "core",
+    href: "lessons/core/18.html",
+    title: "간염 (Hepatitis)",
+    desc: "\"간수치가 높다\"에서 끝내지 않기. AST/ALT는 손상, albumin·INR은 기능이라는 구분 → bilirubin과 황달 → A형(급성만)·B형(만성 가능, 억제)·C형(만성 흔함, 완치)의 차이 → HBV 혈청검사 읽기와 cccDNA, tenofovir·entecavir·besifovir → 면역억제 전 HBV 재활성화 → HCV 검사와 DAA의 표적·상호작용까지.",
+    tags: ["손상 vs 기능", "A·B·C 비교", "HBV 혈청검사", "cccDNA·억제 치료", "HBV 재활성화", "DAA·상호작용"],
+    status: "ready"
+  },
+  {
     no: 7,
     category: "everyday",
     href: "lessons/everyday/07.html",

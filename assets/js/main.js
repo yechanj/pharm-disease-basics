@@ -1026,6 +1026,41 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // Core 18 · 간염
+    initHepInjury();
+    initHepBili();
+    initHepImmune();
+    initHepSero();
+    initHepNuc();
+    initHepReact();
+    initHepHcv();
+    initHepDaa();
+    initHepAbc();
+    initHepLab();
+    initHepDetective();
+    // Core 17 · 담석증
+    initGbsJourney();
+    initGbsBuilder();
+    initGbsRisk();
+    initGbsColic();
+    initGbsTime();
+    initGbsMap();
+    initGbsCholang();
+    initGbsImaging();
+    initGbsErcp();
+    initGbsWhere();
+    // Core 16 · 설사
+    initDiaWater();
+    initDiaOsmSec();
+    initDiaMed();
+    initDiaCdi();
+    initDiaDehyd();
+    initDiaTriage();
+    initDiaOrs();
+    initDiaLope();
+    initDiaChronic();
+    initDiaGap();
+    initDiaSim();
     // Everyday 07 · 다래끼
     initStyAnat();
     initStyPath();
@@ -3563,6 +3598,1063 @@
 
 
   /* ===========  Core 13 · 소화성궤양 인터랙션  =========== */
+
+  /* =====================================================================
+     Core 18 · 간염  (cst__ 공용 UI 재사용 + hep__ 전용)
+     ===================================================================== */
+
+  /* ---------- Viz 2 · Injury vs Function ---------- */
+  function initHepInjury() {
+    var root = document.querySelector("[data-hepinjury]");
+    if (!root) return;
+    var M = {
+      normal: [5, 5, 10, 85, 10, "ok", "<b>정상</b> — 손상도 없고 기능도 정상입니다."],
+      acute: [95, 80, 45, 80, 15, "mid", "<b>급성 간염</b> — ALT ↑↑↑. 하지만 albumin은 반감기(약 3주)가 길어 초기엔 거의 정상이고, INR도 정상일 수 있습니다. <b>손상은 크지만 기능은 아직 유지</b>되는 상태."],
+      cirr: [20, 25, 40, 35, 55, "bad", "<b>간경변</b> — 남은 간세포가 적어 AST/ALT는 정상–약간 상승. 그런데 albumin ↓ · INR ↑ · bilirubin ↑. <b>\"간수치 정상 = 간 건강\"이 아닙니다.</b>"],
+      alf: [40, 45, 85, 60, 95, "bad", "<b>급성 간부전(후기)</b> — 간세포가 대량으로 죽어 효소를 내보낼 세포 자체가 줄어 AST/ALT가 떨어지기 시작하는데, <b>INR ↑↑ · bilirubin ↑↑ · 뇌증</b>. 응급입니다."]
+    };
+    function show(k) {
+      var d = M[k];
+      root.querySelectorAll("[data-mode]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-mode") === k); });
+      ["alt", "ast", "bil", "alb", "inr"].forEach(function (key, i) { cstEl(root, key).style.width = d[i] + "%"; });
+      cstOut(cstEl(root, "out"), d[6], d[5]);
+    }
+    root.querySelectorAll("[data-mode]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-mode")); });
+    });
+    show("normal");
+  }
+
+  /* ---------- Viz 3 · Bilirubin Journey ---------- */
+  function initHepBili() {
+    var root = document.querySelector("[data-hepbili]");
+    if (!root) return;
+    /* [unc, con, eye, urine, stool] — 두 번째 값 true면 이상 */
+    var M = {
+      normal: { node: null, s: [["정상", 0], ["정상", 0], ["정상", 0], ["맑은 노랑", 0], ["갈색", 0]], tone: "ok", msg: "<b>정상</b> — 만들어진 bilirubin이 간에서 포합되어 담즙으로 빠져나갑니다." },
+      hemo: { node: "rbc", s: [["↑", 1], ["정상", 0], ["약간 노랑", 1], ["거의 정상", 0], ["정상–진함", 0]], tone: "mid", msg: "<b>용혈</b> — 적혈구가 많이 깨져 unconjugated bilirubin이 간의 처리 용량을 넘습니다. 지용성이라 <b>소변으로 나가지 못해 소변 색은 거의 그대로</b>입니다." },
+      hep: { node: "liver", s: [["↑", 1], ["↑", 1], ["노랑", 1], ["진함 (콜라색)", 1], ["옅어질 수 있음", 1]], tone: "bad", msg: "<b>간염</b> — 손상된 간세포가 섭취·포합·배출을 모두 못 해 두 형태가 함께 오릅니다. 수용성 conjugated bilirubin이 소변으로 나가 <b>소변이 진해집니다</b>." },
+      obs: { node: "bile", s: [["정상", 0], ["↑↑", 1], ["노랑", 1], ["진함", 1], ["회색 · 점토색", 1]], tone: "bad", msg: "<b>담도 폐쇄</b> (Core 17) — 포합은 됐지만 담즙으로 못 내려가 conjugated bilirubin이 역류합니다. 장에 색소가 가지 않아 <b>대변이 회색</b>이 됩니다." }
+    };
+    var KEYS = ["s-unc", "s-con", "s-eye", "s-urine", "s-stool"];
+    function show(k) {
+      var d = M[k];
+      root.querySelectorAll("[data-mode]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-mode") === k); });
+      root.querySelectorAll("[data-node]").forEach(function (n) { n.classList.toggle("is-bad", n.getAttribute("data-node") === d.node); });
+      KEYS.forEach(function (key, i) {
+        var el = cstEl(root, key);
+        el.querySelector("b").textContent = d.s[i][0];
+        el.classList.toggle("is-bad", !!d.s[i][1]);
+      });
+      cstOut(cstEl(root, "out"), d.msg, d.tone);
+    }
+    root.querySelectorAll("[data-mode]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-mode")); });
+    });
+    show("normal");
+  }
+
+  /* ---------- Viz 5 · HBV Immune Interaction ---------- */
+  function initHepImmune() {
+    var root = document.querySelector("[data-hepimmune]");
+    if (!root) return;
+    var LV = ["매우 낮음", "낮음", "보통", "높음", "매우 높음"];
+    var LI = ["매우 약함", "약함", "보통", "강함", "매우 강함"];
+    var v = { vir: 4, imm: 1 };
+    function update() {
+      cstEl(root, "v-vir").textContent = LV[v.vir];
+      cstEl(root, "v-imm").textContent = LI[v.imm];
+      var dna = 8 + v.vir * 22;
+      var alt = v.vir === 0 ? 8 : Math.min(95, 8 + v.imm * 21);
+      var fib = Math.min(95, Math.round(alt * 0.7 + v.vir * 6));
+      cstEl(root, "dna").style.width = dna + "%";
+      cstEl(root, "alt").style.width = alt + "%";
+      cstEl(root, "fib").style.width = fib + "%";
+      var out = cstEl(root, "out");
+      if (v.vir >= 3 && v.imm <= 1) cstOut(out, "<b>바이러스는 많은데 ALT는 정상일 수 있음</b> — 과거 \"immune-tolerant\"라 부르던 상태. 면역이 공격하지 않아 간수치는 조용합니다. 하지만 바이러스 양 자체가 장기 HCC 위험과 연결되어, <b>나이(40세 이상)나 섬유화</b>가 있으면 치료를 고려합니다.", "mid");
+      else if (v.vir >= 2 && v.imm >= 2) cstOut(out, "<b>바이러스 증식 + 강한 면역 공격</b> → ALT ↑ · 섬유화 진행 = 활동성 만성 B형간염. 치료 필요성이 큽니다.", "bad");
+      else if (v.vir <= 1 && v.imm >= 2) cstOut(out, "<b>면역이 바이러스를 강하게 누르는 중</b> — 바이러스는 줄었지만 그 과정에서 간염(ALT ↑)이 동반될 수 있습니다. HBeAg seroconversion 같은 전환기에 볼 수 있습니다.", "mid");
+      else cstOut(out, "<b>바이러스도 적고 공격도 약함</b> — 비활동성 상태(과거 \"비활동성 보유자\"). 치료보다 정기 추적이 중심입니다.", "ok");
+    }
+    root.querySelectorAll("input[data-k]").forEach(function (r) {
+      r.addEventListener("input", function () { v[r.getAttribute("data-k")] = +r.value; update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 6 · HBV Serology Builder ---------- */
+  function initHepSero() {
+    var root = document.querySelector("[data-hepsero]");
+    if (!root) return;
+    var st = { s: 0, c: 0, a: 0 };
+    var R = {
+      "000": ["Susceptible", "mid", "감염된 적도, 면역도 없습니다 → <b>B형간염 백신</b> 접종 대상입니다."],
+      "001": ["Vaccinated", "ok", "<b>백신으로 생긴 면역</b>. 백신은 HBsAg만 들어 있어 anti-HBs만 생기고 anti-HBc는 생기지 않습니다."],
+      "011": ["Past infection · recovered", "ok", "<b>감염을 겪고 회복</b>했습니다 (anti-HBc = 감염 흔적, anti-HBs = 면역). 하지만 간세포 안에 cccDNA가 남을 수 있어 <b>강한 면역억제 치료 시 재활성화</b> 대상입니다."],
+      "010": ["Isolated anti-HBc", "mid", "해석이 여러 가지입니다 — 과거 감염 후 anti-HBs가 사라진 경우(가장 흔함), 숨은(occult) 감염, 급성 감염 회복기(window), 위양성. 필요하면 HBV DNA를 확인하고, 면역억제 치료 시에는 <b>재활성화 위험군</b>으로 다룹니다."],
+      "110": ["Current infection", "bad", "<b>현재 HBV 감염</b>. 급성인지 만성인지는 IgM anti-HBc와 기간(6개월 이상 지속 → 만성)으로 구분합니다. 다음은 HBeAg · HBV DNA · ALT · 섬유화 평가."],
+      "100": ["Very early acute infection?", "mid", "<b>anti-HBc가 생기기 전의 매우 초기 급성 감염</b>일 수 있습니다. 백신 접종 직후 일시적으로 HBsAg가 검출되기도 합니다. 재검이 필요합니다."],
+      "111": ["Current infection (드문 조합)", "bad", "드물게 현재 감염이 있으면서 anti-HBs도 검출됩니다(다른 subtype에 대한 항체 등). <b>현재 감염으로 취급</b>해 평가합니다."],
+      "101": ["Atypical", "mid", "전형적이지 않은 조합 — 백신 직후 일시적 HBsAg 검출 등을 생각하고 재검합니다."]
+    };
+    function render() {
+      root.querySelectorAll("[data-m]").forEach(function (b) {
+        var on = !!st[b.getAttribute("data-m")];
+        b.classList.toggle("on", on);
+        b.querySelector("b").textContent = on ? "+" : "−";
+      });
+      var r = R["" + st.s + st.c + st.a];
+      var vd = cstEl(root, "verdict");
+      vd.textContent = r[0];
+      vd.className = "hep__verdict is-" + r[1];
+      cstOut(cstEl(root, "out"), r[2], r[1]);
+    }
+    root.querySelectorAll("[data-m]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-m"); st[k] = st[k] ? 0 : 1; render(); });
+    });
+    render();
+  }
+
+  /* ---------- Viz 8 · HBV Replication Block ---------- */
+  function initHepNuc() {
+    var root = document.querySelector("[data-hepnuc]");
+    if (!root) return;
+    var state = 0; /* 0 치료 전 · 1 복용 중 · 2 중단 */
+    function render() {
+      root.querySelectorAll("[data-step]").forEach(function (el) {
+        var n = +el.getAttribute("data-step");
+        el.classList.toggle("on", state !== 1 || n <= 1);
+        el.classList.toggle("cur", state === 1 && n === 0);
+        el.classList.toggle("hep__blocked", state === 1 && n >= 2);
+      });
+      root.querySelectorAll(".cst__chip").forEach(function (c) {
+        c.classList.toggle("on", (c.getAttribute("data-act") === "drug" && state === 1) || (c.getAttribute("data-act") === "stop" && state === 2));
+      });
+      cstEl(root, "dna").style.width = (state === 1 ? 5 : state === 2 ? 88 : 90) + "%";
+      cstEl(root, "ccc").style.width = (state === 1 ? 78 : 85) + "%";
+      var out = cstEl(root, "out");
+      if (state === 1) cstOut(out, "✅ <b>Polymerase(역전사) 차단</b> → 새 HBV DNA ↓↓ → 혈중 HBV DNA 미검출 가능. 하지만 <b>① cccDNA는 핵 안에 그대로</b> 남아 있습니다 (아주 천천히만 줄어듦).", "ok");
+      else if (state === 2) cstOut(out, "⚠️ <b>임의 중단</b> → 남아 있던 cccDNA에서 다시 복제 → HBV DNA rebound → 면역 공격 → <b>간염 악화(flare)</b>. 간경변 환자에서는 간부전으로 이어질 수 있습니다.", "bad");
+      else cstOut(out, "치료 전 — cccDNA를 주형으로 바이러스가 계속 만들어집니다.");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "stop" && state !== 1) { cstOut(cstEl(root, "out"), "먼저 약을 복용해 보세요."); return; }
+        state = a === "drug" ? 1 : a === "stop" ? 2 : 0;
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz 9 · HBV Reactivation ---------- */
+  function initHepReact() {
+    var root = document.querySelector("[data-hepreact]");
+    if (!root) return;
+    var stage = 0, prophy = false;
+    var NO = [
+      [5, 50, 8, "ok", "<b>과거 감염 · 조절됨</b> — 면역이 HBV를 cccDNA 상태로 눌러두고 있습니다. HBV DNA 미검출, 간수치 정상."],
+      [90, 10, 20, "mid", "<b>면역억제 치료 중</b> — 감시가 풀려 HBV 복제 ↑↑. 면역이 약해 아직 간 손상은 크지 않을 수 있습니다 — 폭풍 전야."],
+      [70, 95, 95, "bad", "<b>면역 회복</b> → 늘어난 감염 간세포를 한꺼번에 공격 → <b>심한 간염(flare)</b>, 간부전 가능. 항암 일정이 중단되기도 합니다."]
+    ];
+    var YES = [
+      [5, 50, 8, "ok", "<b>과거 감염 · 조절됨</b> — 면역억제 치료 시작과 함께 예방적 항바이러스제를 시작합니다."],
+      [8, 10, 10, "ok", "🛡️ 예방적 항바이러스제가 복제를 막아 <b>HBV DNA가 낮게 유지</b>됩니다."],
+      [10, 70, 15, "ok", "🛡️ 면역이 돌아와도 <b>공격할 바이러스가 적어 flare가 없습니다</b>. 예방 투여는 면역억제 종료 후에도 일정 기간(흔히 6–12개월, rituximab은 더 길게) 유지합니다."]
+    ];
+    function render() {
+      var d = (prophy ? YES : NO)[stage];
+      root.querySelectorAll("[data-stage]").forEach(function (x) { x.classList.toggle("on", +x.getAttribute("data-stage") === stage); });
+      cstEl(root, "dna").style.width = d[0] + "%";
+      cstEl(root, "imm").style.width = d[1] + "%";
+      cstEl(root, "alt").style.width = d[2] + "%";
+      cstOut(cstEl(root, "out"), d[4], d[3]);
+    }
+    root.querySelectorAll("[data-stage]").forEach(function (b) {
+      b.addEventListener("click", function () { stage = +b.getAttribute("data-stage"); render(); });
+    });
+    var pb = root.querySelector("[data-prophy]");
+    pb.addEventListener("click", function () { prophy = !prophy; pb.classList.toggle("on", prophy); render(); });
+    render();
+  }
+
+  /* ---------- Viz 10 · HCV Testing ---------- */
+  function initHepHcv() {
+    var root = document.querySelector("[data-hephcv]");
+    if (!root) return;
+    var NODES = {
+      ab: { q: "<b>Anti-HCV</b> 결과는?", opts: [["음성", "neg"], ["양성", "rna"]] },
+      neg: { end: "✅ <b>대개 감염 없음</b>. 단, 최근 6개월 안의 노출이 의심되거나 면역저하자라면 항체가 생기기 전일 수 있어 HCV RNA를 확인하기도 합니다.", tone: "ok" },
+      rna: { q: "Anti-HCV 양성 → <b>HCV RNA</b>는?", opts: [["음성", "cleared"], ["양성", "active"]] },
+      cleared: { end: "<b>과거 감염</b> — 자연 회복 또는 치료로 완치된 상태. anti-HCV는 평생 양성으로 남을 수 있지만 면역은 아니어서 <b>재감염이 가능</b>합니다.", tone: "mid" },
+      active: { end: "🔥 <b>현재 활동성 HCV 감염</b> → 섬유화 평가 · HBV 동시감염 확인 · 약물상호작용 검토 → <b>DAA로 완치</b> 목표.", tone: "bad" }
+    };
+    var trail = [];
+    function render(key) {
+      var n = NODES[key], opts = cstEl(root, "opts");
+      cstEl(root, "trail").innerHTML = trail.map(function (t) { return "<span>" + t + "</span>"; }).join("");
+      opts.innerHTML = "";
+      if (n.end) cstOut(cstEl(root, "q"), n.end, n.tone);
+      else {
+        cstOut(cstEl(root, "q"), n.q);
+        n.opts.forEach(function (o) {
+          var b = document.createElement("button");
+          b.className = "cst__chip";
+          b.textContent = o[0];
+          b.addEventListener("click", function () { trail.push((key === "ab" ? "anti-HCV " : "HCV RNA ") + o[0]); render(o[1]); });
+          opts.appendChild(b);
+        });
+      }
+      if (trail.length) {
+        var r = document.createElement("button");
+        r.className = "btn btn--ghost";
+        r.textContent = "↺ 처음부터";
+        r.addEventListener("click", function () { trail = []; render("ab"); });
+        opts.appendChild(r);
+      }
+    }
+    render("ab");
+  }
+
+  /* ---------- Viz 11 · HCV Drug Targets ---------- */
+  function initHepDaa() {
+    var root = document.querySelector("[data-hepdaa]");
+    if (!root) return;
+    var D = {
+      glecaprevir: { t: "ns3", msg: "<b>Glecaprevir</b> — <b>-previr</b> = NS3/4A <b>protease</b> inhibitor. Polyprotein을 자르지 못하게 합니다." },
+      pibrentasvir: { t: "ns5a", msg: "<b>Pibrentasvir</b> — <b>-asvir</b> = <b>NS5A</b> inhibitor. 복제 복합체와 바이러스 조립을 막습니다." },
+      sofosbuvir: { t: "ns5b", msg: "<b>Sofosbuvir</b> — <b>-buvir</b> = <b>NS5B polymerase</b> inhibitor (nucleotide analogue). 내성장벽이 높습니다. Amiodarone 병용 시 심한 서맥 주의." },
+      velpatasvir: { t: "ns5a", msg: "<b>Velpatasvir</b> — <b>-asvir</b> = <b>NS5A</b> inhibitor. 위산이 있어야 잘 녹아 PPI·H2RA 병용에 주의합니다." },
+      ledipasvir: { t: "ns5a", msg: "<b>Ledipasvir</b> — <b>-asvir</b> = <b>NS5A</b> inhibitor. 역시 위산억제제와 상호작용." }
+    };
+    var COMBO = {
+      "glecaprevir+pibrentasvir": "<b>Glecaprevir / pibrentasvir</b> — protease + NS5A. Pan-genotypic, 치료경험 없는 환자 다수에서 <b>8주</b>. 음식과 함께 복용.",
+      "sofosbuvir+velpatasvir": "<b>Sofosbuvir / velpatasvir</b> — polymerase + NS5A. Pan-genotypic, 대개 <b>12주</b>.",
+      "ledipasvir+sofosbuvir": "<b>Ledipasvir / sofosbuvir</b> — polymerase + NS5A. 주로 일부 genotype에서 쓰였던 조합입니다."
+    };
+    var on = {};
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-drug");
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        var sel = Object.keys(D).filter(function (x) { return on[x]; });
+        var targets = {};
+        sel.forEach(function (x) { targets[D[x].t] = 1; });
+        root.querySelectorAll("[data-t]").forEach(function (s) { s.classList.toggle("on", !!targets[s.getAttribute("data-t")]); });
+        var key = sel.slice().sort().join("+");
+        var nT = Object.keys(targets).length, msg;
+        if (!sel.length) msg = "약을 탭하세요. 여러 개를 켜면 조합이 됩니다.";
+        else if (COMBO[key]) msg = "✅ " + COMBO[key];
+        else if (sel.length >= 2 && nT === 1) msg = "같은 표적(NS5A)의 약 두 개 — 실제로는 이렇게 조합하지 않습니다. <b>서로 다른 표적</b>을 묶어야 내성을 막습니다.";
+        else if (sel.length >= 2) msg = "서로 다른 표적 " + nT + "개를 막는 조합입니다. 실제 regimen은 정해진 고정용량 복합제를 씁니다.";
+        else msg = D[k] && on[k] ? D[k].msg : D[sel[0]].msg;
+        cstOut(cstEl(root, "out"), msg, COMBO[key] ? "ok" : "");
+      });
+    });
+  }
+
+  /* ---------- Viz 12 · Hepatitis ABC Cards ---------- */
+  function initHepAbc() {
+    var root = document.querySelector("[data-hepabc]");
+    if (!root) return;
+    var F = {
+      route: ["🍽️ <b>Fecal-oral</b><br>오염된 음식 · 물", "🩸 <b>혈액 · 체액</b><br>성접촉 · 출산", "💉 <b>주로 혈액</b><br>주사기 공유 · 과거 수혈"],
+      chronic: ["❌ <b>만성화 없음</b><br>급성만", "⚠️ <b>가능</b><br>신생아 ~90% · 성인 &lt;5%", "⚠️ <b>흔함</b><br>절반 이상"],
+      vaccine: ["✅ <b>있음</b><br>2회 접종", "✅ <b>있음</b><br>3회 · 출생 시 시작", "❌ <b>없음</b>"],
+      tx: ["<b>Supportive</b><br>회복 후 평생 면역", "<b>장기 억제</b><br>TAF·TDF·ETV·BSV", "<b>완치</b><br>DAA 8–12주"],
+      hcc: ["해당 없음", "<b>가능</b><br>간경변 없이도 HCC", "<b>만성 감염에서 가능</b><br>간경변이면 완치 후에도 감시"]
+    };
+    function show(k) {
+      root.querySelectorAll("[data-f]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-f") === k); });
+      ["a", "b", "c"].forEach(function (key, i) { cstEl(root, key).innerHTML = F[k][i]; });
+    }
+    root.querySelectorAll("[data-f]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-f")); });
+    });
+    show("route");
+  }
+
+  /* ---------- Viz 13 · Liver Lab Decoder ---------- */
+  function initHepLab() {
+    var root = document.querySelector("[data-heplab]");
+    if (!root) return;
+    var BIN = { inj: "INJURY", chol: "CHOLESTASIS", func: "FUNCTION" };
+    var keys = Object.keys(BIN);
+    var cards = root.querySelectorAll(".hep__lab");
+    var done = 0, right = 0;
+    cards.forEach(function (card) {
+      var ans = card.getAttribute("data-ans").split(" ");
+      var box = document.createElement("div");
+      box.className = "hep__bins";
+      var fb = document.createElement("div");
+      fb.className = "hep__fb";
+      keys.forEach(function (k) {
+        var b = document.createElement("button");
+        b.className = "hep__bin";
+        b.textContent = BIN[k];
+        b.addEventListener("click", function () {
+          if (card.getAttribute("data-done")) return;
+          card.setAttribute("data-done", "1");
+          var ok = ans.indexOf(k) >= 0;
+          done++; if (ok) right++;
+          box.querySelectorAll(".hep__bin").forEach(function (x, i) { if (ans.indexOf(keys[i]) >= 0) x.classList.add("is-right"); });
+          if (!ok) b.classList.add("is-wrong");
+          card.classList.add(ok ? "is-right" : "is-wrong");
+          fb.innerHTML = (ok ? "✅ " : "❌ ") + card.getAttribute("data-why");
+          cstOut(cstEl(root, "out"), done + " / " + cards.length + " · 정답 " + right + "개" + (done === cards.length ? " — 손상 · 담즙정체 · 기능을 따로 읽는 습관이 핵심입니다." : ""), done === cards.length ? (right === cards.length ? "ok" : "mid") : "");
+        });
+        box.appendChild(b);
+      });
+      card.appendChild(box);
+      card.appendChild(fb);
+    });
+  }
+
+  /* ---------- Viz 14 · Viral Hepatitis Detective ---------- */
+  function initHepDetective() {
+    var root = document.querySelector("[data-hepdetective]");
+    if (!root) return;
+    var PT = {
+      a: { dx: "hav", tx: "support", why: "IgM anti-HAV + → <b>급성 A형간염</b>. 만성화하지 않으며 supportive care로 회복합니다." },
+      b: { dx: "hbv", tx: "suppress", why: "HBsAg가 수년간 지속 → <b>만성 B형간염</b>. HBV DNA · ALT · 섬유화 · 나이를 평가해 적응이 되면 장기 억제 치료." },
+      c: { dx: "hcv", tx: "cure", why: "HCV RNA + → <b>활동성 C형간염</b>. DAA 8–12주로 완치를 목표로 합니다." }
+    };
+    var cur = null, pick = {};
+    function evaluate() {
+      var out = cstEl(root, "out");
+      if (!pick.dx || !pick.tx) { cstOut(out, "진단과 치료 전략을 모두 선택하세요."); return; }
+      var d = PT[cur], okD = pick.dx === d.dx, okT = pick.tx === d.tx;
+      if (okD && okT) cstOut(out, "✅ <b>정확합니다.</b> " + d.why, "ok");
+      else cstOut(out, "❌ " + (okD ? "진단은 맞지만 치료 전략이 어긋났습니다." : okT ? "치료 전략은 맞지만 진단을 다시 보세요." : "진단과 치료 전략 모두 다시 생각해 보세요.") + "<br>" + d.why, "bad");
+    }
+    root.querySelectorAll("[data-pt]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-pt]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        cur = b.getAttribute("data-pt");
+        pick = {};
+        root.querySelectorAll("[data-group] .cst__chip").forEach(function (x) { x.classList.remove("on"); });
+        cstEl(root, "steps").style.display = "block";
+        cstOut(cstEl(root, "out"), "진단과 치료 전략을 모두 선택하세요.");
+      });
+    });
+    root.querySelectorAll("[data-group]").forEach(function (g) {
+      g.querySelectorAll(".cst__chip").forEach(function (b) {
+        b.addEventListener("click", function () {
+          g.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+          b.classList.add("on");
+          pick[g.getAttribute("data-group")] = b.getAttribute("data-v");
+          evaluate();
+        });
+      });
+    });
+  }
+
+  /* =====================================================================
+     Core 17 · 담석증  (cst__ 공용 UI 재사용 + gbs__ 전용)
+     ===================================================================== */
+
+  /* ---------- Viz 1 · Bile Journey ---------- */
+  function initGbsJourney() {
+    var root = document.querySelector("[data-gbsjourney]");
+    if (!root) return;
+    var MODE = {
+      fast: { gb: 85, flow: 10, tone: "", msg: "<b>공복</b> — Oddi 괄약근이 닫혀 있어, 간에서 내려온 담즙이 담낭으로 들어가 <b>저장·농축</b>됩니다 (수 배 농축)." },
+      meal: { gb: 25, flow: 90, tone: "ok", msg: "<b>지방식</b> → 십이지장에서 <b>CCK ↑</b> → 담낭 수축 + Oddi 이완 → 농축된 담즙이 십이지장으로 쏟아져 지방을 유화합니다." },
+      none: { gb: 0, flow: 55, tone: "mid", msg: "<b>담낭절제 후</b> — 저장 탱크가 없어 담즙이 간에서 장으로 <b>조금씩 계속</b> 흐릅니다. 담즙 생성은 그대로이므로 지방 소화는 유지됩니다." }
+    };
+    var anat = cstEl(root, "anat");
+    root.querySelectorAll("[data-mode]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-mode")); });
+    });
+    function show(k) {
+      var d = MODE[k];
+      root.querySelectorAll("[data-mode]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-mode") === k); });
+      anat.className = "gbs__anat j-" + k;
+      cstEl(root, "gbvol").style.width = d.gb + "%";
+      cstEl(root, "flow").style.width = d.flow + "%";
+      cstOut(cstEl(root, "out"), d.msg, d.tone);
+    }
+    show("fast");
+  }
+
+  /* ---------- Viz 2 · Cholesterol Stone Builder ---------- */
+  function initGbsBuilder() {
+    var root = document.querySelector("[data-gbsbuilder]");
+    if (!root) return;
+    var LBL = ["매우 낮음", "낮음", "보통", "높음", "매우 높음"];
+    var GRAINS = [[], [[3, 8]], [[5, 10], [8, 4]], [[12, 6]], [[22, 3], [14, 3]]];
+    var MSG = [
+      { tone: "ok", msg: "<b>맑은 담즙</b> — bile salt·phospholipid micelle이 cholesterol을 충분히 녹이고 있습니다. 과포화가 없으면 다른 조건이 나빠도 cholesterol stone은 잘 생기지 않습니다." },
+      { tone: "mid", msg: "<b>Cholesterol crystal</b> — 과포화된 담즙에서 미세 결정이 생기기 시작했습니다. 아직 돌은 아닙니다." },
+      { tone: "mid", msg: "<b>Sludge · 작은 돌</b> — 결정이 점액과 뭉쳐 sludge가 되고 작은 돌로 자랍니다. 담낭이 잘 비워지지 않을수록 빨라집니다." },
+      { tone: "bad", msg: "<b>Small stones</b> — 여러 개의 작은 돌. 작은 돌은 담낭관·총담관으로 <b>이동하기 쉬워</b> 오히려 합병증과 연결되기 쉽습니다." },
+      { tone: "bad", msg: "<b>Large · multiple stones</b> — 세 조건이 모두 겹쳐 돌이 크고 많아졌습니다." }
+    ];
+    var v = { chol: 1, stasis: 1, nucl: 1 };
+    function update() {
+      Object.keys(v).forEach(function (k) { cstEl(root, "v-" + k).textContent = LBL[v[k]]; });
+      var stage;
+      if (v.chol <= 1) stage = 0;
+      else {
+        var s = v.chol + v.stasis + v.nucl;
+        stage = s <= 5 ? 1 : s <= 8 ? 2 : s <= 10 ? 3 : 4;
+      }
+      var jar = cstEl(root, "jar");
+      jar.innerHTML = "";
+      GRAINS[stage].forEach(function (g) {
+        for (var i = 0; i < g[1]; i++) {
+          var e = document.createElement("i");
+          e.style.width = e.style.height = g[0] + "px";
+          jar.appendChild(e);
+        }
+      });
+      cstOut(cstEl(root, "out"), MSG[stage].msg, MSG[stage].tone);
+    }
+    root.querySelectorAll("input[data-k]").forEach(function (r) {
+      r.addEventListener("input", function () { v[r.getAttribute("data-k")] = +r.value; update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 3 · Gallstone Risk Map ---------- */
+  function initGbsRisk() {
+    var root = document.querySelector("[data-gbsrisk]");
+    if (!root) return;
+    var R = {
+      obesity: { t: ["chol"], msg: "<b>비만</b> — 간의 cholesterol 분비 ↑ → 담즙 과포화." },
+      rapid: { t: ["chol"], msg: "<b>급격한 체중감량</b> — 지방조직의 cholesterol 동원 ↑ + 담낭 배출 ↓. 비만대사수술·초저열량식에서 특히 중요합니다." },
+      preg: { t: ["chol"], msg: "<b>임신</b> — estrogen(cholesterol 분비 ↑) + progesterone(담낭 운동 ↓)이 겹칩니다." },
+      estrogen: { t: ["chol"], msg: "<b>Estrogen · 경구피임약 · 호르몬요법</b> — 담즙 cholesterol 분비 ↑. 여성에서 담석이 더 흔한 이유 중 하나입니다." },
+      age: { t: ["chol", "pig"], msg: "<b>고령</b> — 담즙 cholesterol 포화도 ↑, black pigment stone 위험도 함께 증가합니다." },
+      gene: { t: ["chol"], msg: "<b>가족력 · 유전</b> — 담즙 cholesterol transporter 등의 유전적 차이가 영향을 줍니다." },
+      dm: { t: ["chol"], msg: "<b>당뇨 · 대사질환</b> — insulin resistance, 담낭 운동 저하와 연관됩니다 (Core 05 대사증후군과 연결)." },
+      hemolysis: { t: ["pig"], msg: "<b>만성 용혈</b> — bilirubin 생성 ↑ → calcium bilirubinate 침전 → <b>black pigment stone</b>." },
+      cirrhosis: { t: ["pig"], msg: "<b>간경변</b> — black pigment stone 위험 ↑." },
+      infect: { t: ["pig"], msg: "<b>담도 감염 · 정체</b> — 세균 효소가 bilirubin 포합을 풀어 침전 → <b>brown pigment stone</b> (주로 담관 안)." },
+      ceftriaxone: { t: ["sludge"], msg: "<b>Ceftriaxone</b> — 담즙으로 많이 배설되며 calcium과 결합해 침전 → biliary sludge · <b>pseudolithiasis</b>. 소아·고용량에서 잘 보이며 대개 중단 후 사라집니다." },
+      octreotide: { t: ["chol", "sludge"], msg: "<b>Octreotide</b> — CCK 분비와 담낭 수축 억제 → 정체 → sludge·담석. 장기 사용 시 주의합니다." },
+      fibrate: { t: ["chol"], msg: "<b>Fibrate</b> — 담즙 cholesterol 분비 ↑ → 과포화. 허가사항에 담석 관련 주의가 있습니다." },
+      glp1: { t: ["chol"], msg: "<b>GLP-1 RA</b> — 담석증·담낭염 등 담낭 관련 이상반응이 보고됩니다. 빠른 체중감량과 담낭 운동 변화가 관여하는 것으로 생각됩니다." }
+    };
+    var on = {};
+    root.querySelectorAll("[data-r]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-r");
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        var hit = {};
+        Object.keys(on).forEach(function (x) { if (on[x]) R[x].t.forEach(function (t) { hit[t] = 1; }); });
+        root.querySelectorAll("[data-target]").forEach(function (box) {
+          box.classList.toggle("on", !!hit[box.getAttribute("data-target")]);
+        });
+        var n = Object.keys(on).filter(function (x) { return on[x]; }).length;
+        cstOut(cstEl(root, "out"), on[k] ? R[k].msg : (n ? "선택된 위험인자 " + n + "개." : "위험인자를 탭하면 기전이 나타납니다."));
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · Biliary Colic Simulator ---------- */
+  function initGbsColic() {
+    var root = document.querySelector("[data-gbscolic]");
+    if (!root) return;
+    var stage = 0; /* 0 조용 · 1 막힘 · 2 빠짐 */
+    function render() {
+      cstEl(root, "s-gb").textContent = stage === 1 ? "" : "🪨";
+      cstEl(root, "s-cystic").textContent = stage === 1 ? "🪨" : "";
+      root.querySelector("[data-slot='cystic']").classList.toggle("is-block", stage === 1);
+      cstEl(root, "press").style.width = (stage === 1 ? 88 : 10) + "%";
+      cstEl(root, "pain").style.width = (stage === 1 ? 85 : 0) + "%";
+      var out = cstEl(root, "out");
+      if (stage === 1) cstOut(out, "🥓 → <b>CCK ↑ → 담낭 수축</b> → 돌이 담낭관 입구를 막음 → 담낭 압력 ↑ → <b>RUQ 통증 · 어깨 방사 · 오심</b>.", "bad");
+      else if (stage === 2) cstOut(out, "⏳ 돌이 다시 담낭 쪽으로 빠짐 → 압력 ↓ → <b>통증 소실</b>. 염증이 자리 잡기 전에 끝났으므로 열도 없습니다 = <b>담도산통</b>.", "ok");
+      else cstOut(out, "담낭 안에 돌이 조용히 있습니다. 지방식을 먹어보세요.");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "meal") stage = 1;
+        else if (a === "later") { if (stage !== 1) { cstOut(cstEl(root, "out"), "아직 돌이 막지 않았습니다. 먼저 지방식을 먹어보세요."); return; } stage = 2; }
+        else stage = 0;
+        render();
+      });
+    });
+  }
+
+  /* ---------- Viz 5 · Colic vs Cholecystitis (time) ---------- */
+  function initGbsTime() {
+    var root = document.querySelector("[data-gbstime]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var path = "a";
+    function badge(key, txt, bad) {
+      var el = cstEl(root, key);
+      el.querySelector("b").textContent = txt;
+      el.classList.toggle("is-on", !!bad);
+    }
+    function update() {
+      var t = +range.value, press, inflam, msg, tone;
+      cstEl(root, "t").textContent = t + (t >= 24 ? "시간+" : "시간");
+      var moved = path === "a" && t >= 2;
+      if (moved) {
+        press = 10; inflam = 5;
+        badge("b-pain", "소실", false); badge("b-fever", "없음", false); badge("b-murphy", "없음", false);
+        msg = "돌이 빠졌습니다 → 압력 ↓ → <b>통증 소실</b>. 염증이 자리 잡기 전에 끝났습니다 = <b>담도산통</b>."; tone = "ok";
+      } else {
+        press = Math.min(95, 85 + t / 2); inflam = Math.min(95, t * 7);
+        badge("b-pain", t < 2 ? "심함" : "지속", true);
+        badge("b-fever", t >= 6 ? "있음" : "없음", t >= 6);
+        badge("b-murphy", t >= 6 ? "양성" : "약함", t >= 6);
+        if (t < 2) { msg = "0–2시간 — 돌이 담낭관을 막고 압력이 오릅니다. <b>이 시점에서는 산통과 담낭염을 구별할 수 없습니다.</b>"; tone = "mid"; }
+        else if (t < 6) { msg = "돌이 그대로 — 담낭이 팽창하고 벽에 <b>허혈·화학적 염증</b>이 시작됩니다. 통증이 수 시간째 가라앉지 않는 것이 첫 경고입니다."; tone = "mid"; }
+        else if (t < 24) { msg = "<b>염증 확립 = 급성 담낭염</b> — 발열 · 압통 · Murphy 양성 · 백혈구/CRP ↑. 이차 세균감염이 동반될 수 있습니다."; tone = "bad"; }
+        else { msg = "치료 없이 지속되면 <b>괴저 · 천공 · 농양 · sepsis</b> 위험."; tone = "bad"; }
+      }
+      cstEl(root, "press").style.width = press + "%";
+      cstEl(root, "inflam").style.width = inflam + "%";
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    range.addEventListener("input", update);
+    root.querySelectorAll("[data-path]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-path]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        path = b.getAttribute("data-path");
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 6 · Stone Location Map ---------- */
+  function initGbsMap() {
+    var root = document.querySelector("[data-gbsmap]");
+    if (!root) return;
+    var LOC = {
+      gb: { x: 200, y: 150, tone: "ok", name: "무증상 담낭결석 (cholelithiasis)", sym: "없음 — 평생 증상이 없을 수도 있음", lab: "초음파에서 우연히 발견 · 혈액검사 정상", tx: "대개 <b>관찰</b>" },
+      colic: { x: 156, y: 137, tone: "mid", name: "담도산통 (biliary colic)", sym: "식후 RUQ 통증 수십 분–수 시간 → 저절로 호전 · 열 없음", lab: "대개 정상", tx: "진통(NSAID) → <b>담낭절제술</b> 고려" },
+      chole: { x: 156, y: 137, tone: "bad", name: "급성 담낭염 (acute cholecystitis)", sym: "지속 RUQ 통증 · 발열 · Murphy 양성", lab: "백혈구·CRP ↑ · 초음파 벽 비후 · bilirubin은 대개 정상", tx: "수액·진통 ± 항생제 → <b>조기 담낭절제술</b>" },
+      cbd: { x: 117, y: 178, tone: "mid", name: "총담관결석 (choledocholithiasis)", sym: "통증 ± <b>황달</b> · 진한 소변 · 회색변 · 가려움", lab: "Bilirubin · ALP · GGT ↑ · CBD 확장", tx: "<b>ERCP</b>로 CBD 돌 제거 → 담낭절제술" },
+      cholang: { x: 117, y: 178, tone: "bad", name: "급성 담관염 (acute cholangitis)", sym: "발열 + 황달 + RUQ 통증 (± 저혈압 · 의식 변화)", lab: "염증수치 ↑ + 담즙정체 + 담관 확장", tx: "수액 + 항생제 + <b>긴급 담도 배액</b>" },
+      panc: { x: 106, y: 221, tone: "bad", name: "담석성 췌장염 (gallstone pancreatitis)", sym: "등으로 뻗는 심한 명치 통증 · 구토", lab: "<b>Lipase ↑</b> (정상 상한 3배 이상)", tx: "췌장염 치료 · 담관염 동반 시 ERCP · 재발 예방 담낭절제술" }
+    };
+    var anat = cstEl(root, "anat"), stone = cstEl(root, "stone");
+    function show(k) {
+      var d = LOC[k];
+      root.querySelectorAll("[data-loc]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-loc") === k); });
+      anat.className = "gbs__anat st-" + k;
+      stone.style.transform = "translate(" + d.x + "px," + d.y + "px)";
+      cstEl(root, "sym").innerHTML = d.sym;
+      cstEl(root, "lab").innerHTML = d.lab;
+      cstEl(root, "tx").innerHTML = d.tx;
+      cstOut(cstEl(root, "out"), "<b>" + d.name + "</b>", d.tone);
+    }
+    root.querySelectorAll("[data-loc]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-loc")); });
+    });
+    show("gb");
+  }
+
+  /* ---------- Viz 7 · Cholangitis Sepsis Path ---------- */
+  function initGbsCholang() {
+    var root = document.querySelector("[data-gbscholang]");
+    if (!root) return;
+    var on = { abx: false, drain: false };
+    var S = {
+      none: [90, 90, 85, "bad", "치료 전 — 막힌 담관 안에서 세균이 자라고, 높은 압력이 세균을 혈액 쪽으로 밀어냅니다. 치료를 하나씩 켜보세요."],
+      abx: [90, 55, 60, "mid", "<b>항생제만</b> — 세균량은 줄지만 <b>폐쇄가 그대로</b>입니다. 담관 압력이 높아 세균이 계속 혈액으로 밀려나고, 막힌 담관 안에는 약도 충분히 들어가기 어렵습니다. 부분 호전 · 재악화 위험."],
+      drain: [15, 50, 40, "mid", "<b>배액만</b> — 폐쇄가 풀려 압력 ↓ · 감염원 배출(source control). 하지만 이미 혈액으로 퍼진 세균에는 항생제가 필요합니다."],
+      both: [10, 12, 10, "ok", "✅ <b>항생제 + 담도 배액</b> — 감염 치료와 source control이 함께. 여기에 수액 소생을 더한 것이 담관염 치료의 기본 구조입니다."]
+    };
+    function update() {
+      var k = on.abx && on.drain ? "both" : on.abx ? "abx" : on.drain ? "drain" : "none";
+      var d = S[k];
+      cstEl(root, "press").style.width = d[0] + "%";
+      cstEl(root, "bact").style.width = d[1] + "%";
+      cstEl(root, "sepsis").style.width = d[2] + "%";
+      cstOut(cstEl(root, "out"), d[4], d[3]);
+    }
+    root.querySelectorAll("[data-tx]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-tx");
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 8 · Imaging Strategy ---------- */
+  function initGbsImaging() {
+    var root = document.querySelector("[data-gbsimaging]");
+    if (!root) return;
+    var IMG = {
+      us: [5, 35, 0, "<b>Ultrasound</b> — <i>\"담석이 있나? CBD가 늘어났나?\"</i> 담낭결석·담낭염에 민감하고 방사선이 없으며 저렴합니다. 하지만 CBD 하부의 작은 돌은 장 가스에 가려 놓치기 쉽습니다."],
+      mrcp: [10, 85, 0, "<b>MRCP</b> — <i>\"CBD에 정말 돌이 있나?\"</i> MRI로 담관을 비침습적으로 그립니다. 확인은 하지만 치료는 못 합니다."],
+      eus: [40, 92, 0, "<b>EUS</b> — 내시경을 십이지장에 두고 바로 옆 담관을 초음파로 봅니다. 작은 CBD 돌에 매우 민감합니다. 진정이 필요하지만 ERCP보다 합병증이 적습니다."],
+      ercp: [85, 95, 100, "<b>ERCP</b> — <i>\"돌을 빼자.\"</i> 괄약근 절개 · 돌 제거 · 스텐트까지 하는 <b>치료 시술</b>입니다. 합병증 때문에 진단만을 위해서는 쓰지 않습니다."]
+    };
+    function show(k) {
+      var d = IMG[k];
+      root.querySelectorAll("[data-img]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-img") === k); });
+      cstEl(root, "inv").style.width = d[0] + "%";
+      cstEl(root, "dx").style.width = d[1] + "%";
+      cstEl(root, "tx").style.width = d[2] + "%";
+      cstOut(cstEl(root, "out"), d[3]);
+    }
+    root.querySelectorAll("[data-img]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-img")); });
+    });
+    show("us");
+  }
+
+  /* ---------- Viz 9 · ERCP vs Cholecystectomy ---------- */
+  function initGbsErcp() {
+    var root = document.querySelector("[data-gbsercp]");
+    if (!root) return;
+    var st = { gb: "stones", cbd: "stone" };
+    var GB = { stones: "🪨🪨 돌 여러 개", emptied: "돌 꺼냄 · 담낭은 남음", removed: "✂️ 제거됨" };
+    function render() {
+      var gbEl = cstEl(root, "gb"), cbdEl = cstEl(root, "cbd");
+      gbEl.querySelector("b").textContent = GB[st.gb];
+      cbdEl.querySelector("b").textContent = st.cbd === "stone" ? "🪨 돌 · 황달" : "✅ 깨끗함";
+      gbEl.className = st.gb === "removed" ? "is-ok" : st.gb === "emptied" ? "is-mid" : "is-bad";
+      cbdEl.className = st.cbd === "stone" ? "is-bad" : "is-ok";
+      cstEl(root, "flow").textContent = st.cbd === "stone" ? "막힘" : "흐름 ✅";
+      var out = cstEl(root, "out");
+      if (st.gb === "removed" && st.cbd === "clear") cstOut(out, "✅ <b>CBD 정리 + 담낭절제</b> — 막힌 관을 열고 돌의 공급원을 없앴습니다. 담즙은 간 → 총담관 → 장으로 계속 흐릅니다.", "ok");
+      else if (st.gb === "removed") cstOut(out, "담낭은 제거했지만 <b>총담관 돌은 그대로</b> → 황달·담관염 위험. CBD 정리(수술 전후 ERCP 또는 수술 중 담관 탐색)가 필요합니다.", "bad");
+      else if (st.gb === "emptied") cstOut(out, "담낭에서 돌만 꺼냈습니다. 하지만 <b>과포화 담즙 + 정체라는 '돌 공장'은 그대로</b> → 새 돌이 다시 생깁니다. 그래서 표준은 담낭 자체를 제거합니다." + (st.cbd === "stone" ? " 게다가 총담관 돌은 아직 남아 있습니다." : ""), "mid");
+      else if (st.cbd === "clear") cstOut(out, "ERCP로 <b>지금 막힌 총담관</b>은 열렸습니다 — 황달 해소. 하지만 담낭에 남은 돌이 다시 CBD로 내려올 수 있습니다 → 적절한 시점에 <b>담낭절제술</b>.", "mid");
+      else cstOut(out, "치료를 순서대로 선택해 보세요.");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "reset") { st = { gb: "stones", cbd: "stone" }; root.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); }); }
+        else {
+          if (a === "ercp") st.cbd = "clear";
+          if (a === "stoneonly" && st.gb !== "removed") st.gb = "emptied";
+          if (a === "chole") st.gb = "removed";
+          b.classList.add("on");
+        }
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz 10 · Where Is the Stone? ---------- */
+  function initGbsWhere() {
+    var root = document.querySelector("[data-gbswhere]");
+    if (!root) return;
+    var OPT = { gb: "담낭 안", colic: "담낭관 · 잠깐", chole: "담낭관 · 계속", cbd: "총담관", cholang: "총담관 + 감염", panc: "팽대부" };
+    var keys = Object.keys(OPT);
+    var qs = root.querySelectorAll(".gbs__q");
+    var done = 0, right = 0;
+    qs.forEach(function (q) {
+      var box = document.createElement("div");
+      box.className = "gbs__opts";
+      var fb = document.createElement("div");
+      fb.className = "gbs__fb";
+      keys.forEach(function (k) {
+        var b = document.createElement("button");
+        b.className = "gbs__opt";
+        b.textContent = OPT[k];
+        b.addEventListener("click", function () {
+          if (q.getAttribute("data-done")) return;
+          q.setAttribute("data-done", "1");
+          var ans = q.getAttribute("data-ans"), ok = k === ans;
+          done++; if (ok) right++;
+          box.querySelectorAll(".gbs__opt").forEach(function (x, i) { if (keys[i] === ans) x.classList.add("is-right"); });
+          if (!ok) b.classList.add("is-wrong");
+          q.classList.add(ok ? "is-right" : "is-wrong");
+          fb.innerHTML = (ok ? "✅ " : "❌ 정답은 " + OPT[ans] + " — ") + q.getAttribute("data-why");
+          cstOut(cstEl(root, "out"), done + " / " + qs.length + " · 정답 " + right + "개" + (done === qs.length ? " — 돌의 위치가 곧 진단입니다." : ""), done === qs.length ? (right === qs.length ? "ok" : "mid") : "");
+        });
+        box.appendChild(b);
+      });
+      q.appendChild(box);
+      q.appendChild(fb);
+    });
+  }
+
+  /* =====================================================================
+     Core 16 · 설사  (cst__ 공용 UI 재사용 + dia__ 전용)
+     ===================================================================== */
+
+  /* ---------- Viz 1 · Intestinal Water Balance ---------- */
+  function initDiaWater() {
+    var root = document.querySelector("[data-diawater]");
+    if (!root) return;
+    var MODE = {
+      normal: { inL: 9, colon: 1.5, stool: 0.15, tone: "ok", msg: "<b>정상</b> — 소장이 대부분(약 7 L)을, 대장이 나머지 대부분을 흡수합니다. 대변에 남는 물은 0.1–0.2 L." },
+      secretory: { inL: 12, colon: 6, stool: 2, tone: "bad", msg: "<b>소장 분비 ↑</b> (enterotoxin·cholera) — 소장이 물을 쏟아내 대장에 도달하는 양이 대장의 최대 흡수능(약 4–5 L)을 넘습니다. 남는 물이 그대로 설사가 됩니다." },
+      colitis: { inL: 9, colon: 1.5, stool: 0.9, tone: "bad", msg: "<b>대장 흡수 ↓</b> (colitis) — 대장에 도달하는 양은 정상이지만, 손상된 점막이 물을 흡수하지 못합니다. 점액·혈액·삼출물도 함께 나옵니다." }
+    };
+    function fmt(v) { return (v < 1 ? v.toFixed(2).replace(/0$/, "") : v) + " L"; }
+    root.querySelectorAll("[data-mode]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-mode]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var d = MODE[b.getAttribute("data-mode")];
+        cstEl(root, "in").style.width = Math.min(100, d.inL / 12 * 100) + "%";
+        cstEl(root, "colon").style.width = Math.min(100, d.colon / 12 * 100) + "%";
+        cstEl(root, "stool").style.width = Math.max(2, d.stool / 12 * 100) + "%";
+        cstEl(root, "v-in").textContent = fmt(d.inL);
+        cstEl(root, "v-colon").textContent = fmt(d.colon);
+        cstEl(root, "v-stool").textContent = fmt(d.stool);
+        cstOut(cstEl(root, "out"), d.msg, d.tone);
+      });
+    });
+  }
+
+  /* ---------- Viz 2 · Osmotic vs Secretory (Fasting) ---------- */
+  function initDiaOsmSec() {
+    var root = document.querySelector("[data-diaosmsec]");
+    if (!root) return;
+    function drops(n) { return new Array(n + 1).join("💧"); }
+    root.querySelectorAll("[data-fast]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-fast]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        var fast = b.getAttribute("data-fast") === "1";
+        cstEl(root, "osm-tok").textContent = fast ? "—" : "🍬🍬🍬🍬";
+        cstEl(root, "osm-drop").textContent = fast ? "💧" : drops(6);
+        cstEl(root, "sec-drop").textContent = drops(7);
+        cstEl(root, "osm").classList.toggle("is-calm", fast);
+        cstEl(root, "sec").classList.toggle("is-bad", fast);
+        if (fast) cstOut(cstEl(root, "out"), "<b>Osmotic ↓↓↓</b> — 원인 물질이 들어오지 않으니 물을 끌어당길 osmole이 사라졌습니다.<br><b>Secretory → 지속</b> — 장세포의 Cl⁻ 분비는 음식과 무관하게 계속됩니다.", "mid");
+        else cstOut(cstEl(root, "out"), "두 환자 모두 많은 물설사를 합니다. 금식 버튼을 눌러보세요.");
+      });
+    });
+  }
+
+  /* ---------- Viz 5 · Medication Diarrhea Checker ---------- */
+  function initDiaMed() {
+    var root = document.querySelector("[data-diamed]");
+    if (!root) return;
+    var MED = {
+      metformin: { t: ["mot", "bio", "muc"], msg: "<b>Metformin</b> — 가장 흔한 약물성 설사 중 하나. 담즙산 재흡수 ↓, 장 serotonin 분비, microbiome 변화가 겹칩니다. 저용량 시작·식후 복용·서방형 전환으로 줄일 수 있습니다." },
+      mg: { t: ["osm"], msg: "<b>Magnesium 제산제·하제</b> — 흡수되지 않는 Mg 염이 lumen에 남아 물을 붙잡는 전형적인 <b>osmotic</b> 설사." },
+      lactulose: { t: ["osm", "bio"], msg: "<b>Lactulose</b> — 흡수되지 않는 당 + 대장 세균의 발효 → 삼투 입자·가스 ↑. 간성뇌증 치료에서는 이 설사 효과를 일부러 이용합니다." },
+      abx: { t: ["bio"], msg: "<b>항생제</b> — microbiome 변화로 <b>antibiotic-associated diarrhea</b>. 심하거나 발열이 있으면 <b>C. difficile</b>을 생각합니다. (Erythromycin·amoxicillin-clavulanate는 장운동 자극 작용도 있음)" },
+      ppi: { t: ["bio"], msg: "<b>PPI</b> — 위산 장벽 ↓ → 장내세균 변화. 일부 환자에서 설사, <b>CDI</b>·microscopic colitis와의 연관성이 보고됩니다." },
+      colchicine: { t: ["muc"], msg: "<b>Colchicine</b> — microtubule 억제 → 빠르게 분열하는 장 상피세포에 독성. 설사가 대표적 부작용이며 <b>독성의 초기 신호</b>일 수 있습니다 (CYP3A4·P-gp 억제제 병용 주의)." },
+      ssri: { t: ["mot"], msg: "<b>SSRI</b> — 장에는 몸의 serotonin 대부분이 있습니다. Serotonergic 작용으로 장운동 ↑ → 설사. 대개 초기에 흔하고 줄어듭니다." },
+      glp1: { t: ["mot"], msg: "<b>GLP-1 RA</b> — 오심·구토·설사 또는 변비 등 위장관 부작용. 용량 증량 시기에 흔합니다." },
+      chemo: { t: ["muc"], msg: "<b>항암제·면역항암제</b> — 점막 독성(irinotecan·5-FU 등), 또는 면역관문억제제에 의한 <b>immune-mediated colitis</b>. 중증일 수 있어 즉시 의료진에게 알립니다." }
+    };
+    var on = {};
+    function update(last) {
+      var hit = {};
+      Object.keys(on).forEach(function (k) { if (on[k]) MED[k].t.forEach(function (t) { hit[t] = 1; }); });
+      root.querySelectorAll("[data-target]").forEach(function (box) {
+        box.classList.toggle("on", !!hit[box.getAttribute("data-target")]);
+      });
+      var total = Object.keys(on).filter(function (k) { return on[k]; }).length;
+      var msg = last && on[last] ? MED[last].msg : (total ? "선택된 약 " + total + "개." : "약을 선택하면 기전 설명이 나타납니다.");
+      cstOut(cstEl(root, "out"), msg);
+    }
+    root.querySelectorAll("[data-med]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-med");
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        update(k);
+      });
+    });
+  }
+
+  /* ---------- Viz 6 · Antibiotic → CDI ---------- */
+  function initDiaCdi() {
+    var root = document.querySelector("[data-diacdi]");
+    if (!root) return;
+    var N = 40, biome = cstEl(root, "biome"), wall = cstEl(root, "wall");
+    var cells = [];
+    for (var i = 0; i < N; i++) {
+      var s = document.createElement("span");
+      s.className = "dia__bug";
+      biome.appendChild(s);
+      cells.push(s);
+    }
+    var MSG = [
+      "다양한 장내세균이 영양분과 자리를 차지하고 있어 C. difficile가 들어와도 자라지 못합니다 — <b>colonization resistance</b>.",
+      "광범위 항생제가 정상 세균 대부분을 없앴습니다. 빈자리가 생겼습니다.",
+      "항생제에 살아남은 <b>C. difficile 포자</b>가 발아해 빈자리를 차지합니다.",
+      "C. difficile가 <b>toxin A/B</b>를 만들어 대장 점막을 손상 → colitis → 물설사·발열·복통. 심하면 toxic megacolon."
+    ];
+    var step = 0;
+    function render() {
+      cells.forEach(function (c, i) {
+        var kind = "dia__bug dia__bug--" + (i % 4);
+        if (step >= 1 && i % 5 !== 0) kind = "dia__bug dia__bug--gone";
+        if (step >= 2 && i % 5 !== 0 && i % 3 !== 2) kind = "dia__bug dia__bug--cd";
+        c.className = kind;
+      });
+      wall.classList.toggle("is-inflamed", step >= 3);
+      wall.textContent = step >= 3 ? "대장 점막 — 염증 · 손상 (colitis)" : "대장 점막";
+      root.querySelectorAll("[data-step]").forEach(function (el) {
+        var n = +el.getAttribute("data-step");
+        el.classList.toggle("on", n <= step);
+        el.classList.toggle("cur", n === step);
+      });
+      cstOut(cstEl(root, "out"), MSG[step], step === 0 ? "ok" : step === 3 ? "bad" : "mid");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        step = b.getAttribute("data-act") === "reset" ? 0 : Math.min(3, step + 1);
+        render();
+      });
+    });
+    render();
+    cstOut(cstEl(root, "out"), "버튼을 눌러 한 단계씩 따라가 보세요.");
+  }
+
+  /* ---------- Viz 7 · Dehydration Gauge ---------- */
+  function initDiaDehyd() {
+    var root = document.querySelector("[data-diadehyd]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var vulnBtn = root.querySelector("[data-vuln]");
+    var intake = 1, vuln = false;
+    var ZONE = [
+      { urine: "정상", hr: "정상", bp: "정상", tone: "ok", msg: "✅ <b>Normal hydration</b> — 손실을 섭취가 따라잡고 있습니다. 평소처럼 마시고 먹습니다." },
+      { urine: "감소 ↓", hr: "약간 ↑", bp: "대체로 유지", tone: "mid", msg: "⚠️ <b>Mild–moderate dehydration</b> — 갈증·입마름·소변 감소. <b>ORS를 조금씩 자주</b> 마시게 하고, 악화되면 진료를 권합니다." },
+      { urine: "거의 없음", hr: "빈맥 ↑↑", bp: "기립성 저하 ↓", tone: "bad", msg: "🚨 <b>Severe dehydration</b> — 기립성 어지럼·의식 변화·소변 거의 없음. <b>즉시 의료기관</b> (정맥 수액이 필요할 수 있음)." }
+    ];
+    function update() {
+      var n = +range.value;
+      var net = n - [0, 3, 7][intake] + (vuln ? 3 : 0);
+      var z = net <= 2 ? 0 : net <= 6 ? 1 : 2;
+      var pct = Math.max(3, Math.min(97, (net + 2) / 14 * 100));
+      cstEl(root, "n").textContent = n + "회";
+      cstEl(root, "needle").style.left = pct + "%";
+      cstEl(root, "urine").textContent = ZONE[z].urine;
+      cstEl(root, "hr").textContent = ZONE[z].hr;
+      cstEl(root, "bp").textContent = ZONE[z].bp;
+      var msg = ZONE[z].msg;
+      if (vuln && z > 0) msg += "<br>고위험군은 같은 설사 횟수에서도 더 빨리 위험해집니다.";
+      cstOut(cstEl(root, "out"), msg, ZONE[z].tone);
+    }
+    range.addEventListener("input", update);
+    root.querySelectorAll("[data-intake]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-intake]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        intake = +b.getAttribute("data-intake");
+        update();
+      });
+    });
+    vulnBtn.addEventListener("click", function () {
+      vuln = !vuln;
+      vulnBtn.classList.toggle("on", vuln);
+      update();
+    });
+    update();
+  }
+
+  /* ---------- Viz 8 · Acute Diarrhea Triage ---------- */
+  function initDiaTriage() {
+    var root = document.querySelector("[data-diatriage]");
+    if (!root) return;
+    var NODES = {
+      dehyd: { q: "급성 설사 환자입니다. <b>심한 탈수</b> 징후(의식 저하 · 소변 거의 없음 · 기립성 어지럼 · 계속 토해서 못 마심)가 있습니까?", opts: [["있다", "urgent"], ["없다", "inflam"]] },
+      urgent: { end: "🚑 <b>즉시 의료기관</b> — 수액 보충과 원인 평가가 먼저입니다.", tone: "bad" },
+      inflam: { q: "<b>혈변 · 고열 · 심한 복통/압통</b>이 있습니까?", opts: [["있다", "inflamEnd"], ["없다", "abx"]] },
+      inflamEnd: { end: "🔥 <b>Inflammatory diarrhea 평가</b> — stool test를 위해 진료. Loperamide는 피하고 수분 보충은 계속합니다. 혈변이라고 경험적 항생제를 자동으로 쓰지도 않습니다 (STEC).", tone: "bad" },
+      abx: { q: "<b>최근 항생제 사용 · 입원력</b> 후에 생긴 심한 설사입니까?", opts: [["그렇다", "cdi"], ["아니다", "host"]] },
+      cdi: { end: "🧫 <b>C. difficile 평가</b> — 진료와 stool test가 필요합니다. 지사제로 증상만 막지 않습니다.", tone: "bad" },
+      host: { q: "<b>고령 · 면역저하 · 심한 기저질환</b>이 있거나, <b>1주 이상</b> 지속됩니까?", opts: [["그렇다", "refer"], ["아니다", "mild"]] },
+      refer: { end: "🏥 <b>진료 권유</b> — 예비력이 적거나 지속되는 설사는 단순 장염으로 단정하지 않습니다.", tone: "mid" },
+      mild: { end: "✅ <b>가벼운 물설사</b> — 수분 보충(ORS) ± 증상 완화(성인이면 loperamide 단기). 악화 신호가 생기면 다시 평가합니다.", tone: "ok" }
+    };
+    var trail = [];
+    function render(key) {
+      var n = NODES[key];
+      var opts = cstEl(root, "opts");
+      cstEl(root, "trail").innerHTML = trail.map(function (t) { return "<span>" + t + "</span>"; }).join("");
+      opts.innerHTML = "";
+      if (n.end) {
+        cstOut(cstEl(root, "q"), n.end, n.tone);
+      } else {
+        cstOut(cstEl(root, "q"), n.q);
+        n.opts.forEach(function (o) {
+          var b = document.createElement("button");
+          b.className = "cst__chip";
+          b.textContent = o[0];
+          b.addEventListener("click", function () { trail.push(o[0]); render(o[1]); });
+          opts.appendChild(b);
+        });
+      }
+      if (trail.length) {
+        var r = document.createElement("button");
+        r.className = "btn btn--ghost";
+        r.textContent = "↺ 처음부터";
+        r.addEventListener("click", function () { trail = []; render("dehyd"); });
+        opts.appendChild(r);
+      }
+    }
+    render("dehyd");
+  }
+
+  /* ---------- Viz 9 · ORS Mechanism ---------- */
+  function initDiaOrs() {
+    var root = document.querySelector("[data-diaors]");
+    if (!root) return;
+    var DRINK = {
+      water: { lumen: "H₂O", cell: "💧💧", gate: false, na: 5, abs: 35, osm: 5, tone: "mid", msg: "<b>물</b> — 가벼운 설사라면 충분할 수 있습니다. 하지만 Na⁺·glucose가 없어 SGLT1을 활용하지 못하고, 반복적인 설사로 잃은 <b>전해질을 보충하지 못합니다</b> (심하면 저나트륨혈증 위험)." },
+      sports: { lumen: "Na⁺ G G G G", cell: "💧💧💧", gate: true, na: 25, abs: 50, osm: 60, tone: "mid", msg: "<b>스포츠음료</b> — 땀 보충용이라 Na⁺는 적고 당은 많습니다. 일부 흡수는 돕지만, 탈수가 있는 설사에는 ORS만큼 효율적이지 않습니다." },
+      ors: { lumen: "Na⁺ G Na⁺ Na⁺ G", cell: "💧💧💧💧💧", gate: true, na: 80, abs: 90, osm: 35, tone: "ok", msg: "✅ <b>ORS</b> — Na⁺와 glucose가 <b>균형 잡힌 비율</b>로 SGLT1을 최대한 이용합니다. 삼투압은 혈장보다 약간 낮아(245 mOsm/L) 물이 장에서 몸 쪽으로 이동합니다." },
+      juice: { lumen: "G G G G G G G", cell: "💧", gate: false, na: 3, abs: 15, osm: 95, tone: "bad", msg: "❌ <b>주스·탄산음료</b> — 당이 너무 많고 Na⁺는 거의 없습니다. 흡수되지 못한 당이 osmole로 남아 <b>물을 오히려 장으로 끌어당겨</b> 설사를 악화시킬 수 있습니다." }
+    };
+    function show(k) {
+      var d = DRINK[k];
+      root.querySelectorAll("[data-drink]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-drink") === k); });
+      cstEl(root, "lumen").textContent = d.lumen;
+      cstEl(root, "cell").textContent = d.cell;
+      cstEl(root, "gate").classList.toggle("is-on", d.gate);
+      cstEl(root, "na").style.width = d.na + "%";
+      cstEl(root, "abs").style.width = d.abs + "%";
+      cstEl(root, "osm").style.width = d.osm + "%";
+      cstOut(cstEl(root, "out"), d.msg, d.tone);
+    }
+    root.querySelectorAll("[data-drink]").forEach(function (b) {
+      b.addEventListener("click", function () { show(b.getAttribute("data-drink")); });
+    });
+    show("ors");
+  }
+
+  /* ---------- Viz 10 · Loperamide Safety Gate ---------- */
+  function initDiaLope() {
+    var root = document.querySelector("[data-dialope]");
+    if (!root) return;
+    function update() {
+      var chips = root.querySelectorAll(".cst__chip.on");
+      var reds = [];
+      chips.forEach(function (c) { if (c.getAttribute("data-flag") === "1") reds.push(c.getAttribute("data-why")); });
+      var out = cstEl(root, "out");
+      if (!chips.length) cstOut(out, "항목을 선택하면 판정이 나타납니다.");
+      else if (reds.length) cstOut(out, "🚫 <b>STOP — Avoid antimotility, evaluate cause</b><br>• " + reds.join("<br>• "), "bad");
+      else cstOut(out, "✅ <b>Loperamide may be considered</b> — ORS로 수분을 먼저·함께 보충하고, 단기간 사용합니다. 허가 용량을 지키고 48시간 안에 호전이 없거나 red flag가 생기면 중단·진료.", "ok");
+    }
+    root.querySelectorAll("[data-flag]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (b.getAttribute("data-flag") === "reset") {
+          root.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+        } else {
+          b.classList.toggle("on");
+        }
+        update();
+      });
+    });
+  }
+
+  /* ---------- Viz 11 · Chronic Diarrhea Sorter ---------- */
+  function initDiaChronic() {
+    var root = document.querySelector("[data-diachronic]");
+    if (!root) return;
+    var LABEL = { watery: "💧 Watery", fatty: "🧈 Fatty", inflammatory: "🔥 Inflammatory" };
+    var cards = root.querySelectorAll(".dia__card");
+    var done = 0, right = 0;
+    cards.forEach(function (card) {
+      var bins = document.createElement("div");
+      bins.className = "dia__bins";
+      var fb = document.createElement("div");
+      fb.className = "dia__fb";
+      Object.keys(LABEL).forEach(function (k) {
+        var b = document.createElement("button");
+        b.className = "dia__bin";
+        b.textContent = LABEL[k];
+        b.addEventListener("click", function () {
+          if (card.getAttribute("data-done")) return;
+          card.setAttribute("data-done", "1");
+          var ans = card.getAttribute("data-ans");
+          var ok = k === ans;
+          done++; if (ok) right++;
+          bins.querySelectorAll(".dia__bin").forEach(function (x, i) {
+            if (Object.keys(LABEL)[i] === ans) x.classList.add("is-right");
+          });
+          if (!ok) b.classList.add("is-wrong");
+          card.classList.add(ok ? "is-right" : "is-wrong");
+          fb.innerHTML = (ok ? "✅ " : "❌ 정답은 " + LABEL[ans] + " — ") + card.getAttribute("data-why");
+          cstOut(cstEl(root, "out"), done + " / " + cards.length + " 분류 · 정답 " + right + "개" + (done === cards.length ? " — 다음 섹션에서 갈래별 검사를 봅니다." : ""), done === cards.length ? (right === cards.length ? "ok" : "mid") : "");
+        });
+        bins.appendChild(b);
+      });
+      card.appendChild(bins);
+      card.appendChild(fb);
+    });
+  }
+
+  /* ---------- Viz 12 · Stool Osmotic Gap ---------- */
+  function initDiaGap() {
+    var root = document.querySelector("[data-diagap]");
+    if (!root) return;
+    var v = { na: 30, k: 30 };
+    function update() {
+      var gap = 290 - 2 * (v.na + v.k);
+      cstEl(root, "na").textContent = v.na;
+      cstEl(root, "k").textContent = v.k;
+      cstEl(root, "gap").textContent = gap;
+      var out = cstEl(root, "out");
+      if (gap < 0) cstOut(out, "계산값이 음수 — 실제로는 검체 오염(소변·물 혼입 등)을 의심하는 상황입니다.", "mid");
+      else if (gap > 125) cstOut(out, "<b>Osmotic 패턴</b> — 전해질로 설명되지 않는 osmole(흡수 안 된 당·Mg 등)이 물을 붙잡고 있습니다.", "ok");
+      else if (gap < 50) cstOut(out, "<b>Secretory 패턴</b> — 대변의 삼투압 대부분을 Na⁺·K⁺가 차지합니다. 장세포가 전해질을 분비하고 있다는 뜻입니다.", "bad");
+      else cstOut(out, "<b>중간 영역</b> — 혼합형이거나 판정이 애매합니다. 임상상과 함께 봅니다.", "mid");
+    }
+    root.querySelectorAll("input[data-k]").forEach(function (r) {
+      r.addEventListener("input", function () { v[r.getAttribute("data-k")] = +r.value; update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 13 · Diarrhea Triage Simulator ---------- */
+  function initDiaSim() {
+    var root = document.querySelector("[data-diasim]");
+    if (!root) return;
+    var NAME = { ors: "ORS", lope: "Loperamide", stool: "Stool test·진료", abx: "경험적 항생제", cdi: "CDI 치료" };
+    /* need: 꼭 필요 · ok: 선택 가능 · no: 피함 */
+    var PT = {
+      a: { need: ["ors"], ok: ["lope"], why: { stool: "합병증 없는 물설사에서 stool test는 대부분 불필요합니다.", abx: "지역사회 급성 물설사에 routine 항생제는 권장되지 않습니다.", cdi: "항생제 노출이 없어 CDI 치료 대상이 아닙니다." }, sum: "Hydration first — ORS가 중심이고, 성인이니 loperamide는 단기간 선택 가능합니다." },
+      b: { need: ["ors", "stool"], ok: [], why: { lope: "혈변·고열 — antimotility drug는 피합니다.", abx: "원인 확인 전 자동 투여는 아닙니다 — STEC라면 HUS 위험과 연관될 수 있습니다.", cdi: "CDI를 시사하는 항생제 노출이 없습니다." }, sum: "Inflammatory pathway — 수분 보충을 유지하며 stool test로 원인을 확인합니다. 지사제·자동 항생제는 피합니다." },
+      c: { need: ["stool", "cdi"], ok: ["ors"], why: { lope: "CDI 의심 — 증상만 막으면 toxin이 장에 머물고 toxic megacolon 위험이 있습니다.", abx: "일반 경험적 항생제는 오히려 CDI를 악화시킬 수 있습니다. 필요한 것은 C. difficile를 겨냥한 치료입니다." }, sum: "Consider C. difficile — stool test로 확인하고 fidaxomicin 또는 경구 vancomycin. 수분 보충도 함께." }
+    };
+    var cur = null, pick = {};
+    var chips = root.querySelectorAll("[data-tx]");
+    root.querySelectorAll("[data-pt]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-pt]").forEach(function (x) { x.classList.remove("on"); });
+        b.classList.add("on");
+        cur = b.getAttribute("data-pt");
+        pick = {};
+        chips.forEach(function (x) { x.classList.remove("on"); });
+        cstEl(root, "steps").style.display = "block";
+        cstOut(cstEl(root, "out"), "대응을 모두 고른 뒤 판정을 누르세요.");
+      });
+    });
+    chips.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-tx");
+        pick[k] = !pick[k];
+        b.classList.toggle("on", pick[k]);
+      });
+    });
+    root.querySelector("[data-act='check']").addEventListener("click", function () {
+      if (!cur) return;
+      var d = PT[cur], wrong = [], miss = [];
+      Object.keys(NAME).forEach(function (k) {
+        var allowed = d.need.indexOf(k) >= 0 || d.ok.indexOf(k) >= 0;
+        if (pick[k] && !allowed) wrong.push("❌ <b>" + NAME[k] + "</b> — " + d.why[k]);
+        if (!pick[k] && d.need.indexOf(k) >= 0) miss.push(NAME[k]);
+      });
+      var out = cstEl(root, "out");
+      if (!wrong.length && !miss.length) cstOut(out, "✅ <b>정확합니다.</b> " + d.sum, "ok");
+      else cstOut(out, wrong.join("<br>") + (miss.length ? (wrong.length ? "<br>" : "") + "➕ 빠진 것: <b>" + miss.join(", ") + "</b>" : "") + "<br>" + d.sum, "bad");
+    });
+  }
 
   /* =====================================================================
      Core 15 · 변비
