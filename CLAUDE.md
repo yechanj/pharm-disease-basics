@@ -82,7 +82,7 @@ node -e "var fs=require('fs'),h=fs.readFileSync('lessons/core/NN.html','utf8'),c
 
 ## CSS 규칙
 - 새 강의 컴포넌트 CSS는 `styles.css` **끝에 추가**
-- 강의별 prefix로 충돌 방지 (Core 11: `gs__`, `hpj__` / Core 12: `arb__`, `rfm__` / Core 15: `cst__` / Core 16: `dia__` / Core 17: `gbs__` / Core 18: `hep__` (Core 16부터 `cst__` 공용 UI 재사용) / Everyday 03: `fls__`, `wvi__`, `nrt__`, `hyg__`, `ors__`, `tfl__`, `lpc__`)
+- 강의별 prefix로 충돌 방지 (Core 11: `gs__`, `hpj__` / Core 12: `arb__`, `rfm__` / Core 15: `cst__` / Core 16: `dia__` / Core 17: `gbs__` / Core 18: `hep__` / Core 19: `cir__` / Core 20: `cld__` / Core 21: `ifz__` (Core 16부터 `cst__` 공용 UI 재사용) / Everyday 03: `fls__`, `wvi__`, `nrt__`, `hyg__`, `ors__`, `tfl__`, `lpc__`)
 - CSS 변수 적극 활용: `var(--brand)`, `var(--brand-soft)`, `var(--surface)`, `var(--surface-2)`, `var(--line)`, `var(--ink-soft)`, 상태색 `var(--ok)`/`var(--ok-soft)`, `var(--mid)`/`var(--mid-soft)`, `var(--hi)`/`var(--hi-soft)`
 - `--ok-color`, `--bg-card`는 **정의되어 있지 않음** — 사용 금지
 

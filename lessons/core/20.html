@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core 20 · 감기 — 약사를 위한 질병 기본교양</title>
+  <meta name="description" content="감기약을 고를 때는 질환명이 아니라 어떤 생리적 반응이 증상을 만들었고 어떤 약이 그 반응을 조절하는지를 본다" />
+  <link rel="stylesheet" href="../../assets/css/styles.css" />
+</head>
+<body>
+  <div class="readprog" aria-hidden="true"><i></i></div>
+
+  <div class="topbar">
+    <button class="hamburger" aria-label="목차 열기" aria-expanded="false"><span></span></button>
+    <div class="topbar__title">Core 20 · 감기</div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="app">
+    <aside class="sidebar" aria-label="강의 목차">
+      <div class="sidebar__brand">
+        <div class="sidebar__logo">감기</div>
+        <div class="sidebar__title">질병 기본교양
+          <small>Core 20 · 호흡기</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="toc">
+          <li><a href="#q0"><span class="num">0</span> 오늘의 질문</a></li>
+          <li><a href="#onesent"><span class="num">1</span> 한 문장으로</a></li>
+          <li><a href="#defense"><span class="num">2</span> 정상 호흡기 방어</a></li>
+          <li><a href="#immune"><span class="num">3</span> 감염과 면역반응</a></li>
+          <li><a href="#rhinorrhea"><span class="num">4</span> 콧물 · 재채기</a></li>
+          <li><a href="#congestion"><span class="num">5</span> 코막힘</a></li>
+          <li><a href="#cough"><span class="num">6</span> 인후통 · 기침</a></li>
+          <li><a href="#fever"><span class="num">7</span> 발열 · 몸살</a></li>
+          <li><a href="#spread"><span class="num">8</span> 전파 · 추위</a></li>
+          <li><a href="#course"><span class="num">9</span> 자연경과 · 노란 콧물</a></li>
+          <li><a href="#ddx"><span class="num">10</span> 비슷한 질환</a></li>
+          <li><a href="#diagnosis"><span class="num">11</span> 진단 · Red Flags</a></li>
+          <li><a href="#treat"><span class="num">12</span> 치료 전체 그림</a></li>
+          <li><a href="#nonpharm"><span class="num">13</span> 비약물치료</a></li>
+          <li><a href="#antihist"><span class="num">14</span> 항히스타민제</a></li>
+          <li><a href="#decong"><span class="num">15</span> 비충혈제거제</a></li>
+          <li><a href="#analgesic"><span class="num">16</span> 해열진통제</a></li>
+          <li><a href="#antitussive"><span class="num">17</span> 진해제</a></li>
+          <li><a href="#mucolytic"><span class="num">18</span> 거담제 · 점액용해제</a></li>
+          <li><a href="#antibiotic"><span class="num">19</span> 항생제가 필요 없는 이유</a></li>
+          <li><a href="#combo"><span class="num">20</span> 종합감기약 해석</a></li>
+          <li><a href="#supplement"><span class="num">21</span> 비타민 · 건기식</a></li>
+          <li><a href="#special"><span class="num">22</span> 특수 환자군</a></li>
+          <li><a href="#deepdive"><span class="num">23</span> Deep Dive</a></li>
+          <li><a href="#compare"><span class="num">24</span> 비교</a></li>
+          <li><a href="#faq"><span class="num">25</span> FAQ</a></li>
+          <li><a href="#myth"><span class="num">26</span> Fact Check</a></li>
+          <li><a href="#case"><span class="num">27</span> Case Study</a></li>
+          <li><a href="#quiz"><span class="num">28</span> Mastery Quiz</a></li>
+          <li><a href="#summary"><span class="num">29</span> 30초 Summary</a></li>
+        </ul>
+      </nav>
+      <a class="sidebar__back" href="../../index.html">← 강의 목록으로</a>
+    </aside>
+
+    <div class="content">
+      <div class="wrap">
+
+        <header class="lesson-hero">
+          <div class="kicker">약사를 위한 질병 기본교양 · Core 20 · Part 3 호흡기·알레르기</div>
+          <h1>감기<br><small style="font-size:.55em;font-weight:600;">Common Cold</small></h1>
+          <p>감기약 성분을 많이 아는 것과 감기의 병태생리를 이해하는 것은 다릅니다.<br>
+            <b>감기 증상의 상당 부분은 바이러스 자체보다 바이러스에 대응하는 우리 몸의 면역·염증반응</b> 때문에 생깁니다.<br>
+            그래서 대부분의 감기약은 바이러스를 없애는 약이 아니라 <b>몸의 반응을 조절하는 약</b>입니다.</p>
+        </header>
+
+        <div class="card card--key">
+          <div class="card__label"><span class="dot"></span>이번 강의의 핵심 3문장</div>
+          <p>1. <b>콧물 = 분비 · 코막힘 = 혈관 부종 · 기침 = 신경반사 · 가래 = 점액 성상 · 열 = PGE₂ set point</b> — 증상마다 기전과 약이 다르다.<br>
+            2. <b>노란 콧물 ≠ 세균 감염</b>. 항생제는 색깔이 아니라 경과·중증도·합병증으로 판단한다.<br>
+            3. 종합감기약은 <b>제품이 아니라 성분으로</b> 읽는다 — 특히 고령자의 항콜린 부담과 중복 성분.</p>
+        </div>
+
+        <!-- ================= 00 · 오늘의 질문 ================= -->
+        <section id="q0" class="section">
+          <h2><span class="sec-no">00</span> 오늘의 질문</h2>
+          <div class="case-hero">
+            <div class="who">35세 남성 · 감기 4일째 · 37.1℃ · 호흡곤란 없음</div>
+            <div class="bp" style="font-size:clamp(14px,3.5vw,19px);line-height:1.8;">
+              Day 1 · 목이 따끔<br>
+              Day 2 · 맑은 콧물 · 재채기<br>
+              Day 3 · 코막힘 · 기침<br>
+              <span style="color:var(--mid);">Day 4 · 콧물이 노랗게</span>
+            </div>
+            <div class="quote">"처음엔 바이러스였는데 콧물이 노래졌으니 이제 세균 감염 아닌가요? 항생제 먹어야겠죠?"</div>
+            <div style="font-weight:700;margin-bottom:8px;">콧물이 노랗게 변하면 항생제가 필요할까요?</div>
+            <div class="case-options" data-case-options>
+              <button data-opt="A"><span class="opt">A</span> 노란색은 세균 감염을 확진하는 소견이다</button>
+              <button data-opt="B"><span class="opt">B</span> 바이러스 감염에서도 면역반응으로 노란 콧물이 나올 수 있다</button>
+              <button data-opt="C"><span class="opt">C</span> 바이러스가 세균으로 변한 것이다</button>
+              <button data-opt="D"><span class="opt">D</span> 항히스타민제를 너무 많이 먹어서 생긴다</button>
+              <div class="case-hero__reveal" data-case-bridge>정답은 B — 노란색·녹색은 <b>모여든 호중구와 그 효소</b>의 색입니다. 바이러스 감염에서도 정상적으로 나타납니다. 먼저 호흡기가 평소 어떻게 바이러스를 막는지부터 봅시다.</div>
+            </div>
+          </div>
+
+          <p>강의가 끝나면 다음 질문에 답할 수 있어야 합니다.</p>
+          <ul class="qlist">
+            <li>호흡기는 매일 바이러스에 노출되는데 왜 항상 감기에 걸리지 않을까?</li>
+            <li>콧물과 코막힘은 왜 동시에 생기고, 왜 다른 약으로 다스릴까?</li>
+            <li>콧물이 노랗게 변하는 이유는? 감기와 독감은 무엇이 다른가?</li>
+            <li>Chlorpheniramine과 pseudoephedrine은 각각 어디에 작용하는가?</li>
+            <li>진해제와 거담제는 어떻게 다른가?</li>
+            <li>감기약을 먹으면 감기가 더 빨리 낫는가?</li>
+            <li>언제 단순 감기가 아닌 세균성 합병증을 의심하는가?</li>
+            <li>고령자에게 종합감기약을 쓸 때 무엇을 주의해야 하는가?</li>
+          </ul>
+        </section>
+
+        <!-- ================= 01 · 한 문장으로 ================= -->
+        <section id="onesent" class="section">
+          <h2><span class="sec-no">01</span> 한 문장으로 이해하기</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>감기란</div>
+            <p style="font-size:16px;font-weight:700;">여러 호흡기 바이러스가 일으키는<br><span style="color:var(--brand);">급성 상기도 감염</span> — 코와 인두가 주 무대이며 대부분 저절로 낫는다</p>
+          </div>
+          <div class="twopanel" style="margin-top:12px;">
+            <div class="panel panel--normal">
+              <h5>대표 원인 바이러스</h5>
+              <p style="font-size:13.5px;margin:0;"><b>Rhinovirus</b>(가장 흔함) · 계절성 coronavirus · adenovirus · parainfluenza · enterovirus · human metapneumovirus 등</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>감기는 "하나의 병"이 아니다</h5>
+              <p style="font-size:13.5px;margin:0;">다양한 바이러스가 만드는 <b>임상 증후군</b>. Influenza · SARS-CoV-2 · RSV도 비슷한 증상을 만들지만 별도 질환으로 구분합니다.</p>
+            </div>
+          </div>
+          <p style="margin-top:10px;"><b>왜 매년 걸릴까?</b> Rhinovirus만 해도 160가지가 넘는 유형이 있습니다. 한 유형에 면역이 생겨도 다른 유형에는 다시 걸립니다.</p>
+        </section>
+
+        <!-- ================= 02 · 방어 ================= -->
+        <section id="defense" class="section">
+          <h2><span class="sec-no">02</span> 정상적인 몸에서는? — 다층 방어</h2>
+          <p>코는 공기 통로가 아니라 <b>필터 · 가습기 · 난방기 · 면역 초소</b>입니다. 점막의 goblet cell과 점막하샘이 만든 <b>점액</b>이 먼지와 바이러스를 붙잡고, <b>섬모</b>가 한 방향으로 움직여 인두 쪽으로 실어 나릅니다 — <b>mucociliary clearance</b>. 인두에 도달한 점액은 삼켜지거나 기침으로 나갑니다.</p>
+
+          <div class="figure" data-clddefense>
+            <div class="figure__title">Viz 1 · Respiratory Defense System</div>
+            <div class="cst__seg">
+              <button data-mode="normal" class="on">정상</button>
+              <button data-mode="smoke">흡연</button>
+              <button data-mode="viral">바이러스 감염</button>
+            </div>
+            <div class="cld__epi is-normal" data-el="epi">
+              <div class="cld__particles"><span>🦠</span><span>·</span><span>🌫️</span><span>🦠</span><span>·</span><span>🌼</span></div>
+              <div class="cld__mucus">점액층 → → → 인두 쪽으로</div>
+              <div class="cld__cilia"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <div class="cld__cells">섬모 상피세포</div>
+            </div>
+            <div class="cst__meter"><span>점액 이동</span><div class="cst__bar cst__bar--water"><i data-el="clear"></i></div></div>
+            <div class="cst__meter"><span>상피 장벽</span><div class="cst__bar"><i data-el="barrier"></i></div></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">감기는 바이러스가 이 방어층을 뚫고 상피세포에 들어간 결과입니다.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>핵심 개념 — 선천면역이 증상의 시작점</div>
+            <p>감염된 상피세포는 바이러스 RNA를 감지해 <b>interferon · cytokine</b>을 냅니다 → 주변 세포의 항바이러스 상태 + 면역세포 동원. 정상 방어는 <b>물리적 여과 + 점액 + 섬모 + 선천면역 + 적응면역</b>의 다층 구조이고, 이 반응의 부산물이 감기 증상이 됩니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 03 · 감염·면역 ================= -->
+        <section id="immune" class="section">
+          <h2><span class="sec-no">03</span> 무엇이 잘못되었나? — 바이러스와 우리 몸의 반응</h2>
+          <p>노출 → 코 상피세포 부착(많은 rhinovirus는 <b>ICAM-1</b> 수용체 이용, 모든 유형이 같지는 않음) → 침입·복제 → 국소 면역반응 → <b>cytokine · chemokine · bradykinin · prostaglandin</b> → 혈관 확장 · 투과성 ↑ · 분비 ↑ · 감각신경 자극 · 전신 반응.</p>
+
+          <div class="figure" data-cldvirus>
+            <div class="figure__title">Viz 2 · Virus vs Immune Response</div>
+            <div class="cld__slider">
+              <label>감염 후 <b data-el="day">Day 1</b></label>
+              <input type="range" min="1" max="10" step="1" value="1" aria-label="감염 후 일수" />
+            </div>
+            <div class="cst__chips" style="margin-top:0;">
+              <button class="cst__chip" data-med>💊 증상완화제 복용</button>
+            </div>
+            <div class="cst__meter"><span>바이러스 양</span><div class="cst__bar cst__bar--red"><i data-el="vir"></i></div></div>
+            <div class="cst__meter"><span>염증 반응</span><div class="cst__bar cst__bar--red"><i data-el="inf"></i></div></div>
+            <div class="cst__meter"><span>느끼는 증상</span><div class="cst__bar"><i data-el="sym"></i></div></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap"><b>감기 증상을 줄이는 것과 바이러스를 제거하는 것은 다르다.</b> 곡선은 전형적 경과를 단순화한 교육용 예시입니다.</div>
+          </div>
+
+          <div class="figure" data-cldmap>
+            <div class="figure__title">Viz 3 · Cold Symptom Mechanism Map — 이번 강의의 중심</div>
+            <p style="font-size:13px;margin-bottom:10px;">증상을 탭하세요. 같은 감염에서 갈라져 나온 다섯 갈래입니다.</p>
+            <div class="cld__root">🦠 바이러스 감염 → 🔥 염증 반응</div>
+            <div class="cld__syms">
+              <button data-s="rhin">💧 콧물</button>
+              <button data-s="cong">🚧 코막힘</button>
+              <button data-s="throat">🔥 인후통</button>
+              <button data-s="cough">💨 기침</button>
+              <button data-s="fever">🌡️ 발열·몸살</button>
+            </div>
+            <div class="cld__cards3">
+              <div><small>무엇이 일어나나</small><p data-el="mech">증상을 탭하세요.</p></div>
+              <div><small>주요 매개</small><p data-el="med"></p></div>
+              <div><small>조절하는 약물군</small><p data-el="drug"></p></div>
+            </div>
+            <div class="figure__cap">콧물 → 분비 조절 · 코막힘 → 혈관수축 · 기침 → 신경반사 조절 · 가래 → 점액 성상 · 열·통증 → prostaglandin 신호 조절</div>
+          </div>
+        </section>
+
+        <!-- ================= 04 · 콧물 ================= -->
+        <section id="rhinorrhea" class="section">
+          <h2><span class="sec-no">04</span> 왜 콧물이 나오는가?</h2>
+          <div class="timeline-v">
+            <div class="tv__item tv__item--key"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">혈관 투과성 ↑</div><p>염증 매개물질 → 혈장 유래 액체가 점막으로 → 물 같은 콧물</p></div></div>
+            <div class="tv__item"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">분비샘 자극</div><p>감각신경 → <b>부교감(cholinergic) 반사</b> → 코 분비샘 분비 ↑</p></div></div>
+            <div class="tv__item"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">재채기</div><p>삼차신경 감각 자극 → 재채기 반사 → 분비물·이물 배출</p></div></div>
+          </div>
+          <div class="twopanel" style="margin-top:12px;">
+            <div class="panel panel--normal">
+              <h5>감기 콧물</h5>
+              <p style="font-size:13.5px;margin:0;">Cytokine · bradykinin · <b>신경성 분비반응</b>이 중심. Histamine의 역할은 상대적으로 작음</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>알레르기 콧물</h5>
+              <p style="font-size:13.5px;margin:0;">Allergen → IgE → 비만세포 → <b>histamine</b> → 가려움·재채기·물 콧물</p>
+            </div>
+          </div>
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p>겉은 비슷해도 기전이 다르다 → <b>2세대 항히스타민제가 알레르기비염엔 잘 듣고 감기엔 별로인 이유</b>(14번에서 이어짐).</p>
+          </div>
+        </section>
+
+        <!-- ================= 05 · 코막힘 ================= -->
+        <section id="congestion" class="section">
+          <h2><span class="sec-no">05</span> 왜 코가 막히는가?</h2>
+          <p>코막힘은 "콧물이 쌓인 것"만이 아닙니다. 비점막에는 공기를 데우고 적시는 <b>풍부한 정맥총</b>이 있습니다. 염증 → 혈관 확장 + 투과성 ↑ → <b>점막이 부어</b> 통로가 좁아집니다. 그래서 코를 열심히 풀어도 답답함이 남습니다.</p>
+
+          <div class="figure" data-cldnose>
+            <div class="figure__title">Viz 4 · Runny Nose vs Blocked Nose — 그리고 약</div>
+            <div class="cld__slider">
+              <label>분비액 <b data-el="v-sec">보통</b></label>
+              <input type="range" min="0" max="4" step="1" value="2" data-k="sec" aria-label="분비액" />
+            </div>
+            <div class="cld__slider">
+              <label>점막 혈관 부종 <b data-el="v-swell">보통</b></label>
+              <input type="range" min="0" max="4" step="1" value="2" data-k="swell" aria-label="점막 혈관 부종" />
+            </div>
+            <div class="cld__nose" data-el="nose">
+              <div class="cld__wall" data-el="wl"></div>
+              <div class="cld__air"><span data-el="drops"></span><b data-el="flow"></b></div>
+              <div class="cld__wall" data-el="wr"></div>
+            </div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-drug="ah">1세대 항히스타민제</button>
+              <button class="cst__chip" data-drug="pse">Pseudoephedrine</button>
+              <button class="cst__chip" data-drug="saline">생리식염수 세척</button>
+            </div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap"><b>콧물은 분비의 문제, 코막힘은 점막 혈관·부종의 문제</b> — 그래서 표적이 다른 약을 씁니다. 교육용 단순 모델입니다.</div>
+          </div>
+
+          <div class="qcard" style="margin-top:14px;">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ①</span> 콧물은 거의 없는데 코가 꽉 막힌 환자. 어떤 약이 기전상 더 맞을까?</div>
+            <ul class="mcq" data-answer="B">
+              <li data-opt="A"><span class="opt">A</span> Chlorpheniramine — 분비를 줄인다</li>
+              <li data-opt="B"><span class="opt">B</span> Pseudoephedrine 또는 국소 비충혈제거제 — 부은 점막 혈관을 수축시킨다</li>
+              <li data-opt="C"><span class="opt">C</span> Dextromethorphan</li>
+              <li data-opt="D"><span class="opt">D</span> Acetylcysteine</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: B — 문제는 분비가 아니라 부종입니다. 단, 혈압·BPH·심혈관 위험을 먼저 확인합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 06 · 인후통·기침 ================= -->
+        <section id="cough" class="section">
+          <h2><span class="sec-no">06</span> 왜 목이 아프고 기침이 나는가?</h2>
+          <p><b>인후통</b> — 인두 염증 → bradykinin · prostaglandin → 감각신경 자극·과민 → 통증.<br>
+            <b>기침</b> — 원래는 <b>방어반사</b>입니다. 기도 자극 → 감각 구심신경(후두·하기도는 미주신경) → 뇌간 기침 네트워크 → 호흡근 수축.</p>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>감기에서 기침이 나는 이유</th><th>설명</th></tr></thead>
+              <tbody>
+                <tr><th>Postnasal drainage</th><td>코 분비물이 인두로 넘어가며 자극</td></tr>
+                <tr><th>인두·기도 염증</th><td>염증 자체가 감각신경 자극</td></tr>
+                <tr><th>Cough hypersensitivity</th><td>신경이 예민해져 찬 공기·말하기·웃기·향수·미세먼지에도 기침</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="figure" data-cldcough>
+            <div class="figure__title">Viz 5 · Cough Sensitivity Simulator</div>
+            <div class="cst__seg">
+              <button data-t="0" class="on">Day 1</button>
+              <button data-t="1">Day 7</button>
+              <button data-t="2">Week 3</button>
+              <button data-t="3">Week 6</button>
+            </div>
+            <div class="cst__meter"><span>바이러스 활동</span><div class="cst__bar cst__bar--red"><i data-el="vir"></i></div></div>
+            <div class="cst__meter"><span>기침 민감도</span><div class="cst__bar cst__bar--red"><i data-el="sens"></i></div></div>
+            <div class="cst__q">같은 자극을 줘 보세요</div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-st="1">❄️ 찬 공기</button>
+              <button class="cst__chip" data-st="2">🗣️ 오래 말하기</button>
+              <button class="cst__chip" data-st="3">🌸 향수</button>
+            </div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">바이러스는 사라져도 신경 과민은 천천히 돌아옵니다 — <b>감염 후 기침</b>.</div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>성인 기침 분류</th><th>기간</th><th>대표 원인</th></tr></thead>
+              <tbody>
+                <tr><th>Acute</th><td>3주 미만</td><td>감기 등 급성 감염</td></tr>
+                <tr><th>Subacute</th><td>3–8주</td><td><b>감염 후 기침</b></td></tr>
+                <tr><th>Chronic</th><td>8주 초과</td><td>천식 · GERD · 후비루 · ACE 억제제 등</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;">오래가거나 악화되면 <b>천식 · 폐렴 · 백일해 · GERD(Core 12) · 약물성 기침(ACE 억제제)</b>을 평가합니다.</p>
+        </section>
+
+        <!-- ================= 07 · 발열 ================= -->
+        <section id="fever" class="section">
+          <h2><span class="sec-no">07</span> 왜 열과 몸살이 생기는가?</h2>
+          <p>면역세포 활성 → <b>IL-1 · IL-6 · TNF</b>(발열성 cytokine) → 시상하부 <b>PGE₂ ↑</b> → <b>체온 set point 상승</b> → 발열. 같은 cytokine 신호가 근육통 · 피로 · 두통 · 식욕 감소와도 연결됩니다(성인 감기에서는 독감보다 덜 심함).</p>
+
+          <div class="figure" data-cldfever>
+            <div class="figure__title">Viz 6 · Fever Thermostat</div>
+            <div class="cst__seg">
+              <button data-f="0" class="on">정상</button>
+              <button data-f="1">감염 초기</button>
+              <button data-f="2">열 도달</button>
+              <button data-f="3">해열제</button>
+            </div>
+            <div class="cld__thermo">
+              <div><small>시상하부 set point</small><b data-el="sp"></b></div>
+              <div><small>실제 체온</small><b data-el="bt"></b></div>
+              <div><small>몸의 반응</small><b data-el="resp"></b></div>
+            </div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">숫자는 기전 이해를 위한 예시입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 08 · 전파 ================= -->
+        <section id="spread" class="section">
+          <h2><span class="sec-no">08</span> 감기는 어떻게 전파되는가?</h2>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>전파 경로</h5>
+              <p style="font-size:13.5px;margin:0;">감염자의 호흡기 입자·비말 흡입 · 가까운 접촉 · 오염된 손으로 <b>눈·코·입</b> 만지기</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>추우면 감기에 걸린다?</h5>
+              <p style="font-size:13.5px;margin:0;">추위가 바이러스를 만들지는 않습니다. 겨울의 <b>실내 밀집 · 환기 감소 · 낮은 습도 · 점막 방어 변화 · 일부 바이러스의 생존 조건</b>이 전파를 돕습니다. 직접 원인은 바이러스입니다.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 09 · 자연경과 ================= -->
+        <section id="course" class="section">
+          <h2><span class="sec-no">09</span> 감기의 자연경과 — 그리고 노란 콧물</h2>
+          <div class="figure" data-cldtimeline>
+            <div class="figure__title">Viz 7 · Cold Timeline</div>
+            <div class="cld__slider">
+              <label>감기 <b data-el="day">Day 1</b></label>
+              <input type="range" min="1" max="14" step="1" value="1" aria-label="감기 일수" />
+            </div>
+            <div class="cst__meter"><span>인후통</span><div class="cst__bar cst__bar--red"><i data-el="throat"></i></div></div>
+            <div class="cst__meter"><span>콧물</span><div class="cst__bar cst__bar--water"><i data-el="rhin"></i></div></div>
+            <div class="cst__meter"><span>코막힘</span><div class="cst__bar"><i data-el="cong"></i></div></div>
+            <div class="cst__meter"><span>기침</span><div class="cst__bar cst__bar--red"><i data-el="cough"></i></div></div>
+            <div class="cld__mucuscolor" data-el="color"></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">전형적 경과의 예시일 뿐 모든 환자에게 같은 법칙은 아닙니다. 대부분 7–10일 안에 좋아지고, 기침은 더 오래 남을 수 있습니다.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>왜 노랗게 · 녹색으로 변할까?</div>
+            <p>감염이 진행되면 점막으로 <b>호중구</b>가 몰려들고, 세포 잔해와 점액 농도가 바뀝니다. 호중구의 <b>myeloperoxidase</b>(헴을 가진 녹색 효소)가 녹색 계열을 만듭니다.<br>
+              → <b>Yellow / green mucus ≠ bacterial infection</b>. 색깔로 항생제 필요성을 판단할 수 없습니다.</p>
+          </div>
+
+          <div class="qcard" style="margin-top:14px;">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ②</span> 감기 4일째, 콧물은 녹색이지만 발열·심한 안면통증 없이 전반적으로 좋아지고 있다. 항생제가 필요할까?</div>
+            <ul class="mcq" data-answer="C">
+              <li data-opt="A"><span class="opt">A</span> 필요하다 — 녹색은 세균의 색이다</li>
+              <li data-opt="B"><span class="opt">B</span> 필요하다 — 폐렴 예방을 위해</li>
+              <li data-opt="C"><span class="opt">C</span> 필요하지 않다 — 정상 바이러스성 경과에서도 나타나며, 좋아지는 중이다</li>
+              <li data-opt="D"><span class="opt">D</span> 항히스타민제를 끊으면 된다</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: C — 판단 기준은 색이 아니라 <b>경과(10일 이상 지속·재악화)와 중증도(고열·심한 안면통증)</b>입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 10 · 감별 ================= -->
+        <section id="ddx" class="section">
+          <h2><span class="sec-no">10</span> 감기와 비슷한 질환</h2>
+          <div class="figure" data-cldinfmap>
+            <div class="figure__title">Viz 8 · Respiratory Infection Map</div>
+            <div class="cld__airway">
+              <button data-loc="nose">👃 비강</button>
+              <button data-loc="sinus">🦴 부비동</button>
+              <button data-loc="pharynx">👅 인두</button>
+              <button data-loc="larynx">🗣️ 후두</button>
+              <button data-loc="bronchi">🌿 기관지</button>
+              <button data-loc="alveoli">🫁 폐포</button>
+            </div>
+            <div class="cst__out" data-el="out">부위를 탭하세요. 실제 감염은 여러 부위에 동시에 걸칠 수 있습니다.</div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>질환</th><th>감기와 다른 점</th></tr></thead>
+              <tbody>
+                <tr><th>Influenza</th><td>감기가 심해진 것이 아닌 <b>별도 감염</b>. 갑작스러운 발병 · 고열 · 오한 · 심한 근육통 · 두통 · 극심한 피로. 증상만으로 항상 구별되지는 않음</td></tr>
+                <tr><th>COVID-19</th><td>비슷한 증상 가능. <b>중증 진행 고위험군</b>은 조기 항바이러스 치료 평가가 필요해 단순 감기로 넘기지 않음</td></tr>
+                <tr><th>Allergic rhinitis</th><td>감염 아님. 코·<b>눈 가려움</b> · 반복 재채기 · 특정 환경에서 반복 · 발열·근육통 없음</td></tr>
+                <tr><th>GAS pharyngitis</th><td>발열 · 심한 인후통 · 편도 삼출물 · 압통성 전경부 림프절 · <b>기침이 없음</b>. 기침·콧물·쉰 목소리가 뚜렷하면 바이러스 쪽. 필요 시 신속항원검사·배양</td></tr>
+                <tr><th>Pneumonia</th><td>폐실질 감염. <b>호흡곤란 · 빈호흡 · 저산소증</b> · 지속 발열 · 흉통 · 고령자 의식변화(열이 없을 수도)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:18px;">감기인가, 합병증인가? — 세균성 부비동염의 세 패턴</h3>
+          <div class="figure" data-cldscen>
+            <div class="figure__title">Viz 9 · Cold or Complication?</div>
+            <div class="cst__seg">
+              <button data-sc="a" class="on">A</button>
+              <button data-sc="b">B</button>
+              <button data-sc="c">C</button>
+              <button data-sc="d">D</button>
+            </div>
+            <div class="cld__days" data-el="days"></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">항생제 판단의 축은 <b>콧물 색이 아니라 시간 경과 · 중증도 · 합병증 가능성</b>입니다. 패턴이 있어도 항생제가 자동은 아니며 환자 상태를 평가합니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 11 · 진단 ================= -->
+        <section id="diagnosis" class="section">
+          <h2><span class="sec-no">11</span> 어떻게 진단하는가?</h2>
+          <p>일반 감기는 <b>증상과 병력</b>으로 판단합니다. 모든 환자에게 혈액검사나 PCR이 필요하지 않습니다. 확인할 것: 시작 시점 · 기간 · 발열 · 호흡곤란 · 인후통 정도 · 안면통증 · 기침·가래 · 기저질환 · 노출 · <b>좋아지는 중인가, 나빠지는 중인가</b>.</p>
+          <p>바이러스 검사는 <b>결과가 치료·감염관리를 바꿀 때</b> 고려합니다 — influenza·COVID-19 항바이러스제 고려, 요양병원 집단발생, 면역저하, 중증 감염, 격리 판단.</p>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>Red Flags — 감기약 상담으로 끝내지 않는다</div>
+            <ul style="margin:6px 0 0 18px;font-size:13.5px;line-height:1.9;">
+              <li><b>호흡곤란 · 새 저산소증</b>(평소보다 낮은 SpO₂) · 흉통 · 청색증</li>
+              <li>심한 탈수 · <b>새로운 의식변화</b></li>
+              <li>지속되는 고열 · 10일 이상 호전 없음 · <b>좋아지다 다시 악화</b></li>
+              <li>심한 안면통증 · <b>눈 주위 부종</b></li>
+              <li>침을 삼키기 어렵거나 기도 폐쇄가 의심되는 인후통</li>
+              <li>심부전 · COPD · 천식 등 기저질환 악화</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ================= 12 · 치료 전체 ================= -->
+        <section id="treat" class="section">
+          <h2><span class="sec-no">12</span> 치료의 전체 그림</h2>
+          <p>대부분의 건강한 사람은 저절로 회복합니다. 일부에서 <b>급성 중이염 · 세균성 부비동염 · 천식/COPD 악화 · 이차성 세균성 폐렴</b>이 생길 수 있지만, 초기 감기에 항생제를 미리 쓴다고 이런 합병증을 일반적으로 예방하지는 못합니다.</p>
+          <div class="timeline-v">
+            <div class="tv__item tv__item--key"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">① 자연 회복을 돕는다</div><p>휴식 · 적절한 수분 · 영양</p></div></div>
+            <div class="tv__item"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">② 필요한 증상만 조절한다</div><p>콧물 · 코막힘 · 인후통 · 기침 · 발열·통증 — 증상별로</p></div></div>
+            <div class="tv__item tv__item--key"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">③ 다른 질환·합병증을 감별한다</div><p>Influenza · COVID-19 · 세균성 부비동염 · 폐렴</p></div></div>
+            <div class="tv__item"><div class="tv__dot"></div><div class="tv__content"><div class="tv__label">④ 불필요한 약을 줄인다</div><p>항생제 · 중복 성분 · 과도한 진정 · 필요 없는 복합제</p></div></div>
+          </div>
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>감기약은 대부분 증상완화제이지 감기 바이러스 치료제가 아니다.</b> 증상이 줄었다고 바이러스가 빨리 사라지는 것이 아니며, 증상이 경미하면 모든 증상에 약을 쓸 필요도 없습니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 13 · 비약물 ================= -->
+        <section id="nonpharm" class="section">
+          <h2><span class="sec-no">13</span> 생활습관 · 비약물치료</h2>
+          <div class="figure" data-infochips>
+            <div class="checkchips">
+              <button data-text="<b>휴식</b> — 충분한 수면과 휴식은 증상을 견디고 회복하는 데 도움이 됩니다.">😴 휴식</button>
+              <button data-text="<b>수분</b> — 발열·식사량 감소가 있으면 탈수가 생길 수 있습니다. 하지만 모두에게 과도한 물을 권할 필요는 없고, <b>심부전·신부전</b>처럼 수분 제한이 있는 환자는 기존 계획을 따릅니다.">💧 수분</button>
+              <button data-text="<b>생리식염수 분무·세척</b> — 분비물 제거와 점막 불편감 완화. 세척에는 <b>멸균수·증류수·끓여서 식힌 물</b>을 쓰고 수돗물을 그대로 쓰지 않습니다.">🧂 식염수</button>
+              <button data-text="<b>꿀</b> — 급성 기침의 불편감을 줄이는 데 도움이 될 수 있고, 특히 소아에서 일부 근거가 있습니다. 단, <b>12개월 미만 영아에게는 영아 보툴리누스증 위험 때문에 주지 않습니다.</b>">🍯 꿀</button>
+              <button data-text="<b>감염 예방</b> — 손씻기 · 기침 예절 · 환기 · 취약한 사람과 밀접접촉 줄이기 · 필요 시 마스크. 요양병원에서는 개인 증상관리뿐 아니라 <b>병동 내 전파 차단</b>이 중요합니다.">🧼 예방</button>
+            </div>
+            <div class="infochips__out">항목을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 14 · 항히스타민제 ================= -->
+        <section id="antihist" class="section">
+          <h2><span class="sec-no">14</span> 약물 ① 항히스타민제</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>1세대 — chlorpheniramine · triprolidine · diphenhydramine · clemastine</div>
+            <p>H1 수용체 <b>inverse agonist</b>. 감기에서는 항히스타민 작용뿐 아니라 일부 약물의 <b>항무스카린 작용</b>이 분비 감소에 기여합니다. 성인 감기의 콧물·재채기를 <b>단기간, 제한적으로</b> 줄일 수 있지만 감기 기간을 줄이지는 않습니다.</p>
+          </div>
+
+          <div class="figure" data-cldah>
+            <div class="figure__title">Viz 10 · Antihistamine CNS Penetration</div>
+            <div class="cst__seg">
+              <button data-ah="cpm" class="on">Chlorpheniramine</button>
+              <button data-ah="cet">Cetirizine</button>
+              <button data-ah="fex">Fexofenadine</button>
+            </div>
+            <div class="cld__bbb">
+              <div><small>혈액</small><span data-el="blood">💊💊💊</span></div>
+              <div class="cld__bbb-wall">BBB</div>
+              <div><small>뇌 H1</small><span data-el="brain"></span></div>
+            </div>
+            <div class="cst__meter"><span>감기 콧물 효과</span><div class="cst__bar cst__bar--water"><i data-el="cold"></i></div></div>
+            <div class="cst__meter"><span>진정</span><div class="cst__bar cst__bar--red"><i data-el="sed"></i></div></div>
+            <div class="cst__meter"><span>항콜린</span><div class="cst__bar cst__bar--red"><i data-el="ach"></i></div></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">1세대는 BBB를 잘 넘어 뇌의 histamine 각성 신호를 끕니다 → 졸림.</div>
+          </div>
+
+          <div class="card card--caution">
+            <div class="card__label"><span class="dot"></span>특히 조심할 환자 — 1세대</div>
+            <p>고령자 · 치매 · <b>BPH·요폐 위험</b> · 심한 변비 · 폐쇄각녹내장 위험 · 진정제·수면제 복용 · 운전·기계 조작.<br>
+              Chlorpheniramine → <b>항콜린 부담 ↑</b> → 요폐·변비·혼돈 → <b>섬망·낙상</b>. TCA · 방광 항무스카린제 · 일부 항정신병약을 이미 쓰고 있다면 <b>누적 부담</b>을 봅니다.</p>
+          </div>
+
+          <div class="table-scroll" style="margin-top:12px;">
+            <table class="data">
+              <thead><tr><th></th><th>1세대</th><th>2세대 (cetirizine · loratadine · fexofenadine)</th></tr></thead>
+              <tbody>
+                <tr><th>CNS 침투 · 진정</th><td>높음 · 흔함</td><td>대체로 낮음 (cetirizine은 졸림 가능)</td></tr>
+                <tr><th>항콜린</th><td>일부에서 뚜렷</td><td>대체로 적음</td></tr>
+                <tr><th>감기 콧물</th><td>제한적 단기 효과</td><td>효과 제한적</td></tr>
+                <tr><th>알레르기비염</th><td>효과 있으나 부작용</td><td><b>주요 치료 옵션</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 15 · 비충혈제거제 ================= -->
+        <section id="decong" class="section">
+          <h2><span class="sec-no">15</span> 약물 ② 비충혈제거제</h2>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>Pseudoephedrine — 콧물을 말리는 약이 아니다</div>
+            <p>교감신경 자극(norepinephrine 유리 등) → <b>비점막 혈관 수축</b> → 부종 ↓ → 통로 열림 → 코막힘 ↓.<br>
+              <span style="font-size:13px;color:var(--ink-soft);">부작용: 두근거림 · 혈압 ↑ · 불면 · 신경과민 · 떨림 · 요폐</span></p>
+          </div>
+          <div class="card card--caution" style="margin-top:10px;">
+            <div class="card__label"><span class="dot"></span>조심할 환자</div>
+            <p>조절되지 않는 고혈압 · 심혈관질환 · 부정맥 · 갑상선기능항진증 · <b>BPH·요폐 위험</b> · 일부 녹내장 · <b>MAO 억제제 복용</b> · 중증 신질환. 고혈압 환자는 현재 조절 상태와 심혈관 위험을 먼저 확인하고, 불필요한 교감신경 자극을 피합니다.</p>
+          </div>
+
+          <div class="twopanel" style="margin-top:12px;">
+            <div class="panel panel--normal">
+              <h5>Phenylephrine (경구) — 기전 ≠ 효과</h5>
+              <p style="font-size:13.5px;margin:0;">α1 작용제라 혈관수축이 "가능"해 보이지만, 경구로는 <b>초회통과 대사</b>로 유효 노출이 적습니다. 미국 FDA는 2024년 허용된 OTC 경구 용량에서 코막힘 개선 효과가 충분하지 않다고 보고 OTC monograph에서 제외를 <b>제안</b>했습니다. 비강 분무제에는 해당하지 않으며, 미국의 규제 제안과 국내 허가는 구분합니다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>국소 분무 — oxymetazoline · xylometazoline</h5>
+              <p style="font-size:13.5px;margin:0;">점막에 직접 혈관수축 → 빠른 효과. 하지만 반복 장기 사용 시 <b>반동성 코막힘(rhinitis medicamentosa)</b>. 제품 허가사항에 따라 흔히 <b>3–5일 이내</b>로 짧게.</p>
+            </div>
+          </div>
+
+          <div class="figure" data-cldrebound>
+            <div class="figure__title">Viz 11 · 국소 비충혈제거제 — 며칠째 쓰고 있나요?</div>
+            <div class="cld__slider">
+              <label>연속 사용 <b data-el="d">1일</b></label>
+              <input type="range" min="1" max="14" step="1" value="1" aria-label="연속 사용 일수" />
+            </div>
+            <div class="cst__meter"><span>뿌린 직후 시원함</span><div class="cst__bar cst__bar--water"><i data-el="relief"></i></div></div>
+            <div class="cst__meter"><span>약효 지속 시간</span><div class="cst__bar"><i data-el="dur"></i></div></div>
+            <div class="cst__meter"><span>반동성 코막힘 위험</span><div class="cst__bar cst__bar--red"><i data-el="reb"></i></div></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">실제 발생 시점을 예측하는 모델이 아니라 장기 사용 위험을 설명하는 교육용 모델입니다.</div>
+          </div>
+
+          <div class="qcard" style="margin-top:14px;">
+            <div class="q" style="display:block;"><span class="qn">Active Recall ③</span> 고령의 BPH 환자가 종합감기약 복용 후 갑자기 소변을 보기 어려워졌다. 확인할 성분은?</div>
+            <ul class="mcq" data-answer="D">
+              <li data-opt="A"><span class="opt">A</span> Acetaminophen</li>
+              <li data-opt="B"><span class="opt">B</span> Guaifenesin</li>
+              <li data-opt="C"><span class="opt">C</span> 생리식염수</li>
+              <li data-opt="D"><span class="opt">D</span> Chlorpheniramine(항콜린) + pseudoephedrine(교감신경 자극)</li>
+            </ul>
+            <div class="answer mcq-exp" style="display:none;">정답: D — 항콜린은 방광 배뇨근 수축을 약하게 하고, 교감신경 자극은 방광 출구를 조입니다. <b>서로 다른 기전이 같은 결과(요폐)</b>로 모입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 16 · 해열진통제 ================= -->
+        <section id="analgesic" class="section">
+          <h2><span class="sec-no">16</span> 약물 ③ 해열진통제</h2>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>Acetaminophen</h5>
+              <p style="font-size:13.5px;margin:0;">주로 중추의 통증·체온조절 경로에 작용 → 발열 · 두통 · 근육통 · 인후통 완화. 올라간 set point를 낮추지만 <b>바이러스를 없애지 않고</b>, 꼭 정상 체온으로 만들어야 하는 것도 아닙니다.</p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>NSAID (ibuprofen · naproxen)</h5>
+              <p style="font-size:13.5px;margin:0;">COX 억제 → PG ↓ → 통증·열 ↓. 주의: 위점막 손상·출혈 · 신기능 · Na 저류 · 심혈관 위험. <b>CKD · 소화성궤양(Core 13) · 항응고제 · 심부전 · 복수 있는 간경변(Core 19) · 탈수 · NSAID 과민 천식</b>.</p>
+            </div>
+          </div>
+          <div class="card card--caution" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>가장 중요한 약사 포인트 — 중복 복용</div>
+            <p>Acetaminophen은 <b>단일제 · 종합감기약 · 두통약 · 복합진통제 · 처방약</b>에 동시에 들어 있을 수 있습니다. 종합감기약에 단일제를 더하면 하루 총량이 모르게 늘어납니다 → <b>상품명이 아니라 성분명과 하루 총량</b>. 간질환 · 과음 · 저체중 · 영양실조에서는 더 보수적으로.</p>
+          </div>
+          <div class="card card--pharm" style="margin-top:10px;">
+            <div class="card__label"><span class="dot"></span>Aspirin과 소아·청소년</div>
+            <p>바이러스 질환이 있는 소아·청소년에게는 <b>Reye 증후군</b> 위험 때문에 해열 목적으로 aspirin을 쓰지 않습니다 (특수 질환의 전문의 처방은 별개).</p>
+          </div>
+        </section>
+
+        <!-- ================= 17 · 진해제 ================= -->
+        <section id="antitussive" class="section">
+          <h2><span class="sec-no">17</span> 약물 ④ 진해제</h2>
+          <p>기침은 방어기전이지만 지나치면 수면과 일상을 방해합니다. 진해제는 <b>기침 반사</b>를 줄입니다. 반사 경로의 어디를 건드리는지가 약마다 다릅니다.</p>
+
+          <div class="figure" data-cldreflex>
+            <div class="figure__title">Viz 12 · Cough Reflex Drug Map</div>
+            <div class="cst__flow">
+              <div class="cst__step" data-p="mucus">🫧 기도 분비물 · 점액</div>
+              <div class="cst__step" data-p="periph">⚡ 기도 자극 → 말초 감각신경</div>
+              <div class="cst__step" data-p="central">🧠 뇌간 기침 네트워크</div>
+              <div class="cst__step" data-p="muscle">💪 호흡근 수축 → 기침</div>
+            </div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-drug="levo">Levodropropizine</button>
+              <button class="cst__chip" data-drug="dxm">Dextromethorphan</button>
+              <button class="cst__chip" data-drug="cod">Codeine · dihydrocodeine</button>
+              <button class="cst__chip" data-drug="nac">Acetylcysteine</button>
+            </div>
+            <div class="cst__out" data-el="out">약을 탭하면 작용 위치와 주의점이 표시됩니다.</div>
+            <div class="figure__cap">같은 "기침약"이라도 진해제는 반사를, 점액용해제는 가래를 겨냥합니다.</div>
+          </div>
+
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>약</th><th>작용</th><th>약사 포인트</th></tr></thead>
+              <tbody>
+                <tr><th>Dextromethorphan</th><td>중추 — sigma-1 · NMDA 관련 등, 하나의 수용체로 설명하기 어려움</td><td>어지럼·졸림·오심. <b>Serotonergic</b> — MAOI 병용 금기, SSRI·SNRI 주의. <b>CYP2D6 억제제</b>(fluoxetine·paroxetine·bupropion)가 노출 ↑. 과량 시 해리·정신 증상</td></tr>
+                <tr><th>Codeine · dihydrocodeine</th><td>중추 opioid 관련</td><td>진정 · <b>호흡억제</b> · 변비 · 의존 · 상호작용. 감기 급성 기침에 기대만큼 효과적이지 않다는 근거. 소아는 연령·허가 제한 엄격</td></tr>
+                <tr><th>Levodropropizine</th><td><b>말초</b> 감각 구심신호 감소</td><td>중추 opioid와 다른 방식. 졸림·어지럼 가능</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:13px;">감기의 급성 기침에서 진해제 효과는 연구마다 일정하지 않습니다 — 기침이 수면을 크게 방해할 때 단기간 고려합니다.</p>
+        </section>
+
+        <!-- ================= 18 · 거담제 ================= -->
+        <section id="mucolytic" class="section">
+          <h2><span class="sec-no">18</span> 약물 ⑤ 거담제 · 점액용해제</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>약물군</th><th>대표</th><th>목적 · 기전</th></tr></thead>
+              <tbody>
+                <tr><th>Antitussive</th><td>Dextromethorphan 등</td><td>기침 반사 ↓</td></tr>
+                <tr><th>Expectorant</th><td>Guaifenesin</td><td>분비물 배출을 쉽게 — 급성 감기 효과 근거는 제한적</td></tr>
+                <tr><th>Mucolytic</th><td>Acetylcysteine (NAC)</td><td>점액 단백 사이 <b>disulfide 결합</b> ↓ → 점도 ↓</td></tr>
+                <tr><th>Mucoregulator</th><td>Carbocisteine</td><td>점액 조성·성상 조절 (NAC와 같은 직접 절단 기전 아님)</td></tr>
+                <tr><th>분비·청소 개선</th><td>Bromhexine · ambroxol</td><td>Ambroxol은 bromhexine의 활성 대사체 — 점액 배출 · mucociliary clearance 관련</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="figure" data-cldmucus>
+            <div class="figure__title">Viz 13 · Mucus Viscosity Explorer</div>
+            <div class="cld__mucin" data-el="mucin">
+              <span>mucin</span><b>S–S</b><span>mucin</span><b>S–S</b><span>mucin</span><b>S–S</b><span>mucin</span>
+            </div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-a="nac">💊 NAC</button>
+              <button class="cst__chip" data-a="sup">🤐 기침 억제</button>
+            </div>
+            <div class="cst__meter"><span>점도</span><div class="cst__bar cst__bar--red"><i data-el="visc"></i></div></div>
+            <div class="cst__meter"><span>기침 횟수</span><div class="cst__bar"><i data-el="cough"></i></div></div>
+            <div class="cst__meter"><span>분비물 배출</span><div class="cst__bar cst__bar--water"><i data-el="clear"></i></div></div>
+            <div class="cst__out" data-el="out"></div>
+            <div class="figure__cap">두 버튼은 서로 다른 방향으로 움직입니다 — <b>가래를 없애는 약과 기침을 없애는 약은 다르다.</b></div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>모든 감기에 거담제가 필요한가? → 아니다</div>
+            <p>NICE는 일반적인 상기도 감염·급성 기관지염의 급성 기침에 acetylcysteine·carbocisteine 등을 <b>일률적으로 쓰지 않도록</b> 권고합니다. 분비물 양 · 배출 능력 · 기저 호흡기질환을 보고 씁니다.</p>
+          </div>
+          <div class="card card--pharm" style="margin-top:10px;">
+            <div class="card__label"><span class="dot"></span>요양병원에서 특히</div>
+            <p>고령자는 기침 힘 약화 · 연하장애 · 호흡근 약화 · 부동으로 가래를 잘 못 뱉습니다. 이런 환자에서 기침을 무조건 억제하면 <b>분비물이 고여 흡인·폐렴 위험</b>이 커집니다. 약 선택과 함께 흡인 위험 · 체위 · 수분 · 기침 능력을 평가합니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 19 · 항생제 ================= -->
+        <section id="antibiotic" class="section">
+          <h2><span class="sec-no">19</span> 항생제는 왜 필요하지 않은가?</h2>
+          <p>항생제의 표적은 <b>세균의 세포벽 · 리보솜 · DNA 복제 · 엽산 합성</b>입니다. 바이러스에는 이런 표적이 없습니다. 그래서 항생제로 감기 바이러스를 없앨 수 없습니다.</p>
+
+          <div class="figure" data-cldabx>
+            <div class="figure__title">Viz 14 · Natural Recovery vs Antibiotics</div>
+            <div class="cld__curves">
+              <div class="cld__curve"><small>A · 대증요법만</small><div data-el="a"></div></div>
+              <div class="cld__curve"><small>B · Day 4에 항생제</small><div data-el="b"></div></div>
+            </div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-show>⚠️ B가 따로 얻은 것 보기</button>
+            </div>
+            <div class="cst__out" data-el="out">두 환자 모두 Day 6 즈음 좋아집니다. B는 "항생제 덕분"이라고 느낍니다.</div>
+            <div class="figure__cap"><b>시간적으로 먼저 일어난 일이 나중 일의 원인은 아니다.</b> 그래서 위약대조 임상시험과 자연경과 비교가 필요합니다.</div>
+          </div>
+
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>항생제를 고려하는 것은 "감기"가 아니라</div>
+            <p>세균성 질환이 확인되거나 충분히 의심될 때 — <b>급성 세균성 부비동염 · GAS 인두염 · 급성 세균성 중이염 · 세균성 폐렴</b>. 질환마다 적응증과 약 선택이 다릅니다. 증상이 길다거나 가래가 노랗다는 이유만으로 시작하지 않습니다. 불필요한 항생제는 설사 · 알레르기 · 상호작용 · <b>C. difficile</b>(Core 16) · 내성 · microbiome 변화를 남깁니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 20 · 종합감기약 ================= -->
+        <section id="combo" class="section">
+          <h2><span class="sec-no">20</span> 종합감기약을 성분으로 읽기</h2>
+          <p>가상의 종합감기약 A = acetaminophen + chlorpheniramine + pseudoephedrine + dextromethorphan + guaifenesin. 코막힘과 맑은 콧물만 있는 환자라면 해열진통제 · 진해제 · 거담제까지 먹을 이유는 없습니다. 복합제는 편하지만 <b>필요 없는 성분까지</b> 먹게 만듭니다.</p>
+          <div class="card card--key">
+            <div class="card__label"><span class="dot"></span>약사의 순서</div>
+            <p><b>Symptom → Mechanism → Drug target → Patient-specific safety</b> — 제품이 아니라 증상과 성분 중심으로.</p>
+          </div>
+
+          <div class="figure" data-cldbuild>
+            <div class="figure__title">Viz 15 · Build Your Cold Medicine</div>
+            <div class="cst__q">① 환자의 증상</div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-sym="fever">발열</button>
+              <button class="cst__chip" data-sym="throat">인후통</button>
+              <button class="cst__chip" data-sym="rhin">콧물</button>
+              <button class="cst__chip" data-sym="cong">코막힘</button>
+              <button class="cst__chip" data-sym="dry">마른기침</button>
+              <button class="cst__chip" data-sym="wet">가래 기침</button>
+            </div>
+            <div class="cst__q">② 환자의 위험요인</div>
+            <div class="cst__chips">
+              <button class="cst__chip" data-flag="1" data-r="htn">고혈압</button>
+              <button class="cst__chip" data-flag="1" data-r="bph">BPH</button>
+              <button class="cst__chip" data-flag="1" data-r="ckd">CKD</button>
+              <button class="cst__chip" data-flag="1" data-r="dem">치매·고령</button>
+              <button class="cst__chip" data-flag="1" data-r="ssri">항우울제</button>
+              <button class="cst__chip" data-flag="1" data-r="liver">간질환·과음</button>
+              <button class="cst__chip" data-flag="1" data-r="acoag">항응고제</button>
+            </div>
+            <div class="cld__build" data-el="list"></div>
+            <div class="cst__out" data-el="out">증상을 선택하세요.</div>
+            <div class="figure__cap">자동 처방 도구가 아니라 기전과 위험요인을 잇는 학습용 인터랙션입니다.</div>
+          </div>
+
+          <h3 style="margin-top:18px;">약사 실무용 핵심 감기약 성분 비교표</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th>성분</th><th>목적</th><th>핵심 기전</th><th>주의</th></tr></thead>
+              <tbody>
+                <tr><th>Chlorpheniramine</th><td>콧물·재채기</td><td>H1 억제 + 항콜린</td><td>졸림 · 요폐 · 변비 · 혼돈</td></tr>
+                <tr><th>Cetirizine</th><td>알레르기비염</td><td>H1 억제</td><td>졸림 가능 · 신기능</td></tr>
+                <tr><th>Fexofenadine</th><td>알레르기비염</td><td>H1 억제</td><td>감기 자체엔 효과 제한</td></tr>
+                <tr><th>Pseudoephedrine</th><td>코막힘</td><td>교감신경 혈관수축</td><td>혈압 · 심박 · 불면 · 요폐</td></tr>
+                <tr><th>Phenylephrine (경구)</th><td>코막힘 목적</td><td>α1 작용제</td><td>경구 임상효과 근거 부족</td></tr>
+                <tr><th>Oxymetazoline</th><td>코막힘</td><td>국소 혈관수축</td><td>반동성 코막힘</td></tr>
+                <tr><th>Acetaminophen</th><td>발열·통증</td><td>중추성 해열진통</td><td>중복 복용 · 간독성</td></tr>
+                <tr><th>Ibuprofen</th><td>발열·통증</td><td>COX 억제</td><td>위장관 출혈 · AKI</td></tr>
+                <tr><th>Dextromethorphan</th><td>기침</td><td>중추 기침반사 조절</td><td>Serotonergic 상호작용</td></tr>
+                <tr><th>Dihydrocodeine</th><td>기침</td><td>중추 opioid 관련</td><td>진정 · 호흡억제 · 변비</td></tr>
+                <tr><th>Levodropropizine</th><td>기침</td><td>말초 감각신호 조절</td><td>졸림 · 어지럼</td></tr>
+                <tr><th>Guaifenesin</th><td>가래 배출</td><td>Expectorant</td><td>효과 제한적일 수 있음</td></tr>
+                <tr><th>Acetylcysteine</th><td>점도 ↓</td><td>Disulfide 결합 ↓</td><td>위장 불편</td></tr>
+                <tr><th>Carbocisteine</th><td>점액 성상 조절</td><td>Mucoregulation</td><td>위장 이상반응</td></tr>
+                <tr><th>Ambroxol</th><td>배출 도움</td><td>Mucociliary clearance 관련</td><td>위장 증상 등</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink-soft);">※ 사용 연령 · 용법·용량 · 금기 · 적응증은 국내 개별 제품 허가사항을 확인합니다.</p>
+        </section>
+
+        <!-- ================= 21 · 건기식 ================= -->
+        <section id="supplement" class="section">
+          <h2><span class="sec-no">21</span> 비타민과 건강기능식품</h2>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>근거</th><th>주의</th></tr></thead>
+              <tbody>
+                <tr><th>Vitamin C</th><td><b>평소</b> 규칙적으로 먹으면 지속기간이 소폭 줄었다는 연구. 일반 인구의 예방 효과는 제한적. 걸린 뒤 고용량 시작은 일관된 효과 없음</td><td>—</td></tr>
+                <tr><th>Zinc lozenge</th><td>초기에 특정 형태 사용 시 기간 단축 가능성 — 제형·용량·시작 시점·연구 간 차이 큼</td><td>오심 · 불쾌한 맛 · 위장 불편. <b>비강 zinc는 후각 손상 위험으로 피함</b></td></tr>
+                <tr><th>Echinacea 등</th><td>제제별 차이 크고 결과 비일관</td><td>표준 치료 대체 X</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card card--key" style="margin-top:12px;">
+            <div class="card__label"><span class="dot"></span>핵심 개념</div>
+            <p><b>생물학적 가능성 · 연구에서의 효과 · 실제 제품의 임상 효과</b>를 구분합니다 — 경구 phenylephrine과 같은 교훈입니다.</p>
+          </div>
+        </section>
+
+        <!-- ================= 22 · 특수 환자군 ================= -->
+        <section id="special" class="section">
+          <h2><span class="sec-no">22</span> 특수 환자군에서의 감기약</h2>
+          <div class="figure" data-infochips>
+            <div class="checkchips">
+              <button data-text="<b>고령자</b> — 1세대 항히스타민(섬망·요폐·변비·낙상) · pseudoephedrine(혈압·두근거림·요폐) · opioid 진해제(호흡억제·진정·변비) · NSAID(AKI·출혈·체액저류). 모든 증상을 한꺼번에 치료하는 종합감기약보다 <b>필요한 성분만</b> 고르는 접근이 유리합니다.">👴 고령자</button>
+              <button data-text="<b>소아</b> — 성인 용량을 줄여 쓰는 개념이 아닙니다. 어린 소아에서 OTC 기침·감기약은 이익이 제한적이고 부작용 위험이 있습니다. 국내 제품별 허가 연령을 확인합니다. <b>발열이 있는 생후 3개월 미만 영아는 신속한 의료평가</b>가 필요합니다.">🧒 소아</button>
+              <button data-text="<b>임신 · 수유</b> — 불필요한 복합제를 피하고 약물별·시기별 안전성을 평가합니다. Pseudoephedrine 등 비충혈제거제는 <b>임신 초기 · 고혈압</b>에서 특히 주의. 수유 중 일부 약은 모유량이나 영아에 영향을 줄 수 있습니다.">🤰 임신·수유</button>
+              <button data-text="<b>요양병원 · 면역저하</b> — 가벼운 상기도 증상으로 시작해도 influenza · COVID-19 · RSV · 폐렴을 생각합니다. 증상완화제로 열·기침이 줄었다고 감염이 좋아졌다고 단정하지 않습니다. 평소 대비 <b>호흡수 · SpO₂ · 의식 · 식사량 · 활동량 · 혈압 · 새 산소 요구</b>를 봅니다.">🏥 요양병원</button>
+            </div>
+            <div class="infochips__out">환자군을 탭하세요.</div>
+          </div>
+        </section>
+
+        <!-- ================= 23 · Deep Dive ================= -->
+        <section id="deepdive" class="section">
+          <h2><span class="sec-no">23</span> Pharmacist Deep Dive</h2>
+
+          <h3>① 왜 1세대 항히스타민제가 감기 콧물에 쓰일까?</h3>
+          <p>감기 콧물에는 histamine보다 cytokine · bradykinin · <b>cholinergic 신경성 분비</b>가 더 관여합니다. 1세대의 제한적 효과는 H1 작용뿐 아니라 <b>항무스카린 작용</b>에 의한 분비 감소에서 일부 옵니다. 항콜린 작용이 거의 없는 2세대가 감기엔 별로인 이유입니다.</p>
+
+          <h3 style="margin-top:18px;">② 왜 pseudoephedrine과 항콜린제가 둘 다 요폐를 만들까?</h3>
+          <div class="twopanel">
+            <div class="panel panel--normal">
+              <h5>배뇨 = 배뇨근 수축 + 출구 이완</h5>
+              <p style="font-size:13.5px;margin:0;"><b>항콜린</b> → 무스카린 차단 → <b>배뇨근 수축 ↓</b></p>
+            </div>
+            <div class="panel panel--drug">
+              <h5>&nbsp;</h5>
+              <p style="font-size:13.5px;margin:0;"><b>Pseudoephedrine</b> → α 자극 → <b>방광경부·출구 긴장 ↑</b></p>
+            </div>
+          </div>
+          <p style="margin-top:8px;">한쪽은 미는 힘을, 한쪽은 문을 조입니다 — BPH 환자에게 tamsulosin(α1 차단)을 쓰는 이유를 거꾸로 보면 됩니다.</p>
+
+          <h3 style="margin-top:18px;">③ 해열제는 면역반응을 방해할까?</h3>
+          <p>발열은 방어반응의 일부지만, 모든 환자가 열을 참아야 하는 것은 아닙니다. 단순 감기에서 해열제가 회복을 반드시 늦춘다고 단정할 근거는 충분하지 않습니다. 목적은 <b>숫자가 아니라 불편감</b>입니다.</p>
+
+          <h3 style="margin-top:18px;">④ 왜 감기가 천식을 악화시킬까?</h3>
+          <p>바이러스 → 기도 상피 손상 → 염증 신호 → <b>기도 과민성 ↑</b> → 기관지 수축. 감기 환자에게 <b>쌕쌕거림 · 호흡곤란 · 가슴 답답함</b>이 있으면 진해제를 더하기 전에 천식 악화를 확인합니다 (다음 파트 천식 강의로 연결).</p>
+
+          <h3 style="margin-top:18px;">⑤ 약리기전과 임상근거는 왜 구분해야 할까?</h3>
+          <p>"α1 작용제 → 혈관수축"은 맞는 설명입니다. 하지만 실제 효과에는 <b>흡수 → 충분한 노출 → 표적 결합 → 의미 있는 증상 개선</b>이 모두 이어져야 합니다. 수용체에 작용한다는 사실만으로 임상 효과가 보장되지 않습니다.</p>
+        </section>
+
+        <!-- ================= 24 · 비교 ================= -->
+        <section id="compare" class="section">
+          <h2><span class="sec-no">24</span> 비슷한 질환과 비교</h2>
+          <h3>감기 vs 독감 vs 알레르기비염</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>감기</th><th>독감</th><th>알레르기비염</th></tr></thead>
+              <tbody>
+                <tr><th>원인</th><td>다양한 바이러스</td><td>Influenza</td><td>알레르기 반응</td></tr>
+                <tr><th>시작</th><td>점진적</td><td>갑작스러움</td><td>노출과 연관</td></tr>
+                <tr><th>발열</th><td>없거나 경미</td><td>흔함(없을 수도)</td><td>없음</td></tr>
+                <tr><th>몸살</th><td>경미</td><td>흔하고 심함</td><td>없음</td></tr>
+                <tr><th>코·눈 가려움</th><td>덜 특징적</td><td>덜 특징적</td><td><b>특징적</b></td></tr>
+                <tr><th>치료</th><td>증상완화</td><td>상황에 따라 항바이러스제</td><td>항히스타민제 · 비강 스테로이드</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:12.5px;color:var(--ink-soft);">증상이 겹치므로 이 표만으로 확진하지 않습니다.</p>
+
+          <h3 style="margin-top:16px;">감기 vs 세균성 부비동염 의심</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>감기</th><th>세균성 부비동염 의심</th></tr></thead>
+              <tbody>
+                <tr><th>경과</th><td>점차 자연 호전</td><td>호전 없이 지속 · 재악화</td></tr>
+                <tr><th>노란 콧물</th><td>가능</td><td>가능</td></tr>
+                <tr><th>고열</th><td>성인에서 덜 흔함</td><td>중증 발병 시</td></tr>
+                <tr><th>심한 안면통증</th><td>덜 특징적</td><td>중요한 단서</td></tr>
+                <tr><th>Double worsening</th><td>덜 전형적</td><td><b>중요한 단서</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 style="margin-top:16px;">상기도 감염 vs 폐렴</h3>
+          <div class="table-scroll">
+            <table class="data">
+              <thead><tr><th></th><th>상기도 감염</th><th>폐렴</th></tr></thead>
+              <tbody>
+                <tr><th>부위</th><td>코 · 인두</td><td>폐실질</td></tr>
+                <tr><th>호흡곤란</th><td>보통 심하지 않음</td><td>가능</td></tr>
+                <tr><th>저산소증</th><td>덜 전형적</td><td><b>중요한 경고</b></td></tr>
+                <tr><th>고령자 의식변화</th><td>평가 필요</td><td>중요한 단서</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ================= 25 · FAQ ================= -->
+        <section id="faq" class="section">
+          <h2><span class="sec-no">25</span> 사람들이 실제로 묻는 질문</h2>
+          <div class="faq">
+            <div class="faq__item"><button class="faq__q">Q1. 콧물이 노란색이면 항생제를 먹어야 하나요?</button><div class="faq__a"><p>아닙니다. 바이러스 감염에서도 염증세포와 점액 변화로 노랗거나 녹색이 됩니다. 지속기간 · 고열 · 심한 안면통증 · 호전 후 재악화를 함께 봅니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q2. 감기약을 안 먹으면 감기가 더 오래 가나요?</button><div class="faq__a"><p>감기약의 주목적은 증상완화입니다. 경미하면 꼭 먹지 않아도 됩니다. 다만 독감·COVID-19처럼 항바이러스 치료가 필요한 질환은 구분합니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q3. 감기약을 먹으면 왜 이렇게 졸리나요?</button><div class="faq__a"><p>Chlorpheniramine 등 1세대 항히스타민제가 뇌의 histamine 각성 신호를 억제합니다. 일부 진해제·opioid 성분도 졸림을 만듭니다. 운전 전에는 피합니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q4. 코막힘 스프레이가 잘 듣는데 계속 써도 되나요?</button><div class="faq__a"><p>혈관수축성 분무제를 오래 반복하면 반동성 코막힘이 생깁니다. 허가사항대로 짧게(흔히 3–5일) 쓰고, 생리식염수 분무제와는 구분합니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q5. 기침이 심하면 진해제와 거담제를 같이 먹으면 되나요?</button><div class="faq__a"><p>진해제는 반사를 줄이고 거담제는 배출을 돕습니다. 병용이 항상 틀린 것은 아니지만, 가래를 잘 뱉어야 하는 환자에게 기침을 과하게 억제하는 것은 적절하지 않을 수 있습니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q6. 감기 기침이 3주째인데 항생제가 필요한가요?</button><div class="faq__a"><p>감염 후 기침은 수 주 지속될 수 있어 기간만으로 판단하지 않습니다. 지속 발열 · 호흡곤란 · 흉통 · 혈담 · 저산소증 · 악화가 있으면 추가 평가합니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q7. 추운 곳에 있으면 감기에 걸리나요?</button><div class="faq__a"><p>추위가 바이러스를 만들지는 않지만, 겨울의 실내생활 · 낮은 습도 · 점막 방어 변화가 감염 위험에 영향을 줍니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q8. 감기가 심해지면 독감이 되나요?</button><div class="faq__a"><p>아닙니다. 서로 다른 바이러스에 의한 다른 질환입니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q9. 종합감기약과 타이레놀을 같이 먹어도 되나요?</button><div class="faq__a"><p>종합감기약에 이미 acetaminophen이 들어 있을 수 있습니다. 두 제품의 성분과 하루 총량부터 확인합니다.</p></div></div>
+            <div class="faq__item"><button class="faq__q">Q10. 감기 환자는 무조건 해열제를 먹어야 하나요?</button><div class="faq__a"><p>아닙니다. 체온 숫자가 아니라 발열·통증에 따른 불편감을 줄이려고 씁니다. 상태와 기저질환을 함께 봅니다.</p></div></div>
+          </div>
+        </section>
+
+        <!-- ================= 26 · Fact Check ================= -->
+        <section id="myth" class="section">
+          <h2><span class="sec-no">26</span> Fact Check</h2>
+          <div class="factcheck">
+            <div class="fc-item"><div class="fc-claim">"노란 콧물은 세균 감염을 의미한다."</div><div class="fc-verdict wrong">틀림</div><div class="fc-exp">바이러스 감염에서도 호중구와 점액 변화로 노랗거나 녹색이 됩니다.</div></div>
+            <div class="fc-item"><div class="fc-claim">"감기약을 먹으면 바이러스가 빨리 죽는다."</div><div class="fc-verdict wrong">대체로 틀림</div><div class="fc-exp">일반 감기약은 증상을 완화할 뿐 바이러스를 직접 제거하지 않습니다.</div></div>
+            <div class="fc-item"><div class="fc-claim">"감기는 심해지면 독감이 된다."</div><div class="fc-verdict wrong">틀림</div><div class="fc-exp">독감은 influenza virus에 의한 별도 질환입니다.</div></div>
+            <div class="fc-item"><div class="fc-claim">"기침은 무조건 빨리 멈추게 해야 한다."</div><div class="fc-verdict wrong">틀림</div><div class="fc-exp">기침은 분비물과 이물을 내보내는 방어반사입니다. 불편감과 방어 역할을 함께 봅니다.</div></div>
+            <div class="fc-item"><div class="fc-claim">"항생제를 먹으면 감기가 폐렴으로 가는 것을 막을 수 있다."</div><div class="fc-verdict wrong">대체로 틀림</div><div class="fc-exp">일반 감기에서 예방적 항생제는 권장되지 않습니다.</div></div>
+            <div class="fc-item"><div class="fc-claim">"약이 수용체에 작용하면 당연히 효과가 있다."</div><div class="fc-verdict partial">아닐 수 있음</div><div class="fc-exp">경구 phenylephrine처럼 기전은 그럴듯해도 실제 노출과 임상 효과가 부족할 수 있습니다.</div></div>
+          </div>
+        </section>
+
+        <!-- ================= 27 · Case Study ================= -->
+        <section id="case" class="section">
+          <h2><span class="sec-no">27</span> Case Study</h2>
+
+          <h3>Case 1 — 노란 콧물이 나오는 직장인</h3>
+          <div class="case-box">
+            <p><b>32세 남성.</b> 감기 4일째. 맑은 콧물 → 노란 콧물 · 가벼운 코막힘 · 36.9℃ · 심한 안면통증·호흡곤란 없음 · 조금씩 호전 중. "노란 콧물이니 항생제가 필요할 것 같아요."</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 세균성 부비동염을 강하게 의심할 수 있나? 항생제가 필요한가?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">아닙니다. 전형적인 바이러스성 감기 경과에 맞고, 노란색은 염증세포의 변화로 설명됩니다. 색깔만으로 항생제를 쓸 근거는 부족합니다. 비강 생리식염수와 필요한 증상완화제(코막힘이면 혈압 확인 후 비충혈제거제 등)를 고려합니다.</div>
+            </div>
+            <div class="qcard" style="margin-top:12px;">
+              <div class="q" style="display:block;">Q2. 어떤 변화가 생기면 진료를 권해야 하나?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer"><b>10일 이상 호전 없음 · 심한 안면통증 · 지속 고열(약 39℃ 이상) · 좋아지다 다시 악화(double worsening)</b> · 눈 주위 부종 · 호흡곤란.</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case 2 — 요양병원 환자의 종합감기약</h3>
+          <div class="case-box">
+            <p><b>82세 남성.</b> 치매 · BPH · 만성 변비 · 고혈압. 복용: donepezil · tamsulosin · <b>solifenacin</b> · amlodipine · 완하제. 콧물·코막힘으로 종합감기약(<b>chlorpheniramine + pseudoephedrine + acetaminophen</b>) 추가 후 → 심한 졸림 · 혼돈 · 배뇨 곤란 · 변비 악화.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 어떤 성분이 무엇에 기여했을까?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer"><b>Chlorpheniramine</b> — 뇌 H1 억제 + 항콜린 → 졸림·혼돈·변비·요폐. 기존 <b>solifenacin</b>도 항무스카린제라 항콜린 부담이 누적됩니다. <b>Pseudoephedrine</b> — 방광 출구 긴장 ↑ → 배뇨장애, 그리고 tamsulosin이 풀어 둔 출구를 반대로 조입니다. <b>Donepezil</b>(cholinesterase 억제제)과 항콜린제는 서로 반대 방향으로 작용합니다.</div>
+            </div>
+            <div class="qcard" style="margin-top:12px;">
+              <div class="q" style="display:block;">Q2. 약물 부작용으로만 판단해도 되나?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">아닙니다. 불필요한 감기약 성분을 재평가(중단·식염수 등으로 대체)하는 것과 동시에, 새 혼돈과 졸림의 다른 원인 — <b>호흡기 감염 악화 · 저산소증 · 탈수 · 요폐 자체 · 다른 감염 · 대사 이상</b> — 을 함께 평가해야 합니다.</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Case 3 — 단순 감기인 줄 알았던 고령 환자</h3>
+          <div class="case-box">
+            <p><b>79세 여성, 요양병원.</b> 3일 전부터 기침 · 콧물 · 식욕 감소. 오늘 심한 무기력 · 37.4℃ · <b>호흡수 28회/분 · SpO₂ 90%(평소 96%)</b> · 새 혼돈.</p>
+            <div class="qcard">
+              <div class="q" style="display:block;">Q1. 38℃ 미만이니 단순 감기일까? 무엇이 중요한가?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">아닙니다. 고령자는 중증 감염에서도 고열이 뚜렷하지 않을 수 있습니다. <b>빈호흡 · 평소 대비 SpO₂ 저하 · 새 혼돈 · 기능 저하</b>가 핵심 경고 신호입니다.</div>
+            </div>
+            <div class="qcard" style="margin-top:12px;">
+              <div class="q" style="display:block;">Q2. 감기약 추가로 충분한가?</div>
+              <button class="reveal-btn">답 보기</button>
+              <div class="answer">아닙니다. <b>폐렴 · influenza · COVID-19 · RSV</b> 등 중증 호흡기 감염과 다른 심폐질환을 신속히 평가해야 합니다. 종합감기약을 더하고 지켜볼 상황이 아닙니다.</div>
+            </div>
+          </div>
+
+          <h3 style="margin-top:22px;">Cold Medicine Safety Detective</h3>
+          <div class="figure" data-clddetect>
+            <div class="figure__title">Viz 16 · 이 환자에게 가장 조심할 것은?</div>
+            <div class="cld__qlist">
+              <div class="cld__q" data-ans="none" data-why="특별한 위험요인이 없으면 <b>증상에 맞는 성분만</b> — 코막힘이면 비충혈제거제나 국소 분무제(단기)."><p>A · 건강한 성인 + 코막힘</p></div>
+              <div class="cld__q" data-ans="urine" data-why="BPH → <b>1세대 항히스타민(항콜린)과 비충혈제거제(출구 긴장)</b> 모두 요폐 위험. 콧물만이면 식염수 등 대안 고려."><p>B · BPH + 콧물</p></div>
+              <div class="cld__q" data-ans="ach" data-why="치매 + 여러 항콜린제 → <b>항콜린 부담</b> 누적 → 섬망·낙상. 1세대 항히스타민제를 피합니다."><p>C · 치매 + 여러 항콜린성 약물</p></div>
+              <div class="cld__q" data-ans="nsaid" data-why="CKD → <b>NSAID</b>는 신관류를 떨어뜨립니다. 해열·진통은 acetaminophen(총량 확인)."><p>D · CKD + 발열·통증</p></div>
+              <div class="cld__q" data-ans="dxm" data-why="항우울제(SSRI·SNRI·MAOI) → <b>dextromethorphan</b>의 serotonergic 상호작용, 일부는 CYP2D6 억제로 노출 ↑."><p>E · 항우울제 복용 + 심한 기침</p></div>
+            </div>
+            <div class="cst__out" data-el="out">0 / 5</div>
+            <div class="figure__cap">"어떤 감기약이 좋은가"보다 "이 환자에게 무엇이 위험한가"가 먼저입니다.</div>
+          </div>
+        </section>
+
+        <!-- ================= 28 · Quiz ================= -->
+        <section id="quiz" class="section">
+          <h2><span class="sec-no">28</span> Mastery Quiz</h2>
+          <div class="quiz">
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 1. 감기에서 코막힘이 생기는 가장 중요한 기전은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 코 안에 바이러스가 물리적으로 가득 차서</li>
+                <li data-opt="B"><span class="opt">B</span> 비점막 혈관 확장과 부종으로 비강이 좁아져서</li>
+                <li data-opt="C"><span class="opt">C</span> 폐포가 모두 손상되어서</li>
+                <li data-opt="D"><span class="opt">D</span> 위산 분비가 증가해서</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 분비액뿐 아니라 점막 혈관·부종이 핵심입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 2. Pseudoephedrine의 주요 비충혈제거 기전은?</div>
+              <ul class="mcq" data-answer="C">
+                <li data-opt="A"><span class="opt">A</span> 바이러스 RNA 복제 억제</li>
+                <li data-opt="B"><span class="opt">B</span> Histamine 합성 억제</li>
+                <li data-opt="C"><span class="opt">C</span> 교감신경 자극에 의한 비점막 혈관수축</li>
+                <li data-opt="D"><span class="opt">D</span> Mucin disulfide 결합 절단</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: C — 부은 점막 혈관을 수축시키는 약입니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 3. 고령 BPH 환자에서 chlorpheniramine을 주의해야 하는 이유는?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 항콜린 작용으로 요폐와 변비가 악화될 수 있어서</li>
+                <li data-opt="B"><span class="opt">B</span> HBV 재활성화를 일으켜서</li>
+                <li data-opt="C"><span class="opt">C</span> LDL-C를 올려서</li>
+                <li data-opt="D"><span class="opt">D</span> 혈중 K를 항상 올려서</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — 혼돈·낙상 위험도 함께 커집니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 4. 일반 감기에서 항생제 사용의 근거로 가장 부적절한 것은?</div>
+              <ul class="mcq" data-answer="A">
+                <li data-opt="A"><span class="opt">A</span> 노란색 콧물이 나옴</li>
+                <li data-opt="B"><span class="opt">B</span> 세균성 폐렴으로 진단됨</li>
+                <li data-opt="C"><span class="opt">C</span> GAS 인두염이 확인됨</li>
+                <li data-opt="D"><span class="opt">D</span> 세균성 부비동염이 의심되어 적응증을 충족함</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: A — 색깔로 바이러스와 세균을 구별할 수 없습니다.</div>
+            </div>
+            <div class="qcard">
+              <div class="q" style="display:block;">Quiz 5. 종합감기약 복용 중인 환자가 acetaminophen 단일제를 추가하려 한다. 가장 먼저 확인할 것은?</div>
+              <ul class="mcq" data-answer="B">
+                <li data-opt="A"><span class="opt">A</span> 포장 색상</li>
+                <li data-opt="B"><span class="opt">B</span> 종합감기약 내 acetaminophen 함량과 하루 총량</li>
+                <li data-opt="C"><span class="opt">C</span> 콧물 색깔</li>
+                <li data-opt="D"><span class="opt">D</span> LDL-C</li>
+              </ul>
+              <div class="answer mcq-exp" style="display:none;">정답: B — 의도치 않은 중복을 막는 것이 약사의 핵심 역할입니다.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 29 · Summary ================= -->
+        <section id="summary" class="section">
+          <h2><span class="sec-no">29</span> 30초 Summary</h2>
+          <div class="eightcards">
+            <div class="factcard"><span class="n">1</span><p>감기 = 다양한 바이러스의 <b>급성 상기도 감염</b>, 대부분 저절로 회복. 증상의 상당 부분은 <b>몸의 면역·염증반응</b>.</p></div>
+            <div class="factcard"><span class="n">2</span><p><b>콧물 = 분비 · 코막힘 = 혈관 확장·부종 · 기침 = 감각신경·방어반사 · 열 = cytokine → PGE₂ → set point ↑</b>.</p></div>
+            <div class="factcard"><span class="n">3</span><p><b>노란·녹색 콧물 ≠ 세균</b>(호중구·myeloperoxidase). 판단은 10일 지속 · 고열+안면통증 · double worsening.</p></div>
+            <div class="factcard"><span class="n">4</span><p>1세대 항히스타민제 — 감기 콧물에 제한적 효과, <b>진정 + 항콜린</b>(고령자 섬망·요폐·변비).</p></div>
+            <div class="factcard"><span class="n">5</span><p>Pseudoephedrine — 점막 혈관수축, <b>혈압·불면·요폐</b>. 경구 phenylephrine은 효과 근거 부족. 국소 분무는 <b>3–5일</b>(반동성 코막힘).</p></div>
+            <div class="factcard"><span class="n">6</span><p>진해제(DXM — serotonergic·CYP2D6, codeine — 호흡억제)는 반사를, 점액용해제(NAC)는 점도를. <b>가래 많은 고령자의 기침 억제는 주의</b>.</p></div>
+            <div class="factcard"><span class="n">7</span><p>감기약은 증상완화제. <b>항생제는 감기가 아니라 세균성 합병증</b>에. Acetaminophen은 <b>성분명·하루 총량</b>으로 중복 확인.</p></div>
+            <div class="factcard"><span class="n">8</span><p>고령자는 열보다 <b>호흡수 · SpO₂ · 의식 · 기능 저하</b>로 중증 감염을 찾는다. 종합감기약보다 필요한 성분만.</p></div>
+          </div>
+        </section>
+
+        <section class="closing">
+          <h3>이 강의를 한 문장으로</h3>
+          <p class="big">감기약을 고를 때는 질환명만 보지 말고,<br>
+            <b>어떤 생리적 반응이 증상을 만들었고</b><br>
+            <b>어떤 약이 그 반응을 조절하는지</b>를 생각한다.</p>
+          <p style="font-size:13px;opacity:.85;">다음 강의: Core 21 · 인플루엔자 — hemagglutinin·neuraminidase와 바이러스 생활사, oseltamivir·baloxavir가 작용하는 단계, 왜 시간이 중요한지, 왜 백신을 매년 맞는지.</p>
+          <p style="margin-top:18px;"><a href="../../index.html" style="color:#fff;text-decoration:underline;">← 강의 목록으로 돌아가기</a></p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <nav class="bottomnav" aria-label="이동">
+    <a href="../../index.html"><span class="bn-ico">☰</span>강의목록</a>
+    <button type="button" data-open-toc><span class="bn-ico">📑</span>목차</button>
+    <a href="#q0"><span class="bn-ico">↑</span>맨 위로</a>
+  </nav>
+
+  <div class="quickrev">
+    <button class="quickrev__btn" aria-label="빠른 복습">⚡ 빠른 복습</button>
+    <div class="quickrev__panel">
+      <h5>감기 한 줄</h5>
+      <div class="qr-row"><span class="qr-k">증상 기전</span><span>콧물=분비 · 코막힘=부종 · 기침=반사</span></div>
+      <div class="qr-row"><span class="qr-k">노란 콧물</span><span>호중구 색 ≠ 세균</span></div>
+      <div class="qr-row"><span class="qr-k">항생제 단서</span><span>10일 지속 · 고열+안면통 · 재악화</span></div>
+      <div class="qr-row"><span class="qr-k">1세대 AH</span><span>졸림 + 항콜린 → 고령자 주의</span></div>
+      <div class="qr-row"><span class="qr-k">비충혈제거</span><span>혈압·요폐 · 분무 3–5일</span></div>
+      <div class="qr-row"><span class="qr-k">DXM</span><span>SSRI·MAOI·CYP2D6 확인</span></div>
+    </div>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

@@ -3877,3 +3877,412 @@ table.data td.ast-s { color: var(--cov-yes); font-weight: 700; }
   .hep__abc-card { padding: 10px 5px; }
   .hep__abc-card p { font-size: 11.5px; }
 }
+
+
+/* ===================================================================
+   Core 19 · 간경변 (cir__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+/* --- slider --- */
+.cir__slider { margin: 8px 0; }
+.cir__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.cir__slider label b { color: var(--ink); }
+.cir__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 2 · portal anatomy SVG --- */
+.cir__anat { max-width: 440px; margin: 4px auto 12px; border-radius: 14px; background: var(--surface-2); border: 1px solid var(--line); padding: 6px; }
+.cir__anat svg { display: block; width: 100%; height: auto; }
+.cir__lbl { font-size: 12px; font-weight: 800; fill: #5a3324; text-anchor: middle; }
+.cir__lbl--s { font-size: 9.5px; fill: var(--ink-soft); }
+.cir__heart { fill: #f4c7c9; stroke: #d9878b; stroke-width: 2; }
+.cir__eso { fill: #f3d9c8; stroke: #c9a58f; stroke-width: 1.5; }
+.cir__gut { fill: #f3d9c8; stroke: #c9a58f; stroke-width: 2; }
+.cir__liver { fill: #e9bba9; stroke: #c98b74; stroke-width: 2; transition: fill .5s; }
+.cir__spleen { fill: #d9b8e6; stroke: #a47bb8; stroke-width: 2; transform-box: fill-box; transform-origin: center; transition: transform .5s; }
+.cir__asc { fill: var(--gn); opacity: 0; transition: opacity .5s; }
+.cir__fib path { fill: none; stroke: #9a5d43; stroke-width: 3; stroke-linecap: round; }
+.cir__fib { opacity: 0; transition: opacity .5s; }
+.cir__nod circle { fill: #f1cdbd; stroke: #9a5d43; stroke-width: 2; }
+.cir__nod { opacity: 0; transition: opacity .5s; }
+.cir__vein { fill: none; stroke: #6f8fbf; stroke-width: 8; stroke-linecap: round; transition: stroke-width .5s, stroke .5s; }
+.cir__vein--hv { stroke-width: 6; }
+.cir__vein--sv { stroke-width: 6; }
+.cir__coll { fill: none; stroke: var(--anaerobe); stroke-width: 2; stroke-linecap: round; opacity: 0; transition: opacity .5s, stroke-width .5s; }
+.cir__shunt { fill: none; stroke: var(--hi); stroke-width: 3; stroke-dasharray: 6 5; opacity: 0; transition: opacity .5s; }
+.cir__var circle { fill: var(--anaerobe); }
+.cir__var { opacity: 0; transition: opacity .5s; }
+.cir__flow { fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 2 9; animation: cir-flow .9s linear infinite; opacity: 0; transition: opacity .4s; }
+.cir__flow--main { opacity: 1; }
+@keyframes cir-flow { to { stroke-dashoffset: -22; } }
+
+.s0 .cir__fib { opacity: 0; }
+.s1 .cir__fib { opacity: .2; }
+.s2 .cir__fib { opacity: .45; }
+.s2 .cir__vein--pv { stroke-width: 10; }
+.s3 .cir__fib { opacity: .7; }
+.s3 .cir__nod { opacity: .5; }
+.s3 .cir__vein--pv { stroke-width: 12; }
+.s3 .cir__coll { opacity: .5; stroke-width: 3; }
+.s3 .cir__spleen { transform: scale(1.15); }
+.s3 .cir__flow--main { animation-duration: 1.6s; }
+.s3 .cir__flow--coll { opacity: .7; }
+.s4 .cir__liver { fill: #d9a48e; }
+.s4 .cir__fib { opacity: .9; }
+.s4 .cir__nod { opacity: 1; }
+.s4 .cir__vein--pv { stroke-width: 14; stroke: var(--hi); }
+.s4 .cir__coll { opacity: 1; stroke-width: 6; }
+.s4 .cir__var { opacity: 1; }
+.s4 .cir__spleen { transform: scale(1.35); }
+.s4 .cir__asc { opacity: .35; }
+.s4 .cir__shunt { opacity: .85; }
+.s4 .cir__flow--main { opacity: .4; animation-duration: 2.4s; }
+.s4 .cir__flow--coll, .s4 .cir__flow--shunt { opacity: 1; }
+.cir__hvpg { font-size: 12.5px; text-align: center; color: var(--ink-soft); margin: 4px 0 6px; }
+
+/* --- Viz 3 · paradox gauges --- */
+.cir__gauges { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+.cir__gauges > div { padding: 10px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; }
+.cir__gauges small { display: block; font-size: 11.5px; font-weight: 700; color: var(--ink-soft); margin-bottom: 6px; }
+.cir__gauges b { display: block; font-size: 15px; margin-top: 4px; }
+.cir__gauge { height: 16px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.cir__gauge i { display: block; height: 100%; border-radius: 999px; background: var(--gn); transition: width .5s; }
+.cir__gauge--low i { background: var(--brand); }
+
+/* --- Viz 4 · nephron --- */
+.cir__neph { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+.cir__neph > div { padding: 12px 8px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface-2); text-align: center; opacity: .55; transition: all .25s; }
+.cir__neph small { display: block; font-size: 11px; color: var(--ink-faint); }
+.cir__neph b { font-size: 13.5px; }
+.cir__neph > div.on { opacity: 1; border-color: var(--brand); background: var(--brand-soft); }
+.cir__k { text-align: center; font-size: 13px; font-weight: 800; padding: 8px; border-radius: 10px; margin: 8px 0 10px; }
+.cir__k.is-up { background: var(--hi-soft); color: var(--hi); }
+.cir__k.is-down { background: var(--mid-soft); color: var(--mid); }
+.cir__k.is-mid { background: var(--ok-soft); color: var(--ok); }
+
+/* --- Viz 5 · PMN --- */
+.cir__pmn { position: relative; height: 18px; border-radius: 999px; background: var(--line); margin: 6px 0 22px; }
+.cir__pmn i { display: block; height: 100%; border-radius: 999px; background: var(--ok); transition: width .2s, background .2s; }
+.cir__pmn i.is-bad { background: var(--hi); }
+.cir__pmn-cut { position: absolute; left: 25%; top: -4px; height: 26px; border-left: 2.5px dashed var(--ink); padding-left: 4px; font-size: 11px; font-weight: 800; line-height: 50px; }
+
+/* --- Viz 7 · lactulose lumen --- */
+.cir__lumen { display: grid; grid-template-columns: 1fr 54px 1fr; gap: 6px; margin-bottom: 10px; }
+.cir__lumen > div { padding: 10px 6px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; font-size: 13px; font-weight: 800; }
+.cir__lumen small { display: block; font-size: 11px; font-weight: 700; color: var(--ink-faint); margin-bottom: 4px; }
+.cir__lumen > .cir__lumen-wall { display: flex; align-items: center; justify-content: center; font-size: 11.5px; color: var(--ink-soft); background: repeating-linear-gradient(90deg, var(--line), var(--line) 4px, var(--surface-2) 4px, var(--surface-2) 8px); transition: background .3s; }
+.cir__lumen-wall.is-trap { background: var(--ok-soft); color: var(--ok); border-color: var(--ok); }
+
+/* --- Viz 11 · Child–Pugh --- */
+.cir__cp { display: grid; grid-template-columns: 96px 1fr; gap: 8px; align-items: center; margin-bottom: 8px; }
+.cir__cp small { font-size: 12px; font-weight: 800; color: var(--ink-soft); }
+.cir__cp > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.cir__cp button { font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; padding: 8px 4px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.cir__cp button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cir__cpres { text-align: center; font-size: 17px; padding: 10px; border-radius: 12px; margin-bottom: 10px; background: var(--surface-2); }
+.cir__cpres.is-A { background: var(--ok-soft); color: var(--ok); }
+.cir__cpres.is-B { background: var(--mid-soft); color: var(--mid); }
+.cir__cpres.is-C { background: var(--hi-soft); color: var(--hi); }
+
+/* --- Viz 12 · NSBB targets --- */
+.cir__targets { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 12px 0; }
+
+/* --- Viz 14 · hidden muscle --- */
+.cir__duo { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cir__person { padding: 12px; border-radius: 12px; border: 1.5px solid var(--ok); background: var(--ok-soft); }
+.cir__person--bad { border-color: var(--hi); background: var(--hi-soft); }
+.cir__person > b { display: block; font-size: 13.5px; }
+.cir__kg { display: block; font-size: 22px; font-weight: 800; margin: 2px 0 6px; }
+.cir__person .cst__meter { grid-template-columns: 62px 1fr; }
+
+/* --- Viz 16 · detective --- */
+.cir__qlist { display: grid; gap: 10px; margin-bottom: 12px; }
+.cir__q { padding: 12px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.cir__q p { font-size: 13px; margin: 0 0 8px; font-weight: 700; }
+.cir__q.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.cir__q.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.cir__opts { display: flex; flex-wrap: wrap; gap: 5px; }
+.cir__opt { flex: 1 1 auto; font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 7px 6px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.cir__opt.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.cir__opt.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.cir__fb { font-size: 12.5px; line-height: 1.55; margin-top: 6px; }
+.cir__fb:empty { display: none; }
+
+/* --- Viz 17 · master map --- */
+.cir__master { display: grid; grid-template-columns: 1fr 120px 1fr; gap: 8px; align-items: center; margin-bottom: 12px; }
+.cir__axis { display: grid; gap: 6px; padding: 10px; border-radius: 12px; background: var(--mid-soft); border: 1.5px solid var(--mid); }
+.cir__axis--b { background: var(--brand-soft); border-color: var(--brand); }
+.cir__axis-title { font-size: 12px; font-weight: 800; text-align: center; }
+.cir__axis button, .cir__core button { font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; padding: 8px 6px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+.cir__axis button.on, .cir__core button.on { background: var(--ink); border-color: var(--ink); color: #fff; }
+.cir__core { display: grid; gap: 8px; text-align: center; padding: 12px 6px; border-radius: 12px; background: var(--hi-soft); border: 2px solid var(--hi); }
+.cir__core b { font-size: 13px; color: var(--hi); }
+.cir__cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cir__cards3 > div { padding: 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.cir__cards3 small { display: block; font-size: 11px; font-weight: 800; color: var(--brand); margin-bottom: 3px; }
+.cir__cards3 p { font-size: 12.5px; line-height: 1.55; margin: 0; }
+
+@media (max-width: 520px) {
+  .cir__master { grid-template-columns: 1fr; }
+  .cir__cards3, .cir__neph, .cir__duo { grid-template-columns: 1fr; }
+  .cir__targets { grid-template-columns: 1fr; }
+  .cir__cp { grid-template-columns: 1fr; gap: 4px; }
+}
+
+
+/* ===================================================================
+   Core 20 · 감기 (cld__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+.cld__slider { margin: 8px 0; }
+.cld__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.cld__slider label b { color: var(--ink); }
+.cld__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 1 · epithelium --- */
+.cld__epi.is-normal .cld__cells { color: #8a4a36; }
+.cld__epi { border-radius: 14px; overflow: hidden; border: 1.5px solid var(--line); margin-bottom: 12px; }
+.cld__particles { display: flex; justify-content: space-around; padding: 8px; font-size: 18px; background: var(--surface); }
+.cld__particles span { animation: cld-drift 3s linear infinite; }
+.cld__mucus { padding: 8px; text-align: center; font-size: 12px; font-weight: 700; color: #6b5a14; background: repeating-linear-gradient(90deg, #f4e6a8, #f4e6a8 18px, #efdc8c 18px, #efdc8c 36px); background-size: 72px 100%; animation: cld-slide 1.6s linear infinite; }
+.cld__cilia { display: flex; justify-content: space-around; padding: 4px 6px 0; background: #fbe3d6; height: 22px; }
+.cld__cilia i { display: block; width: 3px; height: 18px; border-radius: 2px; background: #c9826a; transform-origin: bottom center; animation: cld-beat .6s ease-in-out infinite alternate; }
+.cld__cells { padding: 6px; text-align: center; font-size: 11.5px; font-weight: 700; color: #8a4a36; background: #fbe3d6; border-top: 1px dashed #e0b3a0; }
+@keyframes cld-beat { from { transform: rotate(-25deg); } to { transform: rotate(25deg); } }
+@keyframes cld-slide { to { background-position: 72px 0; } }
+@keyframes cld-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+.cld__epi.is-smoke .cld__mucus { animation-duration: 6s; background: repeating-linear-gradient(90deg, #d8cfa5, #d8cfa5 18px, #c9be8e 18px, #c9be8e 36px); }
+.cld__epi.is-smoke .cld__cilia i { animation-duration: 1.8s; background: #8f8f8f; }
+.cld__epi.is-viral .cld__mucus { animation-duration: 3.6s; }
+.cld__epi.is-viral .cld__cilia i:nth-child(3n) { opacity: 0; }
+.cld__epi.is-viral .cld__cilia i:nth-child(4n) { animation: none; background: var(--hi); }
+.cld__epi.is-viral .cld__cells { background: var(--hi-soft); color: var(--hi); }
+
+/* --- Viz 3 · symptom map --- */
+.cld__root { text-align: center; font-size: 13.5px; font-weight: 800; padding: 10px; border-radius: 12px; background: var(--hi-soft); color: var(--hi); margin-bottom: 8px; }
+.cld__syms { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 12px; }
+.cld__syms button, .cld__airway button { font-family: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; padding: 10px 4px; border-radius: 10px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.cld__syms button.on, .cld__airway button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.cld__cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.cld__cards3 > div { padding: 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); }
+.cld__cards3 small { display: block; font-size: 11px; font-weight: 800; color: var(--brand); margin-bottom: 3px; }
+.cld__cards3 p { font-size: 12.5px; line-height: 1.55; margin: 0; }
+
+/* --- Viz 4 · nose --- */
+.cld__nose { display: flex; height: 84px; border-radius: 14px; overflow: hidden; border: 2px solid #c98b74; margin: 8px 0 4px; }
+.cld__wall { background: linear-gradient(90deg, #e79a8b, #f3b7a8); transition: width .4s ease; flex: 0 0 auto; }
+.cld__wall + .cld__air + .cld__wall { background: linear-gradient(270deg, #e79a8b, #f3b7a8); }
+.cld__air { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; background: #eef6fb; min-width: 0; overflow: hidden; }
+.cld__air span { font-size: 13px; letter-spacing: -2px; white-space: nowrap; }
+.cld__air b { font-size: 11.5px; color: var(--ink-soft); white-space: nowrap; }
+
+/* --- Viz 6 · thermostat --- */
+.cld__thermo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+.cld__thermo > div { padding: 10px 6px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; }
+.cld__thermo small { display: block; font-size: 11px; color: var(--ink-faint); }
+.cld__thermo b { font-size: 15px; }
+
+/* --- Viz 7 · mucus color --- */
+.cld__mucuscolor { text-align: center; font-size: 12.5px; font-weight: 800; padding: 8px; border-radius: 10px; margin: 8px 0 10px; background: var(--surface-2); color: var(--ink-soft); }
+.cld__mucuscolor.is-clear { background: #eef6fb; color: var(--brand); }
+.cld__mucuscolor.is-yellow { background: #f6efc2; color: #7d6a10; }
+
+/* --- Viz 8 · airway --- */
+.cld__airway { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 12px; }
+
+/* --- Viz 9 · scenario days --- */
+.cld__days { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+.cld__days span { padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--surface-2); border: 1.5px solid var(--line); }
+.cld__days span + span::before { content: "→ "; color: var(--ink-faint); }
+.cld__days span.is-y { background: #f6efc2; border-color: #d8c25a; }
+.cld__days span.is-g { background: var(--ok-soft); border-color: var(--ok); }
+.cld__days span.is-r { background: var(--hi-soft); border-color: var(--hi); color: var(--hi); }
+
+/* --- Viz 10 · BBB --- */
+.cld__bbb { display: grid; grid-template-columns: 1fr 48px 1fr; gap: 6px; margin-bottom: 10px; }
+.cld__bbb > div { padding: 10px 6px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; font-size: 18px; min-height: 58px; }
+.cld__bbb small { display: block; font-size: 11px; color: var(--ink-faint); }
+.cld__bbb > .cld__bbb-wall { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; background: repeating-linear-gradient(45deg, var(--line), var(--line) 5px, var(--surface-2) 5px, var(--surface-2) 10px); }
+
+/* --- Viz 13 · mucin --- */
+.cld__mucin { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px; padding: 12px; border-radius: 12px; background: #f4e6a8; margin-bottom: 10px; }
+.cld__mucin span { padding: 4px 8px; border-radius: 8px; background: #fff8d8; font-size: 12px; font-weight: 700; }
+.cld__mucin b { font-size: 12px; color: var(--hi); transition: opacity .3s; }
+.cld__mucin.is-cut { background: #eef6fb; }
+.cld__mucin.is-cut b { opacity: .15; text-decoration: line-through; }
+
+/* --- Viz 14 · curves --- */
+.cld__curves { display: grid; gap: 10px; margin-bottom: 8px; }
+.cld__curve small { display: block; font-size: 12px; font-weight: 700; color: var(--ink-soft); margin-bottom: 4px; }
+.cld__curve > div { display: flex; align-items: flex-end; gap: 4px; height: 70px; padding: 4px 6px 16px; border-radius: 10px; background: var(--surface-2); position: relative; }
+.cld__curve i { flex: 1; display: block; background: var(--brand); border-radius: 4px 4px 0 0; position: relative; }
+.cld__curve i.is-abx { background: var(--mid); }
+.cld__curve i em { position: absolute; bottom: -15px; left: 0; right: 0; text-align: center; font-size: 9.5px; font-style: normal; color: var(--ink-faint); }
+
+/* --- Viz 15 · build --- */
+.cld__build { display: grid; gap: 6px; margin: 12px 0; }
+.cld__item { padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--ok); background: var(--ok-soft); font-size: 13px; }
+.cld__item small { display: block; font-size: 12px; margin-top: 4px; line-height: 1.55; }
+.cld__item.is-warn { border-color: var(--hi); background: var(--hi-soft); }
+
+/* --- Viz 16 · detective --- */
+.cld__qlist { display: grid; gap: 10px; margin-bottom: 12px; }
+.cld__q { padding: 12px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.cld__q p { font-size: 13px; margin: 0 0 8px; font-weight: 700; }
+.cld__q.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.cld__q.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.cld__opts { display: flex; flex-wrap: wrap; gap: 5px; }
+.cld__opt { flex: 1 1 auto; font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 7px 6px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.cld__opt.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.cld__opt.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.cld__fb { font-size: 12.5px; line-height: 1.55; margin-top: 6px; }
+.cld__fb:empty { display: none; }
+
+@media (max-width: 520px) {
+  .cld__syms { grid-template-columns: repeat(3, 1fr); }
+  .cld__cards3 { grid-template-columns: 1fr; }
+  .cld__airway { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ===================================================================
+   Core 21 · 인플루엔자 (ifz__)  — 공용 UI는 Core 15 cst__ 재사용
+   =================================================================== */
+
+.ifz__slider { margin: 8px 0; }
+.ifz__slider label { display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 700; color: var(--ink-soft); }
+.ifz__slider label b { color: var(--ink); }
+.ifz__slider input[type=range] { width: 100%; accent-color: var(--brand); height: 30px; }
+
+/* --- Viz 1 · virion SVG --- */
+.ifz__virion { max-width: 260px; margin: 0 auto 10px; }
+.ifz__virion svg { display: block; width: 100%; height: auto; }
+.ifz__env { fill: #fdf1e4; stroke: #d9a26a; stroke-width: 5; }
+.ifz__ha path { fill: none; stroke: #2f6fed; stroke-width: 4; stroke-linecap: round; transition: stroke-width .3s, opacity .3s; }
+.ifz__na path { stroke: #12a594; stroke-width: 4; stroke-linecap: round; fill: none; }
+.ifz__na circle { fill: #12a594; }
+.ifz__na, .ifz__ha, .ifz__rnp, .ifz__pol, .ifz__m2 { transition: opacity .3s; }
+.ifz__rnp path { fill: none; stroke: #8b5cf6; stroke-width: 3; stroke-linecap: round; }
+.ifz__pol circle { fill: #e5484d; }
+.ifz__m2 rect { fill: #f08a24; }
+.ifz__virion.hl-ha .ifz__na, .ifz__virion.hl-ha .ifz__rnp, .ifz__virion.hl-ha .ifz__pol, .ifz__virion.hl-ha .ifz__m2,
+.ifz__virion.hl-na .ifz__ha, .ifz__virion.hl-na .ifz__rnp, .ifz__virion.hl-na .ifz__pol, .ifz__virion.hl-na .ifz__m2,
+.ifz__virion.hl-rnp .ifz__ha, .ifz__virion.hl-rnp .ifz__na, .ifz__virion.hl-rnp .ifz__m2,
+.ifz__virion.hl-m2 .ifz__ha, .ifz__virion.hl-m2 .ifz__na, .ifz__virion.hl-m2 .ifz__rnp, .ifz__virion.hl-m2 .ifz__pol { opacity: .15; }
+.ifz__virion.hl-ha .ifz__ha path { stroke-width: 6; }
+
+/* --- Viz 3 · lifecycle --- */
+.ifz__cell { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 10px; border-radius: 16px; background: #fbe3d6; border: 2px solid #e0b3a0; margin-bottom: 8px; }
+.ifz__stage { padding: 10px 6px; border-radius: 10px; background: var(--surface); border: 1.5px solid var(--line); text-align: center; font-size: 12.5px; font-weight: 700; color: var(--ink-faint); transition: all .25s; }
+.ifz__stage b { display: block; font-size: 15px; }
+.ifz__stage small { display: block; font-size: 10.5px; font-weight: 600; margin-top: 2px; }
+.ifz__stage.on { color: var(--ink); border-color: var(--brand); background: var(--brand-soft); }
+.ifz__stage.cur { background: var(--brand); color: #fff; }
+.ifz__stage.is-block { background: var(--hi); border-color: var(--hi); color: #fff; text-decoration: line-through; }
+.ifz__stage.is-dim { opacity: .35; }
+
+/* --- Viz 4 · body --- */
+.ifz__body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 10px; }
+.ifz__body button { font-family: inherit; font-size: 14px; font-weight: 800; cursor: pointer; padding: 10px 4px; border-radius: 10px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink); }
+.ifz__body button small { display: block; font-size: 10.5px; font-weight: 600; color: var(--ink-faint); margin-top: 2px; }
+.ifz__body button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+.ifz__body button.on small { color: #e8f1fd; }
+
+/* --- Viz 7 · test result --- */
+.ifz__result { text-align: center; font-size: 17px; font-weight: 800; padding: 10px; border-radius: 12px; margin: 6px 0 10px; }
+.ifz__result.is-pos { background: var(--hi-soft); color: var(--hi); }
+.ifz__result.is-neg { background: var(--surface-2); color: var(--ink-soft); border: 1.5px dashed var(--line-strong); }
+
+/* --- Viz 8 · treatment window chart --- */
+.ifz__chart { display: flex; align-items: flex-end; gap: 5px; height: 120px; padding: 6px 6px 20px; border-radius: 12px; background: var(--surface-2); margin-bottom: 6px; }
+.ifz__col { flex: 1; height: 100%; position: relative; }
+.ifz__col i { position: absolute; bottom: 0; left: 8%; right: 8%; border-radius: 4px 4px 0 0; transition: height .4s; }
+.ifz__u { background: var(--line-strong); }
+.ifz__t { background: transparent; }
+.ifz__t.is-tx { background: var(--brand); }
+.ifz__col em { position: absolute; bottom: -17px; left: -4px; right: -4px; text-align: center; font-size: 9.5px; font-style: normal; color: var(--ink-faint); }
+.ifz__col.is-48::after { content: ""; position: absolute; top: -4px; bottom: 0; right: -3px; border-right: 2px dashed var(--ink); }
+.ifz__col.is-start em { color: var(--brand); font-weight: 800; }
+.ifz__legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 11.5px; color: var(--ink-soft); margin-bottom: 10px; }
+.ifz__legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+.ifz__lg-a::before { background: var(--line-strong); }
+.ifz__lg-b::before { background: var(--brand); }
+.ifz__lg-c::before { border: 2px dashed var(--ink); width: 6px !important; }
+
+/* --- Viz 9 · release --- */
+.ifz__surface { border-radius: 14px; overflow: hidden; border: 1.5px solid var(--line); margin-bottom: 10px; }
+.ifz__out { min-height: 34px; padding: 8px; text-align: center; font-size: 17px; background: #eef6fb; letter-spacing: 2px; }
+.ifz__membrane { padding: 8px; text-align: center; font-size: 17px; background: #fbe3d6; border-top: 3px solid #d9a26a; min-height: 40px; letter-spacing: -3px; }
+.ifz__surface.is-block .ifz__membrane { background: var(--ok-soft); }
+.ifz__lbl { padding: 4px; text-align: center; font-size: 11px; font-weight: 700; color: #8a4a36; background: #fbe3d6; }
+
+/* --- Viz 10 · routes --- */
+.ifz__routes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.ifz__routes > div { padding: 10px 6px; border-radius: 12px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; font-size: 13px; }
+.ifz__routes small { display: block; font-size: 11.5px; color: var(--ink-soft); margin-top: 3px; }
+.ifz__target { text-align: center; margin: 8px 0; font-size: 14px; color: var(--ink-faint); line-height: 1.6; }
+.ifz__target b { display: inline-block; margin-top: 4px; padding: 8px 16px; border-radius: 999px; background: #12a594; color: #fff; }
+
+/* --- Viz 11 · cap-snatching --- */
+.ifz__rna { padding: 10px; border-radius: 12px; background: var(--surface-2); text-align: center; font-size: 13px; font-weight: 700; margin-bottom: 10px; font-family: ui-monospace, Consolas, monospace; }
+.ifz__cap { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--mid); color: #fff; margin-right: 4px; font-family: inherit; }
+.cst__step.ifz__blocked { color: var(--hi); border-color: var(--hi); background: var(--hi-soft); text-decoration: line-through; }
+.cst__step.ifz__dim { opacity: .35; }
+
+/* --- Viz 12 · drift / shift --- */
+.ifz__seasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(72px, 1fr)); gap: 6px; margin-bottom: 8px; }
+.ifz__seasons > div { padding: 8px 4px; border-radius: 10px; background: var(--surface-2); border: 1.5px solid var(--line); text-align: center; }
+.ifz__seasons > div.is-now { border-color: var(--brand); background: var(--brand-soft); }
+.ifz__seasons > div.is-future { opacity: .3; }
+.ifz__seasons small { display: block; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 4px; }
+.ifz__seasons span { display: flex; justify-content: center; gap: 2px; }
+.ifz__seasons i { display: block; width: 8px; height: 14px; border-radius: 2px; background: #2f6fed; }
+.ifz__seasons i.is-mut { background: var(--hi); }
+.ifz__segs { display: grid; gap: 8px; margin-bottom: 8px; }
+.ifz__segs > div { padding: 8px; border-radius: 10px; background: var(--surface-2); }
+.ifz__segs small { display: block; font-size: 11px; font-weight: 700; color: var(--ink-soft); margin-bottom: 4px; }
+.ifz__segs span { display: flex; flex-wrap: wrap; gap: 3px; font-size: 12px; }
+.ifz__segs b { padding: 3px 6px; border-radius: 6px; font-size: 11px; color: #fff; }
+.ifz__segs .is-h { background: #2f6fed; }
+.ifz__segs .is-b { background: #f08a24; }
+
+/* --- Viz 13 · vaccine layers --- */
+.ifz__layers { display: grid; gap: 6px; margin-bottom: 10px; }
+.ifz__layers > div { position: relative; padding: 10px 12px; border-radius: 10px; background: var(--surface-2); border: 1.5px solid var(--line); font-size: 13px; overflow: hidden; z-index: 0; }
+.ifz__layers > div::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w, 100%); background: var(--hi-soft); z-index: -1; transition: width .5s; }
+.ifz__layers > div.is-vax::before { background: var(--mid-soft); }
+.ifz__layers b { margin-right: 6px; }
+
+/* --- Viz 14 · ward --- */
+.ifz__ward { display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px; margin-bottom: 6px; }
+.ifz__bed { aspect-ratio: 1; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 13px; border: 1.5px solid var(--line); transition: background .3s; }
+.ifz__bed small { font-size: 9px; color: var(--ink-faint); line-height: 1; }
+.ifz__bed.is-s { background: var(--surface); }
+.ifz__bed.is-e { background: var(--mid-soft); border-color: var(--mid); }
+.ifz__bed.is-i { background: var(--hi-soft); border-color: var(--hi); }
+.ifz__bed.is-c { background: var(--hi); border-color: var(--hi); }
+.ifz__bed.is-c small { color: #fff; }
+.ifz__wlegend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 11.5px; color: var(--ink-soft); }
+.ifz__wlegend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; border: 1.5px solid var(--line); }
+.ifz__wlegend .is-s::before { background: var(--surface); }
+.ifz__wlegend .is-e::before { background: var(--mid-soft); border-color: var(--mid); }
+.ifz__wlegend .is-i::before { background: var(--hi-soft); border-color: var(--hi); }
+.ifz__wlegend .is-c::before { background: var(--hi); border-color: var(--hi); }
+
+/* --- Viz 15 · detective --- */
+.ifz__qlist { display: grid; gap: 10px; margin-bottom: 12px; }
+.ifz__q { padding: 12px; border-radius: 12px; border: 1.5px solid var(--line-strong); background: var(--surface); transition: border-color .25s, background .25s; }
+.ifz__q p { font-size: 13px; margin: 0 0 8px; font-weight: 700; }
+.ifz__q.is-right { border-color: var(--ok); background: var(--ok-soft); }
+.ifz__q.is-wrong { border-color: var(--hi); background: var(--hi-soft); }
+.ifz__opts { display: flex; flex-wrap: wrap; gap: 5px; }
+.ifz__opt { flex: 1 1 auto; font-family: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; padding: 7px 6px; border-radius: 8px; border: 1.5px solid var(--line-strong); background: var(--surface); color: var(--ink-soft); }
+.ifz__opt.is-right { background: var(--ok); border-color: var(--ok); color: #fff; }
+.ifz__opt.is-wrong { background: var(--hi); border-color: var(--hi); color: #fff; }
+.ifz__fb { font-size: 12.5px; line-height: 1.55; margin-top: 6px; }
+.ifz__fb:empty { display: none; }
+
+@media (max-width: 520px) {
+  .ifz__cell { grid-template-columns: repeat(2, 1fr); }
+  .ifz__body { grid-template-columns: repeat(2, 1fr); }
+  .ifz__ward { grid-template-columns: repeat(5, 1fr); }
+}

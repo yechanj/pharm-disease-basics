@@ -1026,6 +1026,52 @@
     initOrganTL();
     initDrugMap();
     initFaq();
+    // Core 21 · 인플루엔자
+    initIfzVirus();
+    initIfzLife();
+    initIfzBody();
+    initIfzTime();
+    initIfzDoor();
+    initIfzTest();
+    initIfzWin();
+    initIfzRel();
+    initIfzCap();
+    initIfzDrift();
+    initIfzVax();
+    initIfzWard();
+    initIfzDetect();
+    // Core 20 · 감기
+    initCldDefense();
+    initCldVirus();
+    initCldMap();
+    initCldNose();
+    initCldCough();
+    initCldFever();
+    initCldTimeline();
+    initCldInfMap();
+    initCldScen();
+    initCldAh();
+    initCldRebound();
+    initCldReflex();
+    initCldMucus();
+    initCldAbx();
+    initCldBuild();
+    initCldDetect();
+    // Core 19 · 간경변
+    initCirPortal();
+    initCirAscites();
+    initCirNeph();
+    initCirSbp();
+    initCirBrain();
+    initCirLac();
+    initCirKidney();
+    initCirLabs();
+    initCirCp();
+    initCirNsbb();
+    initCirTips();
+    initCirSafety();
+    initCirDetective();
+    initCirMaster();
     // Core 18 · 간염
     initHepInjury();
     initHepBili();
@@ -3598,6 +3644,1148 @@
 
 
   /* ===========  Core 13 · 소화성궤양 인터랙션  =========== */
+
+  /* =====================================================================
+     Core 21 · 인플루엔자  (cst__ 공용 UI · cirSeg/cirBars/cldCardQuiz 재사용 + ifz__ 전용)
+     ===================================================================== */
+
+  /* ---------- Viz 1 · Virus Explorer ---------- */
+  function initIfzVirus() {
+    var root = document.querySelector("[data-ifzvirus]");
+    if (!root) return;
+    var P = {
+      ha: "<b>Hemagglutinin (HA)</b> — 세포 표면 <b>sialic acid</b>에 결합해 붙고 들어가는 단백질. endosome 안에서 모양을 바꿔 막 융합도 일으킵니다. <b>백신 중화항체의 주요 표적</b>.",
+      na: "<b>Neuraminidase (NA)</b> — sialic acid를 잘라 새 바이러스를 세포에서 <b>떼어내 퍼지게</b> 하는 효소. → <b>Oseltamivir · zanamivir · peramivir</b>의 표적.",
+      rnp: "<b>RNA 8조각 + polymerase(PB1·PB2·PA)</b> — 핵에서 전사·복제. 조각나 있어 다른 바이러스와 <b>조각을 바꿔 낄 수 있음</b>(shift). PA의 endonuclease → <b>baloxavir</b>의 표적.",
+      m2: "<b>M2 이온채널 (A형)</b> — endosome의 H⁺를 바이러스 안으로 들여 uncoating을 돕습니다. → <b>amantadine</b>의 표적이었지만 현재 광범위 내성. B형에는 없음."
+    };
+    var cur = null;
+    root.querySelectorAll("[data-part]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = cur === b.getAttribute("data-part") ? null : b.getAttribute("data-part");
+        root.querySelectorAll("[data-part]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-part") === cur); });
+        cstEl(root, "virion").className = "ifz__virion" + (cur ? " hl-" + cur : "");
+        cstOut(cstEl(root, "out"), cur ? P[cur] : "구조를 탭하세요.");
+      });
+    });
+  }
+
+  /* ---------- Viz 3 · Lifecycle + drug targets ---------- */
+  function initIfzLife() {
+    var root = document.querySelector("[data-ifzlife]");
+    if (!root) return;
+    var stages = root.querySelectorAll("[data-s]"), timer = null;
+    var D = {
+      osel: [5, "<b>Oseltamivir</b> — ⑥ Release 차단. NA가 sialic acid를 못 잘라 새 바이러스가 세포에 붙잡힘 → 이웃 세포 감염 ↓. 이미 만들어진 바이러스를 \"죽이는\" 약이 아닙니다."],
+      zana: [5, "<b>Zanamivir</b> — ⑥ Release 차단 (흡입). 같은 NA 표적, 다른 경로."],
+      pera: [5, "<b>Peramivir</b> — ⑥ Release 차단 (정맥). 같은 NA 표적, 다른 경로."],
+      balo: [3, "<b>Baloxavir</b> — ④ Transcription 차단. PA endonuclease를 막아 cap-snatching 실패 → 바이러스 mRNA·단백질 ↓ → 새 바이러스 자체가 덜 만들어짐."],
+      aman: [2, "<b>Amantadine</b> — ③ Uncoating 차단(M2). 하지만 <b>현재 계절성 A형에 광범위 내성</b> · B형엔 M2가 없음 → 독감 치료에 권고되지 않습니다."]
+    };
+    function clear() {
+      if (timer) { clearInterval(timer); timer = null; }
+      stages.forEach(function (s) { s.className = "ifz__stage"; });
+    }
+    root.querySelector("[data-act='play']").addEventListener("click", function () {
+      clear();
+      root.querySelectorAll("[data-drug]").forEach(function (x) { x.classList.remove("on"); });
+      var i = 0;
+      cstOut(cstEl(root, "out"), "바이러스가 세포에 붙어 → 들어가 → 풀리고 → 핵에서 복제 → 조립 → 떨어져 나갑니다.");
+      timer = setInterval(function () {
+        stages.forEach(function (s, k) { s.classList.toggle("on", k <= i); s.classList.toggle("cur", k === i); });
+        i++;
+        if (i > 5) { clearInterval(timer); timer = null; cstOut(cstEl(root, "out"), "⑥ 이후 새 바이러스가 <b>이웃 세포</b>로 → 생활사가 다시 시작됩니다. 이제 약을 눌러 어디를 끊는지 보세요.", "mid"); }
+      }, 550);
+    });
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        clear();
+        root.querySelectorAll("[data-drug]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        var d = D[b.getAttribute("data-drug")];
+        stages.forEach(function (s, k) {
+          s.classList.toggle("on", k < d[0]);
+          s.classList.toggle("is-block", k === d[0]);
+          s.classList.toggle("is-dim", k > d[0]);
+        });
+        cstOut(cstEl(root, "out"), d[1], b.getAttribute("data-drug") === "aman" ? "bad" : "ok");
+      });
+    });
+  }
+
+  /* ---------- Viz 4 · Local infection, systemic symptoms ---------- */
+  function initIfzBody() {
+    var root = document.querySelector("[data-ifzbody]");
+    if (!root) return;
+    var B = {
+      lung: ["mid", "🫁 <b>기도</b> — 실제 바이러스가 증식하는 곳. 상피 손상 → 기침 · 인후통. 여기서 interferon·cytokine 신호가 출발합니다."],
+      brain: ["ok", "🧠 <b>뇌</b> — 바이러스가 간 것이 아니라 cytokine이 시상하부 <b>PGE₂</b>를 올려 set point ↑ → 발열·오한·두통."],
+      muscle: ["ok", "💪 <b>근육</b> — 대개 근육 감염이 아니라 전신 염증 신호에 의한 <b>근육통</b>. 드물게 진짜 근염·횡문근융해(콜라색 소변)는 별도 평가."],
+      whole: ["ok", "🧍 <b>전신</b> — 같은 cytokine 신호가 피로 · 권태 · 식욕저하를 만듭니다. 감기보다 이 반응이 훨씬 큽니다."]
+    };
+    cirSeg(root, "data-b", function (k) { cstOut(cstEl(root, "out"), B[k][1], B[k][0]); });
+  }
+
+  /* ---------- Viz 5 · Influenza Timeline ---------- */
+  function initIfzTime() {
+    var root = document.querySelector("[data-ifztime]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var V = { vir: [40, 85, 90, 70, 45, 25, 12, 6, 3, 2, 1, 0], inf: [45, 90, 85, 70, 50, 30, 15, 8, 4, 2, 0, 0], fev: [0, 85, 90, 75, 50, 25, 10, 5, 0, 0, 0, 0], cou: [0, 30, 55, 70, 70, 65, 60, 50, 40, 30, 22, 15] };
+    function update() {
+      var d = +range.value, i = d + 1;
+      cstEl(root, "day").textContent = d < 0 ? "증상 하루 전" : "Day " + d;
+      cirBars(root, ["vir", "inf", "fev", "cou"], [V.vir[i], V.inf[i], V.fev[i], V.cou[i]]);
+      var msg, tone = "";
+      if (d < 0) { msg = "⚠️ <b>증상이 없는데 이미 전염 가능</b> — 성인은 증상 약 하루 전부터 바이러스를 내보냅니다."; tone = "bad"; }
+      else if (d <= 2) { msg = "<b>갑작스러운 고열 · 오한 · 근육통</b>. 바이러스 증식과 전염력이 가장 높은 시기 — 항바이러스제의 이득도 가장 큽니다."; tone = "bad"; }
+      else if (d <= 5) msg = "기침과 피로가 앞으로 나오고 열이 이어질 수 있습니다.";
+      else if (d <= 7) msg = "전신 증상이 줄어듭니다. 전염력은 대개 이 무렵까지.";
+      else { msg = "열은 내렸지만 <b>기침 · 피로가 남을 수 있음</b>. 이 시기의 새 고열·호흡곤란은 합병증 신호입니다."; tone = "mid"; }
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 6 · Influenza Opens the Door ---------- */
+  function initIfzDoor() {
+    var root = document.querySelector("[data-ifzdoor]");
+    if (!root) return;
+    var M = [
+      [85, 85, 5, "ok", "<b>정상 기도</b> — 점액 + 섬모 + 온전한 상피가 들어온 세균을 쓸어냅니다."],
+      [35, 40, 30, "mid", "<b>독감 감염</b> — 섬모 기능 ↓ · 상피 손상 · 국소 면역 변화. 세균이 붙을 자리가 생겼습니다."],
+      [35, 40, 85, "bad", "<b>+ 세균 노출</b> — 폐렴구균 · 황색포도알균(MRSA 포함) 등이 손상된 상피에 부착·침입 → <b>이차 세균성 폐렴</b>. 바이러스가 문을 열어 둔 셈입니다."]
+    ];
+    cirSeg(root, "data-m", function (k) { var d = M[+k]; cirBars(root, ["cil", "bar", "bac"], d); cstOut(cstEl(root, "out"), d[4], d[3]); });
+    root.querySelector("[data-m='0']").click();
+  }
+
+  /* ---------- Viz 7 · Antigen vs PCR ---------- */
+  function initIfzTest() {
+    var root = document.querySelector("[data-ifztest]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]"), test = "rat";
+    var LV = ["낮음", "보통", "높음"];
+    function update() {
+      var v = +range.value;
+      cstEl(root, "v").textContent = LV[v];
+      var pos = test === "pcr" ? true : v >= 1;
+      var res = cstEl(root, "res");
+      res.textContent = pos ? "양성 ＋" : "음성 −  (위음성 가능)";
+      res.className = "ifz__result " + (pos ? "is-pos" : "is-neg");
+      var msg;
+      if (test === "rat") msg = "<b>신속항원검사</b> — 바이러스 <b>단백질</b>을 검출. 빠르고 접근성이 좋지만 바이러스 양이 적으면(검체 채취·시기·소아 외 성인 등) <b>위음성</b>이 생길 수 있습니다." + (pos ? "" : "<br>👉 유행기 + 전형적 증상이면 음성이어도 독감을 배제하지 않습니다 — 분자검사나 임상 판단.");
+      else msg = "<b>분자검사 · RT-PCR</b> — 바이러스 <b>RNA</b>를 역전사해 증폭. 적은 양도 잡아 민감도가 높습니다. 입원·중증·집단발생 원인 확인에 중요합니다.";
+      cstOut(cstEl(root, "out"), msg, pos ? "ok" : "mid");
+    }
+    cirSeg(root, "data-t", function (k) { test = k; update(); });
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 8 · Antiviral Treatment Window ---------- */
+  function initIfzWin() {
+    var root = document.querySelector("[data-ifzwin]");
+    if (!root) return;
+    var T = [0, 12, 24, 36, 48, 60, 72, 96, 120], U = [20, 60, 90, 95, 85, 65, 45, 20, 8];
+    var h = 24, hr = false, hrBtn = root.querySelector("[data-hr]");
+    function update() {
+      var startIdx = T.indexOf(h), base = U[startIdx];
+      cstEl(root, "chart").innerHTML = T.map(function (t, i) {
+        var tr = t <= h ? U[i] : Math.min(U[i], Math.round(base * Math.pow(0.55, (t - h) / 12)));
+        return "<div class=\"ifz__col" + (t === 48 ? " is-48" : "") + (t === h ? " is-start" : "") + "\"><i class=\"ifz__u\" style=\"height:" + U[i] + "%\"></i><i class=\"ifz__t" + (t > h ? " is-tx" : "") + "\" style=\"height:" + tr + "%\"></i><em>" + t + "h</em></div>";
+      }).join("");
+      var msg, tone;
+      if (h <= 24) { msg = "<b>" + h + "시간</b> — 바이러스가 아직 늘어나는 중. 여기서 막으면 <b>새로 감염될 세포를 많이 지킬 수 있습니다</b> (회색과 파란 막대의 차이)."; tone = "ok"; }
+      else if (h === 48) { msg = "<b>48시간</b> — 건강한 외래 성인에서 흔히 쓰는 기준. 하지만 이 선을 넘는다고 효과가 0이 되지는 않습니다."; tone = "mid"; }
+      else if (hr) { msg = "<b>72시간 · 고위험/입원/중증</b> — <b>48시간 이후에도 치료를 고려합니다.</b> 남은 증식을 줄이고 중증 진행·합병증 위험을 낮추는 것이 목표입니다. 가능한 한 빨리 oseltamivir."; tone = "ok"; }
+      else { msg = "<b>72시간 · 건강한 외래 성인</b> — 이미 정점을 지나 이득이 작아질 수 있습니다. 그래도 \"효과가 갑자기 사라지는 선\"은 아닙니다. 위험군 버튼을 눌러 보세요."; tone = "mid"; }
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    cirSeg(root, "data-h", function (k) { h = +k; update(); });
+    hrBtn.addEventListener("click", function () { hr = !hr; hrBtn.classList.toggle("on", hr); update(); });
+    update();
+  }
+
+  /* ---------- Viz 9 · Oseltamivir Release Block ---------- */
+  function initIfzRel() {
+    var root = document.querySelector("[data-ifzrel]");
+    if (!root) return;
+    var btn = root.querySelector("[data-osel]"), on = false;
+    function update() {
+      cstEl(root, "free").textContent = on ? "" : "🦠 ↗   🦠 ↗   🦠 ↗";
+      cstEl(root, "stuck").textContent = on ? "🦠🦠🦠🦠🦠🦠🦠" : "🦠";
+      cstEl(root, "surf").classList.toggle("is-block", on);
+      cirBars(root, ["rel", "nb"], on ? [15, 15] : [85, 80]);
+      if (on) cstOut(cstEl(root, "out"), "💊 <b>NA 차단</b> — sialic acid가 잘리지 않아 새 바이러스가 세포 표면에 <b>붙잡히고 서로 뭉칩니다</b> → 이웃 세포 감염 ↓ → 면역계가 정리할 시간.", "ok");
+      else cstOut(cstEl(root, "out"), "<b>정상</b> — NA가 sialic acid를 잘라 새 바이러스가 떨어져 나가 이웃 세포로 퍼집니다.");
+    }
+    btn.addEventListener("click", function () { on = !on; btn.classList.toggle("on", on); update(); });
+    update();
+  }
+
+  /* ---------- Viz 11 · Cap-Snatching ---------- */
+  function initIfzCap() {
+    var root = document.querySelector("[data-ifzcap]");
+    if (!root) return;
+    var step = -1, balo = false, baloBtn = root.querySelector("[data-act='balo']");
+    var MSG = [
+      "<b>PB2</b>가 숙주 mRNA의 5′ cap을 붙잡았습니다.",
+      "<b>PA endonuclease</b>가 cap 뒤 10여 개 염기에서 잘라 <b>cap 달린 조각</b>을 훔쳤습니다. ✂️",
+      "<b>PB1</b>이 훔친 조각을 primer로 <b>바이러스 mRNA</b>를 만듭니다 — 숙주 리보솜이 \"정상 mRNA\"로 착각합니다.",
+      "리보솜 → 바이러스 단백질 → 새 바이러스. 숙주 mRNA는 cap을 잃어 분해됩니다."
+    ];
+    function render() {
+      root.querySelectorAll("[data-step]").forEach(function (s) {
+        var n = +s.getAttribute("data-step");
+        var blocked = balo && n >= 1 && step >= 1;
+        s.classList.toggle("on", n <= step && !(balo && n >= 1));
+        s.classList.toggle("cur", n === step && !blocked);
+        s.classList.toggle("ifz__blocked", balo && n === 1 && step >= 1);
+        s.classList.toggle("ifz__dim", balo && n >= 2 && step >= 1);
+      });
+      cstEl(root, "host").textContent = step >= 1 && !balo ? "─ A U G C ✂️ U A G C ─ 숙주 mRNA" : "─ A U G C U A G C ─ 숙주 mRNA";
+      var out = cstEl(root, "out");
+      if (step < 0) cstOut(out, balo ? "💊 Baloxavir가 PA에 결합해 있습니다. 다음 단계를 눌러 보세요." : "버튼을 눌러 cap-snatching을 따라가 보세요.");
+      else if (balo && step >= 1) cstOut(out, "🚫 <b>PA endonuclease 차단</b> → cap 조각 획득 실패 → 바이러스 mRNA ↓ → 단백질 ↓ → <b>새 바이러스 생산 ↓</b>. 숙주 자신의 단백질 합성은 직접 막지 않습니다.", "ok");
+      else cstOut(out, MSG[step], step === 3 ? "bad" : "");
+    }
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "next") step = Math.min(3, step + 1);
+        else if (a === "balo") { balo = !balo; baloBtn.classList.toggle("on", balo); }
+        else { step = -1; balo = false; baloBtn.classList.remove("on"); }
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Viz 12 · Drift vs Shift ---------- */
+  function initIfzDrift() {
+    var root = document.querySelector("[data-ifzdrift]");
+    if (!root) return;
+    var s = 0, vs = 0, mixed = false;
+    var SEG = ["PB2", "PB1", "PA", "HA", "NP", "NA", "M", "NS"];
+    function renderDrift() {
+      var html = "";
+      for (var k = 0; k <= Math.max(s, 3); k++) {
+        var sites = "";
+        for (var j = 0; j < 6; j++) sites += "<i class=\"" + (j < k ? "is-mut" : "") + "\"></i>";
+        html += "<div class=\"" + (k === s ? "is-now" : "") + (k > s ? " is-future" : "") + "\"><small>절기 " + (k + 1) + (k === vs ? " · 💉" : "") + "</small><span>" + sites + "</span></div>";
+      }
+      cstEl(root, "seasons").innerHTML = html;
+      var ab = Math.max(15, 95 - 22 * (s - vs));
+      cstEl(root, "ab").style.width = ab + "%";
+      var msg = s === vs ? "백신 항원과 유행주의 <b>HA가 잘 맞습니다</b> — 항체가 잘 결합합니다." :
+        "작은 변이(빨간 칸)가 " + (s - vs) + "절기 동안 쌓여 <b>기존 항체의 결합이 약해졌습니다</b>. 작년 면역으로는 부족 → <b>올해 백신</b>을 눌러 보세요.";
+      cstOut(cstEl(root, "out"), msg + " (시간이 지나며 면역 자체도 줄어듭니다.)", s === vs ? "ok" : "mid");
+    }
+    function segs(arr) { return arr.map(function (c, i) { return "<b class=\"is-" + c + "\">" + SEG[i] + "</b>"; }).join(""); }
+    function renderShift() {
+      cstEl(root, "h").innerHTML = segs(["h", "h", "h", "h", "h", "h", "h", "h"]);
+      cstEl(root, "b").innerHTML = segs(["b", "b", "b", "b", "b", "b", "b", "b"]);
+      cstEl(root, "n").innerHTML = mixed ? segs(["h", "h", "b", "b", "h", "h", "h", "h"]) : "<i>아직 없음</i>";
+      if (mixed) cstOut(cstEl(root, "out"), "🔀 <b>Reassortment</b> — 사람 바이러스의 대부분 조각 + 조류의 <b>HA</b>(·PA). 사람 면역이 <b>처음 보는 HA</b> → 이 바이러스가 사람 사이에서 효율적으로 전파되면 <b>pandemic</b> 가능. 모든 재조합이 그렇게 되지는 않습니다.", "bad");
+      else cstOut(cstEl(root, "out"), "Influenza A는 유전체가 <b>8조각</b>입니다. 두 종류가 한 세포(예: 돼지)에 동시에 감염되면 조각이 섞일 수 있습니다.");
+    }
+    cirSeg(root, "data-mode", function (k) {
+      cstEl(root, "driftbox").style.display = k === "drift" ? "" : "none";
+      cstEl(root, "shiftbox").style.display = k === "shift" ? "" : "none";
+      if (k === "drift") renderDrift(); else renderShift();
+    });
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "season") s = Math.min(5, s + 1);
+        if (a === "vax") vs = s;
+        if (a === "mix") mixed = true;
+        if (a === "mix") renderShift(); else renderDrift();
+      });
+    });
+    renderDrift();
+  }
+
+  /* ---------- Viz 13 · Vaccine Protection Layers ---------- */
+  function initIfzVax() {
+    var root = document.querySelector("[data-ifzvax]");
+    if (!root) return;
+    var layers = root.querySelectorAll("[data-l]");
+    cirSeg(root, "data-v", function (k) {
+      var vax = k === "1";
+      var W = vax ? [60, 42, 22] : [100, 100, 100];
+      layers.forEach(function (l, i) { l.style.setProperty("--w", W[i] + "%"); l.classList.toggle("is-vax", vax); });
+      if (vax) cstOut(cstEl(root, "out"), "💉 <b>접종</b> — 일부는 감염 자체를 막고, 감염돼도 증상을 줄이고, 무엇보다 <b>중증·입원·사망</b>으로 가는 비율을 크게 낮춥니다. 층마다 걸러지는 정도는 절기와 사람마다 다릅니다.", "ok");
+      else cstOut(cstEl(root, "out"), "<b>미접종</b> — 노출된 바이러스가 세 층을 거의 그대로 통과합니다.", "bad");
+    });
+    root.querySelector("[data-v='0']").click();
+  }
+
+  /* ---------- Viz 14 · Long-Term Care Outbreak ---------- */
+  function initIfzWard() {
+    var root = document.querySelector("[data-ifzward]");
+    if (!root) return;
+    var st, f, day;
+    function reset() {
+      st = []; for (var i = 0; i < 20; i++) st.push("s");
+      [2, 3, 7].forEach(function (i) { st[i] = "i"; });
+      [1, 4, 6, 8, 12].forEach(function (i) { st[i] = "e"; });
+      f = {}; day = 1;
+      root.querySelectorAll(".cst__chip[data-act]").forEach(function (x) { x.classList.remove("on"); });
+    }
+    function render(msg, tone) {
+      cstEl(root, "ward").innerHTML = st.map(function (s, i) {
+        var badge = "";
+        if ((s === "i" || s === "c") && f.treat) badge = "💊";
+        if (s === "e" && f.pep) badge = "🛡️";
+        if (s === "e" && f.assess && !f.pep) badge = "📋";
+        return "<div class=\"ifz__bed is-" + s + "\"><small>" + (i + 1) + "</small>" + badge + "</div>";
+      }).join("");
+      var n = { s: 0, e: 0, i: 0, c: 0 };
+      st.forEach(function (s) { n[s]++; });
+      cstOut(cstEl(root, "out"), "<b>Day " + day + "</b> · 증상 " + n.i + " · 확진 " + n.c + " · 노출 " + n.e + " · 감수성 " + n.s + (msg ? "<br>" + msg : ""), tone || "");
+    }
+    var ACT = {
+      test: ["🧪 <b>원인 확인</b> — 증상 환자 검사 → 독감 확진(COVID-19·RSV 동반 여부도). 대응의 출발점.", function () { st = st.map(function (s) { return s === "i" ? "c" : s; }); }],
+      treat: ["💊 <b>조기 치료</b> — 증상 환자 개개인의 중증 진행을 줄이는 <b>환자 치료</b>. 신기능 감량 확인. (전파 차단과는 다른 목표)", null],
+      ic: ["🧤 <b>감염관리</b> — 격리·cohorting · PPE · 손 위생 · 환기 · 직원/방문객 증상 확인 → <b>병동 전파 차단</b>.", null],
+      assess: ["📋 <b>노출 평가</b> — 누가 노출됐는지, 누가 고위험인지 → 예방투여 대상 결정.", null],
+      pep: ["🛡️ <b>예방투여</b> — 노출 환자에게 oseltamivir <b>하루 1회</b>(신기능 감량). 기간은 국내 지침·원내 규정 (미국 CDC 시설 기준: 최소 2주 + 마지막 발생 후 7일).", null]
+    };
+    root.querySelectorAll("[data-act]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var a = b.getAttribute("data-act");
+        if (a === "reset") { reset(); render("병동에 증상 환자 3명, 노출 5명. 대응 버튼을 누르고 하루씩 넘겨 보세요."); return; }
+        if (a === "day") {
+          day++;
+          var converted = 0;
+          st = st.map(function (s) { if (s === "e" && !f.pep && converted < 2) { converted++; return f.test ? "c" : "i"; } return s; });
+          if (!f.ic) {
+            var add = 0, src = [];
+            st.forEach(function (s, i) { if (s === "i" || s === "c") src.push(i); });
+            src.forEach(function (i) { [i - 1, i + 1, i + 5].forEach(function (j) { if (add < 3 && st[j] === "s") { st[j] = "e"; add++; } }); });
+          }
+          var why = (f.ic ? "감염관리로 새 노출이 거의 없었습니다." : "⚠️ 감염관리가 없어 <b>새 노출</b>이 생겼습니다.") + (f.pep ? " 예방투여로 노출 환자의 발병이 줄었습니다." : converted ? " 노출 환자 " + converted + "명이 발병했습니다." : "");
+          render(why, f.ic && f.pep ? "ok" : f.ic || f.pep ? "mid" : "bad");
+          return;
+        }
+        f[a] = true;
+        b.classList.add("on");
+        if (ACT[a][1]) ACT[a][1]();
+        render(ACT[a][0], "ok");
+      });
+    });
+    reset();
+    render("병동에 증상 환자 3명, 노출 5명. 대응 버튼을 누르고 하루씩 넘겨 보세요.");
+  }
+
+  /* ---------- Viz 15 · Pharmacist Detective ---------- */
+  function initIfzDetect() {
+    var root = document.querySelector("[data-ifzdetect]");
+    if (!root) return;
+    cldCardQuiz(root, { early: "조기 항바이러스 치료", renal: "신기능 감량", zana: "흡입 zanamivir 피하기", cation: "다가 양이온 상호작용", pep: "노출 후 예방 평가" }, " — 약보다 먼저 환자 정보.", "ifz");
+  }
+
+  /* =====================================================================
+     Core 20 · 감기  (cst__ 공용 UI · cirSeg/cirBars 헬퍼 재사용 + cld__ 전용)
+     ===================================================================== */
+
+  /* 카드별 보기 선택 퀴즈 공통 (PREFIX__q > p + 생성된 PREFIX__opts · 기본 prefix cld) */
+  function cldCardQuiz(root, OPT, tail, p) {
+    p = p || "cld";
+    var keys = Object.keys(OPT), qs = root.querySelectorAll("." + p + "__q"), done = 0, right = 0;
+    qs.forEach(function (q) {
+      var box = document.createElement("div"), fb = document.createElement("div");
+      box.className = p + "__opts";
+      fb.className = p + "__fb";
+      keys.forEach(function (k) {
+        var b = document.createElement("button");
+        b.className = p + "__opt";
+        b.textContent = OPT[k];
+        b.addEventListener("click", function () {
+          if (q.getAttribute("data-done")) return;
+          q.setAttribute("data-done", "1");
+          var ans = q.getAttribute("data-ans"), ok = k === ans;
+          done++; if (ok) right++;
+          box.querySelectorAll("." + p + "__opt").forEach(function (x, i) { if (keys[i] === ans) x.classList.add("is-right"); });
+          if (!ok) b.classList.add("is-wrong");
+          q.classList.add(ok ? "is-right" : "is-wrong");
+          fb.innerHTML = (ok ? "✅ " : "❌ 정답은 " + OPT[ans] + " — ") + q.getAttribute("data-why");
+          cstOut(cstEl(root, "out"), done + " / " + qs.length + " · 정답 " + right + "개" + (done === qs.length ? tail : ""), done === qs.length ? (right === qs.length ? "ok" : "mid") : "");
+        });
+        box.appendChild(b);
+      });
+      q.appendChild(box);
+      q.appendChild(fb);
+    });
+  }
+
+  /* ---------- Viz 1 · Respiratory Defense ---------- */
+  function initCldDefense() {
+    var root = document.querySelector("[data-clddefense]");
+    if (!root) return;
+    var M = {
+      normal: [85, 85, "ok", "<b>정상</b> — 점액이 입자와 바이러스를 붙잡고, 섬모가 한 방향으로 쓸어 인두 쪽으로 보냅니다. 대부분의 노출은 감염 없이 끝납니다."],
+      smoke: [30, 60, "bad", "<b>흡연</b> — 섬모 운동 ↓ · 점액 과다·끈적 → 청소 기능이 떨어져 감염이 쉽고 회복이 느립니다. 기침이 더 오래 남기도 합니다."],
+      viral: [45, 35, "mid", "<b>바이러스 감염</b> — 상피세포가 감염·손상되고 일부 섬모세포가 떨어져 나갑니다. 청소 ↓ + 염증 → 증상, 그리고 <b>이차 세균감염</b>이 비집고 들어올 틈."]
+    };
+    cirSeg(root, "data-mode", function (k) {
+      var d = M[k];
+      cstEl(root, "epi").className = "cld__epi is-" + k;
+      cirBars(root, ["clear", "barrier"], d);
+      cstOut(cstEl(root, "out"), d[3], d[2]);
+    });
+    root.querySelector("[data-mode='normal']").click();
+  }
+
+  /* ---------- Viz 2 · Virus vs Immune Response ---------- */
+  function initCldVirus() {
+    var root = document.querySelector("[data-cldvirus]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]"), medBtn = root.querySelector("[data-med]");
+    var VIR = [20, 80, 95, 70, 45, 25, 12, 6, 3, 2], INF = [10, 45, 80, 90, 75, 55, 35, 20, 12, 8];
+    var med = false;
+    function update() {
+      var d = +range.value, i = d - 1;
+      var sym = Math.round(INF[i] * 0.95 * (med ? 0.5 : 1));
+      cstEl(root, "day").textContent = "Day " + d;
+      cirBars(root, ["vir", "inf", "sym"], [VIR[i], INF[i], sym]);
+      var msg = d <= 2 ? "바이러스가 먼저 늘어납니다. 아직 증상은 약하지만 <b>전파력은 이미 높을 수 있습니다</b>." :
+        d <= 5 ? "증상은 바이러스 양보다 <b>염증 반응</b>을 따라갑니다 — 바이러스가 줄기 시작해도 증상은 정점." :
+        "바이러스와 염증이 함께 가라앉으며 자연 회복합니다.";
+      if (med) msg += "<br>💊 증상완화제로 <b>느끼는 증상만</b> 줄었습니다. 바이러스 양은 그대로입니다.";
+      cstOut(cstEl(root, "out"), msg, med ? "mid" : "");
+    }
+    range.addEventListener("input", update);
+    medBtn.addEventListener("click", function () { med = !med; medBtn.classList.toggle("on", med); update(); });
+    update();
+  }
+
+  /* ---------- Viz 3 · Cold Symptom Mechanism Map ---------- */
+  function initCldMap() {
+    var root = document.querySelector("[data-cldmap]");
+    if (!root) return;
+    var S = {
+      rhin: ["혈관 투과성 ↑ → 혈장 유래 액체 + <b>부교감 반사</b>로 분비샘 분비 ↑", "Cytokine · bradykinin · cholinergic 신경반사 (histamine은 작은 역할)", "1세대 항히스타민제(항콜린 작용 포함) · 생리식염수"],
+      cong: ["점막 <b>정맥총 확장 + 부종</b> → 공기 통로가 좁아짐", "염증 매개물질 → 혈관 확장 · 투과성 ↑", "비충혈제거제 — pseudoephedrine · 국소 oxymetazoline(단기)"],
+      throat: ["인두 염증 → 감각신경 자극·과민 → 통증", "Bradykinin · prostaglandin", "Acetaminophen · NSAID · 가글·로젠지"],
+      cough: ["후비루 · 기도 염증 · <b>기침 과민</b> → 뇌간 기침 네트워크 → 반사", "감각 구심신경(후두·하기도는 미주신경)", "진해제(DXM · levodropropizine · codeine) / 가래가 문제면 점액용해제"],
+      fever: ["Pyrogenic cytokine → 시상하부 <b>PGE₂ ↑ → set point ↑</b> + 몸살·피로", "IL-1 · IL-6 · TNF · PGE₂", "Acetaminophen · NSAID (목표는 숫자가 아니라 불편감)"]
+    };
+    cirSeg(root, "data-s", function (k) {
+      cstEl(root, "mech").innerHTML = S[k][0];
+      cstEl(root, "med").innerHTML = S[k][1];
+      cstEl(root, "drug").innerHTML = S[k][2];
+    });
+  }
+
+  /* ---------- Viz 4 · Runny vs Blocked Nose ---------- */
+  function initCldNose() {
+    var root = document.querySelector("[data-cldnose]");
+    if (!root) return;
+    var LV = ["없음", "약함", "보통", "심함", "매우 심함"];
+    var v = { sec: 2, swell: 2 }, drug = {};
+    function update() {
+      var sec = Math.max(0, v.sec - (drug.ah ? 2 : 0) - (drug.saline ? 1 : 0));
+      var sw = Math.max(0, v.swell - (drug.pse ? 2 : 0));
+      cstEl(root, "v-sec").textContent = LV[v.sec];
+      cstEl(root, "v-swell").textContent = LV[v.swell];
+      var wall = 6 + sw * 8.5;
+      cstEl(root, "wl").style.width = wall + "%";
+      cstEl(root, "wr").style.width = wall + "%";
+      cstEl(root, "drops").textContent = new Array(sec * 2 + 1).join("💧");
+      var flow = Math.max(0, Math.min(100, 100 - sw * 21 - sec * 4));
+      cstEl(root, "flow").textContent = "💨 " + flow + "%";
+      var msg, tone;
+      if (sw >= 3 && sec <= 1) { msg = "분비는 적은데 <b>꽉 막힘</b> — 원인은 콧물이 아니라 <b>점막 부종</b>입니다. 코를 풀어도 소용없습니다."; tone = "bad"; }
+      else if (sec >= 3 && sw <= 1) { msg = "<b>콧물은 줄줄</b>, 통로는 비교적 열려 있음 — 분비의 문제입니다."; tone = "mid"; }
+      else if (flow >= 75) { msg = "공기가 잘 통합니다."; tone = "ok"; }
+      else { msg = "분비와 부종이 함께 — 감기에서 가장 흔한 조합입니다."; tone = "mid"; }
+      var notes = [];
+      if (drug.ah) notes.push("💊 <b>1세대 항히스타민제</b> — 분비 ↓ (부종엔 거의 영향 없음) · 졸림·항콜린 주의");
+      if (drug.pse) notes.push("💊 <b>Pseudoephedrine</b> — 혈관 수축 → 부종 ↓ (콧물을 말리는 약이 아님) · 혈압·요폐 주의");
+      if (drug.saline) notes.push("🧂 <b>생리식염수</b> — 분비물 제거 · 점막 불편감 완화");
+      cstOut(cstEl(root, "out"), msg + (notes.length ? "<br>" + notes.join("<br>") : ""), tone);
+    }
+    root.querySelectorAll("input[data-k]").forEach(function (r) {
+      r.addEventListener("input", function () { v[r.getAttribute("data-k")] = +r.value; update(); });
+    });
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-drug"); drug[k] = !drug[k]; b.classList.toggle("on", drug[k]); update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 5 · Cough Sensitivity ---------- */
+  function initCldCough() {
+    var root = document.querySelector("[data-cldcough]");
+    if (!root) return;
+    var VIR = [90, 30, 0, 0], SENS = [60, 80, 55, 15];
+    var MSG = ["Day 1 — 바이러스 활동이 활발하고 기도가 예민해지기 시작합니다.", "Day 7 — 바이러스는 줄었지만 <b>기침 민감도는 오히려 정점</b>.", "Week 3 — 바이러스는 없는데 신경 과민이 남음 = <b>감염 후 기침</b>(아급성).", "Week 6 — 대부분 정상화. 이때도 심하면 천식·GERD·약물 등 다른 원인을 평가합니다."];
+    var NAME = { 1: "찬 공기", 2: "오래 말하기", 3: "향수" };
+    var t = 0, st = null;
+    function update() {
+      cirBars(root, ["vir", "sens"], [VIR[t], SENS[t]]);
+      var msg = MSG[t], tone = "";
+      if (st) {
+        var cough = SENS[t] >= 50;
+        msg += "<br>" + (cough ? "💨 <b>" + NAME[st] + " → 기침!</b> 평소엔 아무렇지 않던 자극에도 반사가 켜집니다." : "🙂 " + NAME[st] + " → 기침 없음.");
+        tone = cough ? "bad" : "ok";
+      }
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    cirSeg(root, "data-t", function (k) { t = +k; update(); });
+    root.querySelectorAll("[data-st]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        st = b.getAttribute("data-st");
+        root.querySelectorAll("[data-st]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 6 · Fever Thermostat ---------- */
+  function initCldFever() {
+    var root = document.querySelector("[data-cldfever]");
+    if (!root) return;
+    var F = [
+      ["37℃", "37℃", "균형", "ok", "<b>정상</b> — set point와 체온이 같아 몸은 편안합니다."],
+      ["39℃", "37.2℃", "🥶 춥다 · 오한", "mid", "<b>감염 초기</b> — cytokine → PGE₂ → set point 39℃. 실제 체온이 상대적으로 \"낮다\"고 느껴 <b>말초혈관 수축 · 떨림</b>으로 열을 만듭니다. 그래서 열이 오르기 전에 춥고 떨립니다."],
+      ["39℃", "39℃", "🤒 열 · 몸살", "bad", "<b>열 도달</b> — 체온이 새 set point에 도달. 같은 cytokine 신호로 근육통·피로·두통이 함께 옵니다."],
+      ["37.5℃", "38.6℃", "🥵 덥다 · 땀", "ok", "<b>해열제</b> — PGE₂ 신호 ↓ → set point 정상화 → 이번엔 체온이 \"높다\"고 느껴 <b>혈관 확장·땀</b>으로 열을 내보냅니다. 바이러스가 사라진 것은 아닙니다."]
+    ];
+    cirSeg(root, "data-f", function (k) {
+      var d = F[+k];
+      cstEl(root, "sp").textContent = d[0];
+      cstEl(root, "bt").textContent = d[1];
+      cstEl(root, "resp").textContent = d[2];
+      cstOut(cstEl(root, "out"), d[4], d[3]);
+    });
+    root.querySelector("[data-f='0']").click();
+  }
+
+  /* ---------- Viz 7 · Cold Timeline ---------- */
+  function initCldTimeline() {
+    var root = document.querySelector("[data-cldtimeline]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var C = {
+      throat: [80, 70, 45, 30, 20, 12, 8, 5, 3, 0, 0, 0, 0, 0],
+      rhin: [20, 70, 85, 80, 65, 45, 30, 20, 12, 8, 5, 3, 0, 0],
+      cong: [5, 40, 75, 80, 70, 55, 40, 28, 18, 10, 6, 3, 0, 0],
+      cough: [5, 20, 50, 65, 65, 60, 55, 50, 45, 40, 35, 30, 25, 20]
+    };
+    function update() {
+      var d = +range.value, i = d - 1;
+      cstEl(root, "day").textContent = "Day " + d;
+      cirBars(root, ["throat", "rhin", "cong", "cough"], [C.throat[i], C.rhin[i], C.cong[i], C.cough[i]]);
+      var col = cstEl(root, "color");
+      if (d <= 3) { col.textContent = "콧물 색 · 맑음"; col.className = "cld__mucuscolor is-clear"; }
+      else if (d <= 7) { col.textContent = "콧물 색 · 노랑 / 녹색"; col.className = "cld__mucuscolor is-yellow"; }
+      else { col.textContent = "콧물 · 줄어듦"; col.className = "cld__mucuscolor"; }
+      var msg, tone = "";
+      if (d <= 2) msg = "목이 따끔 → 재채기 · 맑은 콧물로 시작합니다.";
+      else if (d <= 3) msg = "콧물·코막힘·기침이 늘며 <b>증상이 정점</b>에 가까워집니다.";
+      else if (d <= 7) { msg = "콧물이 노랗거나 녹색 — <b>정상적인 바이러스성 감기의 경과에서도 발생할 수 있는 변화입니다.</b> 전반적으로 좋아지는 중인지가 중요합니다."; tone = "ok"; }
+      else if (d <= 10) msg = "대부분의 증상이 줄어듭니다. 기침이 가장 늦게 남습니다.";
+      else { msg = "기침은 몇 주 남을 수 있습니다. 하지만 <b>코 증상이 10일 넘게 호전 없음</b>이라면 평가가 필요합니다."; tone = "mid"; }
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 8 · Respiratory Infection Map ---------- */
+  function initCldInfMap() {
+    var root = document.querySelector("[data-cldinfmap]");
+    if (!root) return;
+    var L = {
+      nose: "👃 <b>비강</b> — <b>감기</b> · 알레르기비염. 콧물·코막힘·재채기.",
+      sinus: "🦴 <b>부비동</b> — <b>부비동염</b>. 대부분 바이러스성이며, 세균성은 10일 지속 · 고열+안면통증 · 재악화 패턴으로 의심.",
+      pharynx: "👅 <b>인두</b> — <b>인두염</b>. 대부분 바이러스. 발열 + 편도 삼출 + 압통성 림프절 + 기침 없음이면 GAS 가능성.",
+      larynx: "🗣️ <b>후두</b> — <b>후두염</b>. 쉰 목소리 · 마른기침. 소아는 크룹(개 짖는 기침), 침 삼키기 어려움·호흡곤란은 응급.",
+      bronchi: "🌿 <b>기관지</b> — <b>급성 기관지염</b>. 기침이 주증상, 수 주 지속 가능. 대부분 바이러스로 항생제 불필요.",
+      alveoli: "🫁 <b>폐포</b> — <b>폐렴</b>. 호흡곤란 · 빈호흡 · 저산소증 · 흉통 · 고령자 의식변화. 상기도 감염과 다른 차원의 평가."
+    };
+    cirSeg(root, "data-loc", function (k) { cstOut(cstEl(root, "out"), L[k], k === "alveoli" ? "bad" : k === "nose" ? "ok" : "mid"); });
+  }
+
+  /* ---------- Viz 9 · Cold or Complication ---------- */
+  function initCldScen() {
+    var root = document.querySelector("[data-cldscen]");
+    if (!root) return;
+    var S = {
+      a: [["D1 인후통", ""], ["D2 맑은 콧물", ""], ["D4 노란 콧물", "y"], ["D6 호전 중", "g"]], aT: ["ok", "✅ <b>전형적인 바이러스성 감기</b> — 노란 콧물에도 경과가 좋아지는 중. 대증요법과 관찰."],
+      b: [["D1 콧물·코막힘", ""], ["D5 그대로", ""], ["D10 그대로", "y"], ["D12 호전 없음", "r"]], bT: ["mid", "<b>Pattern A · Persistent</b> — 10일 이상 호전 없음. 세균성 부비동염 평가를 권합니다."],
+      c: [["D1–5 감기", ""], ["D6 호전", "g"], ["D8 고열 + 안면통증", "r"], ["D8 비루 증가", "r"]], cT: ["bad", "<b>Pattern C · Double worsening</b> — 좋아지다 다시 악화. 세균성 부비동염을 고려합니다.<br><span style=\"font-size:12.5px\">또 다른 패턴 B · Severe onset — 처음부터 약 39℃ 이상 고열 + 화농성 비루 또는 심한 안면통증이 수일 연속.</span>"],
+      d: [["기침", ""], ["호흡수 28/분", "r"], ["SpO₂ 90%", "r"], ["새 혼돈", "r"]], dT: ["bad", "🚨 <b>상기도 감염을 넘어섬</b> — 빈호흡 · 저산소증 → 폐렴 등 <b>응급 평가</b>. 항생제 여부 이전에 중증도가 먼저입니다."]
+    };
+    cirSeg(root, "data-sc", function (k) {
+      cstEl(root, "days").innerHTML = S[k].map(function (e) { return "<span class=\"" + (e[1] ? "is-" + e[1] : "") + "\">" + e[0] + "</span>"; }).join("");
+      var t = S[k + "T"];
+      cstOut(cstEl(root, "out"), t[1], t[0]);
+    });
+    root.querySelector("[data-sc='a']").click();
+  }
+
+  /* ---------- Viz 10 · Antihistamine CNS ---------- */
+  function initCldAh() {
+    var root = document.querySelector("[data-cldah]");
+    if (!root) return;
+    var A = {
+      cpm: ["💊💊", 40, 85, 70, "bad", "<b>Chlorpheniramine (1세대)</b> — 지용성 · BBB를 잘 통과 → 뇌 H1 억제 → <b>졸림·반응속도 저하</b>. 항무스카린 작용으로 감기 콧물을 조금 줄이지만 <b>입마름·변비·요폐·혼돈</b>도 함께."],
+      cet: ["💊", 15, 35, 10, "mid", "<b>Cetirizine (2세대)</b> — BBB 통과가 적지만 2세대 중에서는 <b>졸림이 비교적 흔한 편</b>. 신기능 저하 시 용량 조절. 알레르기비염에는 좋지만 감기 콧물 효과는 제한적."],
+      fex: ["", 10, 5, 5, "ok", "<b>Fexofenadine (2세대)</b> — P-gp가 뇌에서 밀어내 <b>거의 졸리지 않음</b>. 항콜린 작용도 거의 없음 → 알레르기비염엔 좋고, 감기 콧물엔 별로입니다."]
+    };
+    cirSeg(root, "data-ah", function (k) {
+      var d = A[k];
+      cstEl(root, "brain").textContent = d[0] || "—";
+      cirBars(root, ["cold", "sed", "ach"], [d[1], d[2], d[3]]);
+      cstOut(cstEl(root, "out"), d[5], d[4]);
+    });
+    root.querySelector("[data-ah='cpm']").click();
+  }
+
+  /* ---------- Viz 11 · Topical decongestant rebound ---------- */
+  function initCldRebound() {
+    var root = document.querySelector("[data-cldrebound]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    function update() {
+      var d = +range.value;
+      var relief = d <= 3 ? 90 : Math.max(35, 90 - (d - 3) * 6);
+      var dur = d <= 3 ? 80 : Math.max(15, 80 - (d - 3) * 7);
+      var reb = d <= 3 ? 5 : Math.min(95, (d - 3) * 10);
+      cstEl(root, "d").textContent = d + "일";
+      cirBars(root, ["relief", "dur", "reb"], [relief, dur, reb]);
+      if (d <= 3) cstOut(cstEl(root, "out"), "✅ <b>단기 사용</b> — 빠르고 확실한 코막힘 완화. 이 범위에서 끝내는 것이 원칙입니다.", "ok");
+      else if (d <= 5) cstOut(cstEl(root, "out"), "⚠️ <b>권장 기간의 끝</b> — 더 쓰기 전에 원인(감기 회복 중인지, 알레르기인지)을 다시 봅니다.", "mid");
+      else cstOut(cstEl(root, "out"), "🚨 <b>반동성 코막힘 악순환</b> — 약효는 짧아지고 끊으면 더 막힘 → 더 자주 뿌림. 중단 계획(한쪽씩 끊기, 비강 스테로이드 등)을 상의합니다.", "bad");
+    }
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 12 · Cough Reflex Drug Map ---------- */
+  function initCldReflex() {
+    var root = document.querySelector("[data-cldreflex]");
+    if (!root) return;
+    var D = {
+      levo: ["periph", "<b>Levodropropizine</b> — <b>말초</b> 감각 구심신호를 줄여 반사의 입구를 낮춥니다. 중추 opioid와 다른 방식. 졸림·어지럼 가능."],
+      dxm: ["central", "<b>Dextromethorphan</b> — <b>뇌간</b> 기침 네트워크 조절. 어지럼·졸림·오심, <b>serotonergic</b>(MAOI 금기 · SSRI/SNRI 주의) · CYP2D6 억제제로 노출 ↑ · 과량 시 해리 증상."],
+      cod: ["central", "<b>Codeine · dihydrocodeine</b> — 중추 opioid 관련. 진정 · <b>호흡억제</b> · 변비 · 의존. 감기 급성 기침엔 기대만큼 효과적이지 않다는 근거. 소아는 엄격한 연령 제한."],
+      nac: ["mucus", "<b>Acetylcysteine</b> — 반사가 아니라 <b>점액</b>을 겨냥. 점도를 낮춰 배출을 돕습니다. 진해제가 아닙니다."]
+    };
+    var cur = null;
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        cur = cur === b.getAttribute("data-drug") ? null : b.getAttribute("data-drug");
+        root.querySelectorAll("[data-drug]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-drug") === cur); });
+        root.querySelectorAll("[data-p]").forEach(function (s) {
+          var hit = cur && s.getAttribute("data-p") === D[cur][0];
+          s.classList.toggle("on", !!hit);
+          s.classList.toggle("cur", !!hit);
+        });
+        cstOut(cstEl(root, "out"), cur ? D[cur][1] : "약을 탭하면 작용 위치와 주의점이 표시됩니다.");
+      });
+    });
+  }
+
+  /* ---------- Viz 13 · Mucus Viscosity ---------- */
+  function initCldMucus() {
+    var root = document.querySelector("[data-cldmucus]");
+    if (!root) return;
+    var st = { nac: false, sup: false };
+    function update() {
+      var clear = st.nac ? (st.sup ? 45 : 80) : (st.sup ? 15 : 50);
+      cirBars(root, ["visc", "cough", "clear"], [st.nac ? 30 : 85, st.sup ? 20 : 70, clear]);
+      cstEl(root, "mucin").classList.toggle("is-cut", st.nac);
+      var msg, tone;
+      if (st.nac && !st.sup) { msg = "💊 <b>NAC</b> — disulfide 결합이 끊겨 점액이 묽어지고, 기침으로 <b>더 잘 뱉어집니다</b>."; tone = "ok"; }
+      else if (!st.nac && st.sup) { msg = "🤐 <b>끈적한 가래 + 기침 억제</b> — 기침은 줄었지만 분비물이 <b>고입니다</b>. 가래를 못 뱉는 고령자에서 흡인·폐렴 위험."; tone = "bad"; }
+      else if (st.nac && st.sup) { msg = "묽어졌지만 내보낼 기침이 약해졌습니다 — 병용이 항상 틀린 것은 아니지만 <b>목표가 서로 반대</b>임을 알고 씁니다."; tone = "mid"; }
+      else { msg = "끈적한 점액 — mucin 사슬이 <b>S–S(disulfide) 결합</b>으로 엮여 있습니다. 두 버튼을 각각 눌러 보세요."; tone = ""; }
+      cstOut(cstEl(root, "out"), msg, tone);
+    }
+    root.querySelectorAll("[data-a]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-a"); st[k] = !st[k]; b.classList.toggle("on", st[k]); update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 14 · Natural Recovery vs Antibiotics ---------- */
+  function initCldAbx() {
+    var root = document.querySelector("[data-cldabx]");
+    if (!root) return;
+    var H = [30, 60, 85, 80, 60, 35, 20, 10, 5, 3];
+    ["a", "b"].forEach(function (row) {
+      cstEl(root, row).innerHTML = H.map(function (h, i) {
+        return "<i style=\"height:" + h + "%\" class=\"" + (row === "b" && i >= 3 && i <= 7 ? "is-abx" : "") + "\"><em>" + (i + 1) + "</em></i>";
+      }).join("");
+    });
+    var btn = root.querySelector("[data-show]"), shown = false;
+    btn.addEventListener("click", function () {
+      shown = !shown;
+      btn.classList.toggle("on", shown);
+      if (shown) cstOut(cstEl(root, "out"), "두 곡선은 같습니다. B가 <b>추가로</b> 얻은 것: 설사 · 알레르기 위험 · 상호작용 · <b>C. difficile</b> · 내성균 선택압 · 장내세균 변화. 그리고 \"다음에도 항생제\"라는 믿음.", "bad");
+      else cstOut(cstEl(root, "out"), "두 환자 모두 Day 6 즈음 좋아집니다. B는 \"항생제 덕분\"이라고 느낍니다.");
+    });
+  }
+
+  /* ---------- Viz 15 · Build Your Cold Medicine ---------- */
+  function initCldBuild() {
+    var root = document.querySelector("[data-cldbuild]");
+    if (!root) return;
+    var SYM = { fever: "analg", throat: "analg", rhin: "ah", cong: "decong", dry: "tuss", wet: "muco" };
+    var CLS = { analg: "해열진통제 — acetaminophen · NSAID", ah: "1세대 항히스타민제 (또는 생리식염수)", decong: "비충혈제거제 — pseudoephedrine · 국소 분무(단기)", tuss: "진해제 — DXM · levodropropizine", muco: "점액용해·거담제 — NAC · ambroxol 등 (기침 억제는 신중)" };
+    var WARN = {
+      htn: { decong: "고혈압 — 혈압 상승, 조절 상태 확인 (가능하면 국소·단기)", analg: "고혈압 — NSAID는 혈압 ↑·강압제 효과 ↓" },
+      bph: { ah: "BPH — 항콜린 → 요폐", decong: "BPH — 방광 출구 긴장 → 요폐" },
+      ckd: { analg: "CKD — NSAID 피함 → acetaminophen" },
+      dem: { ah: "치매·고령 — 1세대는 섬망·낙상, 피함", tuss: "치매·고령 — codeine 등 진정성 진해제 주의" },
+      ssri: { tuss: "항우울제 — DXM serotonergic·CYP2D6 상호작용", decong: "MAOI 복용이면 비충혈제거제 금기(고혈압 위기)" },
+      liver: { analg: "간질환·과음 — acetaminophen 보수적 용량·총량 확인" },
+      acoag: { analg: "항응고제 — NSAID 출혈 ↑ → acetaminophen 우선" }
+    };
+    var sym = {}, risk = {};
+    function update() {
+      var classes = [];
+      Object.keys(sym).forEach(function (s) { if (sym[s] && classes.indexOf(SYM[s]) < 0) classes.push(SYM[s]); });
+      var list = cstEl(root, "list");
+      list.innerHTML = classes.map(function (c) {
+        var w = [];
+        Object.keys(risk).forEach(function (r) { if (risk[r] && WARN[r][c]) w.push(WARN[r][c]); });
+        return "<div class=\"cld__item" + (w.length ? " is-warn" : "") + "\"><b>" + CLS[c] + "</b>" + (w.length ? "<small>⚠️ " + w.join("<br>⚠️ ") + "</small>" : "<small>✅ 선택한 위험요인과 특별한 충돌 없음</small>") + "</div>";
+      }).join("");
+      var warnN = list.querySelectorAll(".is-warn").length;
+      if (!classes.length) cstOut(cstEl(root, "out"), "증상을 선택하세요.");
+      else cstOut(cstEl(root, "out"), "필요한 약물군 " + classes.length + "개" + (warnN ? " · <b>주의 " + warnN + "개</b> — 해당 성분을 빼거나 대체를 생각합니다." : ".") + " 증상이 없는 성분은 넣지 않는 것이 원칙입니다.", warnN ? "bad" : "ok");
+    }
+    root.querySelectorAll("[data-sym]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-sym"); sym[k] = !sym[k]; b.classList.toggle("on", sym[k]); update(); });
+    });
+    root.querySelectorAll("[data-r]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-r"); risk[k] = !risk[k]; b.classList.toggle("on", risk[k]); update(); });
+    });
+  }
+
+  /* ---------- Viz 16 · Cold Medicine Safety Detective ---------- */
+  function initCldDetect() {
+    var root = document.querySelector("[data-clddetect]");
+    if (!root) return;
+    cldCardQuiz(root, { none: "필요한 성분만", urine: "요폐 (항히스타민·비충혈제거)", ach: "항콜린 부담", nsaid: "NSAID", dxm: "DXM 상호작용" }, " — 환자마다 위험한 성분이 다릅니다.");
+  }
+
+  /* =====================================================================
+     Core 19 · 간경변  (cst__ 공용 UI 재사용 + cir__ 전용)
+     ===================================================================== */
+
+  /* 단일 선택 seg 공통 헬퍼 */
+  function cirSeg(root, attr, fn) {
+    root.querySelectorAll("[" + attr + "]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[" + attr + "]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        fn(b.getAttribute(attr));
+      });
+    });
+  }
+  function cirBars(root, keys, vals) {
+    keys.forEach(function (k, i) { cstEl(root, k).style.width = vals[i] + "%"; });
+  }
+
+  /* ---------- Viz 2 · Portal Hypertension Simulator ---------- */
+  function initCirPortal() {
+    var root = document.querySelector("[data-cirportal]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var LBL = ["F0 · 정상", "F1 · 초기 섬유화", "F2 · 의미 있는 섬유화", "F3 · 진행된 섬유화", "F4 · 간경변"];
+    var RES = [10, 25, 45, 65, 90], HV = [3, 5, 7, 9, 14];
+    var MSG = [
+      ["ok", "혈액이 장·비장 → 문맥 → 간 → 간정맥 → 심장으로 <b>막힘 없이</b> 흐릅니다. Sinusoid는 저항이 낮은 통로입니다."],
+      ["ok", "초기 섬유화 — 아직 혈류에는 큰 변화가 없습니다."],
+      ["mid", "의미 있는 섬유화 — collagen이 sinusoid 주변에 쌓이며 저항이 오르기 시작합니다."],
+      ["mid", "진행된 섬유화 — 저항이 커져 문맥압이 오르고, 혈액이 <b>우회로</b>를 찾기 시작합니다."],
+      ["bad", "<b>간경변</b> — 재생결절과 구조 변형으로 간내 저항이 크게 증가. 문맥압이 CSPH 수준을 넘어 <b>정맥류 · 비장비대 · 복수 · shunt</b>가 동시에 나타납니다."]
+    ];
+    var ORG = {
+      eso: "<b>식도</b> — 문맥혈이 식도 하부 정맥총으로 우회 → <b>정맥류</b>. 벽은 얇고 압력은 높아 파열 시 대량 출혈.",
+      spleen: "<b>비장</b> — 비장 정맥혈이 빠지지 못해 울혈 → <b>비장비대</b> → 혈소판 격리 → 혈소판 감소.",
+      asc: "<b>복강</b> — 내장 정수압 ↑ + 유효 동맥혈량 ↓에 따른 Na·물 저류 → <b>복수</b> (8번에서 자세히).",
+      shunt: "<b>간 우회로(portosystemic shunt)</b> — 장의 혈액이 간을 거치지 않고 전신으로 → ammonia가 뇌로 → <b>간성뇌증</b>."
+    };
+    var stage = 0, organ = null;
+    function update() {
+      stage = +range.value;
+      cstEl(root, "stage").textContent = LBL[stage];
+      cstEl(root, "anat").className = "cir__anat s" + stage;
+      cstEl(root, "res").style.width = RES[stage] + "%";
+      cstEl(root, "pp").style.width = Math.min(100, HV[stage] / 18 * 100) + "%";
+      var h = HV[stage];
+      cstEl(root, "hvpg").innerHTML = "HVPG 약 <b>" + h + " mmHg</b> — " + (h <= 5 ? "정상 범위" : h < 10 ? "문맥고혈압" : "CSPH (≥10) · 정맥류 출혈 위험 수준 (≥12)");
+      var m = MSG[stage], txt = m[1];
+      if (organ) txt += "<br><br>" + ORG[organ] + (stage < 3 ? " <i>(이 단계에서는 아직 뚜렷하지 않음)</i>" : "");
+      cstOut(cstEl(root, "out"), txt, m[0]);
+    }
+    range.addEventListener("input", update);
+    root.querySelectorAll("[data-organ]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        organ = organ === b.getAttribute("data-organ") ? null : b.getAttribute("data-organ");
+        root.querySelectorAll("[data-organ]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-organ") === organ); });
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 3 · The Ascites Paradox ---------- */
+  function initCirAscites() {
+    var root = document.querySelector("[data-cirascites]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var LBL = ["대상성", "초기 문맥고혈압", "내장혈관 확장", "비대상성 · 복수", "불응성 복수 · 저나트륨"];
+    var V = { tbw: [50, 55, 65, 80, 92], eabv: [80, 70, 55, 40, 28], raas: [10, 25, 50, 75, 92], adh: [8, 15, 30, 60, 88], asc: [0, 5, 20, 60, 92], na: [70, 70, 68, 58, 40] };
+    var TBW = ["정상", "정상", "↑", "↑↑", "↑↑↑"], EAB = ["정상", "↓", "↓↓", "↓↓", "↓↓↓"];
+    var MSG = [
+      ["ok", "대상성 — 순환이 아직 균형을 유지합니다."],
+      ["mid", "문맥압이 오르며 내장혈관에서 nitric oxide 등 확장 물질이 늘기 시작합니다."],
+      ["mid", "내장혈관 확장으로 혈액이 내장에 고임 → <b>유효 동맥혈량 ↓</b> → 신장이 RAAS를 켭니다. 아직 복수는 적을 수 있습니다."],
+      ["bad", "Na·물 저류가 누적 → 복수 · 부종. <b>전체 체액은 늘었는데 유효 동맥혈량은 줄어든</b> 역설."],
+      ["bad", "ADH까지 강하게 켜져 자유수가 저류 → <b>희석성 저나트륨혈증</b>. 신장혈관 수축이 심해지면 HRS-AKI로 이어집니다 (14번)."]
+    ];
+    var DRUG = {
+      spiro: "💊 <b>Spironolactone</b> — ④ 신장 Na 저류 단계에서 <b>aldosterone을 직접 차단</b>. 원인 기전(이차성 고알도스테론증)과 맞닿은 약입니다.",
+      furo: "💊 <b>Furosemide</b> — ④ 단계, Henle 고리에서 Na 재흡수를 막아 spironolactone의 효과를 키웁니다.",
+      alb: "💊 <b>Albumin</b> — ③ 단계, 혈관 안 용적을 보충해 유효 동맥혈량을 지탱합니다 (대량 천자 후 · SBP · HRS-AKI 등 특정 상황).",
+      terli: "💊 <b>Terlipressin</b> — ② 단계, 과도하게 열린 <b>내장혈관을 조여</b> 유효 순환을 되돌립니다 (HRS-AKI · 정맥류 출혈).",
+      nsbb: "💊 <b>NSBB</b> — ① 단계, 문맥 유입을 줄여 문맥압 ↓. 단, 진행된 복수에서 저혈압이 있으면 신관류를 해칠 수 있어 조정이 필요합니다."
+    };
+    var drug = null;
+    function update() {
+      var lv = +range.value;
+      cstEl(root, "lv").textContent = LBL[lv];
+      Object.keys(V).forEach(function (k) { cstEl(root, k).style.width = V[k][lv] + "%"; });
+      cstEl(root, "tbw-t").textContent = TBW[lv];
+      cstEl(root, "eabv-t").textContent = EAB[lv];
+      cstOut(cstEl(root, "out"), MSG[lv][1] + (drug ? "<br><br>" + DRUG[drug] : ""), MSG[lv][0]);
+    }
+    range.addEventListener("input", update);
+    root.querySelectorAll("[data-drug]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        drug = drug === b.getAttribute("data-drug") ? null : b.getAttribute("data-drug");
+        root.querySelectorAll("[data-drug]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-drug") === drug); });
+        update();
+      });
+    });
+    update();
+  }
+
+  /* ---------- Viz 4 · Ascites Drug Target Map ---------- */
+  function initCirNeph() {
+    var root = document.querySelector("[data-cirneph]");
+    if (!root) return;
+    var D = {
+      spiro: { seg: ["cd"], na: 45, water: 40, k: ["up", "K ↑ 경향 — 고칼륨혈증 주의"], msg: "<b>Spironolactone</b> — 집합관의 aldosterone 작용 차단. 효과는 비교적 완만하게(수일) 나타나며, 원인 기전에 직접 작용하는 기본 약입니다." },
+      furo: { seg: ["loop"], na: 70, water: 70, k: ["down", "K ↓ 경향 — 저칼륨·저Mg 주의"], msg: "<b>Furosemide</b> — Henle 고리 NKCC2 억제. 강하지만 간경변 복수에서 <b>단독</b>으로는 잘 쓰지 않습니다 (aldosterone이 원위부에서 Na를 다시 붙잡음)." },
+      both: { seg: ["loop", "cd"], na: 90, water: 85, k: ["mid", "K 변화 일부 상쇄 — 그래도 정기 측정 필수"], msg: "<b>병용</b> — 서로 다른 nephron 부위를 막아 Na 배설 ↑. 대표 시작 비율 <b>100 : 40</b>, 상황에 따라 단독·저용량." }
+    };
+    function show(k) {
+      var d = D[k];
+      root.querySelectorAll("[data-seg]").forEach(function (s) { s.classList.toggle("on", d.seg.indexOf(s.getAttribute("data-seg")) >= 0); });
+      cirBars(root, ["na", "water"], [d.na, d.water]);
+      var kEl = cstEl(root, "k");
+      kEl.textContent = d.k[1];
+      kEl.className = "cir__k is-" + d.k[0];
+      cstOut(cstEl(root, "out"), d.msg);
+    }
+    cirSeg(root, "data-d", show);
+    show("spiro");
+  }
+
+  /* ---------- Viz 5 · SBP PMN ---------- */
+  function initCirSbp() {
+    var root = document.querySelector("[data-cirsbp]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    function update() {
+      var v = +range.value;
+      cstEl(root, "v").textContent = v;
+      cstEl(root, "bar").style.width = (v / 10) + "%";
+      cstEl(root, "bar").className = v >= 250 ? "is-bad" : "";
+      if (v >= 250) cstOut(cstEl(root, "out"), "🚨 <b>SBP 기준 충족 (PMN ≥ 250)</b> — 배양 결과를 기다리지 않고 경험적 항생제(3세대 cephalosporin 등) 시작. 신기능 저하 위험이 높으면 albumin 병용을 고려합니다.", "bad");
+      else cstOut(cstEl(root, "out"), "기준 미충족 — 하지만 발열·복통·HE 악화·신기능 저하 등 임상상이 있으면 배양 결과와 함께 추가 평가합니다.", v >= 150 ? "mid" : "ok");
+    }
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 6 · Gut–Liver–Brain Axis ---------- */
+  function initCirBrain() {
+    var root = document.querySelector("[data-cirbrain]");
+    if (!root) return;
+    var mode = "normal", pf = {}, tx = {};
+    function update() {
+      var cirr = mode === "cirr";
+      var reasons = [];
+      root.querySelectorAll("[data-pf]").forEach(function (b) { if (pf[b.getAttribute("data-pf")]) reasons.push(b.getAttribute("data-why")); });
+      var n = reasons.length;
+      var nh3 = cirr ? 40 + n * 10 : 6 + n * 3;
+      if (tx.lac) nh3 -= cirr ? 18 : 2;
+      if (tx.rif) nh3 -= cirr ? 10 : 1;
+      nh3 = Math.max(4, Math.min(98, nh3));
+      cirBars(root, ["detox", "shunt", "nh3"], [cirr ? 35 : 90, cirr ? 60 : 5, nh3]);
+      var txt = cirr ? "<b>간경변</b> — 해독 ↓ + shunt ↑ → 장에서 온 ammonia가 뇌에 도달합니다." : "<b>정상 간</b> — 문맥으로 온 ammonia 대부분이 간에서 urea로 처리됩니다.";
+      if (n) txt += "<br>악화 요인:<br>• " + reasons.join("<br>• ");
+      if (tx.lac) txt += "<br>💊 Lactulose — 대장 산성화(NH₄⁺ trapping) + 배변 촉진.";
+      if (tx.rif) txt += "<br>💊 Rifaximin — 장내세균의 ammonia 관련 대사 ↓.";
+      if (cirr && n && !tx.lac && !tx.rif) txt += "<br><b>약보다 먼저 악화 요인을 찾아 교정합니다.</b>";
+      var tone = nh3 >= 70 ? "bad" : nh3 >= 40 ? "mid" : "ok";
+      if (tone === "bad") txt = "🚨 <b>Overt HE 위험</b><br>" + txt;
+      cstOut(cstEl(root, "out"), txt, tone);
+    }
+    cirSeg(root, "data-mode", function (m) { mode = m; update(); });
+    root.querySelectorAll("[data-pf]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-pf"); pf[k] = !pf[k]; b.classList.toggle("on", pf[k]); update(); });
+    });
+    root.querySelectorAll("[data-tx]").forEach(function (b) {
+      b.addEventListener("click", function () { var k = b.getAttribute("data-tx"); tx[k] = !tx[k]; b.classList.toggle("on", tx[k]); update(); });
+    });
+    update();
+  }
+
+  /* ---------- Viz 7 · Lactulose Ammonia Trap ---------- */
+  function initCirLac() {
+    var root = document.querySelector("[data-cirlac]");
+    if (!root) return;
+    var range = root.querySelector("input[type=range]");
+    var L = [
+      ["없음", "NH₃ NH₃ NH₃ NH₃", "NH₃ NH₃ NH₃", 80, 10, 5, "bad", "<b>변비 지속</b> — 대장 pH가 높아 NH₃가 그대로 흡수되고, 질소화합물이 오래 머뭅니다."],
+      ["부족", "NH₃ NH₃ NH₄⁺ NH₄⁺", "NH₃ NH₃", 65, 25, 5, "mid", "<b>부족</b> — 배변이 하루 1회 미만. 용량을 올려 목표에 맞춥니다."],
+      ["적절", "NH₄⁺ NH₄⁺ NH₄⁺ NH₃", "NH₃", 45, 55, 10, "ok", "✅ <b>적절</b> — 하루 2–3회 부드러운 배변. pH ↓로 NH₄⁺가 장 안에 갇히고 배변으로 빠져나갑니다."],
+      ["과다", "NH₄⁺ NH₄⁺ NH₄⁺ NH₄⁺", "NH₃", 35, 85, 60, "mid", "⚠️ <b>과다</b> — 물설사. ammonia는 더 줄지 않는데 탈수·저칼륨 위험이 커집니다 → 처방의와 감량 상의."],
+      ["매우 과다", "NH₄⁺ NH₄⁺ NH₄⁺ NH₄⁺", "NH₃ ⚠️", 30, 98, 92, "bad", "🚨 <b>매우 과다</b> — 탈수 → 저칼륨 · AKI → <b>오히려 간성뇌증 악화</b>. 설사를 많이 할수록 좋은 약이 아닙니다."]
+    ];
+    function update() {
+      var d = L[+range.value];
+      cstEl(root, "lv").textContent = d[0];
+      cstEl(root, "lumen").textContent = d[1];
+      cstEl(root, "blood").textContent = d[2];
+      cirBars(root, ["ph", "bm", "risk"], [d[3], d[4], d[5]]);
+      cstEl(root, "wall").classList.toggle("is-trap", +range.value >= 2);
+      cstOut(cstEl(root, "out"), d[7], d[6]);
+    }
+    range.addEventListener("input", update);
+    update();
+  }
+
+  /* ---------- Viz 8 · Liver–Kidney Paradox ---------- */
+  function initCirKidney() {
+    var root = document.querySelector("[data-cirkidney]");
+    if (!root) return;
+    var M = {
+      normal: [10, 85, 10, 90, 5, "ok", "<b>정상</b> — 내장혈관 긴장도가 유지되어 신장 관류도 정상입니다."],
+      hrs: [90, 30, 90, 20, 10, "bad", "<b>진행 간경변</b> — 내장혈관이 과도하게 열려 유효 동맥혈량 ↓ → 몸이 혈압을 지키려고 RAAS·교감신경을 켜고 → <b>신장혈관이 수축</b> → GFR ↓ = HRS-AKI."],
+      terli: [45, 65, 45, 60, 25, "ok", "💊 <b>Terlipressin + albumin</b> — V1 작용으로 <b>내장혈관을 조여</b> 유효 순환을 되돌리면, 신장에 걸리던 보상성 수축이 풀려 GFR이 회복될 수 있습니다."],
+      over: [20, 85, 30, 55, 88, "bad", "⚠️ <b>과도한 사용</b> — 과한 혈관수축은 <b>허혈</b>(장·말초·심장), 과한 albumin은 <b>체액 과다·폐부종·호흡부전</b>. 산소포화도와 체액상태를 모니터링합니다."]
+    };
+    function show(k) {
+      var d = M[k];
+      cirBars(root, ["spl", "eabv", "renal", "gfr", "adv"], d);
+      cstOut(cstEl(root, "out"), d[6], d[5]);
+    }
+    cirSeg(root, "data-mode", show);
+    show("normal");
+  }
+
+  /* ---------- Viz 10 · Cirrhosis Lab Decoder ---------- */
+  function initCirLabs() {
+    var root = document.querySelector("[data-cirlabs]");
+    if (!root) return;
+    var PT = {
+      a: ["acute", "AST/ALT가 크게 오르지만 합성기능(albumin·INR)은 정상 → <b>급성 간세포 손상</b> 가능 (Core 18의 급성 간염 패턴)."],
+      b: ["fib", "손상 수치는 경미하지만 혈소판 ↓ + stiffness ↑ → <b>진행된 섬유화·문맥고혈압</b> 평가가 필요합니다. 간수치만 봤다면 놓쳤을 환자."],
+      c: ["decomp", "Albumin ↓ · INR ↑ · bilirubin ↑ · 복수 → <b>간기능 저하·비대상화</b> 우려. AST/ALT와 무관하게 중증입니다."]
+    };
+    var cur = null, opts = cstEl(root, "opts");
+    root.querySelectorAll("[data-pt]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-pt]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        cur = b.getAttribute("data-pt");
+        opts.style.display = "flex";
+        opts.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.remove("on"); });
+        cstOut(cstEl(root, "out"), "해석을 선택하세요.");
+      });
+    });
+    opts.querySelectorAll("[data-v]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (!cur) return;
+        opts.querySelectorAll(".cst__chip").forEach(function (x) { x.classList.toggle("on", x === b); });
+        var ok = b.getAttribute("data-v") === PT[cur][0];
+        cstOut(cstEl(root, "out"), (ok ? "✅ " : "❌ ") + PT[cur][1], ok ? "ok" : "bad");
+      });
+    });
+  }
+
+  /* ---------- Viz 11 · Child–Pugh Calculator ---------- */
+  function initCirCp() {
+    var root = document.querySelector("[data-circp]");
+    if (!root) return;
+    var st = { bil: 1, alb: 1, inr: 1, asc: 1, he: 1 };
+    function render() {
+      Object.keys(st).forEach(function (k) {
+        root.querySelectorAll("[data-k='" + k + "'] [data-p]").forEach(function (b) { b.classList.toggle("on", +b.getAttribute("data-p") === st[k]); });
+      });
+      var sum = st.bil + st.alb + st.inr + st.asc + st.he;
+      var cls = sum <= 6 ? "A" : sum <= 9 ? "B" : "C";
+      var res = cstEl(root, "res");
+      res.innerHTML = "<b>" + sum + "점</b> · Child–Pugh <b>" + cls + "</b>";
+      res.className = "cir__cpres is-" + cls;
+      var MSG = {
+        A: ["ok", "<b>Class A</b> — 비교적 잘 보상된 상태. 많은 약을 표준 용량으로 쓰지만, 간대사가 큰 약은 \"경도 간장애\" 허가사항을 확인합니다."],
+        B: ["mid", "<b>Class B</b> — 중등도. 간대사 약물의 <b>감량·일부 금기</b>가 시작되는 구간입니다 (예: glecaprevir/pibrentasvir 사용하지 않음)."],
+        C: ["bad", "<b>Class C</b> — 중증. 많은 약이 금기·감량 대상이며 <b>간이식 평가</b>가 필요한 단계입니다. 진정제·NSAID는 특히 피합니다."]
+      };
+      cstOut(cstEl(root, "out"), MSG[cls][1], MSG[cls][0]);
+    }
+    root.querySelectorAll("[data-k]").forEach(function (row) {
+      row.querySelectorAll("[data-p]").forEach(function (b) {
+        b.addEventListener("click", function () { st[row.getAttribute("data-k")] = +b.getAttribute("data-p"); render(); });
+      });
+    });
+    root.querySelector("[data-preset]").addEventListener("click", function () {
+      st = { bil: 3, alb: 3, inr: 2, asc: 2, he: 2 };
+      render();
+      cstOut(cstEl(root, "out"), "📋 <b>오늘의 환자</b> — Bilirubin 3.2(3) · Albumin 2.5(3) · INR 1.7(2) · 복수(2) · 수면 역전·집중력 저하(2) = <b>12점, Class C</b>. AST 48 · ALT 35는 이 점수에 들어가지도 않습니다.", "bad");
+    });
+    render();
+  }
+
+  /* ---------- Viz 12 · Beta Blocker Portal Pressure Map ---------- */
+  function initCirNsbb() {
+    var root = document.querySelector("[data-cirnsbb]");
+    if (!root) return;
+    var B = {
+      b1: [["co"], 30, "mid", "<b>β1 선택적 (bisoprolol 등)</b> — 심박출량만 ↓. β2 차단이 없어 <b>내장혈류 감소 효과가 빠집니다</b> → 문맥고혈압 치료용 NSBB를 대신하지 않습니다."],
+      prop: [["co", "spl"], 60, "ok", "<b>Propranolol</b> — β1(심박출량 ↓) + β2(내장혈관 확장 억제 → 문맥 유입 ↓). 고전적인 NSBB."],
+      carv: [["co", "spl", "ihr"], 80, "ok", "<b>Carvedilol</b> — β1 + β2 + <b>α1 차단</b>(간내 혈관 저항 ↓)으로 문맥압을 더 낮출 수 있어 주요 선택지. 대신 <b>저혈압</b>에 더 주의합니다."]
+    };
+    function show(k) {
+      var d = B[k];
+      root.querySelectorAll("[data-t]").forEach(function (t) { t.classList.toggle("on", d[0].indexOf(t.getAttribute("data-t")) >= 0); });
+      cstEl(root, "drop").style.width = d[1] + "%";
+      cstOut(cstEl(root, "out"), d[3], d[2]);
+    }
+    cirSeg(root, "data-bb", show);
+    show("carv");
+  }
+
+  /* ---------- Viz 13 · TIPS Trade-off ---------- */
+  function initCirTips() {
+    var root = document.querySelector("[data-cirtips]");
+    if (!root) return;
+    var T = [
+      [90, 80, 85, 30, 30, "bad", "<b>TIPS 전</b> — 문맥압이 높아 불응성 복수와 정맥류 출혈 위험이 큽니다."],
+      [25, 35, 20, 85, 75, "mid", "<b>TIPS 후</b> — 문맥압 ↓ → 복수 · 정맥류 압력 개선. 하지만 문맥혈이 간을 거치지 않아 <b>ammonia 해독 ↓ → 간성뇌증 위험 ↑</b>. 심장으로 돌아오는 혈액도 늘어 심기능 평가가 필요합니다."]
+    ];
+    function show(k) {
+      var d = T[+k];
+      cirBars(root, ["pp", "asc", "var", "shunt", "he"], d);
+      cstOut(cstEl(root, "out"), d[6], d[5]);
+    }
+    cirSeg(root, "data-tips", show);
+    show("0");
+  }
+
+  /* ---------- Viz 15 · Medication Safety Checker ---------- */
+  function initCirSafety() {
+    var root = document.querySelector("[data-cirsafety]");
+    if (!root) return;
+    var M = {
+      nsaid: [["kid", "lyte", "liver"], "bad", "<b>NSAID</b> — 신장 prostaglandin ↓ → 신혈관 수축 → <b>AKI</b> · Na 저류 → 복수 악화 · 이뇨제 반응 ↓ · <b>위장관 출혈</b>. 복수 환자에서는 피합니다."],
+      apap: [["liver"], "ok", "<b>Acetaminophen</b> — 안정적인 간경변에서 흔히 <b>하루 2 g 이하</b>로 보수적으로 사용. 지속 음주 · 영양실조 · 급성 간손상 · 복합제 중복을 확인합니다."],
+      bzd: [["cns"], "bad", "<b>Benzodiazepine</b> — CNS 억제 → <b>간성뇌증 유발·악화</b>, HE와 구분도 어려움, 낙상. 대사 저하로 축적. 불필요한 장기복용을 재평가합니다."],
+      opioid: [["cns"], "mid", "<b>Opioid</b> — CNS 억제 + <b>변비</b> → HE 이중 위험. 청소율 저하로 축적 → 약물·용량·간격 개별화, 변비 예방을 함께."],
+      acei: [["kid", "lyte"], "mid", "<b>ACEi · ARB</b> — 비대상성(복수·저혈압)에서는 RAAS가 신관류를 지키는 보상기전 → 차단 시 저혈압·AKI. 대상성에서 무조건 금기는 아니며 적절성을 재평가합니다."],
+      ppi: [["liver", "cns"], "mid", "<b>PPI 장기</b> — 관찰연구에서 SBP·감염·HE와 연관이 보고됨(인과 미확립). 필요한 PPI는 유지하되 <b>적응증 없는 장기 처방</b>을 재평가합니다."],
+      spiro: [["lyte", "kid"], "mid", "<b>Spironolactone</b> — K · Cr · BP 모니터링. 다른 K 상승 약(ACEi·ARB·TMP-SMX·K 보충제) 병용 주의. 여성형유방."],
+      lac: [["lyte", "kid", "cns"], "mid", "<b>Lactulose</b> — 하루 2–3회 부드러운 변이 목표. 물설사 → 탈수·저칼륨·AKI → 오히려 HE 악화. HE 예방 목적이면 임의 중단 금지."],
+      carv: [["lyte", "kid"], "mid", "<b>Carvedilol</b> — BP · HR 모니터링. 비대상성에서 저혈압(수축기 약 90 미만)·HRS-AKI·SBP가 생기면 감량·일시 중단을 검토합니다."],
+      herb: [["liver"], "bad", "<b>한약 · 건강기능식품</b> — DILI 원인이 될 수 있습니다. \"간에 좋다는\" 제품도 예외가 아니며, UDCA 같은 특정 약도 모든 간경변의 섬유화를 되돌리지는 않습니다."]
+    };
+    var on = {};
+    root.querySelectorAll("[data-med]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-med");
+        on[k] = !on[k];
+        b.classList.toggle("on", on[k]);
+        var hit = {};
+        Object.keys(on).forEach(function (x) { if (on[x]) M[x][0].forEach(function (t) { hit[t] = 1; }); });
+        root.querySelectorAll("[data-target]").forEach(function (t) { t.classList.toggle("on", !!hit[t.getAttribute("data-target")]); });
+        var n = Object.keys(on).filter(function (x) { return on[x]; }).length;
+        if (on[k]) cstOut(cstEl(root, "out"), M[k][2], M[k][1]);
+        else cstOut(cstEl(root, "out"), n ? "선택된 약 " + n + "개." : "약을 탭하면 위험과 모니터링 항목이 나타납니다.");
+      });
+    });
+  }
+
+  /* ---------- Viz 16 · Complication Detective ---------- */
+  function initCirDetective() {
+    var root = document.querySelector("[data-cirdetective]");
+    if (!root) return;
+    var OPT = { asc: "복수", he: "간성뇌증", "var": "정맥류 출혈", sbp: "SBP", hrs: "HRS-AKI 감별" };
+    var keys = Object.keys(OPT), qs = root.querySelectorAll(".cir__q"), done = 0, right = 0;
+    qs.forEach(function (q) {
+      var box = document.createElement("div"), fb = document.createElement("div");
+      box.className = "cir__opts";
+      fb.className = "cir__fb";
+      keys.forEach(function (k) {
+        var b = document.createElement("button");
+        b.className = "cir__opt";
+        b.textContent = OPT[k];
+        b.addEventListener("click", function () {
+          if (q.getAttribute("data-done")) return;
+          q.setAttribute("data-done", "1");
+          var ans = q.getAttribute("data-ans"), ok = k === ans;
+          done++; if (ok) right++;
+          box.querySelectorAll(".cir__opt").forEach(function (x, i) { if (keys[i] === ans) x.classList.add("is-right"); });
+          if (!ok) b.classList.add("is-wrong");
+          q.classList.add(ok ? "is-right" : "is-wrong");
+          fb.innerHTML = (ok ? "✅ " : "❌ 정답은 " + OPT[ans] + " — ") + q.getAttribute("data-why");
+          cstOut(cstEl(root, "out"), done + " / " + qs.length + " · 정답 " + right + "개" + (done === qs.length ? " — 합병증마다 약과 모니터링이 따라옵니다." : ""), done === qs.length ? (right === qs.length ? "ok" : "mid") : "");
+        });
+        box.appendChild(b);
+      });
+      q.appendChild(box);
+      q.appendChild(fb);
+    });
+  }
+
+  /* ---------- Viz 17 · Cirrhosis Master Map ---------- */
+  function initCirMaster() {
+    var root = document.querySelector("[data-cirmaster]");
+    if (!root) return;
+    var C = {
+      "var": ["문맥혈이 식도 정맥총으로 우회 → 정맥류, 파열 시 대량 출혈", "예방: NSBB(carvedilol) · EVL<br>출혈: 혈관작용제 + 항생제 + 내시경", "BP · HR · 흑색변·토혈 교육"],
+      asc: ["유효 동맥혈량 ↓ → RAAS/ADH → Na·물 저류 (+ 저알부민)", "Spironolactone ± furosemide · 저염 · 대량 천자 + albumin", "체중 · Na · K · Cr · 소변량 · NSAID 회피"],
+      spl: ["비장 울혈 → 혈소판 격리 + TPO 생성 ↓", "원인·문맥고혈압 관리 (혈소판 자체보다)", "새로운·급격한 감소는 다른 원인(약물) 평가"],
+      hrs: ["내장혈관 확장 → 신장혈관 수축 → GFR ↓", "원인 감별 후 terlipressin + albumin · 간이식", "Cr · 소변량 · 신독성 약 · 과이뇨 · 산소포화도"],
+      shunt: ["장의 혈액이 간을 우회 → ammonia가 전신·뇌로", "TIPS는 이 shunt를 늘리는 치료 → HE 주의", "TIPS 후 의식 변화 · lactulose 순응도"],
+      alb: ["합성 ↓ → oncotic pressure ↓ → 부종·복수에 기여", "Albumin은 특정 적응증에만 · 영양(단백질 1.2–1.5 g/kg)", "부종 · 체중 · 근육량(체중만 보지 않기)"],
+      coag: ["응고인자와 항응고 단백질이 함께 ↓ → rebalanced hemostasis", "INR만 보고 혈장 일률 투여 X · 혈전·출혈 모두 고려", "출혈 징후 · 항혈소판·항응고제 병용 위험"],
+      jaun: ["Bilirubin 처리·배출 ↓ → 황달 · 진한 소변", "원인 치료 · 급격히 악화하면 즉시 평가", "Bilirubin 추세 · Child–Pugh · 담즙 배설 약물"],
+      he: ["해독 ↓ + shunt → ammonia → astrocyte 스트레스", "악화요인 교정 + lactulose(2–3회/일) ± rifaximin", "의식 · 배변 횟수 · 탈수 · K · 진정제·opioid 회피"]
+    };
+    root.querySelectorAll("[data-c]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        root.querySelectorAll("[data-c]").forEach(function (x) { x.classList.toggle("on", x === b); });
+        var d = C[b.getAttribute("data-c")];
+        cstEl(root, "what").innerHTML = d[0];
+        cstEl(root, "tx").innerHTML = d[1];
+        cstEl(root, "mon").innerHTML = d[2];
+      });
+    });
+  }
 
   /* =====================================================================
      Core 18 · 간염  (cst__ 공용 UI 재사용 + hep__ 전용)

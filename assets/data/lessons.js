@@ -185,6 +185,33 @@ window.PHARM_LESSONS = [
     status: "ready"
   },
   {
+    no: 19,
+    category: "core",
+    href: "lessons/core/19.html",
+    title: "간경변 (Cirrhosis)",
+    desc: "\"간수치가 정상인데 왜 간이 나쁘죠?\" 섬유화와 재생결절 → 문맥고혈압(정맥류·비장·복수·shunt)과 간기능 저하라는 두 축 → \"몸에 물은 많은데 혈관은 부족한\" 복수의 역설과 spironolactone·furosemide → SBP · lactulose·rifaximin과 간성뇌증 · 간신증후군과 terlipressin → Child–Pugh, carvedilol, TIPS, 그리고 NSAID·진정제를 피해야 하는 이유까지. 소화기 파트 완결.",
+    tags: ["문맥고혈압", "복수의 역설·이뇨제", "간성뇌증·lactulose", "HRS-AKI", "Child–Pugh", "약물 안전성"],
+    status: "ready"
+  },
+  {
+    no: 20,
+    category: "core",
+    href: "lessons/core/20.html",
+    title: "감기 (Common Cold)",
+    desc: "Part 3 호흡기·알레르기의 시작. \"노란 콧물 = 세균\"이라는 오해를 넘어, 점액·섬모·선천면역 → 콧물(분비)·코막힘(혈관 부종)·기침(신경반사)·발열(PGE₂ set point)이 각각 다른 기전인 이유 → 항히스타민제·pseudoephedrine·진해제·점액용해제가 어디에 작용하는지 → 세균성 합병증을 의심할 때, 그리고 고령자의 항콜린 부담까지 종합감기약을 성분으로 읽는 법.",
+    tags: ["증상별 기전", "노란 콧물 ≠ 세균", "항히스타민·비충혈제거제", "진해제 vs 점액용해제", "종합감기약 성분 해석"],
+    status: "ready"
+  },
+  {
+    no: 21,
+    category: "core",
+    href: "lessons/core/21.html",
+    title: "인플루엔자 (Influenza)",
+    desc: "\"독감 = 심한 감기\"가 아니다. HA·NA와 바이러스 생활사 → oseltamivir(방출 차단)와 baloxavir(cap-snatching 차단)가 막는 단계 → 왜 일찍 써야 하고 \"48시간\"은 왜 경계선이 아닌지 → 이차 세균성 폐렴과 double worsening → drift·shift와 매년 백신 → 노출 후 예방과 요양병원 집단발생, 신기능 감량·다가 양이온 상호작용까지.",
+    tags: ["HA·NA·생활사", "oseltamivir vs baloxavir", "치료 시기·48시간", "drift·shift·백신", "요양병원 집단발생"],
+    status: "ready"
+  },
+  {
     no: 7,
     category: "everyday",
     href: "lessons/everyday/07.html",
